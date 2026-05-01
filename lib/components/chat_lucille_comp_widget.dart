@@ -1,11 +1,8 @@
-import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/lucille_g_p_t_comp/ai_chat_component/ai_chat_component_widget.dart';
-import 'dart:convert';
-import '/backend/schema/structs/index.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/permissions_util.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
@@ -16,7 +13,6 @@ import 'package:that_audio_player_oo85ab/app_state.dart'
     as that_audio_player_oo85ab_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
-import 'package:ff_commons/api_requests/api_streaming.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -290,104 +286,7 @@ class _ChatLucilleCompWidgetState extends State<ChatLucilleCompWidget>
                                           _model.isListening = true;
                                           safeSetState(() {});
                                           logFirebaseEvent(
-                                              'LottieAnimation_backend_call');
-                                          _model.voiceChatLucilleResponse1 =
-                                              await LucilleChatStreamCall.call(
-                                            sessionId:
-                                                FFAppState().chatSessionId,
-                                            message: _model.returnedVoiceText,
-                                          );
-
-                                          if ((_model.voiceChatLucilleResponse2
-                                                  ?.succeeded ??
-                                              true)) {
-                                            logFirebaseEvent(
-                                                'LottieAnimation_custom_action');
-                                            await actions.speakText(
-                                              LucilleChatStruct.maybeFromMap(
-                                                      (_model.voiceChatLucilleResponse1
-                                                              ?.jsonBody ??
-                                                          ''))!
-                                                  .content,
-                                            );
-                                          } else {
-                                            logFirebaseEvent(
-                                                'LottieAnimation_backend_call');
-                                            _model.sessionIDVoiceChat2 =
-                                                await LucilleStreamingGroup
-                                                    .lucilleStreamingResponseCall
-                                                    .call(
-                                              sessionID: (_model
-                                                          .sessionIDVoiceChat2
-                                                          ?.jsonBody ??
-                                                      '')
-                                                  .toString(),
-                                              message: _model.returnedVoiceText,
-                                            );
-                                            if (_model.sessionIDVoiceChat2
-                                                    ?.succeeded ??
-                                                true) {
-                                              final streamSubscription = _model
-                                                  .sessionIDVoiceChat2
-                                                  ?.streamedResponse
-                                                  ?.stream
-                                                  .transform(utf8.decoder)
-                                                  .transform(
-                                                      const LineSplitter())
-                                                  .transform(
-                                                      ServerSentEventLineTransformer())
-                                                  .map((m) =>
-                                                      ResponseStreamMessage(
-                                                          message: m))
-                                                  .listen(
-                                                    (onMessageInput) async {},
-                                                    onError:
-                                                        (onErrorInput) async {},
-                                                    onDone: () async {},
-                                                  );
-                                            }
-
-                                            logFirebaseEvent(
-                                                'LottieAnimation_backend_call');
-                                            _model.voiceChatLucilleResponse2 =
-                                                await LucilleStreamingGroup
-                                                    .lucilleHealthCheckCall
-                                                    .call(
-                                              sessionID: (_model
-                                                          .sessionIDVoiceChat2
-                                                          ?.jsonBody ??
-                                                      '')
-                                                  .toString(),
-                                              message: _model.returnedVoiceText,
-                                            );
-
-                                            if ((_model.voiceChatLucilleResponse2
-                                                        ?.succeeded ??
-                                                    true) ==
-                                                false) {
-                                              logFirebaseEvent(
-                                                  'LottieAnimation_custom_action');
-                                              await actions.speakText(
-                                                LucilleChatStruct.maybeFromMap(
-                                                        (_model.voiceChatLucilleResponse2
-                                                                ?.jsonBody ??
-                                                            ''))!
-                                                    .content,
-                                              );
-                                            }
-                                          }
-
-                                          logFirebaseEvent(
                                               'LottieAnimation_update_app_state');
-                                          FFAppState().updateChatHistoryAtIndex(
-                                            (_model.voiceChatLucilleResponse1
-                                                    ?.jsonBody ??
-                                                ''),
-                                            (_) => (_model
-                                                    .voiceChatLucilleResponse1
-                                                    ?.jsonBody ??
-                                                ''),
-                                          );
                                           FFAppState().isListening =
                                               !(FFAppState().isListening ??
                                                   true);

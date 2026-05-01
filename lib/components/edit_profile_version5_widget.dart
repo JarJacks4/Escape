@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
-import '/components/time_picker_bottom_sheet_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -9,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import '/flutter_flow/permissions_util.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
 import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
@@ -100,7 +100,7 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
           ],
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+          padding: EdgeInsetsDirectional.fromSTEB(16.0, 25.0, 16.0, 16.0),
           child: SingleChildScrollView(
             primary: false,
             controller: _model.columnController,
@@ -268,7 +268,7 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                                   'EDIT_PROFILE_VERSION5_Icon_7auc1yna_ON_T');
                                               logFirebaseEvent(
                                                   'Icon_haptic_feedback');
-                                              HapticFeedback.lightImpact();
+                                              HapticFeedback.heavyImpact();
                                               logFirebaseEvent(
                                                   'Icon_play_sound');
                                               _model.soundPlayer2 ??=
@@ -382,8 +382,13 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                               logFirebaseEvent(
                                                   'Icon_update_app_state');
                                               FFAppState().ProfilePicture = _model
-                                                  .uploadedFileUrl_uploadPhoto2;
+                                                  .uploadedFileUrl_uploadPhoto3;
                                               FFAppState().update(() {});
+                                              logFirebaseEvent(
+                                                  'Icon_update_component_state');
+                                              _model.newProfilePicture = _model
+                                                  .uploadedFileUrl_uploadPhoto3;
+                                              safeSetState(() {});
                                               logFirebaseEvent(
                                                   'Icon_backend_call');
 
@@ -514,11 +519,7 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                     final selectedMedia =
                                         await selectMediaWithSourceBottomSheet(
                                       context: context,
-                                      maxWidth: 400.00,
-                                      maxHeight: 400.00,
                                       allowPhoto: true,
-                                      includeDimensions: true,
-                                      includeBlurHash: true,
                                     );
                                     if (selectedMedia != null &&
                                         selectedMedia.every((m) =>
@@ -531,11 +532,6 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
 
                                       var downloadUrls = <String>[];
                                       try {
-                                        showUploadMessage(
-                                          context,
-                                          'Uploading file...',
-                                          showLoading: true,
-                                        );
                                         selectedUploadedFiles = selectedMedia
                                             .map((m) => FFUploadedFile(
                                                   name: m.storagePath
@@ -560,8 +556,6 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                             .map((u) => u!)
                                             .toList();
                                       } finally {
-                                        ScaffoldMessenger.of(context)
-                                            .hideCurrentSnackBar();
                                         _model.isDataUploading_uploadPhoto2 =
                                             false;
                                       }
@@ -575,15 +569,19 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                           _model.uploadedFileUrl_uploadPhoto2 =
                                               downloadUrls.first;
                                         });
-                                        showUploadMessage(context, 'Success!');
                                       } else {
                                         safeSetState(() {});
-                                        showUploadMessage(
-                                            context, 'Failed to upload data');
                                         return;
                                       }
                                     }
 
+                                    if (_model.isDataUploading_uploadPhoto2) {
+                                      logFirebaseEvent(
+                                          'Text_update_component_state');
+                                      _model.newProfilePicture =
+                                          _model.uploadedFileUrl_uploadPhoto2;
+                                      safeSetState(() {});
+                                    }
                                     logFirebaseEvent('Text_update_app_state');
                                     FFAppState().ProfilePicture =
                                         _model.uploadedFileUrl_uploadPhoto2;
@@ -1224,186 +1222,195 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Container(
-                                            width: double.infinity,
-                                            child: TextFormField(
-                                              controller:
-                                                  _model.passwordTextController,
-                                              focusNode:
-                                                  _model.passwordFocusNode,
-                                              onChanged: (_) =>
-                                                  EasyDebounce.debounce(
-                                                '_model.passwordTextController',
-                                                Duration(milliseconds: 2000),
-                                                () async {
+                                          Flexible(
+                                            flex: 1,
+                                            child: Container(
+                                              width: double.infinity,
+                                              child: TextFormField(
+                                                controller: _model
+                                                    .passwordTextController,
+                                                focusNode:
+                                                    _model.passwordFocusNode,
+                                                onChanged: (_) =>
+                                                    EasyDebounce.debounce(
+                                                  '_model.passwordTextController',
+                                                  Duration(milliseconds: 2000),
+                                                  () async {
+                                                    logFirebaseEvent(
+                                                        'EDIT_PROFILE_VERSION5_Password_ON_TEXTFI');
+                                                    logFirebaseEvent(
+                                                        'Password_haptic_feedback');
+                                                    HapticFeedback
+                                                        .lightImpact();
+                                                  },
+                                                ),
+                                                onFieldSubmitted: (_) async {
                                                   logFirebaseEvent(
                                                       'EDIT_PROFILE_VERSION5_Password_ON_TEXTFI');
                                                   logFirebaseEvent(
-                                                      'Password_haptic_feedback');
-                                                  HapticFeedback.lightImpact();
+                                                      'Password_play_sound');
+                                                  _model.soundPlayer6 ??=
+                                                      AudioPlayer();
+                                                  if (_model
+                                                      .soundPlayer6!.playing) {
+                                                    await _model.soundPlayer6!
+                                                        .stop();
+                                                  }
+                                                  _model.soundPlayer6!
+                                                      .setVolume(1.0);
+                                                  _model.soundPlayer6!
+                                                      .setAsset(
+                                                          'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                                                      .then((_) => _model
+                                                          .soundPlayer6!
+                                                          .play());
                                                 },
-                                              ),
-                                              onFieldSubmitted: (_) async {
-                                                logFirebaseEvent(
-                                                    'EDIT_PROFILE_VERSION5_Password_ON_TEXTFI');
-                                                logFirebaseEvent(
-                                                    'Password_play_sound');
-                                                _model.soundPlayer6 ??=
-                                                    AudioPlayer();
-                                                if (_model
-                                                    .soundPlayer6!.playing) {
-                                                  await _model.soundPlayer6!
-                                                      .stop();
-                                                }
-                                                _model.soundPlayer6!
-                                                    .setVolume(1.0);
-                                                _model.soundPlayer6!
-                                                    .setAsset(
-                                                        'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                                                    .then((_) => _model
-                                                        .soundPlayer6!
-                                                        .play());
-                                              },
-                                              autofocus: false,
-                                              enabled: true,
-                                              textCapitalization:
-                                                  TextCapitalization.words,
-                                              textInputAction:
-                                                  TextInputAction.done,
-                                              obscureText: false,
-                                              decoration: InputDecoration(
-                                                isDense: false,
-                                                labelText:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'tsw17zgq' /* Password */,
-                                                ),
-                                                labelStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'WorkSans',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .tertiary,
-                                                      letterSpacing: 0.0,
+                                                autofocus: false,
+                                                enabled: true,
+                                                textCapitalization:
+                                                    TextCapitalization.words,
+                                                textInputAction:
+                                                    TextInputAction.done,
+                                                obscureText: false,
+                                                decoration: InputDecoration(
+                                                  isDense: false,
+                                                  labelText: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    'tsw17zgq' /* Password */,
+                                                  ),
+                                                  labelStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .tertiary,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  hintText: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    '155jo9o5' /* Enter New Password */,
+                                                  ),
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
                                                     ),
-                                                hintText:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  '155jo9o5' /* Enter New Password */,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  errorBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  focusedErrorBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  filled: true,
+                                                  fillColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                  hoverColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondary,
+                                                  suffixIcon: _model
+                                                          .passwordTextController!
+                                                          .text
+                                                          .isNotEmpty
+                                                      ? InkWell(
+                                                          onTap: () async {
+                                                            _model
+                                                                .passwordTextController
+                                                                ?.clear();
+                                                            logFirebaseEvent(
+                                                                'EDIT_PROFILE_VERSION5_Password_ON_TEXTFI');
+                                                            logFirebaseEvent(
+                                                                'Password_haptic_feedback');
+                                                            HapticFeedback
+                                                                .lightImpact();
+                                                            safeSetState(() {});
+                                                          },
+                                                          child: Icon(
+                                                            Icons.clear,
+                                                            size: 22,
+                                                          ),
+                                                        )
+                                                      : null,
                                                 ),
-                                                hintStyle:
+                                                style:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelMedium
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               'WorkSans',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                enabledBorder:
-                                                    OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: Color(0x00000000),
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: Color(0x00000000),
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: Color(0x00000000),
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                focusedErrorBorder:
-                                                    OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: Color(0x00000000),
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                filled: true,
-                                                fillColor:
+                                                maxLength: 40,
+                                                maxLengthEnforcement:
+                                                    MaxLengthEnforcement
+                                                        .enforced,
+                                                cursorColor:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                hoverColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                                suffixIcon: _model
-                                                        .passwordTextController!
-                                                        .text
-                                                        .isNotEmpty
-                                                    ? InkWell(
-                                                        onTap: () async {
-                                                          _model
-                                                              .passwordTextController
-                                                              ?.clear();
-                                                          logFirebaseEvent(
-                                                              'EDIT_PROFILE_VERSION5_Password_ON_TEXTFI');
-                                                          logFirebaseEvent(
-                                                              'Password_haptic_feedback');
-                                                          HapticFeedback
-                                                              .lightImpact();
-                                                          safeSetState(() {});
-                                                        },
-                                                        child: Icon(
-                                                          Icons.clear,
-                                                          size: 22,
-                                                        ),
-                                                      )
-                                                    : null,
+                                                        .primaryText,
+                                                enableInteractiveSelection:
+                                                    true,
+                                                validator: _model
+                                                    .passwordTextControllerValidator
+                                                    .asValidator(context),
+                                                inputFormatters: [
+                                                  if (!isAndroid && !isiOS)
+                                                    TextInputFormatter
+                                                        .withFunction((oldValue,
+                                                            newValue) {
+                                                      return TextEditingValue(
+                                                        selection:
+                                                            newValue.selection,
+                                                        text: newValue.text
+                                                            .toCapitalization(
+                                                                TextCapitalization
+                                                                    .words),
+                                                      );
+                                                    }),
+                                                ],
                                               ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'WorkSans',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                              maxLength: 40,
-                                              maxLengthEnforcement:
-                                                  MaxLengthEnforcement.enforced,
-                                              cursorColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              enableInteractiveSelection: true,
-                                              validator: _model
-                                                  .passwordTextControllerValidator
-                                                  .asValidator(context),
-                                              inputFormatters: [
-                                                if (!isAndroid && !isiOS)
-                                                  TextInputFormatter
-                                                      .withFunction(
-                                                          (oldValue, newValue) {
-                                                    return TextEditingValue(
-                                                      selection:
-                                                          newValue.selection,
-                                                      text: newValue.text
-                                                          .toCapitalization(
-                                                              TextCapitalization
-                                                                  .words),
-                                                    );
-                                                  }),
-                                              ],
                                             ),
                                           ),
                                         ].divide(SizedBox(height: 4.0)),
@@ -1445,186 +1452,195 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Container(
-                                            width: double.infinity,
-                                            child: TextFormField(
-                                              controller: _model
-                                                  .confirmPasswordTextController,
-                                              focusNode: _model
-                                                  .confirmPasswordFocusNode,
-                                              onChanged: (_) =>
-                                                  EasyDebounce.debounce(
-                                                '_model.confirmPasswordTextController',
-                                                Duration(milliseconds: 2000),
-                                                () async {
+                                          Flexible(
+                                            flex: 1,
+                                            child: Container(
+                                              width: double.infinity,
+                                              child: TextFormField(
+                                                controller: _model
+                                                    .confirmPasswordTextController,
+                                                focusNode: _model
+                                                    .confirmPasswordFocusNode,
+                                                onChanged: (_) =>
+                                                    EasyDebounce.debounce(
+                                                  '_model.confirmPasswordTextController',
+                                                  Duration(milliseconds: 2000),
+                                                  () async {
+                                                    logFirebaseEvent(
+                                                        'EDIT_PROFILE_VERSION5_ConfirmPassword_ON');
+                                                    logFirebaseEvent(
+                                                        'ConfirmPassword_haptic_feedback');
+                                                    HapticFeedback
+                                                        .lightImpact();
+                                                  },
+                                                ),
+                                                onFieldSubmitted: (_) async {
                                                   logFirebaseEvent(
                                                       'EDIT_PROFILE_VERSION5_ConfirmPassword_ON');
                                                   logFirebaseEvent(
-                                                      'ConfirmPassword_haptic_feedback');
-                                                  HapticFeedback.lightImpact();
+                                                      'ConfirmPassword_play_sound');
+                                                  _model.soundPlayer7 ??=
+                                                      AudioPlayer();
+                                                  if (_model
+                                                      .soundPlayer7!.playing) {
+                                                    await _model.soundPlayer7!
+                                                        .stop();
+                                                  }
+                                                  _model.soundPlayer7!
+                                                      .setVolume(1.0);
+                                                  _model.soundPlayer7!
+                                                      .setAsset(
+                                                          'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                                                      .then((_) => _model
+                                                          .soundPlayer7!
+                                                          .play());
                                                 },
-                                              ),
-                                              onFieldSubmitted: (_) async {
-                                                logFirebaseEvent(
-                                                    'EDIT_PROFILE_VERSION5_ConfirmPassword_ON');
-                                                logFirebaseEvent(
-                                                    'ConfirmPassword_play_sound');
-                                                _model.soundPlayer7 ??=
-                                                    AudioPlayer();
-                                                if (_model
-                                                    .soundPlayer7!.playing) {
-                                                  await _model.soundPlayer7!
-                                                      .stop();
-                                                }
-                                                _model.soundPlayer7!
-                                                    .setVolume(1.0);
-                                                _model.soundPlayer7!
-                                                    .setAsset(
-                                                        'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                                                    .then((_) => _model
-                                                        .soundPlayer7!
-                                                        .play());
-                                              },
-                                              autofocus: false,
-                                              enabled: true,
-                                              textCapitalization:
-                                                  TextCapitalization.words,
-                                              textInputAction:
-                                                  TextInputAction.done,
-                                              obscureText: false,
-                                              decoration: InputDecoration(
-                                                isDense: false,
-                                                labelText:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  '08m6znpa' /* Confirm Password */,
-                                                ),
-                                                labelStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'WorkSans',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .tertiary,
-                                                      letterSpacing: 0.0,
+                                                autofocus: false,
+                                                enabled: true,
+                                                textCapitalization:
+                                                    TextCapitalization.words,
+                                                textInputAction:
+                                                    TextInputAction.done,
+                                                obscureText: false,
+                                                decoration: InputDecoration(
+                                                  isDense: false,
+                                                  labelText: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    '08m6znpa' /* Confirm Password */,
+                                                  ),
+                                                  labelStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .tertiary,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  hintText: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    'xcoxs6p2' /* Confirm New Password */,
+                                                  ),
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
                                                     ),
-                                                hintText:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'xcoxs6p2' /* Confirm New Password */,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  errorBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  focusedErrorBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  filled: true,
+                                                  fillColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                  hoverColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondary,
+                                                  suffixIcon: _model
+                                                          .confirmPasswordTextController!
+                                                          .text
+                                                          .isNotEmpty
+                                                      ? InkWell(
+                                                          onTap: () async {
+                                                            _model
+                                                                .confirmPasswordTextController
+                                                                ?.clear();
+                                                            logFirebaseEvent(
+                                                                'EDIT_PROFILE_VERSION5_ConfirmPassword_ON');
+                                                            logFirebaseEvent(
+                                                                'ConfirmPassword_haptic_feedback');
+                                                            HapticFeedback
+                                                                .lightImpact();
+                                                            safeSetState(() {});
+                                                          },
+                                                          child: Icon(
+                                                            Icons.clear,
+                                                            size: 22,
+                                                          ),
+                                                        )
+                                                      : null,
                                                 ),
-                                                hintStyle:
+                                                style:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelMedium
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               'WorkSans',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                enabledBorder:
-                                                    OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: Color(0x00000000),
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: Color(0x00000000),
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: Color(0x00000000),
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                focusedErrorBorder:
-                                                    OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: Color(0x00000000),
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                filled: true,
-                                                fillColor:
+                                                maxLength: 40,
+                                                maxLengthEnforcement:
+                                                    MaxLengthEnforcement
+                                                        .enforced,
+                                                cursorColor:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                hoverColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                                suffixIcon: _model
-                                                        .confirmPasswordTextController!
-                                                        .text
-                                                        .isNotEmpty
-                                                    ? InkWell(
-                                                        onTap: () async {
-                                                          _model
-                                                              .confirmPasswordTextController
-                                                              ?.clear();
-                                                          logFirebaseEvent(
-                                                              'EDIT_PROFILE_VERSION5_ConfirmPassword_ON');
-                                                          logFirebaseEvent(
-                                                              'ConfirmPassword_haptic_feedback');
-                                                          HapticFeedback
-                                                              .lightImpact();
-                                                          safeSetState(() {});
-                                                        },
-                                                        child: Icon(
-                                                          Icons.clear,
-                                                          size: 22,
-                                                        ),
-                                                      )
-                                                    : null,
+                                                        .primaryText,
+                                                enableInteractiveSelection:
+                                                    true,
+                                                validator: _model
+                                                    .confirmPasswordTextControllerValidator
+                                                    .asValidator(context),
+                                                inputFormatters: [
+                                                  if (!isAndroid && !isiOS)
+                                                    TextInputFormatter
+                                                        .withFunction((oldValue,
+                                                            newValue) {
+                                                      return TextEditingValue(
+                                                        selection:
+                                                            newValue.selection,
+                                                        text: newValue.text
+                                                            .toCapitalization(
+                                                                TextCapitalization
+                                                                    .words),
+                                                      );
+                                                    }),
+                                                ],
                                               ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'WorkSans',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                              maxLength: 40,
-                                              maxLengthEnforcement:
-                                                  MaxLengthEnforcement.enforced,
-                                              cursorColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              enableInteractiveSelection: true,
-                                              validator: _model
-                                                  .confirmPasswordTextControllerValidator
-                                                  .asValidator(context),
-                                              inputFormatters: [
-                                                if (!isAndroid && !isiOS)
-                                                  TextInputFormatter
-                                                      .withFunction(
-                                                          (oldValue, newValue) {
-                                                    return TextEditingValue(
-                                                      selection:
-                                                          newValue.selection,
-                                                      text: newValue.text
-                                                          .toCapitalization(
-                                                              TextCapitalization
-                                                                  .words),
-                                                    );
-                                                  }),
-                                              ],
                                             ),
                                           ),
                                         ].divide(SizedBox(height: 4.0)),
@@ -1789,6 +1805,12 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                       .setAsset(
                                           'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
                                       .then((_) => _model.soundPlayer8!.play());
+
+                                  logFirebaseEvent(
+                                      'ChoiceChips_update_component_state');
+                                  _model.preferredSessionLength =
+                                      _model.choiceChipsValue;
+                                  safeSetState(() {});
                                 },
                                 selectedChipStyle: ChipStyle(
                                   backgroundColor:
@@ -1901,20 +1923,66 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                           'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
                                       .then((_) => _model.soundPlayer9!.play());
 
-                                  logFirebaseEvent('DropDown_bottom_sheet');
-                                  await showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    backgroundColor: Colors.transparent,
+                                  logFirebaseEvent('DropDown_date_time_picker');
+                                  final _datePickedDate = await showDatePicker(
                                     context: context,
-                                    builder: (context) {
-                                      return Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: TimePickerBottomSheetWidget(),
+                                    initialDate: getCurrentTimestamp,
+                                    firstDate: DateTime(1900),
+                                    lastDate: (dateTimeFromSecondsSinceEpoch(
+                                            getCurrentTimestamp
+                                                .secondsSinceEpoch) ??
+                                        DateTime(2050)),
+                                    builder: (context, child) {
+                                      return wrapInMaterialDatePickerTheme(
+                                        context,
+                                        child!,
+                                        headerBackgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .accent3,
+                                        headerForegroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondary,
+                                        headerTextStyle:
+                                            FlutterFlowTheme.of(context)
+                                                .headlineLarge
+                                                .override(
+                                                  fontFamily: 'The Seasons',
+                                                  fontSize: 32.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                        pickerBackgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                        pickerForegroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                        selectedDateTimeBackgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        selectedDateTimeForegroundColor:
+                                            FlutterFlowTheme.of(context).info,
+                                        actionButtonForegroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .alternate,
+                                        iconSize: 24.0,
                                       );
                                     },
-                                  ).then((value) => safeSetState(() {}));
+                                  );
 
+                                  if (_datePickedDate != null) {
+                                    safeSetState(() {
+                                      _model.datePicked = DateTime(
+                                        _datePickedDate.year,
+                                        _datePickedDate.month,
+                                        _datePickedDate.day,
+                                      );
+                                    });
+                                  } else if (_model.datePicked != null) {
+                                    safeSetState(() {
+                                      _model.datePicked = getCurrentTimestamp;
+                                    });
+                                  }
                                   logFirebaseEvent('DropDown_update_app_state');
 
                                   safeSetState(() {});
@@ -2017,6 +2085,75 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                     onChanged: (newValue) async {
                                       safeSetState(() =>
                                           _model.switchValue1 = newValue);
+                                      if (newValue) {
+                                        logFirebaseEvent(
+                                            'EDIT_PROFILE_VERSION5_Switch_1ktyvdch_ON');
+                                        logFirebaseEvent(
+                                            'Switch_haptic_feedback');
+                                        HapticFeedback.selectionClick();
+                                        if (await getPermissionStatus(
+                                            notificationsPermission)) {
+                                          logFirebaseEvent(
+                                              'Switch_show_snack_bar');
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'Notifications have been activated!',
+                                                style: TextStyle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                              duration:
+                                                  Duration(milliseconds: 4000),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                            ),
+                                          );
+                                        } else {
+                                          logFirebaseEvent(
+                                              'Switch_request_permissions');
+                                          await requestPermission(
+                                              notificationsPermission);
+                                        }
+                                      } else {
+                                        logFirebaseEvent(
+                                            'EDIT_PROFILE_VERSION5_Switch_1ktyvdch_ON');
+                                        logFirebaseEvent(
+                                            'Switch_haptic_feedback');
+                                        HapticFeedback.selectionClick();
+                                        if (!(await getPermissionStatus(
+                                            notificationsPermission))) {
+                                          logFirebaseEvent(
+                                              'Switch_show_snack_bar');
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'Notifications have been deactivated!',
+                                                style: TextStyle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                              duration:
+                                                  Duration(milliseconds: 4000),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                            ),
+                                          );
+                                        } else {
+                                          logFirebaseEvent(
+                                              'Switch_request_permissions');
+                                          await requestPermission(
+                                              notificationsPermission);
+                                        }
+                                      }
                                     },
                                     activeThumbColor:
                                         FlutterFlowTheme.of(context).accent1,
@@ -2064,6 +2201,59 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                     onChanged: (newValue) async {
                                       safeSetState(() =>
                                           _model.switchValue2 = newValue);
+                                      if (newValue) {
+                                        logFirebaseEvent(
+                                            'EDIT_PROFILE_VERSION5_Switch_mr5b0ci7_ON');
+                                        logFirebaseEvent(
+                                            'Switch_haptic_feedback');
+                                        HapticFeedback.selectionClick();
+                                        logFirebaseEvent(
+                                            'Switch_show_snack_bar');
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Achievements have been activated!',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
+                                        );
+                                      } else {
+                                        logFirebaseEvent(
+                                            'EDIT_PROFILE_VERSION5_Switch_mr5b0ci7_ON');
+                                        logFirebaseEvent(
+                                            'Switch_haptic_feedback');
+                                        HapticFeedback.selectionClick();
+                                        logFirebaseEvent(
+                                            'Switch_show_snack_bar');
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Achievements have been activated!',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
+                                        );
+                                      }
                                     },
                                     activeThumbColor:
                                         FlutterFlowTheme.of(context).accent1,
@@ -2119,6 +2309,8 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                             .update(createUsersRecordData(
                           email: _model.editEmailTextController.text,
                           displayName: _model.textController1.text,
+                          photoUrl: FFAppState().ProfilePicture,
+                          favoriteTimeToMeditate: _model.datePicked,
                         ));
                         logFirebaseEvent('Button_auth');
                         await authManager.updatePassword(

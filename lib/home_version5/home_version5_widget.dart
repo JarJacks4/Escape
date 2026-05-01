@@ -1,13 +1,14 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/components/help_comp_widget.dart';
-import '/components/lucille_first_recommendation_comp_copy_widget.dart';
 import '/components/side_nav_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/walkthroughs/intro_walkthrough.dart';
 import 'dart:ui';
+import '/app_events/index.dart';
 import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
@@ -26,7 +27,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
+import 'package:material_palette/material_palette.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'home_version5_model.dart';
 export 'home_version5_model.dart';
 
@@ -71,7 +75,78 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
               'assets/audios/lucadialessandro-calm-ambient-intro-490646.mp3')
           .then((_) => _model.soundPlayer1!.play());
 
-      if (FFAppState().isFinishedIntroWalkthrough) {
+      logFirebaseEvent('HomeVersion5_backend_call');
+      _model.usersCompleteProfile4 =
+          await TheoryOfMindOnboardingGroup.userCompleteProfileCall.call(
+        userID: currentUserUid,
+      );
+
+      if (FFAppState().chatSessionId != '') {
+        logFirebaseEvent('HomeVersion5_show_snack_bar');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Session ID Set!',
+              style: TextStyle(
+                color: FlutterFlowTheme.of(context).primaryText,
+              ),
+            ),
+            duration: Duration(milliseconds: 4000),
+            backgroundColor: FlutterFlowTheme.of(context).secondary,
+          ),
+        );
+      } else {
+        logFirebaseEvent('HomeVersion5_backend_call');
+        _model.createSession =
+            await TheoryOfMindSessionManagementGroup.createIDCall.call();
+
+        logFirebaseEvent('HomeVersion5_update_app_state');
+        FFAppState().chatSessionId =
+            TheoryOfMindSessionManagementGroup.createIDCall.sessionID(
+          (_model.createSession?.jsonBody ?? ''),
+        )!;
+        FFAppState().update(() {});
+      }
+
+      logFirebaseEvent('HomeVersion5_backend_call');
+      _model.usersCompleteProfile =
+          await TheoryOfMindOnboardingGroup.updateUserProfileCall.call(
+        userID: currentUserUid,
+      );
+
+      logFirebaseEvent('HomeVersion5_trigger_app_event');
+      FFAppEventService.instance.triggerAppEvent(
+        AiRecommendationReadyEvent(
+          timestamp: DateTime.now(),
+          waitForCompletion: false,
+          debugId: '6',
+        ),
+      );
+
+      logFirebaseEvent('HomeVersion5_trigger_app_event');
+      FFAppEventService.instance.triggerAppEvent(
+        AiThinkingEvent(
+          timestamp: DateTime.now(),
+          waitForCompletion: false,
+          debugId: '8',
+        ),
+      );
+
+      logFirebaseEvent('HomeVersion5_trigger_app_event');
+      FFAppEventService.instance.triggerAppEvent(
+        SafetyAndCrisisAssessmentEvent(
+          timestamp: DateTime.now(),
+          waitForCompletion: true,
+          debugId: '5',
+        ),
+      );
+
+      if (FFAppState().hasSeenOnboarding == false) {
+        logFirebaseEvent('HomeVersion5_start_walkthrough');
+        safeSetState(() =>
+            _model.introWalkthroughController = createPageWalkthrough(context));
+        _model.introWalkthroughController?.show(context: context);
+      } else {
         logFirebaseEvent('HomeVersion5_show_snack_bar');
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -87,26 +162,31 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
             backgroundColor: FlutterFlowTheme.of(context).secondary,
           ),
         );
-      } else {
-        logFirebaseEvent('HomeVersion5_start_walkthrough');
-        safeSetState(() =>
-            _model.introWalkthroughController = createPageWalkthrough(context));
-        _model.introWalkthroughController?.show(context: context);
-        logFirebaseEvent('HomeVersion5_update_app_state');
-        FFAppState().isFinishedIntroWalkthrough = true;
-        FFAppState().update(() {});
       }
 
-      logFirebaseEvent('HomeVersion5_backend_call');
-      _model.createSession =
-          await LucilleStreamingGroup.createNewSessionCall.call();
-
       logFirebaseEvent('HomeVersion5_update_app_state');
-      FFAppState().chatSessionId =
-          LucilleStreamingGroup.createNewSessionCall.sessionID(
-        (_model.createSession?.jsonBody ?? ''),
-      )!;
+      FFAppState().isFinishedIntroWalkthrough = true;
       FFAppState().update(() {});
+      logFirebaseEvent('HomeVersion5_backend_call');
+
+      await currentUserReference!.update(createUsersRecordData(
+        hasSeenWalkthrough: false,
+      ));
+      logFirebaseEvent('HomeVersion5_show_snack_bar');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'Please hit the help button to see the walkthrough again!',
+            style: TextStyle(
+              fontFamily: 'WorkSans',
+              color: FlutterFlowTheme.of(context).primaryText,
+              fontSize: 14.0,
+            ),
+          ),
+          duration: Duration(milliseconds: 4000),
+          backgroundColor: FlutterFlowTheme.of(context).secondary,
+        ),
+      );
     });
 
     animationsMap.addAll({
@@ -250,19 +330,6 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
           ),
         ],
       ),
-      'lucilleFirstRecommendationCompCopyOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeIn,
-            delay: 0.0.ms,
-            duration: 1740.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
       'buttonOnPageLoadAnimation': AnimationInfo(
         loop: true,
         trigger: AnimationTrigger.onPageLoad,
@@ -306,10 +373,12 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
           width: MediaQuery.sizeOf(context).width * 0.7,
           child: Drawer(
             elevation: 16.0,
-            child: wrapWithModel(
-              model: _model.sideNavModel,
-              updateCallback: () => safeSetState(() {}),
-              child: SideNavWidget(),
+            child: WebViewAware(
+              child: wrapWithModel(
+                model: _model.sideNavModel,
+                updateCallback: () => safeSetState(() {}),
+                child: SideNavWidget(),
+              ),
             ),
           ),
         ),
@@ -324,7 +393,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                     flex: 1,
                     child: Container(
                       width: double.infinity,
-                      height: 815.48,
+                      height: MediaQuery.sizeOf(context).height * 5.0,
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
@@ -380,7 +449,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                           AlignmentDirectional(0.0, -1.0),
                                       child: Container(
                                         width: double.infinity,
-                                        height: 899.2,
+                                        height: 1268.82,
                                         decoration: BoxDecoration(
                                           gradient: LinearGradient(
                                             colors: [
@@ -404,7 +473,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                             ),
                                             child: Container(
                                               width: 100.0,
-                                              height: 124.0,
+                                              height: 381.6,
                                               decoration: BoxDecoration(
                                                 gradient: LinearGradient(
                                                   colors: [
@@ -538,14 +607,16 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               context,
                                                                           builder:
                                                                               (context) {
-                                                                            return GestureDetector(
-                                                                              onTap: () {
-                                                                                FocusScope.of(context).unfocus();
-                                                                                FocusManager.instance.primaryFocus?.unfocus();
-                                                                              },
-                                                                              child: Padding(
-                                                                                padding: MediaQuery.viewInsetsOf(context),
-                                                                                child: SideNavWidget(),
+                                                                            return WebViewAware(
+                                                                              child: GestureDetector(
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
+                                                                                child: Padding(
+                                                                                  padding: MediaQuery.viewInsetsOf(context),
+                                                                                  child: SideNavWidget(),
+                                                                                ),
                                                                               ),
                                                                             );
                                                                           },
@@ -564,29 +635,61 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                     ).animateOnPageLoad(
                                                                             animationsMap['iconOnPageLoadAnimation']!),
                                                                   ),
-                                                                  Hero(
-                                                                    tag: 'logo',
-                                                                    transitionOnUserGestures:
-                                                                        true,
-                                                                    child:
-                                                                        ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8.0),
-                                                                      child: Image
-                                                                          .asset(
-                                                                        'assets/images/Logo_ESCAPE_White.png',
-                                                                        width:
-                                                                            166.1,
-                                                                        height:
-                                                                            52.8,
-                                                                        fit: BoxFit
-                                                                            .contain,
-                                                                      ),
-                                                                    ),
-                                                                  ).animateOnPageLoad(
-                                                                      animationsMap[
-                                                                          'imageOnPageLoadAnimation2']!),
+                                                                  AnimatedShaderParams(
+                                                                      params: ShaderParams(
+                                                                          values: {
+                                                                            'angle':
+                                                                                14.0,
+                                                                            'scale':
+                                                                                1.0,
+                                                                            'offset':
+                                                                                0.0,
+                                                                            'pixelSize':
+                                                                                5.11,
+                                                                            'edgeWidth':
+                                                                                0.35,
+                                                                            'scatter':
+                                                                                0.36,
+                                                                            'noiseAmount':
+                                                                                0.93,
+                                                                            'speed':
+                                                                                0.21
+                                                                          }),
+                                                                      duration: Duration(
+                                                                          milliseconds: (140.0)
+                                                                              .round()),
+                                                                      curve: Curves
+                                                                          .easeIn,
+                                                                      builder: (params,
+                                                                              backgroundColor) =>
+                                                                          PixelDissolveShaderWrap(
+                                                                            params:
+                                                                                params,
+                                                                            animationMode:
+                                                                                ShaderAnimationMode.explicit,
+                                                                            animationConfig: ShaderAnimationConfig(
+                                                                                duration: Duration(milliseconds: (2400.0).round()),
+                                                                                curve: Curves.easeIn,
+                                                                                invert: true),
+                                                                            child: Hero(
+                                                                              tag: 'logo',
+                                                                              transitionOnUserGestures: true,
+                                                                              child: ClipRRect(
+                                                                                borderRadius: BorderRadius.circular(8.0),
+                                                                                child: Image.asset(
+                                                                                  'assets/images/Logo_ESCAPE_White.png',
+                                                                                  width: 166.1,
+                                                                                  height: 52.8,
+                                                                                  fit: BoxFit.contain,
+                                                                                ),
+                                                                              ),
+                                                                            )
+                                                                                .addWalkthrough(
+                                                                                  imageYxunjfxe,
+                                                                                  _model.introWalkthroughController,
+                                                                                )
+                                                                                .animateOnPageLoad(animationsMap['imageOnPageLoadAnimation2']!),
+                                                                          )),
                                                                   Row(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -615,7 +718,8 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                           shape:
                                                                               BoxShape.circle,
                                                                         ),
-                                                                        child: InkWell(
+                                                                        child:
+                                                                            InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
                                                                           focusColor:
@@ -645,14 +749,16 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               backgroundColor: Colors.transparent,
                                                                               context: context,
                                                                               builder: (context) {
-                                                                                return GestureDetector(
-                                                                                  onTap: () {
-                                                                                    FocusScope.of(context).unfocus();
-                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                  },
-                                                                                  child: Padding(
-                                                                                    padding: MediaQuery.viewInsetsOf(context),
-                                                                                    child: HelpCompWidget(),
+                                                                                return WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: HelpCompWidget(),
+                                                                                    ),
                                                                                   ),
                                                                                 );
                                                                               },
@@ -673,12 +779,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             animate:
                                                                                 true,
                                                                           ),
-                                                                        )
-                                                                            .addWalkthrough(
-                                                                              lottieAnimationOiibrsns,
-                                                                              _model.introWalkthroughController,
-                                                                            )
-                                                                            .animateOnPageLoad(animationsMap['lottieAnimationOnPageLoadAnimation']!),
+                                                                        ).animateOnPageLoad(animationsMap['lottieAnimationOnPageLoadAnimation']!),
                                                                       ),
                                                                     ].divide(SizedBox(
                                                                         width:
@@ -826,20 +927,30 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                           MainAxisAlignment
                                                                               .spaceBetween,
                                                                       children: [
-                                                                        AuthUserStreamWidget(
-                                                                          builder: (context) =>
-                                                                              Text(
-                                                                            valueOrDefault<String>(
-                                                                              currentUserDisplayName,
-                                                                              'Escape',
-                                                                            ),
-                                                                            style: FlutterFlowTheme.of(context).bodyLarge.override(
-                                                                                  fontFamily: 'The Seasons',
-                                                                                  color: FlutterFlowTheme.of(context).alternate,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.bold,
+                                                                        Flexible(
+                                                                          flex:
+                                                                              1,
+                                                                          child:
+                                                                              AuthUserStreamWidget(
+                                                                            builder: (context) =>
+                                                                                AnimatedDefaultTextStyle(
+                                                                              style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                    fontFamily: 'The Seasons',
+                                                                                    color: FlutterFlowTheme.of(context).alternate,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.bold,
+                                                                                  ),
+                                                                              duration: Duration(milliseconds: 600),
+                                                                              curve: Curves.easeIn,
+                                                                              child: Text(
+                                                                                valueOrDefault<String>(
+                                                                                  currentUserDisplayName != '' ? currentUserDisplayName : currentUserEmail,
+                                                                                  'Escape',
                                                                                 ),
-                                                                          ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation3']!),
+                                                                                overflow: TextOverflow.fade,
+                                                                              ),
+                                                                            ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation3']!),
+                                                                          ),
                                                                         ),
                                                                         Row(
                                                                           mainAxisSize:
@@ -893,34 +1004,372 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                           ].divide(SizedBox(width: 8.0)),
                                                                         ),
                                                                       ],
-                                                                    ).addWalkthrough(
-                                                                      rowF58gzr5e,
-                                                                      _model
-                                                                          .introWalkthroughController,
                                                                     ),
                                                                   ),
                                                                 ),
                                                               ),
                                                             ),
-                                                            wrapWithModel(
-                                                              model: _model
-                                                                  .lucilleFirstRecommendationCompCopyModel,
-                                                              updateCallback: () =>
-                                                                  safeSetState(
-                                                                      () {}),
-                                                              updateOnChange:
-                                                                  true,
-                                                              child:
-                                                                  LucilleFirstRecommendationCompCopyWidget(),
-                                                            )
-                                                                .addWalkthrough(
-                                                                  containerIurmljfr,
-                                                                  _model
-                                                                      .introWalkthroughController,
-                                                                )
-                                                                .animateOnPageLoad(
-                                                                    animationsMap[
-                                                                        'lucilleFirstRecommendationCompCopyOnPageLoadAnimation']!),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.0, 0.0),
+                                                              child: Container(
+                                                                width: 320.0,
+                                                                height: 141.5,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  image:
+                                                                      DecorationImage(
+                                                                    fit: BoxFit
+                                                                        .none,
+                                                                    image: Image
+                                                                        .asset(
+                                                                      'assets/images/Container_(6).png',
+                                                                    ).image,
+                                                                  ),
+                                                                  boxShadow: [
+                                                                    BoxShadow(
+                                                                      blurRadius:
+                                                                          10.0,
+                                                                      color: Color(
+                                                                          0x80EDF1F7),
+                                                                      offset:
+                                                                          Offset(
+                                                                        0.0,
+                                                                        0.0,
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              16.0),
+                                                                ),
+                                                                child: Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Builder(
+                                                                    builder:
+                                                                        (context) {
+                                                                      if (valueOrDefault(currentUserDocument?.currentMood, '') !=
+                                                                              '') {
+                                                                        return ListView(
+                                                                          padding:
+                                                                              EdgeInsets.zero,
+                                                                          shrinkWrap:
+                                                                              true,
+                                                                          scrollDirection:
+                                                                              Axis.horizontal,
+                                                                          children: [
+                                                                            Container(
+                                                                              width: 320.0,
+                                                                              height: 120.0,
+                                                                              decoration: BoxDecoration(
+                                                                                color: Color(0x9BEDF1F7),
+                                                                                image: DecorationImage(
+                                                                                  fit: BoxFit.none,
+                                                                                  image: Image.asset(
+                                                                                    'assets/images/Pi-Slices.gif',
+                                                                                  ).image,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(16.0),
+                                                                              ),
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                                                                                child: Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                  children: [
+                                                                                    Row(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                      children: [
+                                                                                        Flexible(
+                                                                                          flex: 1,
+                                                                                          child: Column(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                            children: [
+                                                                                              Padding(
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                                child: Text(
+                                                                                                  FFLocalizations.of(context).getText(
+                                                                                                    'rjeksks8' /* CONTINUE YOUR JOURNEY */,
+                                                                                                  ),
+                                                                                                  style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                                        fontFamily: 'WorkSans',
+                                                                                                        color: FlutterFlowTheme.of(context).primary,
+                                                                                                        fontSize: 12.0,
+                                                                                                        letterSpacing: 0.0,
+                                                                                                      ),
+                                                                                                  overflow: TextOverflow.fade,
+                                                                                                ),
+                                                                                              ),
+                                                                                              Text(
+                                                                                                FFLocalizations.of(context).getText(
+                                                                                                  'npijvxvu' /* Learning Self-Care Basics */,
+                                                                                                ),
+                                                                                                style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                                      fontFamily: 'WorkSans',
+                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      letterSpacing: 0.0,
+                                                                                                    ),
+                                                                                              ),
+                                                                                              Text(
+                                                                                                FFLocalizations.of(context).getText(
+                                                                                                  'v8ch5p2z' /* No Time Limit */,
+                                                                                                ),
+                                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                      fontFamily: 'WorkSans',
+                                                                                                      color: FlutterFlowTheme.of(context).tertiary,
+                                                                                                      letterSpacing: 0.0,
+                                                                                                    ),
+                                                                                              ),
+                                                                                            ].divide(SizedBox(height: 4.0)),
+                                                                                          ),
+                                                                                        ),
+                                                                                        FFButtonWidget(
+                                                                                          onPressed: () async {
+                                                                                            logFirebaseEvent('HOME_VERSION5_PAGE_CONTINUE_BTN_ON_TAP');
+                                                                                            logFirebaseEvent('Button_haptic_feedback');
+                                                                                            HapticFeedback.heavyImpact();
+                                                                                            logFirebaseEvent('Button_play_sound');
+                                                                                            _model.soundPlayer5 ??= AudioPlayer();
+                                                                                            if (_model.soundPlayer5!.playing) {
+                                                                                              await _model.soundPlayer5!.stop();
+                                                                                            }
+                                                                                            _model.soundPlayer5!.setVolume(1.0);
+                                                                                            _model.soundPlayer5!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav').then((_) => _model.soundPlayer5!.play());
+
+                                                                                            logFirebaseEvent('Button_navigate_to');
+
+                                                                                            context.pushNamed(
+                                                                                              LucilleSuggestionsWidget.routeName,
+                                                                                              extra: <String, dynamic>{
+                                                                                                '__transition_info__': TransitionInfo(
+                                                                                                  hasTransition: true,
+                                                                                                  transitionType: PageTransitionType.fade,
+                                                                                                  duration: Duration(milliseconds: 9),
+                                                                                                ),
+                                                                                              },
+                                                                                            );
+                                                                                          },
+                                                                                          text: FFLocalizations.of(context).getText(
+                                                                                            '4cdgnog0' /* Continue */,
+                                                                                          ),
+                                                                                          options: FFButtonOptions(
+                                                                                            height: 34.99,
+                                                                                            padding: EdgeInsets.all(8.0),
+                                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                            color: FlutterFlowTheme.of(context).tertiary,
+                                                                                            textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  fontFamily: 'WorkSans',
+                                                                                                  color: Colors.white,
+                                                                                                  letterSpacing: 0.0,
+                                                                                                  fontWeight: FontWeight.w300,
+                                                                                                ),
+                                                                                            elevation: 2.0,
+                                                                                            borderSide: BorderSide(
+                                                                                              color: Color(0x39D0E3F7),
+                                                                                            ),
+                                                                                            borderRadius: BorderRadius.circular(16.0),
+                                                                                          ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                    Flexible(
+                                                                                      flex: 1,
+                                                                                      child: Container(
+                                                                                        width: double.infinity,
+                                                                                        height: 4.0,
+                                                                                        decoration: BoxDecoration(
+                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                          borderRadius: BorderRadius.circular(2.0),
+                                                                                        ),
+                                                                                        child: Container(
+                                                                                          width: MediaQuery.sizeOf(context).width * 0.6,
+                                                                                          height: 4.0,
+                                                                                          decoration: BoxDecoration(
+                                                                                            color: FlutterFlowTheme.of(context).primary,
+                                                                                            borderRadius: BorderRadius.circular(2.0),
+                                                                                          ),
+                                                                                          child: LinearPercentIndicator(
+                                                                                            percent: FFAppState().pointsEarned.toDouble(),
+                                                                                            width: 120.0,
+                                                                                            lineHeight: 12.0,
+                                                                                            animation: true,
+                                                                                            animateFromLastPercent: true,
+                                                                                            progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                            backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                            center: Text(
+                                                                                              FFLocalizations.of(context).getText(
+                                                                                                'fasprqx4' /* 50% */,
+                                                                                              ),
+                                                                                              style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                                                                                    fontFamily: 'WorkSans',
+                                                                                                    color: FlutterFlowTheme.of(context).primary,
+                                                                                                    fontSize: 5.0,
+                                                                                                    letterSpacing: 0.0,
+                                                                                                  ),
+                                                                                              overflow: TextOverflow.fade,
+                                                                                            ),
+                                                                                            padding: EdgeInsets.zero,
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ].divide(SizedBox(height: 8.0)),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        );
+                                                                      } else {
+                                                                        return Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              16.0,
+                                                                              16.0,
+                                                                              16.0,
+                                                                              16.0),
+                                                                          child:
+                                                                              Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.start,
+                                                                            children:
+                                                                                [
+                                                                              Flexible(
+                                                                                flex: 1,
+                                                                                child: Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                  children: [
+                                                                                    Flexible(
+                                                                                      flex: 1,
+                                                                                      child: Column(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                        children: [
+                                                                                          Flexible(
+                                                                                            flex: 1,
+                                                                                            child: Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                              child: Text(
+                                                                                                FFLocalizations.of(context).getText(
+                                                                                                  '8w64lojl' /* START YOUR DAY */,
+                                                                                                ),
+                                                                                                style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                                      fontFamily: 'WorkSans',
+                                                                                                      color: Color(0xC81C2444),
+                                                                                                      fontSize: 12.0,
+                                                                                                      letterSpacing: 0.0,
+                                                                                                      fontWeight: FontWeight.w900,
+                                                                                                    ),
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                          Flexible(
+                                                                                            flex: 1,
+                                                                                            child: Text(
+                                                                                              FFLocalizations.of(context).getText(
+                                                                                                '5qkkfkxt' /* SCAN YOUR MOOD */,
+                                                                                              ),
+                                                                                              style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                                    fontFamily: 'WorkSans',
+                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                    letterSpacing: 0.0,
+                                                                                                  ),
+                                                                                            ),
+                                                                                          ),
+                                                                                          Flexible(
+                                                                                            flex: 1,
+                                                                                            child: Text(
+                                                                                              FFLocalizations.of(context).getText(
+                                                                                                'xq4vzcxl' /* Mood Scan Needed For 
+Further ... */
+                                                                                                ,
+                                                                                              ),
+                                                                                              style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                    fontFamily: 'WorkSans',
+                                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                    letterSpacing: 0.0,
+                                                                                                  ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        ].divide(SizedBox(height: 4.0)),
+                                                                                      ),
+                                                                                    ),
+                                                                                    FFButtonWidget(
+                                                                                      onPressed: () async {
+                                                                                        logFirebaseEvent('HOME_VERSION5_PAGE_BEGIN_BTN_ON_TAP');
+                                                                                        logFirebaseEvent('Button_haptic_feedback');
+                                                                                        HapticFeedback.mediumImpact();
+                                                                                        logFirebaseEvent('Button_play_sound');
+                                                                                        _model.soundPlayer6 ??= AudioPlayer();
+                                                                                        if (_model.soundPlayer6!.playing) {
+                                                                                          await _model.soundPlayer6!.stop();
+                                                                                        }
+                                                                                        _model.soundPlayer6!.setVolume(1.0);
+                                                                                        _model.soundPlayer6!.setAsset('assets/audios/ES_Notification,_Attention,_Text,_Reveal,_Positive_01_-_Epidemic_Sound_-_2170-2760.wav').then((_) => _model.soundPlayer6!.play());
+
+                                                                                        logFirebaseEvent('Button_navigate_to');
+
+                                                                                        context.pushNamed(
+                                                                                          MoodScanVersion5Widget.routeName,
+                                                                                          extra: <String, dynamic>{
+                                                                                            '__transition_info__': TransitionInfo(
+                                                                                              hasTransition: true,
+                                                                                              transitionType: PageTransitionType.fade,
+                                                                                              duration: Duration(milliseconds: 9),
+                                                                                            ),
+                                                                                          },
+                                                                                        );
+                                                                                      },
+                                                                                      text: FFLocalizations.of(context).getText(
+                                                                                        'ur840jdh' /* Begin */,
+                                                                                      ),
+                                                                                      options: FFButtonOptions(
+                                                                                        height: 34.99,
+                                                                                        padding: EdgeInsets.all(8.0),
+                                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                        color: FlutterFlowTheme.of(context).alternate,
+                                                                                        textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'WorkSans',
+                                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                                              letterSpacing: 0.0,
+                                                                                              fontWeight: FontWeight.w300,
+                                                                                            ),
+                                                                                        elevation: 2.0,
+                                                                                        borderSide: BorderSide(
+                                                                                          color: Color(0x39D0E3F7),
+                                                                                        ),
+                                                                                        borderRadius: BorderRadius.circular(16.0),
+                                                                                        hoverColor: FlutterFlowTheme.of(context).tertiary,
+                                                                                        hoverBorderSide: BorderSide(
+                                                                                          color: FlutterFlowTheme.of(context).secondary,
+                                                                                        ),
+                                                                                        hoverElevation: 3.0,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ).addWalkthrough(
+                                                                                  rowCrlyk2v5,
+                                                                                  _model.introWalkthroughController,
+                                                                                ),
+                                                                              ),
+                                                                            ].divide(SizedBox(height: 8.0)),
+                                                                          ),
+                                                                        );
+                                                                      }
+                                                                    },
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
                                                             Flexible(
                                                               flex: 1,
                                                               child:
@@ -962,14 +1411,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             logFirebaseEvent('Container_haptic_feedback');
                                                                             HapticFeedback.lightImpact();
                                                                             logFirebaseEvent('Container_play_sound');
-                                                                            _model.soundPlayer5 ??=
+                                                                            _model.soundPlayer7 ??=
                                                                                 AudioPlayer();
-                                                                            if (_model.soundPlayer5!.playing) {
-                                                                              await _model.soundPlayer5!.stop();
+                                                                            if (_model.soundPlayer7!.playing) {
+                                                                              await _model.soundPlayer7!.stop();
                                                                             }
-                                                                            _model.soundPlayer5!.setVolume(1.0);
-                                                                            _model.soundPlayer5!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) =>
-                                                                                _model.soundPlayer5!.play());
+                                                                            _model.soundPlayer7!.setVolume(1.0);
+                                                                            _model.soundPlayer7!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) =>
+                                                                                _model.soundPlayer7!.play());
 
                                                                             logFirebaseEvent('Container_navigate_to');
 
@@ -1054,14 +1503,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             logFirebaseEvent('Container_haptic_feedback');
                                                                             HapticFeedback.lightImpact();
                                                                             logFirebaseEvent('Container_play_sound');
-                                                                            _model.soundPlayer6 ??=
+                                                                            _model.soundPlayer8 ??=
                                                                                 AudioPlayer();
-                                                                            if (_model.soundPlayer6!.playing) {
-                                                                              await _model.soundPlayer6!.stop();
+                                                                            if (_model.soundPlayer8!.playing) {
+                                                                              await _model.soundPlayer8!.stop();
                                                                             }
-                                                                            _model.soundPlayer6!.setVolume(1.0);
-                                                                            _model.soundPlayer6!.setAsset('assets/audios/ES_Notification,_Attention,_Text,_Reveal,_Positive_01_-_Epidemic_Sound_-_2170-2760.wav').then((_) =>
-                                                                                _model.soundPlayer6!.play());
+                                                                            _model.soundPlayer8!.setVolume(1.0);
+                                                                            _model.soundPlayer8!.setAsset('assets/audios/ES_Notification,_Attention,_Text,_Reveal,_Positive_01_-_Epidemic_Sound_-_2170-2760.wav').then((_) =>
+                                                                                _model.soundPlayer8!.play());
 
                                                                             logFirebaseEvent('Container_navigate_to');
 
@@ -1118,10 +1567,6 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               ),
                                                                             ),
                                                                           ),
-                                                                        ).addWalkthrough(
-                                                                          containerQxoadm15,
-                                                                          _model
-                                                                              .introWalkthroughController,
                                                                         ),
                                                                       ),
                                                                     ),
@@ -1150,14 +1595,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             logFirebaseEvent('Container_haptic_feedback');
                                                                             HapticFeedback.lightImpact();
                                                                             logFirebaseEvent('Container_play_sound');
-                                                                            _model.soundPlayer7 ??=
+                                                                            _model.soundPlayer9 ??=
                                                                                 AudioPlayer();
-                                                                            if (_model.soundPlayer7!.playing) {
-                                                                              await _model.soundPlayer7!.stop();
+                                                                            if (_model.soundPlayer9!.playing) {
+                                                                              await _model.soundPlayer9!.stop();
                                                                             }
-                                                                            _model.soundPlayer7!.setVolume(1.0);
-                                                                            _model.soundPlayer7!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) =>
-                                                                                _model.soundPlayer7!.play());
+                                                                            _model.soundPlayer9!.setVolume(1.0);
+                                                                            _model.soundPlayer9!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) =>
+                                                                                _model.soundPlayer9!.play());
 
                                                                             logFirebaseEvent('Container_navigate_to');
 
@@ -1220,10 +1665,6 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               ),
                                                                             ),
                                                                           ),
-                                                                        ).addWalkthrough(
-                                                                          container42rk8lms,
-                                                                          _model
-                                                                              .introWalkthroughController,
                                                                         ),
                                                                       ),
                                                                     ),
@@ -1252,14 +1693,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             logFirebaseEvent('Container_haptic_feedback');
                                                                             HapticFeedback.lightImpact();
                                                                             logFirebaseEvent('Container_play_sound');
-                                                                            _model.soundPlayer8 ??=
+                                                                            _model.soundPlayer10 ??=
                                                                                 AudioPlayer();
-                                                                            if (_model.soundPlayer8!.playing) {
-                                                                              await _model.soundPlayer8!.stop();
+                                                                            if (_model.soundPlayer10!.playing) {
+                                                                              await _model.soundPlayer10!.stop();
                                                                             }
-                                                                            _model.soundPlayer8!.setVolume(1.0);
-                                                                            _model.soundPlayer8!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) =>
-                                                                                _model.soundPlayer8!.play());
+                                                                            _model.soundPlayer10!.setVolume(1.0);
+                                                                            _model.soundPlayer10!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) =>
+                                                                                _model.soundPlayer10!.play());
 
                                                                             logFirebaseEvent('Container_navigate_to');
 
@@ -1344,14 +1785,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             logFirebaseEvent('Container_haptic_feedback');
                                                                             HapticFeedback.lightImpact();
                                                                             logFirebaseEvent('Container_play_sound');
-                                                                            _model.soundPlayer9 ??=
+                                                                            _model.soundPlayer11 ??=
                                                                                 AudioPlayer();
-                                                                            if (_model.soundPlayer9!.playing) {
-                                                                              await _model.soundPlayer9!.stop();
+                                                                            if (_model.soundPlayer11!.playing) {
+                                                                              await _model.soundPlayer11!.stop();
                                                                             }
-                                                                            _model.soundPlayer9!.setVolume(1.0);
-                                                                            _model.soundPlayer9!.setAsset('assets/audios/ES_Ding,_Complex,_Shine_-_Epidemic_Sound.mp3').then((_) =>
-                                                                                _model.soundPlayer9!.play());
+                                                                            _model.soundPlayer11!.setVolume(1.0);
+                                                                            _model.soundPlayer11!.setAsset('assets/audios/ES_Ding,_Complex,_Shine_-_Epidemic_Sound.mp3').then((_) =>
+                                                                                _model.soundPlayer11!.play());
 
                                                                             logFirebaseEvent('Container_navigate_to');
 
@@ -1415,204 +1856,10 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                       width:
                                                                           12.0)),
                                                                 ),
-                                                              ),
-                                                            ),
-                                                            Flexible(
-                                                              flex: 1,
-                                                              child: Container(
-                                                                width: double
-                                                                    .infinity,
-                                                                height: 155.0,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              16.0),
-                                                                ),
-                                                                child: Stack(
-                                                                  children: [
-                                                                    ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              16.0),
-                                                                      child: Image
-                                                                          .network(
-                                                                        'https://images.unsplash.com/photo-1461468611824-46457c0e11fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxicmVhdGhpbmd8ZW58MHx8fHwxNzcxMDY0MzAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
-                                                                        width: double
-                                                                            .infinity,
-                                                                        height:
-                                                                            double.infinity,
-                                                                        fit: BoxFit
-                                                                            .cover,
-                                                                      ),
-                                                                    ),
-                                                                    Container(
-                                                                      width: double
-                                                                          .infinity,
-                                                                      height: double
-                                                                          .infinity,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        gradient:
-                                                                            LinearGradient(
-                                                                          colors: [
-                                                                            Color(0x59000000),
-                                                                            Color(0xD6000000)
-                                                                          ],
-                                                                          stops: [
-                                                                            0.0,
-                                                                            1.0
-                                                                          ],
-                                                                          begin: AlignmentDirectional(
-                                                                              0.0,
-                                                                              -1.0),
-                                                                          end: AlignmentDirectional(
-                                                                              0,
-                                                                              1.0),
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(16.0),
-                                                                      ),
-                                                                    ).addWalkthrough(
-                                                                      containerI9znmkfb,
-                                                                      _model
-                                                                          .introWalkthroughController,
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          16.0,
-                                                                          16.0,
-                                                                          16.0,
-                                                                          16.0),
-                                                                      child:
-                                                                          Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceBetween,
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.start,
-                                                                        children: [
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(1.0, -1.0),
-                                                                            child:
-                                                                                AnimatedContainer(
-                                                                              duration: Duration(milliseconds: 800),
-                                                                              curve: Curves.easeIn,
-                                                                              width: 32.0,
-                                                                              height: 32.0,
-                                                                              decoration: BoxDecoration(
-                                                                                color: Colors.white,
-                                                                                image: DecorationImage(
-                                                                                  fit: BoxFit.cover,
-                                                                                  image: Image.asset(
-                                                                                    'assets/images/fire.gif',
-                                                                                  ).image,
-                                                                                ),
-                                                                                shape: BoxShape.circle,
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                          Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
-                                                                            children:
-                                                                                [
-                                                                              Text(
-                                                                                FFLocalizations.of(context).getText(
-                                                                                  'l5emvdl2' /* Basic Breathing */,
-                                                                                ),
-                                                                                style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                      fontFamily: 'WorkSans',
-                                                                                      color: Colors.white,
-                                                                                      letterSpacing: 0.0,
-                                                                                    ),
-                                                                              ),
-                                                                              Text(
-                                                                                FFLocalizations.of(context).getText(
-                                                                                  '4wxhx1g4' /* Begin your day with clarity an... */,
-                                                                                ),
-                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                      fontFamily: 'WorkSans',
-                                                                                      color: Colors.white,
-                                                                                      letterSpacing: 0.0,
-                                                                                    ),
-                                                                              ),
-                                                                              Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                children: [
-                                                                                  Text(
-                                                                                    FFLocalizations.of(context).getText(
-                                                                                      '38ig3w2o' /* Free-Form • 15 min */,
-                                                                                    ),
-                                                                                    style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                          fontFamily: 'WorkSans',
-                                                                                          color: Colors.white,
-                                                                                          letterSpacing: 0.0,
-                                                                                        ),
-                                                                                  ),
-                                                                                  Flexible(
-                                                                                    flex: 1,
-                                                                                    child: FFButtonWidget(
-                                                                                      onPressed: () async {
-                                                                                        logFirebaseEvent('HOME_VERSION5_PAGE_START_BTN_ON_TAP');
-                                                                                        logFirebaseEvent('Button_haptic_feedback');
-                                                                                        HapticFeedback.lightImpact();
-                                                                                        logFirebaseEvent('Button_play_sound');
-                                                                                        _model.soundPlayer10 ??= AudioPlayer();
-                                                                                        if (_model.soundPlayer10!.playing) {
-                                                                                          await _model.soundPlayer10!.stop();
-                                                                                        }
-                                                                                        _model.soundPlayer10!.setVolume(0.62);
-                                                                                        _model.soundPlayer10!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer10!.play());
-
-                                                                                        logFirebaseEvent('Button_navigate_to');
-
-                                                                                        context.pushNamed(
-                                                                                          BasicBreathingGoalPageWidget.routeName,
-                                                                                          extra: <String, dynamic>{
-                                                                                            '__transition_info__': TransitionInfo(
-                                                                                              hasTransition: true,
-                                                                                              transitionType: PageTransitionType.fade,
-                                                                                              duration: Duration(milliseconds: 2),
-                                                                                            ),
-                                                                                          },
-                                                                                        );
-                                                                                      },
-                                                                                      text: FFLocalizations.of(context).getText(
-                                                                                        'e5vi0aj4' /* Start */,
-                                                                                      ),
-                                                                                      options: FFButtonOptions(
-                                                                                        height: 32.0,
-                                                                                        padding: EdgeInsets.all(8.0),
-                                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                        color: Colors.white,
-                                                                                        textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'WorkSans',
-                                                                                              letterSpacing: 0.0,
-                                                                                            ),
-                                                                                        elevation: 0.0,
-                                                                                        borderRadius: BorderRadius.circular(16.0),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                            ].divide(SizedBox(height: 8.0)),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
+                                                              ).addWalkthrough(
+                                                                rowWy6kwc96,
+                                                                _model
+                                                                    .introWalkthroughController,
                                                               ),
                                                             ),
                                                             Padding(
@@ -1780,22 +2027,22 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                 logFirebaseEvent('Button_haptic_feedback');
                                                                                 HapticFeedback.lightImpact();
                                                                                 logFirebaseEvent('Button_play_sound');
-                                                                                _model.soundPlayer11 ??= AudioPlayer();
-                                                                                if (_model.soundPlayer11!.playing) {
-                                                                                  await _model.soundPlayer11!.stop();
+                                                                                _model.soundPlayer12 ??= AudioPlayer();
+                                                                                if (_model.soundPlayer12!.playing) {
+                                                                                  await _model.soundPlayer12!.stop();
                                                                                 }
-                                                                                _model.soundPlayer11!.setVolume(1.0);
-                                                                                _model.soundPlayer11!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer11!.play());
+                                                                                _model.soundPlayer12!.setVolume(1.0);
+                                                                                _model.soundPlayer12!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer12!.play());
 
                                                                                 logFirebaseEvent('Button_navigate_to');
 
                                                                                 context.pushNamed(
-                                                                                  MindPageWidget.routeName,
+                                                                                  LucilleSuggestionSplashPageWidget.routeName,
                                                                                   extra: <String, dynamic>{
                                                                                     '__transition_info__': TransitionInfo(
                                                                                       hasTransition: true,
                                                                                       transitionType: PageTransitionType.fade,
-                                                                                      duration: Duration(milliseconds: 9),
+                                                                                      duration: Duration(milliseconds: 0),
                                                                                     ),
                                                                                   },
                                                                                 );
@@ -1828,6 +2075,204 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                       ),
                                                                     ),
                                                                   ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Flexible(
+                                                              flex: 1,
+                                                              child: Container(
+                                                                width: double
+                                                                    .infinity,
+                                                                height: 155.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              16.0),
+                                                                ),
+                                                                child: Stack(
+                                                                  children: [
+                                                                    ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              16.0),
+                                                                      child: Image
+                                                                          .network(
+                                                                        'https://images.unsplash.com/photo-1461468611824-46457c0e11fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxicmVhdGhpbmd8ZW58MHx8fHwxNzcxMDY0MzAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
+                                                                        width: double
+                                                                            .infinity,
+                                                                        height:
+                                                                            double.infinity,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                    Container(
+                                                                      width: double
+                                                                          .infinity,
+                                                                      height: double
+                                                                          .infinity,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        gradient:
+                                                                            LinearGradient(
+                                                                          colors: [
+                                                                            Color(0x59000000),
+                                                                            Color(0xD6000000)
+                                                                          ],
+                                                                          stops: [
+                                                                            0.0,
+                                                                            1.0
+                                                                          ],
+                                                                          begin: AlignmentDirectional(
+                                                                              0.0,
+                                                                              -1.0),
+                                                                          end: AlignmentDirectional(
+                                                                              0,
+                                                                              1.0),
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(16.0),
+                                                                      ),
+                                                                    ).addWalkthrough(
+                                                                      containerI9znmkfb,
+                                                                      _model
+                                                                          .introWalkthroughController,
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          16.0,
+                                                                          16.0,
+                                                                          16.0,
+                                                                          16.0),
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceBetween,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(1.0, -1.0),
+                                                                            child:
+                                                                                AnimatedContainer(
+                                                                              duration: Duration(milliseconds: 800),
+                                                                              curve: Curves.easeIn,
+                                                                              width: 32.0,
+                                                                              height: 32.0,
+                                                                              decoration: BoxDecoration(
+                                                                                color: Colors.white,
+                                                                                image: DecorationImage(
+                                                                                  fit: BoxFit.cover,
+                                                                                  image: Image.asset(
+                                                                                    'assets/images/fire.gif',
+                                                                                  ).image,
+                                                                                ),
+                                                                                shape: BoxShape.circle,
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.start,
+                                                                            children:
+                                                                                [
+                                                                              Text(
+                                                                                FFLocalizations.of(context).getText(
+                                                                                  'l5emvdl2' /* Basic Breathing */,
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                      fontFamily: 'WorkSans',
+                                                                                      color: Colors.white,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                              Text(
+                                                                                FFLocalizations.of(context).getText(
+                                                                                  '4wxhx1g4' /* Begin your day with clarity an... */,
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                      fontFamily: 'WorkSans',
+                                                                                      color: Colors.white,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                              Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                children: [
+                                                                                  Text(
+                                                                                    FFLocalizations.of(context).getText(
+                                                                                      '38ig3w2o' /* Free-Form • 15 min */,
+                                                                                    ),
+                                                                                    style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                          fontFamily: 'WorkSans',
+                                                                                          color: Colors.white,
+                                                                                          letterSpacing: 0.0,
+                                                                                        ),
+                                                                                  ),
+                                                                                  Flexible(
+                                                                                    flex: 1,
+                                                                                    child: FFButtonWidget(
+                                                                                      onPressed: () async {
+                                                                                        logFirebaseEvent('HOME_VERSION5_PAGE_START_BTN_ON_TAP');
+                                                                                        logFirebaseEvent('Button_haptic_feedback');
+                                                                                        HapticFeedback.lightImpact();
+                                                                                        logFirebaseEvent('Button_play_sound');
+                                                                                        _model.soundPlayer13 ??= AudioPlayer();
+                                                                                        if (_model.soundPlayer13!.playing) {
+                                                                                          await _model.soundPlayer13!.stop();
+                                                                                        }
+                                                                                        _model.soundPlayer13!.setVolume(0.62);
+                                                                                        _model.soundPlayer13!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer13!.play());
+
+                                                                                        logFirebaseEvent('Button_navigate_to');
+
+                                                                                        context.pushNamed(
+                                                                                          BasicBreathingGoalPageWidget.routeName,
+                                                                                          extra: <String, dynamic>{
+                                                                                            '__transition_info__': TransitionInfo(
+                                                                                              hasTransition: true,
+                                                                                              transitionType: PageTransitionType.fade,
+                                                                                              duration: Duration(milliseconds: 2),
+                                                                                            ),
+                                                                                          },
+                                                                                        );
+                                                                                      },
+                                                                                      text: FFLocalizations.of(context).getText(
+                                                                                        'e5vi0aj4' /* Start */,
+                                                                                      ),
+                                                                                      options: FFButtonOptions(
+                                                                                        height: 32.0,
+                                                                                        padding: EdgeInsets.all(8.0),
+                                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                        color: Colors.white,
+                                                                                        textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'WorkSans',
+                                                                                              letterSpacing: 0.0,
+                                                                                            ),
+                                                                                        elevation: 0.0,
+                                                                                        borderRadius: BorderRadius.circular(16.0),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ].divide(SizedBox(height: 8.0)),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ],
                                                                 ),
                                                               ),
                                                             ),
@@ -2036,6 +2481,10 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                           16.0)),
                                                                 ),
                                                               ),
+                                                            ).addWalkthrough(
+                                                              container54qb5m7w,
+                                                              _model
+                                                                  .introWalkthroughController,
                                                             ),
                                                             Hero(
                                                               tag: 'logo',

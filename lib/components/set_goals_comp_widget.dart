@@ -5,6 +5,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'set_goals_comp_model.dart';
 export 'set_goals_comp_model.dart';
 
@@ -121,7 +122,9 @@ class _SetGoalsCompWidgetState extends State<SetGoalsCompWidget> {
                                   backgroundColor: Colors.transparent,
                                   alignment: AlignmentDirectional(0.0, 0.0)
                                       .resolve(Directionality.of(context)),
-                                  child: HelpCompWidget(),
+                                  child: WebViewAware(
+                                    child: HelpCompWidget(),
+                                  ),
                                 );
                               },
                             );

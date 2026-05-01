@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'todays_help_version5_comp_model.dart';
 export 'todays_help_version5_comp_model.dart';
 
@@ -109,9 +110,11 @@ class _TodaysHelpVersion5CompWidgetState
                               backgroundColor: Colors.transparent,
                               context: context,
                               builder: (context) {
-                                return Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: HelpCompWidget(),
+                                return WebViewAware(
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: HelpCompWidget(),
+                                  ),
                                 );
                               },
                             ).then((value) => safeSetState(() {}));
@@ -139,9 +142,11 @@ class _TodaysHelpVersion5CompWidgetState
                             backgroundColor: Colors.transparent,
                             context: context,
                             builder: (context) {
-                              return Padding(
-                                padding: MediaQuery.viewInsetsOf(context),
-                                child: SideNavWidget(),
+                              return WebViewAware(
+                                child: Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: SideNavWidget(),
+                                ),
                               );
                             },
                           ).then((value) => safeSetState(() {}));

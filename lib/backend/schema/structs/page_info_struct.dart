@@ -155,7 +155,7 @@ Map<String, dynamic> getPageInfoFirestoreData(
   final firestoreData = mapToFirestore(pageInfo.toMap());
 
   // Add any Firestore field values
-  pageInfo.firestoreUtilData.fieldValues
+  mapToFirestore(pageInfo.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

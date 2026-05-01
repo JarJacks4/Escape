@@ -116,8 +116,6 @@ class _ThroatChakraMoodScanWidgetState extends State<ThroatChakraMoodScanWidget>
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(0.0),
-          bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(15.0),
           topRight: Radius.circular(15.0),
         ),
@@ -127,8 +125,6 @@ class _ThroatChakraMoodScanWidgetState extends State<ThroatChakraMoodScanWidget>
         decoration: BoxDecoration(
           color: Color(0xF30F1A3A),
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(0.0),
-            bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(15.0),
             topRight: Radius.circular(15.0),
           ),

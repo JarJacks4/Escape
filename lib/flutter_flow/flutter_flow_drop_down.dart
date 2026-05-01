@@ -1,5 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
-
+import 'package:webviewx_plus/webviewx_plus.dart';
+import 'package:flutter/foundation.dart';
 import 'form_field_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -27,6 +28,7 @@ class FlutterFlowDropDown<T> extends StatefulWidget {
     required this.borderWidth,
     required this.borderRadius,
     required this.borderColor,
+    this.focusBorderColor,
     required this.margin,
     this.hidesUnderline = false,
     this.disabled = false,
@@ -70,6 +72,7 @@ class FlutterFlowDropDown<T> extends StatefulWidget {
   final double borderWidth;
   final double borderRadius;
   final Color borderColor;
+  final Color? focusBorderColor;
   final EdgeInsetsGeometry margin;
   final bool hidesUnderline;
   final bool disabled;
@@ -126,6 +129,9 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
 
   late void Function() _listener;
   final TextEditingController _textEditingController = TextEditingController();
+  late final FocusNode _focusNode = FocusNode()
+    ..addListener(() => setState(() => _isFocused = _focusNode.hasFocus));
+  bool _isFocused = false;
 
   @override
   void initState() {
@@ -147,12 +153,16 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
     } else {
       controller.removeListener(_listener);
     }
+    _focusNode.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final dropdownWidget = _buildDropdownWidget();
+    final effectiveBorderColor = _isFocused && widget.focusBorderColor != null
+        ? widget.focusBorderColor!
+        : widget.borderColor;
     return SizedBox(
       width: widget.width,
       height: widget.height,
@@ -160,7 +170,7 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           border: Border.all(
-            color: widget.borderColor,
+            color: effectiveBorderColor,
             width: widget.borderWidth,
           ),
           color: widget.fillColor,
@@ -221,10 +231,17 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
         (option) => DropdownMenuItem<T>(
             key: widget.optionsHasValueKeys ? _getItemKey(option) : null,
             value: option,
-            child: Padding(
-              padding: _useDropdown2() ? horizontalMargin : EdgeInsets.zero,
-              child: Text(optionLabels[option] ?? '', style: widget.textStyle),
-            )),
+            child: Builder(builder: (_) {
+              final child = Padding(
+                padding: _useDropdown2() ? horizontalMargin : EdgeInsets.zero,
+                child:
+                    Text(optionLabels[option] ?? '', style: widget.textStyle),
+              );
+              if (kIsWeb) {
+                return WebViewAware(child: child);
+              }
+              return child;
+            })),
       )
       .toList();
 
@@ -239,37 +256,41 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
             builder: (context, menuSetState) {
               final isSelected =
                   multiSelectController.value?.contains(item) ?? false;
-              return InkWell(
-                  onTap: () {
-                    multiSelectController.value ??= [];
-                    isSelected
-                        ? multiSelectController.value!.remove(item)
-                        : multiSelectController.value!.add(item);
-                    multiSelectController.update();
-                    // This rebuilds the StatefulWidget to update the button's text.
-                    setState(() {});
-                    // This rebuilds the dropdownMenu Widget to update the check mark.
-                    menuSetState(() {});
-                  },
-                  child: Container(
-                    height: double.infinity,
-                    padding: horizontalMargin,
-                    child: Row(
-                      children: [
-                        if (isSelected)
-                          const Icon(Icons.check_box_outlined)
-                        else
-                          const Icon(Icons.check_box_outline_blank),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: Text(
-                            optionLabels[item]!,
-                            style: widget.textStyle,
-                          ),
+              return InkWell(onTap: () {
+                multiSelectController.value ??= [];
+                isSelected
+                    ? multiSelectController.value!.remove(item)
+                    : multiSelectController.value!.add(item);
+                multiSelectController.update();
+                // This rebuilds the StatefulWidget to update the button's text.
+                setState(() {});
+                // This rebuilds the dropdownMenu Widget to update the check mark.
+                menuSetState(() {});
+              }, child: Builder(builder: (_) {
+                final child = Container(
+                  height: double.infinity,
+                  padding: horizontalMargin,
+                  child: Row(
+                    children: [
+                      if (isSelected)
+                        const Icon(Icons.check_box_outlined)
+                      else
+                        const Icon(Icons.check_box_outline_blank),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Text(
+                          optionLabels[item]!,
+                          style: widget.textStyle,
                         ),
-                      ],
-                    ),
-                  ));
+                      ),
+                    ],
+                  ),
+                );
+                if (kIsWeb) {
+                  return WebViewAware(child: child);
+                }
+                return child;
+              }));
             },
           ),
         ),
@@ -286,6 +307,7 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
       value: currentValue,
       hint: _createHintText(),
       items: isMultiSelect ? _createMultiselectMenuItems() : _createMenuItems(),
+      focusNode: _focusNode,
       iconStyleData: iconStyleData,
       buttonStyleData: ButtonStyleData(
         elevation: widget.elevation.toInt(),
@@ -315,16 +337,22 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
           .map(
             (item) => Align(
                 alignment: AlignmentDirectional.centerStart,
-                child: Text(
-                  isMultiSelect
-                      ? currentValues
-                          .where((v) => optionLabels.containsKey(v))
-                          .map((v) => optionLabels[v])
-                          .join(', ')
-                      : optionLabels[item]!,
-                  style: widget.textStyle,
-                  maxLines: 1,
-                )),
+                child: Builder(builder: (_) {
+                  final child = Text(
+                    isMultiSelect
+                        ? currentValues
+                            .where((v) => optionLabels.containsKey(v))
+                            .map((v) => optionLabels[v])
+                            .join(', ')
+                        : optionLabels[item]!,
+                    style: widget.textStyle,
+                    maxLines: 1,
+                  );
+                  if (kIsWeb) {
+                    return WebViewAware(child: child);
+                  }
+                  return child;
+                })),
           )
           .toList(),
       dropdownSearchData: widget.isSearchable
@@ -367,13 +395,14 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
             )
           : null,
       // This is to clear the search value when you close the menu
-      onMenuStateChange: widget.isSearchable
-          ? (isOpen) {
-              if (!isOpen) {
-                _textEditingController.clear();
-              }
-            }
-          : null,
+      onMenuStateChange: (isOpen) {
+        if (!isOpen) {
+          if (widget.isSearchable) {
+            _textEditingController.clear();
+          }
+          _focusNode.requestFocus();
+        }
+      },
     );
   }
 }

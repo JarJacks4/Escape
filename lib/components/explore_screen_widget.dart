@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'explore_screen_model.dart';
 export 'explore_screen_model.dart';
 
@@ -152,9 +153,11 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                               enableDrag: false,
                               context: context,
                               builder: (context) {
-                                return Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: HelpCompWidget(),
+                                return WebViewAware(
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: HelpCompWidget(),
+                                  ),
                                 );
                               },
                             ).then((value) => safeSetState(() {}));
@@ -249,8 +252,6 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(0.0),
-                                        bottomRight: Radius.circular(0.0),
                                         topLeft: Radius.circular(16.0),
                                         topRight: Radius.circular(16.0),
                                       ),
@@ -369,8 +370,6 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(0.0),
-                                        bottomRight: Radius.circular(0.0),
                                         topLeft: Radius.circular(16.0),
                                         topRight: Radius.circular(16.0),
                                       ),
@@ -1302,8 +1301,6 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                                   8.0, 0.0, 8.0, 0.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(0.0),
                                   topLeft: Radius.circular(16.0),
                                   topRight: Radius.circular(16.0),
                                 ),
@@ -1418,8 +1415,6 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                                   8.0, 0.0, 8.0, 0.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(0.0),
                                   topLeft: Radius.circular(16.0),
                                   topRight: Radius.circular(16.0),
                                 ),
@@ -1540,8 +1535,6 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                                   8.0, 0.0, 8.0, 0.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(0.0),
                                   topLeft: Radius.circular(16.0),
                                   topRight: Radius.circular(16.0),
                                 ),
@@ -1656,8 +1649,6 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                                   8.0, 0.0, 8.0, 0.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(0.0),
                                   topLeft: Radius.circular(16.0),
                                   topRight: Radius.circular(16.0),
                                 ),

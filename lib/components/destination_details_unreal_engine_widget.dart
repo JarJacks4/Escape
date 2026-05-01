@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'destination_details_unreal_engine_model.dart';
 export 'destination_details_unreal_engine_model.dart';
 
@@ -108,9 +109,11 @@ class _DestinationDetailsUnrealEngineWidgetState
                                 backgroundColor: Colors.transparent,
                                 context: context,
                                 builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: SideNavWidget(),
+                                  return WebViewAware(
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: SideNavWidget(),
+                                    ),
                                   );
                                 },
                               ).then((value) => safeSetState(() {}));

@@ -133,7 +133,7 @@ Map<String, dynamic> getUserReelsFirestoreData(
   final firestoreData = mapToFirestore(userReels.toMap());
 
   // Add any Firestore field values
-  userReels.firestoreUtilData.fieldValues
+  mapToFirestore(userReels.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

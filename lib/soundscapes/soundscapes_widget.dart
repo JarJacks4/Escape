@@ -405,8 +405,6 @@ class _SoundscapesWidgetState extends State<SoundscapesWidget>
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(30.0),
                         bottomRight: Radius.circular(30.0),
-                        topLeft: Radius.circular(0.0),
-                        topRight: Radius.circular(0.0),
                       ),
                     ),
                   ),

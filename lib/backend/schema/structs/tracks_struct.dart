@@ -290,7 +290,8 @@ Map<String, dynamic> getTracksFirestoreData(
   final firestoreData = mapToFirestore(tracks.toMap());
 
   // Add any Firestore field values
-  tracks.firestoreUtilData.fieldValues.forEach((k, v) => firestoreData[k] = v);
+  mapToFirestore(tracks.firestoreUtilData.fieldValues)
+      .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
 }

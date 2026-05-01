@@ -402,7 +402,8 @@ Map<String, dynamic> getSnippetFirestoreData(
   );
 
   // Add any Firestore field values
-  snippet.firestoreUtilData.fieldValues.forEach((k, v) => firestoreData[k] = v);
+  mapToFirestore(snippet.firestoreUtilData.fieldValues)
+      .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
 }

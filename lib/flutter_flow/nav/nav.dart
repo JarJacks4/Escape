@@ -18,8 +18,12 @@ import 'package:cupertino_time_picker_hiuzb7/index.dart'
 import 'package:tiktokfeed_wz8en7/index.dart' as $tiktokfeed_wz8en7;
 import 'package:confetti_modualo_library_b75kfy/index.dart'
     as $confetti_modualo_library_b75kfy;
+import 'package:utility_functions_library_8g4bud/index.dart'
+    as $utility_functions_library_8g4bud;
 import 'package:that_audio_player_oo85ab/index.dart'
     as $that_audio_player_oo85ab;
+import 'package:that_slideable_list_item_mrpo3s/index.dart'
+    as $that_slideable_list_item_mrpo3s;
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -101,9 +105,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
     homePageWidgetPath: 'homePage1215',
   );
 
+  $utility_functions_library_8g4bud.initializeRoutes(
+    testPageWidgetName: 'utility_functions_library_8g4bud.TestPage',
+    testPageWidgetPath: 'testUtilityPage',
+  );
+
   $that_audio_player_oo85ab.initializeRoutes(
     homePageWidgetName: 'that_audio_player_oo85ab.HomePage',
-    homePageWidgetPath: 'homePage',
+    homePageWidgetPath: 'homePage_that-audio-player-oo85ab',
     playerPageFocusWidgetName: 'that_audio_player_oo85ab.PlayerPageFocus',
     playerPageFocusWidgetPath: 'playerPageFocus',
     playerPageSleepWidgetName: 'that_audio_player_oo85ab.PlayerPageSleep',
@@ -118,6 +127,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
     playerPageFINALAllTabWidgetPath: 'playerPageFINALAllTab',
     sampleWidgetName: 'that_audio_player_oo85ab.sample',
     sampleWidgetPath: 'sample',
+    playerPageLucilleWidgetName: 'that_audio_player_oo85ab.PlayerPageLucille',
+    playerPageLucilleWidgetPath: 'playerPageLucille',
+  );
+
+  $that_slideable_list_item_mrpo3s.initializeRoutes(
+    homePageWidgetName: 'that_slideable_list_item_mrpo3s.HomePage',
+    homePageWidgetPath: 'homePage4',
   );
 
   return GoRouter(
@@ -348,16 +364,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => SettingsWidget(),
           ),
           FFRoute(
-            name: MeditationReorderWidget.routeName,
-            path: MeditationReorderWidget.routePath,
-            builder: (context, params) => MeditationReorderWidget(
-              tabIndex: params.getParam(
-                'tabIndex',
-                ParamType.int,
-              ),
-            ),
-          ),
-          FFRoute(
             name: BodyReorderWidget.routeName,
             path: BodyReorderWidget.routePath,
             builder: (context, params) => BodyReorderWidget(
@@ -578,24 +584,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
                       page: ConnectionCommunityStartPageVersion5Widget(),
                     )),
           FFRoute(
-            name: TestPage1Widget.routeName,
-            path: TestPage1Widget.routePath,
-            builder: (context, params) => TestPage1Widget(),
-          ),
-          FFRoute(
             name: EnergyScanVersion5Widget.routeName,
             path: EnergyScanVersion5Widget.routePath,
             builder: (context, params) => EnergyScanVersion5Widget(),
-          ),
-          FFRoute(
-            name: SampleBlankWidget.routeName,
-            path: SampleBlankWidget.routePath,
-            builder: (context, params) => SampleBlankWidget(),
-          ),
-          FFRoute(
-            name: SamppleWidget.routeName,
-            path: SamppleWidget.routePath,
-            builder: (context, params) => SamppleWidget(),
           ),
           FFRoute(
             name: ProfileVersion5Widget.routeName,
@@ -782,6 +773,143 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => ComingSoonMarketplaceWidget(),
           ),
           FFRoute(
+            name: LucilleSuggestionsWidget.routeName,
+            path: LucilleSuggestionsWidget.routePath,
+            builder: (context, params) => LucilleSuggestionsWidget(),
+          ),
+          FFRoute(
+            name: LucilleSuggestionSplashPageWidget.routeName,
+            path: LucilleSuggestionSplashPageWidget.routePath,
+            builder: (context, params) => LucilleSuggestionSplashPageWidget(),
+          ),
+          FFRoute(
+            name: RewardsSplashPageWidget.routeName,
+            path: RewardsSplashPageWidget.routePath,
+            builder: (context, params) => RewardsSplashPageWidget(),
+          ),
+          FFRoute(
+            name: GeneralTransitonSpalshPageWidget.routeName,
+            path: GeneralTransitonSpalshPageWidget.routePath,
+            builder: (context, params) => GeneralTransitonSpalshPageWidget(),
+          ),
+          FFRoute(
+            name: LucilleSuggestionPageWidget.routeName,
+            path: LucilleSuggestionPageWidget.routePath,
+            builder: (context, params) => LucilleSuggestionPageWidget(
+              exerciseTitle: params.getParam(
+                'exerciseTitle',
+                ParamType.String,
+              ),
+              exerciseDescription: params.getParam(
+                'exerciseDescription',
+                ParamType.String,
+              ),
+              exerciseDuration: params.getParam(
+                'exerciseDuration',
+                ParamType.double,
+              ),
+              exersiseSoundscape: params.getParam(
+                'exersiseSoundscape',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: MoodSaverWidget.routeName,
+            path: MoodSaverWidget.routePath,
+            builder: (context, params) => MoodSaverWidget(),
+          ),
+          FFRoute(
+            name: MoodScanHelpWidget.routeName,
+            path: MoodScanHelpWidget.routePath,
+            builder: (context, params) => MoodScanHelpWidget(),
+          ),
+          FFRoute(
+            name: BeginSessionPageWidget.routeName,
+            path: BeginSessionPageWidget.routePath,
+            builder: (context, params) => BeginSessionPageWidget(),
+          ),
+          FFRoute(
+            name: RespirationPageWidget.routeName,
+            path: RespirationPageWidget.routePath,
+            builder: (context, params) => RespirationPageWidget(),
+          ),
+          FFRoute(
+            name: LucilleBody1PageWidget.routeName,
+            path: LucilleBody1PageWidget.routePath,
+            builder: (context, params) => LucilleBody1PageWidget(),
+          ),
+          FFRoute(
+            name: CoachingSessionPageWidget.routeName,
+            path: CoachingSessionPageWidget.routePath,
+            builder: (context, params) => CoachingSessionPageWidget(),
+          ),
+          FFRoute(
+            name: MoodSaverPageWidget.routeName,
+            path: MoodSaverPageWidget.routePath,
+            builder: (context, params) => MoodSaverPageWidget(),
+          ),
+          FFRoute(
+            name: MoodScannerPageWidget.routeName,
+            path: MoodScannerPageWidget.routePath,
+            builder: (context, params) => MoodScannerPageWidget(),
+          ),
+          FFRoute(
+            name: ScanMoodLaodingPageWidget.routeName,
+            path: ScanMoodLaodingPageWidget.routePath,
+            builder: (context, params) => ScanMoodLaodingPageWidget(),
+          ),
+          FFRoute(
+            name: MoodResultPageWidget.routeName,
+            path: MoodResultPageWidget.routePath,
+            builder: (context, params) => MoodResultPageWidget(),
+          ),
+          FFRoute(
+            name: WebViewSampleWidget.routeName,
+            path: WebViewSampleWidget.routePath,
+            builder: (context, params) => WebViewSampleWidget(),
+          ),
+          FFRoute(
+            name: Sample2Widget.routeName,
+            path: Sample2Widget.routePath,
+            builder: (context, params) => Sample2Widget(),
+          ),
+          FFRoute(
+            name: PlanetWidget.routeName,
+            path: PlanetWidget.routePath,
+            builder: (context, params) => PlanetWidget(),
+          ),
+          FFRoute(
+            name: HomePageWidget.routeName,
+            path: HomePageWidget.routePath,
+            builder: (context, params) => HomePageWidget(),
+          ),
+          FFRoute(
+            name: MoodScanResultVersion5Widget.routeName,
+            path: MoodScanResultVersion5Widget.routePath,
+            builder: (context, params) => MoodScanResultVersion5Widget(),
+          ),
+          FFRoute(
+            name: MoodResultTransitionWidget.routeName,
+            path: MoodResultTransitionWidget.routePath,
+            builder: (context, params) => MoodResultTransitionWidget(),
+          ),
+          FFRoute(
+            name: SoundscapesSeeAllPageWidget.routeName,
+            path: SoundscapesSeeAllPageWidget.routePath,
+            builder: (context, params) => SoundscapesSeeAllPageWidget(),
+          ),
+          FFRoute(
+            name: ForgotPasswordWidget.routeName,
+            path: ForgotPasswordWidget.routePath,
+            builder: (context, params) => ForgotPasswordWidget(),
+          ),
+          FFRoute(
+            name: ForgotPasswordCopyWidget.routeName,
+            path: ForgotPasswordCopyWidget.routePath,
+            builder: (context, params) => ForgotPasswordCopyWidget(),
+          ),
+          FFRoute(
             name: $cupertino_time_picker_hiuzb7.HomePageWidget.routeName,
             path: $cupertino_time_picker_hiuzb7.HomePageWidget.routePath,
             builder: (context, params) =>
@@ -816,6 +944,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             path: $confetti_modualo_library_b75kfy.HomePageWidget.routePath,
             builder: (context, params) =>
                 $confetti_modualo_library_b75kfy.HomePageWidget(),
+          ),
+          FFRoute(
+            name: $utility_functions_library_8g4bud.TestPageWidget.routeName,
+            path: $utility_functions_library_8g4bud.TestPageWidget.routePath,
+            builder: (context, params) =>
+                $utility_functions_library_8g4bud.TestPageWidget(),
           ),
           FFRoute(
             name: $that_audio_player_oo85ab.HomePageWidget.routeName,
@@ -870,6 +1004,46 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             path: $that_audio_player_oo85ab.SampleWidget.routePath,
             builder: (context, params) =>
                 $that_audio_player_oo85ab.SampleWidget(),
+          ),
+          FFRoute(
+            name: $that_audio_player_oo85ab.PlayerPageLucilleWidget.routeName,
+            path: $that_audio_player_oo85ab.PlayerPageLucilleWidget.routePath,
+            builder: (context, params) =>
+                $that_audio_player_oo85ab.PlayerPageLucilleWidget(
+              currentSong: params.getParam(
+                'currentSong',
+                ParamType.DataStruct,
+                isList: false,
+                structBuilder: that_audio_player_oo85ab_data_schema
+                    .MediaStruct.fromSerializableMap,
+              ),
+              lucilleAudioUrl: params.getParam(
+                'lucilleAudioUrl',
+                ParamType.String,
+              ),
+              soundscapeTitle: params.getParam(
+                'soundscapeTitle',
+                ParamType.String,
+              ),
+              soundscapeID: params.getParam(
+                'soundscapeID',
+                ParamType.String,
+              ),
+              soundscapeCategory: params.getParam(
+                'soundscapeCategory',
+                ParamType.String,
+              ),
+              sessionID: params.getParam(
+                'sessionID',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: $that_slideable_list_item_mrpo3s.HomePageWidget.routeName,
+            path: $that_slideable_list_item_mrpo3s.HomePageWidget.routePath,
+            builder: (context, params) =>
+                $that_slideable_list_item_mrpo3s.HomePageWidget(),
           )
         ].map((r) => r.toRoute(appStateNotifier)).toList(),
       ),
@@ -958,7 +1132,9 @@ extension _GoRouterStateExtensions on GoRouterState {
       '__transition_info__cupertino_time_picker_hiuzb7',
       '__transition_info__tiktokfeed_wz8en7',
       '__transition_info__confetti_modualo_library_b75kfy',
-      '__transition_info__that_audio_player_oo85ab'
+      '__transition_info__utility_functions_library_8g4bud',
+      '__transition_info__that_audio_player_oo85ab',
+      '__transition_info__that_slideable_list_item_mrpo3s'
     ];
     for (final key in possibleKeys) {
       if (extraMap.containsKey(key)) {

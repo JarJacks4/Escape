@@ -278,7 +278,7 @@ Map<String, dynamic> getTiktokPageFirestoreData(
   final firestoreData = mapToFirestore(tiktokPage.toMap());
 
   // Add any Firestore field values
-  tiktokPage.firestoreUtilData.fieldValues
+  mapToFirestore(tiktokPage.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

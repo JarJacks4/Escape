@@ -22,6 +22,10 @@ class ConnectionCommunityStartPageVersion5Model
   AudioPlayer? soundPlayer;
   // Stores action output result for [Custom Action - reorderTiktokPages] action in TabBar widget.
   List<tiktokfeed_wz8en7_data_schema.TiktokPageStruct>? reorderVideos;
+  // Stores action output result for [Custom Action - reorderTiktokPages] action in TabBar widget.
+  List<tiktokfeed_wz8en7_data_schema.TiktokPageStruct>? reorderBreathingVideos;
+  // Stores action output result for [Custom Action - reorderTiktokPages] action in TabBar widget.
+  List<tiktokfeed_wz8en7_data_schema.TiktokPageStruct>? reorderBody;
   // Model for MarketplaceButton component.
   late MarketplaceButtonModel marketplaceButtonModel;
   // Model for InfluencerAmbassadorProgramButton component.

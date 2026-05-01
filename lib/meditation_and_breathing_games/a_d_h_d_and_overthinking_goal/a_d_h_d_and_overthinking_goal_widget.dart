@@ -7,6 +7,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'a_d_h_d_and_overthinking_goal_model.dart';
 export 'a_d_h_d_and_overthinking_goal_model.dart';
 
@@ -229,14 +230,16 @@ class _ADHDAndOverthinkingGoalWidgetState
                                   backgroundColor: Colors.transparent,
                                   alignment: AlignmentDirectional(0.0, 0.0)
                                       .resolve(Directionality.of(context)),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      FocusScope.of(dialogContext).unfocus();
-                                      FocusManager.instance.primaryFocus
-                                          ?.unfocus();
-                                    },
-                                    child: ConfettiPageExpertCompWidget(
-                                      exerciseTitle: '',
+                                  child: WebViewAware(
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        FocusScope.of(dialogContext).unfocus();
+                                        FocusManager.instance.primaryFocus
+                                            ?.unfocus();
+                                      },
+                                      child: ConfettiPageExpertCompWidget(
+                                        exerciseTitle: '',
+                                      ),
                                     ),
                                   ),
                                 );

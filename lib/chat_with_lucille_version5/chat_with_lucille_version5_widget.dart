@@ -1,18 +1,23 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/empty_chats_widget.dart';
+import '/components/response_assessment_comp_widget.dart';
 import '/components/side_nav_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
 import '/lucille_g_p_t_comp/writing_indicator/writing_indicator_widget.dart';
 import 'dart:convert';
 import 'dart:ui';
+import '/app_events/index.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/permissions_util.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
@@ -22,13 +27,17 @@ import 'package:that_audio_player_oo85ab/app_state.dart'
     as that_audio_player_oo85ab_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:ff_commons/api_requests/api_streaming.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
+import 'package:material_palette/material_palette.dart';
 import 'package:provider/provider.dart';
+import 'package:record/record.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'chat_with_lucille_version5_model.dart';
 export 'chat_with_lucille_version5_model.dart';
 
@@ -49,8 +58,6 @@ class _ChatWithLucilleVersion5WidgetState
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = <String, AnimationInfo>{};
-
   @override
   void initState() {
     super.initState();
@@ -66,47 +73,12 @@ class _ChatWithLucilleVersion5WidgetState
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
-
-    animationsMap.addAll({
-      'richTextOnActionTriggerAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 220.ms),
-          FadeEffect(
-            curve: Curves.easeIn,
-            delay: 220.0.ms,
-            duration: 380.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'richTextOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeIn,
-            delay: 220.0.ms,
-            duration: 690.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-    });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
   void dispose() {
     _model.dispose();
+
     super.dispose();
   }
 
@@ -126,37 +98,38 @@ class _ChatWithLucilleVersion5WidgetState
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: SingleChildScrollView(
-          controller: _model.columnController,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
+        body: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Flexible(
+              flex: 1,
+              child: Container(
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondary,
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: Image.asset(
-                      'assets/images/a3b5e0293de73e106d2a7cfcdc1f7d8fdd903b07.gif',
+                      'assets/images/7b5466eebefd1ecf1b8b13a24cd282703941d5c8.png',
                     ).image,
                   ),
                 ),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 880.9,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Color(0x31EDF1F7),
-                          FlutterFlowTheme.of(context).secondary
-                        ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(0.0, -1.0),
-                        end: AlignmentDirectional(0, 1.0),
-                      ),
+                child: Container(
+                  width: double.infinity,
+                  height: 817.9,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0x41EDF1F7),
+                        FlutterFlowTheme.of(context).tertiary
+                      ],
+                      stops: [0.0, 1.0],
+                      begin: AlignmentDirectional(0.0, -1.0),
+                      end: AlignmentDirectional(0, 1.0),
                     ),
+                  ),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -185,21 +158,26 @@ class _ChatWithLucilleVersion5WidgetState
                                 },
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 15.0, 0.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  '2gn348g9' /* Chat with Lucille */,
+                            Flexible(
+                              flex: 1,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 15.0, 0.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    '2gn348g9' /* Chat with Lucille */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .override(
+                                        fontFamily: 'The Seasons',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        fontSize: 26.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .headlineSmall
-                                    .override(
-                                      fontFamily: 'The Seasons',
-                                      fontSize: 26.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
                               ),
                             ),
                             Padding(
@@ -225,16 +203,18 @@ class _ChatWithLucilleVersion5WidgetState
                                     enableDrag: false,
                                     context: context,
                                     builder: (context) {
-                                      return GestureDetector(
-                                        onTap: () {
-                                          FocusScope.of(context).unfocus();
-                                          FocusManager.instance.primaryFocus
-                                              ?.unfocus();
-                                        },
-                                        child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: SideNavWidget(),
+                                      return WebViewAware(
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            FocusScope.of(context).unfocus();
+                                            FocusManager.instance.primaryFocus
+                                                ?.unfocus();
+                                          },
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: SideNavWidget(),
+                                          ),
                                         ),
                                       );
                                     },
@@ -246,554 +226,703 @@ class _ChatWithLucilleVersion5WidgetState
                         ),
                         Flexible(
                           flex: 1,
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 70.0, 0.0, 0.0),
-                            child: Column(
-                              children: [
-                                Align(
-                                  alignment: Alignment(0.0, 0),
-                                  child: FlutterFlowButtonTabBar(
-                                    useToggleButtonStyle: true,
-                                    isScrollable: true,
-                                    labelStyle: FlutterFlowTheme.of(context)
-                                        .titleMedium
-                                        .override(
-                                      fontFamily: 'The Seasons',
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                      shadows: [
-                                        Shadow(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          offset: Offset(8.0, 8.0),
-                                          blurRadius: 8.0,
-                                        )
+                          child: Column(
+                            children: [
+                              Align(
+                                alignment: Alignment(0.0, 0),
+                                child: FlutterFlowButtonTabBar(
+                                  useToggleButtonStyle: true,
+                                  isScrollable: true,
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                    fontFamily: 'The Seasons',
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.normal,
+                                    shadows: [
+                                      Shadow(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        offset: Offset(8.0, 8.0),
+                                        blurRadius: 8.0,
+                                      )
+                                    ],
+                                  ),
+                                  unselectedLabelStyle:
+                                      FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .override(
+                                            fontFamily: 'The Seasons',
+                                            letterSpacing: 0.0,
+                                          ),
+                                  labelColor:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  unselectedLabelColor:
+                                      FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                  unselectedBackgroundColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  borderWidth: 2.0,
+                                  borderRadius: 50.0,
+                                  elevation: 3.0,
+                                  labelPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 11.0, 0.0),
+                                  buttonMargin: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 0.0, 8.0, 0.0),
+                                  padding: EdgeInsets.all(8.0),
+                                  tabs: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 0.0),
+                                          child: Icon(
+                                            Icons.mic,
+                                          ),
+                                        ),
+                                        Tab(
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'ottskynf' /* Talk with Lucille */,
+                                          ),
+                                        ),
                                       ],
                                     ),
-                                    unselectedLabelStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .titleMedium
-                                            .override(
-                                              fontFamily: 'The Seasons',
-                                              letterSpacing: 0.0,
-                                            ),
-                                    labelColor: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    unselectedLabelColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).secondary,
-                                    unselectedBackgroundColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    borderWidth: 2.0,
-                                    borderRadius: 50.0,
-                                    elevation: 3.0,
-                                    labelPadding:
-                                        EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 11.0, 0.0),
-                                    buttonMargin:
-                                        EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 8.0, 0.0),
-                                    padding: EdgeInsets.all(8.0),
-                                    tabs: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 0.0, 8.0, 0.0),
-                                            child: Icon(
-                                              Icons.mic,
-                                            ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 0.0),
+                                          child: Icon(
+                                            Icons.message_outlined,
                                           ),
-                                          Tab(
-                                            text: FFLocalizations.of(context)
-                                                .getText(
-                                              'ottskynf' /* Talk with Lucille */,
-                                            ),
+                                        ),
+                                        Tab(
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'zy86zp88' /* Chat with Lucille */,
                                           ),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 0.0, 8.0, 0.0),
-                                            child: Icon(
-                                              Icons.message_outlined,
-                                            ),
-                                          ),
-                                          Tab(
-                                            text: FFLocalizations.of(context)
-                                                .getText(
-                                              'zy86zp88' /* Chat with Lucille */,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                    controller: _model.tabBarController,
-                                    onTap: (i) async {
-                                      [() async {}, () async {}][i]();
-                                    },
-                                  ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                  controller: _model.tabBarController,
+                                  onTap: (i) async {
+                                    [() async {}, () async {}][i]();
+                                  },
                                 ),
-                                Expanded(
-                                  child: TabBarView(
-                                    controller: _model.tabBarController,
-                                    children: [
-                                      KeepAliveWidgetWrapper(
-                                        builder: (context) => Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Align(
+                              ),
+                              Expanded(
+                                child: TabBarView(
+                                  controller: _model.tabBarController,
+                                  children: [
+                                    KeepAliveWidgetWrapper(
+                                      builder: (context) => Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Flexible(
+                                            flex: 1,
+                                            child: Align(
                                               alignment: AlignmentDirectional(
                                                   0.0, -1.0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        0.0, 375.0, 0.0, 0.0),
+                                                        0.0, 300.0, 0.0, 0.0),
                                                 child: AnimatedContainer(
                                                   duration: Duration(
                                                       milliseconds: 230),
                                                   curve: Curves.easeOut,
-                                                  width: 149.7,
-                                                  height: 108.31,
+                                                  width: 129.0,
+                                                  height: 120.0,
                                                   decoration: BoxDecoration(
                                                     boxShadow: [
                                                       BoxShadow(
-                                                        blurRadius: 8.0,
+                                                        blurRadius: 80.0,
                                                         color:
-                                                            Color(0xC9EDF1F7),
+                                                            Color(0xA6FCC462),
                                                         offset: Offset(
-                                                          8.0,
-                                                          8.0,
+                                                          0.0,
+                                                          0.0,
                                                         ),
-                                                        spreadRadius: 8.0,
                                                       )
                                                     ],
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             50.0),
                                                   ),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
+                                                  child: GestureDetector(
+                                                    onLongPressEnd:
+                                                        (details) async {
                                                       logFirebaseEvent(
                                                           'CHAT_WITH_LUCILLE_VERSION5_LottieAnimati');
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_haptic_feedback');
+                                                      HapticFeedback
+                                                          .heavyImpact();
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_play_sound');
+                                                      _model.soundPlayer2 ??=
+                                                          AudioPlayer();
+                                                      if (_model.soundPlayer2!
+                                                          .playing) {
+                                                        await _model
+                                                            .soundPlayer2!
+                                                            .stop();
+                                                      }
+                                                      _model.soundPlayer2!
+                                                          .setVolume(1.0);
+                                                      _model.soundPlayer2!
+                                                          .setAsset(
+                                                              'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav')
+                                                          .then((_) => _model
+                                                              .soundPlayer2!
+                                                              .play());
+
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_stop_audio_recording');
+                                                      await stopAudioRecording(
+                                                        audioRecorder: _model
+                                                            .audioRecorder,
+                                                        audioName:
+                                                            'recordedFileBytes',
+                                                        onRecordingComplete:
+                                                            (audioFilePath,
+                                                                audioBytes) {
+                                                          _model.stopUserVoice =
+                                                              audioFilePath;
+                                                          _model.recordedFileBytes =
+                                                              audioBytes;
+                                                        },
+                                                      );
+
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_show_snack_bar');
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'Recording Stopped',
+                                                            style: TextStyle(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
+                                                            ),
+                                                          ),
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  4000),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondary,
+                                                        ),
+                                                      );
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_store_file_for_upload');
+                                                      final selectedFiles =
+                                                          await selectFiles(
+                                                        allowedExtensions: [
+                                                          'mp3'
+                                                        ],
+                                                        multiFile: true,
+                                                      );
+                                                      if (selectedFiles !=
+                                                          null) {
+                                                        safeSetState(() => _model
+                                                                .isDataUploading_uploadAudioFile =
+                                                            true);
+                                                        var selectedUploadedFiles =
+                                                            <FFUploadedFile>[];
+
+                                                        try {
+                                                          selectedUploadedFiles =
+                                                              selectedFiles
+                                                                  .map((m) =>
+                                                                      FFUploadedFile(
+                                                                        name: m
+                                                                            .storagePath
+                                                                            .split('/')
+                                                                            .last,
+                                                                        bytes: m
+                                                                            .bytes,
+                                                                        originalFilename:
+                                                                            m.originalFilename,
+                                                                      ))
+                                                                  .toList();
+                                                        } finally {
+                                                          _model.isDataUploading_uploadAudioFile =
+                                                              false;
+                                                        }
+                                                        if (selectedUploadedFiles
+                                                                .length ==
+                                                            selectedFiles
+                                                                .length) {
+                                                          safeSetState(() {
+                                                            _model.uploadedLocalFiles_uploadAudioFile =
+                                                                selectedUploadedFiles;
+                                                          });
+                                                        } else {
+                                                          safeSetState(() {});
+                                                          return;
+                                                        }
+                                                      }
+
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_custom_action');
+                                                      _model.recordedFileToBase642 =
+                                                          await actions
+                                                              .audioPathFromUploadedFile(
+                                                        _model
+                                                            .recordedFileBytes,
+                                                      );
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_backend_call');
+                                                      _model.speechToText =
+                                                          await LucilleVoiceChatGroup
+                                                              .speechToTextCall
+                                                              .call(
+                                                        audio: _model
+                                                            .recordedFileToBase642,
+                                                      );
+
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_update_page_state');
+                                                      _model.isRecording =
+                                                          false;
+                                                      _model
+                                                          .voiceTextUser = (_model
+                                                                  .speechToText
+                                                                  ?.jsonBody ??
+                                                              '')
+                                                          .toString();
+                                                      _model.recordedAudioBase64 =
+                                                          _model
+                                                              .recordedFileToBase642;
+                                                      safeSetState(() {});
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_backend_call');
+                                                      _model.speechToTextChatResponse =
+                                                          await TheoryOfMindLucilleGroup
+                                                              .lucilleChatMainCall
+                                                              .call(
+                                                        message: (_model
+                                                                    .speechToText
+                                                                    ?.jsonBody ??
+                                                                '')
+                                                            .toString(),
+                                                        sessionId: FFAppState()
+                                                            .chatSessionId,
+                                                        userId: currentUserUid,
+                                                      );
+
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_backend_call');
+                                                      _model.ttsResponse =
+                                                          await LucilleVoiceChatGroup
+                                                              .textToSpeechCall
+                                                              .call(
+                                                        text: (_model
+                                                                .speechToTextChatResponse
+                                                                ?.bodyText ??
+                                                            ''),
+                                                        voice:
+                                                            'en-US-AriaNeural',
+                                                        rate: 50,
+                                                      );
+
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_custom_action');
+                                                      _model.base64AudioConversion =
+                                                          await actions
+                                                              .base64ToAudioFile(
+                                                        (_model.ttsResponse
+                                                                ?.bodyText ??
+                                                            ''),
+                                                      );
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_update_page_state');
+                                                      _model.lucilleBase64ConvertedFile =
+                                                          (_model.ttsResponse
+                                                                      ?.jsonBody ??
+                                                                  '')
+                                                              .toString();
+                                                      safeSetState(() {});
+
+                                                      safeSetState(() {});
+                                                    },
+                                                    onLongPressStart:
+                                                        (details) async {
+                                                      logFirebaseEvent(
+                                                          'CHAT_WITH_LUCILLE_VERSION5_LottieAnimati');
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_haptic_feedback');
+                                                      HapticFeedback
+                                                          .heavyImpact();
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_play_sound');
+                                                      _model.soundPlayer1 ??=
+                                                          AudioPlayer();
+                                                      if (_model.soundPlayer1!
+                                                          .playing) {
+                                                        await _model
+                                                            .soundPlayer1!
+                                                            .stop();
+                                                      }
+                                                      _model.soundPlayer1!
+                                                          .setVolume(0.52);
+                                                      _model.soundPlayer1!
+                                                          .setAsset(
+                                                              'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                                                          .then((_) => _model
+                                                              .soundPlayer1!
+                                                              .play());
+
                                                       logFirebaseEvent(
                                                           'LottieAnimation_request_permissions');
                                                       await requestPermission(
                                                           microphonePermission);
-                                                      logFirebaseEvent(
-                                                          'LottieAnimation_custom_action');
-                                                      _model.returnedVoiceText =
-                                                          await actions
-                                                              .startListening();
-                                                      logFirebaseEvent(
-                                                          'LottieAnimation_update_app_state');
-                                                      FFAppState()
-                                                              .userVoiceMessage =
-                                                          _model
-                                                              .returnedVoiceText!;
-                                                      FFAppState().isListening =
-                                                          true;
-                                                      safeSetState(() {});
-                                                      logFirebaseEvent(
-                                                          'LottieAnimation_backend_call');
-                                                      _model.getChatHistory2 =
-                                                          await LucilleStreamingGroup
-                                                              .lucilleStreamingResponseCall
-                                                              .call(
-                                                        sessionID: FFAppState()
-                                                            .chatSessionId,
-                                                      );
-                                                      if (_model.getChatHistory2
-                                                              ?.succeeded ??
-                                                          true) {
-                                                        final streamSubscription = _model
-                                                            .getChatHistory2
-                                                            ?.streamedResponse
-                                                            ?.stream
-                                                            .transform(
-                                                                utf8.decoder)
-                                                            .transform(
-                                                                const LineSplitter())
-                                                            .transform(
-                                                                ServerSentEventLineTransformer())
-                                                            .map((m) =>
-                                                                ResponseStreamMessage(
-                                                                    message: m))
-                                                            .listen(
-                                                              (onMessageInput) async {},
-                                                              onError:
-                                                                  (onErrorInput) async {},
-                                                              onDone:
-                                                                  () async {},
-                                                            );
-                                                      }
-
-                                                      logFirebaseEvent(
-                                                          'LottieAnimation_backend_call');
-                                                      _model.voiceChatLucilleResponse1 =
-                                                          await LucilleChatStreamCall
-                                                              .call(
-                                                        sessionId: FFAppState()
-                                                            .chatSessionId,
-                                                        message: _model
-                                                            .returnedVoiceText,
-                                                      );
-
-                                                      if ((_model
-                                                              .getChatHistory2
-                                                              ?.succeeded ??
-                                                          true)) {
+                                                      if (await getPermissionStatus(
+                                                          microphonePermission)) {
                                                         logFirebaseEvent(
-                                                            'LottieAnimation_custom_action');
-                                                        await actions.speakText(
-                                                          LucilleChatStreamCall
-                                                              .content(
-                                                            (_model.voiceChatLucilleResponse1
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )!,
+                                                            'LottieAnimation_start_audio_recording');
+                                                        await startAudioRecording(
+                                                          context,
+                                                          audioRecorder: _model
+                                                                  .audioRecorder ??=
+                                                              AudioRecorder(),
                                                         );
                                                       } else {
                                                         logFirebaseEvent(
-                                                            'LottieAnimation_backend_call');
-                                                        _model.sessionIDVoiceChat =
-                                                            await LucilleStreamingGroup
-                                                                .lucilleStreamingResponseCall
-                                                                .call(
-                                                          sessionID: FFAppState()
-                                                              .chatSessionId,
-                                                          message: _model
-                                                              .returnedVoiceText,
+                                                            'LottieAnimation_show_snack_bar');
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'User Input action invalid.',
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                          ),
                                                         );
-                                                        if (_model
-                                                                .sessionIDVoiceChat
-                                                                ?.succeeded ??
-                                                            true) {
-                                                          final streamSubscription = _model
-                                                              .sessionIDVoiceChat
-                                                              ?.streamedResponse
-                                                              ?.stream
-                                                              .transform(
-                                                                  utf8.decoder)
-                                                              .transform(
-                                                                  const LineSplitter())
-                                                              .transform(
-                                                                  ServerSentEventLineTransformer())
-                                                              .map((m) =>
-                                                                  ResponseStreamMessage(
-                                                                      message:
-                                                                          m))
-                                                              .listen(
-                                                                (onMessageInput) async {},
-                                                                onError:
-                                                                    (onErrorInput) async {},
-                                                                onDone:
-                                                                    () async {},
-                                                              );
-                                                        }
-
-                                                        logFirebaseEvent(
-                                                            'LottieAnimation_backend_call');
-                                                        _model.voiceChatLucilleResponse2 =
-                                                            await LucilleChatStreamCall
-                                                                .call(
-                                                          message: _model
-                                                              .returnedVoiceText,
-                                                          sessionId: FFAppState()
-                                                              .chatSessionId,
-                                                        );
-
-                                                        if ((_model.voiceChatLucilleResponse2
-                                                                    ?.succeeded ??
-                                                                true) ==
-                                                            false) {
-                                                          logFirebaseEvent(
-                                                              'LottieAnimation_custom_action');
-                                                          await actions
-                                                              .speakText(
-                                                            LucilleChatStreamCall
-                                                                .content(
-                                                              (_model.voiceChatLucilleResponse2
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!,
-                                                          );
-                                                        }
                                                       }
 
                                                       logFirebaseEvent(
-                                                          'LottieAnimation_update_app_state');
-                                                      FFAppState()
-                                                          .updateChatHistoryAtIndex(
-                                                        (_model.getChatHistory2
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                        (_) => (_model
-                                                                .voiceChatLucilleResponse1
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      );
-                                                      FFAppState().isListening =
-                                                          !(FFAppState()
-                                                                  .isListening ??
-                                                              true);
-                                                      FFAppState()
-                                                              .chatSessionId =
-                                                          FFAppState()
-                                                              .chatSessionId;
-                                                      FFAppState()
-                                                          .update(() {});
-
+                                                          'LottieAnimation_update_page_state');
+                                                      _model.isRecording = true;
                                                       safeSetState(() {});
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_show_snack_bar');
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'Now Recording...',
+                                                            style: TextStyle(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
+                                                            ),
+                                                          ),
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  4000),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondary,
+                                                        ),
+                                                      );
                                                     },
                                                     child: Lottie.asset(
                                                       'assets/jsons/Enable_mic.json',
                                                       width: 209.6,
-                                                      height: 219.1,
+                                                      height: 334.3,
                                                       fit: BoxFit.contain,
-                                                      reverse: true,
-                                                      animate: true,
+                                                      animate:
+                                                          _model.isRecording ==
+                                                              true,
                                                     ),
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                            Padding(
-                                              padding: EdgeInsets.all(15.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Flexible(
-                                                    flex: 1,
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  45.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: FFButtonWidget(
-                                                        onPressed: () {
-                                                          print(
-                                                              'Button pressed ...');
-                                                        },
-                                                        text:
-                                                            FFLocalizations.of(
+                                          ),
+                                          Opacity(
+                                            opacity: 0.0,
+                                            child: FlutterFlowAudioPlayer(
+                                              audio: Audio.network(
+                                                _model
+                                                    .lucilleBase64ConvertedFile!,
+                                                metas: Metas(
+                                                  title: 'Title',
+                                                ),
+                                              ),
+                                              titleTextStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'The Seasons',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              playbackDurationTextStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              fillColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              playbackButtonColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              activeTrackColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              inactiveTrackColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              elevation: 0.0,
+                                              playInBackground: PlayInBackground
+                                                  .disabledPause,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.all(15.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Flexible(
+                                                  flex: 1,
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, -1.0),
+                                                    child: FFButtonWidget(
+                                                      onPressed: () {
+                                                        print(
+                                                            'Button pressed ...');
+                                                      },
+                                                      text: FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'mjhdx6r3' /* Tap the mic to talk directly w... */,
+                                                      ),
+                                                      options: FFButtonOptions(
+                                                        width: 370.2,
+                                                        height: 45.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    0.0,
+                                                                    16.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            Color(0x59EDF1F7),
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
                                                                     context)
-                                                                .getText(
-                                                          'mjhdx6r3' /* Tap the mic to talk directly w... */,
-                                                        ),
-                                                        options:
-                                                            FFButtonOptions(
-                                                          width: 370.2,
-                                                          height: 45.0,
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      16.0,
-                                                                      0.0,
-                                                                      16.0,
-                                                                      0.0),
-                                                          iconPadding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                .titleSmall
+                                                                .override(
+                                                          fontFamily:
+                                                              'WorkSans',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .override(
-                                                            fontFamily:
-                                                                'WorkSans',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .alternate,
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                            shadows: [
-                                                              Shadow(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                offset: Offset(
-                                                                    8.0, 8.0),
-                                                                blurRadius: 8.0,
-                                                              )
-                                                            ],
-                                                          ),
+                                                          fontSize: 14.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          shadows: [
+                                                            Shadow(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              offset: Offset(
+                                                                  8.0, 8.0),
+                                                              blurRadius: 8.0,
+                                                            )
+                                                          ],
                                                         ),
+                                                        elevation: 8.0,
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x7CEDF1F7),
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(25.0),
                                                       ),
                                                     ),
                                                   ),
-                                                ],
-                                              ),
+                                                ),
+                                              ],
                                             ),
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.asset(
-                                                'assets/images/Logo_ESCAPE_Black.png',
-                                                width: 237.7,
-                                                height:
-                                                    MediaQuery.sizeOf(context)
-                                                            .height *
-                                                        0.05,
-                                                fit: BoxFit.contain,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
-                                      KeepAliveWidgetWrapper(
-                                        builder: (context) => Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  height: double.infinity,
-                                                  constraints: BoxConstraints(
-                                                    maxWidth: 770.0,
-                                                  ),
-                                                  decoration: BoxDecoration(),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    children: [
-                                                      Flexible(
-                                                        flex: 1,
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, -1.0),
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              if (responsiveVisibility(
-                                                                context:
-                                                                    context,
-                                                                phone: false,
-                                                                tablet: false,
-                                                              ))
-                                                                Container(
-                                                                  width: 100.0,
-                                                                  height: 24.0,
-                                                                  decoration:
-                                                                      BoxDecoration(),
-                                                                ),
-                                                              Expanded(
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          12.0,
-                                                                          12.0,
-                                                                          12.0,
-                                                                          0.0),
+                                    ),
+                                    KeepAliveWidgetWrapper(
+                                      builder: (context) => Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Flexible(
+                                            flex: 1,
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Container(
+                                                width: double.infinity,
+                                                height: double.infinity,
+                                                constraints: BoxConstraints(
+                                                  maxWidth: 770.0,
+                                                ),
+                                                decoration: BoxDecoration(),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    Flexible(
+                                                      flex: 1,
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, -1.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            if (responsiveVisibility(
+                                                              context: context,
+                                                              phone: false,
+                                                              tablet: false,
+                                                            ))
+                                                              Container(
+                                                                width: 100.0,
+                                                                height: 24.0,
+                                                                decoration:
+                                                                    BoxDecoration(),
+                                                              ),
+                                                            Expanded(
+                                                              child: Padding(
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        12.0,
+                                                                        12.0,
+                                                                        12.0,
+                                                                        0.0),
+                                                                child:
+                                                                    ClipRRect(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              12.0),
                                                                   child:
-                                                                      ClipRRect(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            12.0),
+                                                                      BackdropFilter(
+                                                                    filter:
+                                                                        ImageFilter
+                                                                            .blur(
+                                                                      sigmaX:
+                                                                          5.0,
+                                                                      sigmaY:
+                                                                          4.0,
+                                                                    ),
                                                                     child:
-                                                                        BackdropFilter(
-                                                                      filter: ImageFilter
-                                                                          .blur(
-                                                                        sigmaX:
-                                                                            5.0,
-                                                                        sigmaY:
-                                                                            4.0,
+                                                                        Container(
+                                                                      width: double
+                                                                          .infinity,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(12.0),
+                                                                        border:
+                                                                            Border.all(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).alternate,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
                                                                       ),
                                                                       child:
-                                                                          Container(
-                                                                        width: double
-                                                                            .infinity,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(12.0),
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).alternate,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                        ),
-                                                                        child:
-                                                                            Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.start,
-                                                                          children: [
-                                                                            Flexible(
-                                                                              flex: 1,
-                                                                              child: Align(
-                                                                                alignment: AlignmentDirectional(0.0, -1.0),
-                                                                                child: Builder(
-                                                                                  builder: (context) {
-                                                                                    final chat = _model.streamMessages.toList();
-                                                                                    if (chat.isEmpty) {
-                                                                                      return Center(
-                                                                                        child: Container(
-                                                                                          width: double.infinity,
-                                                                                          child: EmptyChatsWidget(),
-                                                                                        ),
-                                                                                      );
-                                                                                    }
-
-                                                                                    return ListView.builder(
-                                                                                      padding: EdgeInsets.fromLTRB(
-                                                                                        0,
-                                                                                        16.0,
-                                                                                        0,
-                                                                                        16.0,
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Flexible(
+                                                                            flex:
+                                                                                1,
+                                                                            child:
+                                                                                Align(
+                                                                              alignment: AlignmentDirectional(0.0, -1.0),
+                                                                              child: Builder(
+                                                                                builder: (context) {
+                                                                                  final chat = _model.streamMessages.toList();
+                                                                                  if (chat.isEmpty) {
+                                                                                    return Center(
+                                                                                      child: Container(
+                                                                                        width: double.infinity,
+                                                                                        child: EmptyChatsWidget(),
                                                                                       ),
-                                                                                      scrollDirection: Axis.vertical,
-                                                                                      itemCount: chat.length,
-                                                                                      itemBuilder: (context, chatIndex) {
-                                                                                        final chatItem = chat[chatIndex];
-                                                                                        return Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+                                                                                    );
+                                                                                  }
+
+                                                                                  return ListView.builder(
+                                                                                    padding: EdgeInsets.fromLTRB(
+                                                                                      0,
+                                                                                      16.0,
+                                                                                      0,
+                                                                                      16.0,
+                                                                                    ),
+                                                                                    scrollDirection: Axis.vertical,
+                                                                                    itemCount: chat.length,
+                                                                                    itemBuilder: (context, chatIndex) {
+                                                                                      final chatItem = chat[chatIndex];
+                                                                                      return Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+                                                                                        child: SingleChildScrollView(
+                                                                                          primary: false,
+                                                                                          controller: _model.columnController1,
                                                                                           child: Column(
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -824,49 +953,57 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                             decoration: BoxDecoration(
                                                                                                               color: FlutterFlowTheme.of(context).secondary,
                                                                                                               borderRadius: BorderRadius.only(
-                                                                                                                bottomLeft: Radius.circular(0.0),
-                                                                                                                bottomRight: Radius.circular(12.0),
                                                                                                                 topLeft: Radius.circular(12.0),
                                                                                                                 topRight: Radius.circular(12.0),
+                                                                                                                bottomRight: Radius.circular(12.0),
                                                                                                               ),
-                                                                                                              decoration: BoxDecoration(
-                                                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                                                borderRadius: BorderRadius.only(
-                                                                                                                  bottomLeft: Radius.circular(0.0),
-                                                                                                                  bottomRight: Radius.circular(12.0),
-                                                                                                                  topLeft: Radius.circular(12.0),
-                                                                                                                  topRight: Radius.circular(12.0),
-                                                                                                                ),
-                                                                                                                border: Border.all(
-                                                                                                                  color: FlutterFlowTheme.of(context).primary,
-                                                                                                                  width: 2.0,
-                                                                                                                ),
+                                                                                                              border: Border.all(
+                                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                                                width: 2.0,
                                                                                                               ),
                                                                                                             ),
-                                                                                                            child: Padding(
-                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
-                                                                                                              child: Column(
-                                                                                                                mainAxisSize: MainAxisSize.min,
-                                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                children: [
-                                                                                                                  RichText(
-                                                                                                                    textScaler: MediaQuery.of(context).textScaler,
-                                                                                                                    text: TextSpan(
-                                                                                                                      children: [
-                                                                                                                        TextSpan(
-                                                                                                                          text: _model.textController.text,
+                                                                                                            child: PixelDissolveShaderWrap(
+                                                                                                              params: ShaderParams(values: {
+                                                                                                                'angle': 14.0,
+                                                                                                                'scale': 1.0,
+                                                                                                                'offset': 0.0,
+                                                                                                                'pixelSize': 5.11,
+                                                                                                                'edgeWidth': 0.35,
+                                                                                                                'scatter': 0.36,
+                                                                                                                'noiseAmount': 0.93,
+                                                                                                                'speed': 0.21
+                                                                                                              }),
+                                                                                                              animationMode: ShaderAnimationMode.explicit,
+                                                                                                              animationConfig: ShaderAnimationConfig(duration: Duration(milliseconds: (2100.0).round()), curve: Curves.easeIn, invert: true),
+                                                                                                              child: Padding(
+                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                                                                                                                child: SingleChildScrollView(
+                                                                                                                  primary: false,
+                                                                                                                  controller: _model.columnController2,
+                                                                                                                  child: Column(
+                                                                                                                    mainAxisSize: MainAxisSize.min,
+                                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                    children: [
+                                                                                                                      RichText(
+                                                                                                                        textScaler: MediaQuery.of(context).textScaler,
+                                                                                                                        text: TextSpan(
+                                                                                                                          children: [
+                                                                                                                            TextSpan(
+                                                                                                                              text: FFAppState().messagesTheoryOfMind.contains(FFAppState().messagesTheoryOfMind.where((e) => Role.User != null).toList().firstOrNull).toString(),
+                                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                    fontFamily: 'WorkSans',
+                                                                                                                                    letterSpacing: 0.0,
+                                                                                                                                  ),
+                                                                                                                            )
+                                                                                                                          ],
                                                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                                 fontFamily: 'WorkSans',
                                                                                                                                 letterSpacing: 0.0,
                                                                                                                               ),
-                                                                                                                        )
-                                                                                                                      ],
-                                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                            fontFamily: 'WorkSans',
-                                                                                                                            letterSpacing: 0.0,
-                                                                                                                          ),
-                                                                                                                    ),
-                                                                                                                  ],
+                                                                                                                        ),
+                                                                                                                      ),
+                                                                                                                    ],
+                                                                                                                  ),
                                                                                                                 ),
                                                                                                               ),
                                                                                                             ),
@@ -927,6 +1064,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                                         ),
                                                                                                                         style: FlutterFlowTheme.of(context).labelSmall.override(
                                                                                                                               fontFamily: 'WorkSans',
+                                                                                                                              color: FlutterFlowTheme.of(context).secondary,
                                                                                                                               letterSpacing: 0.0,
                                                                                                                             ),
                                                                                                                       ),
@@ -946,60 +1084,92 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 mainAxisAlignment: MainAxisAlignment.end,
                                                                                                 children: [
-                                                                                                  Container(
-                                                                                                    constraints: BoxConstraints(
-                                                                                                      maxWidth: () {
-                                                                                                        if (MediaQuery.sizeOf(context).width >= 1170.0) {
-                                                                                                          return 700.0;
-                                                                                                        } else if (MediaQuery.sizeOf(context).width <= 470.0) {
-                                                                                                          return 330.0;
-                                                                                                        } else {
-                                                                                                          return 530.0;
-                                                                                                        }
-                                                                                                      }(),
-                                                                                                    ),
-                                                                                                    decoration: BoxDecoration(
-                                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                      borderRadius: BorderRadius.only(
-                                                                                                        bottomLeft: Radius.circular(12.0),
-                                                                                                        bottomRight: Radius.circular(0.0),
-                                                                                                        topLeft: Radius.circular(12.0),
-                                                                                                        topRight: Radius.circular(12.0),
+                                                                                                  Flexible(
+                                                                                                    flex: 1,
+                                                                                                    child: Container(
+                                                                                                      constraints: BoxConstraints(
+                                                                                                        maxWidth: () {
+                                                                                                          if (MediaQuery.sizeOf(context).width >= 1170.0) {
+                                                                                                            return 700.0;
+                                                                                                          } else if (MediaQuery.sizeOf(context).width <= 470.0) {
+                                                                                                            return 330.0;
+                                                                                                          } else {
+                                                                                                            return 530.0;
+                                                                                                          }
+                                                                                                        }(),
                                                                                                       ),
-                                                                                                      border: Border.all(
-                                                                                                        color: FlutterFlowTheme.of(context).alternate,
+                                                                                                      decoration: BoxDecoration(
+                                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                        borderRadius: BorderRadius.only(
+                                                                                                          topLeft: Radius.circular(12.0),
+                                                                                                          topRight: Radius.circular(12.0),
+                                                                                                          bottomLeft: Radius.circular(12.0),
+                                                                                                        ),
+                                                                                                        border: Border.all(
+                                                                                                          color: FlutterFlowTheme.of(context).alternate,
+                                                                                                        ),
                                                                                                       ),
-                                                                                                    ),
-                                                                                                    child: Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
-                                                                                                      child: Column(
-                                                                                                        mainAxisSize: MainAxisSize.min,
-                                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                        children: [
-                                                                                                          RichText(
-                                                                                                            textScaler: MediaQuery.of(context).textScaler,
-                                                                                                            text: TextSpan(
-                                                                                                              children: [
-                                                                                                                TextSpan(
-                                                                                                                  text: valueOrDefault<String>(
-                                                                                                                    _model.accumulatedResponse,
-                                                                                                                    'response',
-                                                                                                                  ),
-                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                        fontFamily: 'WorkSans',
-                                                                                                                        letterSpacing: 0.0,
-                                                                                                                      ),
-                                                                                                                )
-                                                                                                              ],
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                    fontFamily: 'WorkSans',
-                                                                                                                    letterSpacing: 0.0,
-                                                                                                                  ),
+                                                                                                      child: PixelDissolveShaderWrap(
+                                                                                                        params: ShaderParams(values: {
+                                                                                                          'angle': 14.0,
+                                                                                                          'scale': 1.0,
+                                                                                                          'offset': 0.0,
+                                                                                                          'pixelSize': 5.11,
+                                                                                                          'edgeWidth': 0.35,
+                                                                                                          'scatter': 0.36,
+                                                                                                          'noiseAmount': 0.93,
+                                                                                                          'speed': 0.21
+                                                                                                        }),
+                                                                                                        animationMode: ShaderAnimationMode.explicit,
+                                                                                                        animationConfig: ShaderAnimationConfig(duration: Duration(milliseconds: (4000.0).round()), curve: Curves.easeIn, invert: true),
+                                                                                                        child: Container(
+                                                                                                          constraints: BoxConstraints(
+                                                                                                            maxWidth: () {
+                                                                                                              if (MediaQuery.sizeOf(context).width >= 1170.0) {
+                                                                                                                return 700.0;
+                                                                                                              } else if (MediaQuery.sizeOf(context).width <= 470.0) {
+                                                                                                                return 330.0;
+                                                                                                              } else {
+                                                                                                                return 530.0;
+                                                                                                              }
+                                                                                                            }(),
+                                                                                                          ),
+                                                                                                          decoration: BoxDecoration(
+                                                                                                            borderRadius: BorderRadius.only(
+                                                                                                              topLeft: Radius.circular(12.0),
+                                                                                                              topRight: Radius.circular(12.0),
+                                                                                                              bottomLeft: Radius.circular(12.0),
                                                                                                             ),
-                                                                                                          ).animateOnPageLoad(animationsMap['richTextOnPageLoadAnimation']!).animateOnActionTrigger(
-                                                                                                                animationsMap['richTextOnActionTriggerAnimation']!,
+                                                                                                            border: Border.all(
+                                                                                                              color: Color(0x45EDF1F7),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                          child: Padding(
+                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                                                                                                            child: SingleChildScrollView(
+                                                                                                              primary: false,
+                                                                                                              controller: _model.columnController3,
+                                                                                                              child: Column(
+                                                                                                                mainAxisSize: MainAxisSize.min,
+                                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                children: [
+                                                                                                                  Expanded(
+                                                                                                                    flex: 1,
+                                                                                                                    child: Container(
+                                                                                                                      width: double.infinity,
+                                                                                                                      height: MediaQuery.sizeOf(context).height * 0.15,
+                                                                                                                      child: custom_widgets.GptMarkdownWidget(
+                                                                                                                        width: double.infinity,
+                                                                                                                        height: MediaQuery.sizeOf(context).height * 0.15,
+                                                                                                                        data: chatItem.content,
+                                                                                                                      ),
+                                                                                                                    ),
+                                                                                                                  ),
+                                                                                                                ],
                                                                                                               ),
-                                                                                                        ],
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ),
                                                                                                       ),
                                                                                                     ),
                                                                                                   ),
@@ -1007,418 +1177,620 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                               ),
                                                                                             ],
                                                                                           ),
-                                                                                        );
-                                                                                      },
-                                                                                      controller: _model.listViewController,
-                                                                                    );
-                                                                                  },
-                                                                                ),
+                                                                                        ),
+                                                                                      );
+                                                                                    },
+                                                                                    controller: _model.listViewController,
+                                                                                  );
+                                                                                },
                                                                               ),
                                                                             ),
-                                                                            if (_model.aiIsResponsing ==
-                                                                                true)
-                                                                              Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                children: [
-                                                                                  wrapWithModel(
-                                                                                    model: _model.writingIndicatorModel,
-                                                                                    updateCallback: () => safeSetState(() {}),
-                                                                                    child: WritingIndicatorWidget(),
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                          ],
-                                                                        ),
+                                                                          ),
+                                                                          if (_model.aiIsResponsing ==
+                                                                              true)
+                                                                            Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                wrapWithModel(
+                                                                                  model: _model.writingIndicatorModel,
+                                                                                  updateCallback: () => safeSetState(() {}),
+                                                                                  child: WritingIndicatorWidget(),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                        ],
                                                                       ),
                                                                     ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ],
-                                                          ),
+                                                            ),
+                                                          ],
                                                         ),
                                                       ),
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  12.0),
-                                                          child: Container(
-                                                            width:
-                                                                double.infinity,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                              boxShadow: [
-                                                                BoxShadow(
-                                                                  blurRadius:
-                                                                      3.0,
-                                                                  color: Color(
-                                                                      0x33000000),
-                                                                  offset:
-                                                                      Offset(
-                                                                    0.0,
-                                                                    1.0,
-                                                                  ),
-                                                                )
-                                                              ],
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          12.0),
-                                                            ),
-                                                            child: Align(
+                                                    ),
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Padding(
+                                                        padding: EdgeInsets.all(
+                                                            12.0),
+                                                        child: Container(
+                                                          width:
+                                                              double.infinity,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 3.0,
+                                                                color: Color(
+                                                                    0x33000000),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
+                                                              )
+                                                            ],
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        12.0),
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Stack(
                                                               alignment:
                                                                   AlignmentDirectional(
                                                                       0.0, 0.0),
-                                                              child: Stack(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
-                                                                children: [
-                                                                  Container(
-                                                                    width: double
-                                                                        .infinity,
-                                                                    child:
-                                                                        TextFormField(
-                                                                      controller:
-                                                                          _model
-                                                                              .textController,
-                                                                      focusNode:
-                                                                          _model
-                                                                              .textFieldFocusNode,
-                                                                      autofocus:
-                                                                          true,
-                                                                      textCapitalization:
-                                                                          TextCapitalization
-                                                                              .sentences,
-                                                                      obscureText:
-                                                                          false,
-                                                                      decoration:
-                                                                          InputDecoration(
-                                                                        hintText:
-                                                                            FFLocalizations.of(context).getText(
-                                                                          '2h0hy3by' /* Type something... */,
-                                                                        ),
-                                                                        hintStyle: FlutterFlowTheme.of(context)
-                                                                            .labelLarge
-                                                                            .override(
-                                                                              fontFamily: 'WorkSans',
-                                                                              color: Color(0xB5D0E3F7),
-                                                                              letterSpacing: 0.0,
-                                                                            ),
-                                                                        errorStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyLarge
-                                                                            .override(
-                                                                              fontFamily: 'WorkSans',
-                                                                              color: FlutterFlowTheme.of(context).error,
-                                                                              fontSize: 12.0,
-                                                                              letterSpacing: 0.0,
-                                                                            ),
-                                                                        enabledBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).alternate,
-                                                                            width:
-                                                                                2.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(12.0),
-                                                                        ),
-                                                                        focusedBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                            width:
-                                                                                2.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(12.0),
-                                                                        ),
-                                                                        errorBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).error,
-                                                                            width:
-                                                                                2.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(12.0),
-                                                                        ),
-                                                                        focusedErrorBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).error,
-                                                                            width:
-                                                                                2.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(12.0),
-                                                                        ),
-                                                                        contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                            16.0,
-                                                                            24.0,
-                                                                            70.0,
-                                                                            24.0),
-                                                                      ),
+                                                              children: [
+                                                                Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  child:
+                                                                      TextFormField(
+                                                                    controller:
+                                                                        _model
+                                                                            .textController,
+                                                                    focusNode:
+                                                                        _model
+                                                                            .textFieldFocusNode,
+                                                                    onChanged: (_) =>
+                                                                        EasyDebounce
+                                                                            .debounce(
+                                                                      '_model.textController',
+                                                                      Duration(
+                                                                          milliseconds:
+                                                                              2000),
+                                                                      () => safeSetState(
+                                                                          () {}),
                                                                     ),
-                                                                  ),
-                                                                  Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            1.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        FlutterFlowIconButton(
-                                                                      borderColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      borderRadius:
-                                                                          30.0,
-                                                                      borderWidth:
-                                                                          1.0,
-                                                                      buttonSize:
-                                                                          60.0,
-                                                                      icon:
-                                                                          Icon(
-                                                                        Icons
-                                                                            .send_rounded,
-                                                                        color: FlutterFlowTheme.of(
-                                                                                context)
-                                                                            .primary,
-                                                                        size:
-                                                                            30.0,
+                                                                    autofocus:
+                                                                        true,
+                                                                    enabled:
+                                                                        true,
+                                                                    textCapitalization:
+                                                                        TextCapitalization
+                                                                            .sentences,
+                                                                    obscureText:
+                                                                        false,
+                                                                    decoration:
+                                                                        InputDecoration(
+                                                                      hintText:
+                                                                          FFLocalizations.of(context)
+                                                                              .getText(
+                                                                        '2h0hy3by' /* Type something... */,
                                                                       ),
-                                                                      showLoadingIndicator:
-                                                                          true,
-                                                                      onPressed:
-                                                                          () async {
-                                                                        logFirebaseEvent(
-                                                                            'CHAT_WITH_LUCILLE_VERSION5_send_rounded_');
-                                                                        logFirebaseEvent(
-                                                                            'IconButton_update_app_state');
-                                                                        FFAppState().senderUser = _model
-                                                                            .textController
-                                                                            .text;
-                                                                        safeSetState(
-                                                                            () {});
-                                                                        logFirebaseEvent(
-                                                                            'IconButton_update_page_state');
-                                                                        _model.addToChatMessages(
-                                                                            FFAppState().senderUser);
-                                                                        safeSetState(
-                                                                            () {});
-                                                                        logFirebaseEvent(
-                                                                            'IconButton_clear_text_fields_pin_codes');
-                                                                        safeSetState(
-                                                                            () {
+                                                                      hintStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'WorkSans',
+                                                                            color:
+                                                                                Color(0xB5D0E3F7),
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                      errorStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'WorkSans',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).error,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                      enabledBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).alternate,
+                                                                          width:
+                                                                              2.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(12.0),
+                                                                      ),
+                                                                      focusedBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                          width:
+                                                                              2.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(12.0),
+                                                                      ),
+                                                                      errorBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).error,
+                                                                          width:
+                                                                              2.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(12.0),
+                                                                      ),
+                                                                      focusedErrorBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).error,
+                                                                          width:
+                                                                              2.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(12.0),
+                                                                      ),
+                                                                      contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          16.0,
+                                                                          24.0,
+                                                                          70.0,
+                                                                          24.0),
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyLarge
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'WorkSans',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
+                                                                    maxLines: 8,
+                                                                    minLines: 1,
+                                                                    cursorColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                    validator: _model
+                                                                        .textControllerValidator
+                                                                        .asValidator(
+                                                                            context),
+                                                                    inputFormatters: [
+                                                                      if (!isAndroid &&
+                                                                          !isiOS)
+                                                                        TextInputFormatter.withFunction((oldValue,
+                                                                            newValue) {
+                                                                          return TextEditingValue(
+                                                                            selection:
+                                                                                newValue.selection,
+                                                                            text:
+                                                                                newValue.text.toCapitalization(TextCapitalization.sentences),
+                                                                          );
+                                                                        }),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      FlutterFlowIconButton(
+                                                                    borderColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    borderRadius:
+                                                                        30.0,
+                                                                    borderWidth:
+                                                                        1.0,
+                                                                    buttonSize:
+                                                                        60.0,
+                                                                    icon: Icon(
+                                                                      Icons
+                                                                          .send_rounded,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      size:
+                                                                          30.0,
+                                                                    ),
+                                                                    showLoadingIndicator:
+                                                                        true,
+                                                                    onPressed:
+                                                                        () async {
+                                                                      logFirebaseEvent(
+                                                                          'CHAT_WITH_LUCILLE_VERSION5_send_rounded_');
+                                                                      logFirebaseEvent(
+                                                                          'IconButton_backend_call');
+                                                                      _model.getChatHistory = await TheoryOfMindSessionManagementGroup
+                                                                          .getChatHistoryCall
+                                                                          .call(
+                                                                        sessionID:
+                                                                            FFAppState().chatSessionId,
+                                                                      );
+
+                                                                      logFirebaseEvent(
+                                                                          'IconButton_update_app_state');
+                                                                      FFAppState()
+                                                                              .senderUser =
                                                                           _model
                                                                               .textController
-                                                                              ?.clear();
-                                                                        });
+                                                                              .text;
+                                                                      FFAppState()
+                                                                          .addToMessagesTheoryOfMind(
+                                                                              TheoryOfMindLucilleStreamChatStruct(
+                                                                        content: _model
+                                                                            .textController
+                                                                            .text,
+                                                                        done:
+                                                                            false,
+                                                                        sessionId:
+                                                                            FFAppState().chatSessionId,
+                                                                        detectedEmotion: valueOrDefault(
+                                                                            currentUserDocument?.currentMood,
+                                                                            ''),
+                                                                        response:
+                                                                            '',
+                                                                        detectedIntent:
+                                                                            'Chat',
+                                                                      ));
+                                                                      safeSetState(
+                                                                          () {});
+                                                                      logFirebaseEvent(
+                                                                          'IconButton_backend_call');
+                                                                      _model.lucilleStreamChat = await TheoryOfMindLucilleGroup
+                                                                          .chatStreamCall
+                                                                          .call(
+                                                                        sessionID:
+                                                                            FFAppState().chatSessionId,
+                                                                        message:
+                                                                            _model.userInput,
+                                                                        userID:
+                                                                            currentUserUid,
+                                                                      );
+                                                                      if (_model
+                                                                              .lucilleStreamChat
+                                                                              ?.succeeded ??
+                                                                          true) {
+                                                                        final streamSubscription = _model
+                                                                            .lucilleStreamChat
+                                                                            ?.streamedResponse
+                                                                            ?.stream
+                                                                            .transform(utf8
+                                                                                .decoder)
+                                                                            .transform(
+                                                                                const LineSplitter())
+                                                                            .transform(
+                                                                                ServerSentEventLineTransformer())
+                                                                            .map((m) =>
+                                                                                ResponseStreamMessage(message: m))
+                                                                            .listen(
+                                                                          (onMessageInput) async {
+                                                                            var _shouldSetState =
+                                                                                false;
+                                                                            if (_model.newMessage!) {
+                                                                              logFirebaseEvent('_update_page_state');
+                                                                              _model.newMessage = false;
+                                                                              _model.updateStreamMessagesAtIndex(
+                                                                                onMessageInput.serverSentEvent.jsonData,
+                                                                                (e) => e
+                                                                                  ..content = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.content
+                                                                                  ..sessionId = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.sessionId
+                                                                                  ..response = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.response
+                                                                                  ..messageCount = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.messageCount
+                                                                                  ..detectedEmotion = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.detectedEmotion
+                                                                                  ..done = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.done
+                                                                                  ..detectedIntent = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.detectedIntent,
+                                                                              );
+                                                                              safeSetState(() {});
+                                                                              logFirebaseEvent('_update_app_state');
+                                                                              FFAppState().addToMessagesTheoryOfMind(TheoryOfMindLucilleStreamChatStruct(
+                                                                                content: TheoryOfMindLucilleGroup.chatStreamCall.content(
+                                                                                  onMessageInput.serverSentEvent.jsonData,
+                                                                                ),
+                                                                                done: TheoryOfMindLucilleGroup.chatStreamCall.done(
+                                                                                  onMessageInput.serverSentEvent.jsonData,
+                                                                                ),
+                                                                                sessionId: TheoryOfMindLucilleGroup.chatStreamCall.sessionID(
+                                                                                  onMessageInput.serverSentEvent.jsonData,
+                                                                                ),
+                                                                                response: onMessageInput.serverSentEvent.jsonData.toString(),
+                                                                                messageCount: TheoryOfMindLucilleGroup.chatStreamCall.messageCount(
+                                                                                  onMessageInput.serverSentEvent.jsonData,
+                                                                                ),
+                                                                              ));
+                                                                              safeSetState(() {});
+                                                                            } else {
+                                                                              logFirebaseEvent('_update_app_state');
+                                                                              FFAppState().updateMessagesTheoryOfMindAtIndex(
+                                                                                TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)!.messageCount,
+                                                                                (e) => e
+                                                                                  ..content = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.content
+                                                                                  ..done = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.done
+                                                                                  ..sessionId = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.sessionId
+                                                                                  ..messageCount = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.messageCount
+                                                                                  ..response = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.response
+                                                                                  ..detectedEmotion = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.detectedEmotion
+                                                                                  ..detectedIntent = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.detectedIntent,
+                                                                              );
+                                                                              safeSetState(() {});
+                                                                            }
+
+                                                                            if (TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)!.done) {
+                                                                              logFirebaseEvent('_backend_call');
+                                                                              _model.chatMemory = await LucilleMemoriesGroup.createMemoryCall.call(
+                                                                                content: (_model.streamMessages.isNotEmpty).toString(),
+                                                                                memoryType: 'Semantic',
+                                                                                importance: 5,
+                                                                              );
+
+                                                                              _shouldSetState = true;
+                                                                            } else {
+                                                                              return;
+                                                                            }
+                                                                          },
+                                                                          onError:
+                                                                              (onErrorInput) async {
+                                                                            logFirebaseEvent('_show_snack_bar');
+                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                              SnackBar(
+                                                                                content: Text(
+                                                                                  'Stream Error!',
+                                                                                  style: TextStyle(
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  ),
+                                                                                ),
+                                                                                duration: Duration(milliseconds: 4000),
+                                                                                backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                          onDone:
+                                                                              () async {
+                                                                            logFirebaseEvent('_update_page_state');
+                                                                            _model.aiIsResponsing =
+                                                                                false;
+                                                                            safeSetState(() {});
+                                                                          },
+                                                                        );
+                                                                      }
+
+                                                                      logFirebaseEvent(
+                                                                          'IconButton_clear_text_fields_pin_codes');
+                                                                      safeSetState(
+                                                                          () {
+                                                                        _model
+                                                                            .textController
+                                                                            ?.clear();
+                                                                      });
+                                                                      logFirebaseEvent(
+                                                                          'IconButton_trigger_app_event');
+                                                                      FFAppEventService
+                                                                          .instance
+                                                                          .triggerAppEvent(
+                                                                        ChatSentEvent(
+                                                                          data:
+                                                                              AiResponseStruct(
+                                                                            message:
+                                                                                TheoryOfMindLucilleGroup.chatStreamCall.content(
+                                                                              (_model.lucilleStreamChat?.jsonBody ?? ''),
+                                                                            ),
+                                                                            type:
+                                                                                'Episodic',
+                                                                          ),
+                                                                          timestamp:
+                                                                              DateTime.now(),
+                                                                          waitForCompletion:
+                                                                              true,
+                                                                          debugId:
+                                                                              '3',
+                                                                        ),
+                                                                      );
+
+                                                                      logFirebaseEvent(
+                                                                          'IconButton_trigger_app_event');
+                                                                      FFAppEventService
+                                                                          .instance
+                                                                          .triggerAppEvent(
+                                                                        AiRecommendationReadyEvent(
+                                                                          timestamp:
+                                                                              DateTime.now(),
+                                                                          waitForCompletion:
+                                                                              true,
+                                                                          debugId:
+                                                                              '8',
+                                                                        ),
+                                                                      );
+
+                                                                      logFirebaseEvent(
+                                                                          'IconButton_trigger_app_event');
+                                                                      FFAppEventService
+                                                                          .instance
+                                                                          .triggerAppEvent(
+                                                                        AiThinkingEvent(
+                                                                          timestamp:
+                                                                              DateTime.now(),
+                                                                          waitForCompletion:
+                                                                              false,
+                                                                          debugId:
+                                                                              '8',
+                                                                        ),
+                                                                      );
+
+                                                                      if ((_model
+                                                                              .lucilleStreamChat
+                                                                              ?.succeeded ??
+                                                                          true)) {
                                                                         logFirebaseEvent(
                                                                             'IconButton_update_page_state');
-                                                                        _model.accumulatedResponse =
-                                                                            null;
-                                                                        _model.aiIsResponsing =
-                                                                            true;
+                                                                        _model
+                                                                            .streamedResponse = LucilleStreamFINALStruct.maybeFromMap((_model.lucilleStreamChat?.jsonBody ??
+                                                                                ''))
+                                                                            ?.response;
+                                                                        _model.aiMessageIndex = _model
+                                                                            .streamMessages
+                                                                            .length;
+                                                                        _model.insertAtIndexInStreamMessages(
+                                                                            (_model.getChatHistory?.jsonBody ??
+                                                                                ''),
+                                                                            ((_model.lucilleStreamChat?.jsonBody ?? '').toList().map<TheoryOfMindLucilleStreamChatStruct?>(TheoryOfMindLucilleStreamChatStruct.maybeFromMap).toList() as Iterable<TheoryOfMindLucilleStreamChatStruct?>).withoutNulls.firstOrNull!);
                                                                         safeSetState(
                                                                             () {});
+                                                                      } else {
                                                                         logFirebaseEvent(
-                                                                            'IconButton_backend_call');
-                                                                        _model.lucilleStreamChat =
-                                                                            await LucilleStreamingGroup
-                                                                                .lucilleStreamingResponseCall
-                                                                                .call(
-                                                                          sessionID:
-                                                                              FFAppState().chatSessionId,
-                                                                          message: _model
-                                                                              .textController
-                                                                              .text,
+                                                                            'IconButton_show_snack_bar');
+                                                                        ScaffoldMessenger.of(context)
+                                                                            .showSnackBar(
+                                                                          SnackBar(
+                                                                            content:
+                                                                                Text(
+                                                                              'Message Failed!',
+                                                                              style: TextStyle(
+                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                              ),
+                                                                            ),
+                                                                            duration:
+                                                                                Duration(milliseconds: 4000),
+                                                                            backgroundColor:
+                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                          ),
                                                                         );
-                                                                        if (_model.lucilleStreamChat?.succeeded ??
-                                                                            true) {
-                                                                          final streamSubscription = _model
-                                                                              .lucilleStreamChat
-                                                                              ?.streamedResponse
-                                                                              ?.stream
-                                                                              .transform(utf8.decoder)
-                                                                              .transform(const LineSplitter())
-                                                                              .transform(ServerSentEventLineTransformer())
-                                                                              .map((m) => ResponseStreamMessage(message: m))
-                                                                              .listen(
-                                                                            (onMessageInput) async {
-                                                                              logFirebaseEvent('_update_page_state');
-                                                                              _model.aiIsResponsing = !_model.aiIsResponsing;
-                                                                              _model.accumulatedResponse = onMessageInput.message;
-                                                                              _model.addToStreamMessages(LucilleStreamFINALStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)!);
-                                                                              safeSetState(() {});
-                                                                              logFirebaseEvent('_scroll_to');
-                                                                              await _model.listViewController?.animateTo(
-                                                                                _model.listViewController!.position.maxScrollExtent,
-                                                                                duration: Duration(milliseconds: 100),
-                                                                                curve: Curves.ease,
-                                                                              );
-                                                                              logFirebaseEvent('_update_page_state');
-                                                                              _model.aiMessageIndex = 1;
-                                                                              safeSetState(() {});
-                                                                              logFirebaseEvent('_show_snack_bar');
-                                                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                                                SnackBar(
-                                                                                  content: Text(
-                                                                                    'Streamed Message Recieved!',
-                                                                                    style: TextStyle(
-                                                                                      color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    ),
-                                                                                  ),
-                                                                                  duration: Duration(milliseconds: 4000),
-                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                ),
-                                                                              );
-                                                                              if (LucilleStreamingGroup.lucilleStreamingResponseCall.doneStatus(
-                                                                                onMessageInput.serverSentEvent.jsonData,
-                                                                              )!) {
-                                                                                logFirebaseEvent('_update_page_state');
-                                                                                _model.accumulatedResponse = onMessageInput.message;
-                                                                                safeSetState(() {});
-                                                                              } else {
-                                                                                logFirebaseEvent('_show_snack_bar');
-                                                                                ScaffoldMessenger.of(context).showSnackBar(
-                                                                                  SnackBar(
-                                                                                    content: Text(
-                                                                                      'Stream Failed!',
-                                                                                      style: TextStyle(
-                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                      ),
-                                                                                    ),
-                                                                                    duration: Duration(milliseconds: 4000),
-                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                  ),
-                                                                                );
-                                                                              }
-                                                                            },
-                                                                            onError:
-                                                                                (onErrorInput) async {
-                                                                              logFirebaseEvent('_show_snack_bar');
-                                                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                                                SnackBar(
-                                                                                  content: Text(
-                                                                                    'Stream Error!',
-                                                                                    style: TextStyle(
-                                                                                      color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    ),
-                                                                                  ),
-                                                                                  duration: Duration(milliseconds: 4000),
-                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                            onDone:
-                                                                                () async {
-                                                                              logFirebaseEvent('_show_snack_bar');
-                                                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                                                SnackBar(
-                                                                                  content: Text(
-                                                                                    'Message Finished!',
-                                                                                    style: TextStyle(
-                                                                                      color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    ),
-                                                                                  ),
-                                                                                  duration: Duration(milliseconds: 4000),
-                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          );
-                                                                        }
+                                                                      }
 
-                                                                        if ((_model.lucilleStreamChat?.succeeded ??
-                                                                            true)) {
-                                                                          logFirebaseEvent(
-                                                                              'IconButton_update_page_state');
-                                                                          _model.aiIsResponsing =
-                                                                              false;
-                                                                          _model.streamedResponse =
-                                                                              LucilleStreamFINALStruct.maybeFromMap((_model.lucilleStreamChat?.jsonBody ?? ''))?.response;
-                                                                          _model.aiMessageIndex = _model
+                                                                      logFirebaseEvent(
+                                                                          'IconButton_scroll_to');
+                                                                      await _model
+                                                                          .listViewController
+                                                                          ?.animateTo(
+                                                                        _model
+                                                                            .listViewController!
+                                                                            .position
+                                                                            .maxScrollExtent,
+                                                                        duration:
+                                                                            Duration(milliseconds: 100),
+                                                                        curve: Curves
+                                                                            .ease,
+                                                                      );
+                                                                      if (_model
                                                                               .streamMessages
-                                                                              .length;
-                                                                          _model.insertAtIndexInStreamMessages(
-                                                                              _model.aiMessageIndex!,
-                                                                              LucilleStreamFINALStruct.maybeFromMap((_model.lucilleStreamChat?.jsonBody ?? ''))!);
-                                                                          safeSetState(
-                                                                              () {});
-                                                                        } else {
-                                                                          logFirebaseEvent(
-                                                                              'IconButton_show_snack_bar');
-                                                                          ScaffoldMessenger.of(context)
-                                                                              .showSnackBar(
-                                                                            SnackBar(
-                                                                              content: Text(
-                                                                                'Message Failed!',
-                                                                                style: TextStyle(
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                              .take(5)
+                                                                              .toList()
+                                                                              .isNotEmpty
+                                                                          ? true
+                                                                          : false) {
+                                                                        logFirebaseEvent(
+                                                                            'IconButton_bottom_sheet');
+                                                                        await showModalBottomSheet(
+                                                                          isScrollControlled:
+                                                                              true,
+                                                                          backgroundColor:
+                                                                              Colors.transparent,
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (context) {
+                                                                            return WebViewAware(
+                                                                              child: GestureDetector(
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
+                                                                                child: Padding(
+                                                                                  padding: MediaQuery.viewInsetsOf(context),
+                                                                                  child: ResponseAssessmentCompWidget(),
                                                                                 ),
                                                                               ),
-                                                                              duration: Duration(milliseconds: 4000),
-                                                                              backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                            ),
-                                                                          );
-                                                                        }
-
+                                                                            );
+                                                                          },
+                                                                        ).then((value) =>
+                                                                            safeSetState(() {}));
+                                                                      } else {
                                                                         logFirebaseEvent(
-                                                                            'IconButton_scroll_to');
-                                                                        await _model
-                                                                            .listViewController
-                                                                            ?.animateTo(
-                                                                          _model
-                                                                              .listViewController!
-                                                                              .position
-                                                                              .maxScrollExtent,
-                                                                          duration:
-                                                                              Duration(milliseconds: 100),
-                                                                          curve:
-                                                                              Curves.ease,
+                                                                            'IconButton_show_snack_bar');
+                                                                        ScaffoldMessenger.of(context)
+                                                                            .clearSnackBars();
+                                                                        ScaffoldMessenger.of(context)
+                                                                            .showSnackBar(
+                                                                          SnackBar(
+                                                                            content:
+                                                                                Text(
+                                                                              'Try asking more questions and we can set up an assessment to help us give better responses!',
+                                                                              style: TextStyle(
+                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                              ),
+                                                                            ),
+                                                                            duration:
+                                                                                Duration(milliseconds: 4000),
+                                                                            backgroundColor:
+                                                                                FlutterFlowTheme.of(context).accent3,
+                                                                          ),
                                                                         );
+                                                                      }
 
-                                                                        safeSetState(
-                                                                            () {});
-                                                                      },
-                                                                    ),
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    },
                                                                   ),
-                                                                ],
-                                                              ),
+                                                                ),
+                                                              ],
                                                             ),
                                                           ),
                                                         ),
                                                       ),
                                                     ),
-                                                  ),
+                                                    if (responsiveVisibility(
+                                                      context: context,
+                                                      phone: false,
+                                                      tablet: false,
+                                                    ))
+                                                      Container(
+                                                        width: 100.0,
+                                                        height: 60.0,
+                                                        decoration:
+                                                            BoxDecoration(),
+                                                      ),
+                                                  ],
                                                 ),
                                               ),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -1426,8 +1798,8 @@ class _ChatWithLucilleVersion5WidgetState
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

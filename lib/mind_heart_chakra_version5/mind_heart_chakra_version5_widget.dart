@@ -17,6 +17,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'mind_heart_chakra_version5_model.dart';
 export 'mind_heart_chakra_version5_model.dart';
 
@@ -190,15 +191,18 @@ class _MindHeartChakraVersion5WidgetState
                                                   0.0, 0.0)
                                               .resolve(
                                                   Directionality.of(context)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(dialogContext)
-                                                  .unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child:
-                                                EnergyCenterDialogueCompWidget(),
+                                          child: WebViewAware(
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(dialogContext)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child:
+                                                  EnergyCenterDialogueCompWidget(),
+                                            ),
                                           ),
                                         );
                                       },

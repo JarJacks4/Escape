@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/index.dart';
@@ -52,6 +53,10 @@ class CreateAccountOnboardingFlowModel
   AudioPlayer? soundPlayer6;
   AudioPlayer? soundPlayer7;
   AudioPlayer? soundPlayer8;
+  // Stores action output result for [Backend Call - API (Onboarding User)] action in Button widget.
+  ApiCallResponse? onboardingLucille1;
+  // Stores action output result for [Backend Call - API (Create Memory)] action in Button widget.
+  ApiCallResponse? onboardingLucilleMemory4;
 
   @override
   void initState(BuildContext context) {

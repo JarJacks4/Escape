@@ -186,7 +186,7 @@ Map<String, dynamic> getEpidemicSoundFirestoreData(
   final firestoreData = mapToFirestore(epidemicSound.toMap());
 
   // Add any Firestore field values
-  epidemicSound.firestoreUtilData.fieldValues
+  mapToFirestore(epidemicSound.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

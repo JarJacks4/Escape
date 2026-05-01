@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
@@ -113,11 +114,20 @@ class _DeleteAccountBottomSheetWidgetState
                           'assets/audios/ES_Game_Over,_Defeat,_Loss,_Negative,_Notification_01_-_Epidemic_Sound.mp3')
                       .then((_) => _model.soundPlayer1!.play());
 
+                  logFirebaseEvent('Button_backend_call');
+                  _model.deleteUser = await TheoryOfMindOnboardingGroup
+                      .deleteUserProfileCall
+                      .call(
+                    userID: currentUserUid,
+                  );
+
                   logFirebaseEvent('Button_auth');
                   await authManager.deleteUser(context);
 
                   context.goNamedAuth(
                       HomeVersion5Widget.routeName, context.mounted);
+
+                  safeSetState(() {});
                 },
                 text: FFLocalizations.of(context).getText(
                   's7vfwprx' /* Yes */,

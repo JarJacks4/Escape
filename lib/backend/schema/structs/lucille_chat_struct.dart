@@ -386,7 +386,7 @@ Map<String, dynamic> getLucilleChatFirestoreData(
   final firestoreData = mapToFirestore(lucilleChat.toMap());
 
   // Add any Firestore field values
-  lucilleChat.firestoreUtilData.fieldValues
+  mapToFirestore(lucilleChat.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

@@ -5,23 +5,15 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/lucille_g_p_t_comp/writing_indicator/writing_indicator_widget.dart';
 import 'chat_with_lucille_version5_widget.dart'
     show ChatWithLucilleVersion5Widget;
-import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
+import 'package:record/record.dart';
 
 class ChatWithLucilleVersion5Model
     extends FlutterFlowModel<ChatWithLucilleVersion5Widget> {
   ///  Local state fields for this page.
 
-  bool aiIsResponsing = false;
-
-  List<LucilleChatStruct> chats = [];
-  void addToChats(LucilleChatStruct item) => chats.add(item);
-  void removeFromChats(LucilleChatStruct item) => chats.remove(item);
-  void removeAtIndexFromChats(int index) => chats.removeAt(index);
-  void insertAtIndexInChats(int index, LucilleChatStruct item) =>
-      chats.insert(index, item);
-  void updateChatsAtIndex(int index, Function(LucilleChatStruct) updateFn) =>
-      chats[index] = updateFn(chats[index]);
+  bool aiIsResponsing = true;
 
   String userInput = 'userResponse';
 
@@ -40,34 +32,34 @@ class ChatWithLucilleVersion5Model
 
   String? sessionID;
 
-  List<BuildShipStreamStruct> messages = [];
-  void addToMessages(BuildShipStreamStruct item) => messages.add(item);
-  void removeFromMessages(BuildShipStreamStruct item) => messages.remove(item);
-  void removeAtIndexFromMessages(int index) => messages.removeAt(index);
-  void insertAtIndexInMessages(int index, BuildShipStreamStruct item) =>
-      messages.insert(index, item);
-  void updateMessagesAtIndex(
-          int index, Function(BuildShipStreamStruct) updateFn) =>
-      messages[index] = updateFn(messages[index]);
-
-  List<LucilleStreamFINALStruct> streamMessages = [];
-  void addToStreamMessages(LucilleStreamFINALStruct item) =>
+  List<TheoryOfMindLucilleStreamChatStruct> streamMessages = [];
+  void addToStreamMessages(TheoryOfMindLucilleStreamChatStruct item) =>
       streamMessages.add(item);
-  void removeFromStreamMessages(LucilleStreamFINALStruct item) =>
+  void removeFromStreamMessages(TheoryOfMindLucilleStreamChatStruct item) =>
       streamMessages.remove(item);
   void removeAtIndexFromStreamMessages(int index) =>
       streamMessages.removeAt(index);
   void insertAtIndexInStreamMessages(
-          int index, LucilleStreamFINALStruct item) =>
+          int index, TheoryOfMindLucilleStreamChatStruct item) =>
       streamMessages.insert(index, item);
   void updateStreamMessagesAtIndex(
-          int index, Function(LucilleStreamFINALStruct) updateFn) =>
+          int index, Function(TheoryOfMindLucilleStreamChatStruct) updateFn) =>
       streamMessages[index] = updateFn(streamMessages[index]);
+
+  String? accumulatedResponse;
+
+  int? aiMessageIndex = 0;
+
+  bool? isRecording = true;
+
+  String? recordedAudioBase64;
+
+  String? voiceTextUser;
+
+  String? lucilleBase64ConvertedFile;
 
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for Column widget.
-  ScrollController? columnController;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -75,59 +67,62 @@ class ChatWithLucilleVersion5Model
   int get tabBarPreviousIndex =>
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
-  // Stores action output result for [Custom Action - startListening] action in LottieAnimation widget.
-  String? returnedVoiceText;
-  // Stores action output result for [Backend Call - API (Lucille Streaming Response)] action in LottieAnimation widget.
-  ApiCallResponse? getChatHistory2;
-  // Stores action output result for [Backend Call - API (Lucille Chat Stream)] action in LottieAnimation widget.
-  ApiCallResponse? voiceChatLucilleResponse1;
-  // Stores action output result for [Backend Call - API (Lucille Streaming Response)] action in LottieAnimation widget.
-  ApiCallResponse? sessionIDVoiceChat;
-  // Stores action output result for [Backend Call - API (Lucille Chat Stream)] action in LottieAnimation widget.
-  ApiCallResponse? voiceChatLucilleResponse2;
+  AudioPlayer? soundPlayer1;
+  AudioRecorder? audioRecorder;
+  AudioPlayer? soundPlayer2;
+  String? stopUserVoice;
+  FFUploadedFile recordedFileBytes =
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+  bool isDataUploading_uploadAudioFile = false;
+  List<FFUploadedFile> uploadedLocalFiles_uploadAudioFile = [];
+
+  // Stores action output result for [Custom Action - audioPathFromUploadedFile] action in LottieAnimation widget.
+  String? recordedFileToBase642;
+  // Stores action output result for [Backend Call - API (Speech To Text)] action in LottieAnimation widget.
+  ApiCallResponse? speechToText;
+  // Stores action output result for [Backend Call - API (Lucille Chat Main)] action in LottieAnimation widget.
+  ApiCallResponse? speechToTextChatResponse;
+  // Stores action output result for [Backend Call - API (Text to Speech)] action in LottieAnimation widget.
+  ApiCallResponse? ttsResponse;
+  // Stores action output result for [Custom Action - base64ToAudioFile] action in LottieAnimation widget.
+  String? base64AudioConversion;
   // State field(s) for ListView widget.
   ScrollController? listViewController;
+  // State field(s) for Column widget.
+  ScrollController? columnController1;
+  // State field(s) for Column widget.
+  ScrollController? columnController2;
+  // State field(s) for Column widget.
+  ScrollController? columnController3;
   // Model for writingIndicator component.
   late WritingIndicatorModel writingIndicatorModel;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // Stores action output result for [Backend Call - API (Lucille Streaming Response)] action in IconButton widget.
+  // Stores action output result for [Backend Call - API (Get Chat History)] action in IconButton widget.
+  ApiCallResponse? getChatHistory;
+  // Stores action output result for [Backend Call - API (ChatStream)] action in IconButton widget.
   ApiCallResponse? lucilleStreamChat;
-
-  // ── Lifted stream/timer state ──────────────────────────────────────────────
-  /// Timer used to throttle UI rebuilds while text is streaming in.
-  Timer? updateTimer;
-
-  /// Active subscription for the text-chat stream.
-  StreamSubscription? textStreamSubscription;
-
-  /// Active subscription for the voice-chat stream.
-  StreamSubscription? voiceStreamSubscription;
-
-  /// Accumulated AI response text during streaming (text chat).
-  String accumulatedTextResponse = '';
-
-  /// Whether a UI update is pending for the throttle timer.
-  bool needsTextUpdate = false;
-  // ──────────────────────────────────────────────────────────────────────────
+  // Stores action output result for [Backend Call - API (Create Memory)] action in IconButton widget.
+  ApiCallResponse? chatMemory;
 
   @override
   void initState(BuildContext context) {
-    columnController = ScrollController();
     listViewController = ScrollController();
+    columnController1 = ScrollController();
+    columnController2 = ScrollController();
+    columnController3 = ScrollController();
     writingIndicatorModel = createModel(context, () => WritingIndicatorModel());
   }
 
   @override
   void dispose() {
-    updateTimer?.cancel();
-    textStreamSubscription?.cancel();
-    voiceStreamSubscription?.cancel();
-    columnController?.dispose();
     tabBarController?.dispose();
     listViewController?.dispose();
+    columnController1?.dispose();
+    columnController2?.dispose();
+    columnController3?.dispose();
     writingIndicatorModel.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();

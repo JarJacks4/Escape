@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'community_guidelines_comp_model.dart';
 export 'community_guidelines_comp_model.dart';
 
@@ -149,9 +150,11 @@ class _CommunityGuidelinesCompWidgetState
                               enableDrag: false,
                               context: context,
                               builder: (context) {
-                                return Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: HelpCompWidget(),
+                                return WebViewAware(
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: HelpCompWidget(),
+                                  ),
                                 );
                               },
                             ).then((value) => safeSetState(() {}));

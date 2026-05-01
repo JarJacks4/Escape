@@ -336,7 +336,7 @@ Map<String, dynamic> getModelConfigurationFirestoreData(
   final firestoreData = mapToFirestore(modelConfiguration.toMap());
 
   // Add any Firestore field values
-  modelConfiguration.firestoreUtilData.fieldValues
+  mapToFirestore(modelConfiguration.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

@@ -520,7 +520,7 @@ class _ConfettiRewardBasicWidgetState extends State<ConfettiRewardBasicWidget> {
                                                 'CONFETTI_REWARD_BASIC_SEE_EXPLORE_BTN_ON');
                                             logFirebaseEvent(
                                                 'Button_haptic_feedback');
-                                            HapticFeedback.mediumImpact();
+                                            HapticFeedback.heavyImpact();
                                             logFirebaseEvent(
                                                 'Button_play_sound');
                                             _model.soundPlayer1 ??=
@@ -570,8 +570,7 @@ class _ConfettiRewardBasicWidgetState extends State<ConfettiRewardBasicWidget> {
                                               context.pop();
                                             }
                                             context.pushNamed(
-                                              ExplorePageVersion5Widget
-                                                  .routeName,
+                                              RewardsSplashPageWidget.routeName,
                                               extra: <String, dynamic>{
                                                 '__transition_info__':
                                                     TransitionInfo(
@@ -579,7 +578,7 @@ class _ConfettiRewardBasicWidgetState extends State<ConfettiRewardBasicWidget> {
                                                   transitionType:
                                                       PageTransitionType.fade,
                                                   duration:
-                                                      Duration(milliseconds: 2),
+                                                      Duration(milliseconds: 3),
                                                 ),
                                               },
                                             );

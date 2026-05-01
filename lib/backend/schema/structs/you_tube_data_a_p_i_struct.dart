@@ -247,7 +247,7 @@ Map<String, dynamic> getYouTubeDataAPIFirestoreData(
   );
 
   // Add any Firestore field values
-  youTubeDataAPI.firestoreUtilData.fieldValues
+  mapToFirestore(youTubeDataAPI.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

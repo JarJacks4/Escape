@@ -57,8 +57,6 @@ class _EnterInnerverseCardVersion5WidgetState
                   alignment: AlignmentDirectional(0.0, -1.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(0.0),
-                      bottomRight: Radius.circular(0.0),
                       topLeft: Radius.circular(24.0),
                       topRight: Radius.circular(24.0),
                     ),

@@ -1,5 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/components/lucille_help_comp_widget.dart';
+import '/components/lucille_soundscape_suggestion_widget.dart';
 import '/components/soundscapes_starter_page_version5_copy_copy_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
@@ -28,6 +28,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'a_i_soundscapes_copy_copy_copy_model.dart';
 export 'a_i_soundscapes_copy_copy_copy_model.dart';
 
@@ -79,14 +80,16 @@ class _AISoundscapesCopyCopyCopyWidgetState
           backgroundColor: Colors.transparent,
           context: context,
           builder: (context) {
-            return GestureDetector(
-              onTap: () {
-                FocusScope.of(context).unfocus();
-                FocusManager.instance.primaryFocus?.unfocus();
-              },
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: SoundscapesStarterPageVersion5CopyCopyWidget(),
+            return WebViewAware(
+              child: GestureDetector(
+                onTap: () {
+                  FocusScope.of(context).unfocus();
+                  FocusManager.instance.primaryFocus?.unfocus();
+                },
+                child: Padding(
+                  padding: MediaQuery.viewInsetsOf(context),
+                  child: SoundscapesStarterPageVersion5CopyCopyWidget(),
+                ),
               ),
             );
           },
@@ -546,17 +549,18 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                                             await showModalBottomSheet(
                                                                               isScrollControlled: true,
                                                                               backgroundColor: Colors.transparent,
-                                                                              enableDrag: false,
                                                                               context: context,
                                                                               builder: (context) {
-                                                                                return GestureDetector(
-                                                                                  onTap: () {
-                                                                                    FocusScope.of(context).unfocus();
-                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                  },
-                                                                                  child: Padding(
-                                                                                    padding: MediaQuery.viewInsetsOf(context),
-                                                                                    child: LucilleHelpCompWidget(),
+                                                                                return WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: LucilleSoundscapeSuggestionWidget(),
+                                                                                    ),
                                                                                   ),
                                                                                 );
                                                                               },

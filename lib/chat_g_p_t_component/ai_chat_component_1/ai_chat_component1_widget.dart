@@ -1,4 +1,3 @@
-import '/backend/api_requests/api_calls.dart';
 import '/chat_g_p_t_component/empty_list_2/empty_list2_widget.dart';
 import '/chat_g_p_t_component/writing_indicator_1/writing_indicator1_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -177,17 +176,14 @@ class _AiChatComponent1WidgetState extends State<AiChatComponent1Widget> {
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .only(
-                                                                    bottomLeft:
-                                                                        Radius.circular(
-                                                                            0.0),
-                                                                    bottomRight:
-                                                                        Radius.circular(
-                                                                            12.0),
                                                                     topLeft: Radius
                                                                         .circular(
                                                                             12.0),
                                                                     topRight: Radius
                                                                         .circular(
+                                                                            12.0),
+                                                                    bottomRight:
+                                                                        Radius.circular(
                                                                             12.0),
                                                                   ),
                                                                   border: Border
@@ -383,16 +379,13 @@ class _AiChatComponent1WidgetState extends State<AiChatComponent1Widget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .only(
-                                                                bottomLeft: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                                bottomRight: Radius
-                                                                    .circular(
-                                                                        0.0),
                                                                 topLeft: Radius
                                                                     .circular(
                                                                         12.0),
                                                                 topRight: Radius
+                                                                    .circular(
+                                                                        12.0),
+                                                                bottomLeft: Radius
                                                                     .circular(
                                                                         12.0),
                                                               ),
@@ -596,53 +589,6 @@ class _AiChatComponent1WidgetState extends State<AiChatComponent1Widget> {
                               functions
                                   .convertToJSON(_model.textController.text));
                           safeSetState(() {});
-                          // The "chatHistory" is the generated JSON -- we send the whole chat history to AI in order for it to understand context.
-                          logFirebaseEvent('IconButton_backend_call');
-                          _model.chatGPTResponse =
-                              await LucilleChatStreamCall.call();
-
-                          if ((_model.chatGPTResponse?.succeeded ?? true)) {
-                            logFirebaseEvent(
-                                'IconButton_update_component_state');
-                            _model.aiResponding = false;
-                            _model.chatHistory = functions.saveChatHistory(
-                                _model.chatHistory,
-                                getJsonField(
-                                  (_model.chatGPTResponse?.jsonBody ?? ''),
-                                  r'''$['choices'][0]['message']''',
-                                ));
-                            safeSetState(() {});
-                            logFirebaseEvent(
-                                'IconButton_clear_text_fields_pin_codes');
-                            safeSetState(() {
-                              _model.textController?.clear();
-                            });
-                          } else {
-                            logFirebaseEvent('IconButton_show_snack_bar');
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Your API Call Failed!',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                duration: Duration(milliseconds: 4000),
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).error,
-                              ),
-                            );
-                            logFirebaseEvent(
-                                'IconButton_update_component_state');
-                            _model.aiResponding = false;
-                            safeSetState(() {});
-                          }
-
                           logFirebaseEvent('IconButton_wait__delay');
                           await Future.delayed(
                             Duration(
@@ -655,8 +601,6 @@ class _AiChatComponent1WidgetState extends State<AiChatComponent1Widget> {
                             duration: Duration(milliseconds: 100),
                             curve: Curves.ease,
                           );
-
-                          safeSetState(() {});
                         },
                       ),
                     ),

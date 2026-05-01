@@ -153,7 +153,8 @@ Map<String, dynamic> getChatFirestoreData(
   final firestoreData = mapToFirestore(chat.toMap());
 
   // Add any Firestore field values
-  chat.firestoreUtilData.fieldValues.forEach((k, v) => firestoreData[k] = v);
+  mapToFirestore(chat.firestoreUtilData.fieldValues)
+      .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
 }
