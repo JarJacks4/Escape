@@ -4910,7 +4910,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'a7wtorqo': {
-      'en': 'Begin My Journey',
+      'en': 'Continue My Journey',
       'ar': '',
       'de': '',
       'es': '',
@@ -5218,7 +5218,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'acnpc4a1': {
-      'en': 'Start My Journey!',
+      'en': 'Begin My Journey!',
       'ar': '',
       'de': '',
       'es': '',
@@ -17195,6 +17195,40 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '家',
     },
   },
+  // VoiceChatLucille
+  {
+    'qk4t3p3g': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // BodyWarriorPoseTouchDesigner
+  {
+    'azczsugs': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
   // TopNav1
   {
     'b1klyvra': {
@@ -28571,6 +28605,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
+    '03x52djm': {
+      'en': 'Let Lucille Choose For Me',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
     'hljt2ury': {
       'en': 'Collections',
       'ar': '',
@@ -28741,20 +28789,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'q3okb1yo': {
       'en': '4 sessions',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'z4ql6puf': {
-      'en': 'Let Lucille Choose For Me',
       'ar': '',
       'de': '',
       'es': '',
@@ -65583,7 +65617,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'xcodmtx5': {
-      'en': 'Voice Ritual Spark',
+      'en': 'Voice Ritual \nSpark',
       'ar': '',
       'de': '',
       'es': '',

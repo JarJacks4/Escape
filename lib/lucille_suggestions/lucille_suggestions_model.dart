@@ -21,22 +21,22 @@ class LucilleSuggestionsModel
       : 0;
   AudioPlayer? soundPlayer1;
   AudioPlayer? soundPlayer2;
-  // Stores action output result for [Backend Call - API (Recommended Soundscapes)] action in ThatSlideableWidget widget.
+  // Stores action output result for [Backend Call - API (Recommended Soundscapes)] action in Swipeable widget.
   ApiCallResponse? recommendedSoundscapes;
-  // Stores action output result for [Backend Call - API (Get Soundscape)] action in ThatSlideableWidget widget.
+  // Stores action output result for [Backend Call - API (Get Soundscape)] action in Swipeable widget.
   ApiCallResponse? getSoundscape;
   AudioPlayer? soundPlayer3;
   AudioPlayer? soundPlayer4;
-  // Stores action output result for [Backend Call - API (Recommended Soundscapes)] action in ThatSlideableWidget widget.
-  ApiCallResponse? recommendedSoundscapes8;
-  // Stores action output result for [Backend Call - API (Get Soundscape)] action in ThatSlideableWidget widget.
-  ApiCallResponse? getSoundscape4;
+  // Stores action output result for [Backend Call - API (Recommended Soundscapes)] action in Swipeable widget.
+  ApiCallResponse? recommendedSoundscapes62;
+  // Stores action output result for [Backend Call - API (Get Soundscape)] action in Swipeable widget.
+  ApiCallResponse? getSoundscape3;
   AudioPlayer? soundPlayer5;
   AudioPlayer? soundPlayer6;
-  // Stores action output result for [Backend Call - API (Recommended Soundscapes)] action in ThatSlideableWidget widget.
-  ApiCallResponse? recommendedSoundscapes3;
-  // Stores action output result for [Backend Call - API (Get Soundscape)] action in ThatSlideableWidget widget.
-  ApiCallResponse? getSoundscape3;
+  // Stores action output result for [Backend Call - API (Recommended Soundscapes)] action in Swipeable widget.
+  ApiCallResponse? recommendedSoundscapes4;
+  // Stores action output result for [Backend Call - API (Get Soundscape)] action in Swipeable widget.
+  ApiCallResponse? getSoundscape2;
 
   /// Query cache managers for this widget.
 

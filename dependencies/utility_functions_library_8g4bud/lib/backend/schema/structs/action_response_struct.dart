@@ -5,130 +5,102 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
+
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
+
 class ActionResponseStruct extends FFFirebaseStruct {
-  ActionResponseStruct({
-    /// success → true if the action executes successfully, false if an error
-    /// occurs.
-    bool? success,
+    ActionResponseStruct(
+    {/// success → true if the action executes successfully, false if an error
+/// occurs.
+bool? success,/// error → The error message from the exception (if any).
+String? error,/// errorMsg → A friendly user-facing error message (default: "Could not
+/// process.
+/// 
+/// Try again later").
+String? errorMsg,FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),}
+  )  : _success = success,_error = error,_errorMsg = errorMsg, super(firestoreUtilData);
 
-    /// error → The error message from the exception (if any).
-    String? error,
 
-    /// errorMsg → A friendly user-facing error message (default: "Could not
-    /// process.
-    ///
-    /// Try again later").
-    String? errorMsg,
-    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
-  })  : _success = success,
-        _error = error,
-        _errorMsg = errorMsg,
-        super(firestoreUtilData);
-
-  // "success" field.
+    // "success" field.
   bool? _success;
-  bool get success => _success ?? false;
-  set success(bool? val) => _success = val;
+bool get success => _success ?? false;
+set success(bool? val) => _success = val;
 
+  
+  
   bool hasSuccess() => _success != null;
+
 
   // "error" field.
   String? _error;
-  String get error => _error ?? '';
-  set error(String? val) => _error = val;
+String get error => _error ?? '';
+set error(String? val) => _error = val;
 
+  
+  
   bool hasError() => _error != null;
+
 
   // "errorMsg" field.
   String? _errorMsg;
-  String get errorMsg => _errorMsg ?? '';
-  set errorMsg(String? val) => _errorMsg = val;
+String get errorMsg => _errorMsg ?? '';
+set errorMsg(String? val) => _errorMsg = val;
 
+  
+  
   bool hasErrorMsg() => _errorMsg != null;
+
 
   static ActionResponseStruct fromMap(Map<String, dynamic> data) =>
       ActionResponseStruct(
-        success: data['success'] as bool?,
-        error: data['error'] as String?,
-        errorMsg: data['errorMsg'] as String?,
+        success: data['success'] as bool?,error: data['error'] as String?,errorMsg: data['errorMsg'] as String?,
       );
 
-  static ActionResponseStruct? maybeFromMap(dynamic data) => data is Map
-      ? ActionResponseStruct.fromMap(data.cast<String, dynamic>())
-      : null;
+  static ActionResponseStruct? maybeFromMap(dynamic data) =>
+      data is Map ? ActionResponseStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
-        'success': _success,
-        'error': _error,
-        'errorMsg': _errorMsg,
+        'success': _success,'error': _error,'errorMsg': _errorMsg,
       }.withoutNulls;
 
-  @override
+    @override
   Map<String, dynamic> toSerializableMap() => {
-        'success': serializeParam(
-          _success,
-          ParamType.bool,
-        ),
-        'error': serializeParam(
-          _error,
-          ParamType.String,
-        ),
-        'errorMsg': serializeParam(
-          _errorMsg,
-          ParamType.String,
-        ),
+        'success': serializeParam(_success, ParamType.bool, ),'error': serializeParam(_error, ParamType.String, ),'errorMsg': serializeParam(_errorMsg, ParamType.String, ),
       }.withoutNulls;
 
   static ActionResponseStruct fromSerializableMap(Map<String, dynamic> data) =>
       ActionResponseStruct(
-        success: deserializeParam(
-          data['success'],
-          ParamType.bool,
-          false,
-        ),
-        error: deserializeParam(
-          data['error'],
-          ParamType.String,
-          false,
-        ),
-        errorMsg: deserializeParam(
-          data['errorMsg'],
-          ParamType.String,
-          false,
-        ),
+        success: deserializeParam(data['success'], ParamType.bool, false,  ),error: deserializeParam(data['error'], ParamType.String, false,  ),errorMsg: deserializeParam(data['errorMsg'], ParamType.String, false,  ),
       );
+
+
+  
 
   @override
   String toString() => 'ActionResponseStruct(${toMap()})';
 
-  @override
+    @override
   bool operator ==(Object other) {
+    
     return other is ActionResponseStruct &&
-        success == other.success &&
-        error == other.error &&
-        errorMsg == other.errorMsg;
+      success == other.success && error == other.error && errorMsg == other.errorMsg;
   }
-
   @override
   int get hashCode => const ListEquality().hash([success, error, errorMsg]);
+
 }
 
-ActionResponseStruct createActionResponseStruct({
-  bool? success,
-  String? error,
-  String? errorMsg,
+ActionResponseStruct createActionResponseStruct(
+  { bool? success,String? error,String? errorMsg,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
-  bool delete = false,
-}) =>
+  bool delete = false, }
+) =>
     ActionResponseStruct(
-      success: success,
-      error: error,
-      errorMsg: errorMsg,
+      success: success,error: error,errorMsg: errorMsg,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,
@@ -137,16 +109,19 @@ ActionResponseStruct createActionResponseStruct({
       ),
     );
 
+
+
 ActionResponseStruct? updateActionResponseStruct(
   ActionResponseStruct? actionResponse, {
   bool clearUnsetFields = true,
   bool create = false,
 }) =>
     actionResponse
-      ?..firestoreUtilData = FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-      );
+        ?..firestoreUtilData =
+          FirestoreUtilData(
+            clearUnsetFields: clearUnsetFields,
+            create: create,
+          );
 
 void addActionResponseStructData(
   Map<String, dynamic> firestoreData,
@@ -167,14 +142,11 @@ void addActionResponseStructData(
   if (clearFields) {
     firestoreData[fieldName] = <String, dynamic>{};
   }
-  final actionResponseData =
-      getActionResponseFirestoreData(actionResponse, forFieldValue);
-  final nestedData =
-      actionResponseData.map((k, v) => MapEntry('$fieldName.$k', v));
-
+  final actionResponseData = getActionResponseFirestoreData(actionResponse, forFieldValue);
+  final nestedData = actionResponseData.map((k, v) => MapEntry('$fieldName.$k', v));
+  
   final mergeFields = actionResponse.firestoreUtilData.create || clearFields;
-  firestoreData
-      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
+  firestoreData.addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
 }
 
 Map<String, dynamic> getActionResponseFirestoreData(
@@ -186,9 +158,10 @@ Map<String, dynamic> getActionResponseFirestoreData(
   }
   final firestoreData = mapToFirestore(actionResponse.toMap());
 
+  
+
   // Add any Firestore field values
-  mapToFirestore(actionResponse.firestoreUtilData.fieldValues)
-      .forEach((k, v) => firestoreData[k] = v);
+  mapToFirestore(actionResponse.firestoreUtilData.fieldValues).forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
 }
@@ -196,7 +169,5 @@ Map<String, dynamic> getActionResponseFirestoreData(
 List<Map<String, dynamic>> getActionResponseListFirestoreData(
   List<ActionResponseStruct>? actionResponses,
 ) =>
-    actionResponses
-        ?.map((e) => getActionResponseFirestoreData(e, true))
-        .toList() ??
-    [];
+    actionResponses?.map((e) => getActionResponseFirestoreData(e, true)).toList() ?? [];
+  

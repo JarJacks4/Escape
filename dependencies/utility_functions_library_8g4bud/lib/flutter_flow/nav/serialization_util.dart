@@ -3,24 +3,32 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:from_css_color/from_css_color.dart';
 
+
 import '/backend/schema/structs/index.dart';
+
+
 
 import 'package:ff_commons/flutter_flow/lat_lng.dart';
 import 'package:ff_commons/flutter_flow/place.dart';
 import 'package:ff_commons/flutter_flow/uploaded_file.dart';
+
+
 
 /// SERIALIZATION HELPERS
 
 String dateTimeToString(DateTime dateTime) =>
     '${dateTime.isUtc ? 'u' : 'l'}${dateTime.millisecondsSinceEpoch}';
 
+
 String dateTimeRangeToString(DateTimeRange dateTimeRange) {
   final start = dateTimeRange.start;
   final end = dateTimeRange.end;
-  final startStr = '${start.isUtc ? 'u' : 'l'}${start.millisecondsSinceEpoch}';
+  final startStr =
+      '${start.isUtc ? 'u' : 'l'}${start.millisecondsSinceEpoch}';
   final endStr = '${end.isUtc ? 'u' : 'l'}${end.millisecondsSinceEpoch}';
   return '$startStr|$endStr';
 }
+
 
 String placeToString(FFPlace place) => jsonEncode({
       'latLng': place.latLng.serialize(),
@@ -32,8 +40,10 @@ String placeToString(FFPlace place) => jsonEncode({
       'zipCode': place.zipCode,
     });
 
-String uploadedFileToString(FFUploadedFile uploadedFile) =>
-    uploadedFile.serialize();
+
+String uploadedFileToString(FFUploadedFile uploadedFile) => uploadedFile.serialize();
+
+
 
 String? serializeParam(
   dynamic param,
@@ -76,19 +86,25 @@ String? serializeParam(
         data = uploadedFileToString(param as FFUploadedFile);
       case ParamType.JSON:
         data = json.encode(param);
-
+      
       case ParamType.DataStruct:
-        data = param is BaseStruct ? param.serialize() : null;
+  data = param is BaseStruct ? param.serialize() : null;
 
+      
+      
+      
       default:
         data = null;
     }
     return data;
+    
   } catch (e) {
     print('Error serializing parameter: $e');
     return null;
   }
 }
+
+
 
 /// END SERIALIZATION HELPERS
 
@@ -109,6 +125,7 @@ DateTime? dateTimeFromString(String? dateTimeStr) {
         )
       : null;
 }
+
 
 DateTimeRange? dateTimeRangeFromString(String dateTimeRangeStr) {
   final pieces = dateTimeRangeStr.split('|');
@@ -148,6 +165,7 @@ LatLng? latLngFromString(String? latLngStr) {
   );
 }
 
+
 FFPlace placeFromString(String placeStr) {
   final serializedData = jsonDecode(placeStr) as Map<String, dynamic>;
   final data = {
@@ -172,8 +190,12 @@ FFPlace placeFromString(String placeStr) {
   );
 }
 
+
 FFUploadedFile uploadedFileFromString(String uploadedFileStr) =>
-    FFUploadedFile.deserialize(uploadedFileStr);
+  FFUploadedFile.deserialize(uploadedFileStr);
+
+
+
 
 enum ParamType {
   int,
@@ -187,16 +209,22 @@ enum ParamType {
   FFPlace,
   FFUploadedFile,
   JSON,
-
+  
   DataStruct,
+  
+  
+  
 }
+
+
+
 
 dynamic deserializeParam<T>(
   String? param,
   ParamType paramType,
-  bool isList, {
-  StructBuilder<T>? structBuilder,
-}) {
+  bool isList,
+  { StructBuilder<T>? structBuilder, }
+) {
   try {
     if (param == null) {
       return null;
@@ -209,12 +237,7 @@ dynamic deserializeParam<T>(
       return paramValues
           .where((p) => p is String)
           .map((p) => p as String)
-          .map((p) => deserializeParam<T>(
-                p,
-                paramType,
-                false,
-                structBuilder: structBuilder,
-              ))
+          .map((p) => deserializeParam<T>(p, paramType, false , structBuilder: structBuilder,))
           .where((p) => p != null)
           .map((p) => p! as T)
           .toList();
@@ -242,11 +265,14 @@ dynamic deserializeParam<T>(
         return uploadedFileFromString(param);
       case ParamType.JSON:
         return json.decode(param);
-
-      case ParamType.DataStruct:
+      
+      
+            case ParamType.DataStruct:
         final data = json.decode(param) as Map<String, dynamic>? ?? {};
         return structBuilder != null ? structBuilder(data) : null;
 
+      
+      
       default:
         return null;
     }
@@ -255,3 +281,7 @@ dynamic deserializeParam<T>(
     return null;
   }
 }
+
+
+
+

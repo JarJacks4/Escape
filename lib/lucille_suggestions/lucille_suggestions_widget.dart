@@ -4,10 +4,6 @@ import '/components/lucille_suggestion_description_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
-import "package:that_slideable_list_item_mrpo3s/backend/schema/enums/enums.dart"
-    as that_slideable_list_item_mrpo3s_enums;
-import "package:that_slideable_list_item_mrpo3s/backend/schema/structs/index.dart"
-    as that_slideable_list_item_mrpo3s_data_schema;
 import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
@@ -15,12 +11,10 @@ import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
     as cupertino_time_picker_hiuzb7_app_state;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:swipe_button_e4yciw/custom_code/widgets/index.dart'
+    as swipe_button_e4yciw_custom_widgets;
 import 'package:that_audio_player_oo85ab/app_state.dart'
     as that_audio_player_oo85ab_app_state;
-import 'package:that_slideable_list_item_mrpo3s/components/swipe_left_comp_widget.dart'
-    as that_slideable_list_item_mrpo3s;
-import 'package:that_slideable_list_item_mrpo3s/custom_code/widgets/index.dart'
-    as that_slideable_list_item_mrpo3s_custom_widgets;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -28,7 +22,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -1189,292 +1182,182 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                         ),
                                                         Flexible(
                                                           flex: 1,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        8.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              logFirebaseEvent(
+                                                                  'LUCILLE_SUGGESTIONS_Container_pc8w76t4_O');
+                                                              var _shouldSetState =
+                                                                  false;
+                                                              logFirebaseEvent(
+                                                                  'Swipeable_haptic_feedback');
+                                                              HapticFeedback
+                                                                  .heavyImpact();
+                                                              logFirebaseEvent(
+                                                                  'Swipeable_play_sound');
+                                                              _model.soundPlayer2 ??=
+                                                                  AudioPlayer();
+                                                              if (_model
+                                                                  .soundPlayer2!
+                                                                  .playing) {
+                                                                await _model
+                                                                    .soundPlayer2!
+                                                                    .stop();
+                                                              }
+                                                              _model
+                                                                  .soundPlayer2!
+                                                                  .setVolume(
+                                                                      1.0);
+                                                              await _model
+                                                                  .soundPlayer2!
+                                                                  .setAsset(
+                                                                      'assets/audios/universfield-interface-soft-click-131438.mp3')
+                                                                  .then((_) => _model
+                                                                      .soundPlayer2!
+                                                                      .play());
+
+                                                              logFirebaseEvent(
+                                                                  'Swipeable_backend_call');
+                                                              _model.recommendedSoundscapes =
+                                                                  await LucilleSoundscapesGroup
+                                                                      .recommendedSoundscapesCall
+                                                                      .call(
+                                                                emotion: valueOrDefault(
+                                                                    currentUserDocument
+                                                                        ?.currentMood,
+                                                                    ''),
+                                                                exerciseID:
+                                                                    FFAppState()
+                                                                        .activeExerciseSessionID,
+                                                                userID:
+                                                                    currentUserUid,
+                                                              );
+
+                                                              _shouldSetState =
+                                                                  true;
+                                                              if ((_model
+                                                                      .recommendedSoundscapes
+                                                                      ?.succeeded ??
+                                                                  true)) {
+                                                                logFirebaseEvent(
+                                                                    'Swipeable_backend_call');
+                                                                _model.getSoundscape =
+                                                                    await LucilleSoundscapesGroup
+                                                                        .getSoundscapeCall
+                                                                        .call();
+
+                                                                _shouldSetState =
+                                                                    true;
+                                                              } else {
+                                                                if (_shouldSetState)
+                                                                  safeSetState(
+                                                                      () {});
+                                                                return;
+                                                              }
+
+                                                              logFirebaseEvent(
+                                                                  'Swipeable_navigate_to');
+
+                                                              context.pushNamed(
+                                                                LucilleSuggestionPageWidget
+                                                                    .routeName,
+                                                                queryParameters:
+                                                                    {
+                                                                  'exerciseTitle':
+                                                                      serializeParam(
+                                                                    LucilleTherapyExercisesGroup
+                                                                        .recommendedExercisesCall
+                                                                        .title(
+                                                                          columnRecommendedExercisesResponse
+                                                                              .jsonBody,
+                                                                        )
+                                                                        ?.firstOrNull,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'exerciseDescription':
+                                                                      serializeParam(
+                                                                    LucilleTherapyExercisesGroup
+                                                                        .recommendedExercisesCall
+                                                                        .description(
+                                                                          columnRecommendedExercisesResponse
+                                                                              .jsonBody,
+                                                                        )
+                                                                        ?.firstOrNull,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'exerciseDuration':
+                                                                      serializeParam(
+                                                                    LucilleTherapyExercisesGroup
+                                                                        .recommendedExercisesCall
+                                                                        .duration(
+                                                                          columnRecommendedExercisesResponse
+                                                                              .jsonBody,
+                                                                        )
+                                                                        ?.firstOrNull
+                                                                        ?.toDouble(),
+                                                                    ParamType
+                                                                        .double,
+                                                                  ),
+                                                                  'exersiseSoundscape':
+                                                                      serializeParam(
+                                                                    LucilleSoundscapesGroup
+                                                                        .getSoundscapeCall
+                                                                        .audioUrl(
+                                                                          (_model.getSoundscape?.jsonBody ??
+                                                                              ''),
+                                                                        )
+                                                                        ?.firstOrNull,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                                extra: <String,
+                                                                    dynamic>{
+                                                                  '__transition_info__':
+                                                                      TransitionInfo(
+                                                                    hasTransition:
+                                                                        true,
+                                                                    transitionType:
+                                                                        PageTransitionType
+                                                                            .rightToLeft,
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            2),
+                                                                  ),
+                                                                },
+                                                              );
+
+                                                              if (_shouldSetState)
+                                                                safeSetState(
+                                                                    () {});
+                                                            },
                                                             child: Container(
                                                               width: double
                                                                   .infinity,
-                                                              height: 102.0,
-                                                              child: that_slideable_list_item_mrpo3s_custom_widgets
-                                                                  .ThatSlideableWidget(
+                                                              height: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .height *
+                                                                  0.1,
+                                                              child:
+                                                                  swipe_button_e4yciw_custom_widgets
+                                                                      .Swipeable(
                                                                 width: double
                                                                     .infinity,
-                                                                height: 102.0,
-                                                                startPaneDragDismissible:
-                                                                    false,
-                                                                endPaneDragDismissible:
-                                                                    false,
-                                                                startPaneFirstActionIcon:
-                                                                    Icon(
-                                                                  Icons
-                                                                      .skip_next,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  size: 36.0,
-                                                                ),
-                                                                endPaneFirstActionIcon:
-                                                                    FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .flagCheckered,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  size: 36.0,
-                                                                ),
-                                                                startPaneMotion:
-                                                                    that_slideable_list_item_mrpo3s_enums
-                                                                        .ActionPaneMotion
-                                                                        .scroll,
-                                                                endPaneMotion:
-                                                                    that_slideable_list_item_mrpo3s_enums
-                                                                        .ActionPaneMotion
-                                                                        .behind,
-                                                                startPaneFirstActionStruct:
-                                                                    that_slideable_list_item_mrpo3s_data_schema
-                                                                        .SlideActionDataTypeStruct(
-                                                                  backgroundColor:
-                                                                      FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .error,
-                                                                  flex: 1,
-                                                                  label:
-                                                                      'I Need More Options...',
-                                                                  autoClose:
-                                                                      false,
-                                                                  spacing: 4.0,
-                                                                  borderRadius:
-                                                                      12.0,
-                                                                ),
-                                                                endPaneFirstActionStruct:
-                                                                    that_slideable_list_item_mrpo3s_data_schema
-                                                                        .SlideActionDataTypeStruct(
-                                                                  backgroundColor:
-                                                                      FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .accent1,
-                                                                  flex: 1,
-                                                                  label:
-                                                                      'Start Exercise',
-                                                                  autoClose:
-                                                                      false,
-                                                                  spacing: 4.0,
-                                                                  borderRadius:
-                                                                      12.0,
-                                                                ),
-                                                                onStartActionPaneDismissed:
-                                                                    () async {
-                                                                  logFirebaseEvent(
-                                                                      'LUCILLE_SUGGESTIONS_Container_jvieipur_C');
-                                                                  logFirebaseEvent(
-                                                                      'ThatSlideableWidget_navigate_to');
-
-                                                                  context
-                                                                      .pushNamed(
-                                                                    HomeVersion5Widget
-                                                                        .routeName,
-                                                                    extra: <String,
-                                                                        dynamic>{
-                                                                      '__transition_info__':
-                                                                          TransitionInfo(
-                                                                        hasTransition:
-                                                                            true,
-                                                                        transitionType:
-                                                                            PageTransitionType.fade,
-                                                                        duration:
-                                                                            Duration(milliseconds: 3),
-                                                                      ),
-                                                                    },
-                                                                  );
-                                                                },
-                                                                onEndActionPaneDismissed:
-                                                                    () async {},
-                                                                onStartPaneFirstActionPressed:
-                                                                    () async {
-                                                                  logFirebaseEvent(
-                                                                      'LUCILLE_SUGGESTIONS_Container_jvieipur_C');
-                                                                  logFirebaseEvent(
-                                                                      'ThatSlideableWidget_page_view');
-                                                                  await _model
-                                                                      .pageViewController
-                                                                      ?.nextPage(
-                                                                    duration: Duration(
-                                                                        milliseconds:
-                                                                            300),
-                                                                    curve: Curves
-                                                                        .ease,
-                                                                  );
-                                                                },
-                                                                onStartPaneSecondActionPressed:
-                                                                    () async {},
-                                                                onStartPaneThirdActionPressed:
-                                                                    () async {},
-                                                                onStartPaneFourthActionPressed:
-                                                                    () async {},
-                                                                onStartPaneFifthActionPressed:
-                                                                    () async {},
-                                                                onEndPaneFirstActionPressed:
-                                                                    () async {
-                                                                  logFirebaseEvent(
-                                                                      'LUCILLE_SUGGESTIONS_Container_jvieipur_C');
-                                                                  var _shouldSetState =
-                                                                      false;
-                                                                  logFirebaseEvent(
-                                                                      'ThatSlideableWidget_haptic_feedback');
-                                                                  HapticFeedback
-                                                                      .heavyImpact();
-                                                                  logFirebaseEvent(
-                                                                      'ThatSlideableWidget_play_sound');
-                                                                  _model.soundPlayer2 ??=
-                                                                      AudioPlayer();
-                                                                  if (_model
-                                                                      .soundPlayer2!
-                                                                      .playing) {
-                                                                    await _model
-                                                                        .soundPlayer2!
-                                                                        .stop();
-                                                                  }
-                                                                  _model
-                                                                      .soundPlayer2!
-                                                                      .setVolume(
-                                                                          1.0);
-                                                                  await _model
-                                                                      .soundPlayer2!
-                                                                      .setAsset(
-                                                                          'assets/audios/universfield-interface-soft-click-131438.mp3')
-                                                                      .then((_) => _model
-                                                                          .soundPlayer2!
-                                                                          .play());
-
-                                                                  logFirebaseEvent(
-                                                                      'ThatSlideableWidget_backend_call');
-                                                                  _model.recommendedSoundscapes =
-                                                                      await LucilleSoundscapesGroup
-                                                                          .recommendedSoundscapesCall
-                                                                          .call(
-                                                                    emotion: valueOrDefault(
-                                                                        currentUserDocument
-                                                                            ?.currentMood,
-                                                                        ''),
-                                                                    exerciseID:
-                                                                        FFAppState()
-                                                                            .activeExerciseSessionID,
-                                                                    userID:
-                                                                        currentUserUid,
-                                                                  );
-
-                                                                  _shouldSetState =
-                                                                      true;
-                                                                  if ((_model
-                                                                          .recommendedSoundscapes
-                                                                          ?.succeeded ??
-                                                                      true)) {
-                                                                    logFirebaseEvent(
-                                                                        'ThatSlideableWidget_backend_call');
-                                                                    _model.getSoundscape =
-                                                                        await LucilleSoundscapesGroup
-                                                                            .getSoundscapeCall
-                                                                            .call();
-
-                                                                    _shouldSetState =
-                                                                        true;
-                                                                  } else {
-                                                                    if (_shouldSetState)
-                                                                      safeSetState(
-                                                                          () {});
-                                                                    return;
-                                                                  }
-
-                                                                  logFirebaseEvent(
-                                                                      'ThatSlideableWidget_navigate_to');
-
-                                                                  context
-                                                                      .pushNamed(
-                                                                    LucilleSuggestionPageWidget
-                                                                        .routeName,
-                                                                    queryParameters:
-                                                                        {
-                                                                      'exerciseTitle':
-                                                                          serializeParam(
-                                                                        LucilleTherapyExercisesGroup
-                                                                            .recommendedExercisesCall
-                                                                            .title(
-                                                                              columnRecommendedExercisesResponse.jsonBody,
-                                                                            )
-                                                                            ?.firstOrNull,
-                                                                        ParamType
-                                                                            .String,
-                                                                      ),
-                                                                      'exerciseDescription':
-                                                                          serializeParam(
-                                                                        LucilleTherapyExercisesGroup
-                                                                            .recommendedExercisesCall
-                                                                            .description(
-                                                                              columnRecommendedExercisesResponse.jsonBody,
-                                                                            )
-                                                                            ?.firstOrNull,
-                                                                        ParamType
-                                                                            .String,
-                                                                      ),
-                                                                      'exerciseDuration':
-                                                                          serializeParam(
-                                                                        LucilleTherapyExercisesGroup
-                                                                            .recommendedExercisesCall
-                                                                            .duration(
-                                                                              columnRecommendedExercisesResponse.jsonBody,
-                                                                            )
-                                                                            ?.firstOrNull
-                                                                            ?.toDouble(),
-                                                                        ParamType
-                                                                            .double,
-                                                                      ),
-                                                                      'exersiseSoundscape':
-                                                                          serializeParam(
-                                                                        LucilleSoundscapesGroup
-                                                                            .getSoundscapeCall
-                                                                            .audioUrl(
-                                                                              (_model.getSoundscape?.jsonBody ?? ''),
-                                                                            )
-                                                                            ?.firstOrNull,
-                                                                        ParamType
-                                                                            .String,
-                                                                      ),
-                                                                    }.withoutNulls,
-                                                                    extra: <String,
-                                                                        dynamic>{
-                                                                      '__transition_info__':
-                                                                          TransitionInfo(
-                                                                        hasTransition:
-                                                                            true,
-                                                                        transitionType:
-                                                                            PageTransitionType.rightToLeft,
-                                                                        duration:
-                                                                            Duration(milliseconds: 2),
-                                                                      ),
-                                                                    },
-                                                                  );
-
-                                                                  if (_shouldSetState)
-                                                                    safeSetState(
-                                                                        () {});
-                                                                },
-                                                                onEndPaneSecondActionPressed:
-                                                                    () async {},
-                                                                onEndPaneThirdActionPressed:
-                                                                    () async {},
-                                                                onEndPaneFourthActionPressed:
-                                                                    () async {},
-                                                                onEndPaneFifthActionPressed:
-                                                                    () async {},
-                                                                child: () =>
-                                                                    that_slideable_list_item_mrpo3s
-                                                                        .SwipeLeftCompWidget(),
+                                                                height: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .height *
+                                                                    0.1,
                                                               ),
                                                             ),
                                                           ),
@@ -2245,283 +2128,175 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                             ),
                                                             Flexible(
                                                               flex: 1,
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  logFirebaseEvent(
+                                                                      'LUCILLE_SUGGESTIONS_Container_zkufhx3b_O');
+                                                                  var _shouldSetState =
+                                                                      false;
+                                                                  logFirebaseEvent(
+                                                                      'Swipeable_haptic_feedback');
+                                                                  HapticFeedback
+                                                                      .heavyImpact();
+                                                                  logFirebaseEvent(
+                                                                      'Swipeable_play_sound');
+                                                                  _model.soundPlayer4 ??=
+                                                                      AudioPlayer();
+                                                                  if (_model
+                                                                      .soundPlayer4!
+                                                                      .playing) {
+                                                                    await _model
+                                                                        .soundPlayer4!
+                                                                        .stop();
+                                                                  }
+                                                                  _model
+                                                                      .soundPlayer4!
+                                                                      .setVolume(
+                                                                          1.0);
+                                                                  await _model
+                                                                      .soundPlayer4!
+                                                                      .setAsset(
+                                                                          'assets/audios/universfield-interface-soft-click-131438.mp3')
+                                                                      .then((_) => _model
+                                                                          .soundPlayer4!
+                                                                          .play());
+
+                                                                  logFirebaseEvent(
+                                                                      'Swipeable_backend_call');
+                                                                  _model.recommendedSoundscapes62 =
+                                                                      await LucilleSoundscapesGroup
+                                                                          .recommendedSoundscapesCall
+                                                                          .call(
+                                                                    emotion: valueOrDefault(
+                                                                        currentUserDocument
+                                                                            ?.currentMood,
+                                                                        ''),
+                                                                    exerciseID:
+                                                                        FFAppState()
+                                                                            .activeExerciseSessionID,
+                                                                    userID:
+                                                                        currentUserUid,
+                                                                  );
+
+                                                                  _shouldSetState =
+                                                                      true;
+                                                                  if ((_model
+                                                                          .recommendedSoundscapes
+                                                                          ?.succeeded ??
+                                                                      true)) {
+                                                                    logFirebaseEvent(
+                                                                        'Swipeable_backend_call');
+                                                                    _model.getSoundscape3 =
+                                                                        await LucilleSoundscapesGroup
+                                                                            .getSoundscapeCall
+                                                                            .call();
+
+                                                                    _shouldSetState =
+                                                                        true;
+                                                                  } else {
+                                                                    if (_shouldSetState)
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    return;
+                                                                  }
+
+                                                                  logFirebaseEvent(
+                                                                      'Swipeable_navigate_to');
+
+                                                                  context
+                                                                      .pushNamed(
+                                                                    LucilleSuggestionPageWidget
+                                                                        .routeName,
+                                                                    queryParameters:
+                                                                        {
+                                                                      'exerciseTitle':
+                                                                          serializeParam(
+                                                                        LucilleTherapyExercisesGroup
+                                                                            .recommendedExercisesCall
+                                                                            .title(
+                                                                              columnRecommendedExercisesResponse.jsonBody,
+                                                                            )
+                                                                            ?.elementAtOrNull(2),
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'exerciseDescription':
+                                                                          serializeParam(
+                                                                        LucilleTherapyExercisesGroup
+                                                                            .recommendedExercisesCall
+                                                                            .description(
+                                                                              columnRecommendedExercisesResponse.jsonBody,
+                                                                            )
+                                                                            ?.elementAtOrNull(1),
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'exerciseDuration':
+                                                                          serializeParam(
+                                                                        (LucilleTherapyExercisesGroup.recommendedExercisesCall
+                                                                                .duration(
+                                                                                  columnRecommendedExercisesResponse.jsonBody,
+                                                                                )
+                                                                                ?.elementAtOrNull(2))
+                                                                            ?.toDouble(),
+                                                                        ParamType
+                                                                            .double,
+                                                                      ),
+                                                                      'exersiseSoundscape':
+                                                                          serializeParam(
+                                                                        LucilleSoundscapesGroup
+                                                                            .getSoundscapeCall
+                                                                            .audioUrl(
+                                                                              (_model.getSoundscape?.jsonBody ?? ''),
+                                                                            )
+                                                                            ?.firstOrNull,
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      '__transition_info__':
+                                                                          TransitionInfo(
+                                                                        hasTransition:
+                                                                            true,
+                                                                        transitionType:
+                                                                            PageTransitionType.rightToLeft,
+                                                                        duration:
+                                                                            Duration(milliseconds: 2),
+                                                                      ),
+                                                                    },
+                                                                  );
+
+                                                                  if (_shouldSetState)
+                                                                    safeSetState(
+                                                                        () {});
+                                                                },
                                                                 child:
                                                                     Container(
                                                                   width: double
                                                                       .infinity,
-                                                                  height: 102.0,
-                                                                  child: that_slideable_list_item_mrpo3s_custom_widgets
-                                                                      .ThatSlideableWidget(
+                                                                  height: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .height *
+                                                                      0.1,
+                                                                  child: swipe_button_e4yciw_custom_widgets
+                                                                      .Swipeable(
                                                                     width: double
                                                                         .infinity,
                                                                     height:
-                                                                        102.0,
-                                                                    startPaneDragDismissible:
-                                                                        false,
-                                                                    endPaneDragDismissible:
-                                                                        false,
-                                                                    startPaneFirstActionIcon:
-                                                                        Icon(
-                                                                      Icons
-                                                                          .skip_next,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      size:
-                                                                          36.0,
-                                                                    ),
-                                                                    endPaneFirstActionIcon:
-                                                                        FaIcon(
-                                                                      FontAwesomeIcons
-                                                                          .flagCheckered,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      size:
-                                                                          36.0,
-                                                                    ),
-                                                                    startPaneMotion:
-                                                                        that_slideable_list_item_mrpo3s_enums
-                                                                            .ActionPaneMotion
-                                                                            .scroll,
-                                                                    endPaneMotion:
-                                                                        that_slideable_list_item_mrpo3s_enums
-                                                                            .ActionPaneMotion
-                                                                            .behind,
-                                                                    startPaneFirstActionStruct:
-                                                                        that_slideable_list_item_mrpo3s_data_schema
-                                                                            .SlideActionDataTypeStruct(
-                                                                      backgroundColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .error,
-                                                                      flex: 1,
-                                                                      label:
-                                                                          'I Need More Options....',
-                                                                      autoClose:
-                                                                          false,
-                                                                      spacing:
-                                                                          4.0,
-                                                                      borderRadius:
-                                                                          12.0,
-                                                                    ),
-                                                                    endPaneFirstActionStruct:
-                                                                        that_slideable_list_item_mrpo3s_data_schema
-                                                                            .SlideActionDataTypeStruct(
-                                                                      backgroundColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .accent1,
-                                                                      flex: 1,
-                                                                      label:
-                                                                          'Start Exercise',
-                                                                      autoClose:
-                                                                          false,
-                                                                      spacing:
-                                                                          4.0,
-                                                                      borderRadius:
-                                                                          12.0,
-                                                                    ),
-                                                                    onStartActionPaneDismissed:
-                                                                        () async {
-                                                                      logFirebaseEvent(
-                                                                          'LUCILLE_SUGGESTIONS_Container_81diliqb_C');
-                                                                      logFirebaseEvent(
-                                                                          'ThatSlideableWidget_navigate_to');
-
-                                                                      context
-                                                                          .pushNamed(
-                                                                        HomeVersion5Widget
-                                                                            .routeName,
-                                                                        extra: <String,
-                                                                            dynamic>{
-                                                                          '__transition_info__':
-                                                                              TransitionInfo(
-                                                                            hasTransition:
-                                                                                true,
-                                                                            transitionType:
-                                                                                PageTransitionType.fade,
-                                                                            duration:
-                                                                                Duration(milliseconds: 3),
-                                                                          ),
-                                                                        },
-                                                                      );
-                                                                    },
-                                                                    onEndActionPaneDismissed:
-                                                                        () async {},
-                                                                    onStartPaneFirstActionPressed:
-                                                                        () async {
-                                                                      logFirebaseEvent(
-                                                                          'LUCILLE_SUGGESTIONS_Container_81diliqb_C');
-                                                                      logFirebaseEvent(
-                                                                          'ThatSlideableWidget_page_view');
-                                                                      await _model
-                                                                          .pageViewController
-                                                                          ?.nextPage(
-                                                                        duration:
-                                                                            Duration(milliseconds: 300),
-                                                                        curve: Curves
-                                                                            .ease,
-                                                                      );
-                                                                    },
-                                                                    onStartPaneSecondActionPressed:
-                                                                        () async {},
-                                                                    onStartPaneThirdActionPressed:
-                                                                        () async {},
-                                                                    onStartPaneFourthActionPressed:
-                                                                        () async {},
-                                                                    onStartPaneFifthActionPressed:
-                                                                        () async {},
-                                                                    onEndPaneFirstActionPressed:
-                                                                        () async {
-                                                                      logFirebaseEvent(
-                                                                          'LUCILLE_SUGGESTIONS_Container_81diliqb_C');
-                                                                      var _shouldSetState =
-                                                                          false;
-                                                                      logFirebaseEvent(
-                                                                          'ThatSlideableWidget_haptic_feedback');
-                                                                      HapticFeedback
-                                                                          .heavyImpact();
-                                                                      logFirebaseEvent(
-                                                                          'ThatSlideableWidget_play_sound');
-                                                                      _model.soundPlayer4 ??=
-                                                                          AudioPlayer();
-                                                                      if (_model
-                                                                          .soundPlayer4!
-                                                                          .playing) {
-                                                                        await _model
-                                                                            .soundPlayer4!
-                                                                            .stop();
-                                                                      }
-                                                                      _model
-                                                                          .soundPlayer4!
-                                                                          .setVolume(
-                                                                              1.0);
-                                                                      await _model
-                                                                          .soundPlayer4!
-                                                                          .setAsset(
-                                                                              'assets/audios/universfield-interface-soft-click-131438.mp3')
-                                                                          .then((_) => _model
-                                                                              .soundPlayer4!
-                                                                              .play());
-
-                                                                      logFirebaseEvent(
-                                                                          'ThatSlideableWidget_backend_call');
-                                                                      _model.recommendedSoundscapes8 = await LucilleSoundscapesGroup
-                                                                          .recommendedSoundscapesCall
-                                                                          .call(
-                                                                        emotion: valueOrDefault(
-                                                                            currentUserDocument?.currentMood,
-                                                                            ''),
-                                                                        exerciseID:
-                                                                            FFAppState().activeExerciseSessionID,
-                                                                        userID:
-                                                                            currentUserUid,
-                                                                      );
-
-                                                                      _shouldSetState =
-                                                                          true;
-                                                                      if ((_model
-                                                                              .recommendedSoundscapes8
-                                                                              ?.succeeded ??
-                                                                          true)) {
-                                                                        logFirebaseEvent(
-                                                                            'ThatSlideableWidget_backend_call');
-                                                                        _model.getSoundscape4 = await LucilleSoundscapesGroup
-                                                                            .getSoundscapeCall
-                                                                            .call();
-
-                                                                        _shouldSetState =
-                                                                            true;
-                                                                      } else {
-                                                                        if (_shouldSetState)
-                                                                          safeSetState(
-                                                                              () {});
-                                                                        return;
-                                                                      }
-
-                                                                      logFirebaseEvent(
-                                                                          'ThatSlideableWidget_navigate_to');
-
-                                                                      context
-                                                                          .pushNamed(
-                                                                        LucilleSuggestionPageWidget
-                                                                            .routeName,
-                                                                        queryParameters:
-                                                                            {
-                                                                          'exerciseTitle':
-                                                                              serializeParam(
-                                                                            LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                .title(
-                                                                                  columnRecommendedExercisesResponse.jsonBody,
-                                                                                )
-                                                                                ?.firstOrNull,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'exerciseDescription':
-                                                                              serializeParam(
-                                                                            LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                .description(
-                                                                                  columnRecommendedExercisesResponse.jsonBody,
-                                                                                )
-                                                                                ?.firstOrNull,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'exerciseDuration':
-                                                                              serializeParam(
-                                                                            LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                .duration(
-                                                                                  columnRecommendedExercisesResponse.jsonBody,
-                                                                                )
-                                                                                ?.firstOrNull
-                                                                                ?.toDouble(),
-                                                                            ParamType.double,
-                                                                          ),
-                                                                          'exersiseSoundscape':
-                                                                              serializeParam(
-                                                                            LucilleSoundscapesGroup.getSoundscapeCall
-                                                                                .audioUrl(
-                                                                                  (_model.getSoundscape4?.jsonBody ?? ''),
-                                                                                )
-                                                                                ?.firstOrNull,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                        }.withoutNulls,
-                                                                        extra: <String,
-                                                                            dynamic>{
-                                                                          '__transition_info__':
-                                                                              TransitionInfo(
-                                                                            hasTransition:
-                                                                                true,
-                                                                            transitionType:
-                                                                                PageTransitionType.rightToLeft,
-                                                                            duration:
-                                                                                Duration(milliseconds: 2),
-                                                                          ),
-                                                                        },
-                                                                      );
-
-                                                                      if (_shouldSetState)
-                                                                        safeSetState(
-                                                                            () {});
-                                                                    },
-                                                                    onEndPaneSecondActionPressed:
-                                                                        () async {},
-                                                                    onEndPaneThirdActionPressed:
-                                                                        () async {},
-                                                                    onEndPaneFourthActionPressed:
-                                                                        () async {},
-                                                                    onEndPaneFifthActionPressed:
-                                                                        () async {},
-                                                                    child: () =>
-                                                                        that_slideable_list_item_mrpo3s
-                                                                            .SwipeLeftCompWidget(),
+                                                                        MediaQuery.sizeOf(context).height *
+                                                                            0.1,
                                                                   ),
                                                                 ),
                                                               ),
@@ -3296,283 +3071,175 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                             ),
                                                             Flexible(
                                                               flex: 1,
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  logFirebaseEvent(
+                                                                      'LUCILLE_SUGGESTIONS_Container_nsykr12v_O');
+                                                                  var _shouldSetState =
+                                                                      false;
+                                                                  logFirebaseEvent(
+                                                                      'Swipeable_haptic_feedback');
+                                                                  HapticFeedback
+                                                                      .heavyImpact();
+                                                                  logFirebaseEvent(
+                                                                      'Swipeable_play_sound');
+                                                                  _model.soundPlayer6 ??=
+                                                                      AudioPlayer();
+                                                                  if (_model
+                                                                      .soundPlayer6!
+                                                                      .playing) {
+                                                                    await _model
+                                                                        .soundPlayer6!
+                                                                        .stop();
+                                                                  }
+                                                                  _model
+                                                                      .soundPlayer6!
+                                                                      .setVolume(
+                                                                          1.0);
+                                                                  await _model
+                                                                      .soundPlayer6!
+                                                                      .setAsset(
+                                                                          'assets/audios/universfield-interface-soft-click-131438.mp3')
+                                                                      .then((_) => _model
+                                                                          .soundPlayer6!
+                                                                          .play());
+
+                                                                  logFirebaseEvent(
+                                                                      'Swipeable_backend_call');
+                                                                  _model.recommendedSoundscapes4 =
+                                                                      await LucilleSoundscapesGroup
+                                                                          .recommendedSoundscapesCall
+                                                                          .call(
+                                                                    emotion: valueOrDefault(
+                                                                        currentUserDocument
+                                                                            ?.currentMood,
+                                                                        ''),
+                                                                    exerciseID:
+                                                                        FFAppState()
+                                                                            .activeExerciseSessionID,
+                                                                    userID:
+                                                                        currentUserUid,
+                                                                  );
+
+                                                                  _shouldSetState =
+                                                                      true;
+                                                                  if ((_model
+                                                                          .recommendedSoundscapes
+                                                                          ?.succeeded ??
+                                                                      true)) {
+                                                                    logFirebaseEvent(
+                                                                        'Swipeable_backend_call');
+                                                                    _model.getSoundscape2 =
+                                                                        await LucilleSoundscapesGroup
+                                                                            .getSoundscapeCall
+                                                                            .call();
+
+                                                                    _shouldSetState =
+                                                                        true;
+                                                                  } else {
+                                                                    if (_shouldSetState)
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    return;
+                                                                  }
+
+                                                                  logFirebaseEvent(
+                                                                      'Swipeable_navigate_to');
+
+                                                                  context
+                                                                      .pushNamed(
+                                                                    LucilleSuggestionPageWidget
+                                                                        .routeName,
+                                                                    queryParameters:
+                                                                        {
+                                                                      'exerciseTitle':
+                                                                          serializeParam(
+                                                                        LucilleTherapyExercisesGroup
+                                                                            .recommendedExercisesCall
+                                                                            .title(
+                                                                              columnRecommendedExercisesResponse.jsonBody,
+                                                                            )
+                                                                            ?.elementAtOrNull(1),
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'exerciseDescription':
+                                                                          serializeParam(
+                                                                        LucilleTherapyExercisesGroup
+                                                                            .recommendedExercisesCall
+                                                                            .description(
+                                                                              columnRecommendedExercisesResponse.jsonBody,
+                                                                            )
+                                                                            ?.elementAtOrNull(1),
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'exerciseDuration':
+                                                                          serializeParam(
+                                                                        (LucilleTherapyExercisesGroup.recommendedExercisesCall
+                                                                                .duration(
+                                                                                  columnRecommendedExercisesResponse.jsonBody,
+                                                                                )
+                                                                                ?.elementAtOrNull(1))
+                                                                            ?.toDouble(),
+                                                                        ParamType
+                                                                            .double,
+                                                                      ),
+                                                                      'exersiseSoundscape':
+                                                                          serializeParam(
+                                                                        LucilleSoundscapesGroup
+                                                                            .getSoundscapeCall
+                                                                            .audioUrl(
+                                                                              (_model.getSoundscape?.jsonBody ?? ''),
+                                                                            )
+                                                                            ?.firstOrNull,
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      '__transition_info__':
+                                                                          TransitionInfo(
+                                                                        hasTransition:
+                                                                            true,
+                                                                        transitionType:
+                                                                            PageTransitionType.rightToLeft,
+                                                                        duration:
+                                                                            Duration(milliseconds: 2),
+                                                                      ),
+                                                                    },
+                                                                  );
+
+                                                                  if (_shouldSetState)
+                                                                    safeSetState(
+                                                                        () {});
+                                                                },
                                                                 child:
                                                                     Container(
                                                                   width: double
                                                                       .infinity,
-                                                                  height: 102.0,
-                                                                  child: that_slideable_list_item_mrpo3s_custom_widgets
-                                                                      .ThatSlideableWidget(
+                                                                  height: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .height *
+                                                                      0.1,
+                                                                  child: swipe_button_e4yciw_custom_widgets
+                                                                      .Swipeable(
                                                                     width: double
                                                                         .infinity,
                                                                     height:
-                                                                        102.0,
-                                                                    startPaneDragDismissible:
-                                                                        false,
-                                                                    endPaneDragDismissible:
-                                                                        false,
-                                                                    startPaneFirstActionIcon:
-                                                                        Icon(
-                                                                      Icons
-                                                                          .skip_next,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      size:
-                                                                          36.0,
-                                                                    ),
-                                                                    endPaneFirstActionIcon:
-                                                                        FaIcon(
-                                                                      FontAwesomeIcons
-                                                                          .flagCheckered,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      size:
-                                                                          36.0,
-                                                                    ),
-                                                                    startPaneMotion:
-                                                                        that_slideable_list_item_mrpo3s_enums
-                                                                            .ActionPaneMotion
-                                                                            .scroll,
-                                                                    endPaneMotion:
-                                                                        that_slideable_list_item_mrpo3s_enums
-                                                                            .ActionPaneMotion
-                                                                            .behind,
-                                                                    startPaneFirstActionStruct:
-                                                                        that_slideable_list_item_mrpo3s_data_schema
-                                                                            .SlideActionDataTypeStruct(
-                                                                      backgroundColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .error,
-                                                                      flex: 1,
-                                                                      label:
-                                                                          'I Need More Options...',
-                                                                      autoClose:
-                                                                          false,
-                                                                      spacing:
-                                                                          4.0,
-                                                                      borderRadius:
-                                                                          12.0,
-                                                                    ),
-                                                                    endPaneFirstActionStruct:
-                                                                        that_slideable_list_item_mrpo3s_data_schema
-                                                                            .SlideActionDataTypeStruct(
-                                                                      backgroundColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .accent1,
-                                                                      flex: 1,
-                                                                      label:
-                                                                          'Start Exercise!',
-                                                                      autoClose:
-                                                                          false,
-                                                                      spacing:
-                                                                          4.0,
-                                                                      borderRadius:
-                                                                          12.0,
-                                                                    ),
-                                                                    onStartActionPaneDismissed:
-                                                                        () async {
-                                                                      logFirebaseEvent(
-                                                                          'LUCILLE_SUGGESTIONS_Container_rcidk550_C');
-                                                                      logFirebaseEvent(
-                                                                          'ThatSlideableWidget_navigate_to');
-
-                                                                      context
-                                                                          .pushNamed(
-                                                                        HomeVersion5Widget
-                                                                            .routeName,
-                                                                        extra: <String,
-                                                                            dynamic>{
-                                                                          '__transition_info__':
-                                                                              TransitionInfo(
-                                                                            hasTransition:
-                                                                                true,
-                                                                            transitionType:
-                                                                                PageTransitionType.fade,
-                                                                            duration:
-                                                                                Duration(milliseconds: 3),
-                                                                          ),
-                                                                        },
-                                                                      );
-                                                                    },
-                                                                    onEndActionPaneDismissed:
-                                                                        () async {},
-                                                                    onStartPaneFirstActionPressed:
-                                                                        () async {
-                                                                      logFirebaseEvent(
-                                                                          'LUCILLE_SUGGESTIONS_Container_rcidk550_C');
-                                                                      logFirebaseEvent(
-                                                                          'ThatSlideableWidget_page_view');
-                                                                      await _model
-                                                                          .pageViewController
-                                                                          ?.nextPage(
-                                                                        duration:
-                                                                            Duration(milliseconds: 300),
-                                                                        curve: Curves
-                                                                            .ease,
-                                                                      );
-                                                                    },
-                                                                    onStartPaneSecondActionPressed:
-                                                                        () async {},
-                                                                    onStartPaneThirdActionPressed:
-                                                                        () async {},
-                                                                    onStartPaneFourthActionPressed:
-                                                                        () async {},
-                                                                    onStartPaneFifthActionPressed:
-                                                                        () async {},
-                                                                    onEndPaneFirstActionPressed:
-                                                                        () async {
-                                                                      logFirebaseEvent(
-                                                                          'LUCILLE_SUGGESTIONS_Container_rcidk550_C');
-                                                                      var _shouldSetState =
-                                                                          false;
-                                                                      logFirebaseEvent(
-                                                                          'ThatSlideableWidget_haptic_feedback');
-                                                                      HapticFeedback
-                                                                          .heavyImpact();
-                                                                      logFirebaseEvent(
-                                                                          'ThatSlideableWidget_play_sound');
-                                                                      _model.soundPlayer6 ??=
-                                                                          AudioPlayer();
-                                                                      if (_model
-                                                                          .soundPlayer6!
-                                                                          .playing) {
-                                                                        await _model
-                                                                            .soundPlayer6!
-                                                                            .stop();
-                                                                      }
-                                                                      _model
-                                                                          .soundPlayer6!
-                                                                          .setVolume(
-                                                                              1.0);
-                                                                      await _model
-                                                                          .soundPlayer6!
-                                                                          .setAsset(
-                                                                              'assets/audios/universfield-interface-soft-click-131438.mp3')
-                                                                          .then((_) => _model
-                                                                              .soundPlayer6!
-                                                                              .play());
-
-                                                                      logFirebaseEvent(
-                                                                          'ThatSlideableWidget_backend_call');
-                                                                      _model.recommendedSoundscapes3 = await LucilleSoundscapesGroup
-                                                                          .recommendedSoundscapesCall
-                                                                          .call(
-                                                                        emotion: valueOrDefault(
-                                                                            currentUserDocument?.currentMood,
-                                                                            ''),
-                                                                        exerciseID:
-                                                                            FFAppState().activeExerciseSessionID,
-                                                                        userID:
-                                                                            currentUserUid,
-                                                                      );
-
-                                                                      _shouldSetState =
-                                                                          true;
-                                                                      if ((_model
-                                                                              .recommendedSoundscapes3
-                                                                              ?.succeeded ??
-                                                                          true)) {
-                                                                        logFirebaseEvent(
-                                                                            'ThatSlideableWidget_backend_call');
-                                                                        _model.getSoundscape3 = await LucilleSoundscapesGroup
-                                                                            .getSoundscapeCall
-                                                                            .call();
-
-                                                                        _shouldSetState =
-                                                                            true;
-                                                                      } else {
-                                                                        if (_shouldSetState)
-                                                                          safeSetState(
-                                                                              () {});
-                                                                        return;
-                                                                      }
-
-                                                                      logFirebaseEvent(
-                                                                          'ThatSlideableWidget_navigate_to');
-
-                                                                      context
-                                                                          .pushNamed(
-                                                                        LucilleSuggestionPageWidget
-                                                                            .routeName,
-                                                                        queryParameters:
-                                                                            {
-                                                                          'exerciseTitle':
-                                                                              serializeParam(
-                                                                            LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                .title(
-                                                                                  columnRecommendedExercisesResponse.jsonBody,
-                                                                                )
-                                                                                ?.firstOrNull,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'exerciseDescription':
-                                                                              serializeParam(
-                                                                            LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                .description(
-                                                                                  columnRecommendedExercisesResponse.jsonBody,
-                                                                                )
-                                                                                ?.firstOrNull,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'exerciseDuration':
-                                                                              serializeParam(
-                                                                            LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                .duration(
-                                                                                  columnRecommendedExercisesResponse.jsonBody,
-                                                                                )
-                                                                                ?.firstOrNull
-                                                                                ?.toDouble(),
-                                                                            ParamType.double,
-                                                                          ),
-                                                                          'exersiseSoundscape':
-                                                                              serializeParam(
-                                                                            LucilleSoundscapesGroup.getSoundscapeCall
-                                                                                .audioUrl(
-                                                                                  (_model.getSoundscape3?.jsonBody ?? ''),
-                                                                                )
-                                                                                ?.firstOrNull,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                        }.withoutNulls,
-                                                                        extra: <String,
-                                                                            dynamic>{
-                                                                          '__transition_info__':
-                                                                              TransitionInfo(
-                                                                            hasTransition:
-                                                                                true,
-                                                                            transitionType:
-                                                                                PageTransitionType.rightToLeft,
-                                                                            duration:
-                                                                                Duration(milliseconds: 2),
-                                                                          ),
-                                                                        },
-                                                                      );
-
-                                                                      if (_shouldSetState)
-                                                                        safeSetState(
-                                                                            () {});
-                                                                    },
-                                                                    onEndPaneSecondActionPressed:
-                                                                        () async {},
-                                                                    onEndPaneThirdActionPressed:
-                                                                        () async {},
-                                                                    onEndPaneFourthActionPressed:
-                                                                        () async {},
-                                                                    onEndPaneFifthActionPressed:
-                                                                        () async {},
-                                                                    child: () =>
-                                                                        that_slideable_list_item_mrpo3s
-                                                                            .SwipeLeftCompWidget(),
+                                                                        MediaQuery.sizeOf(context).height *
+                                                                            0.1,
                                                                   ),
                                                                 ),
                                                               ),

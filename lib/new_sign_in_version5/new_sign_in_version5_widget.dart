@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
-import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
@@ -1109,7 +1108,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
                                                             logFirebaseEvent(
-                                                                'NEW_SIGN_IN_VERSION5_BEGIN_MY_JOURNEY_BT');
+                                                                'NEW_SIGN_IN_VERSION5_CONTINUE_MY_JOURNEY');
                                                             logFirebaseEvent(
                                                                 'Button_haptic_feedback');
                                                             HapticFeedback
@@ -1148,100 +1147,6 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                             }
 
                                                             logFirebaseEvent(
-                                                                'Button_custom_action');
-                                                            _model.firebaseUID =
-                                                                await actions
-                                                                    .getFirebaseToken();
-                                                            if (_model.firebaseUID !=
-                                                                    null &&
-                                                                _model.firebaseUID !=
-                                                                    '') {
-                                                              logFirebaseEvent(
-                                                                  'Button_update_app_state');
-                                                              FFAppState()
-                                                                      .lucilleUserID =
-                                                                  currentUserUid;
-                                                              FFAppState()
-                                                                      .firebaseIDToken =
-                                                                  FFAppState()
-                                                                      .firebaseIDToken;
-                                                              safeSetState(
-                                                                  () {});
-                                                              logFirebaseEvent(
-                                                                  'Button_show_snack_bar');
-                                                              ScaffoldMessenger
-                                                                      .of(context)
-                                                                  .clearSnackBars();
-                                                              ScaffoldMessenger
-                                                                      .of(context)
-                                                                  .showSnackBar(
-                                                                SnackBar(
-                                                                  content: Text(
-                                                                    'Database ID: ${_model.firebaseUID}',
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                    ),
-                                                                  ),
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          4000),
-                                                                  backgroundColor:
-                                                                      FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .alternate,
-                                                                ),
-                                                              );
-                                                            } else {
-                                                              logFirebaseEvent(
-                                                                  'Button_show_snack_bar');
-                                                              ScaffoldMessenger
-                                                                      .of(context)
-                                                                  .showSnackBar(
-                                                                SnackBar(
-                                                                  content: Text(
-                                                                    'Database ID Error',
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                    ),
-                                                                  ),
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          4000),
-                                                                  backgroundColor:
-                                                                      FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .error,
-                                                                ),
-                                                              );
-                                                            }
-
-                                                            logFirebaseEvent(
-                                                                'Button_play_sound');
-                                                            _model.soundPlayer5 ??=
-                                                                AudioPlayer();
-                                                            if (_model
-                                                                .soundPlayer5!
-                                                                .playing) {
-                                                              await _model
-                                                                  .soundPlayer5!
-                                                                  .stop();
-                                                            }
-                                                            _model.soundPlayer5!
-                                                                .setVolume(1.0);
-                                                            _model.soundPlayer5!
-                                                                .setAsset(
-                                                                    'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav')
-                                                                .then((_) => _model
-                                                                    .soundPlayer5!
-                                                                    .play());
-
-                                                            logFirebaseEvent(
                                                                 'Button_show_snack_bar');
                                                             ScaffoldMessenger
                                                                     .of(context)
@@ -1266,37 +1171,50 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                     FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondary,
-                                                                action:
-                                                                    SnackBarAction(
-                                                                  label:
-                                                                      'Click Here to Scan Your Mood.',
-                                                                  textColor: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .alternate,
-                                                                  onPressed:
-                                                                      () async {
-                                                                    context
-                                                                        .pushNamedAuth(
-                                                                      MoodScanVersion5Widget
-                                                                          .routeName,
-                                                                      context
-                                                                          .mounted,
-                                                                      extra: <String,
-                                                                          dynamic>{
-                                                                        '__transition_info__':
-                                                                            TransitionInfo(
-                                                                          hasTransition:
-                                                                              true,
-                                                                          transitionType:
-                                                                              PageTransitionType.fade,
-                                                                          duration:
-                                                                              Duration(milliseconds: 9),
-                                                                        ),
-                                                                      },
-                                                                    );
-                                                                  },
-                                                                ),
                                                               ),
+                                                            );
+                                                            logFirebaseEvent(
+                                                                'Button_play_sound');
+                                                            _model.soundPlayer5 ??=
+                                                                AudioPlayer();
+                                                            if (_model
+                                                                .soundPlayer5!
+                                                                .playing) {
+                                                              await _model
+                                                                  .soundPlayer5!
+                                                                  .stop();
+                                                            }
+                                                            _model.soundPlayer5!
+                                                                .setVolume(1.0);
+                                                            _model.soundPlayer5!
+                                                                .setAsset(
+                                                                    'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav')
+                                                                .then((_) => _model
+                                                                    .soundPlayer5!
+                                                                    .play());
+
+                                                            logFirebaseEvent(
+                                                                'Button_navigate_to');
+
+                                                            context
+                                                                .pushNamedAuth(
+                                                              MoodScanVersion5Widget
+                                                                  .routeName,
+                                                              context.mounted,
+                                                              extra: <String,
+                                                                  dynamic>{
+                                                                '__transition_info__':
+                                                                    TransitionInfo(
+                                                                  hasTransition:
+                                                                      true,
+                                                                  transitionType:
+                                                                      PageTransitionType
+                                                                          .fade,
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          9),
+                                                                ),
+                                                              },
                                                             );
 
                                                             safeSetState(() {});
@@ -1304,7 +1222,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                           text: FFLocalizations
                                                                   .of(context)
                                                               .getText(
-                                                            'a7wtorqo' /* Begin My Journey */,
+                                                            'a7wtorqo' /* Continue My Journey */,
                                                           ),
                                                           options:
                                                               FFButtonOptions(
@@ -2504,32 +2422,11 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
                                                           logFirebaseEvent(
-                                                              'NEW_SIGN_IN_VERSION5_START_MY_JOURNEY_BT');
+                                                              'NEW_SIGN_IN_VERSION5_BEGIN_MY_JOURNEY_BT');
                                                           logFirebaseEvent(
                                                               'Button_haptic_feedback');
                                                           HapticFeedback
                                                               .heavyImpact();
-                                                          logFirebaseEvent(
-                                                              'Button_play_sound');
-                                                          _model.soundPlayer6 ??=
-                                                              AudioPlayer();
-                                                          if (_model
-                                                              .soundPlayer6!
-                                                              .playing) {
-                                                            await _model
-                                                                .soundPlayer6!
-                                                                .stop();
-                                                          }
-                                                          _model.soundPlayer6!
-                                                              .setVolume(1.0);
-                                                          await _model
-                                                              .soundPlayer6!
-                                                              .setAsset(
-                                                                  'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav')
-                                                              .then((_) => _model
-                                                                  .soundPlayer6!
-                                                                  .play());
-
                                                           logFirebaseEvent(
                                                               'Button_validate_form');
                                                           _model.createAccountValidation =
@@ -2605,6 +2502,27 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                               ));
 
                                                           logFirebaseEvent(
+                                                              'Button_play_sound');
+                                                          _model.soundPlayer6 ??=
+                                                              AudioPlayer();
+                                                          if (_model
+                                                              .soundPlayer6!
+                                                              .playing) {
+                                                            await _model
+                                                                .soundPlayer6!
+                                                                .stop();
+                                                          }
+                                                          _model.soundPlayer6!
+                                                              .setVolume(1.0);
+                                                          await _model
+                                                              .soundPlayer6!
+                                                              .setAsset(
+                                                                  'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav')
+                                                              .then((_) => _model
+                                                                  .soundPlayer6!
+                                                                  .play());
+
+                                                          logFirebaseEvent(
                                                               'Button_backend_call');
 
                                                           await currentUserReference!
@@ -2651,79 +2569,6 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                   context)
                                                               .hideCurrentSnackBar();
                                                           logFirebaseEvent(
-                                                              'Button_custom_action');
-                                                          _model.getFirebaseToken =
-                                                              await actions
-                                                                  .getFirebaseToken();
-                                                          if (_model.getFirebaseToken !=
-                                                                  null &&
-                                                              _model.getFirebaseToken !=
-                                                                  '') {
-                                                            logFirebaseEvent(
-                                                                'Button_update_app_state');
-                                                            FFAppState()
-                                                                    .lucilleUserID =
-                                                                currentUserUid;
-                                                            FFAppState()
-                                                                    .firebaseIDToken =
-                                                                FFAppState()
-                                                                    .firebaseIDToken;
-                                                            safeSetState(() {});
-                                                            logFirebaseEvent(
-                                                                'Button_show_snack_bar');
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .clearSnackBars();
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'Database ID: ${_model.firebaseUID}',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                  ),
-                                                                ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        4000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .alternate,
-                                                              ),
-                                                            );
-                                                          } else {
-                                                            logFirebaseEvent(
-                                                                'Button_show_snack_bar');
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'Database ID Error',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                  ),
-                                                                ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        4000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .error,
-                                                              ),
-                                                            );
-                                                          }
-
-                                                          logFirebaseEvent(
                                                               'Button_navigate_to');
 
                                                           context.pushNamedAuth(
@@ -2752,7 +2597,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'acnpc4a1' /* Start My Journey! */,
+                                                          'acnpc4a1' /* Begin My Journey! */,
                                                         ),
                                                         options:
                                                             FFButtonOptions(

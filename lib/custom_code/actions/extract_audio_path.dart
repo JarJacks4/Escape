@@ -6,8 +6,6 @@ import "package:utility_functions_library_8g4bud/backend/schema/structs/index.da
     as utility_functions_library_8g4bud_data_schema;
 import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
     as that_audio_player_oo85ab_data_schema;
-import "package:that_slideable_list_item_mrpo3s/backend/schema/structs/index.dart"
-    as that_slideable_list_item_mrpo3s_data_schema;
 import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
 import '/actions/actions.dart' as action_blocks;
@@ -17,10 +15,6 @@ import "package:utility_functions_library_8g4bud/backend/schema/structs/index.da
     as utility_functions_library_8g4bud_data_schema;
 import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
     as that_audio_player_oo85ab_data_schema;
-import "package:that_slideable_list_item_mrpo3s/backend/schema/structs/index.dart"
-    as that_slideable_list_item_mrpo3s_data_schema;
-import "package:that_slideable_list_item_mrpo3s/backend/schema/enums/enums.dart"
-    as that_slideable_list_item_mrpo3s_enums;
 import '/app_events/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';

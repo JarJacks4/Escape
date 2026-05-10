@@ -141,4 +141,8 @@ abstract class FFAppConstants {
     'Very Little Support',
     'No Support System'
   ];
+  static const Color moodNeutral = Color(4291879927);
+  static const Color moodCalm = Color(4283725290);
+  static const Color moodEnergized = Color(4293952282);
+  static const Color moodAnxious = Color(4293652241);
 }

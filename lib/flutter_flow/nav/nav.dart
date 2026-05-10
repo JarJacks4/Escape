@@ -22,8 +22,7 @@ import 'package:utility_functions_library_8g4bud/index.dart'
     as $utility_functions_library_8g4bud;
 import 'package:that_audio_player_oo85ab/index.dart'
     as $that_audio_player_oo85ab;
-import 'package:that_slideable_list_item_mrpo3s/index.dart'
-    as $that_slideable_list_item_mrpo3s;
+import 'package:swipe_button_e4yciw/index.dart' as $swipe_button_e4yciw;
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -131,9 +130,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
     playerPageLucilleWidgetPath: 'playerPageLucille',
   );
 
-  $that_slideable_list_item_mrpo3s.initializeRoutes(
-    homePageWidgetName: 'that_slideable_list_item_mrpo3s.HomePage',
-    homePageWidgetPath: 'homePage4',
+  $swipe_button_e4yciw.initializeRoutes(
+    homePageWidgetName: 'swipe_button_e4yciw.HomePage',
+    homePageWidgetPath: 'homePage5',
   );
 
   return GoRouter(
@@ -969,6 +968,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
                       page: LucilleHomeWidget(),
                     )),
           FFRoute(
+            name: VoiceChatLucilleWidget.routeName,
+            path: VoiceChatLucilleWidget.routePath,
+            builder: (context, params) => VoiceChatLucilleWidget(),
+          ),
+          FFRoute(
+            name: BodyWarriorPoseTouchDesignerWidget.routeName,
+            path: BodyWarriorPoseTouchDesignerWidget.routePath,
+            builder: (context, params) => BodyWarriorPoseTouchDesignerWidget(),
+          ),
+          FFRoute(
             name: $cupertino_time_picker_hiuzb7.HomePageWidget.routeName,
             path: $cupertino_time_picker_hiuzb7.HomePageWidget.routePath,
             builder: (context, params) =>
@@ -1099,10 +1108,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             ),
           ),
           FFRoute(
-            name: $that_slideable_list_item_mrpo3s.HomePageWidget.routeName,
-            path: $that_slideable_list_item_mrpo3s.HomePageWidget.routePath,
-            builder: (context, params) =>
-                $that_slideable_list_item_mrpo3s.HomePageWidget(),
+            name: $swipe_button_e4yciw.HomePageWidget.routeName,
+            path: $swipe_button_e4yciw.HomePageWidget.routePath,
+            builder: (context, params) => $swipe_button_e4yciw.HomePageWidget(),
           )
         ].map((r) => r.toRoute(appStateNotifier)).toList(),
       ),
@@ -1193,7 +1201,7 @@ extension _GoRouterStateExtensions on GoRouterState {
       '__transition_info__confetti_modualo_library_b75kfy',
       '__transition_info__utility_functions_library_8g4bud',
       '__transition_info__that_audio_player_oo85ab',
-      '__transition_info__that_slideable_list_item_mrpo3s'
+      '__transition_info__swipe_button_e4yciw'
     ];
     for (final key in possibleKeys) {
       if (extraMap.containsKey(key)) {

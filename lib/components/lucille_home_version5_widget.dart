@@ -626,7 +626,7 @@ Lucille */
                                       logFirebaseEvent('Container_navigate_to');
 
                                       context.pushNamed(
-                                        ChatWithLucilleVersion5Widget.routeName,
+                                        VoiceChatLucilleWidget.routeName,
                                         extra: <String, dynamic>{
                                           '__transition_info__': TransitionInfo(
                                             hasTransition: true,
@@ -822,7 +822,7 @@ Lucille */
                                     logFirebaseEvent('Container_navigate_to');
 
                                     context.pushNamed(
-                                      ChatWithLucilleVersion5Widget.routeName,
+                                      VoiceChatLucilleWidget.routeName,
                                       extra: <String, dynamic>{
                                         '__transition_info__': TransitionInfo(
                                           hasTransition: true,
@@ -1157,6 +1157,8 @@ Lucille */
                                                   16.0, 16.0, 16.0, 16.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
@@ -1171,15 +1173,22 @@ Lucille */
                                                   size: 20.0,
                                                 ),
                                               ),
-                                              Icon(
-                                                Icons.voice_chat,
-                                                color: Colors.white,
-                                                size: 28.0,
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 8.0),
+                                                child: Icon(
+                                                  Icons.voice_chat,
+                                                  color: Colors.white,
+                                                  size: 28.0,
+                                                ),
                                               ),
                                               Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'xcodmtx5' /* Voice Ritual Spark */,
+                                                  'xcodmtx5' /* Voice Ritual 
+Spark */
+                                                  ,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)

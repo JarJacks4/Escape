@@ -91,6 +91,9 @@ abstract class FlutterFlowModel<W extends Widget> {
     callback();
     _updateCallback();
   }
+
+  
+
 }
 
 class FlutterFlowDynamicModels<T extends FlutterFlowModel> {
@@ -153,6 +156,8 @@ class FlutterFlowDynamicModels<T extends FlutterFlowModel> {
       });
     }
   }
+
+  
 }
 
 T? _getDefaultValue<T>() {

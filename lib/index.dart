@@ -227,3 +227,7 @@ export '/explore_page_version5_f_i_n_a_l/explore_page_version5_f_i_n_a_l_widget.
 export '/marketplace_version5/marketplace_version5_widget.dart'
     show MarketplaceVersion5Widget;
 export '/lucille_home/lucille_home_widget.dart' show LucilleHomeWidget;
+export '/voice_chat_lucille/voice_chat_lucille_widget.dart'
+    show VoiceChatLucilleWidget;
+export '/body_warrior_pose_touch_designer/body_warrior_pose_touch_designer_widget.dart'
+    show BodyWarriorPoseTouchDesignerWidget;

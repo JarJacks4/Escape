@@ -12,13 +12,10 @@ const _kPrivateApiFunctionName = 'PartnerToken';
 /// Start Theory Of Mind Lucille Group Code
 
 class TheoryOfMindLucilleGroup {
-  static String getBaseUrl({
-    String? firebaseIDToken = '',
-  }) =>
-      'https://lucillellm2-286076426888.us-east4.run.app/';
+  static String getBaseUrl() =>
+      'https://lucillellm2-286076426888.us-east4.run.app';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer [firebaseIDToken]',
   };
   static LucilleChatMainCall lucilleChatMainCall = LucilleChatMainCall();
   static CreateSessionCall createSessionCall = CreateSessionCall();
@@ -34,19 +31,13 @@ class LucilleChatMainCall {
     String? message = 'Hey Lucille!',
     String? sessionId = '',
     String? userId = '',
-    String? fireBaseIDToken =
-        '680ff8a48348fa9ba697c70ed9e4d1e15edd755b9853cf864203b41ac050652f',
-    String? firebaseIDToken = '',
   }) async {
-    final baseUrl = TheoryOfMindLucilleGroup.getBaseUrl(
-      firebaseIDToken: firebaseIDToken,
-    );
+    final baseUrl = TheoryOfMindLucilleGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
   "message": "[message]",
   "session_id": "[session_id]",
-  "firebaseIDToken": "[firebaseIDToken]",
   "user_id": "[user_id]"
 }''';
     return ApiManager.instance.makeApiCall(
@@ -55,7 +46,6 @@ class LucilleChatMainCall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ${firebaseIDToken}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -66,7 +56,6 @@ class LucilleChatMainCall {
       cache: true,
       isStreamingApi: false,
       alwaysAllowBody: false,
-      client: ApiManager.getClient(withCredentials: true),
     );
   }
 
@@ -118,12 +107,8 @@ class LucilleChatMainCall {
 }
 
 class CreateSessionCall {
-  Future<ApiCallResponse> call({
-    String? firebaseIDToken = '',
-  }) async {
-    final baseUrl = TheoryOfMindLucilleGroup.getBaseUrl(
-      firebaseIDToken: firebaseIDToken,
-    );
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TheoryOfMindLucilleGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'Create Session',
@@ -131,7 +116,6 @@ class CreateSessionCall {
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ${firebaseIDToken}',
       },
       params: {},
       returnBody: true,
@@ -140,7 +124,6 @@ class CreateSessionCall {
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
-      client: ApiManager.getClient(withCredentials: true),
     );
   }
 
@@ -167,11 +150,8 @@ class ChatStreamCall {
     String? message = '',
     String? sessionID = '',
     String? userID = '',
-    String? firebaseIDToken = '',
   }) async {
-    final baseUrl = TheoryOfMindLucilleGroup.getBaseUrl(
-      firebaseIDToken: firebaseIDToken,
-    );
+    final baseUrl = TheoryOfMindLucilleGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
@@ -186,7 +166,6 @@ class ChatStreamCall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ${firebaseIDToken}',
         'Accept': 'text/event-stream',
       },
       params: {},
@@ -198,7 +177,6 @@ class ChatStreamCall {
       cache: false,
       isStreamingApi: true,
       alwaysAllowBody: false,
-      client: ApiManager.getClient(withCredentials: true),
     );
   }
 
@@ -232,11 +210,8 @@ class OnboardUserCall {
   Future<ApiCallResponse> call({
     String? userID = '',
     String? responses = '',
-    String? firebaseIDToken = '',
   }) async {
-    final baseUrl = TheoryOfMindLucilleGroup.getBaseUrl(
-      firebaseIDToken: firebaseIDToken,
-    );
+    final baseUrl = TheoryOfMindLucilleGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
@@ -249,7 +224,6 @@ class OnboardUserCall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ${firebaseIDToken}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -260,7 +234,6 @@ class OnboardUserCall {
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
-      client: ApiManager.getClient(withCredentials: true),
     );
   }
 
@@ -283,12 +256,8 @@ class OnboardUserCall {
 }
 
 class GetTherapyRecommendationsCall {
-  Future<ApiCallResponse> call({
-    String? firebaseIDToken = '',
-  }) async {
-    final baseUrl = TheoryOfMindLucilleGroup.getBaseUrl(
-      firebaseIDToken: firebaseIDToken,
-    );
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TheoryOfMindLucilleGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'Get Therapy Recommendations',
@@ -296,7 +265,6 @@ class GetTherapyRecommendationsCall {
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ${firebaseIDToken}',
       },
       params: {},
       returnBody: true,
@@ -305,7 +273,6 @@ class GetTherapyRecommendationsCall {
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
-      client: ApiManager.getClient(withCredentials: true),
     );
   }
 
@@ -409,12 +376,8 @@ class GetTherapyRecommendationsCall {
 }
 
 class GetSoundscapesCall {
-  Future<ApiCallResponse> call({
-    String? firebaseIDToken = '',
-  }) async {
-    final baseUrl = TheoryOfMindLucilleGroup.getBaseUrl(
-      firebaseIDToken: firebaseIDToken,
-    );
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TheoryOfMindLucilleGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'GetSoundscapes',
@@ -422,7 +385,6 @@ class GetSoundscapesCall {
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ${firebaseIDToken}',
       },
       params: {},
       returnBody: true,
@@ -431,7 +393,6 @@ class GetSoundscapesCall {
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
-      client: ApiManager.getClient(withCredentials: true),
     );
   }
 
