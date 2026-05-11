@@ -180,7 +180,7 @@ class _CreateAccountOnboardingFlowWidgetState
                       sigmaY: 30.0,
                     ),
                     child: Container(
-                      width: 100.0,
+                      width: double.infinity,
                       height: MediaQuery.sizeOf(context).height * 1.0,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -196,7 +196,7 @@ class _CreateAccountOnboardingFlowWidgetState
                       ),
                       child: Container(
                         width: double.infinity,
-                        height: 498.74,
+                        height: double.infinity,
                         child: Stack(
                           children: [
                             PageView(
@@ -232,110 +232,40 @@ class _CreateAccountOnboardingFlowWidgetState
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Expanded(
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                              1.0,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 24.0, 24.0, 24.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  80.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'upu7xls9' /* Step 1 of 4 */,
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'WorkSans',
-                                                              color: Color(
-                                                                  0xCCFFFFFF),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ].divide(
-                                                      SizedBox(height: 8.0)),
-                                                ),
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  25.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'ixpkur6f' /* Create Your Identity */,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .displaySmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'The Seasons',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .alternate,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    Text(
+                                      Container(
+                                        width: double.infinity,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                1.0,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15.0),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  24.0, 24.0, 24.0, 24.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 80.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'hna0gihv' /* How would you like to be known... */,
+                                                        'upu7xls9' /* Step 1 of 4 */,
                                                       ),
-                                                      textAlign:
-                                                          TextAlign.center,
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -343,863 +273,915 @@ class _CreateAccountOnboardingFlowWidgetState
                                                             fontFamily:
                                                                 'WorkSans',
                                                             color: Color(
-                                                                0xDA39519F),
+                                                                0xCCFFFFFF),
+                                                            fontSize: 16.0,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
-                                                  ].divide(
-                                                      SizedBox(height: 16.0)),
-                                                ),
-                                                Stack(
-                                                  children: [
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              -0.07, 0.0),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    15.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child:
-                                                            AnimatedContainer(
-                                                          duration: Duration(
-                                                              milliseconds:
-                                                                  200),
-                                                          curve: Curves.easeIn,
-                                                          width: 120.0,
-                                                          height: 120.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            boxShadow: [
-                                                              BoxShadow(
-                                                                blurRadius:
-                                                                    40.0,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                offset: Offset(
-                                                                  0.0,
-                                                                  2.0,
-                                                                ),
-                                                                spreadRadius:
-                                                                    3.0,
-                                                              )
-                                                            ],
-                                                            shape:
-                                                                BoxShape.circle,
-                                                            border: Border.all(
-                                                              color: Color(
-                                                                  0x50EDF1F7),
-                                                            ),
+                                                  ),
+                                                ].divide(SizedBox(height: 8.0)),
+                                              ),
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 25.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'ixpkur6f' /* Create Your Identity */,
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .displaySmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'The Seasons',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .alternate,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
                                                           ),
-                                                          child: Hero(
-                                                            tag: _model
-                                                                .profilePicture!,
-                                                            transitionOnUserGestures:
-                                                                true,
-                                                            child: ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          99.0),
-                                                              child:
-                                                                  CachedNetworkImage(
-                                                                fadeInDuration:
-                                                                    Duration(
-                                                                        milliseconds:
-                                                                            800),
-                                                                fadeOutDuration:
-                                                                    Duration(
-                                                                        milliseconds:
-                                                                            800),
-                                                                imageUrl: _model
-                                                                    .profilePicture!,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'hna0gihv' /* How would you like to be known... */,
+                                                    ),
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'WorkSans',
+                                                          color:
+                                                              Color(0xDA39519F),
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ].divide(
+                                                    SizedBox(height: 16.0)),
+                                              ),
+                                              Stack(
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            -0.07, 0.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  15.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: AnimatedContainer(
+                                                        duration: Duration(
+                                                            milliseconds: 200),
+                                                        curve: Curves.easeIn,
+                                                        width: 120.0,
+                                                        height: 120.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          boxShadow: [
+                                                            BoxShadow(
+                                                              blurRadius: 40.0,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              offset: Offset(
+                                                                0.0,
+                                                                2.0,
+                                                              ),
+                                                              spreadRadius: 3.0,
+                                                            )
+                                                          ],
+                                                          shape:
+                                                              BoxShape.circle,
+                                                          border: Border.all(
+                                                            color: Color(
+                                                                0x50EDF1F7),
+                                                          ),
+                                                        ),
+                                                        child: Hero(
+                                                          tag: (_model.profilePicture !=
+                                                                      null &&
+                                                                  _model
+                                                                      .profilePicture!
+                                                                      .isNotEmpty)
+                                                              ? _model
+                                                                  .profilePicture!
+                                                              : 'profile_placeholder',
+                                                          transitionOnUserGestures:
+                                                              true,
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        99.0),
+                                                            child:
+                                                                CachedNetworkImage(
+                                                              fadeInDuration:
+                                                                  Duration(
+                                                                      milliseconds:
+                                                                          800),
+                                                              fadeOutDuration:
+                                                                  Duration(
+                                                                      milliseconds:
+                                                                          800),
+                                                              imageUrl: _model
+                                                                      .profilePicture ??
+                                                                  '',
+                                                              width: 200.0,
+                                                              height: 200.0,
+                                                              fit: BoxFit.cover,
+                                                              errorWidget: (context,
+                                                                      error,
+                                                                      stackTrace) =>
+                                                                  Image.asset(
+                                                                'assets/images/error_image.jpg',
                                                                 width: 200.0,
                                                                 height: 200.0,
                                                                 fit: BoxFit
                                                                     .cover,
-                                                                errorWidget: (context,
-                                                                        error,
-                                                                        stackTrace) =>
-                                                                    Image.asset(
-                                                                  'assets/images/error_image.jpg',
-                                                                  width: 200.0,
-                                                                  height: 200.0,
-                                                                  fit: BoxFit
-                                                                      .cover,
-                                                                ),
                                                               ),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
                                                     ),
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.25, 1.03),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    90.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Material(
-                                                          color: Colors
-                                                              .transparent,
-                                                          elevation: 2.0,
-                                                          shape:
-                                                              const CircleBorder(),
-                                                          child: Container(
-                                                            width: 49.47,
-                                                            height: 49.47,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: Color(
-                                                                  0x46EDF1F7),
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                              border:
-                                                                  Border.all(
-                                                                color: Color(
-                                                                    0x6BD0E3F7),
-                                                              ),
-                                                            ),
-                                                            child: Visibility(
-                                                              visible: _model
-                                                                          .profilePicture !=
-                                                                      null &&
-                                                                  _model.profilePicture !=
-                                                                      '',
-                                                              child:
-                                                                  FlutterFlowIconButton(
-                                                                borderColor: Color(
-                                                                    0xA8D0E3F7),
-                                                                borderRadius:
-                                                                    99.0,
-                                                                buttonSize:
-                                                                    53.39,
-                                                                fillColor: Color(
-                                                                    0x79FCC462),
-                                                                hoverColor: Color(
-                                                                    0xC639519F),
-                                                                hoverIconColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                hoverBorderColor:
-                                                                    Color(
-                                                                        0x7DEDF1F7),
-                                                                icon: Icon(
-                                                                  Icons.add,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .alternate,
-                                                                  size: 28.0,
-                                                                ),
-                                                                showLoadingIndicator:
-                                                                    true,
-                                                                onPressed:
-                                                                    () async {
-                                                                  logFirebaseEvent(
-                                                                      'CREATE_ACCOUNT_ONBOARDING_FLOW_add_ICN_O');
-                                                                  logFirebaseEvent(
-                                                                      'IconButton_haptic_feedback');
-                                                                  HapticFeedback
-                                                                      .lightImpact();
-                                                                  logFirebaseEvent(
-                                                                      'IconButton_request_permissions');
-                                                                  await requestPermission(
-                                                                      photoLibraryPermission);
-                                                                  logFirebaseEvent(
-                                                                      'IconButton_request_permissions');
-                                                                  await requestPermission(
-                                                                      cameraPermission);
-                                                                  logFirebaseEvent(
-                                                                      'IconButton_upload_media_to_firebase');
-                                                                  final selectedMedia =
-                                                                      await selectMediaWithSourceBottomSheet(
-                                                                    context:
-                                                                        context,
-                                                                    allowPhoto:
-                                                                        true,
-                                                                  );
-                                                                  if (selectedMedia !=
-                                                                          null &&
-                                                                      selectedMedia.every((m) => validateFileFormat(
-                                                                          m.storagePath,
-                                                                          context))) {
-                                                                    safeSetState(() =>
-                                                                        _model.isDataUploading_profilePictureUpload1 =
-                                                                            true);
-                                                                    var selectedUploadedFiles =
-                                                                        <FFUploadedFile>[];
-
-                                                                    var downloadUrls =
-                                                                        <String>[];
-                                                                    try {
-                                                                      showUploadMessage(
-                                                                        context,
-                                                                        'Uploading file...',
-                                                                        showLoading:
-                                                                            true,
-                                                                      );
-                                                                      selectedUploadedFiles = selectedMedia
-                                                                          .map((m) => FFUploadedFile(
-                                                                                name: m.storagePath.split('/').last,
-                                                                                bytes: m.bytes,
-                                                                                height: m.dimensions?.height,
-                                                                                width: m.dimensions?.width,
-                                                                                blurHash: m.blurHash,
-                                                                                originalFilename: m.originalFilename,
-                                                                              ))
-                                                                          .toList();
-
-                                                                      downloadUrls = (await Future
-                                                                              .wait(
-                                                                        selectedMedia
-                                                                            .map(
-                                                                          (m) async => await uploadData(
-                                                                              m.storagePath,
-                                                                              m.bytes),
-                                                                        ),
-                                                                      ))
-                                                                          .where((u) =>
-                                                                              u !=
-                                                                              null)
-                                                                          .map((u) =>
-                                                                              u!)
-                                                                          .toList();
-                                                                    } finally {
-                                                                      ScaffoldMessenger.of(
-                                                                              context)
-                                                                          .hideCurrentSnackBar();
-                                                                      _model.isDataUploading_profilePictureUpload1 =
-                                                                          false;
-                                                                    }
-                                                                    if (selectedUploadedFiles.length ==
-                                                                            selectedMedia
-                                                                                .length &&
-                                                                        downloadUrls.length ==
-                                                                            selectedMedia.length) {
-                                                                      safeSetState(
-                                                                          () {
-                                                                        _model.uploadedLocalFile_profilePictureUpload1 =
-                                                                            selectedUploadedFiles.first;
-                                                                        _model.uploadedFileUrl_profilePictureUpload1 =
-                                                                            downloadUrls.first;
-                                                                      });
-                                                                      showUploadMessage(
-                                                                          context,
-                                                                          'Success!');
-                                                                    } else {
-                                                                      safeSetState(
-                                                                          () {});
-                                                                      showUploadMessage(
-                                                                          context,
-                                                                          'Failed to upload data');
-                                                                      return;
-                                                                    }
-                                                                  }
-
-                                                                  logFirebaseEvent(
-                                                                      'IconButton_update_page_state');
-                                                                  _model.profilePicture =
-                                                                      _model
-                                                                          .uploadedFileUrl_profilePictureUpload1;
-                                                                  safeSetState(
-                                                                      () {});
-                                                                  logFirebaseEvent(
-                                                                      'IconButton_update_app_state');
-                                                                  FFAppState()
-                                                                          .ProfilePicture =
-                                                                      _model
-                                                                          .profilePicture!;
-                                                                  safeSetState(
-                                                                      () {});
-                                                                },
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            '2mx3h16t' /* Display Name */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
-                                                                color: Color(
-                                                                    0xCCFFFFFF),
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                        ),
-                                                        TextFormField(
-                                                          controller: _model
-                                                              .textController,
-                                                          focusNode: _model
-                                                              .textFieldFocusNode,
-                                                          onFieldSubmitted:
-                                                              (_) async {
-                                                            logFirebaseEvent(
-                                                                'CREATE_ACCOUNT_ONBOARDING_FLOW_TextField');
-                                                            logFirebaseEvent(
-                                                                'TextField_haptic_feedback');
-                                                            HapticFeedback
-                                                                .lightImpact();
-                                                            logFirebaseEvent(
-                                                                'TextField_play_sound');
-                                                            _model.soundPlayer3 ??=
-                                                                AudioPlayer();
-                                                            if (_model
-                                                                .soundPlayer3!
-                                                                .playing) {
-                                                              await _model
-                                                                  .soundPlayer3!
-                                                                  .stop();
-                                                            }
-                                                            _model.soundPlayer3!
-                                                                .setVolume(
-                                                                    0.67);
-                                                            _model.soundPlayer3!
-                                                                .setAsset(
-                                                                    'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                                                                .then((_) => _model
-                                                                    .soundPlayer3!
-                                                                    .play());
-                                                          },
-                                                          autofocus: false,
-                                                          obscureText: false,
-                                                          decoration:
-                                                              InputDecoration(
-                                                            hintText:
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                              'hwiia2pi' /* Input Display Name Here */,
-                                                            ),
-                                                            hintStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLarge
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
-                                                                      fontSize:
-                                                                          14.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                            enabledBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          24.0),
-                                                            ),
-                                                            focusedBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          24.0),
-                                                            ),
-                                                            errorBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          24.0),
-                                                            ),
-                                                            focusedErrorBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          24.0),
-                                                            ),
-                                                            filled: true,
-                                                            fillColor: Color(
-                                                                0x99FFFFFF),
-                                                            contentPadding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        16.0,
-                                                                        20.0,
-                                                                        16.0,
-                                                                        20.0),
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                          textAlign:
-                                                              TextAlign.start,
-                                                          validator: _model
-                                                              .textControllerValidator
-                                                              .asValidator(
-                                                                  context),
-                                                        ),
-                                                      ].divide(SizedBox(
-                                                          height: 8.0)),
-                                                    ),
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'j0g3owto' /* Pronouns */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
-                                                                color: Color(
-                                                                    0xCCFFFFFF),
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                        ),
-                                                        Container(
-                                                          width:
-                                                              double.infinity,
-                                                          height: 50.0,
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.25, 1.03),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  90.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Material(
+                                                        color:
+                                                            Colors.transparent,
+                                                        elevation: 2.0,
+                                                        shape:
+                                                            const CircleBorder(),
+                                                        child: Container(
+                                                          width: 49.47,
+                                                          height: 49.47,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: Color(
-                                                                0x99FFFFFF),
+                                                                0x46EDF1F7),
+                                                            shape:
+                                                                BoxShape.circle,
+                                                            border: Border.all(
+                                                              color: Color(
+                                                                  0x6BD0E3F7),
+                                                            ),
+                                                          ),
+                                                          child: Visibility(
+                                                            visible: _model
+                                                                        .profilePicture !=
+                                                                    null &&
+                                                                _model.profilePicture !=
+                                                                    '',
+                                                            child:
+                                                                FlutterFlowIconButton(
+                                                              borderColor: Color(
+                                                                  0xA8D0E3F7),
+                                                              borderRadius:
+                                                                  99.0,
+                                                              buttonSize: 53.39,
+                                                              fillColor: Color(
+                                                                  0x79FCC462),
+                                                              hoverColor: Color(
+                                                                  0xC639519F),
+                                                              hoverIconColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                              hoverBorderColor:
+                                                                  Color(
+                                                                      0x7DEDF1F7),
+                                                              icon: Icon(
+                                                                Icons.add,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
+                                                                size: 28.0,
+                                                              ),
+                                                              showLoadingIndicator:
+                                                                  true,
+                                                              onPressed:
+                                                                  () async {
+                                                                logFirebaseEvent(
+                                                                    'CREATE_ACCOUNT_ONBOARDING_FLOW_add_ICN_O');
+                                                                logFirebaseEvent(
+                                                                    'IconButton_haptic_feedback');
+                                                                HapticFeedback
+                                                                    .lightImpact();
+                                                                logFirebaseEvent(
+                                                                    'IconButton_request_permissions');
+                                                                await requestPermission(
+                                                                    photoLibraryPermission);
+                                                                logFirebaseEvent(
+                                                                    'IconButton_request_permissions');
+                                                                await requestPermission(
+                                                                    cameraPermission);
+                                                                logFirebaseEvent(
+                                                                    'IconButton_upload_media_to_firebase');
+                                                                final selectedMedia =
+                                                                    await selectMediaWithSourceBottomSheet(
+                                                                  context:
+                                                                      context,
+                                                                  allowPhoto:
+                                                                      true,
+                                                                );
+                                                                if (selectedMedia !=
+                                                                        null &&
+                                                                    selectedMedia.every((m) =>
+                                                                        validateFileFormat(
+                                                                            m.storagePath,
+                                                                            context))) {
+                                                                  safeSetState(() =>
+                                                                      _model.isDataUploading_profilePictureUpload1 =
+                                                                          true);
+                                                                  var selectedUploadedFiles =
+                                                                      <FFUploadedFile>[];
+
+                                                                  var downloadUrls =
+                                                                      <String>[];
+                                                                  try {
+                                                                    showUploadMessage(
+                                                                      context,
+                                                                      'Uploading file...',
+                                                                      showLoading:
+                                                                          true,
+                                                                    );
+                                                                    selectedUploadedFiles = selectedMedia
+                                                                        .map((m) => FFUploadedFile(
+                                                                              name: m.storagePath.split('/').last,
+                                                                              bytes: m.bytes,
+                                                                              height: m.dimensions?.height,
+                                                                              width: m.dimensions?.width,
+                                                                              blurHash: m.blurHash,
+                                                                              originalFilename: m.originalFilename,
+                                                                            ))
+                                                                        .toList();
+
+                                                                    downloadUrls = (await Future
+                                                                            .wait(
+                                                                      selectedMedia
+                                                                          .map(
+                                                                        (m) async => await uploadData(
+                                                                            m.storagePath,
+                                                                            m.bytes),
+                                                                      ),
+                                                                    ))
+                                                                        .where((u) =>
+                                                                            u !=
+                                                                            null)
+                                                                        .map((u) =>
+                                                                            u!)
+                                                                        .toList();
+                                                                  } finally {
+                                                                    ScaffoldMessenger.of(
+                                                                            context)
+                                                                        .hideCurrentSnackBar();
+                                                                    _model.isDataUploading_profilePictureUpload1 =
+                                                                        false;
+                                                                  }
+                                                                  if (selectedUploadedFiles
+                                                                              .length ==
+                                                                          selectedMedia
+                                                                              .length &&
+                                                                      downloadUrls
+                                                                              .length ==
+                                                                          selectedMedia
+                                                                              .length) {
+                                                                    safeSetState(
+                                                                        () {
+                                                                      _model.uploadedLocalFile_profilePictureUpload1 =
+                                                                          selectedUploadedFiles
+                                                                              .first;
+                                                                      _model.uploadedFileUrl_profilePictureUpload1 =
+                                                                          downloadUrls
+                                                                              .first;
+                                                                    });
+                                                                    showUploadMessage(
+                                                                        context,
+                                                                        'Success!');
+                                                                  } else {
+                                                                    safeSetState(
+                                                                        () {});
+                                                                    showUploadMessage(
+                                                                        context,
+                                                                        'Failed to upload data');
+                                                                    return;
+                                                                  }
+                                                                }
+
+                                                                logFirebaseEvent(
+                                                                    'IconButton_update_page_state');
+                                                                _model.profilePicture =
+                                                                    _model
+                                                                        .uploadedFileUrl_profilePictureUpload1;
+                                                                safeSetState(
+                                                                    () {});
+                                                                logFirebaseEvent(
+                                                                    'IconButton_update_app_state');
+                                                                FFAppState()
+                                                                        .ProfilePicture =
+                                                                    _model
+                                                                        .profilePicture!;
+                                                                safeSetState(
+                                                                    () {});
+                                                              },
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '2mx3h16t' /* Display Name */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'WorkSans',
+                                                                  color: Color(
+                                                                      0xCCFFFFFF),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                      TextFormField(
+                                                        controller: _model
+                                                            .textController,
+                                                        focusNode: _model
+                                                            .textFieldFocusNode,
+                                                        onFieldSubmitted:
+                                                            (_) async {
+                                                          logFirebaseEvent(
+                                                              'CREATE_ACCOUNT_ONBOARDING_FLOW_TextField');
+                                                          logFirebaseEvent(
+                                                              'TextField_haptic_feedback');
+                                                          HapticFeedback
+                                                              .lightImpact();
+                                                          logFirebaseEvent(
+                                                              'TextField_play_sound');
+                                                          _model.soundPlayer3 ??=
+                                                              AudioPlayer();
+                                                          if (_model
+                                                              .soundPlayer3!
+                                                              .playing) {
+                                                            await _model
+                                                                .soundPlayer3!
+                                                                .stop();
+                                                          }
+                                                          _model.soundPlayer3!
+                                                              .setVolume(0.67);
+                                                          _model.soundPlayer3!
+                                                              .setAsset(
+                                                                  'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                                                              .then((_) => _model
+                                                                  .soundPlayer3!
+                                                                  .play());
+                                                        },
+                                                        autofocus: false,
+                                                        obscureText: false,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          hintText:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                            'hwiia2pi' /* Input Display Name Here */,
+                                                          ),
+                                                          hintStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'WorkSans',
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                          enabledBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 1.0,
+                                                            ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
                                                                         24.0),
                                                           ),
-                                                          child:
-                                                              FlutterFlowDropDown<
-                                                                  String>(
-                                                            multiSelectController: _model
-                                                                    .dropDownValueController ??=
-                                                                FormListFieldController<
-                                                                    String>(_model
-                                                                        .dropDownValue ??=
-                                                                    List<
-                                                                        String>.from(
-                                                              Pronouns.values
-                                                                      .map((e) =>
-                                                                          e.name)
-                                                                      .toList() ??
-                                                                  [],
-                                                            )),
-                                                            options: [
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'iwebfo82' /* He/Him/His */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'vqed5mio' /* She/Her */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'iuo582xt' /* Her/Hers */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'tkr3ymh3' /* They/Them */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'njwpjgdp' /* Their/Theirs */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'w3edevhg' /* Ve/Ver/Vis */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'tfvcmzxt' /* Her/Hers */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'aomfrr4k' /* Xe/Xem */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                '19330qx3' /* Xyr/Xyrs */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'lxsdyexe' /* Ze/Zehir */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'z17izint' /* Hir/Hirs */,
-                                                              )
-                                                            ],
-                                                            width: 200.0,
-                                                            height: 40.0,
-                                                            textStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                            hintText:
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                              'fq01bjqh' /* Pronouns */,
+                                                          focusedBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 1.0,
                                                             ),
-                                                            icon: Icon(
-                                                              Icons
-                                                                  .keyboard_arrow_down_rounded,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryText,
-                                                              size: 24.0,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        24.0),
+                                                          ),
+                                                          errorBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 1.0,
                                                             ),
-                                                            elevation: 2.0,
-                                                            borderColor: Colors
-                                                                .transparent,
-                                                            borderWidth: 0.0,
-                                                            borderRadius: 8.0,
-                                                            margin:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12.0,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        24.0),
+                                                          ),
+                                                          focusedErrorBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        24.0),
+                                                          ),
+                                                          filled: true,
+                                                          fillColor:
+                                                              Color(0x99FFFFFF),
+                                                          contentPadding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      20.0,
+                                                                      16.0,
+                                                                      20.0),
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'WorkSans',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        textAlign:
+                                                            TextAlign.start,
+                                                        validator: _model
+                                                            .textControllerValidator
+                                                            .asValidator(
+                                                                context),
+                                                      ),
+                                                    ].divide(
+                                                        SizedBox(height: 8.0)),
+                                                  ),
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'j0g3owto' /* Pronouns */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'WorkSans',
+                                                                  color: Color(
+                                                                      0xCCFFFFFF),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                      Container(
+                                                        width: double.infinity,
+                                                        height: 50.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0x99FFFFFF),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      24.0),
+                                                        ),
+                                                        child:
+                                                            FlutterFlowDropDown<
+                                                                String>(
+                                                          multiSelectController: _model
+                                                                  .dropDownValueController ??=
+                                                              FormListFieldController<
+                                                                  String>(_model
+                                                                      .dropDownValue ??=
+                                                                  List<
+                                                                      String>.from(
+                                                            Pronouns.values
+                                                                    .map((e) =>
+                                                                        e.name)
+                                                                    .toList() ??
+                                                                [],
+                                                          )),
+                                                          options: [
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'iwebfo82' /* He/Him/His */,
+                                                            ),
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'vqed5mio' /* She/Her */,
+                                                            ),
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'iuo582xt' /* Her/Hers */,
+                                                            ),
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'tkr3ymh3' /* They/Them */,
+                                                            ),
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'njwpjgdp' /* Their/Theirs */,
+                                                            ),
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'w3edevhg' /* Ve/Ver/Vis */,
+                                                            ),
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'tfvcmzxt' /* Her/Hers */,
+                                                            ),
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'aomfrr4k' /* Xe/Xem */,
+                                                            ),
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              '19330qx3' /* Xyr/Xyrs */,
+                                                            ),
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'lxsdyexe' /* Ze/Zehir */,
+                                                            ),
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'z17izint' /* Hir/Hirs */,
+                                                            )
+                                                          ],
+                                                          width: 200.0,
+                                                          height: 40.0,
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'WorkSans',
+                                                                    letterSpacing:
                                                                         0.0,
-                                                                        12.0,
-                                                                        0.0),
-                                                            hidesUnderline:
-                                                                true,
-                                                            isOverButton: false,
-                                                            isSearchable: false,
-                                                            isMultiSelect: true,
-                                                            onMultiSelectChanged:
-                                                                (val) async {
-                                                              safeSetState(() =>
-                                                                  _model.dropDownValue =
-                                                                      val);
+                                                                  ),
+                                                          hintText:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                            'fq01bjqh' /* Pronouns */,
+                                                          ),
+                                                          icon: Icon(
+                                                            Icons
+                                                                .keyboard_arrow_down_rounded,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 24.0,
+                                                          ),
+                                                          elevation: 2.0,
+                                                          borderColor: Colors
+                                                              .transparent,
+                                                          borderWidth: 0.0,
+                                                          borderRadius: 8.0,
+                                                          margin:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      12.0,
+                                                                      0.0),
+                                                          hidesUnderline: true,
+                                                          isOverButton: false,
+                                                          isSearchable: false,
+                                                          isMultiSelect: true,
+                                                          onMultiSelectChanged:
+                                                              (val) async {
+                                                            safeSetState(() =>
+                                                                _model.dropDownValue =
+                                                                    val);
+                                                            logFirebaseEvent(
+                                                                'CREATE_ACCOUNT_ONBOARDING_FLOW_DropDown_');
+                                                            logFirebaseEvent(
+                                                                'DropDown_haptic_feedback');
+                                                            HapticFeedback
+                                                                .lightImpact();
+                                                            logFirebaseEvent(
+                                                                'DropDown_play_sound');
+                                                            _model.soundPlayer4 ??=
+                                                                AudioPlayer();
+                                                            if (_model
+                                                                .soundPlayer4!
+                                                                .playing) {
+                                                              await _model
+                                                                  .soundPlayer4!
+                                                                  .stop();
+                                                            }
+                                                            _model.soundPlayer4!
+                                                                .setVolume(
+                                                                    0.67);
+                                                            _model.soundPlayer4!
+                                                                .setAsset(
+                                                                    'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                                                                .then((_) => _model
+                                                                    .soundPlayer4!
+                                                                    .play());
+                                                          },
+                                                        ),
+                                                      ),
+                                                    ].divide(
+                                                        SizedBox(height: 8.0)),
+                                                  ),
+                                                ].divide(
+                                                    SizedBox(height: 24.0)),
+                                              ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: AnimatedContainer(
+                                                  duration: Duration(
+                                                      milliseconds: 550),
+                                                  curve: Curves.easeIn,
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.8,
+                                                  height: 100.0,
+                                                  decoration: BoxDecoration(
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 40.0,
+                                                        color: valueOrDefault<
+                                                            Color>(
+                                                          FFAppState()
+                                                                  .isOnboardingFinished
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .accent3
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .accent1,
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .accent3,
+                                                        ),
+                                                        offset: Offset(
+                                                          0.0,
+                                                          2.0,
+                                                        ),
+                                                        spreadRadius: 4.0,
+                                                      )
+                                                    ],
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            24.0),
+                                                  ),
+                                                  child: Builder(
+                                                    builder: (context) {
+                                                      if (_model
+                                                              .pageViewCurrentIndex <
+                                                          3) {
+                                                        return Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
                                                               logFirebaseEvent(
-                                                                  'CREATE_ACCOUNT_ONBOARDING_FLOW_DropDown_');
+                                                                  'CREATE_ACCOUNT_ONBOARDING_FLOW_CONTINUE_');
                                                               logFirebaseEvent(
-                                                                  'DropDown_haptic_feedback');
+                                                                  'Button_haptic_feedback');
                                                               HapticFeedback
                                                                   .lightImpact();
                                                               logFirebaseEvent(
-                                                                  'DropDown_play_sound');
-                                                              _model.soundPlayer4 ??=
-                                                                  AudioPlayer();
-                                                              if (_model
-                                                                  .soundPlayer4!
-                                                                  .playing) {
-                                                                await _model
-                                                                    .soundPlayer4!
-                                                                    .stop();
-                                                              }
-                                                              _model
-                                                                  .soundPlayer4!
-                                                                  .setVolume(
-                                                                      0.67);
-                                                              _model
-                                                                  .soundPlayer4!
-                                                                  .setAsset(
-                                                                      'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                                                                  .then((_) => _model
-                                                                      .soundPlayer4!
-                                                                      .play());
+                                                                  'Button_page_view');
+                                                              await _model
+                                                                  .pageViewController
+                                                                  ?.nextPage(
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        300),
+                                                                curve:
+                                                                    Curves.ease,
+                                                              );
                                                             },
-                                                          ),
-                                                        ),
-                                                      ].divide(SizedBox(
-                                                          height: 8.0)),
-                                                    ),
-                                                  ].divide(
-                                                      SizedBox(height: 24.0)),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: AnimatedContainer(
-                                                    duration: Duration(
-                                                        milliseconds: 550),
-                                                    curve: Curves.easeIn,
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.8,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 40.0,
-                                                          color: valueOrDefault<
-                                                              Color>(
-                                                            FFAppState()
-                                                                    .isOnboardingFinished
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .accent3
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .accent1,
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent3,
-                                                          ),
-                                                          offset: Offset(
-                                                            0.0,
-                                                            2.0,
-                                                          ),
-                                                          spreadRadius: 4.0,
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              24.0),
-                                                    ),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        if (_model
-                                                                .pageViewCurrentIndex <
-                                                            3) {
-                                                          return Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child:
-                                                                FFButtonWidget(
-                                                              onPressed:
-                                                                  () async {
-                                                                logFirebaseEvent(
-                                                                    'CREATE_ACCOUNT_ONBOARDING_FLOW_CONTINUE_');
-                                                                logFirebaseEvent(
-                                                                    'Button_haptic_feedback');
-                                                                HapticFeedback
-                                                                    .lightImpact();
-                                                                logFirebaseEvent(
-                                                                    'Button_page_view');
-                                                                await _model
-                                                                    .pageViewController
-                                                                    ?.nextPage(
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          300),
-                                                                  curve: Curves
-                                                                      .ease,
-                                                                );
-                                                              },
-                                                              text: FFLocalizations
-                                                                      .of(context)
-                                                                  .getText(
-                                                                '9udjb2qg' /* Continue */,
-                                                              ),
-                                                              options:
-                                                                  FFButtonOptions(
-                                                                width: double
-                                                                    .infinity,
-                                                                height: 50.0,
-                                                                padding:
-                                                                    EdgeInsets
-                                                                        .all(
-                                                                            8.0),
-                                                                iconPadding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                color: Color(
-                                                                    0xD7F0831A),
-                                                                textStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                                elevation: 3.0,
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: Color(
-                                                                      0x4CEDF1F7),
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            24.0),
-                                                              ),
+                                                            text: FFLocalizations
+                                                                    .of(context)
+                                                                .getText(
+                                                              '9udjb2qg' /* Continue */,
                                                             ),
-                                                          );
-                                                        } else {
-                                                          return Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child:
-                                                                FFButtonWidget(
-                                                              onPressed:
-                                                                  () async {
-                                                                logFirebaseEvent(
-                                                                    'CREATE_ACCOUNT_ONBOARDING_FLOW_FINISH_CR');
-                                                                logFirebaseEvent(
-                                                                    'Button_haptic_feedback');
-                                                                HapticFeedback
-                                                                    .lightImpact();
-                                                                logFirebaseEvent(
-                                                                    'Button_page_view');
-                                                                await _model
-                                                                    .pageViewController
-                                                                    ?.nextPage(
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          300),
-                                                                  curve: Curves
-                                                                      .ease,
-                                                                );
-                                                              },
-                                                              text: FFLocalizations
-                                                                      .of(context)
-                                                                  .getText(
-                                                                '4rm98im4' /* Finish Create Profile */,
-                                                              ),
-                                                              options:
-                                                                  FFButtonOptions(
-                                                                width: double
-                                                                    .infinity,
-                                                                height: 50.0,
-                                                                padding:
-                                                                    EdgeInsets
-                                                                        .all(
-                                                                            8.0),
-                                                                iconPadding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                color: Color(
-                                                                    0xD7F0831A),
-                                                                textStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      letterSpacing:
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: double
+                                                                  .infinity,
+                                                              height: 50.0,
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(8.0),
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
                                                                           0.0,
-                                                                    ),
-                                                                elevation: 3.0,
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: Color(
-                                                                      0x4CEDF1F7),
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            24.0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: Color(
+                                                                  0xD7F0831A),
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'WorkSans',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              elevation: 3.0,
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: Color(
+                                                                    0x4CEDF1F7),
                                                               ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          24.0),
                                                             ),
-                                                          );
-                                                        }
-                                                      },
-                                                    ),
+                                                          ),
+                                                        );
+                                                      } else {
+                                                        return Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              logFirebaseEvent(
+                                                                  'CREATE_ACCOUNT_ONBOARDING_FLOW_FINISH_CR');
+                                                              logFirebaseEvent(
+                                                                  'Button_haptic_feedback');
+                                                              HapticFeedback
+                                                                  .lightImpact();
+                                                              logFirebaseEvent(
+                                                                  'Button_page_view');
+                                                              await _model
+                                                                  .pageViewController
+                                                                  ?.nextPage(
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        300),
+                                                                curve:
+                                                                    Curves.ease,
+                                                              );
+                                                            },
+                                                            text: FFLocalizations
+                                                                    .of(context)
+                                                                .getText(
+                                                              '4rm98im4' /* Finish Create Profile */,
+                                                            ),
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: double
+                                                                  .infinity,
+                                                              height: 50.0,
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(8.0),
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: Color(
+                                                                  0xD7F0831A),
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'WorkSans',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              elevation: 3.0,
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: Color(
+                                                                    0x4CEDF1F7),
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          24.0),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }
+                                                    },
                                                   ),
                                                 ),
-                                              ].divide(SizedBox(height: 32.0)),
-                                            ),
+                                              ),
+                                            ].divide(SizedBox(height: 32.0)),
                                           ),
                                         ),
                                       ),

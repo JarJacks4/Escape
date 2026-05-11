@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_commons/api_requests/api_manager.dart';
 
-
 export 'package:ff_commons/api_requests/api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'PartnerToken';
@@ -175,14 +174,19 @@ class ChatStreamCall {
 
     final ffApiRequestBody = '''
 {
-  "message": "I've been feeling anxious about work lately",
-  "session_id": "optional-uuid (auto-generated if omitted)",
-  "firebaseIDToken": "[firebaseIDToken]", 
-  "user_id": "optional-user-id (enables personalization)"
+  "message": "${message}",
+  "session_id": "${sessionID}",
+  "firebaseIDToken": "${firebaseIDToken}",
+  "user_id": "${userID}"
 }''';
+
+    print('=== ChatStream URL: ${baseUrl}chat/stream');
+    print('=== ChatStream body: $ffApiRequestBody');
+    print('=== ChatStream token: $firebaseIDToken');
+
     return ApiManager.instance.makeApiCall(
       callName: 'ChatStream',
-      apiUrl: '${baseUrl}/chat/stream',
+      apiUrl: '${baseUrl}chat/stream',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',

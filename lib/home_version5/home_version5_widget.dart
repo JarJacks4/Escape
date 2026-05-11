@@ -168,10 +168,13 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
       FFAppState().isFinishedIntroWalkthrough = true;
       FFAppState().update(() {});
       logFirebaseEvent('HomeVersion5_backend_call');
-
-      await currentUserReference!.update(createUsersRecordData(
-        hasSeenWalkthrough: false,
-      ));
+      try {
+        await currentUserReference!.update(createUsersRecordData(
+          hasSeenWalkthrough: false,
+        ));
+      } catch (e) {
+        debugPrint('hasSeenWalkthrough update failed (App Check?): $e');
+      }
       logFirebaseEvent('HomeVersion5_show_snack_bar');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -983,7 +986,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                 }
                                                                                 _model.soundPlayer4!.setVolume(1.0);
                                                                                 _model.soundPlayer4!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav').then((_) => _model.soundPlayer4!.play());
-                                                                                                                                                            },
+                                                                              },
                                                                               child: Material(
                                                                                 color: Colors.transparent,
                                                                                 elevation: 2.0,
@@ -1056,8 +1059,10 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                       Builder(
                                                                     builder:
                                                                         (context) {
-                                                                      if (valueOrDefault(currentUserDocument?.currentMood, '') !=
-                                                                              '') {
+                                                                      if (valueOrDefault(
+                                                                              currentUserDocument?.currentMood,
+                                                                              '') !=
+                                                                          '') {
                                                                         return ListView(
                                                                           padding:
                                                                               EdgeInsets.zero,

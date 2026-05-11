@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'lucille_home_version5_model.dart';
+import 'voice_chat_with_lucille_comp_widget.dart';
 export 'lucille_home_version5_model.dart';
 
 class LucilleHomeVersion5Widget extends StatefulWidget {
@@ -625,17 +626,27 @@ Lucille */
 
                                       logFirebaseEvent('Container_navigate_to');
 
-                                      context.pushNamed(
-                                        ChatWithLucilleVersion5Widget.routeName,
-                                        extra: <String, dynamic>{
-                                          '__transition_info__': TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.rightToLeft,
-                                            duration: Duration(milliseconds: 2),
-                                          ),
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        enableDrag: false,
+                                        context: context,
+                                        builder: (context) {
+                                          return GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child:
+                                                  VoiceChatWithLucilleCompWidget(),
+                                            ),
+                                          );
                                         },
-                                      );
+                                      ).then((value) => safeSetState(() {}));
                                     },
                                     child: Container(
                                       width: double.infinity,
@@ -820,18 +831,25 @@ Lucille */
                                             (_) => _model.soundPlayer5!.play());
 
                                     logFirebaseEvent('Container_navigate_to');
-
-                                    context.pushNamed(
-                                      ChatWithLucilleVersion5Widget.routeName,
-                                      extra: <String, dynamic>{
-                                        '__transition_info__': TransitionInfo(
-                                          hasTransition: true,
-                                          transitionType:
-                                              PageTransitionType.rightToLeft,
-                                          duration: Duration(milliseconds: 2),
-                                        ),
+                                    
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Colors.transparent,
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return GestureDetector(
+                                          onTap: () {
+                                            FocusScope.of(context).unfocus();
+                                            FocusManager.instance.primaryFocus?.unfocus();
+                                          },
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(context),
+                                            child: VoiceChatWithLucilleCompWidget(),
+                                          ),
+                                        );
                                       },
-                                    );
+                                    ).then((value) => safeSetState(() {}));
                                   },
                                   child: Container(
                                     height: 36.0,

@@ -583,17 +583,10 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                   mainAxisSize: MainAxisSize.min,
                                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                                                                   children: [
-                                                                                                    Expanded(
-                                                                                                      flex: 1,
-                                                                                                      child: Container(
-                                                                                                        width: double.infinity,
-                                                                                                        height: MediaQuery.sizeOf(context).height * 0.15,
-                                                                                                        child: custom_widgets.GptMarkdownWidget(
-                                                                                                          width: double.infinity,
-                                                                                                          height: MediaQuery.sizeOf(context).height * 0.15,
-                                                                                                          data: _model.streamMessages.elementAtOrNull(chatIndex)!.content,
-                                                                                                        ),
-                                                                                                      ),
+                                                                                                    custom_widgets.GptMarkdownWidget(
+                                                                                                      width: double.infinity,
+                                                                                                      height: null,
+                                                                                                      data: _model.streamMessages.elementAtOrNull(chatIndex)?.content ?? '',
                                                                                                     ),
                                                                                                   ],
                                                                                                 ),
@@ -915,16 +908,22 @@ class _ChatWithLucilleVersion5WidgetState
 
                                                         logFirebaseEvent(
                                                             'IconButton_backend_call');
+                                                        _model.newMessage =
+                                                            true;
                                                         _model.lucilleStreamChat =
                                                             await TheoryOfMindLucilleGroup
                                                                 .chatStreamCall
                                                                 .call(
                                                           sessionID: FFAppState()
                                                               .chatSessionId,
-                                                          message:
-                                                              _model.userInput,
+                                                          message: _model
+                                                              .textController
+                                                              .text,
                                                           userID:
                                                               currentUserUid,
+                                                          firebaseIDToken:
+                                                              FFAppState()
+                                                                  .firebaseIDToken,
                                                         );
                                                         if (_model
                                                                 .lucilleStreamChat
@@ -946,155 +945,87 @@ class _ChatWithLucilleVersion5WidgetState
                                                                           m))
                                                               .listen(
                                                             (onMessageInput) async {
-                                                              var _shouldSetState =
-                                                                  false;
+                                                              final data =
+                                                                  TheoryOfMindLucilleStreamChatStruct
+                                                                      .maybeFromMap(
+                                                                onMessageInput
+                                                                    .serverSentEvent
+                                                                    .jsonData,
+                                                              );
+                                                              if (data == null)
+                                                                return;
+
                                                               if (_model
                                                                   .newMessage!) {
-                                                                logFirebaseEvent(
-                                                                    '_update_page_state');
+                                                                // First chunk: add new AI message
                                                                 _model.newMessage =
                                                                     false;
                                                                 _model
-                                                                    .updateStreamMessagesAtIndex(
-                                                                  TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                          .serverSentEvent
-                                                                          .jsonData)!
-                                                                      .messageCount,
-                                                                  (e) => e
-                                                                    ..content = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                            .serverSentEvent
-                                                                            .jsonData)
-                                                                        ?.content
-                                                                    ..sessionId = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                            .serverSentEvent
-                                                                            .jsonData)
-                                                                        ?.sessionId
-                                                                    ..response = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                            .serverSentEvent
-                                                                            .jsonData)
-                                                                        ?.response
-                                                                    ..messageCount = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                            .serverSentEvent
-                                                                            .jsonData)
-                                                                        ?.messageCount
-                                                                    ..detectedEmotion = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                            .serverSentEvent
-                                                                            .jsonData)
-                                                                        ?.detectedEmotion
-                                                                    ..done = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                            .serverSentEvent
-                                                                            .jsonData)
-                                                                        ?.done
-                                                                    ..detectedIntent = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                            .serverSentEvent
-                                                                            .jsonData)
-                                                                        ?.detectedIntent,
+                                                                    .addToStreamMessages(
+                                                                  TheoryOfMindLucilleStreamChatStruct(
+                                                                    content:
+                                                                        data.content ??
+                                                                            '',
+                                                                    done: data
+                                                                            .done ??
+                                                                        false,
+                                                                    sessionId: data
+                                                                        .sessionId,
+                                                                    response: data
+                                                                        .response,
+                                                                    detectedEmotion:
+                                                                        data.detectedEmotion,
+                                                                    detectedIntent:
+                                                                        data.detectedIntent,
+                                                                  ),
                                                                 );
-                                                                _model.chatMessages =
-                                                                    TheoryOfMindLucilleGroup
-                                                                        .lucilleChatMainCall
-                                                                        .conversation(
-                                                                          (_model.conversationHistory?.jsonBody ??
+                                                                _model.addToChatMessages(
+                                                                    data.content ??
+                                                                        '');
+                                                              } else {
+                                                                // Subsequent chunks: append to last AI message
+                                                                final lastIndex =
+                                                                    _model.streamMessages
+                                                                            .length -
+                                                                        1;
+                                                                if (lastIndex >=
+                                                                    0) {
+                                                                  _model
+                                                                      .updateStreamMessagesAtIndex(
+                                                                    lastIndex,
+                                                                    (e) => e
+                                                                      ..content = (e.content ??
+                                                                              '') +
+                                                                          (data.content ??
+                                                                              '')
+                                                                      ..done =
+                                                                          data.done ??
+                                                                              false
+                                                                      ..response =
+                                                                          data.response
+                                                                      ..detectedEmotion =
+                                                                          data.detectedEmotion
+                                                                      ..detectedIntent =
+                                                                          data.detectedIntent,
+                                                                  );
+                                                                  if (_model
+                                                                      .chatMessages
+                                                                      .isNotEmpty) {
+                                                                    _model
+                                                                        .updateChatMessagesAtIndex(
+                                                                      _model.chatMessages
+                                                                              .length -
+                                                                          1,
+                                                                      (e) =>
+                                                                          e +
+                                                                          (data.content ??
                                                                               ''),
-                                                                        )!
-                                                                        .toList()
-                                                                        .cast<
-                                                                            String>();
-                                                                safeSetState(
-                                                                    () {});
-                                                                logFirebaseEvent(
-                                                                    '_update_app_state');
-                                                                FFAppState()
-                                                                    .addToMessagesTheoryOfMind(
-                                                                        TheoryOfMindLucilleStreamChatStruct(
-                                                                  content: TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                          .serverSentEvent
-                                                                          .jsonData)
-                                                                      ?.content,
-                                                                  done: TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                          .serverSentEvent
-                                                                          .jsonData)
-                                                                      ?.done,
-                                                                  sessionId: TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                          .serverSentEvent
-                                                                          .jsonData)
-                                                                      ?.sessionId,
-                                                                  response: TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                          .serverSentEvent
-                                                                          .jsonData)
-                                                                      ?.response,
-                                                                  messageCount: TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                          .serverSentEvent
-                                                                          .jsonData)
-                                                                      ?.messageCount,
-                                                                ));
-                                                                safeSetState(
-                                                                    () {});
-                                                              } else {
-                                                                logFirebaseEvent(
-                                                                    '_update_app_state');
-                                                                FFAppState()
-                                                                    .updateMessagesTheoryOfMindAtIndex(
-                                                                  TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                          .serverSentEvent
-                                                                          .jsonData)!
-                                                                      .messageCount,
-                                                                  (e) => e
-                                                                    ..content = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                            .serverSentEvent
-                                                                            .jsonData)
-                                                                        ?.content
-                                                                    ..done = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                            .serverSentEvent
-                                                                            .jsonData)
-                                                                        ?.done
-                                                                    ..sessionId = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                            .serverSentEvent
-                                                                            .jsonData)
-                                                                        ?.sessionId
-                                                                    ..messageCount = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                            .serverSentEvent
-                                                                            .jsonData)
-                                                                        ?.messageCount
-                                                                    ..response = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                            .serverSentEvent
-                                                                            .jsonData)
-                                                                        ?.response
-                                                                    ..detectedEmotion = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                            .serverSentEvent
-                                                                            .jsonData)
-                                                                        ?.detectedEmotion
-                                                                    ..detectedIntent = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput
-                                                                            .serverSentEvent
-                                                                            .jsonData)
-                                                                        ?.detectedIntent,
-                                                                );
-                                                                safeSetState(
-                                                                    () {});
+                                                                    );
+                                                                  }
+                                                                }
                                                               }
-
-                                                              if (_model
-                                                                  .newMessage!) {
-                                                                logFirebaseEvent(
-                                                                    '_backend_call');
-                                                                _model.chatMemory =
-                                                                    await LucilleMemoriesGroup
-                                                                        .createMemoryCall
-                                                                        .call(
-                                                                  content: (_model
-                                                                          .streamMessages
-                                                                          .isNotEmpty)
-                                                                      .toString(),
-                                                                  memoryType:
-                                                                      'Semantic',
-                                                                  importance: 5,
-                                                                );
-
-                                                                _shouldSetState =
-                                                                    true;
-                                                              } else {
-                                                                return;
-                                                              }
+                                                              safeSetState(
+                                                                  () {});
                                                             },
                                                             onError:
                                                                 (onErrorInput) async {
@@ -1124,9 +1055,13 @@ class _ChatWithLucilleVersion5WidgetState
                                                               );
                                                             },
                                                             onDone: () async {
+                                                              _model.aiIsResponsing =
+                                                                  false;
+                                                              safeSetState(
+                                                                  () {});
                                                               if (FFAppState()
-                                                                          .firebaseIDToken !=
-                                                                      '') {
+                                                                      .firebaseIDToken !=
+                                                                  '') {
                                                                 logFirebaseEvent(
                                                                     '_update_app_state');
                                                                 FFAppState()
@@ -1254,32 +1189,6 @@ class _ChatWithLucilleVersion5WidgetState
                                                                 .lucilleStreamChat
                                                                 ?.succeeded ??
                                                             true)) {
-                                                          logFirebaseEvent(
-                                                              'IconButton_update_page_state');
-                                                          _model.streamedResponse =
-                                                              LucilleStreamFINALStruct
-                                                                      .maybeFromMap(
-                                                                          (_model.lucilleStreamChat?.jsonBody ??
-                                                                              ''))
-                                                                  ?.response;
-                                                          _model.aiMessageIndex =
-                                                              _model
-                                                                  .streamMessages
-                                                                  .length;
-                                                          _model.insertAtIndexInStreamMessages(
-                                                              (_model.getChatHistory
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                              ((_model.lucilleStreamChat
-                                                                              ?.jsonBody ??
-                                                                          '')
-                                                                      .toList()
-                                                                      .map<TheoryOfMindLucilleStreamChatStruct?>(
-                                                                          TheoryOfMindLucilleStreamChatStruct
-                                                                              .maybeFromMap)
-                                                                      .toList() as Iterable<TheoryOfMindLucilleStreamChatStruct?>)
-                                                                  .withoutNulls
-                                                                  .firstOrNull!);
                                                           safeSetState(() {});
                                                         } else {
                                                           logFirebaseEvent(
@@ -1322,13 +1231,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                   100),
                                                           curve: Curves.ease,
                                                         );
-                                                        if (_model
-                                                                .streamMessages
-                                                                .take(5)
-                                                                .toList()
-                                                                .isNotEmpty
-                                                            ? true
-                                                            : false) {
+                                                        if (false) {
                                                           logFirebaseEvent(
                                                               'IconButton_bottom_sheet');
                                                           await showModalBottomSheet(
