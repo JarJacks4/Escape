@@ -2785,23 +2785,12 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                               .updateNotifyOnAuthChange(
                                                                   false);
 
-                                                          context.pushNamed(
-                                                            CreateAccountOnboardingFlowWidget
-                                                                .routeName,
-                                                            extra: <String,
-                                                                dynamic>{
-                                                              '__transition_info__':
-                                                                  TransitionInfo(
-                                                                hasTransition:
-                                                                    true,
-                                                                transitionType:
-                                                                    PageTransitionType
-                                                                        .fade,
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        2),
-                                                              ),
-                                                            },
+                                                          Navigator.of(context)
+                                                              .push(
+                                                            MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  CreateAccountOnboardingFlowWidget(),
+                                                            ),
                                                           );
 
                                                           safeSetState(() {});

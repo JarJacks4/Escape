@@ -61,6 +61,8 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         parameters: {'screen_name': 'HomeVersion5'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      // await authManager.signOut();
+      // return;
       logFirebaseEvent('HOME_VERSION5_HomeVersion5_ON_INIT_STATE');
       logFirebaseEvent('HomeVersion5_haptic_feedback');
       HapticFeedback.vibrate();
@@ -141,6 +143,10 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         ),
       );
 
+      debugPrint('>>> hasSeenOnboarding: ${FFAppState().hasSeenOnboarding}');
+      debugPrint(
+          '>>> isOnboardingFinished: ${FFAppState().isOnboardingFinished}');
+      FFAppState().hasSeenOnboarding = false;
       if (FFAppState().hasSeenOnboarding == false) {
         logFirebaseEvent('HomeVersion5_start_walkthrough');
         safeSetState(() =>
@@ -2558,9 +2564,12 @@ Further ... */
       TutorialCoachMark(
         targets: createWalkthroughTargets(context),
         onFinish: () async {
-          safeSetState(() => _model.introWalkthroughController = null);
+          FFAppState().hasSeenOnboarding = true;
+          FFAppState().update(() {});
         },
         onSkip: () {
+          FFAppState().hasSeenOnboarding = true;
+          FFAppState().update(() {});
           return true;
         },
       );
