@@ -7,7 +7,15 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/walkthroughs/intro_walkthrough.dart';
+import 'dart:convert';
+import 'dart:math';
 import 'dart:ui';
+import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
+    as that_audio_player_oo85ab_data_schema;
+import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
+    as tiktokfeed_wz8en7_data_schema;
+import "package:utility_functions_library_8g4bud/backend/schema/structs/index.dart"
+    as utility_functions_library_8g4bud_data_schema;
 import '/app_events/index.dart';
 import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
@@ -16,21 +24,30 @@ import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
     as cupertino_time_picker_hiuzb7_app_state;
 import 'package:that_audio_player_oo85ab/app_state.dart'
     as that_audio_player_oo85ab_app_state;
+import 'package:that_audio_player_oo85ab/backend/api_requests/api_calls.dart'
+    as that_audio_player_oo85ab_api_calls_util;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
+import 'package:utility_functions_library_8g4bud/app_constants.dart'
+    as utility_functions_library_8g4bud_app_constant;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ff_commons/api_requests/api_streaming.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 import 'package:material_palette/material_palette.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
+
 import 'home_version5_model.dart';
 export 'home_version5_model.dart';
 
@@ -61,9 +78,13 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         parameters: {'screen_name': 'HomeVersion5'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      // await authManager.signOut();
-      // return;
       logFirebaseEvent('HOME_VERSION5_HomeVersion5_ON_INIT_STATE');
+      if (valueOrDefault<bool>(
+          currentUserDocument?.hasSeenWalkthrough, false)) {
+        logFirebaseEvent('HomeVersion5_update_app_state');
+        FFAppState().isFinishedIntroWalkthrough = true;
+        safeSetState(() {});
+      }
       logFirebaseEvent('HomeVersion5_haptic_feedback');
       HapticFeedback.vibrate();
       logFirebaseEvent('HomeVersion5_play_sound');
@@ -83,7 +104,8 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         userID: currentUserUid,
       );
 
-      if (FFAppState().chatSessionId != '') {
+      if (FFAppState().chatSessionId != null &&
+          FFAppState().chatSessionId != '') {
         logFirebaseEvent('HomeVersion5_show_snack_bar');
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -97,6 +119,8 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
             backgroundColor: FlutterFlowTheme.of(context).secondary,
           ),
         );
+        logFirebaseEvent('HomeVersion5_hide_snack_bar');
+        ScaffoldMessenger.of(context).clearSnackBars();
       } else {
         logFirebaseEvent('HomeVersion5_backend_call');
         _model.createSession =
@@ -143,15 +167,19 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         ),
       );
 
-      debugPrint('>>> hasSeenOnboarding: ${FFAppState().hasSeenOnboarding}');
-      debugPrint(
-          '>>> isOnboardingFinished: ${FFAppState().isOnboardingFinished}');
-      FFAppState().hasSeenOnboarding = false;
-      if (FFAppState().hasSeenOnboarding == false) {
+      if (FFAppState().isFinishedIntroWalkthrough == false) {
         logFirebaseEvent('HomeVersion5_start_walkthrough');
         safeSetState(() =>
             _model.introWalkthroughController = createPageWalkthrough(context));
         _model.introWalkthroughController?.show(context: context);
+        logFirebaseEvent('HomeVersion5_backend_call');
+
+        await currentUserReference!.update(createUsersRecordData(
+          hasSeenWalkthrough: true,
+        ));
+        logFirebaseEvent('HomeVersion5_update_app_state');
+        FFAppState().isFinishedIntroWalkthrough = true;
+        FFAppState().update(() {});
       } else {
         logFirebaseEvent('HomeVersion5_show_snack_bar');
         ScaffoldMessenger.of(context).showSnackBar(
@@ -161,7 +189,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
               style: TextStyle(
                 fontFamily: 'WorkSans',
                 color: FlutterFlowTheme.of(context).primaryText,
-                fontSize: 14.0,
+                fontSize: 14,
               ),
             ),
             duration: Duration(milliseconds: 4000),
@@ -169,33 +197,6 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
           ),
         );
       }
-
-      logFirebaseEvent('HomeVersion5_update_app_state');
-      FFAppState().isFinishedIntroWalkthrough = true;
-      FFAppState().update(() {});
-      logFirebaseEvent('HomeVersion5_backend_call');
-      try {
-        await currentUserReference!.update(createUsersRecordData(
-          hasSeenWalkthrough: false,
-        ));
-      } catch (e) {
-        debugPrint('hasSeenWalkthrough update failed (App Check?): $e');
-      }
-      logFirebaseEvent('HomeVersion5_show_snack_bar');
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            'Please hit the help button to see the walkthrough again!',
-            style: TextStyle(
-              fontFamily: 'WorkSans',
-              color: FlutterFlowTheme.of(context).primaryText,
-              fontSize: 14.0,
-            ),
-          ),
-          duration: Duration(milliseconds: 4000),
-          backgroundColor: FlutterFlowTheme.of(context).secondary,
-        ),
-      );
     });
 
     animationsMap.addAll({
@@ -381,7 +382,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         drawer: Container(
           width: MediaQuery.sizeOf(context).width * 0.7,
           child: Drawer(
-            elevation: 16.0,
+            elevation: 16,
             child: WebViewAware(
               child: wrapWithModel(
                 model: _model.sideNavModel,
@@ -392,7 +393,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
           ),
         ),
         body: Align(
-          alignment: AlignmentDirectional(0.0, 1.0),
+          alignment: AlignmentDirectional(0, 1),
           child: Stack(
             children: [
               Column(
@@ -402,17 +403,17 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                     flex: 1,
                     child: Container(
                       width: double.infinity,
-                      height: MediaQuery.sizeOf(context).height * 5.0,
+                      height: MediaQuery.sizeOf(context).height * 5,
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 8.0,
+                            blurRadius: 8,
                             color: Colors.white,
                             offset: Offset(
-                              0.0,
-                              8.0,
+                              0,
+                              8,
                             ),
-                            spreadRadius: 20.0,
+                            spreadRadius: 20,
                           )
                         ],
                         gradient: LinearGradient(
@@ -421,9 +422,9 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                             FlutterFlowTheme.of(context).tertiary,
                             FlutterFlowTheme.of(context).secondary
                           ],
-                          stops: [0.0, 0.2, 1.0],
-                          begin: AlignmentDirectional(0.0, -1.0),
-                          end: AlignmentDirectional(0, 1.0),
+                          stops: [0, 0.2, 1],
+                          begin: AlignmentDirectional(0, -1),
+                          end: AlignmentDirectional(0, 1),
                         ),
                       ),
                       child: Column(
@@ -439,7 +440,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                     tag: 'background',
                                     transitionOnUserGestures: true,
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1).gif',
                                         width: 409.6,
@@ -451,11 +452,10 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                       'imageOnPageLoadAnimation1']!),
                                 ),
                                 Stack(
-                                  alignment: AlignmentDirectional(0.0, 1.0),
+                                  alignment: AlignmentDirectional(0, 1),
                                   children: [
                                     Align(
-                                      alignment:
-                                          AlignmentDirectional(0.0, -1.0),
+                                      alignment: AlignmentDirectional(0, -1),
                                       child: Container(
                                         width: double.infinity,
                                         height: 1295.42,
@@ -466,22 +466,21 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                               Color(0x53D0E3F7),
                                               Color(0x75FFFFFF)
                                             ],
-                                            stops: [0.0, 0.5, 1.0],
-                                            begin:
-                                                AlignmentDirectional(0.0, -1.0),
-                                            end: AlignmentDirectional(0, 1.0),
+                                            stops: [0, 0.5, 1],
+                                            begin: AlignmentDirectional(0, -1),
+                                            end: AlignmentDirectional(0, 1),
                                           ),
                                         ),
                                         child: ClipRRect(
                                           borderRadius:
-                                              BorderRadius.circular(0.0),
+                                              BorderRadius.circular(0),
                                           child: BackdropFilter(
                                             filter: ImageFilter.blur(
-                                              sigmaX: 20.0,
-                                              sigmaY: 20.0,
+                                              sigmaX: 20,
+                                              sigmaY: 20,
                                             ),
                                             child: Container(
-                                              width: 100.0,
+                                              width: 100,
                                               height: 413.04,
                                               decoration: BoxDecoration(
                                                 gradient: LinearGradient(
@@ -490,11 +489,11 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                     Color(0x35D0E3F7),
                                                     Color(0x86FCC462)
                                                   ],
-                                                  stops: [0.0, 0.5, 1.0],
+                                                  stops: [0, 0.5, 1],
                                                   begin: AlignmentDirectional(
-                                                      1.0, 0.34),
+                                                      1, 0.34),
                                                   end: AlignmentDirectional(
-                                                      -1.0, -0.34),
+                                                      -1, -0.34),
                                                 ),
                                               ),
                                               child: Stack(
@@ -503,11 +502,8 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  16.0,
-                                                                  16.0,
-                                                                  16.0,
-                                                                  16.0),
+                                                              .fromSTEB(16, 16,
+                                                                  16, 16),
                                                       child:
                                                           SingleChildScrollView(
                                                         controller: _model
@@ -520,10 +516,10 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          15.0,
-                                                                          45.0,
-                                                                          15.0,
-                                                                          0.0),
+                                                                          15,
+                                                                          45,
+                                                                          15,
+                                                                          0),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -533,24 +529,23 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                         .spaceBetween,
                                                                 children: [
                                                                   Container(
-                                                                    width: 46.0,
-                                                                    height:
-                                                                        46.0,
+                                                                    width: 46,
+                                                                    height: 46,
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       boxShadow: [
                                                                         BoxShadow(
                                                                           blurRadius:
-                                                                              10.0,
+                                                                              10,
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primary,
                                                                           offset:
                                                                               Offset(
-                                                                            0.0,
-                                                                            0.0,
+                                                                            0,
+                                                                            0,
                                                                           ),
                                                                           spreadRadius:
-                                                                              10.0,
+                                                                              10,
                                                                         )
                                                                       ],
                                                                       shape: BoxShape
@@ -639,7 +634,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryBackground,
                                                                         size:
-                                                                            24.0,
+                                                                            24,
                                                                       ),
                                                                     ).animateOnPageLoad(
                                                                             animationsMap['iconOnPageLoadAnimation']!),
@@ -648,11 +643,11 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                       params: ShaderParams(
                                                                           values: {
                                                                             'angle':
-                                                                                14.0,
+                                                                                14,
                                                                             'scale':
-                                                                                1.0,
+                                                                                1,
                                                                             'offset':
-                                                                                0.0,
+                                                                                0,
                                                                             'pixelSize':
                                                                                 5.11,
                                                                             'edgeWidth':
@@ -665,7 +660,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                 0.21
                                                                           }),
                                                                       duration: Duration(
-                                                                          milliseconds: (140.0)
+                                                                          milliseconds: (140)
                                                                               .round()),
                                                                       curve: Curves
                                                                           .easeIn,
@@ -677,14 +672,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             animationMode:
                                                                                 ShaderAnimationMode.explicit,
                                                                             animationConfig: ShaderAnimationConfig(
-                                                                                duration: Duration(milliseconds: (2400.0).round()),
+                                                                                duration: Duration(milliseconds: (2400).round()),
                                                                                 curve: Curves.easeIn,
                                                                                 invert: true),
                                                                             child: Hero(
                                                                               tag: 'logo',
                                                                               transitionOnUserGestures: true,
                                                                               child: ClipRRect(
-                                                                                borderRadius: BorderRadius.circular(8.0),
+                                                                                borderRadius: BorderRadius.circular(8),
                                                                                 child: Image.asset(
                                                                                   'assets/images/Logo_ESCAPE_White.png',
                                                                                   width: 166.1,
@@ -706,22 +701,22 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                     children: [
                                                                       Container(
                                                                         width:
-                                                                            40.0,
+                                                                            40,
                                                                         height:
-                                                                            40.0,
+                                                                            40,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
                                                                               Color(0x5CFFFFFF),
                                                                           boxShadow: [
                                                                             BoxShadow(
-                                                                              blurRadius: 8.0,
+                                                                              blurRadius: 8,
                                                                               color: Color(0xB2F0831A),
                                                                               offset: Offset(
-                                                                                0.0,
-                                                                                2.0,
+                                                                                0,
+                                                                                2,
                                                                               ),
-                                                                              spreadRadius: 3.0,
+                                                                              spreadRadius: 3,
                                                                             )
                                                                           ],
                                                                           shape:
@@ -778,9 +773,9 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               Lottie.asset(
                                                                             'assets/jsons/question_mark_blue.json',
                                                                             width:
-                                                                                200.0,
+                                                                                200,
                                                                             height:
-                                                                                200.0,
+                                                                                200,
                                                                             fit:
                                                                                 BoxFit.contain,
                                                                             repeat:
@@ -792,7 +787,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                       ),
                                                                     ].divide(SizedBox(
                                                                         width:
-                                                                            12.0)),
+                                                                            12)),
                                                                   ),
                                                                 ],
                                                               ),
@@ -800,15 +795,15 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
+                                                                      -1, 0),
                                                               child: Padding(
-                                                                padding: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        15.0,
-                                                                        25.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            15,
+                                                                            25,
+                                                                            0,
+                                                                            0),
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -863,9 +858,10 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             TextOverflow.ellipsis,
                                                                       ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation2']!),
                                                                     ),
-                                                                  ].divide(SizedBox(
-                                                                      height:
-                                                                          8.0)),
+                                                                  ].divide(
+                                                                      SizedBox(
+                                                                          height:
+                                                                              8)),
                                                                 ),
                                                               ),
                                                             ),
@@ -873,26 +869,26 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0),
+                                                                          8,
+                                                                          0,
+                                                                          8,
+                                                                          0),
                                                               child: Material(
                                                                 color: Colors
                                                                     .transparent,
-                                                                elevation: 3.0,
+                                                                elevation: 3,
                                                                 shape:
                                                                     RoundedRectangleBorder(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              30.0),
+                                                                              30),
                                                                 ),
                                                                 child:
                                                                     Container(
                                                                   width: double
                                                                       .infinity,
-                                                                  height: 60.0,
+                                                                  height: 60,
                                                                   decoration:
                                                                       BoxDecoration(
                                                                     color: Color(
@@ -900,21 +896,21 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                     boxShadow: [
                                                                       BoxShadow(
                                                                         blurRadius:
-                                                                            10.0,
+                                                                            10,
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         offset:
                                                                             Offset(
-                                                                          0.0,
-                                                                          0.0,
+                                                                          0,
+                                                                          0,
                                                                         ),
                                                                         spreadRadius:
-                                                                            3.0,
+                                                                            3,
                                                                       )
                                                                     ],
                                                                     borderRadius:
                                                                         BorderRadius.circular(
-                                                                            30.0),
+                                                                            30),
                                                                     border:
                                                                         Border
                                                                             .all(
@@ -926,10 +922,10 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            16.0,
-                                                                            0.0,
-                                                                            16.0,
-                                                                            0.0),
+                                                                            16,
+                                                                            0,
+                                                                            16,
+                                                                            0),
                                                                     child: Row(
                                                                       mainAxisSize:
                                                                           MainAxisSize
@@ -955,7 +951,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               curve: Curves.easeIn,
                                                                               child: Text(
                                                                                 valueOrDefault<String>(
-                                                                                  currentUserDisplayName != '' ? currentUserDisplayName : currentUserEmail,
+                                                                                  currentUserDisplayName != null && currentUserDisplayName != '' ? currentUserDisplayName : currentUserEmail,
                                                                                   'Escape User',
                                                                                 ),
                                                                                 overflow: TextOverflow.fade,
@@ -983,23 +979,25 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             GestureDetector(
                                                                               onPanStart: (details) async {
                                                                                 logFirebaseEvent('HOME_VERSION5_Container_3pfz0dsz_ON_PAN_');
-                                                                                logFirebaseEvent('Container_haptic_feedback');
-                                                                                HapticFeedback.vibrate();
-                                                                                logFirebaseEvent('Container_play_sound');
-                                                                                _model.soundPlayer4 ??= AudioPlayer();
-                                                                                if (_model.soundPlayer4!.playing) {
-                                                                                  await _model.soundPlayer4!.stop();
+                                                                                if (details.globalPosition.dy != null) {
+                                                                                  logFirebaseEvent('Container_haptic_feedback');
+                                                                                  HapticFeedback.vibrate();
+                                                                                  logFirebaseEvent('Container_play_sound');
+                                                                                  _model.soundPlayer4 ??= AudioPlayer();
+                                                                                  if (_model.soundPlayer4!.playing) {
+                                                                                    await _model.soundPlayer4!.stop();
+                                                                                  }
+                                                                                  _model.soundPlayer4!.setVolume(1);
+                                                                                  _model.soundPlayer4!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav').then((_) => _model.soundPlayer4!.play());
                                                                                 }
-                                                                                _model.soundPlayer4!.setVolume(1.0);
-                                                                                _model.soundPlayer4!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav').then((_) => _model.soundPlayer4!.play());
                                                                               },
                                                                               child: Material(
                                                                                 color: Colors.transparent,
-                                                                                elevation: 2.0,
+                                                                                elevation: 2,
                                                                                 shape: const CircleBorder(),
                                                                                 child: Container(
-                                                                                  width: 40.0,
-                                                                                  height: 40.0,
+                                                                                  width: 40,
+                                                                                  height: 40,
                                                                                   decoration: BoxDecoration(
                                                                                     image: DecorationImage(
                                                                                       fit: BoxFit.contain,
@@ -1012,7 +1010,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                 ),
                                                                               ),
                                                                             ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation2']!),
-                                                                          ].divide(SizedBox(width: 8.0)),
+                                                                          ].divide(SizedBox(width: 8)),
                                                                         ),
                                                                       ],
                                                                     ),
@@ -1023,9 +1021,9 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.0, 0.0),
+                                                                      0, 0),
                                                               child: Container(
-                                                                width: 320.0,
+                                                                width: 320,
                                                                 height: 141.5,
                                                                 decoration:
                                                                     BoxDecoration(
@@ -1041,34 +1039,33 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                   boxShadow: [
                                                                     BoxShadow(
                                                                       blurRadius:
-                                                                          10.0,
+                                                                          10,
                                                                       color: Color(
                                                                           0x80EDF1F7),
                                                                       offset:
                                                                           Offset(
-                                                                        0.0,
-                                                                        0.0,
+                                                                        0,
+                                                                        0,
                                                                       ),
                                                                     )
                                                                   ],
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              16.0),
+                                                                              16),
                                                                 ),
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0),
+                                                                          0, 0),
                                                                   child:
                                                                       Builder(
                                                                     builder:
                                                                         (context) {
-                                                                      if (valueOrDefault(
-                                                                              currentUserDocument?.currentMood,
-                                                                              '') !=
-                                                                          '') {
+                                                                      if (valueOrDefault(currentUserDocument?.currentMood, '') !=
+                                                                              null &&
+                                                                          valueOrDefault(currentUserDocument?.currentMood, '') !=
+                                                                              '') {
                                                                         return ListView(
                                                                           padding:
                                                                               EdgeInsets.zero,
@@ -1078,8 +1075,8 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               Axis.horizontal,
                                                                           children: [
                                                                             Container(
-                                                                              width: 320.0,
-                                                                              height: 120.0,
+                                                                              width: 320,
+                                                                              height: 120,
                                                                               decoration: BoxDecoration(
                                                                                 color: Color(0x9BEDF1F7),
                                                                                 image: DecorationImage(
@@ -1088,10 +1085,10 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                     'assets/images/Pi-Slices.gif',
                                                                                   ).image,
                                                                                 ),
-                                                                                borderRadius: BorderRadius.circular(16.0),
+                                                                                borderRadius: BorderRadius.circular(16),
                                                                               ),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
                                                                                 child: Column(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1107,7 +1104,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                             crossAxisAlignment: CrossAxisAlignment.start,
                                                                                             children: [
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                                                                                                 child: Text(
                                                                                                   FFLocalizations.of(context).getText(
                                                                                                     'rjeksks8' /* CONTINUE YOUR JOURNEY */,
@@ -1115,7 +1112,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                   style: FlutterFlowTheme.of(context).labelSmall.override(
                                                                                                         fontFamily: 'WorkSans',
                                                                                                         color: FlutterFlowTheme.of(context).primary,
-                                                                                                        fontSize: 12.0,
+                                                                                                        fontSize: 12,
                                                                                                         letterSpacing: 0.0,
                                                                                                       ),
                                                                                                   overflow: TextOverflow.fade,
@@ -1141,7 +1138,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                       letterSpacing: 0.0,
                                                                                                     ),
                                                                                               ),
-                                                                                            ].divide(SizedBox(height: 4.0)),
+                                                                                            ].divide(SizedBox(height: 4)),
                                                                                           ),
                                                                                         ),
                                                                                         FFButtonWidget(
@@ -1154,7 +1151,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                             if (_model.soundPlayer5!.playing) {
                                                                                               await _model.soundPlayer5!.stop();
                                                                                             }
-                                                                                            _model.soundPlayer5!.setVolume(1.0);
+                                                                                            _model.soundPlayer5!.setVolume(1);
                                                                                             _model.soundPlayer5!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav').then((_) => _model.soundPlayer5!.play());
 
                                                                                             logFirebaseEvent('Button_navigate_to');
@@ -1175,8 +1172,8 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                           ),
                                                                                           options: FFButtonOptions(
                                                                                             height: 34.99,
-                                                                                            padding: EdgeInsets.all(8.0),
-                                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                            padding: EdgeInsets.all(8),
+                                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                                                                             color: FlutterFlowTheme.of(context).tertiary,
                                                                                             textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'WorkSans',
@@ -1184,11 +1181,11 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                   letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.w300,
                                                                                                 ),
-                                                                                            elevation: 2.0,
+                                                                                            elevation: 2,
                                                                                             borderSide: BorderSide(
                                                                                               color: Color(0x39D0E3F7),
                                                                                             ),
-                                                                                            borderRadius: BorderRadius.circular(16.0),
+                                                                                            borderRadius: BorderRadius.circular(16),
                                                                                           ),
                                                                                         ),
                                                                                       ],
@@ -1197,22 +1194,22 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                       flex: 1,
                                                                                       child: Container(
                                                                                         width: double.infinity,
-                                                                                        height: 4.0,
+                                                                                        height: 4,
                                                                                         decoration: BoxDecoration(
                                                                                           color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                          borderRadius: BorderRadius.circular(2.0),
+                                                                                          borderRadius: BorderRadius.circular(2),
                                                                                         ),
                                                                                         child: Container(
                                                                                           width: MediaQuery.sizeOf(context).width * 0.6,
-                                                                                          height: 4.0,
+                                                                                          height: 4,
                                                                                           decoration: BoxDecoration(
                                                                                             color: FlutterFlowTheme.of(context).primary,
-                                                                                            borderRadius: BorderRadius.circular(2.0),
+                                                                                            borderRadius: BorderRadius.circular(2),
                                                                                           ),
                                                                                           child: LinearPercentIndicator(
                                                                                             percent: FFAppState().pointsEarned.toDouble(),
-                                                                                            width: 120.0,
-                                                                                            lineHeight: 12.0,
+                                                                                            width: 120,
+                                                                                            lineHeight: 12,
                                                                                             animation: true,
                                                                                             animateFromLastPercent: true,
                                                                                             progressColor: FlutterFlowTheme.of(context).primary,
@@ -1224,7 +1221,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                               style: FlutterFlowTheme.of(context).headlineSmall.override(
                                                                                                     fontFamily: 'WorkSans',
                                                                                                     color: FlutterFlowTheme.of(context).primary,
-                                                                                                    fontSize: 5.0,
+                                                                                                    fontSize: 5,
                                                                                                     letterSpacing: 0.0,
                                                                                                   ),
                                                                                               overflow: TextOverflow.fade,
@@ -1234,7 +1231,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                         ),
                                                                                       ),
                                                                                     ),
-                                                                                  ].divide(SizedBox(height: 8.0)),
+                                                                                  ].divide(SizedBox(height: 8)),
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -1243,10 +1240,10 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                       } else {
                                                                         return Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              16.0,
-                                                                              16.0,
-                                                                              16.0,
-                                                                              16.0),
+                                                                              16,
+                                                                              16,
+                                                                              16,
+                                                                              16),
                                                                           child:
                                                                               Column(
                                                                             mainAxisSize:
@@ -1270,7 +1267,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                           Flexible(
                                                                                             flex: 1,
                                                                                             child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                                                                                               child: Text(
                                                                                                 FFLocalizations.of(context).getText(
                                                                                                   '8w64lojl' /* START YOUR DAY */,
@@ -1278,7 +1275,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                 style: FlutterFlowTheme.of(context).labelSmall.override(
                                                                                                       fontFamily: 'WorkSans',
                                                                                                       color: Color(0xC81C2444),
-                                                                                                      fontSize: 12.0,
+                                                                                                      fontSize: 12,
                                                                                                       letterSpacing: 0.0,
                                                                                                       fontWeight: FontWeight.w900,
                                                                                                     ),
@@ -1313,7 +1310,7 @@ Further ... */
                                                                                                   ),
                                                                                             ),
                                                                                           ),
-                                                                                        ].divide(SizedBox(height: 4.0)),
+                                                                                        ].divide(SizedBox(height: 4)),
                                                                                       ),
                                                                                     ),
                                                                                     FFButtonWidget(
@@ -1326,7 +1323,7 @@ Further ... */
                                                                                         if (_model.soundPlayer6!.playing) {
                                                                                           await _model.soundPlayer6!.stop();
                                                                                         }
-                                                                                        _model.soundPlayer6!.setVolume(1.0);
+                                                                                        _model.soundPlayer6!.setVolume(1);
                                                                                         _model.soundPlayer6!.setAsset('assets/audios/ES_Notification,_Attention,_Text,_Reveal,_Positive_01_-_Epidemic_Sound_-_2170-2760.wav').then((_) => _model.soundPlayer6!.play());
 
                                                                                         logFirebaseEvent('Button_navigate_to');
@@ -1347,8 +1344,8 @@ Further ... */
                                                                                       ),
                                                                                       options: FFButtonOptions(
                                                                                         height: 34.99,
-                                                                                        padding: EdgeInsets.all(8.0),
-                                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                        padding: EdgeInsets.all(8),
+                                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                                                                         color: FlutterFlowTheme.of(context).alternate,
                                                                                         textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'WorkSans',
@@ -1356,16 +1353,16 @@ Further ... */
                                                                                               letterSpacing: 0.0,
                                                                                               fontWeight: FontWeight.w300,
                                                                                             ),
-                                                                                        elevation: 2.0,
+                                                                                        elevation: 2,
                                                                                         borderSide: BorderSide(
                                                                                           color: Color(0x39D0E3F7),
                                                                                         ),
-                                                                                        borderRadius: BorderRadius.circular(16.0),
+                                                                                        borderRadius: BorderRadius.circular(16),
                                                                                         hoverColor: FlutterFlowTheme.of(context).tertiary,
                                                                                         hoverBorderSide: BorderSide(
                                                                                           color: FlutterFlowTheme.of(context).secondary,
                                                                                         ),
-                                                                                        hoverElevation: 3.0,
+                                                                                        hoverElevation: 3,
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -1374,7 +1371,7 @@ Further ... */
                                                                                   _model.introWalkthroughController,
                                                                                 ),
                                                                               ),
-                                                                            ].divide(SizedBox(height: 8.0)),
+                                                                            ].divide(SizedBox(height: 8)),
                                                                           ),
                                                                         );
                                                                       }
@@ -1404,10 +1401,10 @@ Further ... */
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            0.0,
-                                                                            8.0),
+                                                                            8,
+                                                                            8,
+                                                                            0,
+                                                                            8),
                                                                         child:
                                                                             InkWell(
                                                                           splashColor:
@@ -1429,7 +1426,7 @@ Further ... */
                                                                             if (_model.soundPlayer7!.playing) {
                                                                               await _model.soundPlayer7!.stop();
                                                                             }
-                                                                            _model.soundPlayer7!.setVolume(1.0);
+                                                                            _model.soundPlayer7!.setVolume(1);
                                                                             _model.soundPlayer7!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) =>
                                                                                 _model.soundPlayer7!.play());
 
@@ -1449,7 +1446,7 @@ Further ... */
                                                                           child:
                                                                               Container(
                                                                             height:
-                                                                                36.0,
+                                                                                36,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: Colors.white,
@@ -1461,20 +1458,20 @@ Further ... */
                                                                               ),
                                                                               boxShadow: [
                                                                                 BoxShadow(
-                                                                                  blurRadius: 8.0,
+                                                                                  blurRadius: 8,
                                                                                   color: FlutterFlowTheme.of(context).secondary,
                                                                                   offset: Offset(
-                                                                                    0.0,
-                                                                                    0.0,
+                                                                                    0,
+                                                                                    0,
                                                                                   ),
-                                                                                  spreadRadius: 3.0,
+                                                                                  spreadRadius: 3,
                                                                                 )
                                                                               ],
-                                                                              borderRadius: BorderRadius.circular(18.0),
+                                                                              borderRadius: BorderRadius.circular(18),
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
                                                                                   'y0lns6ms' /* Mind */,
@@ -1496,10 +1493,10 @@ Further ... */
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0,
-                                                                            8.0),
+                                                                            0,
+                                                                            8,
+                                                                            0,
+                                                                            8),
                                                                         child:
                                                                             InkWell(
                                                                           splashColor:
@@ -1521,7 +1518,7 @@ Further ... */
                                                                             if (_model.soundPlayer8!.playing) {
                                                                               await _model.soundPlayer8!.stop();
                                                                             }
-                                                                            _model.soundPlayer8!.setVolume(1.0);
+                                                                            _model.soundPlayer8!.setVolume(1);
                                                                             _model.soundPlayer8!.setAsset('assets/audios/ES_Notification,_Attention,_Text,_Reveal,_Positive_01_-_Epidemic_Sound_-_2170-2760.wav').then((_) =>
                                                                                 _model.soundPlayer8!.play());
 
@@ -1541,7 +1538,7 @@ Further ... */
                                                                           child:
                                                                               Container(
                                                                             height:
-                                                                                36.0,
+                                                                                36,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: Colors.white,
@@ -1553,20 +1550,20 @@ Further ... */
                                                                               ),
                                                                               boxShadow: [
                                                                                 BoxShadow(
-                                                                                  blurRadius: 8.0,
+                                                                                  blurRadius: 8,
                                                                                   color: FlutterFlowTheme.of(context).secondary,
                                                                                   offset: Offset(
-                                                                                    0.0,
-                                                                                    2.0,
+                                                                                    0,
+                                                                                    2,
                                                                                   ),
-                                                                                  spreadRadius: 3.0,
+                                                                                  spreadRadius: 3,
                                                                                 )
                                                                               ],
-                                                                              borderRadius: BorderRadius.circular(18.0),
+                                                                              borderRadius: BorderRadius.circular(18),
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(15.0, 8.0, 15.0, 8.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(15, 8, 15, 8),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
                                                                                   'gx17oj58' /* Journal */,
@@ -1588,10 +1585,10 @@ Further ... */
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0,
-                                                                            8.0),
+                                                                            0,
+                                                                            8,
+                                                                            0,
+                                                                            8),
                                                                         child:
                                                                             InkWell(
                                                                           splashColor:
@@ -1613,7 +1610,7 @@ Further ... */
                                                                             if (_model.soundPlayer9!.playing) {
                                                                               await _model.soundPlayer9!.stop();
                                                                             }
-                                                                            _model.soundPlayer9!.setVolume(1.0);
+                                                                            _model.soundPlayer9!.setVolume(1);
                                                                             _model.soundPlayer9!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) =>
                                                                                 _model.soundPlayer9!.play());
 
@@ -1639,7 +1636,7 @@ Further ... */
                                                                           child:
                                                                               Container(
                                                                             height:
-                                                                                36.0,
+                                                                                36,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: Colors.white,
@@ -1651,20 +1648,20 @@ Further ... */
                                                                               ),
                                                                               boxShadow: [
                                                                                 BoxShadow(
-                                                                                  blurRadius: 8.0,
+                                                                                  blurRadius: 8,
                                                                                   color: FlutterFlowTheme.of(context).secondary,
                                                                                   offset: Offset(
-                                                                                    0.0,
-                                                                                    2.0,
+                                                                                    0,
+                                                                                    2,
                                                                                   ),
-                                                                                  spreadRadius: 3.0,
+                                                                                  spreadRadius: 3,
                                                                                 )
                                                                               ],
-                                                                              borderRadius: BorderRadius.circular(18.0),
+                                                                              borderRadius: BorderRadius.circular(18),
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
                                                                                   '7bt0wd1x' /* Sounds */,
@@ -1686,10 +1683,10 @@ Further ... */
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0,
-                                                                            8.0),
+                                                                            0,
+                                                                            8,
+                                                                            0,
+                                                                            8),
                                                                         child:
                                                                             InkWell(
                                                                           splashColor:
@@ -1711,7 +1708,7 @@ Further ... */
                                                                             if (_model.soundPlayer10!.playing) {
                                                                               await _model.soundPlayer10!.stop();
                                                                             }
-                                                                            _model.soundPlayer10!.setVolume(1.0);
+                                                                            _model.soundPlayer10!.setVolume(1);
                                                                             _model.soundPlayer10!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) =>
                                                                                 _model.soundPlayer10!.play());
 
@@ -1731,7 +1728,7 @@ Further ... */
                                                                           child:
                                                                               Container(
                                                                             height:
-                                                                                36.0,
+                                                                                36,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: Colors.white,
@@ -1743,20 +1740,20 @@ Further ... */
                                                                               ),
                                                                               boxShadow: [
                                                                                 BoxShadow(
-                                                                                  blurRadius: 8.0,
+                                                                                  blurRadius: 8,
                                                                                   color: FlutterFlowTheme.of(context).secondary,
                                                                                   offset: Offset(
-                                                                                    0.0,
-                                                                                    2.0,
+                                                                                    0,
+                                                                                    2,
                                                                                   ),
-                                                                                  spreadRadius: 3.0,
+                                                                                  spreadRadius: 3,
                                                                                 )
                                                                               ],
-                                                                              borderRadius: BorderRadius.circular(18.0),
+                                                                              borderRadius: BorderRadius.circular(18),
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
                                                                                   'ziauem40' /* Body */,
@@ -1778,10 +1775,10 @@ Further ... */
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0),
+                                                                            0,
+                                                                            8,
+                                                                            8,
+                                                                            8),
                                                                         child:
                                                                             InkWell(
                                                                           splashColor:
@@ -1803,7 +1800,7 @@ Further ... */
                                                                             if (_model.soundPlayer11!.playing) {
                                                                               await _model.soundPlayer11!.stop();
                                                                             }
-                                                                            _model.soundPlayer11!.setVolume(1.0);
+                                                                            _model.soundPlayer11!.setVolume(1);
                                                                             _model.soundPlayer11!.setAsset('assets/audios/ES_Ding,_Complex,_Shine_-_Epidemic_Sound.mp3').then((_) =>
                                                                                 _model.soundPlayer11!.play());
 
@@ -1823,7 +1820,7 @@ Further ... */
                                                                           child:
                                                                               Container(
                                                                             height:
-                                                                                36.0,
+                                                                                36,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: Colors.white,
@@ -1835,20 +1832,20 @@ Further ... */
                                                                               ),
                                                                               boxShadow: [
                                                                                 BoxShadow(
-                                                                                  blurRadius: 8.0,
+                                                                                  blurRadius: 8,
                                                                                   color: FlutterFlowTheme.of(context).secondary,
                                                                                   offset: Offset(
-                                                                                    0.0,
-                                                                                    2.0,
+                                                                                    0,
+                                                                                    2,
                                                                                   ),
-                                                                                  spreadRadius: 3.0,
+                                                                                  spreadRadius: 3,
                                                                                 )
                                                                               ],
-                                                                              borderRadius: BorderRadius.circular(18.0),
+                                                                              borderRadius: BorderRadius.circular(18),
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
                                                                                   'y3du6f80' /* Reset */,
@@ -1865,9 +1862,10 @@ Further ... */
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  ].divide(SizedBox(
-                                                                      width:
-                                                                          12.0)),
+                                                                  ].divide(
+                                                                      SizedBox(
+                                                                          width:
+                                                                              12)),
                                                                 ),
                                                               ).addWalkthrough(
                                                                 rowWy6kwc96,
@@ -1879,14 +1877,14 @@ Further ... */
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          0,
+                                                                          8,
+                                                                          0,
+                                                                          0),
                                                               child: Container(
                                                                 width: double
                                                                     .infinity,
-                                                                height: 209.0,
+                                                                height: 209,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   image:
@@ -1901,13 +1899,13 @@ Further ... */
                                                                   boxShadow: [
                                                                     BoxShadow(
                                                                       blurRadius:
-                                                                          8.0,
+                                                                          8,
                                                                       color: Color(
                                                                           0x17EDF1F7),
                                                                       offset:
                                                                           Offset(
-                                                                        0.0,
-                                                                        3.0,
+                                                                        0,
+                                                                        3,
                                                                       ),
                                                                     )
                                                                   ],
@@ -1922,34 +1920,33 @@ Further ... */
                                                                     ],
                                                                     stops: [
                                                                       0.2,
-                                                                      1.0
+                                                                      1
                                                                     ],
                                                                     begin:
                                                                         AlignmentDirectional(
-                                                                            1.0,
-                                                                            -1.0),
-                                                                    end: AlignmentDirectional(
-                                                                        -1.0,
-                                                                        1.0),
+                                                                            1,
+                                                                            -1),
+                                                                    end:
+                                                                        AlignmentDirectional(
+                                                                            -1,
+                                                                            1),
                                                                   ),
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              16.0),
+                                                                              16),
                                                                 ),
                                                                 child: Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          0,
+                                                                          8,
+                                                                          0,
+                                                                          0),
                                                                   child:
                                                                       Container(
-                                                                    width:
-                                                                        100.0,
-                                                                    height:
-                                                                        100.0,
+                                                                    width: 100,
+                                                                    height: 100,
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       color: FlutterFlowTheme.of(
@@ -1957,7 +1954,7 @@ Further ... */
                                                                           .secondaryBackground,
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              16.0),
+                                                                              16),
                                                                     ),
                                                                     child:
                                                                         Container(
@@ -1979,20 +1976,20 @@ Further ... */
                                                                         boxShadow: [
                                                                           BoxShadow(
                                                                             blurRadius:
-                                                                                25.0,
+                                                                                25,
                                                                             color:
                                                                                 Color(0x80EDF1F7),
                                                                             offset:
                                                                                 Offset(
-                                                                              0.0,
-                                                                              20.0,
+                                                                              0,
+                                                                              20,
                                                                             ),
                                                                             spreadRadius:
-                                                                                8.0,
+                                                                                8,
                                                                           )
                                                                         ],
                                                                         borderRadius:
-                                                                            BorderRadius.circular(16.0),
+                                                                            BorderRadius.circular(16),
                                                                         border:
                                                                             Border.all(
                                                                           color:
@@ -2002,10 +1999,10 @@ Further ... */
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            16.0,
-                                                                            16.0,
-                                                                            16.0,
-                                                                            16.0),
+                                                                            16,
+                                                                            16,
+                                                                            16,
+                                                                            16),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:
@@ -2050,7 +2047,7 @@ Further ... */
                                                                                 if (_model.soundPlayer12!.playing) {
                                                                                   await _model.soundPlayer12!.stop();
                                                                                 }
-                                                                                _model.soundPlayer12!.setVolume(1.0);
+                                                                                _model.soundPlayer12!.setVolume(1);
                                                                                 _model.soundPlayer12!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer12!.play());
 
                                                                                 logFirebaseEvent('Button_navigate_to');
@@ -2071,17 +2068,17 @@ Further ... */
                                                                               ),
                                                                               options: FFButtonOptions(
                                                                                 width: double.infinity,
-                                                                                height: 50.0,
-                                                                                padding: EdgeInsets.all(8.0),
-                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                height: 50,
+                                                                                padding: EdgeInsets.all(8),
+                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                                                                 color: FlutterFlowTheme.of(context).accent1,
                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                       fontFamily: 'WorkSans',
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
-                                                                                elevation: 0.0,
-                                                                                borderRadius: BorderRadius.circular(25.0),
+                                                                                elevation: 0,
+                                                                                borderRadius: BorderRadius.circular(25),
                                                                               ),
                                                                             )
                                                                                 .addWalkthrough(
@@ -2089,7 +2086,7 @@ Further ... */
                                                                                   _model.introWalkthroughController,
                                                                                 )
                                                                                 .animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation']!),
-                                                                          ].divide(SizedBox(height: 16.0)),
+                                                                          ].divide(SizedBox(height: 16)),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -2102,7 +2099,7 @@ Further ... */
                                                               child: Container(
                                                                 width: double
                                                                     .infinity,
-                                                                height: 155.0,
+                                                                height: 155,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
@@ -2111,14 +2108,14 @@ Further ... */
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              16.0),
+                                                                              16),
                                                                 ),
                                                                 child: Stack(
                                                                   children: [
                                                                     ClipRRect(
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              16.0),
+                                                                              16),
                                                                       child: Image
                                                                           .network(
                                                                         'https://images.unsplash.com/photo-1461468611824-46457c0e11fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxicmVhdGhpbmd8ZW58MHx8fHwxNzcxMDY0MzAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
@@ -2144,18 +2141,18 @@ Further ... */
                                                                             Color(0xD6000000)
                                                                           ],
                                                                           stops: [
-                                                                            0.0,
-                                                                            1.0
+                                                                            0,
+                                                                            1
                                                                           ],
                                                                           begin: AlignmentDirectional(
-                                                                              0.0,
-                                                                              -1.0),
+                                                                              0,
+                                                                              -1),
                                                                           end: AlignmentDirectional(
                                                                               0,
-                                                                              1.0),
+                                                                              1),
                                                                         ),
                                                                         borderRadius:
-                                                                            BorderRadius.circular(16.0),
+                                                                            BorderRadius.circular(16),
                                                                       ),
                                                                     ).addWalkthrough(
                                                                       containerI9znmkfb,
@@ -2163,11 +2160,12 @@ Further ... */
                                                                           .introWalkthroughController,
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          16.0,
-                                                                          16.0,
-                                                                          16.0,
-                                                                          16.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              16,
+                                                                              16,
+                                                                              16,
+                                                                              16),
                                                                       child:
                                                                           Column(
                                                                         mainAxisSize:
@@ -2179,13 +2177,13 @@ Further ... */
                                                                         children: [
                                                                           Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(1.0, -1.0),
+                                                                                AlignmentDirectional(1, -1),
                                                                             child:
                                                                                 AnimatedContainer(
                                                                               duration: Duration(milliseconds: 800),
                                                                               curve: Curves.easeIn,
-                                                                              width: 32.0,
-                                                                              height: 32.0,
+                                                                              width: 32,
+                                                                              height: 32,
                                                                               decoration: BoxDecoration(
                                                                                 color: Colors.white,
                                                                                 image: DecorationImage(
@@ -2271,22 +2269,22 @@ Further ... */
                                                                                         'e5vi0aj4' /* Start */,
                                                                                       ),
                                                                                       options: FFButtonOptions(
-                                                                                        height: 32.0,
-                                                                                        padding: EdgeInsets.all(8.0),
-                                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                        height: 32,
+                                                                                        padding: EdgeInsets.all(8),
+                                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                                                                         color: Colors.white,
                                                                                         textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'WorkSans',
                                                                                               letterSpacing: 0.0,
                                                                                             ),
-                                                                                        elevation: 0.0,
-                                                                                        borderRadius: BorderRadius.circular(16.0),
+                                                                                        elevation: 0,
+                                                                                        borderRadius: BorderRadius.circular(16),
                                                                                       ),
                                                                                     ),
                                                                                   ),
                                                                                 ],
                                                                               ),
-                                                                            ].divide(SizedBox(height: 8.0)),
+                                                                            ].divide(SizedBox(height: 8)),
                                                                           ),
                                                                         ],
                                                                       ),
@@ -2305,20 +2303,20 @@ Further ... */
                                                                 boxShadow: [
                                                                   BoxShadow(
                                                                     blurRadius:
-                                                                        8.0,
+                                                                        8,
                                                                     color: Color(
                                                                         0x3CEDF1F7),
                                                                     offset:
                                                                         Offset(
-                                                                      0.0,
-                                                                      3.0,
+                                                                      0,
+                                                                      3,
                                                                     ),
                                                                   )
                                                                 ],
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            16.0),
+                                                                            16),
                                                                 border:
                                                                     Border.all(
                                                                   color: Color(
@@ -2326,12 +2324,13 @@ Further ... */
                                                                 ),
                                                               ),
                                                               child: Padding(
-                                                                padding: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        16.0,
-                                                                        16.0,
-                                                                        16.0,
-                                                                        16.0),
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            16,
+                                                                            16,
+                                                                            16,
+                                                                            16),
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -2372,8 +2371,8 @@ Further ... */
                                                                           children:
                                                                               [
                                                                             Container(
-                                                                              width: 40.0,
-                                                                              height: 40.0,
+                                                                              width: 40,
+                                                                              height: 40,
                                                                               decoration: BoxDecoration(
                                                                                 color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                 image: DecorationImage(
@@ -2382,7 +2381,7 @@ Further ... */
                                                                                     'assets/images/morning.gif',
                                                                                   ).image,
                                                                                 ),
-                                                                                borderRadius: BorderRadius.circular(20.0),
+                                                                                borderRadius: BorderRadius.circular(20),
                                                                               ),
                                                                             ),
                                                                             Column(
@@ -2410,7 +2409,7 @@ Further ... */
                                                                                 ),
                                                                               ],
                                                                             ),
-                                                                          ].divide(SizedBox(width: 12.0)),
+                                                                          ].divide(SizedBox(width: 12)),
                                                                         ),
                                                                         Text(
                                                                           FFLocalizations.of(context)
@@ -2441,16 +2440,16 @@ Further ... */
                                                                           children:
                                                                               [
                                                                             Container(
-                                                                              width: 40.0,
-                                                                              height: 40.0,
+                                                                              width: 40,
+                                                                              height: 40,
                                                                               decoration: BoxDecoration(
                                                                                 color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                borderRadius: BorderRadius.circular(20.0),
+                                                                                borderRadius: BorderRadius.circular(20),
                                                                               ),
                                                                               child: Icon(
                                                                                 Icons.edit,
                                                                                 color: FlutterFlowTheme.of(context).accent1,
-                                                                                size: 20.0,
+                                                                                size: 20,
                                                                               ),
                                                                             ),
                                                                             Column(
@@ -2478,7 +2477,7 @@ Further ... */
                                                                                 ),
                                                                               ],
                                                                             ),
-                                                                          ].divide(SizedBox(width: 12.0)),
+                                                                          ].divide(SizedBox(width: 12)),
                                                                         ),
                                                                         Text(
                                                                           FFLocalizations.of(context)
@@ -2497,7 +2496,7 @@ Further ... */
                                                                     ),
                                                                   ].divide(SizedBox(
                                                                       height:
-                                                                          16.0)),
+                                                                          16)),
                                                                 ),
                                                               ),
                                                             ).addWalkthrough(
@@ -2513,12 +2512,12 @@ Further ... */
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8.0),
+                                                                            8),
                                                                 child:
                                                                     Image.asset(
                                                                   'assets/images/Logo_ESCAPE_DarkBlue.png',
-                                                                  width: 200.0,
-                                                                  height: 100.0,
+                                                                  width: 200,
+                                                                  height: 100,
                                                                   fit: BoxFit
                                                                       .contain,
                                                                 ),
@@ -2526,10 +2525,9 @@ Further ... */
                                                             ),
                                                           ]
                                                               .divide(SizedBox(
-                                                                  height: 20.0))
+                                                                  height: 20))
                                                               .around(SizedBox(
-                                                                  height:
-                                                                      20.0)),
+                                                                  height: 20)),
                                                         ),
                                                       ),
                                                     ),
@@ -2564,12 +2562,9 @@ Further ... */
       TutorialCoachMark(
         targets: createWalkthroughTargets(context),
         onFinish: () async {
-          FFAppState().hasSeenOnboarding = true;
-          FFAppState().update(() {});
+          safeSetState(() => _model.introWalkthroughController = null);
         },
         onSkip: () {
-          FFAppState().hasSeenOnboarding = true;
-          FFAppState().update(() {});
           return true;
         },
       );
