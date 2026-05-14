@@ -1,13 +1,45 @@
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'voice_chat_with_lucille_comp_widget.dart'
-    show VoiceChatWithLucilleCompWidget;
+import '/flutter_flow/flutter_flow_web_view.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/permissions_util.dart';
+import 'package:confetti_modualo_library_b75kfy/app_state.dart'
+    as confetti_modualo_library_b75kfy_app_state;
+import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
+    as cupertino_time_picker_hiuzb7_app_state;
+import 'package:that_audio_player_oo85ab/app_state.dart'
+    as that_audio_player_oo85ab_app_state;
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
+import 'package:utility_functions_library_8g4bud/app_constants.dart'
+    as utility_functions_library_8g4bud_app_constant;
+import 'voice_chat_lucille_widget.dart' show VoiceChatLucilleWidget;
+import 'package:easy_debounce/easy_debounce.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
-class VoiceChatWithLucilleCompModel
-    extends FlutterFlowModel<VoiceChatWithLucilleCompWidget> {
+class VoiceChatLucilleModel extends FlutterFlowModel<VoiceChatLucilleWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
+
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
+  void dispose() {
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
+  }
 }
+
