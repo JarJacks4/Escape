@@ -91,7 +91,7 @@ class HomeVersion5Model extends FlutterFlowModel<HomeVersion5Widget> {
 
   @override
   void dispose() {
-    introWalkthroughController?.finish();
+    introWalkthroughController = null;
     columnController?.dispose();
     listViewController?.dispose();
     rowController?.dispose();

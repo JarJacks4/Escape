@@ -60,6 +60,7 @@ class _CreateAccountOnboardingFlowWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => CreateAccountOnboardingFlowModel());
+    debugPrint('>>> ONBOARDING initState called');
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CreateAccountOnboardingFlow'});
@@ -130,6 +131,7 @@ class _CreateAccountOnboardingFlowWidgetState
 
   @override
   void dispose() {
+    debugPrint('>>> ONBOARDING disposed');
     _model.dispose();
 
     super.dispose();
@@ -1185,6 +1187,8 @@ class _CreateAccountOnboardingFlowWidgetState
                                 FFAppState().isOnboardingFinished = true;
                                 FFAppState().hasSeenOnboarding = false;
                                 safeSetState(() {});
+                                FFAppState().isFinishedIntroWalkthrough = false;
+                                debugPrint('>>> ONBOARDING Finish button tapped');
                                 context.goNamed(
                                   OnboardingPageViewWidget.routeName,
                                   extra: <String, dynamic>{

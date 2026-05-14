@@ -1308,6 +1308,9 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                               ),
                                                             );
 
+                                                            FFAppState()
+                                                                    .isFinishedIntroWalkthrough =
+                                                                false;
                                                             context
                                                                 .pushNamedAuth(
                                                               HomeVersion5Widget
@@ -2785,13 +2788,9 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                               .updateNotifyOnAuthChange(
                                                                   false);
 
-                                                          Navigator.of(context)
-                                                              .push(
-                                                            MaterialPageRoute(
-                                                              builder: (context) =>
-                                                                  CreateAccountOnboardingFlowWidget(),
-                                                            ),
-                                                          );
+                                                          context.goNamed(
+                                                              CreateAccountOnboardingFlowWidget
+                                                                  .routeName);
 
                                                           safeSetState(() {});
                                                         },

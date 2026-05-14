@@ -51,6 +51,8 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 import 'home_version5_model.dart';
 export 'home_version5_model.dart';
 
+bool _globalWalkthroughShown = false;
+
 class HomeVersion5Widget extends StatefulWidget {
   const HomeVersion5Widget({super.key});
 
@@ -62,7 +64,9 @@ class HomeVersion5Widget extends StatefulWidget {
 }
 
 class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
-    with TickerProviderStateMixin {
+    with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   late HomeVersion5Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -78,9 +82,10 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         parameters: {'screen_name': 'HomeVersion5'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      debugPrint('>>> HOME initState callback started');
+      // FFAppState().isFinishedIntroWalkthrough = false;
       logFirebaseEvent('HOME_VERSION5_HomeVersion5_ON_INIT_STATE');
-      if (valueOrDefault<bool>(
-          currentUserDocument?.hasSeenWalkthrough, false)) {
+      if (false) {
         logFirebaseEvent('HomeVersion5_update_app_state');
         FFAppState().isFinishedIntroWalkthrough = true;
         safeSetState(() {});
@@ -167,16 +172,38 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         ),
       );
 
-      if (FFAppState().isFinishedIntroWalkthrough == false) {
+      debugPrint(
+          '>>> isFinishedIntroWalkthrough: ${FFAppState().isFinishedIntroWalkthrough}');
+      debugPrint(
+          '>>> isOnboardingFinished: ${FFAppState().isOnboardingFinished}');
+      debugPrint('>>> route name: ${ModalRoute.of(context)?.settings.name}');
+      if (!_globalWalkthroughShown &&
+          FFAppState().isFinishedIntroWalkthrough == false &&
+          FFAppState().isOnboardingFinished == true &&
+          ModalRoute.of(context)?.settings.name ==
+              HomeVersion5Widget.routeName) {
+        debugPrint(
+            '>>> WALKTHROUGH triggered by instance with route: ${ModalRoute.of(context)?.settings.name}');
+        _globalWalkthroughShown = true;
+        debugPrint('>>> WALKTHROUGH about to show');
         logFirebaseEvent('HomeVersion5_start_walkthrough');
         safeSetState(() =>
             _model.introWalkthroughController = createPageWalkthrough(context));
-        _model.introWalkthroughController?.show(context: context);
+        await Future.delayed(Duration(milliseconds: 800));
+        if (!mounted) return;
+        if (ModalRoute.of(context)?.settings.name ==
+            HomeVersion5Widget.routeName) {
+          _model.introWalkthroughController?.show(context: context);
+        }
         logFirebaseEvent('HomeVersion5_backend_call');
 
-        await currentUserReference!.update(createUsersRecordData(
-          hasSeenWalkthrough: true,
-        ));
+        try {
+          await currentUserReference!.update(createUsersRecordData(
+            hasSeenWalkthrough: true,
+          ));
+        } catch (e) {
+          debugPrint('hasSeenWalkthrough update failed: $e');
+        }
         logFirebaseEvent('HomeVersion5_update_app_state');
         FFAppState().isFinishedIntroWalkthrough = true;
         FFAppState().update(() {});
@@ -358,6 +385,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
 
   @override
   void dispose() {
+    debugPrint('>>> HOME disposed');
     _model.dispose();
 
     super.dispose();
@@ -365,6 +393,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     context.watch<FFAppState>();
     context.watch<cupertino_time_picker_hiuzb7_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
@@ -2562,9 +2591,13 @@ Further ... */
       TutorialCoachMark(
         targets: createWalkthroughTargets(context),
         onFinish: () async {
-          safeSetState(() => _model.introWalkthroughController = null);
+          debugPrint('>>> WALKTHROUGH onFinish called');
+          FFAppState().isFinishedIntroWalkthrough = true;
+          FFAppState().update(() {});
         },
         onSkip: () {
+          FFAppState().isFinishedIntroWalkthrough = true;
+          FFAppState().update(() {});
           return true;
         },
       );

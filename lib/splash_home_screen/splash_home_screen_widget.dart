@@ -54,16 +54,7 @@ class _SplashHomeScreenWidgetState extends State<SplashHomeScreenWidget> {
       );
       logFirebaseEvent('SplashHomeScreen_navigate_to');
 
-      context.pushNamed(
-        HomeVersion5Widget.routeName,
-        extra: <String, dynamic>{
-          '__transition_info__': TransitionInfo(
-            hasTransition: true,
-            transitionType: PageTransitionType.fade,
-            duration: Duration(milliseconds: 11),
-          ),
-        },
-      );
+      context.go('/homeVersion5');
     });
   }
 
