@@ -283,11 +283,12 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                       'frequency': 12.35
                                                     }, colors: {
                                                       'bgColor':
-                                                          Color(0xFF202329)
+                                                          Color(0x39EDF1F7)
                                                     }),
                                                     animationMode:
                                                         ShaderAnimationMode
                                                             .continuous,
+                                                    interactive: true,
                                                     tapConfig:
                                                         ShaderAnimationConfig(
                                                             curve: Curves
@@ -307,12 +308,12 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
-                                                              Color(0x32EDF1F7),
+                                                              Color(0x16EDF1F7),
                                                           boxShadow: [
                                                             BoxShadow(
                                                               blurRadius: 20.0,
                                                               color: Color(
-                                                                  0xCAD0E3F7),
+                                                                  0x85D0E3F7),
                                                               offset: Offset(
                                                                 0.0,
                                                                 2.0,
@@ -746,6 +747,16 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                         return;
                                                                       }
                                                                       logFirebaseEvent(
+                                                                          'Button_update_app_state');
+                                                                      FFAppState()
+                                                                          .isFinishedIntroWalkthrough = valueOrDefault<
+                                                                              bool>(
+                                                                          currentUserDocument
+                                                                              ?.hasSeenWalkthrough,
+                                                                          false);
+                                                                      safeSetState(
+                                                                          () {});
+                                                                      logFirebaseEvent(
                                                                           'Button_navigate_to');
 
                                                                       context
@@ -850,6 +861,10 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                                 null) {
                                                                               return;
                                                                             }
+                                                                            logFirebaseEvent('Button_update_app_state');
+                                                                            FFAppState().isFinishedIntroWalkthrough =
+                                                                                valueOrDefault<bool>(currentUserDocument?.hasSeenWalkthrough, false);
+                                                                            safeSetState(() {});
                                                                             if (FFAppState().chatSessionId == '') {
                                                                               logFirebaseEvent('Button_backend_call');
                                                                               _model.createIDForLogin = await TheoryOfMindSessionManagementGroup.createIDCall.call();
@@ -1146,6 +1161,16 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                               return;
                                                             }
 
+                                                            logFirebaseEvent(
+                                                                'Button_update_app_state');
+                                                            FFAppState()
+                                                                    .isFinishedIntroWalkthrough =
+                                                                valueOrDefault<
+                                                                        bool>(
+                                                                    currentUserDocument
+                                                                        ?.hasSeenWalkthrough,
+                                                                    false);
+                                                            safeSetState(() {});
                                                             logFirebaseEvent(
                                                                 'Button_show_snack_bar');
                                                             ScaffoldMessenger
@@ -2536,6 +2561,8 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                 .higherChakraMoodsValue,
                                                             ascendedMood: _model
                                                                 .crownChakraMoodsValue,
+                                                            hasSeenWalkthrough:
+                                                                false,
                                                           ));
                                                           logFirebaseEvent(
                                                               'Button_show_snack_bar');

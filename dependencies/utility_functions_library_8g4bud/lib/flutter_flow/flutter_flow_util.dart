@@ -13,7 +13,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../main.dart';
 
-
 import 'package:ff_commons/flutter_flow/lat_lng.dart';
 
 export 'package:ff_commons/flutter_flow/lat_lng.dart';
@@ -27,17 +26,15 @@ export 'dart:convert' show jsonEncode, jsonDecode;
 export 'package:intl/intl.dart';
 export 'package:page_transition/page_transition.dart';
 export 'nav/nav.dart';
+
 T valueOrDefault<T>(T? value, T defaultValue) =>
-   (value is String && value.isEmpty) || value == null ? defaultValue : value;
-
-
+    (value is String && value.isEmpty) || value == null ? defaultValue : value;
 
 String dateTimeFormat(String format, DateTime? dateTime, {String? locale}) {
   if (dateTime == null) {
     return '';
   }
   if (format == 'relative') {
-    
     return timeago.format(dateTime, locale: locale, allowFromNow: true);
   }
   return DateFormat(format, locale).format(dateTime);
@@ -52,14 +49,12 @@ Future launchURL(String url) async {
   }
 }
 
-
 Color colorFromCssString(String color, {Color? defaultColor}) {
   try {
     return fromCssColor(color);
   } catch (_) {}
   return defaultColor ?? Colors.black;
 }
-
 
 enum FormatType {
   decimal,
@@ -96,7 +91,7 @@ String formatNumber(
           formattedValue = NumberFormat.decimalPattern().format(value);
           break;
         case DecimalType.periodDecimal:
-           if (currency != null) {
+          if (currency != null) {
             formattedValue = NumberFormat('#,##0.00', 'en_US').format(value);
           } else {
             formattedValue = NumberFormat.decimalPattern('en_US').format(value);
@@ -145,6 +140,7 @@ String formatNumber(
 
   return formattedValue;
 }
+
 DateTime get getCurrentTimestamp => DateTime.now();
 DateTime dateTimeFromSecondsSinceEpoch(int seconds) {
   return DateTime.fromMillisecondsSinceEpoch(seconds * 1000);
@@ -172,7 +168,7 @@ T? castToType<T>(dynamic value) {
     case int:
       // Likewise, ints may be stored as doubles. If this is the case
       // (i.e. no decimal value), return the value as an int.
-      if (value is num &&  value.toInt() == value) {
+      if (value is num && value.toInt() == value) {
         return value.toInt() as T;
       }
       break;
@@ -242,16 +238,19 @@ bool responsiveVisibility({
 
 const kTextValidatorUsernameRegex = r'^[a-zA-Z][a-zA-Z0-9_-]{2,16}$';
 // https://stackoverflow.com/a/201378
-const kTextValidatorEmailRegex = "^(?:[a-zA-Z0-9!#\$%&\'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#\$%&\'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-zA-Z0-9-]*[a-zA-Z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\$";
-const kTextValidatorWebsiteRegex = r'(https?:\/\/)?(www\.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)|(https?:\/\/)?(www\.)?(?!ww)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)';
+const kTextValidatorEmailRegex =
+    "^(?:[a-zA-Z0-9!#\$%&\'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#\$%&\'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-zA-Z0-9-]*[a-zA-Z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\$";
+const kTextValidatorWebsiteRegex =
+    r'(https?:\/\/)?(www\.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)|(https?:\/\/)?(www\.)?(?!ww)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)';
 
 extension FFTextEditingControllerExt on TextEditingController? {
   String get text => this == null ? '' : this!.text;
   set text(String newText) => this?.text = newText;
 }
 
-extension IterableExt<T> on Iterable<T>{
-  List<T> sortedList<S extends Comparable>({S Function(T)? keyOf, bool desc = false}) {
+extension IterableExt<T> on Iterable<T> {
+  List<T> sortedList<S extends Comparable>(
+      {S Function(T)? keyOf, bool desc = false}) {
     final sortedAscending = toList()
       ..sort(keyOf == null ? null : ((a, b) => keyOf(a).compareTo(keyOf(b))));
     if (desc) {
@@ -269,7 +268,6 @@ extension IterableExt<T> on Iterable<T>{
 
 void setDarkModeSetting(BuildContext context, ThemeMode themeMode) =>
     MyApp.of(context).setThemeMode(themeMode);
-
 
 void showSnackbar(
   BuildContext context,
@@ -306,7 +304,7 @@ extension FFStringExt on String {
       maxChars != null && length > maxChars
           ? replaceRange(maxChars, null, replacement)
           : this;
-  
+
   String toCapitalization(TextCapitalization textCapitalization) {
     switch (textCapitalization) {
       case TextCapitalization.none:
@@ -324,6 +322,7 @@ extension FFStringExt on String {
 extension ListFilterExt<T> on Iterable<T?> {
   List<T> get withoutNulls => where((s) => s != null).map((e) => e!).toList();
 }
+
 extension MapFilterExtensions<T> on Map<String, T?> {
   Map<String, T> get withoutNulls => Map.fromEntries(
         entries
@@ -333,7 +332,9 @@ extension MapFilterExtensions<T> on Map<String, T?> {
 }
 
 extension MapListContainsExt on List<dynamic> {
-  bool containsMap(dynamic map) => map is Map ? any((e) => e is Map && const DeepCollectionEquality().equals(e, map)) : contains(map);
+  bool containsMap(dynamic map) => map is Map
+      ? any((e) => e is Map && const DeepCollectionEquality().equals(e, map))
+      : contains(map);
 }
 
 extension ListDivideExt<T extends Widget> on Iterable<T> {
@@ -352,11 +353,12 @@ extension ListDivideExt<T extends Widget> on Iterable<T> {
   List<Widget> addToStart(Widget t) =>
       enumerate.map((e) => e.value).toList()..insert(0, t);
 
-  List<Widget> addToEnd(Widget t) => enumerate.map((e) => e.value).toList()..add(t);
+  List<Widget> addToEnd(Widget t) =>
+      enumerate.map((e) => e.value).toList()..add(t);
 
   List<Padding> paddingTopEach(double val) =>
-    map((w) => Padding(padding: EdgeInsets.only(top: val), child: w))
-        .toList();
+      map((w) => Padding(padding: EdgeInsets.only(top: val), child: w))
+          .toList();
 }
 
 extension StatefulWidgetExtensions on State<StatefulWidget> {
@@ -368,7 +370,6 @@ extension StatefulWidgetExtensions on State<StatefulWidget> {
     }
   }
 }
-
 
 // For iOS 16 and below, set the status bar color to match the app's theme.
 // https://github.com/flutter/flutter/issues/41067
@@ -394,12 +395,11 @@ extension ColorOpacityExt on Color {
 }
 
 String roundTo(double value, int decimalPoints) {
-    final power = pow(10, decimalPoints);
-    return ((value * power).round() / power).toString();
-  }
+  final power = pow(10, decimalPoints);
+  return ((value * power).round() / power).toString();
+}
 
-double computeGradientAlignmentX(
-    double evaluatedAngle) {
+double computeGradientAlignmentX(double evaluatedAngle) {
   evaluatedAngle %= 360;
   final rads = evaluatedAngle * pi / 180;
   double x;
@@ -415,8 +415,7 @@ double computeGradientAlignmentX(
   return double.parse(roundTo(x, 2));
 }
 
-double computeGradientAlignmentY(
-    double evaluatedAngle) {
+double computeGradientAlignmentY(double evaluatedAngle) {
   evaluatedAngle %= 360;
   final rads = evaluatedAngle * pi / 180;
   double y;
@@ -442,7 +441,7 @@ extension ListUniqueExt<T> on Iterable<T> {
       }
     }
     return distinctList;
-    }
+  }
 }
 
 String getCurrentRoute(BuildContext context) =>

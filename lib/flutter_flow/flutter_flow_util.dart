@@ -11,7 +11,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 import 'package:json_path/json_path.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:path_provider/path_provider.dart';
@@ -603,24 +602,6 @@ extension StatefulWidgetExtensions on State<StatefulWidget> {
       // ignore: invalid_use_of_protected_member
       setState(fn);
     }
-  }
-}
-
-extension WalkthroughWrapperExtension on Widget {
-  Widget addWalkthrough(
-    GlobalKey walkthroughKey,
-    TutorialCoachMark? controller, {
-    int? listIndex,
-  }) {
-    if (listIndex != null && listIndex != 0) {
-      return this;
-    }
-    return controller != null
-        ? KeyedSubtree(
-            key: walkthroughKey,
-            child: this,
-          )
-        : this;
   }
 }
 

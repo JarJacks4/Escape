@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/empty_chats_widget.dart';
 import '/components/response_assessment_comp_widget.dart';
@@ -305,9 +304,10 @@ class _ChatWithLucilleVersion5WidgetState
                                                                 child: Builder(
                                                                   builder:
                                                                       (context) {
-                                                                    final chat = _model
-                                                                        .chatMessages
-                                                                        .toList();
+                                                                    final chat =
+                                                                        FFAppState()
+                                                                            .messagesTheoryOfMind
+                                                                            .toList();
                                                                     if (chat
                                                                         .isEmpty) {
                                                                       return Center(
@@ -419,7 +419,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                           text: TextSpan(
                                                                                                             children: [
                                                                                                               TextSpan(
-                                                                                                                text: FFAppState().messagesTheoryOfMind.contains(FFAppState().messagesTheoryOfMind.where((e) => Role.User != null).toList().firstOrNull).toString(),
+                                                                                                                text: _model.textController.text,
                                                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                       fontFamily: 'WorkSans',
                                                                                                                       letterSpacing: 0.0,
@@ -591,7 +591,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                         child: custom_widgets.GptMarkdownWidget(
                                                                                                           width: double.infinity,
                                                                                                           height: MediaQuery.sizeOf(context).height * 0.15,
-                                                                                                          data: _model.streamMessages.elementAtOrNull(chatIndex)!.content,
+                                                                                                          data: chatItem.content,
                                                                                                         ),
                                                                                                       ),
                                                                                                     ),
@@ -852,6 +852,16 @@ class _ChatWithLucilleVersion5WidgetState
                                                       borderRadius: 30.0,
                                                       borderWidth: 1.0,
                                                       buttonSize: 60.0,
+                                                      hoverColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .accent1,
+                                                      hoverIconColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                      hoverBorderColor:
+                                                          Color(0x47EDF1F7),
                                                       icon: Icon(
                                                         Icons.send_rounded,
                                                         color:
@@ -865,16 +875,6 @@ class _ChatWithLucilleVersion5WidgetState
                                                       onPressed: () async {
                                                         logFirebaseEvent(
                                                             'CHAT_WITH_LUCILLE_VERSION5_send_rounded_');
-                                                        logFirebaseEvent(
-                                                            'IconButton_backend_call');
-                                                        _model.getChatHistory =
-                                                            await TheoryOfMindSessionManagementGroup
-                                                                .getChatHistoryCall
-                                                                .call(
-                                                          sessionID: FFAppState()
-                                                              .chatSessionId,
-                                                        );
-
                                                         logFirebaseEvent(
                                                             'IconButton_update_app_state');
                                                         FFAppState()
@@ -900,6 +900,13 @@ class _ChatWithLucilleVersion5WidgetState
                                                           detectedIntent:
                                                               'Chat',
                                                         ));
+                                                        safeSetState(() {});
+                                                        logFirebaseEvent(
+                                                            'IconButton_update_page_state');
+                                                        _model.aiIsResponsing =
+                                                            true;
+                                                        _model.newMessage =
+                                                            true;
                                                         safeSetState(() {});
                                                         logFirebaseEvent(
                                                             'IconButton_backend_call');
@@ -946,10 +953,9 @@ class _ChatWithLucilleVersion5WidgetState
                                                                           m))
                                                               .listen(
                                                             (onMessageInput) async {
-                                                              var _shouldSetState =
-                                                                  false;
                                                               if (_model
-                                                                  .newMessage!) {
+                                                                      .newMessage ==
+                                                                  true) {
                                                                 logFirebaseEvent(
                                                                     '_update_page_state');
                                                                 _model.newMessage =
@@ -1073,28 +1079,20 @@ class _ChatWithLucilleVersion5WidgetState
                                                                     () {});
                                                               }
 
-                                                              if (_model
-                                                                  .newMessage!) {
-                                                                logFirebaseEvent(
-                                                                    '_backend_call');
-                                                                _model.chatMemory =
-                                                                    await LucilleMemoriesGroup
-                                                                        .createMemoryCall
-                                                                        .call(
-                                                                  content: (_model
-                                                                          .streamMessages
-                                                                          .isNotEmpty)
-                                                                      .toString(),
-                                                                  memoryType:
-                                                                      'Semantic',
-                                                                  importance: 5,
-                                                                );
-
-                                                                _shouldSetState =
-                                                                    true;
-                                                              } else {
-                                                                return;
-                                                              }
+                                                              logFirebaseEvent(
+                                                                  '_backend_call');
+                                                              _model.chatMemory =
+                                                                  await LucilleMemoriesGroup
+                                                                      .createMemoryCall
+                                                                      .call(
+                                                                content: (_model
+                                                                        .streamMessages
+                                                                        .isNotEmpty)
+                                                                    .toString(),
+                                                                memoryType:
+                                                                    'Semantic',
+                                                                importance: 5,
+                                                              );
                                                             },
                                                             onError:
                                                                 (onErrorInput) async {
@@ -1191,63 +1189,13 @@ class _ChatWithLucilleVersion5WidgetState
                                                         }
 
                                                         logFirebaseEvent(
-                                                            'IconButton_clear_text_fields_pin_codes');
-                                                        safeSetState(() {
-                                                          _model.textController
-                                                              ?.clear();
-                                                        });
-                                                        logFirebaseEvent(
-                                                            'IconButton_trigger_app_event');
-                                                        FFAppEventService
-                                                            .instance
-                                                            .triggerAppEvent(
-                                                          ChatSentEvent(
-                                                            data:
-                                                                AiResponseStruct(
-                                                              message:
-                                                                  TheoryOfMindLucilleGroup
-                                                                      .chatStreamCall
-                                                                      .content(
-                                                                (_model.lucilleStreamChat
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              ),
-                                                              type: 'Episodic',
-                                                            ),
-                                                            timestamp:
-                                                                DateTime.now(),
-                                                            waitForCompletion:
-                                                                true,
-                                                            debugId: '3',
-                                                          ),
-                                                        );
-
-                                                        logFirebaseEvent(
-                                                            'IconButton_trigger_app_event');
-                                                        FFAppEventService
-                                                            .instance
-                                                            .triggerAppEvent(
-                                                          AiRecommendationReadyEvent(
-                                                            timestamp:
-                                                                DateTime.now(),
-                                                            waitForCompletion:
-                                                                true,
-                                                            debugId: '8',
-                                                          ),
-                                                        );
-
-                                                        logFirebaseEvent(
-                                                            'IconButton_trigger_app_event');
-                                                        FFAppEventService
-                                                            .instance
-                                                            .triggerAppEvent(
-                                                          AiThinkingEvent(
-                                                            timestamp:
-                                                                DateTime.now(),
-                                                            waitForCompletion:
-                                                                false,
-                                                            debugId: '8',
-                                                          ),
+                                                            'IconButton_backend_call');
+                                                        _model.getChatHistory =
+                                                            await TheoryOfMindSessionManagementGroup
+                                                                .getChatHistoryCall
+                                                                .call(
+                                                          sessionID: FFAppState()
+                                                              .chatSessionId,
                                                         );
 
                                                         if ((_model
@@ -1262,10 +1210,6 @@ class _ChatWithLucilleVersion5WidgetState
                                                                           (_model.lucilleStreamChat?.jsonBody ??
                                                                               ''))
                                                                   ?.response;
-                                                          _model.aiMessageIndex =
-                                                              _model
-                                                                  .streamMessages
-                                                                  .length;
                                                           _model.insertAtIndexInStreamMessages(
                                                               (_model.getChatHistory
                                                                       ?.jsonBody ??
@@ -1280,7 +1224,76 @@ class _ChatWithLucilleVersion5WidgetState
                                                                       .toList() as Iterable<TheoryOfMindLucilleStreamChatStruct?>)
                                                                   .withoutNulls
                                                                   .firstOrNull!);
+                                                          _model.aiMessageIndex =
+                                                              TheoryOfMindLucilleGroup
+                                                                  .lucilleChatMainCall
+                                                                  .conversation(
+                                                                    (_model.conversationHistory
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )
+                                                                  ?.length;
+                                                          _model.aiIsResponsing =
+                                                              false;
+                                                          _model.newMessage =
+                                                              false;
                                                           safeSetState(() {});
+                                                          logFirebaseEvent(
+                                                              'IconButton_trigger_app_event');
+                                                          FFAppEventService
+                                                              .instance
+                                                              .triggerAppEvent(
+                                                            ChatSentEvent(
+                                                              data:
+                                                                  AiResponseStruct(
+                                                                message: TheoryOfMindLucilleGroup
+                                                                    .chatStreamCall
+                                                                    .content(
+                                                                  (_model.lucilleStreamChat
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                ),
+                                                                type:
+                                                                    'Episodic',
+                                                              ),
+                                                              timestamp:
+                                                                  DateTime
+                                                                      .now(),
+                                                              waitForCompletion:
+                                                                  true,
+                                                              debugId: '3',
+                                                            ),
+                                                          );
+
+                                                          logFirebaseEvent(
+                                                              'IconButton_trigger_app_event');
+                                                          FFAppEventService
+                                                              .instance
+                                                              .triggerAppEvent(
+                                                            AiRecommendationReadyEvent(
+                                                              timestamp:
+                                                                  DateTime
+                                                                      .now(),
+                                                              waitForCompletion:
+                                                                  true,
+                                                              debugId: '8',
+                                                            ),
+                                                          );
+
+                                                          logFirebaseEvent(
+                                                              'IconButton_trigger_app_event');
+                                                          FFAppEventService
+                                                              .instance
+                                                              .triggerAppEvent(
+                                                            AiThinkingEvent(
+                                                              timestamp:
+                                                                  DateTime
+                                                                      .now(),
+                                                              waitForCompletion:
+                                                                  false,
+                                                              debugId: '8',
+                                                            ),
+                                                          );
                                                         } else {
                                                           logFirebaseEvent(
                                                               'IconButton_show_snack_bar');
@@ -1309,6 +1322,12 @@ class _ChatWithLucilleVersion5WidgetState
                                                         }
 
                                                         logFirebaseEvent(
+                                                            'IconButton_clear_text_fields_pin_codes');
+                                                        safeSetState(() {
+                                                          _model.textController
+                                                              ?.clear();
+                                                        });
+                                                        logFirebaseEvent(
                                                             'IconButton_scroll_to');
                                                         await _model
                                                             .listViewController
@@ -1326,7 +1345,11 @@ class _ChatWithLucilleVersion5WidgetState
                                                                 .streamMessages
                                                                 .take(5)
                                                                 .toList()
-                                                                .isNotEmpty
+                                                                .contains(_model
+                                                                    .streamMessages
+                                                                    .take(5)
+                                                                    .toList()
+                                                                    .firstOrNull)
                                                             ? true
                                                             : false) {
                                                           logFirebaseEvent(

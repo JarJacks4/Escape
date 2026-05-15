@@ -103,26 +103,6 @@ class _ConnectionCommunityStartPageVersion5WidgetState
 
         safeSetState(() {});
       });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      _model.reorderVideos = await tiktokfeed_wz8en7_actions.reorderTiktokPages(
-        tiktokfeed_wz8en7_app_state.FFAppState().ListTikTokPages.toList(),
-        0,
-        FFAppState().ReorderedVideosIndex,
-      );
-      _model.reorderBreathingVideos =
-          await tiktokfeed_wz8en7_actions.reorderTiktokPages(
-        tiktokfeed_wz8en7_app_state.FFAppState().meditationTikToks.toList(),
-        0,
-        0,
-      );
-      _model.reorderBody = await tiktokfeed_wz8en7_actions.reorderTiktokPages(
-        tiktokfeed_wz8en7_app_state.FFAppState().BodyTikToks.toList(),
-        0,
-        0,
-      );
-      safeSetState(() {});
-    });
   }
 
   @override

@@ -3,15 +3,12 @@ import '/components/side_nav_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'home_version5_widget.dart' show HomeVersion5Widget;
-import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
-    show TutorialCoachMark;
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
 class HomeVersion5Model extends FlutterFlowModel<HomeVersion5Widget> {
   ///  State fields for stateful widgets in this page.
 
-  TutorialCoachMark? introWalkthroughController;
   AudioPlayer? soundPlayer1;
   // Stores action output result for [Backend Call - API (User Complete Profile)] action in HomeVersion5 widget.
   ApiCallResponse? usersCompleteProfile4;
@@ -19,6 +16,8 @@ class HomeVersion5Model extends FlutterFlowModel<HomeVersion5Widget> {
   ApiCallResponse? createSession;
   // Stores action output result for [Backend Call - API (Update User Profile)] action in HomeVersion5 widget.
   ApiCallResponse? usersCompleteProfile;
+  // Model for SideNav component.
+  late SideNavModel sideNavModel;
   // State field(s) for Column widget.
   ScrollController? columnController;
   AudioPlayer? soundPlayer2;
@@ -37,23 +36,20 @@ class HomeVersion5Model extends FlutterFlowModel<HomeVersion5Widget> {
   AudioPlayer? soundPlayer11;
   AudioPlayer? soundPlayer12;
   AudioPlayer? soundPlayer13;
-  // Model for SideNav component.
-  late SideNavModel sideNavModel;
 
   @override
   void initState(BuildContext context) {
+    sideNavModel = createModel(context, () => SideNavModel());
     columnController = ScrollController();
     listViewController = ScrollController();
     rowController = ScrollController();
-    sideNavModel = createModel(context, () => SideNavModel());
   }
 
   @override
   void dispose() {
-    introWalkthroughController?.finish();
+    sideNavModel.dispose();
     columnController?.dispose();
     listViewController?.dispose();
     rowController?.dispose();
-    sideNavModel.dispose();
   }
 }

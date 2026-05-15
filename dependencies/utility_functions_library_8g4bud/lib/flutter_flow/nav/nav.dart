@@ -7,11 +7,6 @@ import 'package:provider/provider.dart';
 
 import '/backend/schema/structs/index.dart';
 
-
-
-
-
-
 import '/main.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:ff_commons/flutter_flow/lat_lng.dart';
@@ -19,26 +14,21 @@ import 'package:ff_commons/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'serialization_util.dart';
 
-
-
 import '/index.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
 
-
-const kTransitionInfoKey = '__transition_info__utility_functions_library_8g4bud';
+const kTransitionInfoKey =
+    '__transition_info__utility_functions_library_8g4bud';
 
 GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
 
-
-
 class AppStateNotifier extends ChangeNotifier {
-    AppStateNotifier._();
+  AppStateNotifier._();
 
   static AppStateNotifier? _instance;
   static AppStateNotifier get instance => _instance ??= AppStateNotifier._();
-
 
   bool showSplashImage = true;
 
@@ -48,50 +38,33 @@ class AppStateNotifier extends ChangeNotifier {
   }
 }
 
-
 GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) =>        
-          TestPageWidget(),
-
-
+      errorBuilder: (context, state) => TestPageWidget(),
       routes: [
         FFRoute(
-            name: '_initialize',
-  path: '/',
-  builder: (context, _) =>        
-          TestPageWidget(),
-
-
-
-          
+          name: '_initialize',
+          path: '/',
+          builder: (context, _) => TestPageWidget(),
         ),
         FFRoute(
-  name: TestPageWidget.routeName,
-  path: TestPageWidget.routePath,
-  
-  
-  builder: (context, params) =>  TestPageWidget(
-      
-       ),
-  )
+          name: TestPageWidget.routeName,
+          path: TestPageWidget.routePath,
+          builder: (context, params) => TestPageWidget(),
+        )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
-      
     );
-
 
 void initializeRoutes({
   String? testPageWidgetName,
-String? testPageWidgetPath,
-
+  String? testPageWidgetPath,
 }) {
   TestPageWidget.maybeSetRouteName(testPageWidgetName);
-TestPageWidget.maybeSetRoutePath(testPageWidgetPath);
+  TestPageWidget.maybeSetRoutePath(testPageWidgetPath);
 }
-
 
 extension NavParamExtensions on Map<String, String?> {
   Map<String, String> get withoutNulls => Map.fromEntries(
@@ -101,9 +74,8 @@ extension NavParamExtensions on Map<String, String?> {
       );
 }
 
-
 extension NavigationExtensions on BuildContext {
-    void safePop() {
+  void safePop() {
     // If there is only one route on the stack, navigate to the initial
     // page instead of popping.
     if (canPop()) {
@@ -112,9 +84,7 @@ extension NavigationExtensions on BuildContext {
       go('/');
     }
   }
-
 }
-
 
 extension _GoRouterStateExtensions on GoRouterState {
   Map<String, dynamic> get extraMap =>
@@ -123,7 +93,9 @@ extension _GoRouterStateExtensions on GoRouterState {
     ..addAll(pathParameters)
     ..addAll(uri.queryParameters)
     ..addAll(extraMap);
-  TransitionInfo get transitionInfo => extraMap.containsKey(kTransitionInfoKey) ? extraMap[kTransitionInfoKey] as TransitionInfo : TransitionInfo.appDefault();
+  TransitionInfo get transitionInfo => extraMap.containsKey(kTransitionInfoKey)
+      ? extraMap[kTransitionInfoKey] as TransitionInfo
+      : TransitionInfo.appDefault();
 }
 
 class FFParameters {
@@ -161,7 +133,6 @@ class FFParameters {
     String paramName,
     ParamType type, {
     bool isList = false,
-    
     StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
@@ -180,7 +151,6 @@ class FFParameters {
       param,
       type,
       isList,
-      
       structBuilder: structBuilder,
     );
   }
@@ -206,7 +176,6 @@ class FFRoute {
   GoRoute toRoute(AppStateNotifier appStateNotifier) => GoRoute(
         name: name,
         path: path,
-        
         pageBuilder: (context, state) {
           fixStatusBarOniOS16AndBelow(context);
           final ffParams = FFParameters(state, asyncParams);
@@ -225,9 +194,9 @@ class FFRoute {
                   name: state.name,
                   child: child,
                   transitionDuration: transitionInfo.duration,
-                  transitionsBuilder: 
+                  transitionsBuilder:
                       (context, animation, secondaryAnimation, child) =>
-                  PageTransition(
+                          PageTransition(
                     type: transitionInfo.transitionType,
                     duration: transitionInfo.duration,
                     reverseDuration: transitionInfo.duration,
@@ -240,7 +209,8 @@ class FFRoute {
                     child,
                   ),
                 )
-              : MaterialPage(key: state.pageKey, name: state.name, child: child);
+              : MaterialPage(
+                  key: state.pageKey, name: state.name, child: child);
         },
         routes: routes,
       );
@@ -261,8 +231,6 @@ class TransitionInfo {
 
   static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
-
-
 
 class RootPageContext {
   const RootPageContext(this.isRootPage, [this.errorRoute]);

@@ -2063,6 +2063,12 @@ class FFAppState extends ChangeNotifier {
     _lucilleUserID = value;
   }
 
+  String _lucilleMessage = '';
+  String get lucilleMessage => _lucilleMessage;
+  set lucilleMessage(String value) {
+    _lucilleMessage = value;
+  }
+
   final _lucilleSuggestedExercisesManager =
       FutureRequestManager<ApiCallResponse>();
   Future<ApiCallResponse> lucilleSuggestedExercises({
