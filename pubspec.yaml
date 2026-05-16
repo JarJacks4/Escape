@@ -216,9 +216,10 @@ dependencies:
   sqflite_common: 2.5.4+3
   stop_watch_timer: 3.0.2
   stream_transform: 2.1.0
-  swipe_button_e4yciw:
-    path: ./dependencies/swipe_button_e4yciw # 0.0.1
   synchronized: 3.4.0
+  that_slideable_list_item_mrpo3s:
+    path: ./dependencies/that_slideable_list_item_mrpo3s # current
+
   that_audio_player_oo85ab:
     path: ./dependencies/that_audio_player_oo85ab # current
   tiktokfeed_wz8en7:
