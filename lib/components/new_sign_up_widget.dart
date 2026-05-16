@@ -43,8 +43,8 @@ import 'package:just_audio/just_audio.dart';
 import 'package:material_palette/material_palette.dart';
 import 'package:provider/provider.dart';
 
-import 'new_sign_in_version5_model.dart';
-export 'new_sign_in_version5_model.dart';
+import '/new_sign_in_version5/new_sign_in_version5_model.dart';
+export '/new_sign_in_version5/new_sign_in_version5_model.dart';
 
 class NewSignInVersion5Widget extends StatefulWidget {
   const NewSignInVersion5Widget({

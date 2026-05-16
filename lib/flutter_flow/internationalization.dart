@@ -4910,7 +4910,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'a7wtorqo': {
-      'en': 'Begin My Journey',
+      'en': 'Continue My Journey',
       'ar': '',
       'de': '',
       'es': '',
@@ -5218,7 +5218,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'acnpc4a1': {
-      'en': 'Start My Journey!',
+      'en': 'Begin My Journey!',
       'ar': '',
       'de': '',
       'es': '',
@@ -7213,7 +7213,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // HomeVersion5
   {
-    'vqq0k5jr': {
+    '27og520d': {
       'en': 'Goodmorning',
       'ar': '',
       'de': '',
@@ -7227,7 +7227,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'rjeksks8': {
+    'p6hb86r8': {
       'en': 'CONTINUE YOUR JOURNEY',
       'ar': '',
       'de': '',
@@ -7241,7 +7241,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'npijvxvu': {
+    'dgxsq5zc': {
       'en': 'Learning Self-Care Basics',
       'ar': '',
       'de': '',
@@ -7255,7 +7255,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'v8ch5p2z': {
+    'hcryf8vj': {
       'en': 'No Time Limit',
       'ar': '',
       'de': '',
@@ -7269,7 +7269,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '4cdgnog0': {
+    '7k0f5unj': {
       'en': 'Continue',
       'ar': '',
       'de': '',
@@ -7283,7 +7283,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'fasprqx4': {
+    'ojsjxkwn': {
       'en': '50%',
       'ar': '',
       'de': '',
@@ -7297,7 +7297,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '8w64lojl': {
+    'hkgkwduq': {
       'en': 'START YOUR DAY',
       'ar': '',
       'de': '',
@@ -7311,7 +7311,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '5qkkfkxt': {
+    'n2rcgxnj': {
       'en': 'SCAN YOUR MOOD',
       'ar': '',
       'de': '',
@@ -7325,7 +7325,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'xq4vzcxl': {
+    'ehlqwtzh': {
       'en': 'Mood Scan Needed For \nFurther Analysis',
       'ar': '',
       'de': '',
@@ -7339,7 +7339,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'ur840jdh': {
+    '588cgmfz': {
       'en': 'Begin',
       'ar': '',
       'de': '',
@@ -7353,7 +7353,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'y0lns6ms': {
+    'nhgsp43h': {
       'en': 'Mind',
       'ar': '',
       'de': '',
@@ -7367,7 +7367,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'gx17oj58': {
+    'qn4z89eg': {
       'en': 'Journal',
       'ar': '',
       'de': '',
@@ -7381,7 +7381,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '7bt0wd1x': {
+    '6c25oqq8': {
       'en': 'Sounds',
       'ar': '',
       'de': '',
@@ -7395,7 +7395,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'ziauem40': {
+    'wsg5k7lw': {
       'en': 'Body',
       'ar': '',
       'de': '',
@@ -7409,7 +7409,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'y3du6f80': {
+    'p9axl0bz': {
       'en': 'Reset',
       'ar': '',
       'de': '',
@@ -7423,7 +7423,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'l0r0is0x': {
+    'hfpfxcj5': {
       'en':
           'Lucille suggests starting with a calming Mind session to prepare you for exploration.',
       'ar': '',
@@ -7438,7 +7438,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'xzdc284i': {
+    'jlkefbdk': {
       'en': 'Start Suggested Session',
       'ar': '',
       'de': '',
@@ -7452,7 +7452,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'l5emvdl2': {
+    'tv8a2pgb': {
       'en': 'Basic Breathing',
       'ar': '',
       'de': '',
@@ -7466,7 +7466,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '4wxhx1g4': {
+    '1181bxrb': {
       'en': 'Begin your day with clarity and peace',
       'ar': '',
       'de': '',
@@ -7480,7 +7480,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '38ig3w2o': {
+    'xf2x6iu6': {
       'en': 'Free-Form • 15 min',
       'ar': '',
       'de': '',
@@ -7494,7 +7494,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'e5vi0aj4': {
+    'nl7h1gzt': {
       'en': 'Start',
       'ar': '',
       'de': '',
@@ -7508,7 +7508,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '4fkxo7oo': {
+    'r30bpcx9': {
       'en': 'Recent Activity',
       'ar': '',
       'de': '',
@@ -7522,7 +7522,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'n7wn139l': {
+    'ogzy1has': {
       'en': 'Morning Meditation',
       'ar': '',
       'de': '',
@@ -7536,7 +7536,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'ypr02yjf': {
+    'zdpjwg73': {
       'en': '15 min',
       'ar': '',
       'de': '',
@@ -7550,7 +7550,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'ygf8rc4w': {
+    'sd4rzvuk': {
       'en': 'View Insight',
       'ar': '',
       'de': '',
@@ -7564,7 +7564,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'bq6o7te9': {
+    '52zm5l5n': {
       'en': 'Daily Journal',
       'ar': '',
       'de': '',
@@ -7578,7 +7578,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'b8mautco': {
+    'idd0zyvr': {
       'en': 'Yesterday',
       'ar': '',
       'de': '',
@@ -7592,7 +7592,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'zm1udeyd': {
+    '5loufzlk': {
       'en': 'View Insight',
       'ar': '',
       'de': '',
@@ -17182,6 +17182,54 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'vpri7wqm': {
       'en': 'Lucille',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // VoiceChatLucille
+  {
+    '9jutrng2': {
+      'en': 'Type something...',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'qk4t3p3g': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // BodyWarriorPoseTouchDesigner
+  {
+    'azczsugs': {
+      'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
       'es': 'Hogar',
@@ -28571,6 +28619,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
+    '03x52djm': {
+      'en': 'Let Lucille Choose For Me',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
     'hljt2ury': {
       'en': 'Collections',
       'ar': '',
@@ -28741,20 +28803,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'q3okb1yo': {
       'en': '4 sessions',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'z4ql6puf': {
-      'en': 'Let Lucille Choose For Me',
       'ar': '',
       'de': '',
       'es': '',
@@ -65583,7 +65631,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'xcodmtx5': {
-      'en': 'Voice Ritual Spark',
+      'en': 'Voice Ritual \nSpark',
       'ar': '',
       'de': '',
       'es': '',

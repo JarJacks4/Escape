@@ -15,8 +15,7 @@ import "package:utility_functions_library_8g4bud/backend/schema/structs/index.da
     as utility_functions_library_8g4bud_data_schema;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
-import 'new_sign_in_version5_widget.dart' show NewSignInVersion5Widget;
-import 'package:confetti_modualo_library_b75kfy/app_state.dart'
+import '/new_sign_in_version5/new_sign_in_version5_widget.dart' show NewSignInVersion5Widget;import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
 import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
     as cupertino_time_picker_hiuzb7_app_state;

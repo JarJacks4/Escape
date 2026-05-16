@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.5+18
+version: 1.0.5+27
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -74,9 +74,9 @@ dependencies:
   fetch_api: 2.2.0
   fetch_client: 1.1.2
   ff_commons:
-    path: ./dependencies/ff_commons # 1.0.5+18
+    path: ./dependencies/ff_commons # 1.0.5+27
   ff_theme:
-    path: ./dependencies/ff_theme # 1.0.5+18
+    path: ./dependencies/ff_theme # 1.0.5+27
   file_picker: 10.1.9
   firebase_analytics: 11.5.0
   firebase_analytics_platform_interface: 4.4.0
@@ -205,6 +205,7 @@ dependencies:
   shared_preferences_platform_interface: 2.4.1
   shared_preferences_web: 2.4.3
   shared_preferences_windows: 2.4.1
+  showcaseview: ^5.0.2
   sign_in_with_apple: 7.0.1
   sign_in_with_apple_platform_interface: 2.0.0
   sign_in_with_apple_web: 3.0.0
@@ -215,15 +216,14 @@ dependencies:
   sqflite_common: 2.5.4+3
   stop_watch_timer: 3.0.2
   stream_transform: 2.1.0
+  swipe_button_e4yciw:
+    path: ./dependencies/swipe_button_e4yciw # 0.0.1
   synchronized: 3.4.0
   that_audio_player_oo85ab:
     path: ./dependencies/that_audio_player_oo85ab # current
-  that_slideable_list_item_mrpo3s:
-    path: ./dependencies/that_slideable_list_item_mrpo3s # current
   tiktokfeed_wz8en7:
     path: ./dependencies/tiktokfeed_wz8en7 # current
   timeago: 3.7.1
-  tutorial_coach_mark: 1.2.11
   universal_io: 2.2.2
   url_launcher: 6.3.1
   url_launcher_android: 6.3.16
