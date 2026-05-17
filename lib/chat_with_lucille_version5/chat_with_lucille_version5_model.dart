@@ -26,6 +26,10 @@ class ChatWithLucilleVersion5Model
   void updateChatMessagesAtIndex(int index, Function(String) updateFn) =>
       chatMessages[index] = updateFn(chatMessages[index]);
 
+  List<String> userMessages = [];
+  void addToUserMessages(String item) => userMessages.add(item);
+  void removeAtIndexFromUserMessages(int index) => userMessages.removeAt(index);
+
   bool? newMessage = false;
 
   String? sessionID;

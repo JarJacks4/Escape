@@ -303,6 +303,27 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                       ).animateOnPageLoad(animationsMap[
                                           'containerOnPageLoadAnimation2']!),
                                     ),
+                                    if (_model.isScanLoading == true)
+                                      Align(
+                                        alignment: AlignmentDirectional(0.0, 0.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            CircularProgressIndicator(
+                                              color: FlutterFlowTheme.of(context).primary,
+                                            ),
+                                            SizedBox(height: 16.0),
+                                            Text(
+                                              'Lucille is reading your energy...',
+                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                fontFamily: 'WorkSans',
+                                                color: FlutterFlowTheme.of(context).primary,
+                                                letterSpacing: 0.0,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                     if (_model.isScanLoading == false)
                                       Align(
                                         alignment:
@@ -569,6 +590,9 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                           showUploadMessage(
                                                               context,
                                                               'Failed to upload data');
+                                                          _model.isScanLoading =
+                                                              false;
+                                                          safeSetState(() {});
                                                           return;
                                                         }
                                                       }
@@ -613,42 +637,45 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                           .hideCurrentSnackBar();
                                                       logFirebaseEvent(
                                                           'Button_backend_call');
+                                                      final results =
+                                                          await Future.wait([
+                                                        TheoryOfMindLucilleGroup
+                                                            .lucilleChatMainCall
+                                                            .call(
+                                                          message:
+                                                              'What is the my mood today, in one word, according to the photoI am uploading for text-to-image mood analyzation? Here is the photo:${_model.uploadedFileUrl_mdPhoto}',
+                                                          sessionId: FFAppState()
+                                                              .chatSessionId,
+                                                          userId:
+                                                              currentUserUid,
+                                                        ),
+                                                        TheoryOfMindLucilleGroup
+                                                            .lucilleChatMainCall
+                                                            .call(
+                                                          message:
+                                                              'What is the my Stress Level today, in one double I can convert into a percantage, according to the photo I am uploading for text-to-image mood analyzation? Here is the photo:${_model.uploadedFileUrl_mdPhoto}',
+                                                          sessionId: FFAppState()
+                                                              .chatSessionId,
+                                                          userId:
+                                                              currentUserUid,
+                                                        ),
+                                                        TheoryOfMindLucilleGroup
+                                                            .lucilleChatMainCall
+                                                            .call(
+                                                          message:
+                                                              'What is the my energy level today, in one word, according to the photo I am uploading for text-to-image mood analyzation? Here is the photo:${_model.uploadedFileUrl_mdPhoto}',
+                                                          sessionId: FFAppState()
+                                                              .chatSessionId,
+                                                          userId:
+                                                              currentUserUid,
+                                                        ),
+                                                      ]);
                                                       _model.moodScan =
-                                                          await TheoryOfMindLucilleGroup
-                                                              .lucilleChatMainCall
-                                                              .call(
-                                                        message:
-                                                            'What is the my mood today, in one word, according to the photoI am uploading for text-to-image mood analyzation? Here is the photo:${_model.uploadedFileUrl_mdPhoto}',
-                                                        sessionId: FFAppState()
-                                                            .chatSessionId,
-                                                        userId: currentUserUid,
-                                                      );
-
-                                                      logFirebaseEvent(
-                                                          'Button_backend_call');
+                                                          results[0];
                                                       _model.stressLevel =
-                                                          await TheoryOfMindLucilleGroup
-                                                              .lucilleChatMainCall
-                                                              .call(
-                                                        message:
-                                                            'What is the my Stress Level today, in one double I can convert into a percantage, according to the photo I am uploading for text-to-image mood analyzation? Here is the photo:${_model.uploadedFileUrl_mdPhoto}',
-                                                        sessionId: FFAppState()
-                                                            .chatSessionId,
-                                                        userId: currentUserUid,
-                                                      );
-
-                                                      logFirebaseEvent(
-                                                          'Button_backend_call');
+                                                          results[1];
                                                       _model.energyScan =
-                                                          await TheoryOfMindLucilleGroup
-                                                              .lucilleChatMainCall
-                                                              .call(
-                                                        message:
-                                                            'What is the my energy level today, in one word, according to the photo I am uploading for text-to-image mood analyzation? Here is the photo:${_model.uploadedFileUrl_mdPhoto}',
-                                                        sessionId: FFAppState()
-                                                            .chatSessionId,
-                                                        userId: currentUserUid,
-                                                      );
+                                                          results[2];
 
                                                       logFirebaseEvent(
                                                           'Button_trigger_app_event');
@@ -665,24 +692,28 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
 
                                                       logFirebaseEvent(
                                                           'Button_backend_call');
-
-                                                      await currentUserReference!
-                                                          .update(
-                                                              createUsersRecordData(
-                                                        currentMood:
-                                                            TheoryOfMindLucilleGroup
-                                                                .lucilleChatMainCall
-                                                                .response(
-                                                          (_model.moodScan
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ),
-                                                        timeStamp:
-                                                            getCurrentTimestamp,
-                                                        createdTime:
-                                                            getCurrentTimestamp,
-                                                        uid: currentUserUid,
-                                                      ));
+                                                      try {
+                                                        await currentUserReference!
+                                                            .update(
+                                                                createUsersRecordData(
+                                                          currentMood:
+                                                              TheoryOfMindLucilleGroup
+                                                                  .lucilleChatMainCall
+                                                                  .response(
+                                                            (_model.moodScan
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ),
+                                                          timeStamp:
+                                                              getCurrentTimestamp,
+                                                          createdTime:
+                                                              getCurrentTimestamp,
+                                                          uid: currentUserUid,
+                                                        ));
+                                                      } catch (e) {
+                                                        debugPrint(
+                                                            'Firestore update skipped: $e');
+                                                      }
                                                       logFirebaseEvent(
                                                           'Button_update_app_state');
                                                       FFAppState().moodPhoto =
@@ -748,15 +779,20 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                           ),
                                                           'stressLevel':
                                                               serializeParam(
-                                                            utility_functions_library_8g4bud_functions
-                                                                .convertStringToDouble(
+                                                            () {
+                                                              try {
+                                                                return utility_functions_library_8g4bud_functions.convertStringToDouble(
                                                                     TheoryOfMindLucilleGroup
                                                                         .lucilleChatMainCall
                                                                         .response(
-                                                              (_model.stressLevel
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!),
+                                                                  (_model.stressLevel
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )!);
+                                                              } catch (_) {
+                                                                return 0.5;
+                                                              }
+                                                            }(),
                                                             ParamType.double,
                                                           ),
                                                           'energyLevel':

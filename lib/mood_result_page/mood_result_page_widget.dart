@@ -372,6 +372,9 @@ class _MoodResultPageWidgetState extends State<MoodResultPageWidget>
                                                         widget.moodResult,
                                                         'Neutral',
                                                       ),
+                                                      textAlign: TextAlign.center,
+                                                      maxLines: 2,
+                                                      overflow: TextOverflow.ellipsis,
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .displayMedium
@@ -479,6 +482,8 @@ class _MoodResultPageWidgetState extends State<MoodResultPageWidget>
                                                                             .energyLevel,
                                                                         'Moderate',
                                                                       ),
+                                                                      maxLines: 2,
+                                                                      overflow: TextOverflow.ellipsis,
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .titleMedium

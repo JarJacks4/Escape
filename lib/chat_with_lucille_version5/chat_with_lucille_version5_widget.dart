@@ -419,7 +419,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                           text: TextSpan(
                                                                                                             children: [
                                                                                                               TextSpan(
-                                                                                                                text: FFAppState().messagesTheoryOfMind.contains(FFAppState().messagesTheoryOfMind.where((e) => Role.User != null).toList().firstOrNull).toString(),
+                                                                                                                text: _model.userMessages.elementAtOrNull(chatIndex) ?? '',
                                                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                       fontFamily: 'WorkSans',
                                                                                                                       letterSpacing: 0.0,
@@ -893,6 +893,10 @@ class _ChatWithLucilleVersion5WidgetState
                                                           detectedIntent:
                                                               'Chat',
                                                         ));
+                                                        _model.addToUserMessages(
+                                                            _model
+                                                                .textController
+                                                                .text);
                                                         safeSetState(() {});
                                                         logFirebaseEvent(
                                                             'IconButton_backend_call');
