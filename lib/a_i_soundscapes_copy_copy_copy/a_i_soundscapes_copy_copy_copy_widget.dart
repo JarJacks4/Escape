@@ -227,6 +227,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
 
   @override
   void dispose() {
+    actions.pauseAudio();
     _model.dispose();
 
     super.dispose();
@@ -296,7 +297,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                   return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
                                 }
                               }(),
-                              width: 409.6,
+                              width: double.infinity,
                               height: 876.8,
                               fit: BoxFit.cover,
                             ),
@@ -366,7 +367,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                     }(),
                                                     'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9',
                                                   ),
-                                                  width: 409.6,
+                                                  width: double.infinity,
                                                   height: 924.8,
                                                   fit: BoxFit.cover,
                                                 ),
@@ -412,8 +413,12 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                             BoxDecoration(),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsets.all(
-                                                                  25.0),
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      25.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -1742,6 +1747,12 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageMusicMediationsWidget.routeName,
+                                                                                                                      queryParameters: {
+                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
+                                                                                                                          musicTabItem,
+                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
+                                                                                                                        ),
+                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
@@ -1762,6 +1773,12 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageMusicMediationsWidget.routeName,
+                                                                                                                      queryParameters: {
+                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
+                                                                                                                          musicTabItem,
+                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
+                                                                                                                        ),
+                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
@@ -2296,6 +2313,12 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageNatureWidget.routeName,
+                                                                                                                      queryParameters: {
+                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
+                                                                                                                          allTabItem,
+                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
+                                                                                                                        ),
+                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
@@ -2316,6 +2339,12 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageNatureWidget.routeName,
+                                                                                                                      queryParameters: {
+                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
+                                                                                                                          allTabItem,
+                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
+                                                                                                                        ),
+                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
@@ -2724,6 +2753,12 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageFocusWidget.routeName,
+                                                                                                                      queryParameters: {
+                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
+                                                                                                                          allTabItem,
+                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
+                                                                                                                        ),
+                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
@@ -2744,6 +2779,12 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageFocusWidget.routeName,
+                                                                                                                      queryParameters: {
+                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
+                                                                                                                          allTabItem,
+                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
+                                                                                                                        ),
+                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
@@ -3321,6 +3362,12 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageSleepWidget.routeName,
+                                                                                                                      queryParameters: {
+                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
+                                                                                                                          allTabItem,
+                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
+                                                                                                                        ),
+                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
@@ -3341,6 +3388,12 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageSleepWidget.routeName,
+                                                                                                                      queryParameters: {
+                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
+                                                                                                                          allTabItem,
+                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
+                                                                                                                        ),
+                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
