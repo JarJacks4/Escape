@@ -173,14 +173,16 @@ Future chatResultActionBlock(
       await LucilleMemoriesGroup.consolidateMemoryCall.call();
 }
 
-Future lucilleRecommendations(BuildContext context) async {
+Future lucilleRecommendations(BuildContext context, {String? userId}) async {
   ApiCallResponse? therapyRecommendations;
   ApiCallResponse? moodMemory;
   ApiCallResponse? consolidateMemory2;
 
   logFirebaseEvent('LucilleRecommendations_backend_call');
   therapyRecommendations =
-      await TheoryOfMindLucilleGroup.getTherapyRecommendationsCall.call();
+      await TheoryOfMindLucilleGroup.getTherapyRecommendationsCall.call(
+    userId: userId,
+  );
 
   if ((therapyRecommendations.succeeded ?? true)) {
     logFirebaseEvent('LucilleRecommendations_update_app_state');

@@ -1,4 +1,5 @@
 import 'dart:async';
+import '/auth/firebase_auth/auth_util.dart';
 import 'package:flutter/foundation.dart';
 import '/flutter_flow/nav/nav.dart';
 import '/actions/actions.dart' as action_blocks;
@@ -33,6 +34,7 @@ Future<void> handleGlobalEvent(FFAppEvent event) async {
     case AiRecommendationReadyEvent():
       await action_blocks.lucilleRecommendations(
         context,
+        userId: currentUserUid,
       );
       return;
     case SafetyAndCrisisAssessmentEvent():

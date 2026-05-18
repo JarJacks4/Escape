@@ -305,21 +305,30 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                     ),
                                     if (_model.isScanLoading == true)
                                       Align(
-                                        alignment: AlignmentDirectional(0.0, 0.0),
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
                                             CircularProgressIndicator(
-                                              color: FlutterFlowTheme.of(context).primary,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
                                             ),
                                             SizedBox(height: 16.0),
                                             Text(
                                               'Lucille is reading your energy...',
-                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                fontFamily: 'WorkSans',
-                                                color: FlutterFlowTheme.of(context).primary,
-                                                letterSpacing: 0.0,
-                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ],
                                         ),
@@ -677,6 +686,15 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                       _model.energyScan =
                                                           results[2];
 
+                                                      debugPrint(
+                                                          'moodScan statusCode: ${_model.moodScan?.statusCode}');
+                                                      debugPrint(
+                                                          'moodScan jsonBody: ${_model.moodScan?.jsonBody}');
+                                                      debugPrint(
+                                                          'stressLevel jsonBody: ${_model.stressLevel?.jsonBody}');
+                                                      debugPrint(
+                                                          'energyScan jsonBody: ${_model.energyScan?.jsonBody}');
+
                                                       logFirebaseEvent(
                                                           'Button_trigger_app_event');
                                                       FFAppEventService.instance
@@ -770,7 +788,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                               serializeParam(
                                                             TheoryOfMindLucilleGroup
                                                                 .lucilleChatMainCall
-                                                                .detectedEmotion(
+                                                                .response(
                                                               (_model.moodScan
                                                                       ?.jsonBody ??
                                                                   ''),

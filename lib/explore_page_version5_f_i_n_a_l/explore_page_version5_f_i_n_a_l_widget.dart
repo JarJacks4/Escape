@@ -1702,7 +1702,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                 context.pop();
                                               }
                                               context.pushNamed(
-                                                ExplorePageVersion5FINALWidget
+                                                MindPageWidget
                                                     .routeName,
                                                 extra: <String, dynamic>{
                                                   '__transition_info__':
@@ -2277,7 +2277,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                 context.pop();
                                               }
                                               context.pushNamed(
-                                                ExplorePageVersion5FINALWidget
+                                                BodyPageVersion5Widget
                                                     .routeName,
                                                 extra: <String, dynamic>{
                                                   '__transition_info__':
@@ -2850,7 +2850,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                 context.pop();
                                               }
                                               context.pushNamed(
-                                                ExplorePageVersion5FINALWidget
+                                                ResetPageCopyWidget
                                                     .routeName,
                                                 extra: <String, dynamic>{
                                                   '__transition_info__':
@@ -3424,7 +3424,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                 context.pop();
                                               }
                                               context.pushNamed(
-                                                ExplorePageVersion5FINALWidget
+                                                JournalPageVersion5Widget
                                                     .routeName,
                                                 extra: <String, dynamic>{
                                                   '__transition_info__':
@@ -3997,7 +3997,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                 context.pop();
                                               }
                                               context.pushNamed(
-                                                ExplorePageVersion5FINALWidget
+                                                QuestsPageWidget
                                                     .routeName,
                                                 extra: <String, dynamic>{
                                                   '__transition_info__':
@@ -4570,7 +4570,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                 context.pop();
                                               }
                                               context.pushNamed(
-                                                ExplorePageVersion5FINALWidget
+                                                MoodScanVersion5Widget
                                                     .routeName,
                                                 extra: <String, dynamic>{
                                                   '__transition_info__':
@@ -5145,7 +5145,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                 context.pop();
                                               }
                                               context.pushNamed(
-                                                ExplorePageVersion5FINALWidget
+                                                ComingSoonMarketplaceWidget
                                                     .routeName,
                                                 extra: <String, dynamic>{
                                                   '__transition_info__':

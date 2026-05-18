@@ -289,6 +289,7 @@ class OnboardUserCall {
 class GetTherapyRecommendationsCall {
   Future<ApiCallResponse> call({
     String? firebaseIDToken = '',
+    String? userId = '',
   }) async {
     final baseUrl = TheoryOfMindLucilleGroup.getBaseUrl(
       firebaseIDToken: firebaseIDToken,
@@ -296,7 +297,7 @@ class GetTherapyRecommendationsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'Get Therapy Recommendations',
-      apiUrl: '${baseUrl}/therapy/recommend/{user_id}',
+      apiUrl: '${baseUrl}/therapy/recommend/${userId}',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
@@ -3201,7 +3202,7 @@ class EscapeAudioScriptCall {
       apiUrl: 'https://api.groq.com/openai/v1/audio/transcriptions',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer \${gorpKey}',
+        'Authorization': "Bearer $gorqKey",
       },
       params: {
         'file': file,

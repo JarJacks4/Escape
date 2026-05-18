@@ -98,6 +98,7 @@ class FFAppState extends ChangeNotifier {
     });
     await _safeInitAsync(() async {
       _gorqKey = await secureStorage.getString('ff_gorqKey') ?? _gorqKey;
+      _gorqKey = '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';
     });
     await _safeInitAsync(() async {
       _NewReorderedIndex = await secureStorage.getInt('ff_NewReorderedIndex') ??
