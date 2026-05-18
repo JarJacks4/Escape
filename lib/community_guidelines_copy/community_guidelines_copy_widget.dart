@@ -10,7 +10,7 @@ class CommunityGuidelinesCopyWidget extends StatefulWidget {
   const CommunityGuidelinesCopyWidget({super.key});
 
   static String routeName = 'CommunityGuidelinesCopy';
-  static String routePath = 'communityGuidelinesCopy';
+  static String routePath = '/communityGuidelinesCopy';
 
   @override
   State<CommunityGuidelinesCopyWidget> createState() =>

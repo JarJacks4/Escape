@@ -28,7 +28,7 @@ class DepressionReorderWidget extends StatefulWidget {
   final int tabIndex;
 
   static String routeName = 'DepressionReorder';
-  static String routePath = 'depressionReorder';
+  static String routePath = '/depressionReorder';
 
   @override
   State<DepressionReorderWidget> createState() =>

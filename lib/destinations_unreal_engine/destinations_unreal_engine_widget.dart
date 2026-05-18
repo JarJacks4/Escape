@@ -13,7 +13,7 @@ class DestinationsUnrealEngineWidget extends StatefulWidget {
   const DestinationsUnrealEngineWidget({super.key});
 
   static String routeName = 'DestinationsUnrealEngine';
-  static String routePath = 'destinationsUnrealEngine';
+  static String routePath = '/destinationsUnrealEngine';
 
   @override
   State<DestinationsUnrealEngineWidget> createState() =>

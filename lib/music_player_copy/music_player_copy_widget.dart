@@ -29,7 +29,7 @@ class MusicPlayerCopyWidget extends StatefulWidget {
   final String? songMood;
 
   static String routeName = 'MusicPlayerCopy';
-  static String routePath = 'musicPlayerCopy';
+  static String routePath = '/musicPlayerCopy';
 
   @override
   State<MusicPlayerCopyWidget> createState() => _MusicPlayerCopyWidgetState();

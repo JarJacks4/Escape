@@ -9,7 +9,7 @@ class CoachingSessionPageWidget extends StatefulWidget {
   const CoachingSessionPageWidget({super.key});
 
   static String routeName = 'coachingSessionPage';
-  static String routePath = 'coachingSessionPage';
+  static String routePath = '/coachingSessionPage';
 
   @override
   State<CoachingSessionPageWidget> createState() =>

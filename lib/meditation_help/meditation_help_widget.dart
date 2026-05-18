@@ -8,7 +8,7 @@ class MeditationHelpWidget extends StatefulWidget {
   const MeditationHelpWidget({super.key});
 
   static String routeName = 'MeditationHelp';
-  static String routePath = 'meditationHelp';
+  static String routePath = '/meditationHelp';
 
   @override
   State<MeditationHelpWidget> createState() => _MeditationHelpWidgetState();

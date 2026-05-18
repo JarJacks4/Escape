@@ -25,7 +25,7 @@ class MusicPlayerWidget extends StatefulWidget {
   final String? songGenre;
 
   static String routeName = 'MusicPlayer';
-  static String routePath = 'musicPlayer';
+  static String routePath = '/musicPlayer';
 
   @override
   State<MusicPlayerWidget> createState() => _MusicPlayerWidgetState();

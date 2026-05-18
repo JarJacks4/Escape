@@ -12,7 +12,7 @@ class SoundscapesSeeAllPageWidget extends StatefulWidget {
   const SoundscapesSeeAllPageWidget({super.key});
 
   static String routeName = 'SoundscapesSeeAllPage';
-  static String routePath = 'soundscapesSeeAllPage';
+  static String routePath = '/soundscapesSeeAllPage';
 
   @override
   State<SoundscapesSeeAllPageWidget> createState() =>

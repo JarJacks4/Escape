@@ -15,7 +15,7 @@ class SplashScreenVersion5Widget extends StatefulWidget {
   const SplashScreenVersion5Widget({super.key});
 
   static String routeName = 'splashScreenVersion5';
-  static String routePath = 'splashScreenVersion5';
+  static String routePath = '/splashScreenVersion5';
 
   @override
   State<SplashScreenVersion5Widget> createState() =>

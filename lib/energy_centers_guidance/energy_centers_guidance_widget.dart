@@ -9,7 +9,7 @@ class EnergyCentersGuidanceWidget extends StatefulWidget {
   const EnergyCentersGuidanceWidget({super.key});
 
   static String routeName = 'EnergyCentersGuidance';
-  static String routePath = 'energyCentersGuidance';
+  static String routePath = '/energyCentersGuidance';
 
   @override
   State<EnergyCentersGuidanceWidget> createState() =>

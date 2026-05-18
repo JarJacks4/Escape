@@ -18,7 +18,7 @@ class MicrcosmicMeditationGoalPageWidget extends StatefulWidget {
   const MicrcosmicMeditationGoalPageWidget({super.key});
 
   static String routeName = 'MicrcosmicMeditationGoalPage';
-  static String routePath = 'micrcosmicMeditationGoalPage';
+  static String routePath = '/micrcosmicMeditationGoalPage';
 
   @override
   State<MicrcosmicMeditationGoalPageWidget> createState() =>

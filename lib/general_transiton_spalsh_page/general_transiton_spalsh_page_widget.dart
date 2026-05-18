@@ -13,7 +13,7 @@ class GeneralTransitonSpalshPageWidget extends StatefulWidget {
   const GeneralTransitonSpalshPageWidget({super.key});
 
   static String routeName = 'GeneralTransitonSpalshPage';
-  static String routePath = 'generalTransitonSpalshPage';
+  static String routePath = '/generalTransitonSpalshPage';
 
   @override
   State<GeneralTransitonSpalshPageWidget> createState() =>

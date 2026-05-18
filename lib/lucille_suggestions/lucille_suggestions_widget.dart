@@ -32,7 +32,7 @@ class LucilleSuggestionsWidget extends StatefulWidget {
   const LucilleSuggestionsWidget({super.key});
 
   static String routeName = 'LucilleSuggestions';
-  static String routePath = 'lucilleSuggestions';
+  static String routePath = '/lucilleSuggestions';
 
   @override
   State<LucilleSuggestionsWidget> createState() =>

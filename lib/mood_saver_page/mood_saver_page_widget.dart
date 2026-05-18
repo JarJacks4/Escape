@@ -9,7 +9,7 @@ class MoodSaverPageWidget extends StatefulWidget {
   const MoodSaverPageWidget({super.key});
 
   static String routeName = 'moodSaverPage';
-  static String routePath = 'moodSaverPage';
+  static String routePath = '/moodSaverPage';
 
   @override
   State<MoodSaverPageWidget> createState() => _MoodSaverPageWidgetState();

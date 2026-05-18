@@ -15,7 +15,7 @@ class RewardsSplashPageWidget extends StatefulWidget {
   const RewardsSplashPageWidget({super.key});
 
   static String routeName = 'RewardsSplashPage';
-  static String routePath = 'rewardsSplashPage';
+  static String routePath = '/rewardsSplashPage';
 
   @override
   State<RewardsSplashPageWidget> createState() =>

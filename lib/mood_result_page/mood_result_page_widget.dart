@@ -33,7 +33,7 @@ class MoodResultPageWidget extends StatefulWidget {
   final String? moodPhoto;
 
   static String routeName = 'MoodResultPage';
-  static String routePath = 'moodResultPage';
+  static String routePath = '/moodResultPage';
 
   @override
   State<MoodResultPageWidget> createState() => _MoodResultPageWidgetState();

@@ -17,7 +17,7 @@ class ExplorePageVersion5Widget extends StatefulWidget {
   const ExplorePageVersion5Widget({super.key});
 
   static String routeName = 'ExplorePageVersion5';
-  static String routePath = 'ExplorePageVersion5';
+  static String routePath = '/ExplorePageVersion5';
 
   @override
   State<ExplorePageVersion5Widget> createState() =>

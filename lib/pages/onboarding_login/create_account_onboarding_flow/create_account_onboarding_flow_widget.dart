@@ -40,7 +40,7 @@ class CreateAccountOnboardingFlowWidget extends StatefulWidget {
   const CreateAccountOnboardingFlowWidget({super.key});
 
   static String routeName = 'CreateAccountOnboardingFlow';
-  static String routePath = 'createAccountOnboardingFlow';
+  static String routePath = '/createAccountOnboardingFlow';
 
   @override
   State<CreateAccountOnboardingFlowWidget> createState() =>

@@ -9,7 +9,7 @@ class FocusModesPageWidget extends StatefulWidget {
   const FocusModesPageWidget({super.key});
 
   static String routeName = 'FocusModesPage';
-  static String routePath = 'focusModesPage';
+  static String routePath = '/focusModesPage';
 
   @override
   State<FocusModesPageWidget> createState() => _FocusModesPageWidgetState();

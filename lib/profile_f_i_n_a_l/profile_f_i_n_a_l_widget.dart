@@ -9,7 +9,7 @@ class ProfileFINALWidget extends StatefulWidget {
   const ProfileFINALWidget({super.key});
 
   static String routeName = 'profileFINAL';
-  static String routePath = 'profileFINAL';
+  static String routePath = '/profileFINAL';
 
   @override
   State<ProfileFINALWidget> createState() => _ProfileFINALWidgetState();

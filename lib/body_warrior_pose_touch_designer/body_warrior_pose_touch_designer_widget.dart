@@ -9,7 +9,7 @@ class BodyWarriorPoseTouchDesignerWidget extends StatefulWidget {
   const BodyWarriorPoseTouchDesignerWidget({super.key});
 
   static String routeName = 'BodyWarriorPoseTouchDesigner';
-  static String routePath = 'bodyWarriorPoseTouchDesigner';
+  static String routePath = '/bodyWarriorPoseTouchDesigner';
 
   @override
   State<BodyWarriorPoseTouchDesignerWidget> createState() =>

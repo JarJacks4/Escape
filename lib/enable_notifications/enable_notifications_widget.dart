@@ -16,7 +16,7 @@ class EnableNotificationsWidget extends StatefulWidget {
   const EnableNotificationsWidget({super.key});
 
   static String routeName = 'EnableNotifications';
-  static String routePath = 'enableNotifications';
+  static String routePath = '/enableNotifications';
 
   @override
   State<EnableNotificationsWidget> createState() =>

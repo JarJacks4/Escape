@@ -36,7 +36,7 @@ class HomeVersion5Widget extends StatefulWidget {
   const HomeVersion5Widget({super.key});
 
   static String routeName = 'HomeVersion5';
-  static String routePath = 'homeVersion5';
+  static String routePath = '/homeVersion5';
 
   @override
   State<HomeVersion5Widget> createState() => _HomeVersion5WidgetState();
@@ -2338,27 +2338,28 @@ Further ... */
                   ),
                 ],
               ),
-              Container(
-                width: double.infinity,
-                height: double.infinity,
-                child: custom_widgets.WalkthroughOverlay(
+              if (FFAppState().isFinishedIntroWalkthrough == false)
+                Container(
                   width: double.infinity,
                   height: double.infinity,
-                  onFinish: () async {
-                    logFirebaseEvent(
-                        'HOME_VERSION5_Container_aa693ush_CALLBAC');
-                    logFirebaseEvent('WalkthroughOverlay_update_app_state');
-                    FFAppState().isFinishedIntroWalkthrough = true;
-                    FFAppState().hasSeenOnboarding = true;
-                    safeSetState(() {});
-                    logFirebaseEvent('WalkthroughOverlay_backend_call');
+                  child: custom_widgets.WalkthroughOverlay(
+                    width: double.infinity,
+                    height: double.infinity,
+                    onFinish: () async {
+                      logFirebaseEvent(
+                          'HOME_VERSION5_Container_aa693ush_CALLBAC');
+                      logFirebaseEvent('WalkthroughOverlay_update_app_state');
+                      FFAppState().isFinishedIntroWalkthrough = true;
+                      FFAppState().hasSeenOnboarding = true;
+                      safeSetState(() {});
+                      logFirebaseEvent('WalkthroughOverlay_backend_call');
 
-                    await currentUserReference!.update(createUsersRecordData(
-                      hasSeenWalkthrough: true,
-                    ));
-                  },
+                      await currentUserReference!.update(createUsersRecordData(
+                        hasSeenWalkthrough: true,
+                      ));
+                    },
+                  ),
                 ),
-              ),
             ],
           ),
         ),

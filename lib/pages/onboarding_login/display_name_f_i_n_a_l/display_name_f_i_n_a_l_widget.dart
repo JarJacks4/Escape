@@ -17,7 +17,7 @@ class DisplayNameFINALWidget extends StatefulWidget {
   const DisplayNameFINALWidget({super.key});
 
   static String routeName = 'DisplayNameFINAL';
-  static String routePath = 'displayNameFINAL';
+  static String routePath = '/displayNameFINAL';
 
   @override
   State<DisplayNameFINALWidget> createState() => _DisplayNameFINALWidgetState();

@@ -28,7 +28,7 @@ class SleepReorderWidget extends StatefulWidget {
   final int tabIndex;
 
   static String routeName = 'SleepReorder';
-  static String routePath = 'sleepReorder';
+  static String routePath = '/sleepReorder';
 
   @override
   State<SleepReorderWidget> createState() => _SleepReorderWidgetState();

@@ -15,7 +15,7 @@ class YoureAllSetPageVersion5Widget extends StatefulWidget {
   const YoureAllSetPageVersion5Widget({super.key});
 
   static String routeName = 'YoureAllSetPageVersion5';
-  static String routePath = 'youreAllSetPageVersion5';
+  static String routePath = '/youreAllSetPageVersion5';
 
   @override
   State<YoureAllSetPageVersion5Widget> createState() =>

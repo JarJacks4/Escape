@@ -9,7 +9,7 @@ class ResetPageWidget extends StatefulWidget {
   const ResetPageWidget({super.key});
 
   static String routeName = 'ResetPage';
-  static String routePath = 'resetPage';
+  static String routePath = '/resetPage';
 
   @override
   State<ResetPageWidget> createState() => _ResetPageWidgetState();

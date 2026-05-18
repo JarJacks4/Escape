@@ -9,7 +9,7 @@ class ComingSoonBodyWidget extends StatefulWidget {
   const ComingSoonBodyWidget({super.key});
 
   static String routeName = 'ComingSoonBody';
-  static String routePath = 'comingSoonBody';
+  static String routePath = '/comingSoonBody';
 
   @override
   State<ComingSoonBodyWidget> createState() => _ComingSoonBodyWidgetState();

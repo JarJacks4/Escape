@@ -10,7 +10,7 @@ class JournalPageVersion5Widget extends StatefulWidget {
   const JournalPageVersion5Widget({super.key});
 
   static String routeName = 'JournalPageVersion5';
-  static String routePath = 'journalPageVersion5';
+  static String routePath = '/journalPageVersion5';
 
   @override
   State<JournalPageVersion5Widget> createState() =>

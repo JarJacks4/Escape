@@ -9,7 +9,7 @@ class ExplorePageWidget extends StatefulWidget {
   const ExplorePageWidget({super.key});
 
   static String routeName = 'ExplorePage';
-  static String routePath = 'explorePage';
+  static String routePath = '/explorePage';
 
   @override
   State<ExplorePageWidget> createState() => _ExplorePageWidgetState();

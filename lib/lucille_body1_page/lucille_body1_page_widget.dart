@@ -9,7 +9,7 @@ class LucilleBody1PageWidget extends StatefulWidget {
   const LucilleBody1PageWidget({super.key});
 
   static String routeName = 'LucilleBody1Page';
-  static String routePath = 'lucilleBody1Page';
+  static String routePath = '/lucilleBody1Page';
 
   @override
   State<LucilleBody1PageWidget> createState() => _LucilleBody1PageWidgetState();

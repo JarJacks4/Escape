@@ -26,7 +26,7 @@ class MoodResultTransitionWidget extends StatefulWidget {
   final String? moodPhoto;
 
   static String routeName = 'MoodResultTransition';
-  static String routePath = 'moodResultTransition';
+  static String routePath = '/moodResultTransition';
 
   @override
   State<MoodResultTransitionWidget> createState() =>

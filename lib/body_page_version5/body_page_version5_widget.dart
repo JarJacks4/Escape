@@ -10,7 +10,7 @@ class BodyPageVersion5Widget extends StatefulWidget {
   const BodyPageVersion5Widget({super.key});
 
   static String routeName = 'BodyPageVersion5';
-  static String routePath = 'bodyPageVersion5';
+  static String routePath = '/bodyPageVersion5';
 
   @override
   State<BodyPageVersion5Widget> createState() => _BodyPageVersion5WidgetState();

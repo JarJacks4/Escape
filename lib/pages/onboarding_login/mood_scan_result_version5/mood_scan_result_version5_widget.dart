@@ -31,7 +31,7 @@ class MoodScanResultVersion5Widget extends StatefulWidget {
   final String? moodResult;
 
   static String routeName = 'MoodScanResultVersion5';
-  static String routePath = 'moodScanResultVersion5';
+  static String routePath = '/moodScanResultVersion5';
 
   @override
   State<MoodScanResultVersion5Widget> createState() =>

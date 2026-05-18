@@ -9,7 +9,7 @@ class RespirationPageWidget extends StatefulWidget {
   const RespirationPageWidget({super.key});
 
   static String routeName = 'RespirationPage';
-  static String routePath = 'respirationPage';
+  static String routePath = '/respirationPage';
 
   @override
   State<RespirationPageWidget> createState() => _RespirationPageWidgetState();

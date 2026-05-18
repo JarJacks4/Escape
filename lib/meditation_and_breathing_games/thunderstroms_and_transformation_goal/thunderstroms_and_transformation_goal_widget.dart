@@ -15,7 +15,7 @@ class ThunderstromsAndTransformationGoalWidget extends StatefulWidget {
   const ThunderstromsAndTransformationGoalWidget({super.key});
 
   static String routeName = 'ThunderstromsAndTransformationGoal';
-  static String routePath = 'thunderstromsAndTransformationGoal';
+  static String routePath = '/thunderstromsAndTransformationGoal';
 
   @override
   State<ThunderstromsAndTransformationGoalWidget> createState() =>

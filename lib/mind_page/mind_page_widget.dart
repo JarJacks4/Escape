@@ -9,7 +9,7 @@ class MindPageWidget extends StatefulWidget {
   const MindPageWidget({super.key});
 
   static String routeName = 'MindPage';
-  static String routePath = 'mindPage';
+  static String routePath = '/mindPage';
 
   @override
   State<MindPageWidget> createState() => _MindPageWidgetState();

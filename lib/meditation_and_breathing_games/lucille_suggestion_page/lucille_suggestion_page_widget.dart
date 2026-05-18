@@ -44,7 +44,7 @@ class LucilleSuggestionPageWidget extends StatefulWidget {
   final String? exersiseSoundscape;
 
   static String routeName = 'LucilleSuggestionPage';
-  static String routePath = 'lucilleSuggestionPage';
+  static String routePath = '/lucilleSuggestionPage';
 
   @override
   State<LucilleSuggestionPageWidget> createState() =>

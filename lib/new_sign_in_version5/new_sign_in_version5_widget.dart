@@ -39,7 +39,7 @@ class NewSignInVersion5Widget extends StatefulWidget {
   final int? tabIndexLogin;
 
   static String routeName = 'NewSignInVersion5';
-  static String routePath = 'newLogInVersion5';
+  static String routePath = '/newLogInVersion5';
 
   @override
   State<NewSignInVersion5Widget> createState() =>

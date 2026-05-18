@@ -9,7 +9,7 @@ class BinauralBeatsChoiceWidget extends StatefulWidget {
   const BinauralBeatsChoiceWidget({super.key});
 
   static String routeName = 'BinauralBeatsChoice';
-  static String routePath = 'binauralBeatsChoice';
+  static String routePath = '/binauralBeatsChoice';
 
   @override
   State<BinauralBeatsChoiceWidget> createState() =>

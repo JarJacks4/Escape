@@ -12,7 +12,7 @@ class SplashHomeScreenWidget extends StatefulWidget {
   const SplashHomeScreenWidget({super.key});
 
   static String routeName = 'SplashHomeScreen';
-  static String routePath = 'splashHomeScreen';
+  static String routePath = '/splashHomeScreen';
 
   @override
   State<SplashHomeScreenWidget> createState() => _SplashHomeScreenWidgetState();

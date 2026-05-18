@@ -29,7 +29,7 @@ class ConnectionCommunityStartPageVersion5Widget extends StatefulWidget {
   const ConnectionCommunityStartPageVersion5Widget({super.key});
 
   static String routeName = 'ConnectionCommunityStartPageVersion5';
-  static String routePath = 'connectionCommunityStartPageVersion5';
+  static String routePath = '/connectionCommunityStartPageVersion5';
 
   @override
   State<ConnectionCommunityStartPageVersion5Widget> createState() =>

@@ -9,7 +9,7 @@ class ChooseRealmsPageWidget extends StatefulWidget {
   const ChooseRealmsPageWidget({super.key});
 
   static String routeName = 'ChooseRealmsPage';
-  static String routePath = 'chooseRealmsPage';
+  static String routePath = '/chooseRealmsPage';
 
   @override
   State<ChooseRealmsPageWidget> createState() => _ChooseRealmsPageWidgetState();

@@ -11,7 +11,7 @@ class ChatAiScreen1Widget extends StatefulWidget {
   const ChatAiScreen1Widget({super.key});
 
   static String routeName = 'chat_ai_Screen_1';
-  static String routePath = 'chatAiScreen1';
+  static String routePath = '/chatAiScreen1';
 
   @override
   State<ChatAiScreen1Widget> createState() => _ChatAiScreen1WidgetState();

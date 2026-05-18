@@ -33,7 +33,7 @@ class ProfileVersion5Widget extends StatefulWidget {
   const ProfileVersion5Widget({super.key});
 
   static String routeName = 'ProfileVersion5';
-  static String routePath = 'profileVersion5';
+  static String routePath = '/profileVersion5';
 
   @override
   State<ProfileVersion5Widget> createState() => _ProfileVersion5WidgetState();

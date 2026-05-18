@@ -9,7 +9,7 @@ class TodaysHelpVersion5Widget extends StatefulWidget {
   const TodaysHelpVersion5Widget({super.key});
 
   static String routeName = 'TodaysHelpVersion5';
-  static String routePath = 'todaysHelpVersion5';
+  static String routePath = '/todaysHelpVersion5';
 
   @override
   State<TodaysHelpVersion5Widget> createState() =>

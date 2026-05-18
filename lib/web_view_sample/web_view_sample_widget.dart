@@ -9,7 +9,7 @@ class WebViewSampleWidget extends StatefulWidget {
   const WebViewSampleWidget({super.key});
 
   static String routeName = 'WebViewSample';
-  static String routePath = 'webViewSample';
+  static String routePath = '/webViewSample';
 
   @override
   State<WebViewSampleWidget> createState() => _WebViewSampleWidgetState();

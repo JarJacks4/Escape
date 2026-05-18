@@ -10,7 +10,7 @@ class SelfCareGoalsVersion5Widget extends StatefulWidget {
   const SelfCareGoalsVersion5Widget({super.key});
 
   static String routeName = 'SelfCareGoalsVersion5';
-  static String routePath = 'selfCareGoalsVersion5';
+  static String routePath = '/selfCareGoalsVersion5';
 
   @override
   State<SelfCareGoalsVersion5Widget> createState() =>

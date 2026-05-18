@@ -35,7 +35,7 @@ class ChatWithLucilleVersion5Widget extends StatefulWidget {
   const ChatWithLucilleVersion5Widget({super.key});
 
   static String routeName = 'ChatWithLucilleVersion5';
-  static String routePath = 'chatWithLucilleVersion5';
+  static String routePath = '/chatWithLucilleVersion5';
 
   @override
   State<ChatWithLucilleVersion5Widget> createState() =>

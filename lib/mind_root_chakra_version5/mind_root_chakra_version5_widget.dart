@@ -25,7 +25,7 @@ class MindRootChakraVersion5Widget extends StatefulWidget {
   const MindRootChakraVersion5Widget({super.key});
 
   static String routeName = 'MindRootChakraVersion5';
-  static String routePath = 'mindRootChakraVersion5';
+  static String routePath = '/mindRootChakraVersion5';
 
   @override
   State<MindRootChakraVersion5Widget> createState() =>

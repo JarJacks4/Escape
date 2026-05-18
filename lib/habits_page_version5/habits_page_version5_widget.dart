@@ -9,7 +9,7 @@ class HabitsPageVersion5Widget extends StatefulWidget {
   const HabitsPageVersion5Widget({super.key});
 
   static String routeName = 'HabitsPageVersion5';
-  static String routePath = 'habitsPageVersion5';
+  static String routePath = '/habitsPageVersion5';
 
   @override
   State<HabitsPageVersion5Widget> createState() =>

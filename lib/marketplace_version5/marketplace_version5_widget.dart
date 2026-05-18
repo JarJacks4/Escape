@@ -10,7 +10,7 @@ class MarketplaceVersion5Widget extends StatefulWidget {
   const MarketplaceVersion5Widget({super.key});
 
   static String routeName = 'MarketplaceVersion5';
-  static String routePath = 'marketplaceVersion5';
+  static String routePath = '/marketplaceVersion5';
 
   @override
   State<MarketplaceVersion5Widget> createState() =>

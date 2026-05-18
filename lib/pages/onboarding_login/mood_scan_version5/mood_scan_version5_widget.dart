@@ -32,7 +32,7 @@ class MoodScanVersion5Widget extends StatefulWidget {
   const MoodScanVersion5Widget({super.key});
 
   static String routeName = 'MoodScanVersion5';
-  static String routePath = 'moodScanVersion5';
+  static String routePath = '/moodScanVersion5';
 
   @override
   State<MoodScanVersion5Widget> createState() => _MoodScanVersion5WidgetState();

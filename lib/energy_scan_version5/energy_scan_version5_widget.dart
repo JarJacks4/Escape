@@ -19,7 +19,7 @@ class EnergyScanVersion5Widget extends StatefulWidget {
   const EnergyScanVersion5Widget({super.key});
 
   static String routeName = 'EnergyScanVersion5';
-  static String routePath = 'energyScanVersion5';
+  static String routePath = '/energyScanVersion5';
 
   @override
   State<EnergyScanVersion5Widget> createState() =>
