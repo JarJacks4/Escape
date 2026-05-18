@@ -1420,7 +1420,7 @@ class RecommendedExercisesCall {
       ));
   List<int>? duration(dynamic response) => (getJsonField(
         response,
-        r'''$.duration_minutes''',
+        r'''$.recommendations[*].duration_minutes''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1429,7 +1429,7 @@ class RecommendedExercisesCall {
           .toList();
   List<String>? reason(dynamic response) => (getJsonField(
         response,
-        r'''$.reason''',
+        r'''$.recommendations[*].reason''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1442,12 +1442,12 @@ class RecommendedExercisesCall {
       ));
   List? rLMeta(dynamic response) => getJsonField(
         response,
-        r'''$.rl_meta''',
+        r'''$.recommendations[*].rl_meta''',
         true,
       ) as List?;
   List<String>? difficulty(dynamic response) => (getJsonField(
         response,
-        r'''$.difficulty''',
+        r'''$.recommendations[*].difficulty''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1456,7 +1456,7 @@ class RecommendedExercisesCall {
           .toList();
   List<String>? description(dynamic response) => (getJsonField(
         response,
-        r'''$.description''',
+        r'''$.recommendations[*].description''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1465,7 +1465,7 @@ class RecommendedExercisesCall {
           .toList();
   List<String>? title(dynamic response) => (getJsonField(
         response,
-        r'''$.title''',
+        r'''$.recommendations[*].title''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1474,7 +1474,7 @@ class RecommendedExercisesCall {
           .toList();
   List<String>? modality(dynamic response) => (getJsonField(
         response,
-        r'''$.modality''',
+        r'''$.recommendations[*].modality''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1483,7 +1483,7 @@ class RecommendedExercisesCall {
           .toList();
   List<String>? exerciseID(dynamic response) => (getJsonField(
         response,
-        r'''$.exercise_id''',
+        r'''$.recommendations[*].exercise_id''',
         true,
       ) as List?)
           ?.withoutNulls

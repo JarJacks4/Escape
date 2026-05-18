@@ -436,7 +436,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                       children: [
                         Container(
                           width: double.infinity,
-                          height: 173.6,
+                          height: MediaQuery.sizeOf(context).height,
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: Colors.transparent,
@@ -848,7 +848,8 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                     }
                                                     final columnRecommendedExercisesResponse =
                                                         snapshot.data!;
-
+                                                    print(
+                                                        'API response: ${columnRecommendedExercisesResponse.jsonBody}');
                                                     return Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1220,9 +1221,8 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                   size: 36.0,
                                                                 ),
                                                                 endPaneFirstActionIcon:
-                                                                    FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .flagCheckered,
+                                                                    Icon(
+                                                                  Icons.flag,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
@@ -1371,10 +1371,10 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
 
                                                                   _shouldSetState =
                                                                       true;
-                                                                  if ((_model
+                                                                  if (_model
                                                                           .recommendedSoundscapes
                                                                           ?.succeeded ??
-                                                                      true)) {
+                                                                      false) {
                                                                     logFirebaseEvent(
                                                                         'ThatSlideableWidget_backend_call');
                                                                     _model.getSoundscape =
@@ -1384,11 +1384,6 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
 
                                                                     _shouldSetState =
                                                                         true;
-                                                                  } else {
-                                                                    if (_shouldSetState)
-                                                                      safeSetState(
-                                                                          () {});
-                                                                    return;
                                                                   }
 
                                                                   logFirebaseEvent(
@@ -1502,7 +1497,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                           children: [
                             Container(
                               width: double.infinity,
-                              height: 874.4,
+                              height: MediaQuery.sizeOf(context).height,
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   color: Colors.transparent,
@@ -2025,7 +2020,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               .title(
                                                                                 columnRecommendedExercisesResponse.jsonBody,
                                                                               )
-                                                                              ?.elementAtOrNull(5),
+                                                                              ?.elementAtOrNull(1),
                                                                           'Calm Breathing',
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
@@ -2047,7 +2042,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 .description(
                                                                                   columnRecommendedExercisesResponse.jsonBody,
                                                                                 )
-                                                                                ?.elementAtOrNull(5),
+                                                                                ?.elementAtOrNull(1),
                                                                             'A gentle breathing exercise to help focus your mind and body.',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
@@ -2099,12 +2094,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                       .reason(
                                                                                         columnRecommendedExercisesResponse.jsonBody,
                                                                                       )
-                                                                                      ?.sortedList(
-                                                                                          keyOf: (e) => LucilleTherapyExercisesGroup.recommendedExercisesCall.detectedEmotion(
-                                                                                                columnRecommendedExercisesResponse.jsonBody,
-                                                                                              )!,
-                                                                                          desc: true)
-                                                                                      .elementAtOrNull(3),
+                                                                                      ?.elementAtOrNull(1),
                                                                                   'Reason',
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).labelLarge.override(
@@ -2279,9 +2269,9 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                           36.0,
                                                                     ),
                                                                     endPaneFirstActionIcon:
-                                                                        FaIcon(
-                                                                      FontAwesomeIcons
-                                                                          .flagCheckered,
+                                                                        Icon(
+                                                                      Icons
+                                                                          .flag,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -2427,10 +2417,10 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
 
                                                                       _shouldSetState =
                                                                           true;
-                                                                      if ((_model
+                                                                      if (_model
                                                                               .recommendedSoundscapes8
                                                                               ?.succeeded ??
-                                                                          true)) {
+                                                                          false) {
                                                                         logFirebaseEvent(
                                                                             'ThatSlideableWidget_backend_call');
                                                                         _model.getSoundscape4 = await LucilleSoundscapesGroup
@@ -2439,11 +2429,6 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
 
                                                                         _shouldSetState =
                                                                             true;
-                                                                      } else {
-                                                                        if (_shouldSetState)
-                                                                          safeSetState(
-                                                                              () {});
-                                                                        return;
                                                                       }
 
                                                                       logFirebaseEvent(
@@ -2461,7 +2446,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 .title(
                                                                                   columnRecommendedExercisesResponse.jsonBody,
                                                                                 )
-                                                                                ?.firstOrNull,
+                                                                                ?.elementAtOrNull(1),
                                                                             ParamType.String,
                                                                           ),
                                                                           'exerciseDescription':
@@ -2470,7 +2455,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 .description(
                                                                                   columnRecommendedExercisesResponse.jsonBody,
                                                                                 )
-                                                                                ?.firstOrNull,
+                                                                                ?.elementAtOrNull(1),
                                                                             ParamType.String,
                                                                           ),
                                                                           'exerciseDuration':
@@ -2479,7 +2464,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 .duration(
                                                                                   columnRecommendedExercisesResponse.jsonBody,
                                                                                 )
-                                                                                ?.firstOrNull
+                                                                                ?.elementAtOrNull(1)
                                                                                 ?.toDouble(),
                                                                             ParamType.double,
                                                                           ),
@@ -2551,7 +2536,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                           children: [
                             Container(
                               width: double.infinity,
-                              height: 876.0,
+                              height: MediaQuery.sizeOf(context).height,
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   color: Colors.transparent,
@@ -3075,7 +3060,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               .title(
                                                                                 columnRecommendedExercisesResponse.jsonBody,
                                                                               )
-                                                                              ?.elementAtOrNull(3),
+                                                                              ?.elementAtOrNull(2),
                                                                           'Calm Breathing',
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
@@ -3099,7 +3084,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 .description(
                                                                                   columnRecommendedExercisesResponse.jsonBody,
                                                                                 )
-                                                                                ?.elementAtOrNull(3),
+                                                                                ?.elementAtOrNull(2),
                                                                             'A gentle breathing exercise to help focus your mind and body.',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
@@ -3330,9 +3315,9 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                           36.0,
                                                                     ),
                                                                     endPaneFirstActionIcon:
-                                                                        FaIcon(
-                                                                      FontAwesomeIcons
-                                                                          .flagCheckered,
+                                                                        Icon(
+                                                                      Icons
+                                                                          .flag,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -3478,10 +3463,10 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
 
                                                                       _shouldSetState =
                                                                           true;
-                                                                      if ((_model
+                                                                      if (_model
                                                                               .recommendedSoundscapes3
                                                                               ?.succeeded ??
-                                                                          true)) {
+                                                                          false) {
                                                                         logFirebaseEvent(
                                                                             'ThatSlideableWidget_backend_call');
                                                                         _model.getSoundscape3 = await LucilleSoundscapesGroup
@@ -3490,11 +3475,6 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
 
                                                                         _shouldSetState =
                                                                             true;
-                                                                      } else {
-                                                                        if (_shouldSetState)
-                                                                          safeSetState(
-                                                                              () {});
-                                                                        return;
                                                                       }
 
                                                                       logFirebaseEvent(
@@ -3512,7 +3492,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 .title(
                                                                                   columnRecommendedExercisesResponse.jsonBody,
                                                                                 )
-                                                                                ?.firstOrNull,
+                                                                                ?.elementAtOrNull(2),
                                                                             ParamType.String,
                                                                           ),
                                                                           'exerciseDescription':
@@ -3521,7 +3501,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 .description(
                                                                                   columnRecommendedExercisesResponse.jsonBody,
                                                                                 )
-                                                                                ?.firstOrNull,
+                                                                                ?.elementAtOrNull(2),
                                                                             ParamType.String,
                                                                           ),
                                                                           'exerciseDuration':
@@ -3530,7 +3510,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 .duration(
                                                                                   columnRecommendedExercisesResponse.jsonBody,
                                                                                 )
-                                                                                ?.firstOrNull
+                                                                                ?.elementAtOrNull(2)
                                                                                 ?.toDouble(),
                                                                             ParamType.double,
                                                                           ),
