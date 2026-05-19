@@ -24,7 +24,7 @@ class VoiceChatLucilleWidget extends StatefulWidget {
   const VoiceChatLucilleWidget({super.key});
 
   static String routeName = 'VoiceChatLucille';
-  static String routePath = 'voiceChatLucille';
+  static String routePath = '/voiceChatLucille';
 
   @override
   State<VoiceChatLucilleWidget> createState() => _VoiceChatLucilleWidgetState();

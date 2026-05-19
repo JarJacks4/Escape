@@ -14,7 +14,7 @@ class PlanetWidget extends StatefulWidget {
   const PlanetWidget({super.key});
 
   static String routeName = 'Planet';
-  static String routePath = 'planet';
+  static String routePath = '/planet';
 
   @override
   State<PlanetWidget> createState() => _PlanetWidgetState();

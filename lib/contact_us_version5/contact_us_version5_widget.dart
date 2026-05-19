@@ -10,7 +10,7 @@ class ContactUsVersion5Widget extends StatefulWidget {
   const ContactUsVersion5Widget({super.key});
 
   static String routeName = 'ContactUsVersion5';
-  static String routePath = 'contactUsVersion5';
+  static String routePath = '/contactUsVersion5';
 
   @override
   State<ContactUsVersion5Widget> createState() =>

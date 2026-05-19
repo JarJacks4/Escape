@@ -9,7 +9,7 @@ class ReelsWidget extends StatefulWidget {
   const ReelsWidget({super.key});
 
   static String routeName = 'reels';
-  static String routePath = 'reels';
+  static String routePath = '/reels';
 
   @override
   State<ReelsWidget> createState() => _ReelsWidgetState();

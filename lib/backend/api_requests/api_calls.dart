@@ -43,10 +43,10 @@ class LucilleChatMainCall {
 
     final ffApiRequestBody = '''
 {
-  "message": "[message]",
-  "session_id": "[session_id]",
-  "firebaseIDToken": "[firebaseIDToken]",
-  "user_id": "[user_id]"
+  "message": "${message}",
+  "session_id": "${sessionId}",
+  "firebaseIDToken": "${firebaseIDToken}",
+  "user_id": "${userId}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Lucille Chat Main',

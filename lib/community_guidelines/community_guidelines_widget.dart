@@ -10,7 +10,7 @@ class CommunityGuidelinesWidget extends StatefulWidget {
   const CommunityGuidelinesWidget({super.key});
 
   static String routeName = 'CommunityGuidelines';
-  static String routePath = 'communityGuidelines';
+  static String routePath = '/communityGuidelines';
 
   @override
   State<CommunityGuidelinesWidget> createState() =>

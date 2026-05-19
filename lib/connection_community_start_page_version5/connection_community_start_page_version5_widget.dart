@@ -18,6 +18,7 @@ import 'package:tiktokfeed_wz8en7/custom_code/widgets/index.dart'
     as tiktokfeed_wz8en7_custom_widgets;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
@@ -29,7 +30,7 @@ class ConnectionCommunityStartPageVersion5Widget extends StatefulWidget {
   const ConnectionCommunityStartPageVersion5Widget({super.key});
 
   static String routeName = 'ConnectionCommunityStartPageVersion5';
-  static String routePath = 'connectionCommunityStartPageVersion5';
+  static String routePath = '/connectionCommunityStartPageVersion5';
 
   @override
   State<ConnectionCommunityStartPageVersion5Widget> createState() =>
@@ -51,6 +52,16 @@ class _ConnectionCommunityStartPageVersion5WidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ConnectionCommunityStartPageVersion5'});
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await Future.delayed(Duration(milliseconds: 300));
+      _model.reorderVideos =
+          tiktokfeed_wz8en7_app_state.FFAppState().ListTikTokPages.toList();
+      _model.reorderBreathingVideos =
+          tiktokfeed_wz8en7_app_state.FFAppState().meditationTikToks.toList();
+      _model.reorderBody =
+          tiktokfeed_wz8en7_app_state.FFAppState().BodyTikToks.toList();
+      safeSetState(() {});
+    });
     _model.tabBarController = TabController(
       vsync: this,
       length: 3,
@@ -103,26 +114,6 @@ class _ConnectionCommunityStartPageVersion5WidgetState
 
         safeSetState(() {});
       });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      _model.reorderVideos = await tiktokfeed_wz8en7_actions.reorderTiktokPages(
-        tiktokfeed_wz8en7_app_state.FFAppState().ListTikTokPages.toList(),
-        0,
-        FFAppState().ReorderedVideosIndex,
-      );
-      _model.reorderBreathingVideos =
-          await tiktokfeed_wz8en7_actions.reorderTiktokPages(
-        tiktokfeed_wz8en7_app_state.FFAppState().meditationTikToks.toList(),
-        0,
-        0,
-      );
-      _model.reorderBody = await tiktokfeed_wz8en7_actions.reorderTiktokPages(
-        tiktokfeed_wz8en7_app_state.FFAppState().BodyTikToks.toList(),
-        0,
-        0,
-      );
-      safeSetState(() {});
-    });
   }
 
   @override
@@ -326,102 +317,117 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
-                                                          Container(
-                                                            width:
-                                                                double.infinity,
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                0.82,
-                                                            child:
-                                                                tiktokfeed_wz8en7_custom_widgets
-                                                                    .ChewieWidget(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: MediaQuery
-                                                                          .sizeOf(
+                                                          _model.reorderVideos ==
+                                                                      null ||
+                                                                  _model
+                                                                      .reorderVideos!
+                                                                      .isEmpty
+                                                              ? Center(
+                                                                  child:
+                                                                      CircularProgressIndicator())
+                                                              : Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  height: MediaQuery.sizeOf(
                                                                               context)
-                                                                      .height *
-                                                                  0.82,
-                                                              userID:
-                                                                  currentUserUid,
-                                                              data: _model
-                                                                  .reorderVideos!,
-                                                              likerebuidpage:
-                                                                  () async {},
-                                                              bookedrebuidpage:
-                                                                  () async {},
-                                                            ),
-                                                          ),
+                                                                          .height *
+                                                                      0.82,
+                                                                  child: tiktokfeed_wz8en7_custom_widgets
+                                                                      .ChewieWidget(
+                                                                    width: double
+                                                                        .infinity,
+                                                                    height: MediaQuery.sizeOf(context)
+                                                                            .height *
+                                                                        0.82,
+                                                                    userID:
+                                                                        currentUserUid,
+                                                                    data: _model
+                                                                            .reorderVideos ??
+                                                                        [],
+                                                                    likerebuidpage:
+                                                                        () async {},
+                                                                    bookedrebuidpage:
+                                                                        () async {},
+                                                                  ),
+                                                                ),
                                                         ],
                                                       ),
                                                       Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
-                                                          Container(
-                                                            width:
-                                                                double.infinity,
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                0.82,
-                                                            child:
-                                                                tiktokfeed_wz8en7_custom_widgets
-                                                                    .ChewieWidget(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: MediaQuery
-                                                                          .sizeOf(
+                                                          _model.reorderBreathingVideos ==
+                                                                      null ||
+                                                                  _model
+                                                                      .reorderBreathingVideos!
+                                                                      .isEmpty
+                                                              ? Center(
+                                                                  child:
+                                                                      CircularProgressIndicator())
+                                                              : Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  height: MediaQuery.sizeOf(
                                                                               context)
-                                                                      .height *
-                                                                  0.82,
-                                                              userID:
-                                                                  currentUserUid,
-                                                              data: _model
-                                                                  .reorderBreathingVideos!,
-                                                              likerebuidpage:
-                                                                  () async {},
-                                                              bookedrebuidpage:
-                                                                  () async {},
-                                                            ),
-                                                          ),
+                                                                          .height *
+                                                                      0.82,
+                                                                  child: tiktokfeed_wz8en7_custom_widgets
+                                                                      .ChewieWidget(
+                                                                    width: double
+                                                                        .infinity,
+                                                                    height: MediaQuery.sizeOf(context)
+                                                                            .height *
+                                                                        0.82,
+                                                                    userID:
+                                                                        currentUserUid,
+                                                                    data: _model
+                                                                            .reorderBreathingVideos ??
+                                                                        [],
+                                                                    likerebuidpage:
+                                                                        () async {},
+                                                                    bookedrebuidpage:
+                                                                        () async {},
+                                                                  ),
+                                                                ),
                                                         ],
                                                       ),
                                                       Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
-                                                          Container(
-                                                            width:
-                                                                double.infinity,
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                0.82,
-                                                            child:
-                                                                tiktokfeed_wz8en7_custom_widgets
-                                                                    .ChewieWidget(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: MediaQuery
-                                                                          .sizeOf(
+                                                          _model.reorderBody ==
+                                                                      null ||
+                                                                  _model
+                                                                      .reorderBody!
+                                                                      .isEmpty
+                                                              ? Center(
+                                                                  child:
+                                                                      CircularProgressIndicator())
+                                                              : Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  height: MediaQuery.sizeOf(
                                                                               context)
-                                                                      .height *
-                                                                  0.82,
-                                                              userID:
-                                                                  currentUserUid,
-                                                              data: _model
-                                                                  .reorderBody!,
-                                                              likerebuidpage:
-                                                                  () async {},
-                                                              bookedrebuidpage:
-                                                                  () async {},
-                                                            ),
-                                                          ),
+                                                                          .height *
+                                                                      0.82,
+                                                                  child: tiktokfeed_wz8en7_custom_widgets
+                                                                      .ChewieWidget(
+                                                                    width: double
+                                                                        .infinity,
+                                                                    height: MediaQuery.sizeOf(context)
+                                                                            .height *
+                                                                        0.82,
+                                                                    userID:
+                                                                        currentUserUid,
+                                                                    data: _model
+                                                                            .reorderBody ??
+                                                                        [],
+                                                                    likerebuidpage:
+                                                                        () async {},
+                                                                    bookedrebuidpage:
+                                                                        () async {},
+                                                                  ),
+                                                                ),
                                                         ],
                                                       ),
                                                     ],

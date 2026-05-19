@@ -16,7 +16,7 @@ class OnboardingPageViewWidget extends StatefulWidget {
   const OnboardingPageViewWidget({super.key});
 
   static String routeName = 'OnboardingPageView';
-  static String routePath = 'onboardingPageView';
+  static String routePath = '/onboardingPageView';
 
   @override
   State<OnboardingPageViewWidget> createState() =>

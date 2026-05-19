@@ -13,7 +13,7 @@ class SettingsWidget extends StatefulWidget {
   const SettingsWidget({super.key});
 
   static String routeName = 'Settings';
-  static String routePath = 'settings';
+  static String routePath = '/settings';
 
   @override
   State<SettingsWidget> createState() => _SettingsWidgetState();

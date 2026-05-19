@@ -12,7 +12,7 @@ class SplashHomeScreenWidget extends StatefulWidget {
   const SplashHomeScreenWidget({super.key});
 
   static String routeName = 'SplashHomeScreen';
-  static String routePath = 'splashHomeScreen';
+  static String routePath = '/splashHomeScreen';
 
   @override
   State<SplashHomeScreenWidget> createState() => _SplashHomeScreenWidgetState();
@@ -54,7 +54,16 @@ class _SplashHomeScreenWidgetState extends State<SplashHomeScreenWidget> {
       );
       logFirebaseEvent('SplashHomeScreen_navigate_to');
 
-      context.go('/homeVersion5');
+      context.pushNamed(
+        HomeVersion5Widget.routeName,
+        extra: <String, dynamic>{
+          '__transition_info__': TransitionInfo(
+            hasTransition: true,
+            transitionType: PageTransitionType.fade,
+            duration: Duration(milliseconds: 11),
+          ),
+        },
+      );
     });
   }
 

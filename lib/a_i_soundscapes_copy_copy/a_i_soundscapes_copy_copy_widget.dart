@@ -30,7 +30,7 @@ class AISoundscapesCopyCopyWidget extends StatefulWidget {
   final String meditationaudio;
 
   static String routeName = 'AISoundscapesCopyCopy';
-  static String routePath = 'aISoundscapesCopyCopy';
+  static String routePath = '/aISoundscapesCopyCopy';
 
   @override
   State<AISoundscapesCopyCopyWidget> createState() =>

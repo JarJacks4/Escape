@@ -8,7 +8,7 @@ class TabbarWidget extends StatefulWidget {
   const TabbarWidget({super.key});
 
   static String routeName = 'tabbar';
-  static String routePath = 'tabbar';
+  static String routePath = '/tabbar';
 
   @override
   State<TabbarWidget> createState() => _TabbarWidgetState();

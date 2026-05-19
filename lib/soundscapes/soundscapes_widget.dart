@@ -11,7 +11,7 @@ class SoundscapesWidget extends StatefulWidget {
   const SoundscapesWidget({super.key});
 
   static String routeName = 'Soundscapes';
-  static String routePath = 'soundscapes';
+  static String routePath = '/soundscapes';
 
   @override
   State<SoundscapesWidget> createState() => _SoundscapesWidgetState();

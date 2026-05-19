@@ -12,7 +12,7 @@ class LucilleSuggestionSplashPageWidget extends StatefulWidget {
   const LucilleSuggestionSplashPageWidget({super.key});
 
   static String routeName = 'LucilleSuggestionSplashPage';
-  static String routePath = 'lucilleSuggestionSplashPage';
+  static String routePath = '/lucilleSuggestionSplashPage';
 
   @override
   State<LucilleSuggestionSplashPageWidget> createState() =>

@@ -25,7 +25,7 @@ class AdvancedMoodTrackerWidget extends StatefulWidget {
   const AdvancedMoodTrackerWidget({super.key});
 
   static String routeName = 'AdvancedMoodTracker';
-  static String routePath = 'advancedMoodTracker';
+  static String routePath = '/advancedMoodTracker';
 
   @override
   State<AdvancedMoodTrackerWidget> createState() =>

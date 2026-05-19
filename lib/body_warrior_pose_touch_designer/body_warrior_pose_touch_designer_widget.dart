@@ -2,31 +2,33 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'web_view_sample_model.dart';
-export 'web_view_sample_model.dart';
+import 'body_warrior_pose_touch_designer_model.dart';
+export 'body_warrior_pose_touch_designer_model.dart';
 
-class WebViewSampleWidget extends StatefulWidget {
-  const WebViewSampleWidget({super.key});
+class BodyWarriorPoseTouchDesignerWidget extends StatefulWidget {
+  const BodyWarriorPoseTouchDesignerWidget({super.key});
 
-  static String routeName = 'WebViewSample';
-  static String routePath = '/webViewSample';
+  static String routeName = 'BodyWarriorPoseTouchDesigner';
+  static String routePath = '/bodyWarriorPoseTouchDesigner';
 
   @override
-  State<WebViewSampleWidget> createState() => _WebViewSampleWidgetState();
+  State<BodyWarriorPoseTouchDesignerWidget> createState() =>
+      _BodyWarriorPoseTouchDesignerWidgetState();
 }
 
-class _WebViewSampleWidgetState extends State<WebViewSampleWidget> {
-  late WebViewSampleModel _model;
+class _BodyWarriorPoseTouchDesignerWidgetState
+    extends State<BodyWarriorPoseTouchDesignerWidget> {
+  late BodyWarriorPoseTouchDesignerModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => WebViewSampleModel());
+    _model = createModel(context, () => BodyWarriorPoseTouchDesignerModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'WebViewSample'});
+        parameters: {'screen_name': 'BodyWarriorPoseTouchDesigner'});
   }
 
   @override
@@ -51,14 +53,14 @@ class _WebViewSampleWidgetState extends State<WebViewSampleWidget> {
           children: [
             Container(
               width: double.infinity,
-              height: 878.73,
+              height: 874.73,
               decoration: BoxDecoration(),
               child: FlutterFlowWebView(
                 content: 'https://flutter.dev',
-                bypass: false,
-                height: 500.0,
-                verticalScroll: false,
-                horizontalScroll: false,
+                bypass: true,
+                height: MediaQuery.sizeOf(context).height * 1.0,
+                verticalScroll: true,
+                horizontalScroll: true,
               ),
             ),
           ],

@@ -49,3 +49,7 @@ Packages/
 
 # Ignore CocoaPods
 Pods/
+.dart_tool/
+ios/Flutter/ephemeral/
+pubspec.lock
+ios/Podfile.lock

@@ -27,7 +27,7 @@ class ProfileDetailsWidget extends StatefulWidget {
   const ProfileDetailsWidget({super.key});
 
   static String routeName = 'ProfileDetails';
-  static String routePath = 'profileDetails';
+  static String routePath = '/profileDetails';
 
   @override
   State<ProfileDetailsWidget> createState() => _ProfileDetailsWidgetState();

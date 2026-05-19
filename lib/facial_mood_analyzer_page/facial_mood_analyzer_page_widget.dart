@@ -18,7 +18,7 @@ class FacialMoodAnalyzerPageWidget extends StatefulWidget {
   const FacialMoodAnalyzerPageWidget({super.key});
 
   static String routeName = 'FacialMoodAnalyzerPage';
-  static String routePath = 'facialMoodAnalyzerPage';
+  static String routePath = '/facialMoodAnalyzerPage';
 
   @override
   State<FacialMoodAnalyzerPageWidget> createState() =>

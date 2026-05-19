@@ -15,7 +15,7 @@ class FireSoundsAndBreathingGoalWidget extends StatefulWidget {
   const FireSoundsAndBreathingGoalWidget({super.key});
 
   static String routeName = 'FireSoundsAndBreathingGoal';
-  static String routePath = 'fireSoundsAndBreathingGoal';
+  static String routePath = '/fireSoundsAndBreathingGoal';
 
   @override
   State<FireSoundsAndBreathingGoalWidget> createState() =>

@@ -28,7 +28,7 @@ class BodyReorderWidget extends StatefulWidget {
   final int tabIndex;
 
   static String routeName = 'BodyReorder';
-  static String routePath = 'bodyReorder';
+  static String routePath = '/bodyReorder';
 
   @override
   State<BodyReorderWidget> createState() => _BodyReorderWidgetState();

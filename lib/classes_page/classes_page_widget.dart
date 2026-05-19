@@ -11,7 +11,7 @@ class ClassesPageWidget extends StatefulWidget {
   const ClassesPageWidget({super.key});
 
   static String routeName = 'ClassesPage';
-  static String routePath = 'classesPage';
+  static String routePath = '/classesPage';
 
   @override
   State<ClassesPageWidget> createState() => _ClassesPageWidgetState();

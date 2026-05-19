@@ -9,7 +9,7 @@ class DeepWorkModesVersion5PageWidget extends StatefulWidget {
   const DeepWorkModesVersion5PageWidget({super.key});
 
   static String routeName = 'DeepWorkModesVersion5Page';
-  static String routePath = 'deepWorkModesVersion5Page';
+  static String routePath = '/deepWorkModesVersion5Page';
 
   @override
   State<DeepWorkModesVersion5PageWidget> createState() =>

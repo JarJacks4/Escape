@@ -14,7 +14,7 @@ class EscapeInnerVerseWidget extends StatefulWidget {
   const EscapeInnerVerseWidget({super.key});
 
   static String routeName = 'EscapeInnerVerse';
-  static String routePath = 'escapeInnerVerse';
+  static String routePath = '/escapeInnerVerse';
 
   @override
   State<EscapeInnerVerseWidget> createState() => _EscapeInnerVerseWidgetState();

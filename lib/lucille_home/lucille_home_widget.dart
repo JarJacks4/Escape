@@ -10,7 +10,7 @@ class LucilleHomeWidget extends StatefulWidget {
   const LucilleHomeWidget({super.key});
 
   static String routeName = 'LucilleHome';
-  static String routePath = 'lucilleHome';
+  static String routePath = '/lucilleHome';
 
   @override
   State<LucilleHomeWidget> createState() => _LucilleHomeWidgetState();

@@ -9,7 +9,7 @@ class BeginSessionPageWidget extends StatefulWidget {
   const BeginSessionPageWidget({super.key});
 
   static String routeName = 'BeginSessionPage';
-  static String routePath = 'beginSessionPage';
+  static String routePath = '/beginSessionPage';
 
   @override
   State<BeginSessionPageWidget> createState() => _BeginSessionPageWidgetState();

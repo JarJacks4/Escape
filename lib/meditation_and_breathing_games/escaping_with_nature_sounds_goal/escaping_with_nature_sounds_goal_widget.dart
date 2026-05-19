@@ -13,7 +13,7 @@ class EscapingWithNatureSoundsGoalWidget extends StatefulWidget {
   const EscapingWithNatureSoundsGoalWidget({super.key});
 
   static String routeName = 'EscapingWithNatureSoundsGoal';
-  static String routePath = 'escapingWithNatureSoundsGoal';
+  static String routePath = '/escapingWithNatureSoundsGoal';
 
   @override
   State<EscapingWithNatureSoundsGoalWidget> createState() =>

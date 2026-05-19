@@ -13,7 +13,7 @@ class SmallNapGoalWidget extends StatefulWidget {
   const SmallNapGoalWidget({super.key});
 
   static String routeName = 'SmallNapGoal';
-  static String routePath = 'smallNapGoal';
+  static String routePath = '/smallNapGoal';
 
   @override
   State<SmallNapGoalWidget> createState() => _SmallNapGoalWidgetState();

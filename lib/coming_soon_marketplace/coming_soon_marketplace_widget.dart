@@ -9,7 +9,7 @@ class ComingSoonMarketplaceWidget extends StatefulWidget {
   const ComingSoonMarketplaceWidget({super.key});
 
   static String routeName = 'ComingSoonMarketplace';
-  static String routePath = 'comingSoonMarketplace';
+  static String routePath = '/comingSoonMarketplace';
 
   @override
   State<ComingSoonMarketplaceWidget> createState() =>

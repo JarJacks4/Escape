@@ -9,7 +9,7 @@ class DestinationDetailsUnrealEngineVersion5Widget extends StatefulWidget {
   const DestinationDetailsUnrealEngineVersion5Widget({super.key});
 
   static String routeName = 'DestinationDetailsUnrealEngineVersion5';
-  static String routePath = 'destinationDetailsUnrealEngineVersion5';
+  static String routePath = '/destinationDetailsUnrealEngineVersion5';
 
   @override
   State<DestinationDetailsUnrealEngineVersion5Widget> createState() =>

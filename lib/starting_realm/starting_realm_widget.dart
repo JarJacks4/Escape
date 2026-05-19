@@ -9,7 +9,7 @@ class StartingRealmWidget extends StatefulWidget {
   const StartingRealmWidget({super.key});
 
   static String routeName = 'StartingRealm';
-  static String routePath = 'startingRealm';
+  static String routePath = '/startingRealm';
 
   @override
   State<StartingRealmWidget> createState() => _StartingRealmWidgetState();

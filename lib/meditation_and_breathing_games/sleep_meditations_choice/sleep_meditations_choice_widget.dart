@@ -9,7 +9,7 @@ class SleepMeditationsChoiceWidget extends StatefulWidget {
   const SleepMeditationsChoiceWidget({super.key});
 
   static String routeName = 'SleepMeditationsChoice';
-  static String routePath = 'sleepMeditationsChoice';
+  static String routePath = '/sleepMeditationsChoice';
 
   @override
   State<SleepMeditationsChoiceWidget> createState() =>

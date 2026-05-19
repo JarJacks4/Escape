@@ -9,7 +9,7 @@ class ScanMoodLaodingPageWidget extends StatefulWidget {
   const ScanMoodLaodingPageWidget({super.key});
 
   static String routeName = 'ScanMoodLaodingPage';
-  static String routePath = 'scanMoodLaodingPage';
+  static String routePath = '/scanMoodLaodingPage';
 
   @override
   State<ScanMoodLaodingPageWidget> createState() =>

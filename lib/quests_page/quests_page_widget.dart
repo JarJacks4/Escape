@@ -10,7 +10,7 @@ class QuestsPageWidget extends StatefulWidget {
   const QuestsPageWidget({super.key});
 
   static String routeName = 'QuestsPage';
-  static String routePath = 'questsPage';
+  static String routePath = '/questsPage';
 
   @override
   State<QuestsPageWidget> createState() => _QuestsPageWidgetState();

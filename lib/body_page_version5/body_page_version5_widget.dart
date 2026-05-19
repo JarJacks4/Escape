@@ -10,7 +10,7 @@ class BodyPageVersion5Widget extends StatefulWidget {
   const BodyPageVersion5Widget({super.key});
 
   static String routeName = 'BodyPageVersion5';
-  static String routePath = 'bodyPageVersion5';
+  static String routePath = '/bodyPageVersion5';
 
   @override
   State<BodyPageVersion5Widget> createState() => _BodyPageVersion5WidgetState();
@@ -57,7 +57,7 @@ class _BodyPageVersion5WidgetState extends State<BodyPageVersion5Widget> {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: Image.asset(
-                    'assets/images/GIF_from_GIFER.gif',
+                    'assets/images/d8b3cd809cf65ca8c4e3fb8c4a110b8f.gif',
                   ).image,
                 ),
               ),
@@ -65,8 +65,8 @@ class _BodyPageVersion5WidgetState extends State<BodyPageVersion5Widget> {
                 borderRadius: BorderRadius.circular(0.0),
                 child: BackdropFilter(
                   filter: ImageFilter.blur(
-                    sigmaX: 80.0,
-                    sigmaY: 80.0,
+                    sigmaX: 20.0,
+                    sigmaY: 20.0,
                   ),
                   child: Container(
                     width: 100.0,
@@ -74,9 +74,9 @@ class _BodyPageVersion5WidgetState extends State<BodyPageVersion5Widget> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          Color(0x29F4EDF7),
+                          Color(0x2EEDF1F7),
                           Color(0x3FF522DF),
-                          Color(0x885336EA)
+                          Color(0x8EFCC462)
                         ],
                         stops: [0.0, 0.5, 1.0],
                         begin: AlignmentDirectional(1.0, -0.64),

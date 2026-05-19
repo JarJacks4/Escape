@@ -25,28 +25,30 @@ class AISoundscapesCopyCopyCopyModel
   // State field(s) for Column widget.
   ScrollController? columnController3;
   AudioPlayer? soundPlayer4;
+  // State field(s) for Column widget.
+  ScrollController? columnController4;
   AudioPlayer? soundPlayer5;
   AudioPlayer? soundPlayer6;
   AudioPlayer? soundPlayer7;
   AudioPlayer? soundPlayer8;
   AudioPlayer? soundPlayer9;
   // State field(s) for Column widget.
-  ScrollController? columnController4;
+  ScrollController? columnController5;
   AudioPlayer? soundPlayer10;
   AudioPlayer? soundPlayer11;
   AudioPlayer? soundPlayer12;
   // State field(s) for Column widget.
-  ScrollController? columnController5;
+  ScrollController? columnController6;
   AudioPlayer? soundPlayer13;
   AudioPlayer? soundPlayer14;
   // State field(s) for Column widget.
-  ScrollController? columnController6;
+  ScrollController? columnController7;
   AudioPlayer? soundPlayer15;
   AudioPlayer? soundPlayer16;
   AudioPlayer? soundPlayer17;
   AudioPlayer? soundPlayer18;
   // State field(s) for Column widget.
-  ScrollController? columnController7;
+  ScrollController? columnController8;
   AudioPlayer? soundPlayer19;
   AudioPlayer? soundPlayer20;
 
@@ -59,6 +61,7 @@ class AISoundscapesCopyCopyCopyModel
     columnController5 = ScrollController();
     columnController6 = ScrollController();
     columnController7 = ScrollController();
+    columnController8 = ScrollController();
   }
 
   @override
@@ -71,5 +74,6 @@ class AISoundscapesCopyCopyCopyModel
     columnController5?.dispose();
     columnController6?.dispose();
     columnController7?.dispose();
+    columnController8?.dispose();
   }
 }

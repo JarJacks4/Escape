@@ -42,7 +42,7 @@ class AISoundscapesCopyCopyCopyWidget extends StatefulWidget {
   final String meditationaudio;
 
   static String routeName = 'AISoundscapesCopyCopyCopy';
-  static String routePath = 'aISoundscapesCopyCopyCopy';
+  static String routePath = '/aISoundscapesCopyCopyCopy';
 
   @override
   State<AISoundscapesCopyCopyCopyWidget> createState() =>
@@ -227,7 +227,6 @@ class _AISoundscapesCopyCopyCopyWidgetState
 
   @override
   void dispose() {
-    actions.pauseAudio();
     _model.dispose();
 
     super.dispose();
@@ -297,7 +296,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                   return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
                                 }
                               }(),
-                              width: double.infinity,
+                              width: 409.6,
                               height: 876.8,
                               fit: BoxFit.cover,
                             ),
@@ -367,7 +366,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                     }(),
                                                     'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9',
                                                   ),
-                                                  width: double.infinity,
+                                                  width: 409.6,
                                                   height: 924.8,
                                                   fit: BoxFit.cover,
                                                 ),
@@ -413,12 +412,8 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                             BoxDecoration(),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      25.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                              EdgeInsets.all(
+                                                                  25.0),
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -1108,512 +1103,516 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                                                                 ),
                                                                                                 Flexible(
                                                                                                   flex: 1,
-                                                                                                  child: Column(
-                                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                                    children: [
-                                                                                                      InkWell(
-                                                                                                        splashColor: Colors.transparent,
-                                                                                                        focusColor: Colors.transparent,
-                                                                                                        hoverColor: Colors.transparent,
-                                                                                                        highlightColor: Colors.transparent,
-                                                                                                        onTap: () async {
-                                                                                                          logFirebaseEvent('A_I_SOUNDSCAPES_COPY_COPY_COPY_Container');
-                                                                                                          logFirebaseEvent('Container_haptic_feedback');
-                                                                                                          HapticFeedback.lightImpact();
-                                                                                                          logFirebaseEvent('Container_play_sound');
-                                                                                                          _model.soundPlayer5 ??= AudioPlayer();
-                                                                                                          if (_model.soundPlayer5!.playing) {
-                                                                                                            await _model.soundPlayer5!.stop();
-                                                                                                          }
-                                                                                                          _model.soundPlayer5!.setVolume(1.0);
-                                                                                                          _model.soundPlayer5!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer5!.play());
+                                                                                                  child: SingleChildScrollView(
+                                                                                                    primary: false,
+                                                                                                    controller: _model.columnController4,
+                                                                                                    child: Column(
+                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                      children: [
+                                                                                                        InkWell(
+                                                                                                          splashColor: Colors.transparent,
+                                                                                                          focusColor: Colors.transparent,
+                                                                                                          hoverColor: Colors.transparent,
+                                                                                                          highlightColor: Colors.transparent,
+                                                                                                          onTap: () async {
+                                                                                                            logFirebaseEvent('A_I_SOUNDSCAPES_COPY_COPY_COPY_Container');
+                                                                                                            logFirebaseEvent('Container_haptic_feedback');
+                                                                                                            HapticFeedback.lightImpact();
+                                                                                                            logFirebaseEvent('Container_play_sound');
+                                                                                                            _model.soundPlayer5 ??= AudioPlayer();
+                                                                                                            if (_model.soundPlayer5!.playing) {
+                                                                                                              await _model.soundPlayer5!.stop();
+                                                                                                            }
+                                                                                                            _model.soundPlayer5!.setVolume(1.0);
+                                                                                                            _model.soundPlayer5!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer5!.play());
 
-                                                                                                          logFirebaseEvent('Container_navigate_to');
+                                                                                                            logFirebaseEvent('Container_navigate_to');
 
-                                                                                                          context.pushNamed(
-                                                                                                            $that_audio_player_oo85ab.PlayerPageSleepWidget.routeName,
-                                                                                                            extra: <String, dynamic>{
-                                                                                                              '__transition_info__that_audio_player_oo85ab': TransitionInfo(
-                                                                                                                hasTransition: true,
-                                                                                                                transitionType: PageTransitionType.fade,
-                                                                                                                duration: Duration(milliseconds: 9),
-                                                                                                              ),
-                                                                                                            },
-                                                                                                          );
-                                                                                                        },
-                                                                                                        child: Container(
-                                                                                                          width: 355.3,
-                                                                                                          height: 153.6,
-                                                                                                          decoration: BoxDecoration(
-                                                                                                            image: DecorationImage(
-                                                                                                              fit: BoxFit.cover,
-                                                                                                              image: Image.asset(
-                                                                                                                'assets/images/Container_(4).png',
-                                                                                                              ).image,
-                                                                                                            ),
-                                                                                                            borderRadius: BorderRadius.circular(16.0),
-                                                                                                          ),
-                                                                                                          child: Stack(
-                                                                                                            children: [
-                                                                                                              ClipRRect(
-                                                                                                                borderRadius: BorderRadius.circular(8.0),
-                                                                                                                child: Image.asset(
+                                                                                                            context.pushNamed(
+                                                                                                              $that_audio_player_oo85ab.PlayerPageSleepWidget.routeName,
+                                                                                                              extra: <String, dynamic>{
+                                                                                                                '__transition_info__that_audio_player_oo85ab': TransitionInfo(
+                                                                                                                  hasTransition: true,
+                                                                                                                  transitionType: PageTransitionType.fade,
+                                                                                                                  duration: Duration(milliseconds: 9),
+                                                                                                                ),
+                                                                                                              },
+                                                                                                            );
+                                                                                                          },
+                                                                                                          child: Container(
+                                                                                                            width: 355.3,
+                                                                                                            height: 153.6,
+                                                                                                            decoration: BoxDecoration(
+                                                                                                              image: DecorationImage(
+                                                                                                                fit: BoxFit.cover,
+                                                                                                                image: Image.asset(
                                                                                                                   'assets/images/Container_(4).png',
-                                                                                                                  width: 351.4,
-                                                                                                                  height: 200.0,
-                                                                                                                  fit: BoxFit.cover,
-                                                                                                                ),
+                                                                                                                ).image,
                                                                                                               ),
-                                                                                                              Padding(
-                                                                                                                padding: EdgeInsets.all(25.0),
-                                                                                                                child: Row(
-                                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                                                  children: [
-                                                                                                                    Flexible(
-                                                                                                                      flex: 1,
-                                                                                                                      child: Column(
-                                                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                        children: [
-                                                                                                                          Text(
-                                                                                                                            FFLocalizations.of(context).getText(
-                                                                                                                              '73ypo0r7' /* Relax */,
+                                                                                                              borderRadius: BorderRadius.circular(16.0),
+                                                                                                            ),
+                                                                                                            child: Stack(
+                                                                                                              children: [
+                                                                                                                ClipRRect(
+                                                                                                                  borderRadius: BorderRadius.circular(8.0),
+                                                                                                                  child: Image.asset(
+                                                                                                                    'assets/images/Container_(4).png',
+                                                                                                                    width: 351.4,
+                                                                                                                    height: 200.0,
+                                                                                                                    fit: BoxFit.cover,
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                                Padding(
+                                                                                                                  padding: EdgeInsets.all(25.0),
+                                                                                                                  child: Row(
+                                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                                                    children: [
+                                                                                                                      Flexible(
+                                                                                                                        flex: 1,
+                                                                                                                        child: Column(
+                                                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                          children: [
+                                                                                                                            Text(
+                                                                                                                              FFLocalizations.of(context).getText(
+                                                                                                                                '73ypo0r7' /* Relax */,
+                                                                                                                              ),
+                                                                                                                              style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                                                                    fontFamily: 'WorkSans',
+                                                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                                    fontSize: 24.0,
+                                                                                                                                    letterSpacing: 0.0,
+                                                                                                                                  ),
                                                                                                                             ),
-                                                                                                                            style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                                                  fontFamily: 'WorkSans',
-                                                                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                                                  fontSize: 24.0,
-                                                                                                                                  letterSpacing: 0.0,
+                                                                                                                            Flexible(
+                                                                                                                              flex: 1,
+                                                                                                                              child: Padding(
+                                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 8.0, 0.0),
+                                                                                                                                child: Text(
+                                                                                                                                  FFLocalizations.of(context).getText(
+                                                                                                                                    'kwectiya' /* Melt away stress with calming ... */,
+                                                                                                                                  ),
+                                                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                                                        fontFamily: 'WorkSans',
+                                                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                                        fontSize: 14.0,
+                                                                                                                                        letterSpacing: 0.0,
+                                                                                                                                      ),
                                                                                                                                 ),
-                                                                                                                          ),
-                                                                                                                          Flexible(
-                                                                                                                            flex: 1,
-                                                                                                                            child: Padding(
-                                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 8.0, 0.0),
-                                                                                                                              child: Text(
-                                                                                                                                FFLocalizations.of(context).getText(
-                                                                                                                                  'kwectiya' /* Melt away stress with calming ... */,
-                                                                                                                                ),
-                                                                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                                                      fontFamily: 'WorkSans',
-                                                                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                                                      fontSize: 14.0,
-                                                                                                                                      letterSpacing: 0.0,
-                                                                                                                                    ),
                                                                                                                               ),
                                                                                                                             ),
-                                                                                                                          ),
-                                                                                                                        ],
-                                                                                                                      ),
-                                                                                                                    ),
-                                                                                                                    Container(
-                                                                                                                      width: 48.3,
-                                                                                                                      height: 48.3,
-                                                                                                                      decoration: BoxDecoration(
-                                                                                                                        gradient: LinearGradient(
-                                                                                                                          colors: [
-                                                                                                                            FlutterFlowTheme.of(context).primary,
-                                                                                                                            FlutterFlowTheme.of(context).secondary
                                                                                                                           ],
-                                                                                                                          stops: [0.0, 1.0],
-                                                                                                                          begin: AlignmentDirectional(0.0, -1.0),
-                                                                                                                          end: AlignmentDirectional(0, 1.0),
                                                                                                                         ),
-                                                                                                                        shape: BoxShape.circle,
                                                                                                                       ),
-                                                                                                                      child: Icon(
-                                                                                                                        Icons.chevron_right,
-                                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                                        size: 20.0,
+                                                                                                                      Container(
+                                                                                                                        width: 48.3,
+                                                                                                                        height: 48.3,
+                                                                                                                        decoration: BoxDecoration(
+                                                                                                                          gradient: LinearGradient(
+                                                                                                                            colors: [
+                                                                                                                              FlutterFlowTheme.of(context).primary,
+                                                                                                                              FlutterFlowTheme.of(context).secondary
+                                                                                                                            ],
+                                                                                                                            stops: [0.0, 1.0],
+                                                                                                                            begin: AlignmentDirectional(0.0, -1.0),
+                                                                                                                            end: AlignmentDirectional(0, 1.0),
+                                                                                                                          ),
+                                                                                                                          shape: BoxShape.circle,
+                                                                                                                        ),
+                                                                                                                        child: Icon(
+                                                                                                                          Icons.chevron_right,
+                                                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                          size: 20.0,
+                                                                                                                        ),
                                                                                                                       ),
-                                                                                                                    ),
-                                                                                                                  ],
+                                                                                                                    ],
+                                                                                                                  ),
                                                                                                                 ),
-                                                                                                              ),
-                                                                                                            ],
+                                                                                                              ],
+                                                                                                            ),
                                                                                                           ),
                                                                                                         ),
-                                                                                                      ),
-                                                                                                      InkWell(
-                                                                                                        splashColor: Colors.transparent,
-                                                                                                        focusColor: Colors.transparent,
-                                                                                                        hoverColor: Colors.transparent,
-                                                                                                        highlightColor: Colors.transparent,
-                                                                                                        onTap: () async {
-                                                                                                          logFirebaseEvent('A_I_SOUNDSCAPES_COPY_COPY_COPY_Container');
-                                                                                                          logFirebaseEvent('Container_haptic_feedback');
-                                                                                                          HapticFeedback.lightImpact();
-                                                                                                          logFirebaseEvent('Container_play_sound');
-                                                                                                          _model.soundPlayer6 ??= AudioPlayer();
-                                                                                                          if (_model.soundPlayer6!.playing) {
-                                                                                                            await _model.soundPlayer6!.stop();
-                                                                                                          }
-                                                                                                          _model.soundPlayer6!.setVolume(1.0);
-                                                                                                          _model.soundPlayer6!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer6!.play());
+                                                                                                        InkWell(
+                                                                                                          splashColor: Colors.transparent,
+                                                                                                          focusColor: Colors.transparent,
+                                                                                                          hoverColor: Colors.transparent,
+                                                                                                          highlightColor: Colors.transparent,
+                                                                                                          onTap: () async {
+                                                                                                            logFirebaseEvent('A_I_SOUNDSCAPES_COPY_COPY_COPY_Container');
+                                                                                                            logFirebaseEvent('Container_haptic_feedback');
+                                                                                                            HapticFeedback.lightImpact();
+                                                                                                            logFirebaseEvent('Container_play_sound');
+                                                                                                            _model.soundPlayer6 ??= AudioPlayer();
+                                                                                                            if (_model.soundPlayer6!.playing) {
+                                                                                                              await _model.soundPlayer6!.stop();
+                                                                                                            }
+                                                                                                            _model.soundPlayer6!.setVolume(1.0);
+                                                                                                            _model.soundPlayer6!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer6!.play());
 
-                                                                                                          logFirebaseEvent('Container_navigate_to');
+                                                                                                            logFirebaseEvent('Container_navigate_to');
 
-                                                                                                          context.pushNamed(
-                                                                                                            $that_audio_player_oo85ab.PlayerPageFocusWidget.routeName,
-                                                                                                            extra: <String, dynamic>{
-                                                                                                              '__transition_info__that_audio_player_oo85ab': TransitionInfo(
-                                                                                                                hasTransition: true,
-                                                                                                                transitionType: PageTransitionType.fade,
-                                                                                                                duration: Duration(milliseconds: 9),
-                                                                                                              ),
-                                                                                                            },
-                                                                                                          );
-                                                                                                        },
-                                                                                                        child: Container(
-                                                                                                          width: 355.3,
-                                                                                                          height: 153.6,
-                                                                                                          decoration: BoxDecoration(
-                                                                                                            image: DecorationImage(
-                                                                                                              fit: BoxFit.cover,
-                                                                                                              image: Image.asset(
-                                                                                                                'assets/images/Container_(4).png',
-                                                                                                              ).image,
-                                                                                                            ),
-                                                                                                            borderRadius: BorderRadius.circular(16.0),
-                                                                                                          ),
-                                                                                                          child: Stack(
-                                                                                                            children: [
-                                                                                                              ClipRRect(
-                                                                                                                borderRadius: BorderRadius.circular(8.0),
-                                                                                                                child: Image.asset(
-                                                                                                                  'assets/images/Container_(9).png',
-                                                                                                                  width: 350.19,
-                                                                                                                  height: 200.0,
-                                                                                                                  fit: BoxFit.cover,
+                                                                                                            context.pushNamed(
+                                                                                                              $that_audio_player_oo85ab.PlayerPageFocusWidget.routeName,
+                                                                                                              extra: <String, dynamic>{
+                                                                                                                '__transition_info__that_audio_player_oo85ab': TransitionInfo(
+                                                                                                                  hasTransition: true,
+                                                                                                                  transitionType: PageTransitionType.fade,
+                                                                                                                  duration: Duration(milliseconds: 9),
                                                                                                                 ),
+                                                                                                              },
+                                                                                                            );
+                                                                                                          },
+                                                                                                          child: Container(
+                                                                                                            width: 355.3,
+                                                                                                            height: 153.6,
+                                                                                                            decoration: BoxDecoration(
+                                                                                                              image: DecorationImage(
+                                                                                                                fit: BoxFit.cover,
+                                                                                                                image: Image.asset(
+                                                                                                                  'assets/images/Container_(4).png',
+                                                                                                                ).image,
                                                                                                               ),
-                                                                                                              Padding(
-                                                                                                                padding: EdgeInsets.all(25.0),
-                                                                                                                child: Row(
-                                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                                                  children: [
-                                                                                                                    Flexible(
-                                                                                                                      flex: 1,
-                                                                                                                      child: Column(
-                                                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                        children: [
-                                                                                                                          Text(
-                                                                                                                            FFLocalizations.of(context).getText(
-                                                                                                                              'jtuu1os5' /* Focus */,
+                                                                                                              borderRadius: BorderRadius.circular(16.0),
+                                                                                                            ),
+                                                                                                            child: Stack(
+                                                                                                              children: [
+                                                                                                                ClipRRect(
+                                                                                                                  borderRadius: BorderRadius.circular(8.0),
+                                                                                                                  child: Image.asset(
+                                                                                                                    'assets/images/Container_(9).png',
+                                                                                                                    width: 350.19,
+                                                                                                                    height: 200.0,
+                                                                                                                    fit: BoxFit.cover,
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                                Padding(
+                                                                                                                  padding: EdgeInsets.all(25.0),
+                                                                                                                  child: Row(
+                                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                                                    children: [
+                                                                                                                      Flexible(
+                                                                                                                        flex: 1,
+                                                                                                                        child: Column(
+                                                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                          children: [
+                                                                                                                            Text(
+                                                                                                                              FFLocalizations.of(context).getText(
+                                                                                                                                'jtuu1os5' /* Focus */,
+                                                                                                                              ),
+                                                                                                                              style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                                                                    fontFamily: 'WorkSans',
+                                                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                                    fontSize: 24.0,
+                                                                                                                                    letterSpacing: 0.0,
+                                                                                                                                  ),
                                                                                                                             ),
-                                                                                                                            style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                                                  fontFamily: 'WorkSans',
-                                                                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                                                  fontSize: 24.0,
-                                                                                                                                  letterSpacing: 0.0,
-                                                                                                                                ),
-                                                                                                                          ),
-                                                                                                                          Flexible(
-                                                                                                                            flex: 1,
-                                                                                                                            child: Padding(
-                                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 8.0, 0.0),
-                                                                                                                              child: Text(
-                                                                                                                                FFLocalizations.of(context).getText(
-                                                                                                                                  '08zzj28x' /* Enhance concentration with 
+                                                                                                                            Flexible(
+                                                                                                                              flex: 1,
+                                                                                                                              child: Padding(
+                                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 8.0, 0.0),
+                                                                                                                                child: Text(
+                                                                                                                                  FFLocalizations.of(context).getText(
+                                                                                                                                    '08zzj28x' /* Enhance concentration with 
 am... */
-                                                                                                                                  ,
+                                                                                                                                    ,
+                                                                                                                                  ),
+                                                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                                                        fontFamily: 'WorkSans',
+                                                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                                        fontSize: 14.0,
+                                                                                                                                        letterSpacing: 0.0,
+                                                                                                                                      ),
                                                                                                                                 ),
-                                                                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                                                      fontFamily: 'WorkSans',
-                                                                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                                                      fontSize: 14.0,
-                                                                                                                                      letterSpacing: 0.0,
-                                                                                                                                    ),
                                                                                                                               ),
                                                                                                                             ),
-                                                                                                                          ),
-                                                                                                                        ],
-                                                                                                                      ),
-                                                                                                                    ),
-                                                                                                                    Container(
-                                                                                                                      width: 48.3,
-                                                                                                                      height: 48.3,
-                                                                                                                      decoration: BoxDecoration(
-                                                                                                                        gradient: LinearGradient(
-                                                                                                                          colors: [
-                                                                                                                            FlutterFlowTheme.of(context).primary,
-                                                                                                                            FlutterFlowTheme.of(context).secondary
                                                                                                                           ],
-                                                                                                                          stops: [0.0, 1.0],
-                                                                                                                          begin: AlignmentDirectional(0.0, -1.0),
-                                                                                                                          end: AlignmentDirectional(0, 1.0),
                                                                                                                         ),
-                                                                                                                        shape: BoxShape.circle,
                                                                                                                       ),
-                                                                                                                      child: Icon(
-                                                                                                                        Icons.chevron_right,
-                                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                                        size: 20.0,
+                                                                                                                      Container(
+                                                                                                                        width: 48.3,
+                                                                                                                        height: 48.3,
+                                                                                                                        decoration: BoxDecoration(
+                                                                                                                          gradient: LinearGradient(
+                                                                                                                            colors: [
+                                                                                                                              FlutterFlowTheme.of(context).primary,
+                                                                                                                              FlutterFlowTheme.of(context).secondary
+                                                                                                                            ],
+                                                                                                                            stops: [0.0, 1.0],
+                                                                                                                            begin: AlignmentDirectional(0.0, -1.0),
+                                                                                                                            end: AlignmentDirectional(0, 1.0),
+                                                                                                                          ),
+                                                                                                                          shape: BoxShape.circle,
+                                                                                                                        ),
+                                                                                                                        child: Icon(
+                                                                                                                          Icons.chevron_right,
+                                                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                          size: 20.0,
+                                                                                                                        ),
                                                                                                                       ),
-                                                                                                                    ),
-                                                                                                                  ],
+                                                                                                                    ],
+                                                                                                                  ),
                                                                                                                 ),
-                                                                                                              ),
-                                                                                                            ],
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                      InkWell(
-                                                                                                        splashColor: Colors.transparent,
-                                                                                                        focusColor: Colors.transparent,
-                                                                                                        hoverColor: Colors.transparent,
-                                                                                                        highlightColor: Colors.transparent,
-                                                                                                        onTap: () async {
-                                                                                                          logFirebaseEvent('A_I_SOUNDSCAPES_COPY_COPY_COPY_Container');
-                                                                                                          logFirebaseEvent('Container_haptic_feedback');
-                                                                                                          HapticFeedback.lightImpact();
-                                                                                                          logFirebaseEvent('Container_play_sound');
-                                                                                                          _model.soundPlayer7 ??= AudioPlayer();
-                                                                                                          if (_model.soundPlayer7!.playing) {
-                                                                                                            await _model.soundPlayer7!.stop();
-                                                                                                          }
-                                                                                                          _model.soundPlayer7!.setVolume(1.0);
-                                                                                                          _model.soundPlayer7!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer7!.play());
-
-                                                                                                          logFirebaseEvent('Container_navigate_to');
-
-                                                                                                          context.pushNamed(
-                                                                                                            $that_audio_player_oo85ab.PlayerPageMusicMediationsWidget.routeName,
-                                                                                                            extra: <String, dynamic>{
-                                                                                                              '__transition_info__that_audio_player_oo85ab': TransitionInfo(
-                                                                                                                hasTransition: true,
-                                                                                                                transitionType: PageTransitionType.fade,
-                                                                                                                duration: Duration(milliseconds: 9),
-                                                                                                              ),
-                                                                                                            },
-                                                                                                          );
-                                                                                                        },
-                                                                                                        child: Container(
-                                                                                                          width: 355.3,
-                                                                                                          height: 153.6,
-                                                                                                          decoration: BoxDecoration(
-                                                                                                            image: DecorationImage(
-                                                                                                              fit: BoxFit.cover,
-                                                                                                              image: Image.asset(
-                                                                                                                'assets/images/Container_(4).png',
-                                                                                                              ).image,
+                                                                                                              ],
                                                                                                             ),
-                                                                                                            borderRadius: BorderRadius.circular(16.0),
-                                                                                                          ),
-                                                                                                          child: Stack(
-                                                                                                            children: [
-                                                                                                              ClipRRect(
-                                                                                                                borderRadius: BorderRadius.circular(8.0),
-                                                                                                                child: Image.asset(
-                                                                                                                  'assets/images/Container_(10).png',
-                                                                                                                  width: 348.98,
-                                                                                                                  height: 200.0,
-                                                                                                                  fit: BoxFit.cover,
-                                                                                                                ),
-                                                                                                              ),
-                                                                                                              Padding(
-                                                                                                                padding: EdgeInsets.all(25.0),
-                                                                                                                child: Row(
-                                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                                                  children: [
-                                                                                                                    Flexible(
-                                                                                                                      flex: 1,
-                                                                                                                      child: Column(
-                                                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                        children: [
-                                                                                                                          Text(
-                                                                                                                            FFLocalizations.of(context).getText(
-                                                                                                                              '2xatdqq3' /* Energize */,
-                                                                                                                            ),
-                                                                                                                            style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                                                  fontFamily: 'WorkSans',
-                                                                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                                                  fontSize: 24.0,
-                                                                                                                                  letterSpacing: 0.0,
-                                                                                                                                ),
-                                                                                                                          ),
-                                                                                                                          Flexible(
-                                                                                                                            flex: 1,
-                                                                                                                            child: Padding(
-                                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 8.0, 0.0),
-                                                                                                                              child: Text(
-                                                                                                                                FFLocalizations.of(context).getText(
-                                                                                                                                  '4o6g68vn' /* Uplift your spirit with vibran... */,
-                                                                                                                                ),
-                                                                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                                                      fontFamily: 'WorkSans',
-                                                                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                                                      fontSize: 14.0,
-                                                                                                                                      letterSpacing: 0.0,
-                                                                                                                                    ),
-                                                                                                                              ),
-                                                                                                                            ),
-                                                                                                                          ),
-                                                                                                                        ],
-                                                                                                                      ),
-                                                                                                                    ),
-                                                                                                                    Container(
-                                                                                                                      width: 48.33,
-                                                                                                                      height: 48.33,
-                                                                                                                      decoration: BoxDecoration(
-                                                                                                                        gradient: LinearGradient(
-                                                                                                                          colors: [
-                                                                                                                            FlutterFlowTheme.of(context).primary,
-                                                                                                                            FlutterFlowTheme.of(context).secondary
-                                                                                                                          ],
-                                                                                                                          stops: [0.0, 1.0],
-                                                                                                                          begin: AlignmentDirectional(0.0, -1.0),
-                                                                                                                          end: AlignmentDirectional(0, 1.0),
-                                                                                                                        ),
-                                                                                                                        shape: BoxShape.circle,
-                                                                                                                      ),
-                                                                                                                      child: Icon(
-                                                                                                                        Icons.chevron_right,
-                                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                                        size: 20.0,
-                                                                                                                      ),
-                                                                                                                    ),
-                                                                                                                  ],
-                                                                                                                ),
-                                                                                                              ),
-                                                                                                            ],
                                                                                                           ),
                                                                                                         ),
-                                                                                                      ),
-                                                                                                      InkWell(
-                                                                                                        splashColor: Colors.transparent,
-                                                                                                        focusColor: Colors.transparent,
-                                                                                                        hoverColor: Colors.transparent,
-                                                                                                        highlightColor: Colors.transparent,
-                                                                                                        onTap: () async {
-                                                                                                          logFirebaseEvent('A_I_SOUNDSCAPES_COPY_COPY_COPY_Container');
-                                                                                                          logFirebaseEvent('Container_haptic_feedback');
-                                                                                                          HapticFeedback.lightImpact();
-                                                                                                          logFirebaseEvent('Container_play_sound');
-                                                                                                          _model.soundPlayer8 ??= AudioPlayer();
-                                                                                                          if (_model.soundPlayer8!.playing) {
-                                                                                                            await _model.soundPlayer8!.stop();
-                                                                                                          }
-                                                                                                          _model.soundPlayer8!.setVolume(1.0);
-                                                                                                          _model.soundPlayer8!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer8!.play());
+                                                                                                        InkWell(
+                                                                                                          splashColor: Colors.transparent,
+                                                                                                          focusColor: Colors.transparent,
+                                                                                                          hoverColor: Colors.transparent,
+                                                                                                          highlightColor: Colors.transparent,
+                                                                                                          onTap: () async {
+                                                                                                            logFirebaseEvent('A_I_SOUNDSCAPES_COPY_COPY_COPY_Container');
+                                                                                                            logFirebaseEvent('Container_haptic_feedback');
+                                                                                                            HapticFeedback.lightImpact();
+                                                                                                            logFirebaseEvent('Container_play_sound');
+                                                                                                            _model.soundPlayer7 ??= AudioPlayer();
+                                                                                                            if (_model.soundPlayer7!.playing) {
+                                                                                                              await _model.soundPlayer7!.stop();
+                                                                                                            }
+                                                                                                            _model.soundPlayer7!.setVolume(1.0);
+                                                                                                            _model.soundPlayer7!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer7!.play());
 
-                                                                                                          logFirebaseEvent('Container_navigate_to');
+                                                                                                            logFirebaseEvent('Container_navigate_to');
 
-                                                                                                          context.pushNamed(
-                                                                                                            $that_audio_player_oo85ab.PlayerPageSleepWidget.routeName,
-                                                                                                            extra: <String, dynamic>{
-                                                                                                              '__transition_info__that_audio_player_oo85ab': TransitionInfo(
-                                                                                                                hasTransition: true,
-                                                                                                                transitionType: PageTransitionType.fade,
-                                                                                                                duration: Duration(milliseconds: 9),
+                                                                                                            context.pushNamed(
+                                                                                                              $that_audio_player_oo85ab.PlayerPageMusicMediationsWidget.routeName,
+                                                                                                              extra: <String, dynamic>{
+                                                                                                                '__transition_info__that_audio_player_oo85ab': TransitionInfo(
+                                                                                                                  hasTransition: true,
+                                                                                                                  transitionType: PageTransitionType.fade,
+                                                                                                                  duration: Duration(milliseconds: 9),
+                                                                                                                ),
+                                                                                                              },
+                                                                                                            );
+                                                                                                          },
+                                                                                                          child: Container(
+                                                                                                            width: 355.3,
+                                                                                                            height: 153.6,
+                                                                                                            decoration: BoxDecoration(
+                                                                                                              image: DecorationImage(
+                                                                                                                fit: BoxFit.cover,
+                                                                                                                image: Image.asset(
+                                                                                                                  'assets/images/Container_(4).png',
+                                                                                                                ).image,
                                                                                                               ),
-                                                                                                            },
-                                                                                                          );
-                                                                                                        },
-                                                                                                        child: Container(
-                                                                                                          width: 355.3,
-                                                                                                          height: 153.6,
-                                                                                                          decoration: BoxDecoration(
-                                                                                                            image: DecorationImage(
-                                                                                                              fit: BoxFit.cover,
-                                                                                                              image: Image.asset(
-                                                                                                                'assets/images/Container_(4).png',
-                                                                                                              ).image,
+                                                                                                              borderRadius: BorderRadius.circular(16.0),
                                                                                                             ),
-                                                                                                            borderRadius: BorderRadius.circular(16.0),
-                                                                                                          ),
-                                                                                                          child: Stack(
-                                                                                                            children: [
-                                                                                                              ClipRRect(
-                                                                                                                borderRadius: BorderRadius.circular(8.0),
-                                                                                                                child: Image.asset(
-                                                                                                                  'assets/images/Container_(11).png',
-                                                                                                                  width: 351.39,
-                                                                                                                  height: 200.0,
-                                                                                                                  fit: BoxFit.cover,
+                                                                                                            child: Stack(
+                                                                                                              children: [
+                                                                                                                ClipRRect(
+                                                                                                                  borderRadius: BorderRadius.circular(8.0),
+                                                                                                                  child: Image.asset(
+                                                                                                                    'assets/images/Container_(10).png',
+                                                                                                                    width: 348.98,
+                                                                                                                    height: 200.0,
+                                                                                                                    fit: BoxFit.cover,
+                                                                                                                  ),
                                                                                                                 ),
-                                                                                                              ),
-                                                                                                              Padding(
-                                                                                                                padding: EdgeInsets.all(25.0),
-                                                                                                                child: Row(
-                                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                                                  children: [
-                                                                                                                    Flexible(
-                                                                                                                      flex: 1,
-                                                                                                                      child: Column(
-                                                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                        children: [
-                                                                                                                          Text(
-                                                                                                                            FFLocalizations.of(context).getText(
-                                                                                                                              '5nazp7yc' /* Sleep */,
+                                                                                                                Padding(
+                                                                                                                  padding: EdgeInsets.all(25.0),
+                                                                                                                  child: Row(
+                                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                                                    children: [
+                                                                                                                      Flexible(
+                                                                                                                        flex: 1,
+                                                                                                                        child: Column(
+                                                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                          children: [
+                                                                                                                            Text(
+                                                                                                                              FFLocalizations.of(context).getText(
+                                                                                                                                '2xatdqq3' /* Energize */,
+                                                                                                                              ),
+                                                                                                                              style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                                                                    fontFamily: 'WorkSans',
+                                                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                                    fontSize: 24.0,
+                                                                                                                                    letterSpacing: 0.0,
+                                                                                                                                  ),
                                                                                                                             ),
-                                                                                                                            style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                                                  fontFamily: 'WorkSans',
-                                                                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                                                  fontSize: 24.0,
-                                                                                                                                  letterSpacing: 0.0,
+                                                                                                                            Flexible(
+                                                                                                                              flex: 1,
+                                                                                                                              child: Padding(
+                                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 8.0, 0.0),
+                                                                                                                                child: Text(
+                                                                                                                                  FFLocalizations.of(context).getText(
+                                                                                                                                    '4o6g68vn' /* Uplift your spirit with vibran... */,
+                                                                                                                                  ),
+                                                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                                                        fontFamily: 'WorkSans',
+                                                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                                        fontSize: 14.0,
+                                                                                                                                        letterSpacing: 0.0,
+                                                                                                                                      ),
                                                                                                                                 ),
-                                                                                                                          ),
-                                                                                                                          Flexible(
-                                                                                                                            flex: 1,
-                                                                                                                            child: Padding(
-                                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 8.0, 0.0),
-                                                                                                                              child: Text(
-                                                                                                                                FFLocalizations.of(context).getText(
-                                                                                                                                  'lw6db0z6' /* Drift into peaceful slumber wi... */,
-                                                                                                                                ),
-                                                                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                                                      fontFamily: 'WorkSans',
-                                                                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                                                      fontSize: 14.0,
-                                                                                                                                      letterSpacing: 0.0,
-                                                                                                                                    ),
                                                                                                                               ),
                                                                                                                             ),
-                                                                                                                          ),
-                                                                                                                        ],
-                                                                                                                      ),
-                                                                                                                    ),
-                                                                                                                    Container(
-                                                                                                                      width: 48.3,
-                                                                                                                      height: 48.3,
-                                                                                                                      decoration: BoxDecoration(
-                                                                                                                        gradient: LinearGradient(
-                                                                                                                          colors: [
-                                                                                                                            FlutterFlowTheme.of(context).primary,
-                                                                                                                            FlutterFlowTheme.of(context).secondary
                                                                                                                           ],
-                                                                                                                          stops: [0.0, 1.0],
-                                                                                                                          begin: AlignmentDirectional(0.0, -1.0),
-                                                                                                                          end: AlignmentDirectional(0, 1.0),
                                                                                                                         ),
-                                                                                                                        shape: BoxShape.circle,
                                                                                                                       ),
-                                                                                                                      child: Icon(
-                                                                                                                        Icons.chevron_right,
-                                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                                        size: 20.0,
+                                                                                                                      Container(
+                                                                                                                        width: 48.33,
+                                                                                                                        height: 48.33,
+                                                                                                                        decoration: BoxDecoration(
+                                                                                                                          gradient: LinearGradient(
+                                                                                                                            colors: [
+                                                                                                                              FlutterFlowTheme.of(context).primary,
+                                                                                                                              FlutterFlowTheme.of(context).secondary
+                                                                                                                            ],
+                                                                                                                            stops: [0.0, 1.0],
+                                                                                                                            begin: AlignmentDirectional(0.0, -1.0),
+                                                                                                                            end: AlignmentDirectional(0, 1.0),
+                                                                                                                          ),
+                                                                                                                          shape: BoxShape.circle,
+                                                                                                                        ),
+                                                                                                                        child: Icon(
+                                                                                                                          Icons.chevron_right,
+                                                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                          size: 20.0,
+                                                                                                                        ),
                                                                                                                       ),
-                                                                                                                    ),
-                                                                                                                  ],
+                                                                                                                    ],
+                                                                                                                  ),
                                                                                                                 ),
-                                                                                                              ),
-                                                                                                            ],
+                                                                                                              ],
+                                                                                                            ),
                                                                                                           ),
                                                                                                         ),
-                                                                                                      ),
-                                                                                                    ].divide(SizedBox(height: 12.0)),
+                                                                                                        InkWell(
+                                                                                                          splashColor: Colors.transparent,
+                                                                                                          focusColor: Colors.transparent,
+                                                                                                          hoverColor: Colors.transparent,
+                                                                                                          highlightColor: Colors.transparent,
+                                                                                                          onTap: () async {
+                                                                                                            logFirebaseEvent('A_I_SOUNDSCAPES_COPY_COPY_COPY_Container');
+                                                                                                            logFirebaseEvent('Container_haptic_feedback');
+                                                                                                            HapticFeedback.lightImpact();
+                                                                                                            logFirebaseEvent('Container_play_sound');
+                                                                                                            _model.soundPlayer8 ??= AudioPlayer();
+                                                                                                            if (_model.soundPlayer8!.playing) {
+                                                                                                              await _model.soundPlayer8!.stop();
+                                                                                                            }
+                                                                                                            _model.soundPlayer8!.setVolume(1.0);
+                                                                                                            _model.soundPlayer8!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer8!.play());
+
+                                                                                                            logFirebaseEvent('Container_navigate_to');
+
+                                                                                                            context.pushNamed(
+                                                                                                              $that_audio_player_oo85ab.PlayerPageSleepWidget.routeName,
+                                                                                                              extra: <String, dynamic>{
+                                                                                                                '__transition_info__that_audio_player_oo85ab': TransitionInfo(
+                                                                                                                  hasTransition: true,
+                                                                                                                  transitionType: PageTransitionType.fade,
+                                                                                                                  duration: Duration(milliseconds: 9),
+                                                                                                                ),
+                                                                                                              },
+                                                                                                            );
+                                                                                                          },
+                                                                                                          child: Container(
+                                                                                                            width: 355.3,
+                                                                                                            height: 153.6,
+                                                                                                            decoration: BoxDecoration(
+                                                                                                              image: DecorationImage(
+                                                                                                                fit: BoxFit.cover,
+                                                                                                                image: Image.asset(
+                                                                                                                  'assets/images/Container_(4).png',
+                                                                                                                ).image,
+                                                                                                              ),
+                                                                                                              borderRadius: BorderRadius.circular(16.0),
+                                                                                                            ),
+                                                                                                            child: Stack(
+                                                                                                              children: [
+                                                                                                                ClipRRect(
+                                                                                                                  borderRadius: BorderRadius.circular(8.0),
+                                                                                                                  child: Image.asset(
+                                                                                                                    'assets/images/Container_(11).png',
+                                                                                                                    width: 351.39,
+                                                                                                                    height: 200.0,
+                                                                                                                    fit: BoxFit.cover,
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                                Padding(
+                                                                                                                  padding: EdgeInsets.all(25.0),
+                                                                                                                  child: Row(
+                                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                                                    children: [
+                                                                                                                      Flexible(
+                                                                                                                        flex: 1,
+                                                                                                                        child: Column(
+                                                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                          children: [
+                                                                                                                            Text(
+                                                                                                                              FFLocalizations.of(context).getText(
+                                                                                                                                '5nazp7yc' /* Sleep */,
+                                                                                                                              ),
+                                                                                                                              style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                                                                    fontFamily: 'WorkSans',
+                                                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                                    fontSize: 24.0,
+                                                                                                                                    letterSpacing: 0.0,
+                                                                                                                                  ),
+                                                                                                                            ),
+                                                                                                                            Flexible(
+                                                                                                                              flex: 1,
+                                                                                                                              child: Padding(
+                                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 8.0, 0.0),
+                                                                                                                                child: Text(
+                                                                                                                                  FFLocalizations.of(context).getText(
+                                                                                                                                    'lw6db0z6' /* Drift into peaceful slumber wi... */,
+                                                                                                                                  ),
+                                                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                                                        fontFamily: 'WorkSans',
+                                                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                                        fontSize: 14.0,
+                                                                                                                                        letterSpacing: 0.0,
+                                                                                                                                      ),
+                                                                                                                                ),
+                                                                                                                              ),
+                                                                                                                            ),
+                                                                                                                          ],
+                                                                                                                        ),
+                                                                                                                      ),
+                                                                                                                      Container(
+                                                                                                                        width: 48.3,
+                                                                                                                        height: 48.3,
+                                                                                                                        decoration: BoxDecoration(
+                                                                                                                          gradient: LinearGradient(
+                                                                                                                            colors: [
+                                                                                                                              FlutterFlowTheme.of(context).primary,
+                                                                                                                              FlutterFlowTheme.of(context).secondary
+                                                                                                                            ],
+                                                                                                                            stops: [0.0, 1.0],
+                                                                                                                            begin: AlignmentDirectional(0.0, -1.0),
+                                                                                                                            end: AlignmentDirectional(0, 1.0),
+                                                                                                                          ),
+                                                                                                                          shape: BoxShape.circle,
+                                                                                                                        ),
+                                                                                                                        child: Icon(
+                                                                                                                          Icons.chevron_right,
+                                                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                          size: 20.0,
+                                                                                                                        ),
+                                                                                                                      ),
+                                                                                                                    ],
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                              ],
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                      ].divide(SizedBox(height: 12.0)),
+                                                                                                    ),
                                                                                                   ),
                                                                                                 ),
                                                                                               ].divide(SizedBox(height: 16.0)),
@@ -1747,12 +1746,6 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageMusicMediationsWidget.routeName,
-                                                                                                                      queryParameters: {
-                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
-                                                                                                                          musicTabItem,
-                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
-                                                                                                                        ),
-                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
@@ -1773,12 +1766,6 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageMusicMediationsWidget.routeName,
-                                                                                                                      queryParameters: {
-                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
-                                                                                                                          musicTabItem,
-                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
-                                                                                                                        ),
-                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
@@ -1888,7 +1875,7 @@ am... */
                                                                                           flex: 1,
                                                                                           child: SingleChildScrollView(
                                                                                             primary: false,
-                                                                                            controller: _model.columnController4,
+                                                                                            controller: _model.columnController5,
                                                                                             child: Column(
                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -2313,12 +2300,6 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageNatureWidget.routeName,
-                                                                                                                      queryParameters: {
-                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
-                                                                                                                          allTabItem,
-                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
-                                                                                                                        ),
-                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
@@ -2339,12 +2320,6 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageNatureWidget.routeName,
-                                                                                                                      queryParameters: {
-                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
-                                                                                                                          allTabItem,
-                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
-                                                                                                                        ),
-                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
@@ -2453,7 +2428,7 @@ am... */
                                                                                           flex: 1,
                                                                                           child: SingleChildScrollView(
                                                                                             primary: false,
-                                                                                            controller: _model.columnController5,
+                                                                                            controller: _model.columnController6,
                                                                                             child: Column(
                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -2753,12 +2728,6 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageFocusWidget.routeName,
-                                                                                                                      queryParameters: {
-                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
-                                                                                                                          allTabItem,
-                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
-                                                                                                                        ),
-                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
@@ -2779,12 +2748,6 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageFocusWidget.routeName,
-                                                                                                                      queryParameters: {
-                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
-                                                                                                                          allTabItem,
-                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
-                                                                                                                        ),
-                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
@@ -2894,7 +2857,7 @@ am... */
                                                                                           flex: 1,
                                                                                           child: SingleChildScrollView(
                                                                                             primary: false,
-                                                                                            controller: _model.columnController6,
+                                                                                            controller: _model.columnController7,
                                                                                             child: Column(
                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -3362,12 +3325,6 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageSleepWidget.routeName,
-                                                                                                                      queryParameters: {
-                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
-                                                                                                                          allTabItem,
-                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
-                                                                                                                        ),
-                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
@@ -3388,12 +3345,6 @@ am... */
 
                                                                                                                     context.pushNamed(
                                                                                                                       $that_audio_player_oo85ab.PlayerPageSleepWidget.routeName,
-                                                                                                                      queryParameters: {
-                                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
-                                                                                                                          allTabItem,
-                                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
-                                                                                                                        ),
-                                                                                                                      }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
                                                                                                                         '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                           hasTransition: true,
@@ -3503,7 +3454,7 @@ am... */
                                                                                           flex: 1,
                                                                                           child: SingleChildScrollView(
                                                                                             primary: false,
-                                                                                            controller: _model.columnController7,
+                                                                                            controller: _model.columnController8,
                                                                                             child: Column(
                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                               crossAxisAlignment: CrossAxisAlignment.start,

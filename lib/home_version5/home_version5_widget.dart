@@ -148,14 +148,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
       );
 
       if (FFAppState().isFinishedIntroWalkthrough == false) {
-        logFirebaseEvent('HomeVersion5_backend_call');
-
-        await currentUserReference!.update(createUsersRecordData(
-          hasSeenWalkthrough: true,
-        ));
         logFirebaseEvent('HomeVersion5_update_app_state');
-        FFAppState().isFinishedIntroWalkthrough = true;
-        FFAppState().update(() {});
       } else {
         logFirebaseEvent('HomeVersion5_show_snack_bar');
         ScaffoldMessenger.of(context).showSnackBar(
@@ -1057,9 +1050,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                   ),
                                                                                                 ),
                                                                                                 Text(
-                                                                                                  FFLocalizations.of(context).getText(
-                                                                                                    'dgxsq5zc' /* Learning Self-Care Basics */,
-                                                                                                  ),
+                                                                                                  valueOrDefault(currentUserDocument?.currentMood, 'Learning Self-Care Basics'),
                                                                                                   style: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                                         fontFamily: 'WorkSans',
                                                                                                         color: FlutterFlowTheme.of(context).primaryText,
@@ -1145,7 +1136,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                               borderRadius: BorderRadius.circular(2.0),
                                                                                             ),
                                                                                             child: LinearPercentIndicator(
-                                                                                              percent: FFAppState().pointsEarned.toDouble(),
+                                                                                              percent: (FFAppState().pointsEarned.toDouble() / 1000).clamp(0.0, 1.0),
                                                                                               width: 120.0,
                                                                                               lineHeight: 12.0,
                                                                                               animation: true,

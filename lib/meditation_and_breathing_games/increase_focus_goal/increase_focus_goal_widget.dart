@@ -15,7 +15,7 @@ class IncreaseFocusGoalWidget extends StatefulWidget {
   const IncreaseFocusGoalWidget({super.key});
 
   static String routeName = 'IncreaseFocusGoal';
-  static String routePath = 'increaseFocusGoal';
+  static String routePath = '/increaseFocusGoal';
 
   @override
   State<IncreaseFocusGoalWidget> createState() =>

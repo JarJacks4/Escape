@@ -19,7 +19,7 @@ class NotificationsScreenWidget extends StatefulWidget {
   const NotificationsScreenWidget({super.key});
 
   static String routeName = 'notificationsScreen';
-  static String routePath = 'notificationsScreen';
+  static String routePath = '/notificationsScreen';
 
   @override
   State<NotificationsScreenWidget> createState() =>

@@ -22,7 +22,7 @@ class ConfettiRewardBasicWidget extends StatefulWidget {
   const ConfettiRewardBasicWidget({super.key});
 
   static String routeName = 'ConfettiRewardBasic';
-  static String routePath = 'confettiRewardBasic';
+  static String routePath = '/confettiRewardBasic';
 
   @override
   State<ConfettiRewardBasicWidget> createState() =>

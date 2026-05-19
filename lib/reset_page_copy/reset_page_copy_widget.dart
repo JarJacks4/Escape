@@ -10,7 +10,7 @@ class ResetPageCopyWidget extends StatefulWidget {
   const ResetPageCopyWidget({super.key});
 
   static String routeName = 'ResetPageCopy';
-  static String routePath = 'resetPageCopy';
+  static String routePath = '/resetPageCopy';
 
   @override
   State<ResetPageCopyWidget> createState() => _ResetPageCopyWidgetState();

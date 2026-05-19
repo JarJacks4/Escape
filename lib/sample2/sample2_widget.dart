@@ -9,7 +9,7 @@ class Sample2Widget extends StatefulWidget {
   const Sample2Widget({super.key});
 
   static String routeName = 'sample2';
-  static String routePath = 'sample2';
+  static String routePath = '/sample2';
 
   @override
   State<Sample2Widget> createState() => _Sample2WidgetState();
