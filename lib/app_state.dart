@@ -31,6 +31,7 @@ class FFAppState extends ChangeNotifier {
     await _safeInitAsync(() async {
       _chatSessionId =
           await secureStorage.getString('ff_chatSessionId') ?? _chatSessionId;
+      _chatSessionId = '';
     });
     await _safeInitAsync(() async {
       _ProfilePicture =

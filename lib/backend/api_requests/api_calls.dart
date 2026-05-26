@@ -33,6 +33,7 @@ class LucilleChatMainCall {
     String? message = 'Hey Lucille!',
     String? sessionId = '',
     String? userId = '',
+    String? imageUrl = '', 
     String? fireBaseIDToken =
         '680ff8a48348fa9ba697c70ed9e4d1e15edd755b9853cf864203b41ac050652f',
     String? firebaseIDToken = '',
@@ -46,7 +47,8 @@ class LucilleChatMainCall {
   "message": "${message}",
   "session_id": "${sessionId}",
   "firebaseIDToken": "${firebaseIDToken}",
-  "user_id": "${userId}"
+  "user_id": "${userId}",
+  "image_url": "${imageUrl}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Lucille Chat Main',

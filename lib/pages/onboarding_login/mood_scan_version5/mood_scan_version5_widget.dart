@@ -647,7 +647,8 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                           .hideCurrentSnackBar();
                                                       logFirebaseEvent(
                                                           'Button_backend_call');
-                                                      debugPrint('uploadedFileUrl_mdPhoto: \${_model.uploadedFileUrl_mdPhoto}');
+                                                      debugPrint(
+                                                          'uploadedFileUrl_mdPhoto: \${_model.uploadedFileUrl_mdPhoto}');
                                                       final results =
                                                           await Future.wait([
                                                         TheoryOfMindLucilleGroup
@@ -659,6 +660,8 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                               .chatSessionId,
                                                           userId:
                                                               currentUserUid,
+                                                          imageUrl: _model
+                                                              .uploadedFileUrl_mdPhoto,
                                                         ),
                                                         TheoryOfMindLucilleGroup
                                                             .lucilleChatMainCall
@@ -669,6 +672,8 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                               .chatSessionId,
                                                           userId:
                                                               currentUserUid,
+                                                          imageUrl: _model
+                                                              .uploadedFileUrl_mdPhoto,
                                                         ),
                                                         TheoryOfMindLucilleGroup
                                                             .lucilleChatMainCall
@@ -679,6 +684,8 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                               .chatSessionId,
                                                           userId:
                                                               currentUserUid,
+                                                          imageUrl: _model
+                                                              .uploadedFileUrl_mdPhoto,
                                                         ),
                                                       ]);
                                                       _model.moodScan =
@@ -692,6 +699,8 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                           'moodScan statusCode: ${_model.moodScan?.statusCode}');
                                                       debugPrint(
                                                           'moodScan jsonBody: ${_model.moodScan?.jsonBody}');
+                                                      debugPrint(
+                                                          'model_used: ${getJsonField(_model.moodScan?.jsonBody, r"$.model_used")}');
                                                       debugPrint(
                                                           'stressLevel jsonBody: ${_model.stressLevel?.jsonBody}');
                                                       debugPrint(
@@ -716,20 +725,24 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                         await currentUserReference!
                                                             .set(
                                                                 createUsersRecordData(
-                                                          currentMood:
-                                                              TheoryOfMindLucilleGroup
-                                                                  .lucilleChatMainCall
-                                                                  .response(
-                                                            (_model.moodScan
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ),
-                                                          timeStamp:
-                                                              getCurrentTimestamp,
-                                                          createdTime:
-                                                              getCurrentTimestamp,
-                                                          uid: currentUserUid,
-                                                        ), SetOptions(merge: true));
+                                                                  currentMood:
+                                                                      TheoryOfMindLucilleGroup
+                                                                          .lucilleChatMainCall
+                                                                          .response(
+                                                                    (_model.moodScan
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  ),
+                                                                  timeStamp:
+                                                                      getCurrentTimestamp,
+                                                                  createdTime:
+                                                                      getCurrentTimestamp,
+                                                                  uid:
+                                                                      currentUserUid,
+                                                                ),
+                                                                SetOptions(
+                                                                    merge:
+                                                                        true));
                                                       } catch (e) {
                                                         debugPrint(
                                                             'Firestore update skipped: $e');
