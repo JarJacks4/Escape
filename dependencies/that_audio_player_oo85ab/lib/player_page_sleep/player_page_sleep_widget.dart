@@ -76,6 +76,8 @@ class _PlayerPageSleepWidgetState extends State<PlayerPageSleepWidget>
 
   @override
   void dispose() {
+    FFAppState().isThatAudioPlayerPlaying = false;
+    actions.pauseAudio();
     _model.dispose();
 
     super.dispose();

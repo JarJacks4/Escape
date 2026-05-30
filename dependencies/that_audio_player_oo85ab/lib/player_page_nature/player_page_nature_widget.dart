@@ -76,6 +76,8 @@ class _PlayerPageNatureWidgetState extends State<PlayerPageNatureWidget>
 
   @override
   void dispose() {
+    FFAppState().isThatAudioPlayerPlaying = false;
+    actions.pauseAudio();
     _model.dispose();
 
     super.dispose();

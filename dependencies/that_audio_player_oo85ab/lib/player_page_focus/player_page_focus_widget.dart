@@ -63,6 +63,8 @@ class _PlayerPageFocusWidgetState extends State<PlayerPageFocusWidget>
 
   @override
   void dispose() {
+    FFAppState().isThatAudioPlayerPlaying = false;
+    actions.pauseAudio();
     _model.dispose();
 
     super.dispose();

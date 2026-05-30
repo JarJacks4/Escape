@@ -296,8 +296,8 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                   return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
                                 }
                               }(),
-                              width: 409.6,
-                              height: 876.8,
+                              width: double.infinity,
+                              height: MediaQuery.sizeOf(context).height,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -306,7 +306,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
                       ),
                       Container(
                         width: double.infinity,
-                        height: 877.6,
+                        height: MediaQuery.sizeOf(context).height,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
@@ -319,8 +319,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
                             end: AlignmentDirectional(-1.0, 0.98),
                           ),
                         ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(0.0),
+                        
                           child: BackdropFilter(
                             filter: ImageFilter.blur(
                               sigmaX: 5.0,
@@ -366,8 +365,10 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                     }(),
                                                     'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9',
                                                   ),
-                                                  width: 409.6,
-                                                  height: 924.8,
+                                                  width: double.infinity,
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                          .height,
                                                   fit: BoxFit.cover,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -388,7 +389,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                                 0.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
-                                                      height: 908.8,
+                                                      height: MediaQuery.sizeOf(context).height,
                                                       decoration: BoxDecoration(
                                                         gradient:
                                                             LinearGradient(
@@ -411,9 +412,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  25.0),
+                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 25.0, 5.0, 25.0),
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -3825,7 +3824,6 @@ am... */
                             ),
                           ),
                         ),
-                      ),
                     ],
                   ),
                 ],

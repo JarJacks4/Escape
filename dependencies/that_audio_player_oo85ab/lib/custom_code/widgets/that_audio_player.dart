@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'dart:async';
 import 'package:just_audio/just_audio.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 
@@ -22,6 +23,15 @@ class ThatAudioPlayerState {
   Duration _currentPosition = Duration.zero;
   Duration _totalDuration = Duration.zero;
   List<MediaStruct> _playlist = List.empty();
+
+  StreamSubscription? _currentIndexSubscription;
+  StreamSubscription? _positionSubscription;
+  StreamSubscription? _durationSubscription;
+  StreamSubscription? _playerStateSubscription;
+  StreamSubscription? _volumeSubscription;
+  StreamSubscription? _bufferedPositionSubscription;
+  StreamSubscription? _loopModeSubscription;
+  StreamSubscription? _shuffleModeSubscription;
 
   /// **Private Constructor for Singleton**
   ThatAudioPlayerState._privateConstructor();
@@ -38,6 +48,16 @@ class ThatAudioPlayerState {
       {List<MediaStruct>? playlist,
       MediaStruct? singleAudio,
       int? initialIndex}) async {
+    // Cancel all existing subscriptions
+    await _currentIndexSubscription?.cancel();
+    await _positionSubscription?.cancel();
+    await _durationSubscription?.cancel();
+    await _playerStateSubscription?.cancel();
+    await _volumeSubscription?.cancel();
+    await _bufferedPositionSubscription?.cancel();
+    await _loopModeSubscription?.cancel();
+    await _shuffleModeSubscription?.cancel();
+
     if (playlist != null && playlist.isNotEmpty) {
       _playlist = playlist;
       FFAppState().update(() => FFAppState().isMiniPlayerVisible = true);
@@ -53,6 +73,10 @@ class ThatAudioPlayerState {
                 .toList(),
           ),
           initialIndex: initialIndex);
+      if (initialIndex != null && initialIndex < playlist.length) {
+        FFAppState()
+            .update(() => FFAppState().currentMedia = playlist[initialIndex]);
+      }
     } else if (singleAudio != null) {
       FFAppState().update(() {
         FFAppState().currentMedia = singleAudio;
@@ -67,7 +91,7 @@ class ThatAudioPlayerState {
               artUri: Uri.parse(singleAudio.mediaBanner))));
     }
 
-    _audioPlayer.currentIndexStream.listen((index) {
+    _currentIndexSubscription = _audioPlayer.currentIndexStream.listen((index) {
       if (index != null) {
         _currentIndex = index;
         FFAppState().update(() {
@@ -78,38 +102,40 @@ class ThatAudioPlayerState {
       }
     });
 
-    _audioPlayer.positionStream.listen((position) {
+    _positionSubscription = _audioPlayer.positionStream.listen((position) {
       FFAppState().update(() => FFAppState().currentPositionOfAudioInSeconds =
           position.inSeconds.toDouble());
       _currentPosition = position;
     });
 
-    _audioPlayer.durationStream.listen((duration) {
+    _durationSubscription = _audioPlayer.durationStream.listen((duration) {
       FFAppState().update(() => FFAppState().totalDurationOfAudioInSeconds =
           duration?.inSeconds.toDouble() ?? Duration.zero.inSeconds.toDouble());
       _totalDuration = duration ?? Duration.zero;
     });
 
-    _audioPlayer.playerStateStream.listen((state) {
+    _playerStateSubscription = _audioPlayer.playerStateStream.listen((state) {
       FFAppState()
           .update(() => FFAppState().isThatAudioPlayerPlaying = state.playing);
       _isPlaying = state.playing;
     });
 
-    _audioPlayer.volumeStream.listen((volume) {
+    _volumeSubscription = _audioPlayer.volumeStream.listen((volume) {
       FFAppState().update(() => FFAppState().currentAudioVolume = volume);
     });
 
-    _audioPlayer.bufferedPositionStream.listen((bufferredPosition) {
+    _bufferedPositionSubscription =
+        _audioPlayer.bufferedPositionStream.listen((bufferredPosition) {
       FFAppState().update(() => FFAppState().audioBufferedPosition =
           bufferredPosition.inSeconds.toDouble());
     });
 
-    _audioPlayer.loopModeStream.listen((loopMode) {
+    _loopModeSubscription = _audioPlayer.loopModeStream.listen((loopMode) {
       FFAppState().update(() => FFAppState().loopMode = loopMode.name);
     });
 
-    _audioPlayer.shuffleModeEnabledStream.listen((shuffleMode) {
+    _shuffleModeSubscription =
+        _audioPlayer.shuffleModeEnabledStream.listen((shuffleMode) {
       FFAppState()
           .update(() => FFAppState().isThatAudioPlayerShuffling = shuffleMode);
       _isShuffling = shuffleMode;

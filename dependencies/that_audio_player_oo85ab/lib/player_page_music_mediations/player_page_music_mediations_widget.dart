@@ -78,6 +78,8 @@ class _PlayerPageMusicMediationsWidgetState
 
   @override
   void dispose() {
+    FFAppState().isThatAudioPlayerPlaying = false;
+    actions.pauseAudio();
     _model.dispose();
 
     super.dispose();

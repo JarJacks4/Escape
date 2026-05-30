@@ -83,6 +83,8 @@ class _PlayerPageFINALAllTabWidgetState
 
   @override
   void dispose() {
+    FFAppState().isThatAudioPlayerPlaying = false;
+    actions.pauseAudio();
     _model.dispose();
 
     super.dispose();
