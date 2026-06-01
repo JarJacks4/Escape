@@ -49,6 +49,10 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
     super.initState();
     _model = createModel(context, () => ProfileVersion5Model());
 
+    _model.newProfilePic = FFAppState().ProfilePicture.isNotEmpty
+      ? FFAppState().ProfilePicture
+      : currentUserPhoto;
+
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ProfileVersion5'});
   }
@@ -250,7 +254,7 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                 alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Hero(
-                                                  tag: _model.newProfilePic!,
+                                                  tag: 'profile_pic_hero',
                                                   transitionOnUserGestures:
                                                       true,
                                                   child: ClipRRect(
