@@ -397,35 +397,9 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                                 photoUrl:
                                                     FFAppState().ProfilePicture,
                                               ));
-                                              if (FFAppState().ProfilePicture ==
-                                                  '') {
-                                                logFirebaseEvent(
-                                                    'Icon_show_snack_bar');
-                                                ScaffoldMessenger.of(context)
-                                                    .showSnackBar(
-                                                  SnackBar(
-                                                    content: Text(
-                                                      'Profile Picture Uploaded!',
-                                                      style: TextStyle(
-                                                        fontFamily: 'WorkSans',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontSize: 16.0,
-                                                      ),
-                                                    ),
-                                                    duration: Duration(
-                                                        milliseconds: 4000),
-                                                    backgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .accent1,
-                                                  ),
-                                                );
-                                              } else if (currentUserPhoto != '') {
+                                              if (FFAppState()
+                                                  .ProfilePicture
+                                                  .isNotEmpty) {
                                                 logFirebaseEvent(
                                                     'Icon_show_snack_bar');
                                                 ScaffoldMessenger.of(context)
@@ -592,30 +566,9 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                         .update(createUsersRecordData(
                                       photoUrl: FFAppState().ProfilePicture,
                                     ));
-                                    if (FFAppState().ProfilePicture == '') {
-                                      logFirebaseEvent('Text_show_snack_bar');
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'Profile Picture Uploaded!',
-                                            style: TextStyle(
-                                              fontFamily: 'WorkSans',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: 16.0,
-                                            ),
-                                          ),
-                                          duration:
-                                              Duration(milliseconds: 4000),
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .accent1,
-                                        ),
-                                      );
-                                    } else if (currentUserPhoto != '') {
+                                    if (FFAppState()
+                                        .ProfilePicture
+                                        .isNotEmpty) {
                                       logFirebaseEvent('Text_show_snack_bar');
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
@@ -2083,8 +2036,8 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                   Switch(
                                     value: _model.switchValue1!,
                                     onChanged: (newValue) async {
-                                      safeSetState(() =>
-                                          _model.switchValue1 = newValue);
+                                      safeSetState(
+                                          () => _model.switchValue1 = newValue);
                                       if (newValue) {
                                         logFirebaseEvent(
                                             'EDIT_PROFILE_VERSION5_Switch_1ktyvdch_ON');
@@ -2199,8 +2152,8 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                   Switch(
                                     value: _model.switchValue2!,
                                     onChanged: (newValue) async {
-                                      safeSetState(() =>
-                                          _model.switchValue2 = newValue);
+                                      safeSetState(
+                                          () => _model.switchValue2 = newValue);
                                       if (newValue) {
                                         logFirebaseEvent(
                                             'EDIT_PROFILE_VERSION5_Switch_mr5b0ci7_ON');
@@ -2307,25 +2260,37 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
 
                         await currentUserReference!
                             .update(createUsersRecordData(
-                          email: _model.editEmailTextController.text,
-                          displayName: _model.textController1.text,
+                          email: _model.editEmailTextController.text.isNotEmpty
+                              ? _model.editEmailTextController.text
+                              : null,
+                          displayName: _model.textController1.text.isNotEmpty
+                              ? _model.textController1.text
+                              : null,
                           photoUrl: FFAppState().ProfilePicture,
                           favoriteTimeToMeditate: _model.datePicked,
                         ));
                         logFirebaseEvent('Button_auth');
-                        await authManager.updatePassword(
-                          newPassword: _model.passwordTextController.text,
-                          context: context,
-                        );
+                        if (_model.passwordTextController.text.isNotEmpty) {
+                          try {
+                            await authManager.updatePassword(
+                              newPassword: _model.passwordTextController.text,
+                              context: context,
+                            );
+                          } catch (e) {
+                            print('Password update error: $e');
+                          }
+                        }
                         safeSetState(() {});
 
                         logFirebaseEvent('Button_update_app_state');
-                        FFAppState().preferredSessionLength =
-                            _model.choiceChipsValue!;
-                        FFAppState().TimeOfDayToMeditate =
-                            _model.dropDownValue!;
-                        FFAppState().ProfilePicture =
-                            _model.uploadedFileUrl_uploadPhoto3;
+                        if (_model.choiceChipsValue != null) {
+                          FFAppState().preferredSessionLength =
+                              _model.choiceChipsValue!;
+                        }
+                        if (_model.dropDownValue != null) {
+                          FFAppState().TimeOfDayToMeditate =
+                              _model.dropDownValue!;
+                        }
                         FFAppState().update(() {});
                         logFirebaseEvent('Button_show_snack_bar');
                         ScaffoldMessenger.of(context).showSnackBar(

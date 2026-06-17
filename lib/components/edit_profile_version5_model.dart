@@ -35,19 +35,10 @@ class EditProfileVersion5Model
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
   String? _textController1Validator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'uu8y5ifl' /* Display Name is required */,
-      );
-    }
-
-    if (val.length < 9) {
-      return 'Requires at least 9 characters.';
-    }
-    if (val.length > 33) {
+    if (val == null || val.isEmpty) return null;
+    if (val.length < 9) return 'Requires at least 9 characters.';
+    if (val.length > 33)
       return 'Maximum 33 characters allowed, currently ${val.length}.';
-    }
-
     return null;
   }
 
@@ -57,21 +48,12 @@ class EditProfileVersion5Model
   TextEditingController? editEmailTextController;
   String? Function(BuildContext, String?)? editEmailTextControllerValidator;
   String? _editEmailTextControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'bdmg7pdi' /* Email is required */,
-      );
-    }
-
-    if (val.length < 9) {
-      return 'Requires at least 9 characters.';
-    }
-    if (val.length > 22) {
+    if (val == null || val.isEmpty) return null;
+    if (val.length < 9) return 'Requires at least 9 characters.';
+    if (val.length > 22)
       return 'Maximum 22 characters allowed, currently ${val.length}.';
-    }
-    if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
+    if (!RegExp(kTextValidatorEmailRegex).hasMatch(val))
       return 'Has to be a valid email address.';
-    }
     return null;
   }
 
@@ -81,19 +63,10 @@ class EditProfileVersion5Model
   TextEditingController? passwordTextController;
   String? Function(BuildContext, String?)? passwordTextControllerValidator;
   String? _passwordTextControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        't95fgmtz' /* Password is required */,
-      );
-    }
-
-    if (val.length < 9) {
-      return 'Requires at least 9 characters.';
-    }
-    if (val.length > 22) {
+    if (val == null || val.isEmpty) return null;
+    if (val.length < 9) return 'Requires at least 9 characters.';
+    if (val.length > 22)
       return 'Maximum 22 characters allowed, currently ${val.length}.';
-    }
-
     return null;
   }
 
