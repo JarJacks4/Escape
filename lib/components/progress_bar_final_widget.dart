@@ -12,6 +12,7 @@ import 'package:tiktokfeed_wz8en7/app_state.dart'
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'progress_bar_final_model.dart';
@@ -148,11 +149,18 @@ class _ProgressBarFinalWidgetState extends State<ProgressBarFinalWidget>
                       'Jane Doe',
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'The Seasons',
+                          font: GoogleFonts.cormorantSc(
+                            fontWeight: FontWeight.normal,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           fontSize: 16.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
                   ).animateOnPageLoad(
                       animationsMap['textOnPageLoadAnimation']!),
@@ -205,11 +213,19 @@ class _ProgressBarFinalWidgetState extends State<ProgressBarFinalWidget>
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
-                                  fontFamily: 'WorkSans',
+                                  font: GoogleFonts.inter(
+                                    fontWeight: FontWeight.w300,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .fontStyle,
+                                  ),
                                   color: FlutterFlowTheme.of(context).alternate,
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w300,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .fontStyle,
                                 ),
                           ),
                           barRadius: Radius.circular(80.0),

@@ -48,13 +48,10 @@ class _NatureMediationChoiceWidgetState
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: SafeArea(
-          top: true,
-          child: wrapWithModel(
-            model: _model.natureChoiceCompModel,
-            updateCallback: () => safeSetState(() {}),
-            child: NatureChoiceCompWidget(),
-          ),
+        body: wrapWithModel(
+          model: _model.natureChoiceCompModel,
+          updateCallback: () => safeSetState(() {}),
+          child: NatureChoiceCompWidget(),
         ),
       ),
     );

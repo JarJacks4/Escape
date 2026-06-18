@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'solar_plexus_energy_guide_comp_model.dart';
 export 'solar_plexus_energy_guide_comp_model.dart';
 
@@ -43,7 +44,7 @@ class _SolarPlexusEnergyGuideCompWidgetState
         alignment: AlignmentDirectional(0.0, 0.0),
         child: Container(
           width: 300.0,
-          height: 690.23,
+          height: 690.2,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [Color(0xFF9B7CB6), Color(0xFFD4AF37)],
@@ -79,10 +80,18 @@ class _SolarPlexusEnergyGuideCompWidgetState
                           style: FlutterFlowTheme.of(context)
                               .headlineSmall
                               .override(
-                                fontFamily: 'The Seasons',
+                                font: GoogleFonts.cormorantSc(
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .fontStyle,
+                                ),
                                 color: Colors.white,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .fontStyle,
                               ),
                         ),
                         Text(
@@ -91,9 +100,22 @@ class _SolarPlexusEnergyGuideCompWidgetState
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodySmall.override(
-                                    fontFamily: 'The Seasons',
+                                    font: GoogleFonts.cormorantSc(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .fontStyle,
                                   ),
                         ),
                         Text(
@@ -102,9 +124,22 @@ class _SolarPlexusEnergyGuideCompWidgetState
                           ),
                           style:
                               FlutterFlowTheme.of(context).labelSmall.override(
-                                    fontFamily: 'WorkSans',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontStyle,
                                   ),
                         ),
                       ],
@@ -132,17 +167,25 @@ class _SolarPlexusEnergyGuideCompWidgetState
                             style: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .override(
-                                  fontFamily: 'WorkSans',
+                                  font: GoogleFonts.cormorantSc(
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontStyle,
+                                  ),
                                   color: Colors.white,
                                   fontSize: 10.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelSmall
+                                      .fontStyle,
                                 ),
                           ),
                         ),
                       ),
                       Container(
-                        height: 20.13,
+                        height: 20.1,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16.0),
                         ),
@@ -156,11 +199,19 @@ class _SolarPlexusEnergyGuideCompWidgetState
                             style: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .override(
-                                  fontFamily: 'WorkSans',
+                                  font: GoogleFonts.cormorantSc(
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontStyle,
+                                  ),
                                   color: Colors.white,
                                   fontSize: 10.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelSmall
+                                      .fontStyle,
                                 ),
                           ),
                         ),
@@ -186,10 +237,23 @@ class _SolarPlexusEnergyGuideCompWidgetState
                           ),
                           style:
                               FlutterFlowTheme.of(context).labelSmall.override(
-                                    fontFamily: 'WorkSans',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     fontSize: 10.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontStyle,
                                   ),
                         ),
                       ),
@@ -209,10 +273,23 @@ class _SolarPlexusEnergyGuideCompWidgetState
                           ),
                           style:
                               FlutterFlowTheme.of(context).labelSmall.override(
-                                    fontFamily: 'WorkSans',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     fontSize: 10.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontStyle,
                                   ),
                         ),
                       ),
@@ -224,10 +301,19 @@ class _SolarPlexusEnergyGuideCompWidgetState
                     'tmka3p4a' /* The Solar Plexus Chakra is you... */,
                   ),
                   style: FlutterFlowTheme.of(context).bodySmall.override(
-                        fontFamily: 'WorkSans',
+                        font: GoogleFonts.inter(
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                        ),
                         color: Colors.white,
                         fontSize: 12.0,
                         letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodySmall.fontStyle,
                       ),
                 ),
                 Padding(
@@ -237,10 +323,18 @@ class _SolarPlexusEnergyGuideCompWidgetState
                       'non0pkbp' /* KEY PRACTICES */,
                     ),
                     style: FlutterFlowTheme.of(context).labelMedium.override(
-                          fontFamily: 'WorkSans',
+                          font: GoogleFonts.cormorantSc(
+                            fontWeight: FontWeight.w600,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .fontStyle,
+                          ),
                           color: Colors.white,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontStyle,
                         ),
                   ),
                 ),
@@ -262,10 +356,23 @@ class _SolarPlexusEnergyGuideCompWidgetState
                           ),
                           style:
                               FlutterFlowTheme.of(context).labelSmall.override(
-                                    fontFamily: 'WorkSans',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     fontSize: 10.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontStyle,
                                   ),
                         ),
                       ),
@@ -285,10 +392,23 @@ class _SolarPlexusEnergyGuideCompWidgetState
                           ),
                           style:
                               FlutterFlowTheme.of(context).labelSmall.override(
-                                    fontFamily: 'WorkSans',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     fontSize: 10.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontStyle,
                                   ),
                         ),
                       ),
@@ -313,10 +433,23 @@ class _SolarPlexusEnergyGuideCompWidgetState
                           ),
                           style:
                               FlutterFlowTheme.of(context).labelSmall.override(
-                                    fontFamily: 'WorkSans',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     fontSize: 10.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontStyle,
                                   ),
                         ),
                       ),
@@ -336,10 +469,23 @@ class _SolarPlexusEnergyGuideCompWidgetState
                           ),
                           style:
                               FlutterFlowTheme.of(context).labelSmall.override(
-                                    fontFamily: 'WorkSans',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     fontSize: 10.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontStyle,
                                   ),
                         ),
                       ),
@@ -353,10 +499,18 @@ class _SolarPlexusEnergyGuideCompWidgetState
                       'ph3udmnl' /* BENEFITS */,
                     ),
                     style: FlutterFlowTheme.of(context).labelMedium.override(
-                          fontFamily: 'WorkSans',
+                          font: GoogleFonts.cormorantSc(
+                            fontWeight: FontWeight.w600,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .fontStyle,
+                          ),
                           color: Colors.white,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontStyle,
                         ),
                   ),
                 ),
@@ -369,10 +523,23 @@ class _SolarPlexusEnergyGuideCompWidgetState
                         'kwv07lfy' /* • Increased self-confidence */,
                       ),
                       style: FlutterFlowTheme.of(context).bodySmall.override(
-                            fontFamily: 'WorkSans',
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontStyle,
+                            ),
                             color: Colors.white,
                             fontSize: 12.0,
                             letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .fontStyle,
                           ),
                     ),
                     Text(
@@ -380,10 +547,23 @@ class _SolarPlexusEnergyGuideCompWidgetState
                         '9aux5lpb' /* • Enhanced personal power */,
                       ),
                       style: FlutterFlowTheme.of(context).bodySmall.override(
-                            fontFamily: 'WorkSans',
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontStyle,
+                            ),
                             color: Colors.white,
                             fontSize: 12.0,
                             letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .fontStyle,
                           ),
                     ),
                     Text(
@@ -391,10 +571,23 @@ class _SolarPlexusEnergyGuideCompWidgetState
                         'i66ck9i9' /* • Better decision-making */,
                       ),
                       style: FlutterFlowTheme.of(context).bodySmall.override(
-                            fontFamily: 'WorkSans',
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontStyle,
+                            ),
                             color: Colors.white,
                             fontSize: 12.0,
                             letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .fontStyle,
                           ),
                     ),
                     Text(
@@ -402,10 +595,23 @@ class _SolarPlexusEnergyGuideCompWidgetState
                         'x36f0e5x' /* • Strong sense of purpose */,
                       ),
                       style: FlutterFlowTheme.of(context).bodySmall.override(
-                            fontFamily: 'WorkSans',
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontStyle,
+                            ),
                             color: Colors.white,
                             fontSize: 12.0,
                             letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .fontStyle,
                           ),
                     ),
                   ].divide(SizedBox(height: 4.0)),
@@ -438,11 +644,19 @@ class _SolarPlexusEnergyGuideCompWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .labelSmall
                                   .override(
-                                    fontFamily: 'WorkSans',
+                                    font: GoogleFonts.cormorantSc(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     fontSize: 10.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontStyle,
                                   ),
                             ),
                             Padding(
@@ -455,10 +669,18 @@ class _SolarPlexusEnergyGuideCompWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontWeight,
+                                        fontStyle: FontStyle.italic,
+                                      ),
                                       color: Colors.white,
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontWeight,
                                       fontStyle: FontStyle.italic,
                                     ),
                               ),

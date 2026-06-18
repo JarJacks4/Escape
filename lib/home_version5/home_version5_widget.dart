@@ -23,6 +23,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 import 'package:material_palette/material_palette.dart';
@@ -469,7 +470,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                       colors: [
                                                         Color(0x25EDF1F7),
                                                         Color(0x35D0E3F7),
-                                                        Color(0x86FCC462)
+                                                        Color(0x86BC9FE4)
                                                       ],
                                                       stops: [0.0, 0.5, 1.0],
                                                       begin:
@@ -591,7 +592,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               Icon(
                                                                             Icons.menu_rounded,
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                FlutterFlowTheme.of(context).alternate,
                                                                             size:
                                                                                 24.0,
                                                                           ),
@@ -607,7 +608,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                 'edgeWidth': 0.35,
                                                                                 'scatter': 0.36,
                                                                                 'noiseAmount': 0.93,
-                                                                                'speed': 0.21
+                                                                                'speed': 0.7
                                                                               }),
                                                                           duration: Duration(
                                                                               milliseconds: (140.0)
@@ -744,10 +745,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyLarge
                                                                               .override(
-                                                                                fontFamily: 'The Seasons',
+                                                                                font: GoogleFonts.cormorantSc(
+                                                                                  fontWeight: FontWeight.w300,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                                                                                ),
                                                                                 color: Colors.white,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w300,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                                                                               ),
                                                                           overflow:
                                                                               TextOverflow.ellipsis,
@@ -761,10 +766,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               'Escape User',
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).displaySmall.override(
-                                                                                  fontFamily: 'The Seasons',
+                                                                                  font: GoogleFonts.inter(
+                                                                                    fontWeight: FontWeight.w300,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Colors.white,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w300,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
                                                                                 ),
                                                                             overflow:
                                                                                 TextOverflow.ellipsis,
@@ -846,10 +855,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               child: AuthUserStreamWidget(
                                                                                 builder: (context) => AnimatedDefaultTextStyle(
                                                                                   style: FlutterFlowTheme.of(context).bodyLarge.override(
-                                                                                        fontFamily: 'The Seasons',
+                                                                                        font: GoogleFonts.cormorantSc(
+                                                                                          fontWeight: FontWeight.bold,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                                                                                        ),
                                                                                         color: FlutterFlowTheme.of(context).alternate,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                                                                                       ),
                                                                                   duration: Duration(milliseconds: 600),
                                                                                   curve: Curves.easeIn,
@@ -872,10 +885,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                     '0',
                                                                                   )} Coins',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'WorkSans',
+                                                                                        font: GoogleFonts.inter(
+                                                                                          fontWeight: FontWeight.w600,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                        ),
                                                                                         color: FlutterFlowTheme.of(context).alternate,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w600,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                       ),
                                                                                 ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation4']!),
                                                                                 GestureDetector(
@@ -1009,10 +1026,15 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                         'p6hb86r8' /* CONTINUE YOUR JOURNEY */,
                                                                                                       ),
                                                                                                       style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                                            fontFamily: 'WorkSans',
+                                                                                                            font: GoogleFonts.inter(
+                                                                                                              fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
+                                                                                                              fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                                                                                                            ),
                                                                                                             color: FlutterFlowTheme.of(context).primary,
                                                                                                             fontSize: 12.0,
                                                                                                             letterSpacing: 0.0,
+                                                                                                            fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
                                                                                                           ),
                                                                                                       overflow: TextOverflow.fade,
                                                                                                     ),
@@ -1022,9 +1044,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                       'dgxsq5zc' /* Learning Self-Care Basics */,
                                                                                                     ),
                                                                                                     style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                          fontFamily: 'WorkSans',
+                                                                                                          font: GoogleFonts.inter(
+                                                                                                            fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
+                                                                                                          ),
                                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                                           letterSpacing: 0.0,
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
                                                                                                         ),
                                                                                                   ),
                                                                                                   Text(
@@ -1032,9 +1059,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                       'hcryf8vj' /* No Time Limit */,
                                                                                                     ),
                                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                          fontFamily: 'WorkSans',
+                                                                                                          font: GoogleFonts.inter(
+                                                                                                            fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                                          ),
                                                                                                           color: FlutterFlowTheme.of(context).tertiary,
                                                                                                           letterSpacing: 0.0,
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                                         ),
                                                                                                   ),
                                                                                                 ].divide(SizedBox(height: 4.0)),
@@ -1075,10 +1107,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                 color: FlutterFlowTheme.of(context).tertiary,
                                                                                                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      fontFamily: 'WorkSans',
+                                                                                                      font: GoogleFonts.inter(
+                                                                                                        fontWeight: FontWeight.w300,
+                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                      ),
                                                                                                       color: Colors.white,
                                                                                                       letterSpacing: 0.0,
                                                                                                       fontWeight: FontWeight.w300,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                     ),
                                                                                                 elevation: 2.0,
                                                                                                 borderSide: BorderSide(
@@ -1118,10 +1154,15 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                     'ojsjxkwn' /* 50% */,
                                                                                                   ),
                                                                                                   style: FlutterFlowTheme.of(context).headlineSmall.override(
-                                                                                                        fontFamily: 'WorkSans',
+                                                                                                        font: GoogleFonts.inter(
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).headlineSmall.fontStyle,
+                                                                                                        ),
                                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                                         fontSize: 5.0,
                                                                                                         letterSpacing: 0.0,
+                                                                                                        fontWeight: FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                                                                                                        fontStyle: FlutterFlowTheme.of(context).headlineSmall.fontStyle,
                                                                                                       ),
                                                                                                   overflow: TextOverflow.fade,
                                                                                                 ),
@@ -1164,11 +1205,15 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                       'hkgkwduq' /* START YOUR DAY */,
                                                                                                     ),
                                                                                                     style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                                          fontFamily: 'WorkSans',
+                                                                                                          font: GoogleFonts.inter(
+                                                                                                            fontWeight: FontWeight.w900,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                                                                                                          ),
                                                                                                           color: Color(0xC81C2444),
                                                                                                           fontSize: 12.0,
                                                                                                           letterSpacing: 0.0,
                                                                                                           fontWeight: FontWeight.w900,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
                                                                                                         ),
                                                                                                   ),
                                                                                                 ),
@@ -1180,9 +1225,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                     'n2rcgxnj' /* SCAN YOUR MOOD */,
                                                                                                   ),
                                                                                                   style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                        fontFamily: 'WorkSans',
+                                                                                                        font: GoogleFonts.inter(
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
+                                                                                                        ),
                                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                                         letterSpacing: 0.0,
+                                                                                                        fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                                                                                                        fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
                                                                                                       ),
                                                                                                 ),
                                                                                               ),
@@ -1195,9 +1245,14 @@ Further ... */
                                                                                                     ,
                                                                                                   ),
                                                                                                   style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                        fontFamily: 'WorkSans',
+                                                                                                        font: GoogleFonts.inter(
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                                        ),
                                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                         letterSpacing: 0.0,
+                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                                       ),
                                                                                                 ),
                                                                                               ),
@@ -1239,10 +1294,14 @@ Further ... */
                                                                                             iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                             color: FlutterFlowTheme.of(context).alternate,
                                                                                             textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'WorkSans',
+                                                                                                  font: GoogleFonts.inter(
+                                                                                                    fontWeight: FontWeight.w300,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                  ),
                                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                                   letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.w300,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                 ),
                                                                                             elevation: 2.0,
                                                                                             borderSide: BorderSide(
@@ -1357,10 +1416,14 @@ Further ... */
                                                                                       'nhgsp43h' /* Mind */,
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'WorkSans',
+                                                                                          font: GoogleFonts.inter(
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                          ),
                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.w600,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -1439,10 +1502,14 @@ Further ... */
                                                                                       'qn4z89eg' /* Journal */,
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'WorkSans',
+                                                                                          font: GoogleFonts.inter(
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                          ),
                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.w600,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -1527,10 +1594,14 @@ Further ... */
                                                                                       '6c25oqq8' /* Sounds */,
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'WorkSans',
+                                                                                          font: GoogleFonts.inter(
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                          ),
                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.w600,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -1609,10 +1680,14 @@ Further ... */
                                                                                       'wsg5k7lw' /* Body */,
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'WorkSans',
+                                                                                          font: GoogleFonts.inter(
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                          ),
                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.w600,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -1691,10 +1766,14 @@ Further ... */
                                                                                       'p9axl0bz' /* Reset */,
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'WorkSans',
+                                                                                          font: GoogleFonts.inter(
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                          ),
                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.w600,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -1841,9 +1920,14 @@ Further ... */
                                                                                       locale: FFLocalizations.of(context).languageCode,
                                                                                     )}',
                                                                                     style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                          fontFamily: 'WorkSans',
+                                                                                          font: GoogleFonts.cormorantSc(
+                                                                                            fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
+                                                                                          ),
                                                                                           color: FlutterFlowTheme.of(context).alternate,
                                                                                           letterSpacing: 0.0,
+                                                                                          fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
                                                                                         ),
                                                                                     overflow: TextOverflow.fade,
                                                                                   ),
@@ -1853,9 +1937,14 @@ Further ... */
                                                                                     'hfpfxcj5' /* Lucille suggests starting with... */,
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'WorkSans',
+                                                                                        font: GoogleFonts.inter(
+                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                        ),
                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
                                                                                         letterSpacing: 0.0,
+                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                       ),
                                                                                 ),
                                                                                 FFButtonWidget(
@@ -1894,9 +1983,14 @@ Further ... */
                                                                                     iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                     color: FlutterFlowTheme.of(context).accent1,
                                                                                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                          fontFamily: 'WorkSans',
+                                                                                          font: GoogleFonts.inter(
+                                                                                            fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                                                                                          ),
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           letterSpacing: 0.0,
+                                                                                          fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
                                                                                         ),
                                                                                     elevation: 0.0,
                                                                                     borderRadius: BorderRadius.circular(25.0),
@@ -2011,9 +2105,14 @@ Further ... */
                                                                                       'tv8a2pgb' /* Basic Breathing */,
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                          fontFamily: 'WorkSans',
+                                                                                          font: GoogleFonts.cormorantSc(
+                                                                                            fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
+                                                                                          ),
                                                                                           color: Colors.white,
                                                                                           letterSpacing: 0.0,
+                                                                                          fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
                                                                                         ),
                                                                                   ),
                                                                                   Text(
@@ -2021,9 +2120,14 @@ Further ... */
                                                                                       '1181bxrb' /* Begin your day with clarity an... */,
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                          fontFamily: 'WorkSans',
+                                                                                          font: GoogleFonts.inter(
+                                                                                            fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                          ),
                                                                                           color: Colors.white,
                                                                                           letterSpacing: 0.0,
+                                                                                          fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                         ),
                                                                                   ),
                                                                                   Row(
@@ -2035,9 +2139,14 @@ Further ... */
                                                                                           'xf2x6iu6' /* Free-Form • 15 min */,
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                              fontFamily: 'WorkSans',
+                                                                                              font: GoogleFonts.inter(
+                                                                                                fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                                fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                              ),
                                                                                               color: Colors.white,
                                                                                               letterSpacing: 0.0,
+                                                                                              fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                              fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                             ),
                                                                                       ),
                                                                                       Flexible(
@@ -2077,8 +2186,13 @@ Further ... */
                                                                                             iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                             color: Colors.white,
                                                                                             textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'WorkSans',
+                                                                                                  font: GoogleFonts.inter(
+                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                  ),
                                                                                                   letterSpacing: 0.0,
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                 ),
                                                                                             elevation: 0.0,
                                                                                             borderRadius: BorderRadius.circular(16.0),
@@ -2152,9 +2266,14 @@ Further ... */
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .titleMedium
                                                                               .override(
-                                                                                fontFamily: 'WorkSans',
-                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                font: GoogleFonts.cormorantSc(
+                                                                                  fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
+                                                                                ),
+                                                                                color: FlutterFlowTheme.of(context).alternate,
                                                                                 letterSpacing: 0.0,
+                                                                                fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                                                                                fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                         Row(
@@ -2189,8 +2308,13 @@ Further ... */
                                                                                         'ogzy1has' /* Morning Meditation */,
                                                                                       ),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'WorkSans',
+                                                                                            font: GoogleFonts.inter(
+                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                            ),
                                                                                             letterSpacing: 0.0,
+                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                           ),
                                                                                     ),
                                                                                     Text(
@@ -2198,9 +2322,14 @@ Further ... */
                                                                                         'zdpjwg73' /* 15 min */,
                                                                                       ),
                                                                                       style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                            fontFamily: 'WorkSans',
+                                                                                            font: GoogleFonts.inter(
+                                                                                              fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                              fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                            ),
                                                                                             color: FlutterFlowTheme.of(context).secondaryText,
                                                                                             letterSpacing: 0.0,
+                                                                                            fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                           ),
                                                                                     ),
                                                                                   ],
@@ -2212,9 +2341,14 @@ Further ... */
                                                                                 'sd4rzvuk' /* View Insight */,
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                    fontFamily: 'WorkSans',
+                                                                                    font: GoogleFonts.inter(
+                                                                                      fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                    ),
                                                                                     color: FlutterFlowTheme.of(context).tertiary,
                                                                                     letterSpacing: 0.0,
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -2250,8 +2384,13 @@ Further ... */
                                                                                         '52zm5l5n' /* Daily Journal */,
                                                                                       ),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'WorkSans',
+                                                                                            font: GoogleFonts.inter(
+                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                            ),
                                                                                             letterSpacing: 0.0,
+                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                           ),
                                                                                     ),
                                                                                     Text(
@@ -2259,9 +2398,14 @@ Further ... */
                                                                                         'idd0zyvr' /* Yesterday */,
                                                                                       ),
                                                                                       style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                            fontFamily: 'WorkSans',
+                                                                                            font: GoogleFonts.inter(
+                                                                                              fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                              fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                            ),
                                                                                             color: FlutterFlowTheme.of(context).secondaryText,
                                                                                             letterSpacing: 0.0,
+                                                                                            fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                           ),
                                                                                     ),
                                                                                   ],
@@ -2273,9 +2417,14 @@ Further ... */
                                                                                 '5loufzlk' /* View Insight */,
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                    fontFamily: 'WorkSans',
+                                                                                    font: GoogleFonts.inter(
+                                                                                      fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                    ),
                                                                                     color: FlutterFlowTheme.of(context).tertiary,
                                                                                     letterSpacing: 0.0,
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                   ),
                                                                             ),
                                                                           ],

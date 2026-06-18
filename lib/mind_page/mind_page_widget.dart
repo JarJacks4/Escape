@@ -1,6 +1,7 @@
 import '/components/mind_page_version5_copy_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'mind_page_model.dart';
 export 'mind_page_model.dart';
@@ -75,9 +76,9 @@ class _MindPageWidgetState extends State<MindPageWidget> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          Color(0x2BD0E3F7),
-                          Color(0x571C2444),
-                          Color(0x691C2444),
+                          FlutterFlowTheme.of(context).tertiary,
+                          FlutterFlowTheme.of(context).secondary,
+                          Color(0x5FEDF1F7),
                           Color(0x80673AB7)
                         ],
                         stops: [0.0, 0.5, 0.75, 1.0],

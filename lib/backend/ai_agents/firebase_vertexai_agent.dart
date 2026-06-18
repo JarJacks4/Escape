@@ -28,8 +28,13 @@ class ChatManager {
       // Get the App Check instance
       final appCheck = FirebaseAppCheck.instance;
 
-      // Create Vertex AI instance with App Check
+      // Create Vertex AI instance with App Check.
+      // `location: 'global'` is required to reach Gemini 3.x models —
+      // they are not published in `us-central1` (the SDK default).
+      // Older Gemini 1.5 / 2.0 / 2.5 models are also published globally,
+      // so this is safe across the supported model range.
       final vertexAI = FirebaseVertexAI.instanceFor(
+        location: 'global',
         auth: FirebaseAuth.instance,
         appCheck: appCheck,
       );

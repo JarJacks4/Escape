@@ -1,5 +1,5 @@
-import '/components/mood_saver_component_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/pages/onboarding_login/mood_saver_component/mood_saver_component_widget.dart';
 import 'mood_saver_page_widget.dart' show MoodSaverPageWidget;
 import 'package:flutter/material.dart';
 

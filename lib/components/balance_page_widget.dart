@@ -53,10 +53,16 @@ class _BalancePageWidgetState extends State<BalancePageWidget> {
             ),
             textAlign: TextAlign.center,
             style: FlutterFlowTheme.of(context).displaySmall.override(
-                  fontFamily: 'WorkSans',
+                  font: GoogleFonts.inter(
+                    fontWeight: FontWeight.w300,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).displaySmall.fontStyle,
+                  ),
                   color: Colors.white,
                   letterSpacing: 4.0,
                   fontWeight: FontWeight.w300,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).displaySmall.fontStyle,
                 ),
           ),
           Container(
@@ -255,10 +261,16 @@ class _BalancePageWidgetState extends State<BalancePageWidget> {
               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
               color: Color(0x70161D27),
               textStyle: FlutterFlowTheme.of(context).titleMedium.override(
-                    fontFamily: 'WorkSans',
+                    font: GoogleFonts.inter(
+                      fontWeight: FontWeight.normal,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).titleMedium.fontStyle,
+                    ),
                     color: Colors.white,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.normal,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).titleMedium.fontStyle,
                   ),
               elevation: 0.0,
               borderSide: BorderSide(

@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'empty_chats_model.dart';
 export 'empty_chats_model.dart';
 
@@ -73,9 +74,15 @@ class _EmptyChatsWidgetState extends State<EmptyChatsWidget>
                   '68sf12ey' /* No chats yet */,
                 ),
                 style: FlutterFlowTheme.of(context).labelLarge.override(
-                      fontFamily: 'WorkSans',
+                      font: GoogleFonts.inter(
+                        fontWeight: FontWeight.w500,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                      ),
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).labelLarge.fontStyle,
                     ),
               ),
               Icon(
@@ -90,8 +97,16 @@ class _EmptyChatsWidgetState extends State<EmptyChatsWidget>
               '6dbxhmne' /* Start a conversation below! */,
             ),
             style: FlutterFlowTheme.of(context).labelSmall.override(
-                  fontFamily: 'WorkSans',
+                  font: GoogleFonts.inter(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).labelSmall.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                  ),
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).labelSmall.fontWeight,
+                  fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
                 ),
           ),
           Padding(
@@ -106,8 +121,20 @@ class _EmptyChatsWidgetState extends State<EmptyChatsWidget>
                       'zuuqxi5k' /* Powered by */,
                     ),
                     style: FlutterFlowTheme.of(context).labelSmall.override(
-                          fontFamily: 'WorkSans',
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .fontStyle,
+                          ),
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).labelSmall.fontStyle,
                         ),
                   ),
                 ),

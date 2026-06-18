@@ -1,19 +1,9 @@
 // Export pages
-export '/pages/onboarding_login/registration_success/registration_success_widget.dart'
-    show RegistrationSuccessWidget;
-export '/classes_page/classes_page_widget.dart' show ClassesPageWidget;
 export '/notifications_screen/notifications_screen_widget.dart'
     show NotificationsScreenWidget;
 export '/subscription/subscription_widget.dart' show SubscriptionWidget;
-export '/interests_page/interests_page_widget.dart' show InterestsPageWidget;
-export '/profile_details/profile_details_widget.dart' show ProfileDetailsWidget;
-export '/pages/onboarding_login/display_name_f_i_n_a_l/display_name_f_i_n_a_l_widget.dart'
-    show DisplayNameFINALWidget;
-export '/self_care_goals/self_care_goals_widget.dart' show SelfCareGoalsWidget;
 export '/enable_notifications/enable_notifications_widget.dart'
     show EnableNotificationsWidget;
-export '/profile_f_i_n_a_l/profile_f_i_n_a_l_widget.dart'
-    show ProfileFINALWidget;
 export '/meditation_and_breathing_games/meditation_choice_page/meditation_choice_page_widget.dart'
     show MeditationChoicePageWidget;
 export '/breathing_choice_page/breathing_choice_page_widget.dart'
@@ -31,14 +21,6 @@ export '/binaural_beats_choice/binaural_beats_choice_widget.dart'
     show BinauralBeatsChoiceWidget;
 export '/meditation_and_breathing_games/sleep_meditations_choice/sleep_meditations_choice_widget.dart'
     show SleepMeditationsChoiceWidget;
-export '/pages/main_pages/meditation_page_f_i_n_a_l/meditation_page_f_i_n_a_l_widget.dart'
-    show MeditationPageFINALWidget;
-export '/pages/main_pages/sleep_videos_f_i_n_a_l/sleep_videos_f_i_n_a_l_widget.dart'
-    show SleepVideosFINALWidget;
-export '/pages/main_pages/depression_videos_f_i_n_a_l/depression_videos_f_i_n_a_l_widget.dart'
-    show DepressionVideosFINALWidget;
-export '/pages/main_pages/focus_videos_f_i_n_a_l/focus_videos_f_i_n_a_l_widget.dart'
-    show FocusVideosFINALWidget;
 export '/meditation_and_breathing_games/box_breathing_goal_page/box_breathing_goal_page_widget.dart'
     show BoxBreathingGoalPageWidget;
 export '/meditation_and_breathing_games/fire_sounds_and_breathing_goal/fire_sounds_and_breathing_goal_widget.dart'
@@ -75,12 +57,9 @@ export '/facial_mood_analyzer_choice_lucille_card/facial_mood_analyzer_choice_lu
     show FacialMoodAnalyzerChoiceLucilleCardWidget;
 export '/settings/settings_widget.dart' show SettingsWidget;
 export '/body_reorder/body_reorder_widget.dart' show BodyReorderWidget;
-export '/sleep_reorder/sleep_reorder_widget.dart' show SleepReorderWidget;
 export '/depression_reorder/depression_reorder_widget.dart'
     show DepressionReorderWidget;
 export '/music_player/music_player_widget.dart' show MusicPlayerWidget;
-export '/a_i_soundscapes_copy_copy/a_i_soundscapes_copy_copy_widget.dart'
-    show AISoundscapesCopyCopyWidget;
 export '/pages/onboarding_login/splash_screen_version5/splash_screen_version5_widget.dart'
     show SplashScreenVersion5Widget;
 export '/lucille_g_p_t_comp/chat_ai_screen/chat_ai_screen_widget.dart'
@@ -95,8 +74,6 @@ export '/destination_details_unreal_engine_version5/destination_details_unreal_e
     show DestinationDetailsUnrealEngineVersion5Widget;
 export '/chat_g_p_t_component/chat_ai_screen_1/chat_ai_screen1_widget.dart'
     show ChatAiScreen1Widget;
-export '/advanced_mood_tracker/advanced_mood_tracker_widget.dart'
-    show AdvancedMoodTrackerWidget;
 export '/soundscapes/soundscapes_widget.dart' show SoundscapesWidget;
 export '/tabbar/tabbar_widget.dart' show TabbarWidget;
 export '/home_version5/home_version5_widget.dart' show HomeVersion5Widget;
@@ -231,3 +208,59 @@ export '/voice_chat_lucille/voice_chat_lucille_widget.dart'
     show VoiceChatLucilleWidget;
 export '/body_warrior_pose_touch_designer/body_warrior_pose_touch_designer_widget.dart'
     show BodyWarriorPoseTouchDesignerWidget;
+export '/mindful_tracker_version7_page/mindful_tracker_version7_page_widget.dart'
+    show MindfulTrackerVersion7PageWidget;
+export '/filter_freud_score/filter_freud_score_widget.dart'
+    show FilterFreudScoreWidget;
+export '/freud_score_page/freud_score_page_widget.dart'
+    show FreudScorePageWidget;
+export '/sleep_tracking/sleep_tracking_widget.dart' show SleepTrackingWidget;
+export '/stress_hub/stress_hub_widget.dart' show StressHubWidget;
+export '/health_journal/health_journal_widget.dart' show HealthJournalWidget;
+export '/a_i_chat/a_i_chat_widget.dart' show AIChatWidget;
+export '/expression_recorder/expression_recorder_widget.dart'
+    show ExpressionRecorderWidget;
+export '/mood_statistics/mood_statistics_widget.dart' show MoodStatisticsWidget;
+export '/journal_history/journal_history_widget.dart' show JournalHistoryWidget;
+export '/detailed_sleep_analytics/detailed_sleep_analytics_widget.dart'
+    show DetailedSleepAnalyticsWidget;
+export '/new_journal_picker/new_journal_picker_widget.dart'
+    show NewJournalPickerWidget;
+export '/stress_factor_selection/stress_factor_selection_widget.dart'
+    show StressFactorSelectionWidget;
+export '/stress_level_scale/stress_level_scale_widget.dart'
+    show StressLevelScaleWidget;
+export '/active_voice_journaling/active_voice_journaling_widget.dart'
+    show ActiveVoiceJournalingWidget;
+export '/detailed_mood_breakdown/detailed_mood_breakdown_widget.dart'
+    show DetailedMoodBreakdownWidget;
+export '/mindful_resources_hub/mindful_resources_hub_widget.dart'
+    show MindfulResourcesHubWidget;
+export '/voice_journal_result/voice_journal_result_widget.dart'
+    show VoiceJournalResultWidget;
+export '/journal_entry_detail/journal_entry_detail_widget.dart'
+    show JournalEntryDetailWidget;
+export '/dashboard_version5/dashboard_version5_widget.dart'
+    show DashboardVersion5Widget;
+export '/dashboard_page/dashboard_page_widget.dart' show DashboardPageWidget;
+export '/sleep_tracking_quality_page/sleep_tracking_quality_page_widget.dart'
+    show SleepTrackingQualityPageWidget;
+export '/lucille_voice_chat_web_view/lucille_voice_chat_web_view_widget.dart'
+    show LucilleVoiceChatWebViewWidget;
+export '/health_journal_calendar/health_journal_calendar_widget.dart'
+    show HealthJournalCalendarWidget;
+export '/voice_text_journaling/voice_text_journaling_widget.dart'
+    show VoiceTextJournalingWidget;
+export '/stress_management_hub/stress_management_hub_widget.dart'
+    show StressManagementHubWidget;
+export '/expression_recorder2/expression_recorder2_widget.dart'
+    show ExpressionRecorder2Widget;
+export '/mood_statistics2/mood_statistics2_widget.dart'
+    show MoodStatistics2Widget;
+export '/soundscapes_meditation/soundscapes_meditation_widget.dart'
+    show SoundscapesMeditationWidget;
+export '/a_i_therapy_chatbot/a_i_therapy_chatbot_widget.dart'
+    show AITherapyChatbotWidget;
+export '/journal_history2/journal_history2_widget.dart'
+    show JournalHistory2Widget;
+export '/see_all_page/see_all_page_widget.dart' show SeeAllPageWidget;

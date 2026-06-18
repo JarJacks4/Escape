@@ -74,8 +74,8 @@ class _BodyPageVersion5WidgetState extends State<BodyPageVersion5Widget> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          Color(0x2EEDF1F7),
-                          Color(0x3FF522DF),
+                          Color(0x89EDF1F7),
+                          Color(0x8EF1B3EB),
                           Color(0x8EFCC462)
                         ],
                         stops: [0.0, 0.5, 1.0],

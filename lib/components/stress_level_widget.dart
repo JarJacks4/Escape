@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'stress_level_model.dart';
 export 'stress_level_model.dart';
 
@@ -82,15 +83,37 @@ class _StressLevelWidgetState extends State<StressLevelWidget> {
                       FormFieldController<String>(null),
                   optionHeight: 32.0,
                   textStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'WorkSans',
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontStyle,
+                        ),
                         letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelMedium.fontStyle,
                       ),
-                  selectedTextStyle:
-                      FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'WorkSans',
-                            color: FlutterFlowTheme.of(context).primary,
-                            letterSpacing: 0.0,
-                          ),
+                  selectedTextStyle: FlutterFlowTheme.of(context)
+                      .bodyMedium
+                      .override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
+                        color: FlutterFlowTheme.of(context).primary,
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
                   buttonPosition: RadioButtonPosition.left,
                   direction: Axis.vertical,
                   radioButtonColor: FlutterFlowTheme.of(context).primary,

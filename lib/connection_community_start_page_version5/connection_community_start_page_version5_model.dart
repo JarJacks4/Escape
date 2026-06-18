@@ -3,6 +3,7 @@ import '/components/marketplace_button_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
+import '/index.dart';
 import 'connection_community_start_page_version5_widget.dart'
     show ConnectionCommunityStartPageVersion5Widget;
 import 'package:flutter/material.dart';

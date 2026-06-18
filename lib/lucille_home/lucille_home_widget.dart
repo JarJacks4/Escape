@@ -56,7 +56,7 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget> {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: Image.asset(
-                    'assets/images/99b0cab3169105e49b347451207bee7e.gif',
+                    'assets/images/e3bedab340c6acae47e0f98a0b163900.gif',
                   ).image,
                 ),
               ),
@@ -73,9 +73,9 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          Color(0x24EDF1F7),
-                          Color(0x3CD0E3F7),
-                          Color(0x7A1C2444)
+                          Color(0x39EDF1F7),
+                          Color(0x9ED0E3F7),
+                          Color(0xFF7B5E96)
                         ],
                         stops: [0.0, 0.5, 1.0],
                         begin: AlignmentDirectional(0.0, -1.0),

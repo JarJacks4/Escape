@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'empty_data_model.dart';
 export 'empty_data_model.dart';
 
@@ -62,11 +63,15 @@ class _EmptyDataWidgetState extends State<EmptyDataWidget>
           'eyl811k0' /* How may I help you? */,
         ),
         style: FlutterFlowTheme.of(context).labelLarge.override(
-              fontFamily: 'The Seasons',
+              font: GoogleFonts.cormorantSc(
+                fontWeight: FontWeight.bold,
+                fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+              ),
               color: FlutterFlowTheme.of(context).alternate,
               fontSize: 20.0,
               letterSpacing: 0.0,
               fontWeight: FontWeight.bold,
+              fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
             ),
       ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
     );

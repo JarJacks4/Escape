@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'mood_slider_component_model.dart';
 export 'mood_slider_component_model.dart';
 
@@ -110,7 +111,14 @@ class _MoodSliderComponentWidgetState extends State<MoodSliderComponentWidget> {
                         '1.0',
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'WorkSans',
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
                             color: valueOrDefault<Color>(
                               _model.sliderValue! <= 3.0
                                   ? FlutterFlowTheme.of(context).primary
@@ -118,6 +126,12 @@ class _MoodSliderComponentWidgetState extends State<MoodSliderComponentWidget> {
                               FlutterFlowTheme.of(context).alternate,
                             ),
                             letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
                           ),
                     ),
                     Text(
@@ -125,7 +139,14 @@ class _MoodSliderComponentWidgetState extends State<MoodSliderComponentWidget> {
                         '4refjnjb' /* Balanced */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'WorkSans',
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
                             color: valueOrDefault<Color>(
                               formatNumber(
                                         _model.sliderValue,
@@ -137,6 +158,12 @@ class _MoodSliderComponentWidgetState extends State<MoodSliderComponentWidget> {
                               FlutterFlowTheme.of(context).alternate,
                             ),
                             letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
                           ),
                     ),
                     Text(
@@ -144,7 +171,14 @@ class _MoodSliderComponentWidgetState extends State<MoodSliderComponentWidget> {
                         'i4erhk81' /* Elevated */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'WorkSans',
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
                             color: valueOrDefault<Color>(
                               _model.sliderValue! >= 7.0
                                   ? FlutterFlowTheme.of(context).primary
@@ -152,6 +186,12 @@ class _MoodSliderComponentWidgetState extends State<MoodSliderComponentWidget> {
                               FlutterFlowTheme.of(context).alternate,
                             ),
                             letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
                           ),
                     ),
                   ].divide(SizedBox(width: 25.0)),

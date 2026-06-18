@@ -2,8 +2,8 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/components/influencer_ambassador_program_button_widget.dart';
 import '/components/marketplace_button_widget.dart';
 import '/components/marketplace_coming_soon_comp_widget.dart';
-import '/components/marketplace_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
 import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
@@ -19,6 +19,7 @@ import 'package:tiktokfeed_wz8en7/custom_code/widgets/index.dart'
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -210,11 +211,24 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                                 context)
                                                             .titleMedium
                                                             .override(
-                                                      fontFamily: 'WorkSans',
+                                                      font: GoogleFonts.inter(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .fontStyle,
+                                                      ),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.bold,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMedium
+                                                              .fontStyle,
                                                       shadows: [
                                                         Shadow(
                                                           color: FlutterFlowTheme
@@ -231,11 +245,30 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                                 context)
                                                             .titleMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'WorkSans',
+                                                              font: GoogleFonts
+                                                                  .inter(
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMedium
+                                                                    .fontStyle,
+                                                              ),
                                                               fontSize: 14.0,
                                                               letterSpacing:
                                                                   0.5,
+                                                              fontWeight:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .fontWeight,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .fontStyle,
                                                             ),
                                                     indicatorColor:
                                                         FlutterFlowTheme.of(
@@ -454,38 +487,25 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                               .play());
 
                                                       logFirebaseEvent(
-                                                          'MarketplaceButton_bottom_sheet');
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return WebViewAware(
-                                                            child:
-                                                                GestureDetector(
-                                                              onTap: () {
-                                                                FocusScope.of(
-                                                                        context)
-                                                                    .unfocus();
-                                                                FocusManager
-                                                                    .instance
-                                                                    .primaryFocus
-                                                                    ?.unfocus();
-                                                              },
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    MarketplaceWidget(),
-                                                              ),
-                                                            ),
-                                                          );
+                                                          'MarketplaceButton_navigate_to');
+
+                                                      context.pushNamed(
+                                                        MarketplaceVersion5Widget
+                                                            .routeName,
+                                                        extra: <String,
+                                                            dynamic>{
+                                                          '__transition_info__':
+                                                              TransitionInfo(
+                                                            hasTransition: true,
+                                                            transitionType:
+                                                                PageTransitionType
+                                                                    .fade,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    3),
+                                                          ),
                                                         },
-                                                      ).then((value) =>
-                                                          safeSetState(() {}));
+                                                      );
                                                     },
                                                     child: wrapWithModel(
                                                       model: _model

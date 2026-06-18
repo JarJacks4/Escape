@@ -42,8 +42,12 @@ class CreateAccountOnboardingFlowModel
   FormFieldController<List<String>>? dropDownValueController;
   AudioPlayer? soundPlayer4;
   // State field(s) for Column widget.
-  ScrollController? columnController;
+  ScrollController? columnController1;
+  // State field(s) for Column widget.
+  ScrollController? columnController2;
   AudioPlayer? soundPlayer5;
+  // State field(s) for Column widget.
+  ScrollController? columnController3;
   // State field(s) for CheckboxGroup widget.
   FormFieldController<List<String>>? checkboxGroupValueController;
   List<String>? get checkboxGroupValues => checkboxGroupValueController?.value;
@@ -60,7 +64,9 @@ class CreateAccountOnboardingFlowModel
 
   @override
   void initState(BuildContext context) {
-    columnController = ScrollController();
+    columnController1 = ScrollController();
+    columnController2 = ScrollController();
+    columnController3 = ScrollController();
   }
 
   @override
@@ -68,6 +74,8 @@ class CreateAccountOnboardingFlowModel
     textFieldFocusNode?.dispose();
     textController?.dispose();
 
-    columnController?.dispose();
+    columnController1?.dispose();
+    columnController2?.dispose();
+    columnController3?.dispose();
   }
 }

@@ -5,6 +5,7 @@ import '/backend/schema/structs/index.dart';
 import '/components/empty_chats_widget.dart';
 import '/components/response_assessment_comp_widget.dart';
 import '/components/side_nav_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/lucille_g_p_t_comp/writing_indicator/writing_indicator_widget.dart';
@@ -25,7 +26,8 @@ import 'package:ff_commons/api_requests/api_streaming.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:material_palette/material_palette.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'chat_with_lucille_version5_model.dart';
@@ -43,10 +45,12 @@ class ChatWithLucilleVersion5Widget extends StatefulWidget {
 }
 
 class _ChatWithLucilleVersion5WidgetState
-    extends State<ChatWithLucilleVersion5Widget> {
+    extends State<ChatWithLucilleVersion5Widget> with TickerProviderStateMixin {
   late ChatWithLucilleVersion5Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -57,6 +61,28 @@ class _ChatWithLucilleVersion5WidgetState
         parameters: {'screen_name': 'ChatWithLucilleVersion5'});
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'containerOnActionTriggerAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 1560.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
   }
 
   @override
@@ -165,12 +191,22 @@ class _ChatWithLucilleVersion5WidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
-                                            fontFamily: 'The Seasons',
+                                            font: GoogleFonts.cormorantSc(
+                                              fontWeight: FontWeight.bold,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineSmall
+                                                      .fontStyle,
+                                            ),
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
                                             fontSize: 26.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineSmall
+                                                    .fontStyle,
                                           ),
                                     ),
                                   ),
@@ -392,48 +428,44 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                   width: 2.0,
                                                                                                 ),
                                                                                               ),
-                                                                                              child: PixelDissolveShaderWrap(
-                                                                                                params: ShaderParams(values: {
-                                                                                                  'angle': 14.0,
-                                                                                                  'scale': 1.0,
-                                                                                                  'offset': 0.0,
-                                                                                                  'pixelSize': 5.11,
-                                                                                                  'edgeWidth': 0.35,
-                                                                                                  'scatter': 0.36,
-                                                                                                  'noiseAmount': 0.93,
-                                                                                                  'speed': 0.21
-                                                                                                }),
-                                                                                                animationMode: ShaderAnimationMode.explicit,
-                                                                                                animationConfig: ShaderAnimationConfig(duration: Duration(milliseconds: (2100.0).round()), curve: Curves.easeIn, invert: true),
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
-                                                                                                  child: SingleChildScrollView(
-                                                                                                    primary: false,
-                                                                                                    controller: _model.columnController2,
-                                                                                                    child: Column(
-                                                                                                      mainAxisSize: MainAxisSize.min,
-                                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                      children: [
-                                                                                                        RichText(
-                                                                                                          textScaler: MediaQuery.of(context).textScaler,
-                                                                                                          text: TextSpan(
-                                                                                                            children: [
-                                                                                                              TextSpan(
-                                                                                                                text: _model.textController.text,
-                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                      fontFamily: 'WorkSans',
-                                                                                                                      letterSpacing: 0.0,
+                                                                                              child: Padding(
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                                                                                                child: SingleChildScrollView(
+                                                                                                  primary: false,
+                                                                                                  controller: _model.columnController2,
+                                                                                                  child: Column(
+                                                                                                    mainAxisSize: MainAxisSize.min,
+                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                    children: [
+                                                                                                      RichText(
+                                                                                                        textScaler: MediaQuery.of(context).textScaler,
+                                                                                                        text: TextSpan(
+                                                                                                          children: [
+                                                                                                            TextSpan(
+                                                                                                              text: _model.textController.text,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    font: GoogleFonts.inter(
+                                                                                                                      fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                                     ),
-                                                                                                              )
-                                                                                                            ],
-                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                  fontFamily: 'WorkSans',
-                                                                                                                  letterSpacing: 0.0,
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                                  ),
+                                                                                                            )
+                                                                                                          ],
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                font: GoogleFonts.inter(
+                                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                                 ),
-                                                                                                          ),
+                                                                                                                letterSpacing: 0.0,
+                                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                              ),
                                                                                                         ),
-                                                                                                      ],
-                                                                                                    ),
+                                                                                                      ),
+                                                                                                    ],
                                                                                                   ),
                                                                                                 ),
                                                                                               ),
@@ -460,10 +492,15 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                     content: Text(
                                                                                                       'Response copied to clipboard.',
                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'WorkSans',
+                                                                                                            font: GoogleFonts.inter(
+                                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                            ),
                                                                                                             color: FlutterFlowTheme.of(context).info,
                                                                                                             fontSize: 12.0,
                                                                                                             letterSpacing: 0.0,
+                                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                           ),
                                                                                                     ),
                                                                                                     duration: Duration(milliseconds: 2000),
@@ -493,9 +530,14 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                             'w471more' /* Copy response */,
                                                                                                           ),
                                                                                                           style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                                                fontFamily: 'WorkSans',
+                                                                                                                font: GoogleFonts.inter(
+                                                                                                                  fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
+                                                                                                                  fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                                                                                                                ),
                                                                                                                 color: FlutterFlowTheme.of(context).secondary,
                                                                                                                 letterSpacing: 0.0,
+                                                                                                                fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
+                                                                                                                fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
                                                                                                               ),
                                                                                                         ),
                                                                                                       ),
@@ -539,64 +581,52 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                             color: FlutterFlowTheme.of(context).alternate,
                                                                                           ),
                                                                                         ),
-                                                                                        child: PixelDissolveShaderWrap(
-                                                                                          params: ShaderParams(values: {
-                                                                                            'angle': 14.0,
-                                                                                            'scale': 1.0,
-                                                                                            'offset': 0.0,
-                                                                                            'pixelSize': 5.11,
-                                                                                            'edgeWidth': 0.35,
-                                                                                            'scatter': 0.36,
-                                                                                            'noiseAmount': 0.93,
-                                                                                            'speed': 0.21
-                                                                                          }),
-                                                                                          animationMode: ShaderAnimationMode.explicit,
-                                                                                          animationConfig: ShaderAnimationConfig(duration: Duration(milliseconds: (4000.0).round()), curve: Curves.easeIn, invert: true),
-                                                                                          child: Container(
-                                                                                            constraints: BoxConstraints(
-                                                                                              maxWidth: () {
-                                                                                                if (MediaQuery.sizeOf(context).width >= 1170.0) {
-                                                                                                  return 700.0;
-                                                                                                } else if (MediaQuery.sizeOf(context).width <= 470.0) {
-                                                                                                  return 330.0;
-                                                                                                } else {
-                                                                                                  return 530.0;
-                                                                                                }
-                                                                                              }(),
+                                                                                        child: Container(
+                                                                                          constraints: BoxConstraints(
+                                                                                            maxWidth: () {
+                                                                                              if (MediaQuery.sizeOf(context).width >= 1170.0) {
+                                                                                                return 700.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width <= 470.0) {
+                                                                                                return 330.0;
+                                                                                              } else {
+                                                                                                return 530.0;
+                                                                                              }
+                                                                                            }(),
+                                                                                          ),
+                                                                                          decoration: BoxDecoration(
+                                                                                            borderRadius: BorderRadius.only(
+                                                                                              topLeft: Radius.circular(12.0),
+                                                                                              topRight: Radius.circular(12.0),
+                                                                                              bottomLeft: Radius.circular(12.0),
                                                                                             ),
-                                                                                            decoration: BoxDecoration(
-                                                                                              borderRadius: BorderRadius.only(
-                                                                                                topLeft: Radius.circular(12.0),
-                                                                                                topRight: Radius.circular(12.0),
-                                                                                                bottomLeft: Radius.circular(12.0),
-                                                                                              ),
-                                                                                              border: Border.all(
-                                                                                                color: Color(0x45EDF1F7),
-                                                                                              ),
+                                                                                            border: Border.all(
+                                                                                              color: Color(0x45EDF1F7),
                                                                                             ),
-                                                                                            child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
-                                                                                              child: SingleChildScrollView(
-                                                                                                primary: false,
-                                                                                                controller: _model.columnController3,
-                                                                                                child: Column(
-                                                                                                  mainAxisSize: MainAxisSize.min,
-                                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                  children: [
-                                                                                                    Expanded(
-                                                                                                      flex: 1,
-                                                                                                      child: Container(
+                                                                                          ),
+                                                                                          child: Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                                                                                            child: SingleChildScrollView(
+                                                                                              primary: false,
+                                                                                              controller: _model.columnController3,
+                                                                                              child: Column(
+                                                                                                mainAxisSize: MainAxisSize.min,
+                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                children: [
+                                                                                                  Expanded(
+                                                                                                    flex: 1,
+                                                                                                    child: Container(
+                                                                                                      width: double.infinity,
+                                                                                                      height: MediaQuery.sizeOf(context).height * 0.15,
+                                                                                                      child: custom_widgets.GptMarkdownWidget(
                                                                                                         width: double.infinity,
                                                                                                         height: MediaQuery.sizeOf(context).height * 0.15,
-                                                                                                        child: custom_widgets.GptMarkdownWidget(
-                                                                                                          width: double.infinity,
-                                                                                                          height: MediaQuery.sizeOf(context).height * 0.15,
-                                                                                                          data: chatItem.content,
-                                                                                                        ),
+                                                                                                        data: chatItem.content,
                                                                                                       ),
+                                                                                                    ).animateOnActionTrigger(
+                                                                                                      animationsMap['containerOnActionTriggerAnimation']!,
                                                                                                     ),
-                                                                                                  ],
-                                                                                                ),
+                                                                                                  ),
+                                                                                                ],
                                                                                               ),
                                                                                             ),
                                                                                           ),
@@ -713,20 +743,49 @@ class _ChatWithLucilleVersion5WidgetState
                                                                     context)
                                                                 .labelLarge
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'WorkSans',
-                                                                  color: Color(
-                                                                      0xB5D0E3F7),
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .inter(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .alternate,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontStyle,
                                                                 ),
                                                         errorStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .bodyLarge
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'WorkSans',
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .inter(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyLarge
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyLarge
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .error,
@@ -734,6 +793,14 @@ class _ChatWithLucilleVersion5WidgetState
                                                                       12.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLarge
+                                                                      .fontStyle,
                                                                 ),
                                                         enabledBorder:
                                                             OutlineInputBorder(
@@ -804,13 +871,31 @@ class _ChatWithLucilleVersion5WidgetState
                                                                   context)
                                                               .bodyLarge
                                                               .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLarge
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontStyle,
                                                               ),
                                                       maxLines: 8,
                                                       minLines: 1,

@@ -151,16 +151,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             : SplashScreenVersion5Widget(),
       ),
       FFRoute(
-        name: RegistrationSuccessWidget.routeName,
-        path: RegistrationSuccessWidget.routePath,
-        builder: (context, params) => RegistrationSuccessWidget(),
-      ),
-      FFRoute(
-        name: ClassesPageWidget.routeName,
-        path: ClassesPageWidget.routePath,
-        builder: (context, params) => ClassesPageWidget(),
-      ),
-      FFRoute(
         name: NotificationsScreenWidget.routeName,
         path: NotificationsScreenWidget.routePath,
         builder: (context, params) => NotificationsScreenWidget(),
@@ -171,34 +161,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         builder: (context, params) => SubscriptionWidget(),
       ),
       FFRoute(
-        name: InterestsPageWidget.routeName,
-        path: InterestsPageWidget.routePath,
-        builder: (context, params) => InterestsPageWidget(),
-      ),
-      FFRoute(
-        name: ProfileDetailsWidget.routeName,
-        path: ProfileDetailsWidget.routePath,
-        builder: (context, params) => ProfileDetailsWidget(),
-      ),
-      FFRoute(
-        name: DisplayNameFINALWidget.routeName,
-        path: DisplayNameFINALWidget.routePath,
-        builder: (context, params) => DisplayNameFINALWidget(),
-      ),
-      FFRoute(
-        name: SelfCareGoalsWidget.routeName,
-        path: SelfCareGoalsWidget.routePath,
-        builder: (context, params) => SelfCareGoalsWidget(),
-      ),
-      FFRoute(
         name: EnableNotificationsWidget.routeName,
         path: EnableNotificationsWidget.routePath,
         builder: (context, params) => EnableNotificationsWidget(),
-      ),
-      FFRoute(
-        name: ProfileFINALWidget.routeName,
-        path: ProfileFINALWidget.routePath,
-        builder: (context, params) => ProfileFINALWidget(),
       ),
       FFRoute(
         name: MeditationChoicePageWidget.routeName,
@@ -244,26 +209,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         name: SleepMeditationsChoiceWidget.routeName,
         path: SleepMeditationsChoiceWidget.routePath,
         builder: (context, params) => SleepMeditationsChoiceWidget(),
-      ),
-      FFRoute(
-        name: MeditationPageFINALWidget.routeName,
-        path: MeditationPageFINALWidget.routePath,
-        builder: (context, params) => MeditationPageFINALWidget(),
-      ),
-      FFRoute(
-        name: SleepVideosFINALWidget.routeName,
-        path: SleepVideosFINALWidget.routePath,
-        builder: (context, params) => SleepVideosFINALWidget(),
-      ),
-      FFRoute(
-        name: DepressionVideosFINALWidget.routeName,
-        path: DepressionVideosFINALWidget.routePath,
-        builder: (context, params) => DepressionVideosFINALWidget(),
-      ),
-      FFRoute(
-        name: FocusVideosFINALWidget.routeName,
-        path: FocusVideosFINALWidget.routePath,
-        builder: (context, params) => FocusVideosFINALWidget(),
       ),
       FFRoute(
         name: BoxBreathingGoalPageWidget.routeName,
@@ -373,16 +318,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         ),
       ),
       FFRoute(
-        name: SleepReorderWidget.routeName,
-        path: SleepReorderWidget.routePath,
-        builder: (context, params) => SleepReorderWidget(
-          tabIndex: params.getParam(
-            'tabIndex',
-            ParamType.int,
-          ),
-        ),
-      ),
-      FFRoute(
         name: DepressionReorderWidget.routeName,
         path: DepressionReorderWidget.routePath,
         builder: (context, params) => DepressionReorderWidget(
@@ -418,16 +353,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
           ),
           songGenre: params.getParam(
             'songGenre',
-            ParamType.String,
-          ),
-        ),
-      ),
-      FFRoute(
-        name: AISoundscapesCopyCopyWidget.routeName,
-        path: AISoundscapesCopyCopyWidget.routePath,
-        builder: (context, params) => AISoundscapesCopyCopyWidget(
-          meditationaudio: params.getParam(
-            'meditationaudio',
             ParamType.String,
           ),
         ),
@@ -472,11 +397,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         name: ChatAiScreen1Widget.routeName,
         path: ChatAiScreen1Widget.routePath,
         builder: (context, params) => ChatAiScreen1Widget(),
-      ),
-      FFRoute(
-        name: AdvancedMoodTrackerWidget.routeName,
-        path: AdvancedMoodTrackerWidget.routePath,
-        builder: (context, params) => AdvancedMoodTrackerWidget(),
       ),
       FFRoute(
         name: SoundscapesWidget.routeName,
@@ -974,6 +894,166 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         name: BodyWarriorPoseTouchDesignerWidget.routeName,
         path: BodyWarriorPoseTouchDesignerWidget.routePath,
         builder: (context, params) => BodyWarriorPoseTouchDesignerWidget(),
+      ),
+      FFRoute(
+        name: MindfulTrackerVersion7PageWidget.routeName,
+        path: MindfulTrackerVersion7PageWidget.routePath,
+        builder: (context, params) => MindfulTrackerVersion7PageWidget(),
+      ),
+      FFRoute(
+        name: FilterFreudScoreWidget.routeName,
+        path: FilterFreudScoreWidget.routePath,
+        builder: (context, params) => FilterFreudScoreWidget(),
+      ),
+      FFRoute(
+        name: FreudScorePageWidget.routeName,
+        path: FreudScorePageWidget.routePath,
+        builder: (context, params) => FreudScorePageWidget(),
+      ),
+      FFRoute(
+        name: SleepTrackingWidget.routeName,
+        path: SleepTrackingWidget.routePath,
+        builder: (context, params) => SleepTrackingWidget(),
+      ),
+      FFRoute(
+        name: StressHubWidget.routeName,
+        path: StressHubWidget.routePath,
+        builder: (context, params) => StressHubWidget(),
+      ),
+      FFRoute(
+        name: HealthJournalWidget.routeName,
+        path: HealthJournalWidget.routePath,
+        builder: (context, params) => HealthJournalWidget(),
+      ),
+      FFRoute(
+        name: AIChatWidget.routeName,
+        path: AIChatWidget.routePath,
+        builder: (context, params) => AIChatWidget(),
+      ),
+      FFRoute(
+        name: ExpressionRecorderWidget.routeName,
+        path: ExpressionRecorderWidget.routePath,
+        builder: (context, params) => ExpressionRecorderWidget(),
+      ),
+      FFRoute(
+        name: MoodStatisticsWidget.routeName,
+        path: MoodStatisticsWidget.routePath,
+        builder: (context, params) => MoodStatisticsWidget(),
+      ),
+      FFRoute(
+        name: JournalHistoryWidget.routeName,
+        path: JournalHistoryWidget.routePath,
+        builder: (context, params) => JournalHistoryWidget(),
+      ),
+      FFRoute(
+        name: DetailedSleepAnalyticsWidget.routeName,
+        path: DetailedSleepAnalyticsWidget.routePath,
+        builder: (context, params) => DetailedSleepAnalyticsWidget(),
+      ),
+      FFRoute(
+        name: NewJournalPickerWidget.routeName,
+        path: NewJournalPickerWidget.routePath,
+        builder: (context, params) => NewJournalPickerWidget(),
+      ),
+      FFRoute(
+        name: StressFactorSelectionWidget.routeName,
+        path: StressFactorSelectionWidget.routePath,
+        builder: (context, params) => StressFactorSelectionWidget(),
+      ),
+      FFRoute(
+        name: StressLevelScaleWidget.routeName,
+        path: StressLevelScaleWidget.routePath,
+        builder: (context, params) => StressLevelScaleWidget(),
+      ),
+      FFRoute(
+        name: ActiveVoiceJournalingWidget.routeName,
+        path: ActiveVoiceJournalingWidget.routePath,
+        builder: (context, params) => ActiveVoiceJournalingWidget(),
+      ),
+      FFRoute(
+        name: DetailedMoodBreakdownWidget.routeName,
+        path: DetailedMoodBreakdownWidget.routePath,
+        builder: (context, params) => DetailedMoodBreakdownWidget(),
+      ),
+      FFRoute(
+        name: MindfulResourcesHubWidget.routeName,
+        path: MindfulResourcesHubWidget.routePath,
+        builder: (context, params) => MindfulResourcesHubWidget(),
+      ),
+      FFRoute(
+        name: VoiceJournalResultWidget.routeName,
+        path: VoiceJournalResultWidget.routePath,
+        builder: (context, params) => VoiceJournalResultWidget(),
+      ),
+      FFRoute(
+        name: JournalEntryDetailWidget.routeName,
+        path: JournalEntryDetailWidget.routePath,
+        builder: (context, params) => JournalEntryDetailWidget(),
+      ),
+      FFRoute(
+        name: DashboardVersion5Widget.routeName,
+        path: DashboardVersion5Widget.routePath,
+        builder: (context, params) => DashboardVersion5Widget(),
+      ),
+      FFRoute(
+        name: DashboardPageWidget.routeName,
+        path: DashboardPageWidget.routePath,
+        builder: (context, params) => DashboardPageWidget(),
+      ),
+      FFRoute(
+        name: SleepTrackingQualityPageWidget.routeName,
+        path: SleepTrackingQualityPageWidget.routePath,
+        builder: (context, params) => SleepTrackingQualityPageWidget(),
+      ),
+      FFRoute(
+        name: LucilleVoiceChatWebViewWidget.routeName,
+        path: LucilleVoiceChatWebViewWidget.routePath,
+        builder: (context, params) => LucilleVoiceChatWebViewWidget(),
+      ),
+      FFRoute(
+        name: HealthJournalCalendarWidget.routeName,
+        path: HealthJournalCalendarWidget.routePath,
+        builder: (context, params) => HealthJournalCalendarWidget(),
+      ),
+      FFRoute(
+        name: VoiceTextJournalingWidget.routeName,
+        path: VoiceTextJournalingWidget.routePath,
+        builder: (context, params) => VoiceTextJournalingWidget(),
+      ),
+      FFRoute(
+        name: StressManagementHubWidget.routeName,
+        path: StressManagementHubWidget.routePath,
+        builder: (context, params) => StressManagementHubWidget(),
+      ),
+      FFRoute(
+        name: ExpressionRecorder2Widget.routeName,
+        path: ExpressionRecorder2Widget.routePath,
+        builder: (context, params) => ExpressionRecorder2Widget(),
+      ),
+      FFRoute(
+        name: MoodStatistics2Widget.routeName,
+        path: MoodStatistics2Widget.routePath,
+        builder: (context, params) => MoodStatistics2Widget(),
+      ),
+      FFRoute(
+        name: SoundscapesMeditationWidget.routeName,
+        path: SoundscapesMeditationWidget.routePath,
+        builder: (context, params) => SoundscapesMeditationWidget(),
+      ),
+      FFRoute(
+        name: AITherapyChatbotWidget.routeName,
+        path: AITherapyChatbotWidget.routePath,
+        builder: (context, params) => AITherapyChatbotWidget(),
+      ),
+      FFRoute(
+        name: JournalHistory2Widget.routeName,
+        path: JournalHistory2Widget.routePath,
+        builder: (context, params) => JournalHistory2Widget(),
+      ),
+      FFRoute(
+        name: SeeAllPageWidget.routeName,
+        path: SeeAllPageWidget.routePath,
+        builder: (context, params) => SeeAllPageWidget(),
       ),
       FFRoute(
         name: $cupertino_time_picker_hiuzb7.HomePageWidget.routeName,

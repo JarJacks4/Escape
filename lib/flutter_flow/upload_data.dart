@@ -55,56 +55,59 @@ Future<List<SelectedFile>?> selectMediaWithSourceBottomSheet({
       context: context,
       backgroundColor: backgroundColor,
       builder: (context) {
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (!kIsWeb) ...[
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                child: ListTile(
-                  title: Text(
-                    'Choose Source',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.getFont(
-                      pickerFontFamily,
-                      color: textColor.applyAlpha(0.65),
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20,
+        return SafeArea(
+          top: false,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (!kIsWeb) ...[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                  child: ListTile(
+                    title: Text(
+                      'Choose Source',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.getFont(
+                        pickerFontFamily,
+                        color: textColor.applyAlpha(0.65),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20,
+                      ),
                     ),
+                    tileColor: backgroundColor,
+                    dense: false,
                   ),
-                  tileColor: backgroundColor,
-                  dense: false,
                 ),
-              ),
-              const Divider(),
+                const Divider(),
+              ],
+              if (allowPhoto && allowVideo) ...[
+                createUploadMediaListTile(
+                  'Gallery (Photo)',
+                  MediaSource.photoGallery,
+                ),
+                const Divider(),
+                createUploadMediaListTile(
+                  'Gallery (Video)',
+                  MediaSource.videoGallery,
+                ),
+              ] else if (allowPhoto)
+                createUploadMediaListTile(
+                  'Gallery',
+                  MediaSource.photoGallery,
+                )
+              else
+                createUploadMediaListTile(
+                  'Gallery',
+                  MediaSource.videoGallery,
+                ),
+              if (!kIsWeb) ...[
+                const Divider(),
+                createUploadMediaListTile('Camera', MediaSource.camera),
+                const Divider(),
+              ],
+              const SizedBox(height: 10),
             ],
-            if (allowPhoto && allowVideo) ...[
-              createUploadMediaListTile(
-                'Gallery (Photo)',
-                MediaSource.photoGallery,
-              ),
-              const Divider(),
-              createUploadMediaListTile(
-                'Gallery (Video)',
-                MediaSource.videoGallery,
-              ),
-            ] else if (allowPhoto)
-              createUploadMediaListTile(
-                'Gallery',
-                MediaSource.photoGallery,
-              )
-            else
-              createUploadMediaListTile(
-                'Gallery',
-                MediaSource.videoGallery,
-              ),
-            if (!kIsWeb) ...[
-              const Divider(),
-              createUploadMediaListTile('Camera', MediaSource.camera),
-              const Divider(),
-            ],
-            const SizedBox(height: 10),
-          ],
+          ),
         );
       });
   if (mediaSource == null) {
