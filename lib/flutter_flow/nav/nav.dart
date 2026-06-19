@@ -599,6 +599,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => SeeAllPageWidget(),
           ),
           FFRoute(
+            name: ExpressionRecorderWidget.routeName,
+            path: ExpressionRecorderWidget.routePath,
+            builder: (context, params) => ExpressionRecorderWidget(),
+          ),
+          FFRoute(
+            name: ExpressionRecorder2Widget.routeName,
+            path: ExpressionRecorder2Widget.routePath,
+            builder: (context, params) => ExpressionRecorder2Widget(),
+          ),
+          FFRoute(
             name: NewSignInVersion5Widget.routeName,
             path: NewSignInVersion5Widget.routePath,
             builder: (context, params) => NewSignInVersion5Widget(

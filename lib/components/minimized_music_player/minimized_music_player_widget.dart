@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'minimized_music_player_model.dart';
 export 'minimized_music_player_model.dart';
 
@@ -79,17 +80,34 @@ class _MinimizedMusicPlayerWidgetState extends State<MinimizedMusicPlayerWidget>
               ),
             ),
             titleTextStyle: FlutterFlowTheme.of(context).titleLarge.override(
-                  fontFamily: 'The Seasons',
+                  font: GoogleFonts.cormorantSc(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).titleLarge.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).titleLarge.fontStyle,
+                  ),
                   color: FlutterFlowTheme.of(context).primary,
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).titleLarge.fontWeight,
+                  fontStyle: FlutterFlowTheme.of(context).titleLarge.fontStyle,
                 ),
-            playbackDurationTextStyle:
-                FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'WorkSans',
-                      color: FlutterFlowTheme.of(context).accent1,
-                      fontSize: 16.0,
-                      letterSpacing: 0.0,
-                    ),
+            playbackDurationTextStyle: FlutterFlowTheme.of(context)
+                .labelMedium
+                .override(
+                  font: GoogleFonts.inter(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                  ),
+                  color: FlutterFlowTheme.of(context).accent1,
+                  fontSize: 16.0,
+                  letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                  fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                ),
             fillColor: FlutterFlowTheme.of(context).alternate,
             playbackButtonColor: FlutterFlowTheme.of(context).accent1,
             activeTrackColor: FlutterFlowTheme.of(context).accent1,

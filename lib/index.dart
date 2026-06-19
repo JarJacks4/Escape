@@ -124,6 +124,10 @@ export '/soundscapes_meditation/soundscapes_meditation_widget.dart'
 export '/a_i_therapy_chatbot/a_i_therapy_chatbot_widget.dart'
     show AITherapyChatbotWidget;
 export '/see_all_page/see_all_page_widget.dart' show SeeAllPageWidget;
+export '/expression_recorder/expression_recorder_widget.dart'
+    show ExpressionRecorderWidget;
+export '/expression_recorder2/expression_recorder2_widget.dart'
+    show ExpressionRecorder2Widget;
 export '/destinations_unreal_engine/destinations_unreal_engine_widget.dart'
     show DestinationsUnrealEngineWidget;
 export '/destination_details_unreal_engine_version5/destination_details_unreal_engine_version5_widget.dart'
