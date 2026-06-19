@@ -449,6 +449,56 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => ChatWithLucilleVersion5Widget(),
           ),
           FFRoute(
+            name: LucilleVoiceChatWebViewWidget.routeName,
+            path: LucilleVoiceChatWebViewWidget.routePath,
+            builder: (context, params) => LucilleVoiceChatWebViewWidget(),
+          ),
+          FFRoute(
+            name: LucilleVoiceChatWebViewWidget.routeName,
+            path: LucilleVoiceChatWebViewWidget.routePath,
+            builder: (context, params) => LucilleVoiceChatWebViewWidget(),
+          ),
+          FFRoute(
+            name: HealthJournalWidget.routeName,
+            path: HealthJournalWidget.routePath,
+            builder: (context, params) => HealthJournalWidget(),
+          ),
+          FFRoute(
+            name: JournalHistoryWidget.routeName,
+            path: JournalHistoryWidget.routePath,
+            builder: (context, params) => JournalHistoryWidget(),
+          ),
+          FFRoute(
+            name: NewJournalPickerWidget.routeName,
+            path: NewJournalPickerWidget.routePath,
+            builder: (context, params) => NewJournalPickerWidget(),
+          ),
+          FFRoute(
+            name: VoiceJournalResultWidget.routeName,
+            path: VoiceJournalResultWidget.routePath,
+            builder: (context, params) => VoiceJournalResultWidget(),
+          ),
+          FFRoute(
+            name: JournalEntryDetailWidget.routeName,
+            path: JournalEntryDetailWidget.routePath,
+            builder: (context, params) => JournalEntryDetailWidget(),
+          ),
+          FFRoute(
+            name: HealthJournalCalendarWidget.routeName,
+            path: HealthJournalCalendarWidget.routePath,
+            builder: (context, params) => HealthJournalCalendarWidget(),
+          ),
+          FFRoute(
+            name: VoiceTextJournalingWidget.routeName,
+            path: VoiceTextJournalingWidget.routePath,
+            builder: (context, params) => VoiceTextJournalingWidget(),
+          ),
+          FFRoute(
+            name: JournalHistory2Widget.routeName,
+            path: JournalHistory2Widget.routePath,
+            builder: (context, params) => JournalHistory2Widget(),
+          ),
+          FFRoute(
             name: NewSignInVersion5Widget.routeName,
             path: NewSignInVersion5Widget.routePath,
             builder: (context, params) => NewSignInVersion5Widget(

@@ -31,6 +31,8 @@ abstract class FlutterFlowTheme {
   late Color warning;
   late Color error;
   late Color info;
+  late Color surface80;
+  late Color warning20;
 
   late Color black;
 
@@ -138,6 +140,8 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color warning = const Color(0xFFEBEF11);
   late Color error = const Color(0xFFE65454);
   late Color info = const Color(0xFFFFFFFF);
+  late Color surface80 = const Color(0xCCFFFFFF);
+  late Color warning20 = const Color(0x33FCC462);
 
   late Color black = const Color(0xFF000000);
 }

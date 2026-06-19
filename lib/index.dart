@@ -87,6 +87,7 @@ export '/lucille_g_p_t_comp/chat_ai_screen/chat_ai_screen_widget.dart'
     show ChatAiScreenWidget;
 export '/chat_with_lucille_version5/chat_with_lucille_version5_widget.dart'
     show ChatWithLucilleVersion5Widget;
+export '/lucille_voice_chat_web_view/lucille_voice_chat_web_view_widget.dart';
 export '/new_sign_in_version5/new_sign_in_version5_widget.dart'
     show NewSignInVersion5Widget;
 export '/destinations_unreal_engine/destinations_unreal_engine_widget.dart'
@@ -122,6 +123,22 @@ export '/choose_realms_page/choose_realms_page_widget.dart'
 export '/starting_realm/starting_realm_widget.dart' show StartingRealmWidget;
 export '/ritual_spark_journal_page_version5/ritual_spark_journal_page_version5_widget.dart'
     show RitualSparkJournalPageVersion5Widget;
+export '/health_journal/health_journal_widget.dart' show HealthJournalWidget;
+export '/journal_history/journal_history_widget.dart' show JournalHistoryWidget;
+export '/new_journal_picker/new_journal_picker_widget.dart'
+    show NewJournalPickerWidget;
+export '/active_voice_journaling/active_voice_journaling_widget.dart'
+    show ActiveVoiceJournalingWidget;
+export '/voice_journal_result/voice_journal_result_widget.dart'
+    show VoiceJournalResultWidget;
+export '/journal_entry_detail/journal_entry_detail_widget.dart'
+    show JournalEntryDetailWidget;
+export '/health_journal_calendar/health_journal_calendar_widget.dart'
+    show HealthJournalCalendarWidget;
+export '/voice_text_journaling/voice_text_journaling_widget.dart'
+    show VoiceTextJournalingWidget;
+export '/journal_history2/journal_history2_widget.dart'
+    show JournalHistory2Widget;
 export '/quests_page/quests_page_widget.dart' show QuestsPageWidget;
 export '/connection_community_start_page_version5/connection_community_start_page_version5_widget.dart'
     show ConnectionCommunityStartPageVersion5Widget;

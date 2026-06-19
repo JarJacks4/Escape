@@ -246,8 +246,9 @@ class _CreateAccountOnboardingFlowWidgetState
                                             .displaySmall
                                             .override(
                                               fontFamily: 'The Seasons',
-                                              color: FlutterFlowTheme.of(context)
-                                                  .alternate,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -285,10 +286,9 @@ class _CreateAccountOnboardingFlowWidgetState
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 40.0,
-                                                    color:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primary,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
                                                     offset: Offset(0.0, 2.0),
                                                     spreadRadius: 3.0,
                                                   )
@@ -297,9 +297,13 @@ class _CreateAccountOnboardingFlowWidgetState
                                                 border: Border.all(
                                                     color: Color(0x50EDF1F7)),
                                               ),
-                                              child: (_model.profilePicture != null && _model.profilePicture!.isNotEmpty)
+                                              child: (_model.profilePicture !=
+                                                          null &&
+                                                      _model.profilePicture!
+                                                          .isNotEmpty)
                                                   ? Hero(
-                                                      tag: _model.profilePicture!,
+                                                      tag: _model
+                                                          .profilePicture!,
                                                       transitionOnUserGestures:
                                                           true,
                                                       child: ClipRRect(
@@ -357,8 +361,7 @@ class _CreateAccountOnboardingFlowWidgetState
                                                   color: Color(0x46EDF1F7),
                                                   shape: BoxShape.circle,
                                                   border: Border.all(
-                                                      color:
-                                                          Color(0x6BD0E3F7)),
+                                                      color: Color(0x6BD0E3F7)),
                                                 ),
                                                 child: FlutterFlowIconButton(
                                                   borderColor:
@@ -368,10 +371,9 @@ class _CreateAccountOnboardingFlowWidgetState
                                                   fillColor: Color(0x79FCC462),
                                                   icon: Icon(
                                                     Icons.add,
-                                                    color:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .alternate,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
                                                     size: 28.0,
                                                   ),
                                                   onPressed: () async {
@@ -387,11 +389,10 @@ class _CreateAccountOnboardingFlowWidgetState
                                                       allowPhoto: true,
                                                     );
                                                     if (selectedMedia != null &&
-                                                        selectedMedia.every(
-                                                            (m) =>
-                                                                validateFileFormat(
-                                                                    m.storagePath,
-                                                                    context))) {
+                                                        selectedMedia.every((m) =>
+                                                            validateFileFormat(
+                                                                m.storagePath,
+                                                                context))) {
                                                       safeSetState(() => _model
                                                               .isDataUploading_profilePictureUpload1 =
                                                           true);
@@ -439,8 +440,7 @@ class _CreateAccountOnboardingFlowWidgetState
                                                         ))
                                                                 .where((u) =>
                                                                     u != null)
-                                                                .map(
-                                                                    (u) => u!)
+                                                                .map((u) => u!)
                                                                 .toList();
                                                       } finally {
                                                         ScaffoldMessenger.of(
@@ -475,11 +475,13 @@ class _CreateAccountOnboardingFlowWidgetState
                                                         return;
                                                       }
                                                     }
-                                                    _model.profilePicture =
-                                                        _model.uploadedFileUrl_profilePictureUpload1;
+                                                    _model.profilePicture = _model
+                                                        .uploadedFileUrl_profilePictureUpload1;
                                                     safeSetState(() {});
-                                                    FFAppState().ProfilePicture =
-                                                        _model.profilePicture ?? '';
+                                                    FFAppState()
+                                                            .ProfilePicture =
+                                                        _model.profilePicture ??
+                                                            '';
                                                     safeSetState(() {});
                                                   },
                                                 ),
@@ -522,16 +524,14 @@ class _CreateAccountOnboardingFlowWidgetState
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                     ),
-                                            enabledBorder:
-                                                UnderlineInputBorder(
+                                            enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0),
                                               borderRadius:
                                                   BorderRadius.circular(24.0),
                                             ),
-                                            focusedBorder:
-                                                UnderlineInputBorder(
+                                            focusedBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0),
@@ -598,8 +598,7 @@ class _CreateAccountOnboardingFlowWidgetState
                                           child: FlutterFlowDropDown<String>(
                                             multiSelectController: _model
                                                     .dropDownValueController ??=
-                                                FormListFieldController<
-                                                    String>(
+                                                FormListFieldController<String>(
                                                     _model.dropDownValue ??=
                                                         List<String>.from(
                                               Pronouns.values
@@ -645,9 +644,9 @@ class _CreateAccountOnboardingFlowWidgetState
                                                     .getText('fq01bjqh'),
                                             icon: Icon(
                                               Icons.keyboard_arrow_down_rounded,
-                                              color: FlutterFlowTheme.of(
-                                                      context)
-                                                  .secondaryText,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
                                               size: 24.0,
                                             ),
                                             elevation: 2.0,
@@ -672,8 +671,7 @@ class _CreateAccountOnboardingFlowWidgetState
                                     ),
                                     // Continue button
                                     Align(
-                                      alignment:
-                                          AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           HapticFeedback.lightImpact();
@@ -691,17 +689,16 @@ class _CreateAccountOnboardingFlowWidgetState
                                           height: 50.0,
                                           padding: EdgeInsets.all(8.0),
                                           color: Color(0xD7F0831A),
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleMedium
-                                                  .override(
-                                                    fontFamily: 'WorkSans',
-                                                    color:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primary,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleMedium
+                                              .override(
+                                                fontFamily: 'WorkSans',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                letterSpacing: 0.0,
+                                              ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
                                               color: Color(0x4CEDF1F7)),
@@ -770,117 +767,99 @@ class _CreateAccountOnboardingFlowWidgetState
                                   ),
                             ),
                             Expanded(
-                              child: Container(
-                                width: double.infinity,
-                                child: SingleChildScrollView(
-                                  controller: _model.columnController,
-                                  child: Builder(
-                                    builder: (context) {
-                                      final interest = FFAppConstants
-                                          .OnboardingInterests
-                                          .toList();
-                                      return ListView.separated(
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: 12.0),
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount: interest.length,
-                                        separatorBuilder: (_, __) =>
-                                            SizedBox(height: 12.0),
-                                        itemBuilder:
-                                            (context, interestIndex) {
-                                          final interestItem =
-                                              interest[interestIndex];
-                                          return InkWell(
-                                            onTap: () async {
-                                              HapticFeedback.selectionClick();
-                                              safeSetState(() {});
-                                            },
-                                            child: Container(
-                                              width: double.infinity,
-                                              height: 55.2,
-                                              decoration: BoxDecoration(
-                                                color: valueOrDefault<Color>(
-                                                  FFAppConstants
-                                                      .OnboardingGoalColors
-                                                      .firstOrNull,
-                                                  Color(0xA3D0E3F7),
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        15.0),
-                                                border: Border.all(
-                                                    color:
-                                                        Color(0x48EDF1F7)),
-                                              ),
-                                              child: Padding(
-                                                padding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(36.0,
-                                                            12.0, 24.0, 12.0),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
+                              child: Builder(
+                                builder: (context) {
+                                  final interest = FFAppConstants
+                                      .OnboardingInterests.toList();
+                                  return ListView.separated(
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 12.0),
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: interest.length,
+                                    separatorBuilder: (_, __) =>
+                                        SizedBox(height: 12.0),
+                                    itemBuilder: (context, interestIndex) {
+                                      final interestItem =
+                                          interest[interestIndex];
+                                      return InkWell(
+                                        onTap: () async {
+                                          HapticFeedback.selectionClick();
+                                          safeSetState(() {});
+                                        },
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: 55.2,
+                                          decoration: BoxDecoration(
+                                            color: valueOrDefault<Color>(
+                                              FFAppConstants
+                                                  .OnboardingGoalColors
+                                                  .firstOrNull,
+                                              Color(0xA3D0E3F7),
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(15.0),
+                                            border: Border.all(
+                                                color: Color(0x48EDF1F7)),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    36.0, 12.0, 24.0, 12.0),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Row(
                                                   children: [
-                                                    Row(
-                                                      children: [
-                                                        Container(
-                                                          width: 25.0,
-                                                          height: 25.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            shape: BoxShape
-                                                                .circle,
-                                                            image:
-                                                                DecorationImage(
-                                                              fit: BoxFit
-                                                                  .cover,
-                                                              image: Image
-                                                                      .asset(
+                                                    Container(
+                                                      width: 25.0,
+                                                      height: 25.0,
+                                                      decoration: BoxDecoration(
+                                                        shape: BoxShape.circle,
+                                                        image: DecorationImage(
+                                                          fit: BoxFit.cover,
+                                                          image: Image.asset(
                                                                   'assets/images/f888a650f73ba5acfa7794b87773e0ae64ac7c72.png')
-                                                                  .image,
-                                                            ),
-                                                          ),
+                                                              .image,
                                                         ),
-                                                        SizedBox(width: 12.0),
-                                                        Text(
-                                                          interestItem,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    if (_model.interests)
-                                                      Icon(
-                                                        Icons.check_circle,
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .success,
-                                                        size: 20.0,
                                                       ),
+                                                    ),
+                                                    SizedBox(width: 12.0),
+                                                    Text(
+                                                      interestItem,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'WorkSans',
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
                                                   ],
                                                 ),
-                                              ),
+                                                if (_model.interests)
+                                                  Icon(
+                                                    Icons.check_circle,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .success,
+                                                    size: 20.0,
+                                                  ),
+                                              ],
                                             ),
-                                          );
-                                        },
+                                          ),
+                                        ),
                                       );
                                     },
-                                  ),
-                                ),
+                                  );
+                                },
                               ),
                             ),
+                            
                             FFButtonWidget(
                               onPressed: () async {
                                 HapticFeedback.lightImpact();
@@ -900,8 +879,8 @@ class _CreateAccountOnboardingFlowWidgetState
                                     .titleMedium
                                     .override(
                                       fontFamily: 'WorkSans',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primary,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
@@ -980,41 +959,38 @@ class _CreateAccountOnboardingFlowWidgetState
                                     () => _model.checkboxGroupValues = val);
                                 HapticFeedback.lightImpact();
                               },
-                              controller: _model
-                                      .checkboxGroupValueController ??=
-                                  FormFieldController<List<String>>([]),
-                              activeColor: FlutterFlowTheme.of(context).tertiary,
-                              checkColor:
-                                  FlutterFlowTheme.of(context).accent1,
+                              controller:
+                                  _model.checkboxGroupValueController ??=
+                                      FormFieldController<List<String>>([]),
+                              activeColor:
+                                  FlutterFlowTheme.of(context).tertiary,
+                              checkColor: FlutterFlowTheme.of(context).accent1,
                               checkboxBorderColor:
                                   FlutterFlowTheme.of(context).alternate,
                               textStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'WorkSans',
-                                    color: FlutterFlowTheme.of(context)
-                                        .alternate,
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
-                              unselectedTextStyle:
-                                  FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        lineHeight: 1.5,
-                                      ),
+                              unselectedTextStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'WorkSans',
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    lineHeight: 1.5,
+                                  ),
                               itemPadding: EdgeInsetsDirectional.fromSTEB(
                                   70.0, 8.0, 0.0, 0.0),
-                              checkboxBorderRadius:
-                                  BorderRadius.circular(4.0),
-                              initialized:
-                                  _model.checkboxGroupValues != null,
+                              checkboxBorderRadius: BorderRadius.circular(4.0),
+                              initialized: _model.checkboxGroupValues != null,
                             ),
                             FFButtonWidget(
                               onPressed: () async {
@@ -1035,8 +1011,8 @@ class _CreateAccountOnboardingFlowWidgetState
                                     .titleMedium
                                     .override(
                                       fontFamily: 'WorkSans',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primary,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
@@ -1134,9 +1110,9 @@ class _CreateAccountOnboardingFlowWidgetState
                                             .labelLarge
                                             .override(
                                               fontFamily: 'WorkSans',
-                                              color: FlutterFlowTheme.of(
-                                                      context)
-                                                  .secondaryBackground,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -1166,11 +1142,12 @@ class _CreateAccountOnboardingFlowWidgetState
                                 try {
                                   await currentUserReference!.update({
                                     ...createUsersRecordData(
-                                      photoUrl: (_model.profilePicture != null && _model.profilePicture!.isNotEmpty)
+                                      photoUrl: (_model.profilePicture !=
+                                                  null &&
+                                              _model.profilePicture!.isNotEmpty)
                                           ? _model.profilePicture
                                           : null,
-                                      displayName:
-                                          _model.textController!.text,
+                                      displayName: _model.textController!.text,
                                       pronouns:
                                           _model.dropDownValue?.firstOrNull,
                                     ),
@@ -1188,7 +1165,8 @@ class _CreateAccountOnboardingFlowWidgetState
                                 FFAppState().hasSeenOnboarding = false;
                                 safeSetState(() {});
                                 FFAppState().isFinishedIntroWalkthrough = false;
-                                debugPrint('>>> ONBOARDING Finish button tapped');
+                                debugPrint(
+                                    '>>> ONBOARDING Finish button tapped');
                                 context.goNamed(
                                   OnboardingPageViewWidget.routeName,
                                   extra: <String, dynamic>{
@@ -1211,8 +1189,8 @@ class _CreateAccountOnboardingFlowWidgetState
                                     .titleMedium
                                     .override(
                                       fontFamily: 'WorkSans',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primary,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
@@ -1220,8 +1198,8 @@ class _CreateAccountOnboardingFlowWidgetState
                                     BorderSide(color: Color(0x4CEDF1F7)),
                                 borderRadius: BorderRadius.circular(24.0),
                               ),
-                            ).animateOnPageLoad(animationsMap[
-                                'buttonOnPageLoadAnimation1']!),
+                            ).animateOnPageLoad(
+                                animationsMap['buttonOnPageLoadAnimation1']!),
                           ].divide(SizedBox(height: 32.0)),
                         ),
                       ),
@@ -1231,8 +1209,8 @@ class _CreateAccountOnboardingFlowWidgetState
                   Align(
                     alignment: AlignmentDirectional(0.0, -1.0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          0.0, 16.0, 0.0, 0.0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                       child: smooth_page_indicator.SmoothPageIndicator(
                         controller: _model.pageViewController ??=
                             PageController(initialPage: 0),
@@ -1252,8 +1230,7 @@ class _CreateAccountOnboardingFlowWidgetState
                           dotWidth: 8.0,
                           dotHeight: 8.0,
                           dotColor: Color(0xDB39519F),
-                          activeDotColor:
-                              FlutterFlowTheme.of(context).accent1,
+                          activeDotColor: FlutterFlowTheme.of(context).accent1,
                           paintStyle: PaintingStyle.stroke,
                         ),
                       ),
