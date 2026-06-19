@@ -607,6 +607,18 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                         }
                                                       }
 
+                                                      // Guard: user cancelled photo selection
+                                                      if (_model.uploadedFileUrl_mdPhoto ==
+                                                              null ||
+                                                          _model
+                                                              .uploadedFileUrl_mdPhoto!
+                                                              .isEmpty) {
+                                                        _model.isScanLoading =
+                                                            false;
+                                                        safeSetState(() {});
+                                                        return;
+                                                      }
+
                                                       logFirebaseEvent(
                                                           'Button_show_snack_bar');
                                                       ScaffoldMessenger.of(
