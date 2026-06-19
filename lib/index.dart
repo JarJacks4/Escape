@@ -90,6 +90,40 @@ export '/chat_with_lucille_version5/chat_with_lucille_version5_widget.dart'
 export '/lucille_voice_chat_web_view/lucille_voice_chat_web_view_widget.dart';
 export '/new_sign_in_version5/new_sign_in_version5_widget.dart'
     show NewSignInVersion5Widget;
+export '/filter_freud_score/filter_freud_score_widget.dart'
+    show FilterFreudScoreWidget;
+export '/freud_score_page/freud_score_page_widget.dart'
+    show FreudScorePageWidget;
+export '/mindful_tracker_version7_page/mindful_tracker_version7_page_widget.dart'
+    show MindfulTrackerVersion7PageWidget;
+export '/sleep_tracking/sleep_tracking_widget.dart' show SleepTrackingWidget;
+export '/stress_hub/stress_hub_widget.dart' show StressHubWidget;
+export '/a_i_chat/a_i_chat_widget.dart' show AIChatWidget;
+export '/mood_statistics/mood_statistics_widget.dart' show MoodStatisticsWidget;
+export '/detailed_sleep_analytics/detailed_sleep_analytics_widget.dart'
+    show DetailedSleepAnalyticsWidget;
+export '/stress_factor_selection/stress_factor_selection_widget.dart'
+    show StressFactorSelectionWidget;
+export '/stress_level_scale/stress_level_scale_widget.dart'
+    show StressLevelScaleWidget;
+export '/detailed_mood_breakdown/detailed_mood_breakdown_widget.dart'
+    show DetailedMoodBreakdownWidget;
+export '/mindful_resources_hub/mindful_resources_hub_widget.dart'
+    show MindfulResourcesHubWidget;
+export '/dashboard_version5/dashboard_version5_widget.dart'
+    show DashboardVersion5Widget;
+export '/dashboard_page/dashboard_page_widget.dart' show DashboardPageWidget;
+export '/sleep_tracking_quality_page/sleep_tracking_quality_page_widget.dart'
+    show SleepTrackingQualityPageWidget;
+export '/stress_management_hub/stress_management_hub_widget.dart'
+    show StressManagementHubWidget;
+export '/mood_statistics2/mood_statistics2_widget.dart'
+    show MoodStatistics2Widget;
+export '/soundscapes_meditation/soundscapes_meditation_widget.dart'
+    show SoundscapesMeditationWidget;
+export '/a_i_therapy_chatbot/a_i_therapy_chatbot_widget.dart'
+    show AITherapyChatbotWidget;
+export '/see_all_page/see_all_page_widget.dart' show SeeAllPageWidget;
 export '/destinations_unreal_engine/destinations_unreal_engine_widget.dart'
     show DestinationsUnrealEngineWidget;
 export '/destination_details_unreal_engine_version5/destination_details_unreal_engine_version5_widget.dart'

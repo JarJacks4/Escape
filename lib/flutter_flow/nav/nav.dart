@@ -499,6 +499,106 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => JournalHistory2Widget(),
           ),
           FFRoute(
+            name: MindfulTrackerVersion7PageWidget.routeName,
+            path: MindfulTrackerVersion7PageWidget.routePath,
+            builder: (context, params) => MindfulTrackerVersion7PageWidget(),
+          ),
+          FFRoute(
+            name: FilterFreudScoreWidget.routeName,
+            path: FilterFreudScoreWidget.routePath,
+            builder: (context, params) => FilterFreudScoreWidget(),
+          ),
+          FFRoute(
+            name: FreudScorePageWidget.routeName,
+            path: FreudScorePageWidget.routePath,
+            builder: (context, params) => FreudScorePageWidget(),
+          ),
+          FFRoute(
+            name: SleepTrackingWidget.routeName,
+            path: SleepTrackingWidget.routePath,
+            builder: (context, params) => SleepTrackingWidget(),
+          ),
+          FFRoute(
+            name: StressHubWidget.routeName,
+            path: StressHubWidget.routePath,
+            builder: (context, params) => StressHubWidget(),
+          ),
+          FFRoute(
+            name: AIChatWidget.routeName,
+            path: AIChatWidget.routePath,
+            builder: (context, params) => AIChatWidget(),
+          ),
+          FFRoute(
+            name: MoodStatisticsWidget.routeName,
+            path: MoodStatisticsWidget.routePath,
+            builder: (context, params) => MoodStatisticsWidget(),
+          ),
+          FFRoute(
+            name: DetailedSleepAnalyticsWidget.routeName,
+            path: DetailedSleepAnalyticsWidget.routePath,
+            builder: (context, params) => DetailedSleepAnalyticsWidget(),
+          ),
+          FFRoute(
+            name: StressFactorSelectionWidget.routeName,
+            path: StressFactorSelectionWidget.routePath,
+            builder: (context, params) => StressFactorSelectionWidget(),
+          ),
+          FFRoute(
+            name: StressLevelScaleWidget.routeName,
+            path: StressLevelScaleWidget.routePath,
+            builder: (context, params) => StressLevelScaleWidget(),
+          ),
+          FFRoute(
+            name: DetailedMoodBreakdownWidget.routeName,
+            path: DetailedMoodBreakdownWidget.routePath,
+            builder: (context, params) => DetailedMoodBreakdownWidget(),
+          ),
+          FFRoute(
+            name: MindfulResourcesHubWidget.routeName,
+            path: MindfulResourcesHubWidget.routePath,
+            builder: (context, params) => MindfulResourcesHubWidget(),
+          ),
+          FFRoute(
+            name: DashboardVersion5Widget.routeName,
+            path: DashboardVersion5Widget.routePath,
+            builder: (context, params) => DashboardVersion5Widget(),
+          ),
+          FFRoute(
+            name: DashboardPageWidget.routeName,
+            path: DashboardPageWidget.routePath,
+            builder: (context, params) => DashboardPageWidget(),
+          ),
+          FFRoute(
+            name: SleepTrackingQualityPageWidget.routeName,
+            path: SleepTrackingQualityPageWidget.routePath,
+            builder: (context, params) => SleepTrackingQualityPageWidget(),
+          ),
+          FFRoute(
+            name: StressManagementHubWidget.routeName,
+            path: StressManagementHubWidget.routePath,
+            builder: (context, params) => StressManagementHubWidget(),
+          ),
+          FFRoute(
+            name: MoodStatistics2Widget.routeName,
+            path: MoodStatistics2Widget.routePath,
+            builder: (context, params) => MoodStatistics2Widget(),
+          ),
+          FFRoute(
+            name: SoundscapesMeditationWidget.routeName,
+            path: SoundscapesMeditationWidget.routePath,
+            builder: (context, params) => SoundscapesMeditationWidget(),
+          ),
+          FFRoute(
+            name: AITherapyChatbotWidget.routeName,
+            path: AITherapyChatbotWidget.routePath,
+            builder: (context, params) => AITherapyChatbotWidget(),
+          ),
+          FFRoute(
+            name: SeeAllPageWidget.routeName,
+            path: SeeAllPageWidget.routePath,
+            builder: (context, params) => SeeAllPageWidget(),
+          ),
+          FFRoute(
             name: NewSignInVersion5Widget.routeName,
             path: NewSignInVersion5Widget.routePath,
             builder: (context, params) => NewSignInVersion5Widget(
