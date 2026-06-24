@@ -296,8 +296,6 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                   return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
                                 }
                               }(),
-                              width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -305,8 +303,6 @@ class _AISoundscapesCopyCopyCopyWidgetState
                             animationsMap['imageOnPageLoadAnimation1']!),
                       ),
                       Container(
-                        width: double.infinity,
-                        height: MediaQuery.sizeOf(context).height,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [

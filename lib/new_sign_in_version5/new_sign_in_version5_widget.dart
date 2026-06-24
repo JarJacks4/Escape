@@ -6,11 +6,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
-import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
-import '/flutter_flow/nav/nav.dart';
-import '/auth/base_auth_user_provider.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
 import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
@@ -27,6 +24,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:material_palette/material_palette.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +40,7 @@ class NewSignInVersion5Widget extends StatefulWidget {
   final int? tabIndexLogin;
 
   static String routeName = 'NewSignInVersion5';
-  static String routePath = 'newLogInVersion5';
+  static String routePath = '/newLogInVersion5';
 
   @override
   State<NewSignInVersion5Widget> createState() =>
@@ -263,13 +261,31 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .tertiary,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                               ),
                                                         ),
                                                       ].divide(SizedBox(
@@ -286,11 +302,12 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                       'frequency': 12.35
                                                     }, colors: {
                                                       'bgColor':
-                                                          Color(0xFF202329)
+                                                          Color(0x39EDF1F7)
                                                     }),
                                                     animationMode:
                                                         ShaderAnimationMode
                                                             .continuous,
+                                                    interactive: true,
                                                     tapConfig:
                                                         ShaderAnimationConfig(
                                                             curve: Curves
@@ -310,12 +327,12 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
-                                                              Color(0x32EDF1F7),
+                                                              Color(0x16EDF1F7),
                                                           boxShadow: [
                                                             BoxShadow(
                                                               blurRadius: 20.0,
                                                               color: Color(
-                                                                  0xCAD0E3F7),
+                                                                  0x85D0E3F7),
                                                               offset: Offset(
                                                                 0.0,
                                                                 2.0,
@@ -371,10 +388,14 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .labelMedium
                                                                             .override(
-                                                                              fontFamily: 'The Seasons',
+                                                                              font: GoogleFonts.cormorantSc(
+                                                                                fontWeight: FontWeight.bold,
+                                                                                fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                              ),
                                                                               color: FlutterFlowTheme.of(context).alternate,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
+                                                                              fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
                                                                             ),
                                                                       ),
                                                                       Container(
@@ -414,9 +435,14 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                               '66vn2xlq' /* Enter Your Cosmic Identity */,
                                                                             ),
                                                                             hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'WorkSans',
+                                                                                  font: GoogleFonts.inter(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   color: FlutterFlowTheme.of(context).tertiary,
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                             enabledBorder:
                                                                                 OutlineInputBorder(
@@ -470,9 +496,14 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'WorkSans',
+                                                                                font: GoogleFonts.inter(
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                 letterSpacing: 0.0,
+                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                           enableInteractiveSelection:
                                                                               true,
@@ -501,10 +532,14 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .labelMedium
                                                                             .override(
-                                                                              fontFamily: 'The Seasons',
+                                                                              font: GoogleFonts.cormorantSc(
+                                                                                fontWeight: FontWeight.bold,
+                                                                                fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                              ),
                                                                               color: FlutterFlowTheme.of(context).alternate,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
+                                                                              fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
                                                                             ),
                                                                       ),
                                                                       Container(
@@ -533,18 +568,28 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                           decoration:
                                                                               InputDecoration(
                                                                             labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'WorkSans',
+                                                                                  font: GoogleFonts.inter(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                             hintText:
                                                                                 FFLocalizations.of(context).getText(
                                                                               'mvtwruzp' /* Enter Your Password */,
                                                                             ),
                                                                             hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'WorkSans',
+                                                                                  font: GoogleFonts.inter(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   color: FlutterFlowTheme.of(context).tertiary,
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                             enabledBorder:
                                                                                 OutlineInputBorder(
@@ -597,9 +642,14 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'WorkSans',
+                                                                                font: GoogleFonts.inter(
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                 letterSpacing: 0.0,
+                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                           keyboardType:
                                                                               TextInputType.visiblePassword,
@@ -667,12 +717,19 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                               context)
                                                                           .bodySmall
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'WorkSans',
+                                                                            font:
+                                                                                GoogleFonts.inter(
+                                                                              fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                            ),
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).tertiary,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -696,12 +753,23 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                             context)
                                                                         .labelSmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'WorkSans',
+                                                                          font:
+                                                                              GoogleFonts.inter(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).labelSmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                                                                          ),
                                                                           color:
                                                                               FlutterFlowTheme.of(context).tertiary,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .labelSmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .labelSmall
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                   FFButtonWidget(
@@ -748,6 +816,16 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                           null) {
                                                                         return;
                                                                       }
+                                                                      logFirebaseEvent(
+                                                                          'Button_update_app_state');
+                                                                      FFAppState()
+                                                                          .isFinishedIntroWalkthrough = valueOrDefault<
+                                                                              bool>(
+                                                                          currentUserDocument
+                                                                              ?.hasSeenWalkthrough,
+                                                                          false);
+                                                                      safeSetState(
+                                                                          () {});
                                                                       logFirebaseEvent(
                                                                           'Button_navigate_to');
 
@@ -806,12 +884,19 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'WorkSans',
+                                                                            font:
+                                                                                GoogleFonts.inter(
+                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                            ),
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primary,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                       elevation:
                                                                           3.0,
@@ -853,8 +938,11 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                                 null) {
                                                                               return;
                                                                             }
-                                                                            if (FFAppState().chatSessionId ==
-                                                                                '') {
+                                                                            logFirebaseEvent('Button_update_app_state');
+                                                                            FFAppState().isFinishedIntroWalkthrough =
+                                                                                valueOrDefault<bool>(currentUserDocument?.hasSeenWalkthrough, false);
+                                                                            safeSetState(() {});
+                                                                            if (FFAppState().chatSessionId == '') {
                                                                               logFirebaseEvent('Button_backend_call');
                                                                               _model.createIDForLogin = await TheoryOfMindSessionManagementGroup.createIDCall.call();
 
@@ -926,9 +1014,14 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                             color:
                                                                                 Color(0xB71C2444),
                                                                             textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'WorkSans',
+                                                                                  font: GoogleFonts.inter(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                             elevation:
                                                                                 3.0,
@@ -968,13 +1061,31 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                     context)
                                                                 .bodySmall
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'WorkSans',
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .inter(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontStyle,
                                                                 ),
                                                       ),
                                                       InkWell(
@@ -1034,14 +1145,28 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                            fontFamily:
-                                                                'The Seasons',
+                                                            font: GoogleFonts
+                                                                .cormorantSc(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primary,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                             shadows: [
                                                               Shadow(
                                                                 color: FlutterFlowTheme.of(
@@ -1112,7 +1237,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
                                                             logFirebaseEvent(
-                                                                'NEW_SIGN_IN_VERSION5_BEGIN_MY_JOURNEY_BT');
+                                                                'NEW_SIGN_IN_VERSION5_CONTINUE_MY_JOURNEY');
                                                             logFirebaseEvent(
                                                                 'Button_haptic_feedback');
                                                             HapticFeedback
@@ -1135,121 +1260,31 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                             GoRouter.of(context)
                                                                 .prepareAuthEvent();
 
-                                                            BaseAuthUser? user;
-                                                            try {
-                                                              user = await authManager
-                                                                  .signInWithEmail(
-                                                                context,
-                                                                _model
-                                                                    .loginEmailTextController
-                                                                    .text,
-                                                                _model
-                                                                    .loginPasswordTextController
-                                                                    .text,
-                                                              );
-                                                            } catch (e) {
-                                                              debugPrint(
-                                                                  'signInWithEmail error (App Check?): $e');
-                                                            }
-                                                            if (user == null &&
-                                                                !loggedIn) {
+                                                            final user =
+                                                                await authManager
+                                                                    .signInWithEmail(
+                                                              context,
+                                                              _model
+                                                                  .loginEmailTextController
+                                                                  .text,
+                                                              _model
+                                                                  .loginPasswordTextController
+                                                                  .text,
+                                                            );
+                                                            if (user == null) {
                                                               return;
                                                             }
 
                                                             logFirebaseEvent(
-                                                                'Button_custom_action');
-                                                            _model.firebaseUID =
-                                                                await actions
-                                                                    .getFirebaseToken();
-                                                            if (_model.firebaseUID !=
-                                                                    null &&
-                                                                _model.firebaseUID !=
-                                                                    '') {
-                                                              logFirebaseEvent(
-                                                                  'Button_update_app_state');
-                                                              FFAppState()
-                                                                      .lucilleUserID =
-                                                                  currentUserUid;
-                                                              FFAppState()
-                                                                      .firebaseIDToken =
-                                                                  FFAppState()
-                                                                      .firebaseIDToken;
-                                                              safeSetState(
-                                                                  () {});
-                                                              logFirebaseEvent(
-                                                                  'Button_show_snack_bar');
-                                                              ScaffoldMessenger
-                                                                      .of(context)
-                                                                  .clearSnackBars();
-                                                              ScaffoldMessenger
-                                                                      .of(context)
-                                                                  .showSnackBar(
-                                                                SnackBar(
-                                                                  content: Text(
-                                                                    'Database ID: ${_model.firebaseUID}',
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                    ),
-                                                                  ),
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          4000),
-                                                                  backgroundColor:
-                                                                      FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .alternate,
-                                                                ),
-                                                              );
-                                                            } else {
-                                                              logFirebaseEvent(
-                                                                  'Button_show_snack_bar');
-                                                              ScaffoldMessenger
-                                                                      .of(context)
-                                                                  .showSnackBar(
-                                                                SnackBar(
-                                                                  content: Text(
-                                                                    'Database ID Error',
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                    ),
-                                                                  ),
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          4000),
-                                                                  backgroundColor:
-                                                                      FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .error,
-                                                                ),
-                                                              );
-                                                            }
-
-                                                            logFirebaseEvent(
-                                                                'Button_play_sound');
-                                                            _model.soundPlayer5 ??=
-                                                                AudioPlayer();
-                                                            if (_model
-                                                                .soundPlayer5!
-                                                                .playing) {
-                                                              await _model
-                                                                  .soundPlayer5!
-                                                                  .stop();
-                                                            }
-                                                            _model.soundPlayer5!
-                                                                .setVolume(1.0);
-                                                            _model.soundPlayer5!
-                                                                .setAsset(
-                                                                    'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav')
-                                                                .then((_) => _model
-                                                                    .soundPlayer5!
-                                                                    .play());
-
+                                                                'Button_update_app_state');
+                                                            FFAppState()
+                                                                    .isFinishedIntroWalkthrough =
+                                                                valueOrDefault<
+                                                                        bool>(
+                                                                    currentUserDocument
+                                                                        ?.hasSeenWalkthrough,
+                                                                    false);
+                                                            safeSetState(() {});
                                                             logFirebaseEvent(
                                                                 'Button_show_snack_bar');
                                                             ScaffoldMessenger
@@ -1275,45 +1310,34 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                     FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondary,
-                                                                action:
-                                                                    SnackBarAction(
-                                                                  label:
-                                                                      'Click Here to Scan Your Mood.',
-                                                                  textColor: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .alternate,
-                                                                  onPressed:
-                                                                      () async {
-                                                                    context
-                                                                        .pushNamedAuth(
-                                                                      MoodScanVersion5Widget
-                                                                          .routeName,
-                                                                      context
-                                                                          .mounted,
-                                                                      extra: <String,
-                                                                          dynamic>{
-                                                                        '__transition_info__':
-                                                                            TransitionInfo(
-                                                                          hasTransition:
-                                                                              true,
-                                                                          transitionType:
-                                                                              PageTransitionType.fade,
-                                                                          duration:
-                                                                              Duration(milliseconds: 9),
-                                                                        ),
-                                                                      },
-                                                                    );
-                                                                  },
-                                                                ),
                                                               ),
                                                             );
+                                                            logFirebaseEvent(
+                                                                'Button_play_sound');
+                                                            _model.soundPlayer5 ??=
+                                                                AudioPlayer();
+                                                            if (_model
+                                                                .soundPlayer5!
+                                                                .playing) {
+                                                              await _model
+                                                                  .soundPlayer5!
+                                                                  .stop();
+                                                            }
+                                                            _model.soundPlayer5!
+                                                                .setVolume(1.0);
+                                                            _model.soundPlayer5!
+                                                                .setAsset(
+                                                                    'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav')
+                                                                .then((_) => _model
+                                                                    .soundPlayer5!
+                                                                    .play());
 
-                                                            FFAppState()
-                                                                    .isFinishedIntroWalkthrough =
-                                                                false;
+                                                            logFirebaseEvent(
+                                                                'Button_navigate_to');
+
                                                             context
                                                                 .pushNamedAuth(
-                                                              HomeVersion5Widget
+                                                              MoodScanVersion5Widget
                                                                   .routeName,
                                                               context.mounted,
                                                               extra: <String,
@@ -1337,7 +1361,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                           text: FFLocalizations
                                                                   .of(context)
                                                               .getText(
-                                                            'a7wtorqo' /* Begin My Journey */,
+                                                            'a7wtorqo' /* Continue My Journey */,
                                                           ),
                                                           options:
                                                               FFButtonOptions(
@@ -1360,13 +1384,28 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                         context)
                                                                     .titleMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
+                                                                      font: GoogleFonts
+                                                                          .inter(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .titleMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .titleMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMedium
+                                                                          .fontStyle,
                                                                     ),
                                                             elevation: 4.0,
                                                             borderRadius:
@@ -1517,13 +1556,34 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'WorkSans',
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondary,
                                                         fontSize: 18.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ].divide(SizedBox(height: 8.0)),
@@ -1580,13 +1640,31 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'WorkSans',
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .inter(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                         enabledBorder:
                                                             InputBorder.none,
@@ -1631,16 +1709,36 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                               )
                                                             : null,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'WorkSans',
-                                                            color: Color(
-                                                                0xEEEDF1F7),
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: Color(
+                                                                    0xEEEDF1F7),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                       validator: _model
                                                           .displayNameTextControllerValidator
                                                           .asValidator(context),
@@ -1688,13 +1786,31 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'WorkSans',
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .inter(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                         enabledBorder:
                                                             InputBorder.none,
@@ -1739,16 +1855,36 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                               )
                                                             : null,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'WorkSans',
-                                                            color: Color(
-                                                                0xEEEDF1F7),
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: Color(
+                                                                    0xEEEDF1F7),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                       keyboardType:
                                                           TextInputType
                                                               .emailAddress,
@@ -1792,13 +1928,31 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'WorkSans',
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .inter(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                         enabledBorder:
                                                             InputBorder.none,
@@ -1843,16 +1997,36 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                           ),
                                                         ),
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'WorkSans',
-                                                            color: Color(
-                                                                0xEEEDF1F7),
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: Color(
+                                                                    0xEEEDF1F7),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                       validator: _model
                                                           .createPasswordTextControllerValidator
                                                           .asValidator(context),
@@ -1893,13 +2067,31 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'WorkSans',
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .inter(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                         enabledBorder:
                                                             InputBorder.none,
@@ -1944,16 +2136,36 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                           ),
                                                         ),
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'WorkSans',
-                                                            color: Color(
-                                                                0xEEEDF1F7),
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: Color(
+                                                                    0xEEEDF1F7),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                       validator: _model
                                                           .confirmPasswordTextControllerValidator
                                                           .asValidator(context),
@@ -1983,13 +2195,34 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                           context)
                                                       .titleMedium
                                                       .override(
-                                                        fontFamily: 'WorkSans',
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -2051,13 +2284,28 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
+                                                                      font: GoogleFonts
+                                                                          .inter(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .info,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                                 iconColor:
                                                                     FlutterFlowTheme.of(
@@ -2079,13 +2327,28 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
+                                                                      font: GoogleFonts
+                                                                          .inter(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                                 iconColor:
                                                                     FlutterFlowTheme.of(
@@ -2175,13 +2438,28 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
+                                                                      font: GoogleFonts
+                                                                          .inter(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .info,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                                 iconColor:
                                                                     FlutterFlowTheme.of(
@@ -2203,13 +2481,28 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
+                                                                      font: GoogleFonts
+                                                                          .inter(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                                 iconColor:
                                                                     FlutterFlowTheme.of(
@@ -2294,12 +2587,25 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'WorkSans',
+                                                                        font: GoogleFonts
+                                                                            .inter(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .info,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                               iconColor:
                                                                   FlutterFlowTheme.of(
@@ -2322,12 +2628,25 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'WorkSans',
+                                                                        font: GoogleFonts
+                                                                            .inter(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                               iconColor:
                                                                   FlutterFlowTheme.of(
@@ -2410,13 +2729,28 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
+                                                                      font: GoogleFonts
+                                                                          .inter(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .info,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                                 iconColor:
                                                                     FlutterFlowTheme.of(
@@ -2438,13 +2772,28 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
+                                                                      font: GoogleFonts
+                                                                          .inter(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                                 iconColor:
                                                                     FlutterFlowTheme.of(
@@ -2537,32 +2886,11 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
                                                           logFirebaseEvent(
-                                                              'NEW_SIGN_IN_VERSION5_START_MY_JOURNEY_BT');
+                                                              'NEW_SIGN_IN_VERSION5_BEGIN_MY_JOURNEY_BT');
                                                           logFirebaseEvent(
                                                               'Button_haptic_feedback');
                                                           HapticFeedback
                                                               .heavyImpact();
-                                                          logFirebaseEvent(
-                                                              'Button_play_sound');
-                                                          _model.soundPlayer6 ??=
-                                                              AudioPlayer();
-                                                          if (_model
-                                                              .soundPlayer6!
-                                                              .playing) {
-                                                            await _model
-                                                                .soundPlayer6!
-                                                                .stop();
-                                                          }
-                                                          _model.soundPlayer6!
-                                                              .setVolume(1.0);
-                                                          await _model
-                                                              .soundPlayer6!
-                                                              .setAsset(
-                                                                  'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav')
-                                                              .then((_) => _model
-                                                                  .soundPlayer6!
-                                                                  .play());
-
                                                           logFirebaseEvent(
                                                               'Button_validate_form');
                                                           _model.createAccountValidation =
@@ -2576,9 +2904,6 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                             _model.createAccountValidation =
                                                                 false;
                                                           }
-                                                          if (_model
-                                                                  .createAccountValidation !=
-                                                              true) return;
                                                           logFirebaseEvent(
                                                               'Button_auth');
                                                           GoRouter.of(context)
@@ -2605,71 +2930,79 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                             return;
                                                           }
 
-                                                          BaseAuthUser? user;
-                                                          try {
-                                                            user = await authManager
-                                                                .createAccountWithEmail(
-                                                              context,
-                                                              _model
-                                                                  .createEmailTextController
-                                                                  .text,
-                                                              _model
-                                                                  .createPasswordTextController
-                                                                  .text,
-                                                            );
-                                                          } catch (e) {
-                                                            debugPrint(
-                                                                'createAccountWithEmail error (App Check?): $e');
-                                                          }
-                                                          if (user == null &&
-                                                              !loggedIn) {
+                                                          final user =
+                                                              await authManager
+                                                                  .createAccountWithEmail(
+                                                            context,
+                                                            _model
+                                                                .createEmailTextController
+                                                                .text,
+                                                            _model
+                                                                .createPasswordTextController
+                                                                .text,
+                                                          );
+                                                          if (user == null) {
                                                             return;
                                                           }
 
-                                                          try {
-                                                            await UsersRecord
-                                                                .collection
-                                                                .doc(user
-                                                                        ?.uid ??
-                                                                    currentUserUid)
-                                                                .update(
-                                                                    createUsersRecordData(
-                                                                  email: _model
-                                                                      .createEmailTextController
-                                                                      .text,
-                                                                  createdTime:
-                                                                      getCurrentTimestamp,
-                                                                  displayName:
-                                                                      _model
-                                                                          .displayNameTextController
-                                                                          .text,
-                                                                  uid: random_data
-                                                                      .randomInteger(
-                                                                          0,
-                                                                          10000)
-                                                                      .toString(),
-                                                                ));
-                                                            logFirebaseEvent(
-                                                                'Button_backend_call');
-                                                            await currentUserReference!
-                                                                .update(
-                                                                    createUsersRecordData(
-                                                              lowerChakraMood:
-                                                                  _model
-                                                                      .lowerChakraMoodsValue,
-                                                              middleChakraMood:
-                                                                  _model
-                                                                      .middleChakraMoodsValue,
-                                                              higherChakraMood:
-                                                                  _model
-                                                                      .higherChakraMoodsValue,
-                                                              ascendedMood: _model
-                                                                  .crownChakraMoodsValue,
-                                                            ));
-                                                          } catch (e) {
-                                                            print(
-                                                                'Firestore write failed (App Check?): $e');
+                                                          await UsersRecord
+                                                              .collection
+                                                              .doc(user.uid)
+                                                              .update(
+                                                                  createUsersRecordData(
+                                                                email: _model
+                                                                    .createEmailTextController
+                                                                    .text,
+                                                                createdTime:
+                                                                    getCurrentTimestamp,
+                                                                displayName: _model
+                                                                    .displayNameTextController
+                                                                    .text,
+                                                                uid: random_data
+                                                                    .randomInteger(
+                                                                        0,
+                                                                        10000)
+                                                                    .toString(),
+                                                              ));
+
+                                                          logFirebaseEvent(
+                                                              'Button_play_sound');
+                                                          _model.soundPlayer6 ??=
+                                                              AudioPlayer();
+                                                          if (_model
+                                                              .soundPlayer6!
+                                                              .playing) {
+                                                            await _model
+                                                                .soundPlayer6!
+                                                                .stop();
                                                           }
+                                                          _model.soundPlayer6!
+                                                              .setVolume(1.0);
+                                                          await _model
+                                                              .soundPlayer6!
+                                                              .setAsset(
+                                                                  'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav')
+                                                              .then((_) => _model
+                                                                  .soundPlayer6!
+                                                                  .play());
+
+                                                          logFirebaseEvent(
+                                                              'Button_backend_call');
+
+                                                          await currentUserReference!
+                                                              .update(
+                                                                  createUsersRecordData(
+                                                            lowerChakraMood: _model
+                                                                .lowerChakraMoodsValue,
+                                                            middleChakraMood: _model
+                                                                .middleChakraMoodsValue,
+                                                            higherChakraMood: _model
+                                                                .higherChakraMoodsValue,
+                                                            ascendedMood: _model
+                                                                .crownChakraMoodsValue,
+                                                            hasSeenWalkthrough:
+                                                                false,
+                                                          ));
                                                           logFirebaseEvent(
                                                               'Button_show_snack_bar');
                                                           ScaffoldMessenger.of(
@@ -2702,95 +3035,27 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                   context)
                                                               .hideCurrentSnackBar();
                                                           logFirebaseEvent(
-                                                              'Button_custom_action');
-                                                          _model.getFirebaseToken =
-                                                              await actions
-                                                                  .getFirebaseToken();
-                                                          if (_model.getFirebaseToken !=
-                                                                  null &&
-                                                              _model.getFirebaseToken !=
-                                                                  '') {
-                                                            logFirebaseEvent(
-                                                                'Button_update_app_state');
-                                                            FFAppState()
-                                                                    .lucilleUserID =
-                                                                currentUserUid;
-                                                            FFAppState()
-                                                                    .firebaseIDToken =
-                                                                FFAppState()
-                                                                    .firebaseIDToken;
-                                                            safeSetState(() {});
-                                                            logFirebaseEvent(
-                                                                'Button_show_snack_bar');
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .clearSnackBars();
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'Database ID: ${_model.firebaseUID}',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                  ),
-                                                                ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        4000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .alternate,
-                                                              ),
-                                                            );
-                                                          } else {
-                                                            logFirebaseEvent(
-                                                                'Button_show_snack_bar');
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'Database ID Error',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                  ),
-                                                                ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        4000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .error,
-                                                              ),
-                                                            );
-                                                          }
-
-                                                          logFirebaseEvent(
                                                               'Button_navigate_to');
 
-                                                          FFAppState()
-                                                                  .hasSeenOnboarding =
-                                                              false;
-                                                          FFAppState()
-                                                                  .isOnboardingFinished =
-                                                              false;
-                                                          AppStateNotifier
-                                                              .instance
-                                                              .updateNotifyOnAuthChange(
-                                                                  false);
-
-                                                          context.goNamed(
-                                                              CreateAccountOnboardingFlowWidget
-                                                                  .routeName);
+                                                          context.pushNamedAuth(
+                                                            CreateAccountOnboardingFlowWidget
+                                                                .routeName,
+                                                            context.mounted,
+                                                            extra: <String,
+                                                                dynamic>{
+                                                              '__transition_info__':
+                                                                  TransitionInfo(
+                                                                hasTransition:
+                                                                    true,
+                                                                transitionType:
+                                                                    PageTransitionType
+                                                                        .fade,
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        2),
+                                                              ),
+                                                            },
+                                                          );
 
                                                           safeSetState(() {});
                                                         },
@@ -2798,7 +3063,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'acnpc4a1' /* Start My Journey! */,
+                                                          'acnpc4a1' /* Begin My Journey! */,
                                                         ),
                                                         options:
                                                             FFButtonOptions(
@@ -2821,13 +3086,30 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                       context)
                                                                   .titleMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'WorkSans',
+                                                                    font: GoogleFonts
+                                                                        .cormorantSc(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primary,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleMedium
+                                                                        .fontStyle,
                                                                   ),
                                                           elevation: 0.0,
                                                           borderSide:
@@ -2871,9 +3153,30 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                         context)
                                                     .bodyMedium
                                                     .override(
-                                                      fontFamily: 'WorkSans',
+                                                      font: GoogleFonts.inter(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
                                                       color: Color(0x98D0E3F7),
                                                       letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
                                                     ),
                                               ),
                                               InkWell(
@@ -2925,7 +3228,15 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'WorkSans',
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -2933,6 +3244,11 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),

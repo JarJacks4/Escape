@@ -51,9 +51,7 @@ class _MarketplaceButtonWidgetState extends State<MarketplaceButtonWidget> {
               color: Color(0xFFF6AB27),
               size: 24.0,
             ),
-            onPressed: () {
-              print('IconButton pressed ...');
-            },
+            onPressed: null,
           ),
           SizedBox(
             height: 30.0,

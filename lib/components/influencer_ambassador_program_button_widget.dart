@@ -89,9 +89,7 @@ class _InfluencerAmbassadorProgramButtonWidgetState
               color: FlutterFlowTheme.of(context).accent3,
               size: 24.0,
             ),
-            onPressed: () {
-              print('IconButton pressed ...');
-            },
+            onPressed: null,
           ).animateOnPageLoad(animationsMap['iconButtonOnPageLoadAnimation']!),
         ],
       ),

@@ -56,8 +56,6 @@ class NewSignInVersion5Model extends FlutterFlowModel<NewSignInVersion5Widget> {
   AudioPlayer? soundPlayer4;
   // Stores action output result for [Validate Form] action in Button widget.
   bool? validateLogin23;
-  // Stores action output result for [Custom Action - getFirebaseToken] action in Button widget.
-  String? firebaseUID;
   AudioPlayer? soundPlayer5;
   // State field(s) for DisplayName widget.
   FocusNode? displayNameFocusNode;
@@ -171,11 +169,9 @@ class NewSignInVersion5Model extends FlutterFlowModel<NewSignInVersion5Widget> {
       crownChakraMoodsValueController?.value?.firstOrNull;
   set crownChakraMoodsValue(String? val) =>
       crownChakraMoodsValueController?.value = val != null ? [val] : [];
-  AudioPlayer? soundPlayer6;
   // Stores action output result for [Validate Form] action in Button widget.
   bool? createAccountValidation;
-  // Stores action output result for [Custom Action - getFirebaseToken] action in Button widget.
-  String? getFirebaseToken;
+  AudioPlayer? soundPlayer6;
   AudioPlayer? soundPlayer7;
 
   @override
