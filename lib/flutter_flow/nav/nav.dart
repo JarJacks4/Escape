@@ -152,16 +152,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             : SplashScreenVersion5Widget(),
         routes: [
           FFRoute(
-            name: RegistrationSuccessWidget.routeName,
-            path: RegistrationSuccessWidget.routePath,
-            builder: (context, params) => RegistrationSuccessWidget(),
-          ),
-          FFRoute(
-            name: ClassesPageWidget.routeName,
-            path: ClassesPageWidget.routePath,
-            builder: (context, params) => ClassesPageWidget(),
-          ),
-          FFRoute(
             name: NotificationsScreenWidget.routeName,
             path: NotificationsScreenWidget.routePath,
             builder: (context, params) => NotificationsScreenWidget(),
@@ -172,34 +162,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => SubscriptionWidget(),
           ),
           FFRoute(
-            name: InterestsPageWidget.routeName,
-            path: InterestsPageWidget.routePath,
-            builder: (context, params) => InterestsPageWidget(),
-          ),
-          FFRoute(
-            name: ProfileDetailsWidget.routeName,
-            path: ProfileDetailsWidget.routePath,
-            builder: (context, params) => ProfileDetailsWidget(),
-          ),
-          FFRoute(
-            name: DisplayNameFINALWidget.routeName,
-            path: DisplayNameFINALWidget.routePath,
-            builder: (context, params) => DisplayNameFINALWidget(),
-          ),
-          FFRoute(
-            name: SelfCareGoalsWidget.routeName,
-            path: SelfCareGoalsWidget.routePath,
-            builder: (context, params) => SelfCareGoalsWidget(),
-          ),
-          FFRoute(
             name: EnableNotificationsWidget.routeName,
             path: EnableNotificationsWidget.routePath,
             builder: (context, params) => EnableNotificationsWidget(),
-          ),
-          FFRoute(
-            name: ProfileFINALWidget.routeName,
-            path: ProfileFINALWidget.routePath,
-            builder: (context, params) => ProfileFINALWidget(),
           ),
           FFRoute(
             name: MeditationChoicePageWidget.routeName,
@@ -367,16 +332,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             name: BodyReorderWidget.routeName,
             path: BodyReorderWidget.routePath,
             builder: (context, params) => BodyReorderWidget(
-              tabIndex: params.getParam(
-                'tabIndex',
-                ParamType.int,
-              ),
-            ),
-          ),
-          FFRoute(
-            name: SleepReorderWidget.routeName,
-            path: SleepReorderWidget.routePath,
-            builder: (context, params) => SleepReorderWidget(
               tabIndex: params.getParam(
                 'tabIndex',
                 ParamType.int,

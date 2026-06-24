@@ -346,7 +346,7 @@ personalized n... */
                                       logFirebaseEvent('Button_navigate_to');
 
                                       context.pushNamed(
-                                        RegistrationSuccessWidget.routeName,
+                                        HomeVersion5Widget.routeName,
                                         extra: <String, dynamic>{
                                           '__transition_info__': TransitionInfo(
                                             hasTransition: true,
