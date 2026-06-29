@@ -690,8 +690,9 @@ class _ExerciseAssessmentBottomSheetCopyWidgetState
                                       borderRadius: BorderRadius.circular(25.0),
                                     ),
                                     child: LinearPercentIndicator(
-                                      percent: _model.pageViewCurrentIndex
-                                          .toDouble(),
+                                      percent:
+                                          (_model.pageViewCurrentIndex / 3.0)
+                                              .clamp(0.0, 1.0),
                                       width: MediaQuery.sizeOf(context).width *
                                           0.9,
                                       lineHeight: 5.0,
@@ -951,11 +952,9 @@ class _ExerciseAssessmentBottomSheetCopyWidgetState
                                                               .sleepScoreValue1 ??=
                                                           utility_functions_library_8g4bud_functions
                                                               .convertDoubleToInt(
-                                                                  _model
-                                                                      .sleepScoreValue2!,
-                                                                  _model
-                                                                      .sleepScoreValue2!
-                                                                      .toString())
+                                                                  _model.sleepScoreValue2 ??
+                                                                      0.0,
+                                                                  'round')
                                                               .toDouble(),
                                                       onChanged: (newValue) {
                                                         newValue = double.parse(
@@ -1341,8 +1340,9 @@ class _ExerciseAssessmentBottomSheetCopyWidgetState
                                       borderRadius: BorderRadius.circular(25.0),
                                     ),
                                     child: LinearPercentIndicator(
-                                      percent: _model.pageViewCurrentIndex
-                                          .toDouble(),
+                                      percent:
+                                          (_model.pageViewCurrentIndex / 3.0)
+                                              .clamp(0.0, 1.0),
                                       width: MediaQuery.sizeOf(context).width *
                                           0.9,
                                       lineHeight: 5.0,
@@ -1965,8 +1965,8 @@ class _ExerciseAssessmentBottomSheetCopyWidgetState
                                   borderRadius: BorderRadius.circular(25.0),
                                 ),
                                 child: LinearPercentIndicator(
-                                  percent:
-                                      _model.pageViewCurrentIndex.toDouble(),
+                                  percent: (_model.pageViewCurrentIndex / 3.0)
+                                      .clamp(0.0, 1.0),
                                   width: MediaQuery.sizeOf(context).width * 0.9,
                                   lineHeight: 5.0,
                                   animation: true,
@@ -2389,7 +2389,8 @@ class _ExerciseAssessmentBottomSheetCopyWidgetState
                                           _model.effectivenessScore =
                                               utility_functions_library_8g4bud_functions
                                                   .convertDoubleToInt(
-                                                      _model.sleepScoreValue1!,
+                                                      _model.sleepScoreValue1 ??
+                                                          0.0,
                                                       'round');
                                           safeSetState(() {});
                                           logFirebaseEvent(

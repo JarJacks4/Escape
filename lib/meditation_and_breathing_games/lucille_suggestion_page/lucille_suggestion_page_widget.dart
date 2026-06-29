@@ -159,8 +159,8 @@ class _LucilleSuggestionPageWidgetState
                   ),
                 ),
                 Container(
-                  width: 402.1,
-                  height: 876.36,
+                  width: double.infinity,
+                  height: double.infinity,
                   decoration: BoxDecoration(),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(0.0),
@@ -570,7 +570,7 @@ class _LucilleSuggestionPageWidgetState
 
                                     logFirebaseEvent('Button_alert_dialog');
                                     await showDialog(
-                                      barrierColor: Color(0xC7000000),
+                                      barrierColor: Colors.transparent,
                                       context: context,
                                       builder: (dialogContext) {
                                         return Dialog(

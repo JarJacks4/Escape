@@ -419,7 +419,7 @@ class _ConfettiPageIntermediateCompWidgetState
                                           percent: valueOrDefault<double>(
                                             FFAppState().pointsEarnedPercentage,
                                             0.0,
-                                          ),
+                                          ).clamp(0.0, 1.0),
                                           width: 120.0,
                                           lineHeight: 12.0,
                                           animation: true,

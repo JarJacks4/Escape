@@ -674,6 +674,8 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                               currentUserUid,
                                                           imageUrl: _model
                                                               .uploadedFileUrl_mdPhoto,
+                                                          firebaseIDToken:
+                                                              currentJwtToken,
                                                         ),
                                                         TheoryOfMindLucilleGroup
                                                             .lucilleChatMainCall
@@ -686,6 +688,8 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                               currentUserUid,
                                                           imageUrl: _model
                                                               .uploadedFileUrl_mdPhoto,
+                                                          firebaseIDToken:
+                                                              currentJwtToken,
                                                         ),
                                                         TheoryOfMindLucilleGroup
                                                             .lucilleChatMainCall
@@ -698,6 +702,8 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                               currentUserUid,
                                                           imageUrl: _model
                                                               .uploadedFileUrl_mdPhoto,
+                                                          firebaseIDToken:
+                                                              currentJwtToken,
                                                         ),
                                                       ]);
                                                       _model.moodScan =

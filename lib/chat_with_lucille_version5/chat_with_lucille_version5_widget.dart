@@ -926,8 +926,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                           userID:
                                                               currentUserUid,
                                                           firebaseIDToken:
-                                                              FFAppState()
-                                                                  .firebaseIDToken,
+                                                              currentJwtToken,
                                                         );
                                                         if (_model
                                                                 .lucilleStreamChat
@@ -1063,15 +1062,13 @@ class _ChatWithLucilleVersion5WidgetState
                                                                   false;
                                                               safeSetState(
                                                                   () {});
-                                                              if (FFAppState()
-                                                                      .firebaseIDToken !=
+                                                              if (currentJwtToken !=
                                                                   '') {
                                                                 logFirebaseEvent(
                                                                     '_update_app_state');
                                                                 FFAppState()
                                                                         .firebaseIDToken =
-                                                                    FFAppState()
-                                                                        .firebaseIDToken;
+                                                                    currentJwtToken;
                                                                 safeSetState(
                                                                     () {});
                                                                 logFirebaseEvent(

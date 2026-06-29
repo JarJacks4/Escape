@@ -828,7 +828,9 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                           () {});
                                                                       logFirebaseEvent(
                                                                           'Button_navigate_to');
-
+                                                                      FFAppState()
+                                                                              .firebaseIDToken =
+                                                                          currentJwtToken;
                                                                       context
                                                                           .pushNamedAuth(
                                                                         MoodScanVersion5Widget
@@ -942,7 +944,8 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                             FFAppState().isFinishedIntroWalkthrough =
                                                                                 valueOrDefault<bool>(currentUserDocument?.hasSeenWalkthrough, false);
                                                                             safeSetState(() {});
-                                                                            if (FFAppState().chatSessionId == '') {
+                                                                            if (FFAppState().chatSessionId ==
+                                                                                '') {
                                                                               logFirebaseEvent('Button_backend_call');
                                                                               _model.createIDForLogin = await TheoryOfMindSessionManagementGroup.createIDCall.call();
 
@@ -972,6 +975,8 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                               }
                                                                             }
                                                                             logFirebaseEvent('Button_navigate_to');
+                                                                            FFAppState().firebaseIDToken =
+                                                                                currentJwtToken;
 
                                                                             context.pushNamedAuth(
                                                                               MoodScanVersion5Widget.routeName,
@@ -1334,6 +1339,9 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
 
                                                             logFirebaseEvent(
                                                                 'Button_navigate_to');
+                                                            FFAppState()
+                                                                    .firebaseIDToken =
+                                                                currentJwtToken;
 
                                                             context
                                                                 .pushNamedAuth(
@@ -3036,6 +3044,9 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                               .hideCurrentSnackBar();
                                                           logFirebaseEvent(
                                                               'Button_navigate_to');
+                                                          FFAppState()
+                                                                  .firebaseIDToken =
+                                                              currentJwtToken;
 
                                                           context.pushNamedAuth(
                                                             CreateAccountOnboardingFlowWidget
