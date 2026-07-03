@@ -26,6 +26,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'mood_scan_version5_model.dart';
 export 'mood_scan_version5_model.dart';
 
@@ -661,68 +663,109 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                           'Button_backend_call');
                                                       debugPrint(
                                                           'uploadedFileUrl_mdPhoto: \${_model.uploadedFileUrl_mdPhoto}');
-                                                      final results =
-                                                          await Future.wait([
-                                                        TheoryOfMindLucilleGroup
-                                                            .lucilleChatMainCall
-                                                            .call(
-                                                          message:
-                                                              'What is the my mood today, in one word, according to the photoI am uploading for text-to-image mood analyzation? Here is the photo:${_model.uploadedFileUrl_mdPhoto}',
-                                                          sessionId: FFAppState()
-                                                              .chatSessionId,
-                                                          userId:
-                                                              currentUserUid,
-                                                          imageUrl: _model
-                                                              .uploadedFileUrl_mdPhoto,
-                                                          firebaseIDToken:
-                                                              currentJwtToken,
-                                                        ),
-                                                        TheoryOfMindLucilleGroup
-                                                            .lucilleChatMainCall
-                                                            .call(
-                                                          message:
-                                                              'What is the my Stress Level today, in one double I can convert into a percantage, according to the photo I am uploading for text-to-image mood analyzation? Here is the photo:${_model.uploadedFileUrl_mdPhoto}',
-                                                          sessionId: FFAppState()
-                                                              .chatSessionId,
-                                                          userId:
-                                                              currentUserUid,
-                                                          imageUrl: _model
-                                                              .uploadedFileUrl_mdPhoto,
-                                                          firebaseIDToken:
-                                                              currentJwtToken,
-                                                        ),
-                                                        TheoryOfMindLucilleGroup
-                                                            .lucilleChatMainCall
-                                                            .call(
-                                                          message:
-                                                              'What is the my energy level today, in one word, according to the photo I am uploading for text-to-image mood analyzation? Here is the photo:${_model.uploadedFileUrl_mdPhoto}',
-                                                          sessionId: FFAppState()
-                                                              .chatSessionId,
-                                                          userId:
-                                                              currentUserUid,
-                                                          imageUrl: _model
-                                                              .uploadedFileUrl_mdPhoto,
-                                                          firebaseIDToken:
-                                                              currentJwtToken,
-                                                        ),
-                                                      ]);
-                                                      _model.moodScan =
-                                                          results[0];
-                                                      _model.stressLevel =
-                                                          results[1];
-                                                      _model.energyScan =
-                                                          results[2];
+                                                      String moodResultText =
+                                                          'Neutral';
+                                                      double stressLevelValue =
+                                                          0.5;
+                                                      String energyLevelText =
+                                                          'Neutral';
 
-                                                      debugPrint(
-                                                          'moodScan statusCode: ${_model.moodScan?.statusCode}');
-                                                      debugPrint(
-                                                          'moodScan jsonBody: ${_model.moodScan?.jsonBody}');
-                                                      debugPrint(
-                                                          'model_used: ${getJsonField(_model.moodScan?.jsonBody, r"$.model_used")}');
-                                                      debugPrint(
-                                                          'stressLevel jsonBody: ${_model.stressLevel?.jsonBody}');
-                                                      debugPrint(
-                                                          'energyScan jsonBody: ${_model.energyScan?.jsonBody}');
+                                                      try {
+                                                        final imageResponse =
+                                                            await http.get(
+                                                          Uri.parse(_model
+                                                              .uploadedFileUrl_mdPhoto!),
+                                                        );
+                                                        final request = http
+                                                            .MultipartRequest(
+                                                          'POST',
+                                                          Uri.parse(
+                                                              'https://lucillellm2-286076426888.us-east4.run.app/facial-emotion/detect'),
+                                                        );
+                                                        request.headers[
+                                                                'Authorization'] =
+                                                            'Bearer $currentJwtToken';
+                                                        request.files.add(
+                                                          http.MultipartFile
+                                                              .fromBytes(
+                                                            'file',
+                                                            imageResponse
+                                                                .bodyBytes,
+                                                            filename:
+                                                                'mood_photo.jpg',
+                                                          ),
+                                                        );
+
+                                                        final streamedResponse =
+                                                            await request
+                                                                .send();
+                                                        final responseBody =
+                                                            await streamedResponse
+                                                                .stream
+                                                                .bytesToString();
+                                                        debugPrint(
+                                                            'facial-emotion response: $responseBody');
+
+                                                        final decoded =
+                                                            jsonDecode(
+                                                                responseBody);
+                                                        if (decoded['status'] ==
+                                                                'success' &&
+                                                            decoded['results'] !=
+                                                                null &&
+                                                            (decoded['results']
+                                                                    as List)
+                                                                .isNotEmpty) {
+                                                          final firstFace =
+                                                              decoded['results']
+                                                                  [0];
+                                                          final predictedEmotion =
+                                                              (firstFace['predicted_emotion'] ??
+                                                                      'neutral')
+                                                                  .toString();
+                                                          final probabilities =
+                                                              firstFace['probabilities']
+                                                                      as Map<
+                                                                          String,
+                                                                          dynamic>? ??
+                                                                  {};
+
+                                                          moodResultText =
+                                                              predictedEmotion[
+                                                                          0]
+                                                                      .toUpperCase() +
+                                                                  predictedEmotion
+                                                                      .substring(
+                                                                          1);
+                                                          energyLevelText =
+                                                              moodResultText;
+
+                                                          final fear =
+                                                              (probabilities[
+                                                                          'fear'] ??
+                                                                      0.0)
+                                                                  as num;
+                                                          final angry =
+                                                              (probabilities[
+                                                                          'angry'] ??
+                                                                      0.0)
+                                                                  as num;
+                                                          final sad =
+                                                              (probabilities[
+                                                                          'sad'] ??
+                                                                      0.0)
+                                                                  as num;
+                                                          stressLevelValue =
+                                                              (fear.toDouble() +
+                                                                      angry.toDouble() +
+                                                                      sad.toDouble())
+                                                                  .clamp(0.0,
+                                                                      1.0);
+                                                        }
+                                                      } catch (e) {
+                                                        debugPrint(
+                                                            'facial-emotion detect error: $e');
+                                                      }
 
                                                       logFirebaseEvent(
                                                           'Button_trigger_app_event');
@@ -744,13 +787,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                             .set(
                                                                 createUsersRecordData(
                                                                   currentMood:
-                                                                      TheoryOfMindLucilleGroup
-                                                                          .lucilleChatMainCall
-                                                                          .response(
-                                                                    (_model.moodScan
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  ),
+                                                                      moodResultText,
                                                                   timeStamp:
                                                                       getCurrentTimestamp,
                                                                   createdTime:
@@ -771,13 +808,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                           _model
                                                               .uploadedFileUrl_mdPhoto;
                                                       FFAppState().moods =
-                                                          TheoryOfMindLucilleGroup
-                                                              .lucilleChatMainCall
-                                                              .response(
-                                                        (_model.moodScan
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!;
+                                                          moodResultText;
                                                       FFAppState()
                                                           .update(() {});
                                                       logFirebaseEvent(
@@ -788,13 +819,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                           data:
                                                               AiResponseStruct(
                                                             message:
-                                                                TheoryOfMindLucilleGroup
-                                                                    .lucilleChatMainCall
-                                                                    .response(
-                                                              (_model.moodScan
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ),
+                                                                moodResultText,
                                                             type: 'Mood',
                                                           ),
                                                           timestamp:
@@ -819,42 +844,17 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                         queryParameters: {
                                                           'moodResult':
                                                               serializeParam(
-                                                            TheoryOfMindLucilleGroup
-                                                                .lucilleChatMainCall
-                                                                .response(
-                                                              (_model.moodScan
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ),
+                                                            moodResultText,
                                                             ParamType.String,
                                                           ),
                                                           'stressLevel':
                                                               serializeParam(
-                                                            () {
-                                                              try {
-                                                                return utility_functions_library_8g4bud_functions.convertStringToDouble(
-                                                                    TheoryOfMindLucilleGroup
-                                                                        .lucilleChatMainCall
-                                                                        .response(
-                                                                  (_model.stressLevel
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )!);
-                                                              } catch (_) {
-                                                                return 0.5;
-                                                              }
-                                                            }(),
+                                                            stressLevelValue,
                                                             ParamType.double,
                                                           ),
                                                           'energyLevel':
                                                               serializeParam(
-                                                            TheoryOfMindLucilleGroup
-                                                                .lucilleChatMainCall
-                                                                .response(
-                                                              (_model.energyScan
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ),
+                                                            energyLevelText,
                                                             ParamType.String,
                                                           ),
                                                           'moodPhoto':
