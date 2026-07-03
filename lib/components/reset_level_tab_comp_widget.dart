@@ -285,7 +285,7 @@ class _ResetLevelTabCompWidgetState extends State<ResetLevelTabCompWidget> {
                                         0.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        '411lp8ww' /* Guided breathing to melt away ... */,
+                                        'fes79wvn' /* Guided breathing to melt away ... */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall

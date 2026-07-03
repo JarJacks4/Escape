@@ -483,7 +483,7 @@ Energy Center */
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        'cz43msg8' /* Why Lucille Thinks This */,
+                        'ib1l1h56' /* Why Lucille Thinks This */,
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(

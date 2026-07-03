@@ -620,7 +620,7 @@ Energy Center */
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        'qqrux8yc' /* Interpretation */,
+                        '3g0cwqs4' /* Interpretation */,
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
@@ -671,7 +671,7 @@ Energy Center */
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        'uvzv7z5o' /* Suggested Actions */,
+                        'w7th70k4' /* Suggested Actions */,
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(

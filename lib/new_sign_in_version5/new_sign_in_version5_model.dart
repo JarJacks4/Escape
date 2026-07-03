@@ -48,14 +48,20 @@ class NewSignInVersion5Model extends FlutterFlowModel<NewSignInVersion5Widget> {
   }
 
   AudioPlayer? soundPlayer2;
+  // Stores action output result for [Custom Action - getIdToken] action in Button widget.
+  String? userToken;
+  // Stores action output result for [Backend Call - API (User Complete Profile)] action in Button widget.
+  ApiCallResponse? passToken;
   AudioPlayer? soundPlayer3;
-  // Stores action output result for [Backend Call - API (CreateID)] action in Button widget.
-  ApiCallResponse? createIDForLogin;
-  // Stores action output result for [Backend Call - API (Validate Session)] action in Button widget.
-  ApiCallResponse? validateSession;
+  // Stores action output result for [Custom Action - getIdToken] action in Button widget.
+  String? userToken34;
+  // Stores action output result for [Backend Call - API (User Complete Profile)] action in Button widget.
+  ApiCallResponse? passToken3;
   AudioPlayer? soundPlayer4;
   // Stores action output result for [Validate Form] action in Button widget.
   bool? validateLogin23;
+  // Stores action output result for [Custom Action - getIdToken] action in Button widget.
+  String? userToken2;
   AudioPlayer? soundPlayer5;
   // State field(s) for DisplayName widget.
   FocusNode? displayNameFocusNode;
@@ -172,6 +178,10 @@ class NewSignInVersion5Model extends FlutterFlowModel<NewSignInVersion5Widget> {
   // Stores action output result for [Validate Form] action in Button widget.
   bool? createAccountValidation;
   AudioPlayer? soundPlayer6;
+  // Stores action output result for [Custom Action - getIdToken] action in Button widget.
+  String? userToken45;
+  // Stores action output result for [Backend Call - API (Onboarding User)] action in Button widget.
+  ApiCallResponse? passToken2;
   AudioPlayer? soundPlayer7;
 
   @override

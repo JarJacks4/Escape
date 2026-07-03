@@ -845,7 +845,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
       FFRoute(
         name: SoundscapesSeeAllPageWidget.routeName,
         path: SoundscapesSeeAllPageWidget.routePath,
-        builder: (context, params) => SoundscapesSeeAllPageWidget(),
+        builder: (context, params) => SoundscapesSeeAllPageWidget(
+          songUrl: params.getParam(
+            'songUrl',
+            ParamType.String,
+          ),
+          albumArt: params.getParam(
+            'albumArt',
+            ParamType.String,
+          ),
+          songTitle: params.getParam(
+            'songTitle',
+            ParamType.String,
+          ),
+          songNumber: params.getParam(
+            'songNumber',
+            ParamType.int,
+          ),
+        ),
       ),
       FFRoute(
         name: ForgotPasswordWidget.routeName,
@@ -1009,11 +1026,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         name: LucilleVoiceChatWebViewWidget.routeName,
         path: LucilleVoiceChatWebViewWidget.routePath,
         builder: (context, params) => LucilleVoiceChatWebViewWidget(),
-      ),
-      FFRoute(
-        name: HealthJournalCalendarWidget.routeName,
-        path: HealthJournalCalendarWidget.routePath,
-        builder: (context, params) => HealthJournalCalendarWidget(),
       ),
       FFRoute(
         name: VoiceTextJournalingWidget.routeName,

@@ -4,9 +4,22 @@ import 'package:flutter/material.dart';
 
 class ExpressionRecorderModel
     extends FlutterFlowModel<ExpressionRecorderWidget> {
-  @override
-  void initState(BuildContext context) {}
+  ///  State fields for stateful widgets in this page.
+
+  // State field(s) for Column widget.
+  ScrollController? columnScrollController1;
+  // State field(s) for Column widget.
+  ScrollController? columnScrollController2;
 
   @override
-  void dispose() {}
+  void initState(BuildContext context) {
+    columnScrollController1 = ScrollController();
+    columnScrollController2 = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    columnScrollController1?.dispose();
+    columnScrollController2?.dispose();
+  }
 }

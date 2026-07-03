@@ -1,9 +1,14 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/components/button_widget.dart';
 import '/components/calendar_day_widget.dart';
+import '/components/journal_card_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:material_palette/material_palette.dart';
 import 'journal_history_model.dart';
 export 'journal_history_model.dart';
@@ -205,34 +210,19 @@ class _JournalHistoryWidgetState extends State<JournalHistoryWidget> {
                                         shape: BoxShape.circle,
                                       ),
                                       alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          '5af69yby' /* AR */,
+                                      child: AuthUserStreamWidget(
+                                        builder: (context) => Container(
+                                          width: 200.0,
+                                          height: 200.0,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.network(
+                                            currentUserPhoto,
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
-                                        textAlign: TextAlign.center,
-                                        maxLines: 1,
-                                        style: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              font: GoogleFonts.inter(
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .fontStyle,
-                                              ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              fontSize: 18.24,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .fontStyle,
-                                            ),
-                                        overflow: TextOverflow.clip,
                                       ),
                                     ),
                                   ],
@@ -398,6 +388,87 @@ class _JournalHistoryWidgetState extends State<JournalHistoryWidget> {
                                     ],
                                   ),
                                 ),
+                                AuthUserStreamWidget(
+                                  builder: (context) => PagedListView<
+                                      DocumentSnapshot<Object?>?,
+                                      JournalRecord>(
+                                    pagingController:
+                                        _model.setListViewController(
+                                      JournalRecord.collection().where(
+                                        'JournalContent',
+                                        isEqualTo: valueOrDefault(
+                                            currentUserDocument?.currentMood,
+                                            ''),
+                                      ),
+                                    ),
+                                    padding: EdgeInsets.zero,
+                                    shrinkWrap: true,
+                                    reverse: false,
+                                    scrollDirection: Axis.vertical,
+                                    builderDelegate: PagedChildBuilderDelegate<
+                                        JournalRecord>(
+                                      // Customize what your widget looks like when it's loading the first page.
+                                      firstPageProgressIndicatorBuilder: (_) =>
+                                          Center(
+                                        child: SizedBox(
+                                          width: 100.0,
+                                          height: 100.0,
+                                          child: SpinKitWave(
+                                            color: FlutterFlowTheme.of(context)
+                                                .accent1,
+                                            size: 100.0,
+                                          ),
+                                        ),
+                                      ),
+                                      // Customize what your widget looks like when it's loading another page.
+                                      newPageProgressIndicatorBuilder: (_) =>
+                                          Center(
+                                        child: SizedBox(
+                                          width: 100.0,
+                                          height: 100.0,
+                                          child: SpinKitWave(
+                                            color: FlutterFlowTheme.of(context)
+                                                .accent1,
+                                            size: 100.0,
+                                          ),
+                                        ),
+                                      ),
+
+                                      itemBuilder: (context, _, listViewIndex) {
+                                        final listViewJournalRecord = _model
+                                            .listViewPagingController!
+                                            .itemList![listViewIndex];
+                                        return JournalCardWidget(
+                                          key: Key(
+                                              'Keydz0_${listViewIndex}_of_${_model.listViewPagingController!.itemList!.length}'),
+                                          date: dateTimeFormat(
+                                            "MMMMEEEEd",
+                                            listViewJournalRecord.timestamp,
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
+                                          ),
+                                          hasVoice: true,
+                                          moodBg: FlutterFlowTheme.of(context)
+                                              .secondary,
+                                          moodColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .alternate,
+                                          moodIcon: Icon(
+                                            Icons
+                                                .sentiment_satisfied_alt_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 20.0,
+                                          ),
+                                          snippet:
+                                              'Had a great morning meditation session and feeling energized for the day ahead. The sun is out and I feel like I can conquer anything...',
+                                          title: 'Feeling Positive Today!',
+                                          trigger: 'Morning Meditation',
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -425,6 +496,7 @@ class _JournalHistoryWidgetState extends State<JournalHistoryWidget> {
                       size: 24.0,
                     ),
                     elevation: 8.0,
+                    autofocus: true,
                     label: Text(
                       FFLocalizations.of(context).getText(
                         '2n2l7b6k' /* Write Entry */,

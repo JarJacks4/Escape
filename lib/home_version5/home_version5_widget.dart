@@ -118,7 +118,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
       logFirebaseEvent('HomeVersion5_backend_call');
       _model.usersCompleteProfile =
           await TheoryOfMindOnboardingGroup.updateUserProfileCall.call(
-        userID: currentUserUid,
+        displayName: currentUserUid,
       );
 
       logFirebaseEvent('HomeVersion5_trigger_app_event');
@@ -1921,12 +1921,12 @@ Further ... */
                                                                                     )}',
                                                                                     style: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                           font: GoogleFonts.cormorantSc(
-                                                                                            fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                                                                                            fontWeight: FontWeight.bold,
                                                                                             fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
                                                                                           ),
                                                                                           color: FlutterFlowTheme.of(context).alternate,
                                                                                           letterSpacing: 0.0,
-                                                                                          fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                                                                                          fontWeight: FontWeight.bold,
                                                                                           fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
                                                                                         ),
                                                                                     overflow: TextOverflow.fade,

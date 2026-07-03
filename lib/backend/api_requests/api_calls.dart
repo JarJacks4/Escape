@@ -764,26 +764,49 @@ class ValidateSessionCall {
 
 class TheoryOfMindOnboardingGroup {
   static String getBaseUrl() =>
-      'https://lucillellm2-286076426888.us-east4.run.app/';
+      'https://lucillellm2-286076426888.us-east4.run.app';
   static Map<String, String> headers = {};
   static OnboardingUserCall onboardingUserCall = OnboardingUserCall();
   static UserCompleteProfileCall userCompleteProfileCall =
       UserCompleteProfileCall();
   static UpdateUserProfileCall updateUserProfileCall = UpdateUserProfileCall();
   static DeleteUserProfileCall deleteUserProfileCall = DeleteUserProfileCall();
+  static MoodCall moodCall = MoodCall();
 }
 
 class OnboardingUserCall {
   Future<ApiCallResponse> call({
     String? userID = '',
-    String? responses = '',
+    String? displayName = '',
+    String? ageRange = '',
+    List<String>? personalityTraitsList,
+    String? communicationPreference = '',
+    List<String>? interestsList,
+    List<String>? coreValuesList,
+    String? currentMood = '',
+    List<String>? goalsList,
+    String? sleepPattern = '',
+    String? exerciseFrequency = '',
   }) async {
     final baseUrl = TheoryOfMindOnboardingGroup.getBaseUrl();
+    final personalityTraits = _serializeList(personalityTraitsList);
+    final interests = _serializeList(interestsList);
+    final coreValues = _serializeList(coreValuesList);
+    final goals = _serializeList(goalsList);
 
     final ffApiRequestBody = '''
 {
-  "user_id": "${escapeStringForJson(userID)}",
-  "responses": "${escapeStringForJson(responses)}"
+  "user_id": "userID",
+  "display_name": "displayName",
+  "age_range": "ageRange",
+  "personality_traits": personalityTraits,
+  "communication_preference": "communicationPreference",
+  "interests": interests,
+  "core_values": coreValues,
+  "current_mood": "currentMood",
+  "goals": goals,
+  "sleep_pattern": "sleepPattern",
+  "exercise_frequency": "exerciseFrequency"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Onboarding User',
@@ -861,16 +884,24 @@ class UserCompleteProfileCall {
 
 class UpdateUserProfileCall {
   Future<ApiCallResponse> call({
-    String? userID = '',
+    String? displayName = '',
+    List<String>? interestsList,
   }) async {
     final baseUrl = TheoryOfMindOnboardingGroup.getBaseUrl();
+    final interests = _serializeList(interestsList);
 
+    final ffApiRequestBody = '''
+{
+    "display_name": "displayName",
+    "interests": interests
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'Update User Profile',
       apiUrl: '${baseUrl}/users/{user_id}',
       callType: ApiCallType.PUT,
       headers: {},
       params: {},
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
@@ -936,6 +967,40 @@ class DeleteUserProfileCall {
         response,
         r'''$.user_id''',
       ));
+}
+
+class MoodCall {
+  Future<ApiCallResponse> call({
+    String? mood = '',
+    int? intensity,
+    String? context = '',
+    String? detectedVia = '',
+  }) async {
+    final baseUrl = TheoryOfMindOnboardingGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "mood": "mood",
+  "intensity": intensity,
+  "context": "context",
+  "detected_via": "detectedVia"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Mood',
+      apiUrl: '${baseUrl}/',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 /// End Theory of Mind Onboarding Group Code
@@ -1006,15 +1071,19 @@ class CreateMemoryCall {
     String? content = '',
     String? memoryType = 'Episodic',
     int? importance,
+    List<String>? tagsList,
   }) async {
     final baseUrl = LucilleMemoriesGroup.getBaseUrl();
+    final tags = _serializeList(tagsList);
 
     final ffApiRequestBody = '''
 {
   "content": "${escapeStringForJson(content)}",
   "memory_type": "${escapeStringForJson(memoryType)}",
   "importance": ${importance}
-}''';
+  "tags": tags
+}
+''';
     return ApiManager.instance.makeApiCall(
       callName: 'Create Memory',
       apiUrl: '${baseUrl}/users/{user_id}/memories',
@@ -1715,17 +1784,21 @@ class DueTasksCall {
 
 class CreatePracticeTasksCall {
   Future<ApiCallResponse> call({
+    String? sourceExerciseID = '',
     String? title = '',
     String? description = '',
     String? dueDate = '',
+    String? targetCount = '',
   }) async {
     final baseUrl = LucilleTaskManagementGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
-  "title": "${escapeStringForJson(title)}",
-  "description": "${escapeStringForJson(description)}",
-  "due_date": "${escapeStringForJson(dueDate)}"
+  "source_exercise_id": "sourceExerciseID",
+  "title": "title",
+  "description": "description",
+  "due_date": "dueDate",
+  "target_count": targetCount
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Create Practice Tasks',
@@ -1748,13 +1821,18 @@ class CreatePracticeTasksCall {
 }
 
 class UpdateATaskCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? status = '',
+    String? completedCount = '',
+    String? note = '',
+  }) async {
     final baseUrl = LucilleTaskManagementGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
-  "status": "[status]",
-  "notes": "[notes]"
+  "status": "status",
+  "completed_count": completedCount,
+  "note": "note"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Update a Task',
@@ -1899,17 +1977,17 @@ class ResponseFeedbackCall {
   Future<ApiCallResponse> call({
     String? sessionID = '',
     int? messageIndex,
-    int? helpfulness,
+    int? rating,
     String? comment = '',
   }) async {
     final baseUrl = LucilleFeedbackSystemGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
-  "session_id": "${escapeStringForJson(sessionID)}",
-  "message_index": ${messageIndex},
-  "helpfulness": ${helpfulness},
-  "comment": "${escapeStringForJson(comment)}"
+  "session_id": "sessionID",
+  "message_index": messageIndex,
+  "rating": "rating",
+  "comment": "comment"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Response Feedback',
@@ -1938,16 +2016,18 @@ class ExerciseFeedbackCall {
     String? moodBefore = '',
     String? moodAfter = '',
     String? notes = '',
+    bool? wouldRepeat,
   }) async {
     final baseUrl = LucilleFeedbackSystemGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
-  "exercise_session_id": "${escapeStringForJson(exerciseSessionID)}",
-  "effectiveness": ${effectiveness},
-  "mood_before": "${escapeStringForJson(moodBefore)}",
-  "mood_after": "${escapeStringForJson(moodAfter)}",
-  "notes": "${escapeStringForJson(notes)}"
+  "session_id": "sessionID",
+  "mood_before": moodBefore,
+  "mood_after": moodAfter,
+  "helpfulness": helpfulness,
+  "would_repeat": wouldRepeat,
+  "comment": "comment"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Exercise Feedback',
@@ -2666,12 +2746,14 @@ class AuditCall {
 class SafetyCheckCall {
   Future<ApiCallResponse> call({
     String? text = '',
+    String? checkType = '',
   }) async {
     final baseUrl = LucilleSafetyAndCrisisGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
-  "text": "${escapeStringForJson(text)}"
+  "text": "text",
+  "check_type": "checkType"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Safety Check',
@@ -3105,6 +3187,95 @@ class GetReviewsCall {
 }
 
 /// End Lucille Reviews Group Code
+
+/// Start Theory of Mind Lucille Core Chat Group Code
+
+class TheoryOfMindLucilleCoreChatGroup {
+  static String getBaseUrl() =>
+      'https://lucillellm2-286076426888.us-east4.run.app/';
+  static Map<String, String> headers = {
+    'Authorization': 'Bearer <firebase_id_token>',
+  };
+  static CoreChatCall coreChatCall = CoreChatCall();
+  static VoiceChatCall voiceChatCall = VoiceChatCall();
+}
+
+class CoreChatCall {
+  Future<ApiCallResponse> call({
+    String? message = '',
+    String? sessionID = '',
+    String? userID = '',
+  }) async {
+    final baseUrl = TheoryOfMindLucilleCoreChatGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "message": "message",
+  "session_id": "sessionID",
+  "user_id": "userID"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Core Chat',
+      apiUrl: '${baseUrl}/chat',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer <firebase_id_token>',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class VoiceChatCall {
+  Future<ApiCallResponse> call({
+    String? sessionID = '',
+    String? userID = '',
+    String? audioInput = '',
+    String? responseFormat = '',
+    String? audioFormat = '',
+    String? ttsVoice = '',
+  }) async {
+    final baseUrl = TheoryOfMindLucilleCoreChatGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "message": "",
+  "session_id": "sessionID",
+  "user_id": "userID",
+  "audio_input": "audioInput",
+  "audio_format": "audioFormat",
+  "response_format": "responseFormat",
+  "tts_voice": "ttsVoice"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Voice Chat',
+      apiUrl: '${baseUrl}/chat/voice',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer <firebase_id_token>',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+/// End Theory of Mind Lucille Core Chat Group Code
 
 class LucilleStreamingBuildShipCall {
   static Future<ApiCallResponse> call({

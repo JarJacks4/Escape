@@ -695,7 +695,7 @@ melt away... */
                             ),
                             Text(
                               FFLocalizations.of(context).getText(
-                                '82anzvfc' /* Release physical tension gentl... */,
+                                'h0aaczv1' /* Release physical tension gentl... */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -899,7 +899,7 @@ melt away... */
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  '5rdp21x7' /* Release through writing */,
+                                  'fi73b58y' /* Release through writing */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -1106,7 +1106,7 @@ melt away... */
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  '9bgx0hv2' /* Mindful sipping practice */,
+                                  'ivu9fwrs' /* Mindful sipping practice */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -1313,7 +1313,7 @@ melt away... */
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'kyk0ekm6' /* End your day with peace */,
+                                  '6x0mhdbm' /* End your day with peace */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium

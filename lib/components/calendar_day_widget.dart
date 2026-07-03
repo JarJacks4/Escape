@@ -55,53 +55,57 @@ class _CalendarDayWidgetState extends State<CalendarDayWidget> {
           sigmaX: 10.0,
           sigmaY: 10.0,
         ),
-        child: Container(
-          width: 44.0,
-          height: 44.0,
-          decoration: BoxDecoration(
-            color: () {
-              if (widget.status == 'negative') {
-                return Color(0x00000000);
-              } else if (widget.status == 'neutral') {
-                return Color(0x4D39519F);
-              } else if (widget.status == 'positive') {
-                return Color(0x00000000);
-              } else if (widget.isToday) {
-                return FlutterFlowTheme.of(context).primary;
-              } else {
-                return Color(0x66FFFFFF);
-              }
-            }(),
-            borderRadius: BorderRadius.circular(9999.0),
-            shape: BoxShape.rectangle,
-            border: Border.all(
-              color: widget.isToday
-                  ? FlutterFlowTheme.of(context).primary
-                  : Color(0x4DFFFFFF),
-              width: widget.isToday ? 2.0 : 1.0,
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
+          child: Container(
+            width: 40.0,
+            height: 40.0,
+            decoration: BoxDecoration(
+              color: () {
+                if (widget.status == 'negative') {
+                  return Color(0x00000000);
+                } else if (widget.status == 'neutral') {
+                  return Color(0x4D39519F);
+                } else if (widget.status == 'positive') {
+                  return Color(0x00000000);
+                } else if (widget.isToday) {
+                  return FlutterFlowTheme.of(context).primary;
+                } else {
+                  return Color(0x66FFFFFF);
+                }
+              }(),
+              borderRadius: BorderRadius.circular(9999.0),
+              shape: BoxShape.rectangle,
+              border: Border.all(
+                color: widget.isToday
+                    ? FlutterFlowTheme.of(context).tertiary
+                    : Color(0x4DFFFFFF),
+                width: widget.isToday ? 2.0 : 1.0,
+              ),
             ),
-          ),
-          alignment: AlignmentDirectional(0.0, 0.0),
-          child: Text(
-            valueOrDefault<String>(
-              widget.day,
-              '25',
-            ),
-            style: FlutterFlowTheme.of(context).labelLarge.override(
-                  font: GoogleFonts.workSans(
+            alignment: AlignmentDirectional(0.0, 0.0),
+            child: Text(
+              valueOrDefault<String>(
+                widget.day,
+                '25',
+              ),
+              style: FlutterFlowTheme.of(context).labelLarge.override(
+                    font: GoogleFonts.workSans(
+                      fontWeight:
+                          FlutterFlowTheme.of(context).labelLarge.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                    ),
+                    color: widget.isToday
+                        ? FlutterFlowTheme.of(context).tertiary
+                        : FlutterFlowTheme.of(context).alternate,
+                    letterSpacing: 0.0,
                     fontWeight:
                         FlutterFlowTheme.of(context).labelLarge.fontWeight,
                     fontStyle:
                         FlutterFlowTheme.of(context).labelLarge.fontStyle,
                   ),
-                  color: widget.isToday
-                      ? FlutterFlowTheme.of(context).primary
-                      : FlutterFlowTheme.of(context).primaryText,
-                  letterSpacing: 0.0,
-                  fontWeight:
-                      FlutterFlowTheme.of(context).labelLarge.fontWeight,
-                  fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
-                ),
+            ),
           ),
         ),
       ),

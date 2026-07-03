@@ -1,8 +1,10 @@
+import '/backend/backend.dart';
 import '/components/button_widget.dart';
 import '/components/calendar_day_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'journal_history_widget.dart' show JournalHistoryWidget;
 import 'package:flutter/material.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class JournalHistoryModel extends FlutterFlowModel<JournalHistoryWidget> {
   ///  State fields for stateful widgets in this page.
@@ -25,6 +27,11 @@ class JournalHistoryModel extends FlutterFlowModel<JournalHistoryWidget> {
   late CalendarDayModel calendarDayModel6;
   // Model for Button.
   late ButtonModel buttonModel;
+  // State field(s) for ListView widget.
+
+  PagingController<DocumentSnapshot?, JournalRecord>? listViewPagingController;
+  Query? listViewPagingQuery;
+  List<StreamSubscription?> listViewStreamSubscriptions = [];
 
   @override
   void initState(BuildContext context) {
@@ -50,5 +57,39 @@ class JournalHistoryModel extends FlutterFlowModel<JournalHistoryWidget> {
     calendarDayModel5.dispose();
     calendarDayModel6.dispose();
     buttonModel.dispose();
+    listViewStreamSubscriptions.forEach((s) => s?.cancel());
+    listViewPagingController?.dispose();
+  }
+
+  /// Additional helper methods.
+  PagingController<DocumentSnapshot?, JournalRecord> setListViewController(
+    Query query, {
+    DocumentReference<Object?>? parent,
+  }) {
+    listViewPagingController ??= _createListViewController(query, parent);
+    if (listViewPagingQuery != query) {
+      listViewPagingQuery = query;
+      listViewPagingController?.refresh();
+    }
+    return listViewPagingController!;
+  }
+
+  PagingController<DocumentSnapshot?, JournalRecord> _createListViewController(
+    Query query,
+    DocumentReference<Object?>? parent,
+  ) {
+    final controller =
+        PagingController<DocumentSnapshot?, JournalRecord>(firstPageKey: null);
+    return controller
+      ..addPageRequestListener(
+        (nextPageMarker) => queryJournalRecordPage(
+          queryBuilder: (_) => listViewPagingQuery ??= query,
+          nextPageMarker: nextPageMarker,
+          streamSubscriptions: listViewStreamSubscriptions,
+          controller: controller,
+          pageSize: 25,
+          isStream: true,
+        ),
+      );
   }
 }

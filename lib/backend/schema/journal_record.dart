@@ -117,6 +117,11 @@ class JournalRecord extends FirestoreRecord {
   List<String> get transcribeText => _transcribeText ?? const [];
   bool hasTranscribeText() => _transcribeText != null;
 
+  // "timestamp" field.
+  DateTime? _timestamp;
+  DateTime? get timestamp => _timestamp;
+  bool hasTimestamp() => _timestamp != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -143,6 +148,7 @@ class JournalRecord extends FirestoreRecord {
     _isAudioRecording = snapshotData['isAudioRecording'] as bool?;
     _isAudioStopped = snapshotData['isAudioStopped'] as bool?;
     _transcribeText = getDataList(snapshotData['TranscribeText']);
+    _timestamp = snapshotData['timestamp'] as DateTime?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -203,6 +209,7 @@ Map<String, dynamic> createJournalRecordData({
   String? voiceNoteContent,
   bool? isAudioRecording,
   bool? isAudioStopped,
+  DateTime? timestamp,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -224,6 +231,7 @@ Map<String, dynamic> createJournalRecordData({
       'VoiceNoteContent': voiceNoteContent,
       'isAudioRecording': isAudioRecording,
       'isAudioStopped': isAudioStopped,
+      'timestamp': timestamp,
     }.withoutNulls,
   );
 
@@ -255,7 +263,8 @@ class JournalRecordDocumentEquality implements Equality<JournalRecord> {
         e1?.voiceNoteContent == e2?.voiceNoteContent &&
         e1?.isAudioRecording == e2?.isAudioRecording &&
         e1?.isAudioStopped == e2?.isAudioStopped &&
-        listEquality.equals(e1?.transcribeText, e2?.transcribeText);
+        listEquality.equals(e1?.transcribeText, e2?.transcribeText) &&
+        e1?.timestamp == e2?.timestamp;
   }
 
   @override
@@ -279,7 +288,8 @@ class JournalRecordDocumentEquality implements Equality<JournalRecord> {
         e?.voiceNoteContent,
         e?.isAudioRecording,
         e?.isAudioStopped,
-        e?.transcribeText
+        e?.transcribeText,
+        e?.timestamp
       ]);
 
   @override

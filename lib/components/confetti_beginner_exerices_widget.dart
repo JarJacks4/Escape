@@ -380,7 +380,7 @@ class _ConfettiBeginnerExericesWidgetState
                                 children: [
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      'q2g2n3bd' /* Difficulty */,
+                                      'qjb2w0ez' /* Difficulty */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium

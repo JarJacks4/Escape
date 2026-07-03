@@ -409,7 +409,7 @@ Center */
                               12.0, 20.0, 12.0, 20.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'jq87onqg' /* Overview */,
+                              '4epig2pg' /* Overview */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium

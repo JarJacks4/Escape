@@ -315,7 +315,7 @@ class _ResetGuideTabCompWidgetState extends State<ResetGuideTabCompWidget> {
                                   ),
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      'a2ozb0yx' /* 5 min */,
+                                      'co4im01j' /* 5 min */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodySmall
@@ -1027,7 +1027,7 @@ class _ResetGuideTabCompWidgetState extends State<ResetGuideTabCompWidget> {
                                   ),
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      'd3x2bw2z' /* 12 min */,
+                                      'g01eab62' /* 12 min */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodySmall

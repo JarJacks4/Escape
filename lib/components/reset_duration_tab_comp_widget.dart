@@ -172,7 +172,7 @@ class _ResetDurationTabCompWidgetState
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'fos8g77p' /* Virtual nature escape */,
+                                  '00ovw2uo' /* Virtual nature escape */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
@@ -403,7 +403,7 @@ class _ResetDurationTabCompWidgetState
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'lfxwgq7r' /* Soothing water sounds */,
+                                  '7rl2989x' /* Soothing water sounds */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall

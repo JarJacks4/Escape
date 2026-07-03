@@ -57,8 +57,8 @@ class _StressorItemWidgetState extends State<StressorItemWidget> {
               widget.selected,
               true,
             )
-                ? FlutterFlowTheme.of(context).primary
-                : FlutterFlowTheme.of(context).alternate,
+                ? FlutterFlowTheme.of(context).secondary
+                : FlutterFlowTheme.of(context).primaryBackground,
             FlutterFlowTheme.of(context).primary,
           ),
           width: valueOrDefault<double>(

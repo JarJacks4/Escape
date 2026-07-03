@@ -82,6 +82,7 @@ class _TextField2WidgetState extends State<TextField2Widget> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -241,7 +242,7 @@ class _TextField2WidgetState extends State<TextField2Widget> {
                           'filled',
                         ) ==
                         'ghost') {
-                      return Colors.transparent;
+                      return Color(0x00030303);
                     } else {
                       return FlutterFlowTheme.of(context).alternate;
                     }

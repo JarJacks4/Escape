@@ -3461,7 +3461,7 @@ class _ResponseAssessmentCompWidgetState
                                                                   .getChatHistory
                                                                   ?.jsonBody ??
                                                               ''),
-                                                          helpfulness: utility_functions_library_8g4bud_functions
+                                                          rating: utility_functions_library_8g4bud_functions
                                                               .convertDoubleToInt(
                                                                   _model
                                                                       .helpfulnessScoreValue!,

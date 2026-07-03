@@ -143,7 +143,7 @@ class _HeartChakraEnergyGuideCompWidgetState
                         children: [
                           Text(
                             FFLocalizations.of(context).getText(
-                              '89y1y1e8' /* LOCATION */,
+                              'lrfi6w89' /* LOCATION */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .labelSmall
@@ -194,7 +194,7 @@ class _HeartChakraEnergyGuideCompWidgetState
                         children: [
                           Text(
                             FFLocalizations.of(context).getText(
-                              'z6pvazeb' /* ELEMENT */,
+                              'ih96fn51' /* ELEMENT */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .labelSmall
@@ -486,7 +486,7 @@ class _HeartChakraEnergyGuideCompWidgetState
                     children: [
                       Text(
                         FFLocalizations.of(context).getText(
-                          'mp2p7uvx' /* BENEFITS */,
+                          'qrvjmfn1' /* BENEFITS */,
                         ),
                         style: FlutterFlowTheme.of(context).labelSmall.override(
                               font: GoogleFonts.inter(

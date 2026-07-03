@@ -228,7 +228,8 @@ class _StressManagementHubWidgetState extends State<StressManagementHubWidget> {
                                     ),
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        color: Color(0x99FFFFFF),
+                                        color: FlutterFlowTheme.of(context)
+                                            .surface80,
                                         borderRadius:
                                             BorderRadius.circular(16.0),
                                         shape: BoxShape.rectangle,
@@ -252,7 +253,7 @@ class _StressManagementHubWidgetState extends State<StressManagementHubWidget> {
                                                 Icons.info_rounded,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
+                                                        .secondary,
                                                 size: 20.0,
                                               ),
                                               Expanded(
@@ -395,6 +396,8 @@ class _StressManagementHubWidgetState extends State<StressManagementHubWidget> {
                                                       .titleMedium
                                                       .fontStyle,
                                             ),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                             fontStyle:

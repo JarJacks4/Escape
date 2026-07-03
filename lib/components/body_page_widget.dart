@@ -64,7 +64,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                       buttonSize: 40.0,
                       icon: Icon(
                         Icons.arrow_back,
-                        color: FlutterFlowTheme.of(context).secondary,
+                        color: FlutterFlowTheme.of(context).alternate,
                         size: 24.0,
                       ),
                       onPressed: () async {
@@ -86,7 +86,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                       .headlineMedium
                                       .fontStyle,
                                 ),
-                                color: FlutterFlowTheme.of(context).primary,
+                                color: FlutterFlowTheme.of(context).alternate,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
                                 fontStyle: FlutterFlowTheme.of(context)
@@ -829,7 +829,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                 .headlineSmall
                                 .fontStyle,
                           ),
-                          color: FlutterFlowTheme.of(context).primary,
+                          color: FlutterFlowTheme.of(context).alternate,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                           fontStyle: FlutterFlowTheme.of(context)

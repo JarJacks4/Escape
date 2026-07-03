@@ -111,7 +111,6 @@ class _StressFactorSelectionWidgetState
               },
             ),
             SingleChildScrollView(
-              primary: false,
               controller: _model.columnScrollController,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -366,16 +365,23 @@ class _StressFactorSelectionWidgetState
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(25.0),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25.0),
+                    topRight: Radius.circular(25.0),
+                  ),
                   child: BackdropFilter(
                     filter: ImageFilter.blur(
                       sigmaX: 10.0,
                       sigmaY: 10.0,
                     ),
                     child: Container(
+                      width: double.infinity,
                       height: 87.0,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25.0),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(25.0),
+                          topRight: Radius.circular(25.0),
+                        ),
                       ),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(

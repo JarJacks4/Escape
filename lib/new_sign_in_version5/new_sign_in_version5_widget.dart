@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
@@ -817,6 +818,20 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                         return;
                                                                       }
                                                                       logFirebaseEvent(
+                                                                          'Button_custom_action');
+                                                                      _model.userToken =
+                                                                          await actions
+                                                                              .getIdToken();
+                                                                      logFirebaseEvent(
+                                                                          'Button_backend_call');
+                                                                      _model.passToken = await TheoryOfMindOnboardingGroup
+                                                                          .userCompleteProfileCall
+                                                                          .call(
+                                                                        userID:
+                                                                            currentUserUid,
+                                                                      );
+
+                                                                      logFirebaseEvent(
                                                                           'Button_update_app_state');
                                                                       FFAppState()
                                                                           .isFinishedIntroWalkthrough = valueOrDefault<
@@ -848,6 +863,9 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                           ),
                                                                         },
                                                                       );
+
+                                                                      safeSetState(
+                                                                          () {});
                                                                     },
                                                                     text: FFLocalizations.of(
                                                                             context)
@@ -916,8 +934,6 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                           onPressed:
                                                                               () async {
                                                                             logFirebaseEvent('NEW_SIGN_IN_VERSION5_CONTINUE_WITH_APPLE');
-                                                                            var _shouldSetState =
-                                                                                false;
                                                                             logFirebaseEvent('Button_haptic_feedback');
                                                                             HapticFeedback.lightImpact();
                                                                             logFirebaseEvent('Button_play_sound');
@@ -938,39 +954,25 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                                 null) {
                                                                               return;
                                                                             }
+                                                                            logFirebaseEvent('Button_custom_action');
+                                                                            _model.userToken34 =
+                                                                                await actions.getIdToken();
+                                                                            logFirebaseEvent('Button_update_app_state');
+                                                                            FFAppState().isFinishedIntroWalkthrough =
+                                                                                valueOrDefault<bool>(currentUserDocument?.hasSeenWalkthrough, false);
+                                                                            FFAppState().firebaseIDToken =
+                                                                                _model.userToken34!;
+                                                                            safeSetState(() {});
+                                                                            logFirebaseEvent('Button_backend_call');
+                                                                            _model.passToken3 =
+                                                                                await TheoryOfMindOnboardingGroup.userCompleteProfileCall.call(
+                                                                              userID: currentUserUid,
+                                                                            );
+
                                                                             logFirebaseEvent('Button_update_app_state');
                                                                             FFAppState().isFinishedIntroWalkthrough =
                                                                                 valueOrDefault<bool>(currentUserDocument?.hasSeenWalkthrough, false);
                                                                             safeSetState(() {});
-                                                                            if (FFAppState().chatSessionId == '') {
-                                                                              logFirebaseEvent('Button_backend_call');
-                                                                              _model.createIDForLogin = await TheoryOfMindSessionManagementGroup.createIDCall.call();
-
-                                                                              _shouldSetState = true;
-                                                                              logFirebaseEvent('Button_backend_call');
-                                                                              _model.validateSession = await TheoryOfMindSessionManagementGroup.validateSessionCall.call(
-                                                                                userID: currentUserUid,
-                                                                              );
-
-                                                                              _shouldSetState = true;
-                                                                              if (!(_model.validateSession?.succeeded ?? true)) {
-                                                                                logFirebaseEvent('Button_show_snack_bar');
-                                                                                ScaffoldMessenger.of(context).showSnackBar(
-                                                                                  SnackBar(
-                                                                                    content: Text(
-                                                                                      'Lucille has checked our records and you will need to create and account in order to continue. Please Swipe Right.',
-                                                                                      style: TextStyle(
-                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                      ),
-                                                                                    ),
-                                                                                    duration: Duration(milliseconds: 4000),
-                                                                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                  ),
-                                                                                );
-                                                                                if (_shouldSetState) safeSetState(() {});
-                                                                                return;
-                                                                              }
-                                                                            }
                                                                             logFirebaseEvent('Button_navigate_to');
 
                                                                             context.pushNamedAuth(
@@ -985,8 +987,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                               },
                                                                             );
 
-                                                                            if (_shouldSetState)
-                                                                              safeSetState(() {});
+                                                                            safeSetState(() {});
                                                                           },
                                                                           text:
                                                                               FFLocalizations.of(context).getText(
@@ -1276,6 +1277,11 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                             }
 
                                                             logFirebaseEvent(
+                                                                'Button_custom_action');
+                                                            _model.userToken2 =
+                                                                await actions
+                                                                    .getIdToken();
+                                                            logFirebaseEvent(
                                                                 'Button_update_app_state');
                                                             FFAppState()
                                                                     .isFinishedIntroWalkthrough =
@@ -1284,6 +1290,10 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                     currentUserDocument
                                                                         ?.hasSeenWalkthrough,
                                                                     false);
+                                                            FFAppState()
+                                                                    .firebaseIDToken =
+                                                                _model
+                                                                    .userToken2!;
                                                             safeSetState(() {});
                                                             logFirebaseEvent(
                                                                 'Button_show_snack_bar');
@@ -3034,6 +3044,34 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                           ScaffoldMessenger.of(
                                                                   context)
                                                               .hideCurrentSnackBar();
+                                                          logFirebaseEvent(
+                                                              'Button_custom_action');
+                                                          _model.userToken45 =
+                                                              await actions
+                                                                  .getIdToken();
+                                                          logFirebaseEvent(
+                                                              'Button_update_app_state');
+                                                          FFAppState()
+                                                                  .isFinishedIntroWalkthrough =
+                                                              valueOrDefault<
+                                                                      bool>(
+                                                                  currentUserDocument
+                                                                      ?.hasSeenWalkthrough,
+                                                                  false);
+                                                          FFAppState()
+                                                                  .lucilleUserID =
+                                                              currentUserUid;
+                                                          safeSetState(() {});
+                                                          logFirebaseEvent(
+                                                              'Button_backend_call');
+                                                          _model.passToken2 =
+                                                              await TheoryOfMindOnboardingGroup
+                                                                  .onboardingUserCall
+                                                                  .call(
+                                                            userID: FFAppState()
+                                                                .lucilleUserID,
+                                                          );
+
                                                           logFirebaseEvent(
                                                               'Button_navigate_to');
 

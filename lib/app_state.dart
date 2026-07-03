@@ -2069,6 +2069,12 @@ class FFAppState extends ChangeNotifier {
     _lucilleMessage = value;
   }
 
+  String _firebaseToken = '';
+  String get firebaseToken => _firebaseToken;
+  set firebaseToken(String value) {
+    _firebaseToken = value;
+  }
+
   final _lucilleSuggestedExercisesManager =
       FutureRequestManager<ApiCallResponse>();
   Future<ApiCallResponse> lucilleSuggestedExercises({

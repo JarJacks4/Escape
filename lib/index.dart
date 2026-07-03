@@ -247,8 +247,6 @@ export '/sleep_tracking_quality_page/sleep_tracking_quality_page_widget.dart'
     show SleepTrackingQualityPageWidget;
 export '/lucille_voice_chat_web_view/lucille_voice_chat_web_view_widget.dart'
     show LucilleVoiceChatWebViewWidget;
-export '/health_journal_calendar/health_journal_calendar_widget.dart'
-    show HealthJournalCalendarWidget;
 export '/voice_text_journaling/voice_text_journaling_widget.dart'
     show VoiceTextJournalingWidget;
 export '/stress_management_hub/stress_management_hub_widget.dart'

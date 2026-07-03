@@ -5,7 +5,6 @@ import '/backend/firebase_storage/storage.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -25,6 +24,7 @@ import 'package:that_audio_player_oo85ab/app_state.dart'
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -79,8 +79,11 @@ class _CreateAccountOnboardingFlowWidgetState
           .then((_) => _model.soundPlayer1!.play());
     });
 
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
+    _model.textController1 ??= TextEditingController();
+    _model.textFieldFocusNode1 ??= FocusNode();
+
+    _model.textController2 ??= TextEditingController();
+    _model.textFieldFocusNode2 ??= FocusNode();
 
     animationsMap.addAll({
       'pageViewOnActionTriggerAnimation': AnimationInfo(
@@ -723,9 +726,19 @@ class _CreateAccountOnboardingFlowWidgetState
                                                         ),
                                                         TextFormField(
                                                           controller: _model
-                                                              .textController,
+                                                              .textController1,
                                                           focusNode: _model
-                                                              .textFieldFocusNode,
+                                                              .textFieldFocusNode1,
+                                                          onChanged: (_) =>
+                                                              EasyDebounce
+                                                                  .debounce(
+                                                            '_model.textController1',
+                                                            Duration(
+                                                                milliseconds:
+                                                                    2000),
+                                                            () => safeSetState(
+                                                                () {}),
+                                                          ),
                                                           onFieldSubmitted:
                                                               (_) async {
                                                             logFirebaseEvent(
@@ -756,6 +769,10 @@ class _CreateAccountOnboardingFlowWidgetState
                                                                     .play());
                                                           },
                                                           autofocus: false,
+                                                          enabled: true,
+                                                          textInputAction:
+                                                              TextInputAction
+                                                                  .done,
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
@@ -854,6 +871,30 @@ class _CreateAccountOnboardingFlowWidgetState
                                                                         20.0,
                                                                         16.0,
                                                                         20.0),
+                                                            suffixIcon: _model
+                                                                    .textController1!
+                                                                    .text
+                                                                    .isNotEmpty
+                                                                ? InkWell(
+                                                                    onTap:
+                                                                        () async {
+                                                                      _model
+                                                                          .textController1
+                                                                          ?.clear();
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    },
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .clear,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      size:
+                                                                          22.0,
+                                                                    ),
+                                                                  )
+                                                                : null,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -884,8 +925,17 @@ class _CreateAccountOnboardingFlowWidgetState
                                                               ),
                                                           textAlign:
                                                               TextAlign.start,
+                                                          maxLength: 40,
+                                                          maxLengthEnforcement:
+                                                              MaxLengthEnforcement
+                                                                  .enforced,
+                                                          buildCounter: (context,
+                                                                  {required currentLength,
+                                                                  required isFocused,
+                                                                  maxLength}) =>
+                                                              null,
                                                           validator: _model
-                                                              .textControllerValidator
+                                                              .textController1Validator
                                                               .asValidator(
                                                                   context),
                                                         ),
@@ -903,7 +953,7 @@ class _CreateAccountOnboardingFlowWidgetState
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'j0g3owto' /* Pronouns */,
+                                                            'j0g3owto' /* Age */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -948,150 +998,32 @@ class _CreateAccountOnboardingFlowWidgetState
                                                                     .circular(
                                                                         24.0),
                                                           ),
-                                                          child:
-                                                              FlutterFlowDropDown<
-                                                                  String>(
-                                                            multiSelectController: _model
-                                                                    .dropDownValueController ??=
-                                                                FormListFieldController<
-                                                                    String>(_model
-                                                                        .dropDownValue ??=
-                                                                    List<
-                                                                        String>.from(
-                                                              Pronouns.values
-                                                                      .map((e) =>
-                                                                          e.name)
-                                                                      .toList() ??
-                                                                  [],
-                                                            )),
-                                                            options: [
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'iwebfo82' /* He/Him/His */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'vqed5mio' /* She/Her */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'iuo582xt' /* Her/Hers */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'tkr3ymh3' /* They/Them */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'njwpjgdp' /* Their/Theirs */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'w3edevhg' /* Ve/Ver/Vis */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'tfvcmzxt' /* Her/Hers */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'aomfrr4k' /* Xe/Xem */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                '19330qx3' /* Xyr/Xyrs */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'lxsdyexe' /* Ze/Zehir */,
-                                                              ),
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'z17izint' /* Hir/Hirs */,
-                                                              )
-                                                            ],
-                                                            width: 200.0,
-                                                            height: 40.0,
-                                                            textStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .inter(
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontWeight,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                            hintText:
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                              'fq01bjqh' /* Pronouns */,
+                                                          child: TextFormField(
+                                                            controller: _model
+                                                                .textController2,
+                                                            focusNode: _model
+                                                                .textFieldFocusNode2,
+                                                            onChanged: (_) =>
+                                                                EasyDebounce
+                                                                    .debounce(
+                                                              '_model.textController2',
+                                                              Duration(
+                                                                  milliseconds:
+                                                                      2000),
+                                                              () =>
+                                                                  safeSetState(
+                                                                      () {}),
                                                             ),
-                                                            icon: Icon(
-                                                              Icons
-                                                                  .keyboard_arrow_down_rounded,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryText,
-                                                              size: 24.0,
-                                                            ),
-                                                            elevation: 2.0,
-                                                            borderColor: Colors
-                                                                .transparent,
-                                                            borderWidth: 0.0,
-                                                            borderRadius: 8.0,
-                                                            margin:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12.0,
-                                                                        0.0,
-                                                                        12.0,
-                                                                        0.0),
-                                                            hidesUnderline:
-                                                                true,
-                                                            isOverButton: false,
-                                                            isSearchable: false,
-                                                            isMultiSelect: true,
-                                                            onMultiSelectChanged:
-                                                                (val) async {
-                                                              safeSetState(() =>
-                                                                  _model.dropDownValue =
-                                                                      val);
+                                                            onFieldSubmitted:
+                                                                (_) async {
                                                               logFirebaseEvent(
-                                                                  'CREATE_ACCOUNT_ONBOARDING_FLOW_DropDown_');
+                                                                  'CREATE_ACCOUNT_ONBOARDING_FLOW_TextField');
                                                               logFirebaseEvent(
-                                                                  'DropDown_haptic_feedback');
+                                                                  'TextField_haptic_feedback');
                                                               HapticFeedback
                                                                   .lightImpact();
                                                               logFirebaseEvent(
-                                                                  'DropDown_play_sound');
+                                                                  'TextField_play_sound');
                                                               _model.soundPlayer4 ??=
                                                                   AudioPlayer();
                                                               if (_model
@@ -1113,6 +1045,174 @@ class _CreateAccountOnboardingFlowWidgetState
                                                                       .soundPlayer4!
                                                                       .play());
                                                             },
+                                                            autofocus: false,
+                                                            enabled: true,
+                                                            textInputAction:
+                                                                TextInputAction
+                                                                    .done,
+                                                            obscureText: false,
+                                                            decoration:
+                                                                InputDecoration(
+                                                              hintText:
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                'lbev6ci8' /* Input Age Here.... */,
+                                                              ),
+                                                              hintStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLarge
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .inter(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyLarge
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyLarge
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyLarge
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyLarge
+                                                                            .fontStyle,
+                                                                      ),
+                                                              enabledBorder:
+                                                                  UnderlineInputBorder(
+                                                                borderSide:
+                                                                    BorderSide(
+                                                                  color: Color(
+                                                                      0x00000000),
+                                                                  width: 1.0,
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            24.0),
+                                                              ),
+                                                              focusedBorder:
+                                                                  UnderlineInputBorder(
+                                                                borderSide:
+                                                                    BorderSide(
+                                                                  color: Color(
+                                                                      0x00000000),
+                                                                  width: 1.0,
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            24.0),
+                                                              ),
+                                                              errorBorder:
+                                                                  UnderlineInputBorder(
+                                                                borderSide:
+                                                                    BorderSide(
+                                                                  color: Color(
+                                                                      0x00000000),
+                                                                  width: 1.0,
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            24.0),
+                                                              ),
+                                                              focusedErrorBorder:
+                                                                  UnderlineInputBorder(
+                                                                borderSide:
+                                                                    BorderSide(
+                                                                  color: Color(
+                                                                      0x00000000),
+                                                                  width: 1.0,
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            24.0),
+                                                              ),
+                                                              filled: true,
+                                                              fillColor: Color(
+                                                                  0x99FFFFFF),
+                                                              contentPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          16.0,
+                                                                          20.0,
+                                                                          16.0,
+                                                                          20.0),
+                                                              suffixIcon: _model
+                                                                      .textController2!
+                                                                      .text
+                                                                      .isNotEmpty
+                                                                  ? InkWell(
+                                                                      onTap:
+                                                                          () async {
+                                                                        _model
+                                                                            .textController2
+                                                                            ?.clear();
+                                                                        safeSetState(
+                                                                            () {});
+                                                                      },
+                                                                      child:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .clear,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                        size:
+                                                                            22.0,
+                                                                      ),
+                                                                    )
+                                                                  : null,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .inter(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                            textAlign:
+                                                                TextAlign.start,
+                                                            maxLength: 3,
+                                                            maxLengthEnforcement:
+                                                                MaxLengthEnforcement
+                                                                    .enforced,
+                                                            buildCounter: (context,
+                                                                    {required currentLength,
+                                                                    required isFocused,
+                                                                    maxLength}) =>
+                                                                null,
+                                                            validator: _model
+                                                                .textController2Validator
+                                                                .asValidator(
+                                                                    context),
                                                           ),
                                                         ),
                                                       ].divide(SizedBox(
@@ -3039,7 +3139,7 @@ personalized n... */
                                                           await TheoryOfMindOnboardingGroup
                                                               .onboardingUserCall
                                                               .call(
-                                                        responses: _model
+                                                        displayName: _model
                                                             .checkboxGroupValues
                                                             ?.contains((_model
                                                                             .checkboxGroupValues !=
@@ -3048,6 +3148,18 @@ personalized n... */
                                                                         .isNotEmpty)
                                                                 .toString())
                                                             .toString(),
+                                                        userID: currentUserUid,
+                                                        ageRange: _model
+                                                            .textController2
+                                                            .text,
+                                                        communicationPreference:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                        interestsList: _model
+                                                            .checkboxGroupValues,
+                                                        coreValuesList: _model
+                                                            .checkboxGroupValues,
                                                       );
 
                                                       logFirebaseEvent(
@@ -3076,11 +3188,8 @@ personalized n... */
                                                           photoUrl: _model
                                                               .profilePicture,
                                                           displayName: _model
-                                                              .textController
+                                                              .textController1
                                                               .text,
-                                                          pronouns: _model
-                                                              .dropDownValue
-                                                              ?.firstOrNull,
                                                         ),
                                                         ...mapToFirestore(
                                                           {
