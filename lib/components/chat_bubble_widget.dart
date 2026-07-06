@@ -67,7 +67,7 @@ class _ChatBubbleWidgetState extends State<ChatBubbleWidget> {
                     true,
                   )
                       ? FlutterFlowTheme.of(context).secondaryBackground
-                      : FlutterFlowTheme.of(context).primary,
+                      : Color(0xFF8EA7E9),
                   FlutterFlowTheme.of(context).secondaryBackground,
                 ),
                 borderRadius: BorderRadius.circular(20.0),
@@ -121,7 +121,7 @@ class _ChatBubbleWidgetState extends State<ChatBubbleWidget> {
                                   true,
                                 )
                                     ? FlutterFlowTheme.of(context).primaryText
-                                    : Color(0x00000000),
+                                    : FlutterFlowTheme.of(context).primaryText,
                                 FlutterFlowTheme.of(context).primaryText,
                               ),
                               letterSpacing: 0.0,
@@ -134,37 +134,47 @@ class _ChatBubbleWidgetState extends State<ChatBubbleWidget> {
                               lineHeight: 1.5,
                             ),
                       ),
-                      Text(
-                        valueOrDefault<String>(
-                          widget.time,
-                          '10:00 AM',
-                        ),
-                        style: FlutterFlowTheme.of(context).labelSmall.override(
-                              font: GoogleFonts.inter(
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .labelSmall
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .labelSmall
-                                    .fontStyle,
-                              ),
-                              color: valueOrDefault<Color>(
-                                valueOrDefault<bool>(
-                                  widget.isAi,
-                                  true,
-                                )
-                                    ? FlutterFlowTheme.of(context).secondaryText
-                                    : Color(0x00000000),
-                                FlutterFlowTheme.of(context).secondaryText,
-                              ),
-                              letterSpacing: 0.0,
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontStyle,
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            valueOrDefault<String>(
+                              widget.time,
+                              '10:00 AM',
                             ),
+                            style: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .override(
+                                  font: GoogleFonts.inter(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .fontStyle,
+                                  ),
+                                  color: valueOrDefault<Color>(
+                                    valueOrDefault<bool>(
+                                      widget.isAi,
+                                      true,
+                                    )
+                                        ? FlutterFlowTheme.of(context)
+                                            .secondaryText
+                                        : FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                  ),
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .labelSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelSmall
+                                      .fontStyle,
+                                ),
+                          ),
+                        ],
                       ),
                     ].divide(SizedBox(height: 4.0)),
                   ),

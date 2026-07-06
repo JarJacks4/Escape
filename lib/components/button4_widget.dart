@@ -347,7 +347,7 @@ class _Button4WidgetState extends State<Button4Widget> {
                                       'primary',
                                     ) ==
                                     'secondary') {
-                                  return Color(0x00000000);
+                                  return FlutterFlowTheme.of(context).black;
                                 } else if (valueOrDefault<String>(
                                       widget.variant,
                                       'primary',

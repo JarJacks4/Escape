@@ -59,7 +59,7 @@ class _JournalStatPillWidgetState extends State<JournalStatPillWidget> {
         ),
         child: Container(
           decoration: BoxDecoration(
-            color: Color(0x99FFFFFF),
+            color: Color(0x88203257),
             borderRadius: BorderRadius.circular(9999.0),
             shape: BoxShape.rectangle,
             border: Border.all(

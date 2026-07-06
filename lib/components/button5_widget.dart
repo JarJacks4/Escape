@@ -320,11 +320,6 @@ class _Button5WidgetState extends State<Button5Widget> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    if (valueOrDefault<bool>(
-                      widget.iconPresent,
-                      true,
-                    ))
-                      widget.icon!,
                     Text(
                       valueOrDefault<String>(
                         widget.content,
@@ -347,7 +342,7 @@ class _Button5WidgetState extends State<Button5Widget> {
                                       'primary',
                                     ) ==
                                     'secondary') {
-                                  return Color(0x00000000);
+                                  return Color(0x00FFFFFF);
                                 } else if (valueOrDefault<String>(
                                       widget.variant,
                                       'primary',
@@ -383,11 +378,6 @@ class _Button5WidgetState extends State<Button5Widget> {
                           ),
                       overflow: TextOverflow.clip,
                     ),
-                    if (valueOrDefault<bool>(
-                      widget.iconEndPresent,
-                      false,
-                    ))
-                      widget.iconEnd!,
                   ].divide(SizedBox(width: 8.0)),
                 ),
               ),

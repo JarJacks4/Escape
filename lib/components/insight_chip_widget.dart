@@ -82,6 +82,7 @@ class _InsightChipWidgetState extends State<InsightChipWidget> {
                         widget.color,
                         Color(0x00000000),
                       ),
+                      fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w600,
                       fontStyle:

@@ -75,11 +75,22 @@ class _JournalCardWidgetState extends State<JournalCardWidget> {
             ),
             child: Container(
               decoration: BoxDecoration(
-                color: Color(0xCCFFFFFF),
+                color: Color(0x3DFFFFFF),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 40.0,
+                    color: Color(0xC0D0E3F7),
+                    offset: Offset(
+                      0.0,
+                      0.0,
+                    ),
+                    spreadRadius: 5.0,
+                  )
+                ],
                 borderRadius: BorderRadius.circular(24.0),
                 shape: BoxShape.rectangle,
                 border: Border.all(
-                  color: FlutterFlowTheme.of(context).alternate,
+                  color: Color(0x42EDF1F7),
                   width: 1.0,
                 ),
               ),
@@ -237,6 +248,8 @@ class _JournalCardWidgetState extends State<JournalCardWidget> {
                                   children: [
                                     Icon(
                                       Icons.auto_awesome_rounded,
+                                      color:
+                                          FlutterFlowTheme.of(context).tertiary,
                                       size: 14.0,
                                     ),
                                     Text(
@@ -295,7 +308,7 @@ class _JournalCardWidgetState extends State<JournalCardWidget> {
                                       Icon(
                                         Icons.mic_rounded,
                                         color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                            .accent1,
                                         size: 14.0,
                                       ),
                                       Text(

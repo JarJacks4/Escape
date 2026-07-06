@@ -73,7 +73,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
         decoration: BoxDecoration(
           color: () {
             if (widget.variant == 'secondary') {
-              return FlutterFlowTheme.of(context).alternate;
+              return FlutterFlowTheme.of(context).primary;
             } else if (widget.variant == 'outline') {
               return Colors.transparent;
             } else if (widget.variant == 'ghost') {
@@ -81,7 +81,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
             } else if (widget.variant == 'destructive') {
               return FlutterFlowTheme.of(context).error;
             } else {
-              return FlutterFlowTheme.of(context).alternate;
+              return Color(0xEAEDF1F7);
             }
           }(),
           borderRadius: BorderRadius.only(
@@ -137,7 +137,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
           shape: BoxShape.rectangle,
           border: Border.all(
             color: widget.variant == 'outline'
-                ? FlutterFlowTheme.of(context).alternate
+                ? Color(0x321C2444)
                 : Colors.transparent,
             width: widget.variant == 'outline' ? 1.0 : 0.0,
           ),
@@ -224,7 +224,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                             ),
                             color: () {
                               if (widget.variant == 'secondary') {
-                                return FlutterFlowTheme.of(context).primary;
+                                return FlutterFlowTheme.of(context).tertiary;
                               } else if (widget.variant == 'outline') {
                                 return FlutterFlowTheme.of(context).primaryText;
                               } else if (widget.variant == 'ghost') {
@@ -232,7 +232,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                               } else if (widget.variant == 'destructive') {
                                 return Color(0x00000000);
                               } else {
-                                return FlutterFlowTheme.of(context).primary;
+                                return FlutterFlowTheme.of(context).alternate;
                               }
                             }(),
                             letterSpacing: 0.0,
