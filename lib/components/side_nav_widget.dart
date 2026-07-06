@@ -279,19 +279,9 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                             (_) => _model.soundPlayer1!.play());
 
                                     logFirebaseEvent(
-                                        'contentView_1_navigate_to');
+                                        'contentView_1_close_dialog_drawer_etc');
 
-                                    context.pushNamed(
-                                      HomeVersion5Widget.routeName,
-                                      extra: <String, dynamic>{
-                                        '__transition_info__': TransitionInfo(
-                                          hasTransition: true,
-                                          transitionType:
-                                              PageTransitionType.fade,
-                                          duration: Duration(milliseconds: 3),
-                                        ),
-                                      },
-                                    );
+                                    Navigator.pop(context);
                                   },
                                   child: Container(
                                     width: double.infinity,
@@ -1048,7 +1038,8 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                                       child:
                                                           CircularPercentIndicator(
                                                         percent: FFAppState()
-                                                            .pointsEarnedPercentage,
+                                                            .pointsEarnedPercentage
+                                                            .clamp(0.0, 1.0),
                                                         radius: 40.0,
                                                         lineWidth: 12.0,
                                                         animation: true,

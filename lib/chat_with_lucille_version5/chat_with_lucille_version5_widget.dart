@@ -1071,32 +1071,6 @@ class _ChatWithLucilleVersion5WidgetState
                                                                     currentJwtToken;
                                                                 safeSetState(
                                                                     () {});
-                                                                logFirebaseEvent(
-                                                                    '_show_snack_bar');
-                                                                ScaffoldMessenger.of(
-                                                                        context)
-                                                                    .clearSnackBars();
-                                                                ScaffoldMessenger.of(
-                                                                        context)
-                                                                    .showSnackBar(
-                                                                  SnackBar(
-                                                                    content:
-                                                                        Text(
-                                                                      'Firebase Token Renwed for another hour.',
-                                                                      style:
-                                                                          TextStyle(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                      ),
-                                                                    ),
-                                                                    duration: Duration(
-                                                                        milliseconds:
-                                                                            4000),
-                                                                    backgroundColor:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .alternate,
-                                                                  ),
-                                                                );
                                                               } else {
                                                                 logFirebaseEvent(
                                                                     '_show_snack_bar');
