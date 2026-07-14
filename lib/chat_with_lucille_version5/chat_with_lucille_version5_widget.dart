@@ -1,11 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/empty_chats_widget.dart';
 import '/components/response_assessment_comp_widget.dart';
 import '/components/side_nav_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/lucille_g_p_t_comp/writing_indicator/writing_indicator_widget.dart';
@@ -13,6 +13,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/app_events/index.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
 import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
@@ -26,6 +27,8 @@ import 'package:ff_commons/api_requests/api_streaming.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:material_palette/material_palette.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -36,7 +39,7 @@ class ChatWithLucilleVersion5Widget extends StatefulWidget {
   const ChatWithLucilleVersion5Widget({super.key});
 
   static String routeName = 'ChatWithLucilleVersion5';
-  static String routePath = 'chatWithLucilleVersion5';
+  static String routePath = '/chatWithLucilleVersion5';
 
   @override
   State<ChatWithLucilleVersion5Widget> createState() =>
@@ -44,10 +47,12 @@ class ChatWithLucilleVersion5Widget extends StatefulWidget {
 }
 
 class _ChatWithLucilleVersion5WidgetState
-    extends State<ChatWithLucilleVersion5Widget> {
+    extends State<ChatWithLucilleVersion5Widget> with TickerProviderStateMixin {
   late ChatWithLucilleVersion5Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -58,6 +63,28 @@ class _ChatWithLucilleVersion5WidgetState
         parameters: {'screen_name': 'ChatWithLucilleVersion5'});
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'containerOnActionTriggerAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 1560.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
   }
 
   @override
@@ -166,12 +193,22 @@ class _ChatWithLucilleVersion5WidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
-                                            fontFamily: 'The Seasons',
+                                            font: GoogleFonts.cormorantSc(
+                                              fontWeight: FontWeight.bold,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineSmall
+                                                      .fontStyle,
+                                            ),
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
                                             fontSize: 26.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineSmall
+                                                    .fontStyle,
                                           ),
                                     ),
                                   ),
@@ -460,10 +497,15 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                     content: Text(
                                                                                                       'Response copied to clipboard.',
                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'WorkSans',
+                                                                                                            font: GoogleFonts.inter(
+                                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                            ),
                                                                                                             color: FlutterFlowTheme.of(context).info,
                                                                                                             fontSize: 12.0,
                                                                                                             letterSpacing: 0.0,
+                                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                           ),
                                                                                                     ),
                                                                                                     duration: Duration(milliseconds: 2000),
@@ -493,9 +535,14 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                             'w471more' /* Copy response */,
                                                                                                           ),
                                                                                                           style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                                                fontFamily: 'WorkSans',
+                                                                                                                font: GoogleFonts.inter(
+                                                                                                                  fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
+                                                                                                                  fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                                                                                                                ),
                                                                                                                 color: FlutterFlowTheme.of(context).secondary,
                                                                                                                 letterSpacing: 0.0,
+                                                                                                                fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
+                                                                                                                fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
                                                                                                               ),
                                                                                                         ),
                                                                                                       ),
@@ -706,20 +753,49 @@ class _ChatWithLucilleVersion5WidgetState
                                                                     context)
                                                                 .labelLarge
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'WorkSans',
-                                                                  color: Color(
-                                                                      0xB5D0E3F7),
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .inter(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .alternate,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontStyle,
                                                                 ),
                                                         errorStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .bodyLarge
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'WorkSans',
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .inter(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyLarge
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyLarge
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .error,
@@ -727,6 +803,14 @@ class _ChatWithLucilleVersion5WidgetState
                                                                       12.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLarge
+                                                                      .fontStyle,
                                                                 ),
                                                         enabledBorder:
                                                             OutlineInputBorder(
@@ -797,13 +881,31 @@ class _ChatWithLucilleVersion5WidgetState
                                                                   context)
                                                               .bodyLarge
                                                               .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLarge
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontStyle,
                                                               ),
                                                       maxLines: 8,
                                                       minLines: 1,
@@ -845,6 +947,16 @@ class _ChatWithLucilleVersion5WidgetState
                                                       borderRadius: 30.0,
                                                       borderWidth: 1.0,
                                                       buttonSize: 60.0,
+                                                      hoverColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .accent1,
+                                                      hoverIconColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                      hoverBorderColor:
+                                                          Color(0x47EDF1F7),
                                                       icon: Icon(
                                                         Icons.send_rounded,
                                                         color:

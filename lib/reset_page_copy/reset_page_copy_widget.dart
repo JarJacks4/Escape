@@ -84,13 +84,13 @@ class _ResetPageCopyWidgetState extends State<ResetPageCopyWidget> {
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
-                            Color(0x309870F6),
-                            Color(0x4239519F),
-                            Color(0x80673AB7)
+                            Color(0x2ED0E3F7),
+                            Color(0x6839519F),
+                            Color(0xFF673AB7)
                           ],
                           stops: [0.0, 0.5, 1.0],
-                          begin: AlignmentDirectional(1.0, 0.0),
-                          end: AlignmentDirectional(-1.0, 0),
+                          begin: AlignmentDirectional(0.34, 1.0),
+                          end: AlignmentDirectional(-0.34, -1.0),
                         ),
                       ),
                       child: wrapWithModel(

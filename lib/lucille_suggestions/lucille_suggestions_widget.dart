@@ -15,12 +15,12 @@ import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
     as cupertino_time_picker_hiuzb7_app_state;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
-import 'package:that_audio_player_oo85ab/app_state.dart'
-    as that_audio_player_oo85ab_app_state;
 import 'package:that_slideable_list_item_mrpo3s/components/swipe_left_comp_widget.dart'
     as that_slideable_list_item_mrpo3s;
 import 'package:that_slideable_list_item_mrpo3s/custom_code/widgets/index.dart'
     as that_slideable_list_item_mrpo3s_custom_widgets;
+import 'package:that_audio_player_oo85ab/app_state.dart'
+    as that_audio_player_oo85ab_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -28,7 +28,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -39,7 +39,7 @@ class LucilleSuggestionsWidget extends StatefulWidget {
   const LucilleSuggestionsWidget({super.key});
 
   static String routeName = 'LucilleSuggestions';
-  static String routePath = 'lucilleSuggestions';
+  static String routePath = '/lucilleSuggestions';
 
   @override
   State<LucilleSuggestionsWidget> createState() =>
@@ -436,7 +436,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                       children: [
                         Container(
                           width: double.infinity,
-                          height: MediaQuery.sizeOf(context).height,
+                          height: 173.6,
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: Colors.transparent,
@@ -562,14 +562,22 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                             context)
                                                                         .labelMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'The Seasons',
+                                                                          font:
+                                                                              GoogleFonts.cormorantSc(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                          ),
                                                                           color:
                                                                               Colors.white,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ).animateOnPageLoad(
                                                                       animationsMap[
@@ -588,8 +596,14 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                         context)
                                                                     .headlineSmall
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
+                                                                      font: GoogleFonts
+                                                                          .inter(
+                                                                        fontWeight:
+                                                                            FontWeight.w300,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .headlineSmall
+                                                                            .fontStyle,
+                                                                      ),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .alternate,
@@ -600,6 +614,10 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w300,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .headlineSmall
+                                                                          .fontStyle,
                                                                     ),
                                                               ).animateOnPageLoad(
                                                                   animationsMap[
@@ -788,19 +806,34 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                           .getText(
                                                         'ajnk2arx' /* Lucille's Pick For You */,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .labelLarge
-                                                          .override(
-                                                            fontFamily:
-                                                                'WorkSans',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelLarge
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .cormorantSc(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontStyle,
+                                                              ),
                                                     ),
                                                   ].divide(
                                                       SizedBox(width: 10.0)),
@@ -848,8 +881,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                     }
                                                     final columnRecommendedExercisesResponse =
                                                         snapshot.data!;
-                                                    print(
-                                                        'API response: ${columnRecommendedExercisesResponse.jsonBody}');
+
                                                     return Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -924,10 +956,14 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               'Mind',
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                  fontFamily: 'WorkSans',
+                                                                                  font: GoogleFonts.inter(
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                  ),
                                                                                   color: Colors.white,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w500,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -951,14 +987,22 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                             context)
                                                                         .displaySmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'WorkSans',
+                                                                          font:
+                                                                              GoogleFonts.cormorantSc(
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).displaySmall.fontStyle,
+                                                                          ),
                                                                           color:
                                                                               Colors.white,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                   Flexible(
@@ -978,14 +1022,19 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'WorkSans',
+                                                                            font:
+                                                                                GoogleFonts.inter(
+                                                                              fontWeight: FontWeight.normal,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                            ),
                                                                             color:
                                                                                 Color(0xFFEEEEFF),
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                       overflow:
                                                                           TextOverflow
@@ -1038,10 +1087,14 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               'None',
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                  fontFamily: 'WorkSans',
+                                                                                  font: GoogleFonts.inter(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                  ),
                                                                                   color: Colors.white,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ].divide(SizedBox(width: 6.0)),
@@ -1113,14 +1166,19 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               context)
                                                                           .bodyLarge
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'WorkSans',
+                                                                            font:
+                                                                                GoogleFonts.inter(
+                                                                              fontWeight: FontWeight.w500,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                                                                            ),
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).alternate,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                                                                           ),
                                                                     ),
                                                                     InkWell(
@@ -1497,7 +1555,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                           children: [
                             Container(
                               width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height,
+                              height: 874.4,
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   color: Colors.transparent,
@@ -1867,8 +1925,17 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                   .of(context)
                                                               .labelLarge
                                                               .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -1877,6 +1944,10 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontStyle,
                                                               ),
                                                         ),
                                                       ].divide(SizedBox(
@@ -2001,10 +2072,14 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                     'Mind',
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                        fontFamily: 'WorkSans',
+                                                                                        font: GoogleFonts.inter(
+                                                                                          fontWeight: FontWeight.w500,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                        ),
                                                                                         color: Colors.white,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w500,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -2020,16 +2095,20 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               .title(
                                                                                 columnRecommendedExercisesResponse.jsonBody,
                                                                               )
-                                                                              ?.elementAtOrNull(1),
+                                                                              ?.elementAtOrNull(5),
                                                                           'Calm Breathing',
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .displaySmall
                                                                             .override(
-                                                                              fontFamily: 'WorkSans',
+                                                                              font: GoogleFonts.inter(
+                                                                                fontWeight: FontWeight.bold,
+                                                                                fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
+                                                                              ),
                                                                               color: Colors.white,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
+                                                                              fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
                                                                             ),
                                                                       ),
                                                                       Flexible(
@@ -2042,16 +2121,20 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 .description(
                                                                                   columnRecommendedExercisesResponse.jsonBody,
                                                                                 )
-                                                                                ?.elementAtOrNull(1),
+                                                                                ?.elementAtOrNull(5),
                                                                             'A gentle breathing exercise to help focus your mind and body.',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'WorkSans',
+                                                                                font: GoogleFonts.inter(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 color: Color(0xFFEEEEFF),
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                           overflow:
                                                                               TextOverflow.fade,
@@ -2173,10 +2256,14 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyLarge
                                                                               .override(
-                                                                                fontFamily: 'WorkSans',
+                                                                                font: GoogleFonts.inter(
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                                                                                ),
                                                                                 color: FlutterFlowTheme.of(context).alternate,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w500,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                                                                               ),
                                                                         ),
                                                                         InkWell(
@@ -2536,7 +2623,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                           children: [
                             Container(
                               width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height,
+                              height: 876.0,
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   color: Colors.transparent,
@@ -2906,8 +2993,17 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                   .of(context)
                                                               .labelLarge
                                                               .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -2916,6 +3012,10 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontStyle,
                                                               ),
                                                         ),
                                                       ].divide(SizedBox(
@@ -3040,10 +3140,14 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                     'Mind',
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                        fontFamily: 'WorkSans',
+                                                                                        font: GoogleFonts.inter(
+                                                                                          fontWeight: FontWeight.w500,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                        ),
                                                                                         color: Colors.white,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w500,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
                                                                                       ),
                                                                                   overflow: TextOverflow.fade,
                                                                                 ),
@@ -3060,16 +3164,20 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               .title(
                                                                                 columnRecommendedExercisesResponse.jsonBody,
                                                                               )
-                                                                              ?.elementAtOrNull(2),
+                                                                              ?.elementAtOrNull(3),
                                                                           'Calm Breathing',
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .displaySmall
                                                                             .override(
-                                                                              fontFamily: 'WorkSans',
+                                                                              font: GoogleFonts.inter(
+                                                                                fontWeight: FontWeight.bold,
+                                                                                fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
+                                                                              ),
                                                                               color: Colors.white,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
+                                                                              fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
                                                                             ),
                                                                         overflow:
                                                                             TextOverflow.fade,
@@ -3084,16 +3192,20 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 .description(
                                                                                   columnRecommendedExercisesResponse.jsonBody,
                                                                                 )
-                                                                                ?.elementAtOrNull(2),
+                                                                                ?.elementAtOrNull(3),
                                                                             'A gentle breathing exercise to help focus your mind and body.',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'WorkSans',
+                                                                                font: GoogleFonts.inter(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 color: Color(0xFFEEEEFF),
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                           overflow:
                                                                               TextOverflow.fade,
@@ -3144,10 +3256,14 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                   'Reason',
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                      fontFamily: 'WorkSans',
+                                                                                      font: GoogleFonts.inter(
+                                                                                        fontWeight: FontWeight.normal,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                      ),
                                                                                       color: Colors.white,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.normal,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
                                                                                     ),
                                                                               ),
                                                                             ].divide(SizedBox(width: 6.0)),
@@ -3219,10 +3335,14 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyLarge
                                                                               .override(
-                                                                                fontFamily: 'WorkSans',
+                                                                                font: GoogleFonts.inter(
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                                                                                ),
                                                                                 color: FlutterFlowTheme.of(context).alternate,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w500,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                                                                               ),
                                                                         ),
                                                                         InkWell(
