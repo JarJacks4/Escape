@@ -35,10 +35,10 @@ class ChewieWidget extends StatefulWidget {
   final Future Function() bookedrebuidpage;
 
   @override
-  _ChewieWidgetState createState() => _ChewieWidgetState();
+  ChewieWidgetState createState() => ChewieWidgetState();
 }
 
-class _ChewieWidgetState extends State<ChewieWidget> {
+class ChewieWidgetState extends State<ChewieWidget> {
   List<Video> _videos = [];
   List<Video2> _videoss = [];
   int _currentIndex = 0;
@@ -127,6 +127,12 @@ class _ChewieWidgetState extends State<ChewieWidget> {
   //     },
   //   ),
   // );
+
+  void pauseCurrentVideo() {
+    if (_currentIndex < _videos.length) {
+      _videos[_currentIndex].controller?.pause();
+    }
+  }
 
   Widget videoCard(Video video, Video2 videoo, int index) {
     GlobalKey<_HeartState> heart = GlobalKey<_HeartState>();

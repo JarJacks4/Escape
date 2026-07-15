@@ -44,6 +44,22 @@ class _ConnectionCommunityStartPageVersion5WidgetState
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final GlobalKey<tiktokfeed_wz8en7_custom_widgets.ChewieWidgetState>
+      _forYouChewieKey =
+      GlobalKey<tiktokfeed_wz8en7_custom_widgets.ChewieWidgetState>();
+  final GlobalKey<tiktokfeed_wz8en7_custom_widgets.ChewieWidgetState>
+      _breathingChewieKey =
+      GlobalKey<tiktokfeed_wz8en7_custom_widgets.ChewieWidgetState>();
+  final GlobalKey<tiktokfeed_wz8en7_custom_widgets.ChewieWidgetState>
+      _bodyChewieKey =
+      GlobalKey<tiktokfeed_wz8en7_custom_widgets.ChewieWidgetState>();
+
+  void _pauseAllCommunityVideos() {
+    _forYouChewieKey.currentState?.pauseCurrentVideo();
+    _breathingChewieKey.currentState?.pauseCurrentVideo();
+    _bodyChewieKey.currentState?.pauseCurrentVideo();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -334,6 +350,7 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                                       0.82,
                                                                   child: tiktokfeed_wz8en7_custom_widgets
                                                                       .ChewieWidget(
+                                                                    key: _forYouChewieKey,
                                                                     width: double
                                                                         .infinity,
                                                                     height: MediaQuery.sizeOf(context)
@@ -373,6 +390,7 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                                       0.82,
                                                                   child: tiktokfeed_wz8en7_custom_widgets
                                                                       .ChewieWidget(
+                                                                    key: _breathingChewieKey,
                                                                     width: double
                                                                         .infinity,
                                                                     height: MediaQuery.sizeOf(context)
@@ -412,6 +430,7 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                                       0.82,
                                                                   child: tiktokfeed_wz8en7_custom_widgets
                                                                       .ChewieWidget(
+                                                                    key: _bodyChewieKey,
                                                                     width: double
                                                                         .infinity,
                                                                     height: MediaQuery.sizeOf(context)
@@ -481,6 +500,7 @@ class _ConnectionCommunityStartPageVersion5WidgetState
 
                                                       logFirebaseEvent(
                                                           'MarketplaceButton_bottom_sheet');
+                                                      _pauseAllCommunityVideos();
                                                       await showModalBottomSheet(
                                                         isScrollControlled:
                                                             true,
@@ -559,6 +579,7 @@ class _ConnectionCommunityStartPageVersion5WidgetState
 
                                                       logFirebaseEvent(
                                                           'InfluencerAmbassadorProgramButton_bottom');
+                                                      _pauseAllCommunityVideos();
                                                       await showModalBottomSheet(
                                                         isScrollControlled:
                                                             true,
