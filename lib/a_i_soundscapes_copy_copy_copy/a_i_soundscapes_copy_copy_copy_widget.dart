@@ -298,8 +298,6 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                   return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
                                 }
                               }(),
-                              width: 409.6,
-                              height: 876.8,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -344,34 +342,10 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
-                                                child: Image.network(
-                                                  valueOrDefault<String>(
-                                                    () {
-                                                      if (FFAppState()
-                                                          .isAllTab) {
-                                                        return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9';
-                                                      } else if (FFAppState()
-                                                          .isMusicMeditationsTab) {
-                                                        return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
-                                                      } else if (FFAppState()
-                                                          .isNatureTab) {
-                                                        return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fdownload_(26)%20(1).gif?alt=media&token=77372ba9-5080-46ce-95fd-dbc17982ec56';
-                                                      } else if (FFAppState()
-                                                          .isFocusTab) {
-                                                        return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
-                                                      } else if (FFAppState()
-                                                          .isSleepTab) {
-                                                        return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F90ac6093fb40e1d7398371b1d61a4e4a.gif?alt=media&token=3351172e-47e6-40e2-9ed4-fb4d549c64f5';
-                                                      } else {
-                                                        return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
-                                                      }
-                                                    }(),
-                                                    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9',
-                                                  ),
+                                                child: Image.asset(
+                                                  'assets/images/89779ebdad6cda0831f05a306eebf7cd_(1).gif',
                                                   width: double.infinity,
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
-                                                          .height,
+                                                  height: 1165.6,
                                                   fit: BoxFit.cover,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -1265,8 +1239,19 @@ class _AISoundscapesCopyCopyCopyWidgetState
 
                                                                                                             logFirebaseEvent('Container_navigate_to');
 
+                                                                                                            await that_audio_player_oo85ab_actions.initializeThatAudioPlayerForPlaylists(
+                                                                                                              that_audio_player_oo85ab_app_state.FFAppState().currentMediaMusicMeditations.toList(),
+                                                                                                              0,
+                                                                                                            );
+                                                                                                            if (that_audio_player_oo85ab_app_state.FFAppState().isThatAudioPlayerPlaying) {
+                                                                                                              await actions.pauseAudio();
+                                                                                                              await actions.seekAudioToValue(0.0, 0);
+                                                                                                            }
+                                                                                                            await actions.playAudio();
+                                                                                                            logFirebaseEvent('Container_navigate_to');
+
                                                                                                             context.pushNamed(
-                                                                                                              $that_audio_player_oo85ab.PlayerPageFocusWidget.routeName,
+                                                                                                              $that_audio_player_oo85ab.PlayerPageMusicMediationsWidget.routeName,
                                                                                                               extra: <String, dynamic>{
                                                                                                                 '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                   hasTransition: true,
@@ -1400,6 +1385,17 @@ class _AISoundscapesCopyCopyCopyWidgetState
 
                                                                                                             logFirebaseEvent('Container_navigate_to');
 
+                                                                                                            await that_audio_player_oo85ab_actions.initializeThatAudioPlayerForPlaylists(
+                                                                                                              that_audio_player_oo85ab_app_state.FFAppState().currentMediaNatureTab.toList(),
+                                                                                                              0,
+                                                                                                            );
+                                                                                                            if (that_audio_player_oo85ab_app_state.FFAppState().isThatAudioPlayerPlaying) {
+                                                                                                              await actions.pauseAudio();
+                                                                                                              await actions.seekAudioToValue(0.0, 0);
+                                                                                                            }
+                                                                                                            await actions.playAudio();
+                                                                                                            logFirebaseEvent('Container_navigate_to');
+
                                                                                                             context.pushNamed(
                                                                                                               $that_audio_player_oo85ab.PlayerPageMusicMediationsWidget.routeName,
                                                                                                               extra: <String, dynamic>{
@@ -1525,8 +1521,19 @@ class _AISoundscapesCopyCopyCopyWidgetState
 
                                                                                                             logFirebaseEvent('Container_navigate_to');
 
+                                                                                                            await that_audio_player_oo85ab_actions.initializeThatAudioPlayerForPlaylists(
+                                                                                                              that_audio_player_oo85ab_app_state.FFAppState().currentMediaNatureTab.toList(),
+                                                                                                              0,
+                                                                                                            );
+                                                                                                            if (that_audio_player_oo85ab_app_state.FFAppState().isThatAudioPlayerPlaying) {
+                                                                                                              await actions.pauseAudio();
+                                                                                                              await actions.seekAudioToValue(0.0, 0);
+                                                                                                            }
+                                                                                                            await actions.playAudio();
+                                                                                                            logFirebaseEvent('Container_navigate_to');
+
                                                                                                             context.pushNamed(
-                                                                                                              $that_audio_player_oo85ab.PlayerPageSleepWidget.routeName,
+                                                                                                              $that_audio_player_oo85ab.PlayerPageMusicMediationsWidget.routeName,
                                                                                                               extra: <String, dynamic>{
                                                                                                                 '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                   hasTransition: true,
@@ -2103,8 +2110,19 @@ class _AISoundscapesCopyCopyCopyWidgetState
 
                                                                                                           logFirebaseEvent('Container_navigate_to');
 
+                                                                                                          await that_audio_player_oo85ab_actions.initializeThatAudioPlayerForPlaylists(
+                                                                                                            that_audio_player_oo85ab_app_state.FFAppState().currentMediaMusicMeditations.toList(),
+                                                                                                            0,
+                                                                                                          );
+                                                                                                          if (that_audio_player_oo85ab_app_state.FFAppState().isThatAudioPlayerPlaying) {
+                                                                                                            await actions.pauseAudio();
+                                                                                                            await actions.seekAudioToValue(0.0, 0);
+                                                                                                          }
+                                                                                                          await actions.playAudio();
+                                                                                                          logFirebaseEvent('Container_navigate_to');
+
                                                                                                           context.pushNamed(
-                                                                                                            $that_audio_player_oo85ab.PlayerPageMusicMediationsWidget.routeName,
+                                                                                                            $that_audio_player_oo85ab.PlayerPageFocusWidget.routeName,
                                                                                                             extra: <String, dynamic>{
                                                                                                               '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                                 hasTransition: true,
@@ -3102,6 +3120,17 @@ class _AISoundscapesCopyCopyCopyWidgetState
 
                                                                                                         logFirebaseEvent('Container_navigate_to');
 
+                                                                                                        await that_audio_player_oo85ab_actions.initializeThatAudioPlayerForPlaylists(
+                                                                                                          that_audio_player_oo85ab_app_state.FFAppState().currentMediaMusicMeditations.toList(),
+                                                                                                          0,
+                                                                                                        );
+                                                                                                        if (that_audio_player_oo85ab_app_state.FFAppState().isThatAudioPlayerPlaying) {
+                                                                                                          await actions.pauseAudio();
+                                                                                                          await actions.seekAudioToValue(0.0, 0);
+                                                                                                        }
+                                                                                                        await actions.playAudio();
+                                                                                                        logFirebaseEvent('Container_navigate_to');
+
                                                                                                         context.pushNamed(
                                                                                                           $that_audio_player_oo85ab.PlayerPageFocusWidget.routeName,
                                                                                                           extra: <String, dynamic>{
@@ -3729,6 +3758,17 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                                                                           _model.soundPlayer20!.setVolume(1.0);
                                                                                                           _model.soundPlayer20!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer20!.play());
 
+                                                                                                          logFirebaseEvent('Container_navigate_to');
+
+                                                                                                          await that_audio_player_oo85ab_actions.initializeThatAudioPlayerForPlaylists(
+                                                                                                            that_audio_player_oo85ab_app_state.FFAppState().currentMediaMusicMeditations.toList(),
+                                                                                                            0,
+                                                                                                          );
+                                                                                                          if (that_audio_player_oo85ab_app_state.FFAppState().isThatAudioPlayerPlaying) {
+                                                                                                            await actions.pauseAudio();
+                                                                                                            await actions.seekAudioToValue(0.0, 0);
+                                                                                                          }
+                                                                                                          await actions.playAudio();
                                                                                                           logFirebaseEvent('Container_navigate_to');
 
                                                                                                           context.pushNamed(
