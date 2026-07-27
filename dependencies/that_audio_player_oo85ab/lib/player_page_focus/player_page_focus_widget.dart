@@ -84,7 +84,7 @@ class _PlayerPageFocusWidgetState extends State<PlayerPageFocusWidget>
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Container(
           width: double.infinity,
-          height: 845.2,
+          height: MediaQuery.sizeOf(context).height,
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
@@ -100,13 +100,13 @@ class _PlayerPageFocusWidgetState extends State<PlayerPageFocusWidget>
                 child: Image.asset(
                   'packages/that_audio_player_oo85ab/assets/images/e085865feb0fb5cd989c30fa6b384526_(2).gif',
                   width: double.infinity,
-                  height: 844.89,
+                  height: MediaQuery.sizeOf(context).height,
                   fit: BoxFit.cover,
                 ),
               ),
               Container(
                 width: double.infinity,
-                height: 858.19,
+                height: MediaQuery.sizeOf(context).height,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [

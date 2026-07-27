@@ -104,7 +104,7 @@ class _PlayerPageFINALAllTabWidgetState
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Container(
           width: double.infinity,
-          height: 845.2,
+          height: MediaQuery.sizeOf(context).height,
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
@@ -120,13 +120,13 @@ class _PlayerPageFINALAllTabWidgetState
                 child: Image.asset(
                   'packages/that_audio_player_oo85ab/assets/images/922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)_(2).gif',
                   width: double.infinity,
-                  height: 844.89,
+                  height: MediaQuery.sizeOf(context).height,
                   fit: BoxFit.cover,
                 ),
               ),
               Container(
                 width: double.infinity,
-                height: 858.19,
+                height: MediaQuery.sizeOf(context).height,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [

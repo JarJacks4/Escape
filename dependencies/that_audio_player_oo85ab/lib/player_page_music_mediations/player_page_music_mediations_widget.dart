@@ -99,7 +99,7 @@ class _PlayerPageMusicMediationsWidgetState
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Container(
           width: double.infinity,
-          height: 845.2,
+          height: MediaQuery.sizeOf(context).height,
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
@@ -115,13 +115,13 @@ class _PlayerPageMusicMediationsWidgetState
                 child: Image.asset(
                   'packages/that_audio_player_oo85ab/assets/images/d62729e5768b9c70b89d9ffeb8856152.gif',
                   width: double.infinity,
-                  height: 844.9,
+                  height: MediaQuery.sizeOf(context).height,
                   fit: BoxFit.cover,
                 ),
               ),
               Container(
                 width: double.infinity,
-                height: 858.19,
+                height: MediaQuery.sizeOf(context).height,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [

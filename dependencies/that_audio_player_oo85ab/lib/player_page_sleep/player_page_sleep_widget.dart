@@ -97,7 +97,7 @@ class _PlayerPageSleepWidgetState extends State<PlayerPageSleepWidget>
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Container(
           width: double.infinity,
-          height: 845.2,
+          height: MediaQuery.sizeOf(context).height,
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
@@ -113,13 +113,13 @@ class _PlayerPageSleepWidgetState extends State<PlayerPageSleepWidget>
                 child: Image.asset(
                   'packages/that_audio_player_oo85ab/assets/images/90ac6093fb40e1d7398371b1d61a4e4a.gif',
                   width: double.infinity,
-                  height: 844.89,
+                  height: MediaQuery.sizeOf(context).height,
                   fit: BoxFit.cover,
                 ),
               ),
               Container(
                 width: double.infinity,
-                height: 858.19,
+                height: MediaQuery.sizeOf(context).height,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [

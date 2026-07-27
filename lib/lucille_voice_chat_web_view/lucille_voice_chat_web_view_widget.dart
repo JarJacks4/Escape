@@ -48,18 +48,47 @@ class _LucilleVoiceChatWebViewWidgetState
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
+        body: Stack(
           children: [
-            Flexible(
-              flex: 1,
-              child: FlutterFlowWebView(
-                content:
-                    'https://streams.vagon.io/streams/997c79bc-b2e6-49ad-818e-3b64bbc57213',
-                bypass: true,
-                height: 856.8,
-                verticalScroll: true,
-                horizontalScroll: true,
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Flexible(
+                  flex: 1,
+                  child: FlutterFlowWebView(
+                    content:
+                        'https://streams.vagon.io/streams/997c79bc-b2e6-49ad-818e-3b64bbc57213',
+                    bypass: true,
+                    height: MediaQuery.sizeOf(context).height,
+                    verticalScroll: true,
+                    horizontalScroll: true,
+                  ),
+                ),
+              ],
+            ),
+            SafeArea(
+              child: Padding(
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
+                child: Align(
+                  alignment: AlignmentDirectional(-1.0, -1.0),
+                  child: InkWell(
+                    onTap: () => context.safePop(),
+                    child: Container(
+                      width: 40.0,
+                      height: 40.0,
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.4),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.white,
+                        size: 20.0,
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
           ],

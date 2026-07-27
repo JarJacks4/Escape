@@ -97,7 +97,7 @@ class _PlayerPageNatureWidgetState extends State<PlayerPageNatureWidget>
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Container(
           width: double.infinity,
-          height: 845.2,
+          height: MediaQuery.sizeOf(context).height,
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
@@ -113,13 +113,13 @@ class _PlayerPageNatureWidgetState extends State<PlayerPageNatureWidget>
                 child: Image.asset(
                   'packages/that_audio_player_oo85ab/assets/images/download_(26)_(1).gif',
                   width: double.infinity,
-                  height: 844.89,
+                  height: MediaQuery.sizeOf(context).height,
                   fit: BoxFit.cover,
                 ),
               ),
               Container(
                 width: double.infinity,
-                height: 858.19,
+                height: MediaQuery.sizeOf(context).height,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [

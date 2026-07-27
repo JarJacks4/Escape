@@ -1555,7 +1555,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                           children: [
                             Container(
                               width: double.infinity,
-                              height: 874.4,
+                              height: MediaQuery.sizeOf(context).height,
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   color: Colors.transparent,
@@ -2095,7 +2095,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               .title(
                                                                                 columnRecommendedExercisesResponse.jsonBody,
                                                                               )
-                                                                              ?.elementAtOrNull(5),
+                                                                              ?.elementAtOrNull(1),
                                                                           'Calm Breathing',
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
@@ -2121,7 +2121,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 .description(
                                                                                   columnRecommendedExercisesResponse.jsonBody,
                                                                                 )
-                                                                                ?.elementAtOrNull(5),
+                                                                                ?.elementAtOrNull(1),
                                                                             'A gentle breathing exercise to help focus your mind and body.',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
@@ -2171,21 +2171,25 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 color: Colors.white,
                                                                                 size: 16.0,
                                                                               ),
-                                                                              Text(
-                                                                                valueOrDefault<String>(
-                                                                                  LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                      .reason(
-                                                                                        columnRecommendedExercisesResponse.jsonBody,
-                                                                                      )
-                                                                                      ?.elementAtOrNull(1),
-                                                                                  'Reason',
+                                                                              Flexible(
+                                                                                child: Text(
+                                                                                  valueOrDefault<String>(
+                                                                                    LucilleTherapyExercisesGroup.recommendedExercisesCall
+                                                                                        .reason(
+                                                                                          columnRecommendedExercisesResponse.jsonBody,
+                                                                                        )
+                                                                                        ?.elementAtOrNull(1),
+                                                                                    'Reason',
+                                                                                  ),
+                                                                                  maxLines: 1,
+                                                                                  overflow: TextOverflow.ellipsis,
+                                                                                  style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                        fontFamily: 'WorkSans',
+                                                                                        color: Colors.white,
+                                                                                        letterSpacing: 0.0,
+                                                                                        fontWeight: FontWeight.normal,
+                                                                                      ),
                                                                                 ),
-                                                                                style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                      fontFamily: 'WorkSans',
-                                                                                      color: Colors.white,
-                                                                                      letterSpacing: 0.0,
-                                                                                      fontWeight: FontWeight.normal,
-                                                                                    ),
                                                                               ),
                                                                             ].divide(SizedBox(width: 6.0)),
                                                                           ),
@@ -2623,7 +2627,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                           children: [
                             Container(
                               width: double.infinity,
-                              height: 876.0,
+                              height: MediaQuery.sizeOf(context).height,
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   color: Colors.transparent,
@@ -3164,7 +3168,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               .title(
                                                                                 columnRecommendedExercisesResponse.jsonBody,
                                                                               )
-                                                                              ?.elementAtOrNull(3),
+                                                                              ?.elementAtOrNull(2),
                                                                           'Calm Breathing',
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
@@ -3192,7 +3196,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 .description(
                                                                                   columnRecommendedExercisesResponse.jsonBody,
                                                                                 )
-                                                                                ?.elementAtOrNull(3),
+                                                                                ?.elementAtOrNull(2),
                                                                             'A gentle breathing exercise to help focus your mind and body.',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
@@ -3242,29 +3246,29 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 color: Colors.white,
                                                                                 size: 16.0,
                                                                               ),
-                                                                              Text(
-                                                                                valueOrDefault<String>(
-                                                                                  (LucilleTherapyExercisesGroup.recommendedExercisesCall.reason(
-                                                                                                columnRecommendedExercisesResponse.jsonBody,
-                                                                                              ) !=
-                                                                                              null &&
-                                                                                          (LucilleTherapyExercisesGroup.recommendedExercisesCall.reason(
-                                                                                            columnRecommendedExercisesResponse.jsonBody,
-                                                                                          ))!
-                                                                                              .isNotEmpty)
-                                                                                      .toString(),
-                                                                                  'Reason',
-                                                                                ),
-                                                                                style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                      font: GoogleFonts.inter(
+                                                                              Flexible(
+                                                                                child: Text(
+                                                                                  valueOrDefault<String>(
+                                                                                    LucilleTherapyExercisesGroup.recommendedExercisesCall
+                                                                                        .reason(
+                                                                                          columnRecommendedExercisesResponse.jsonBody,
+                                                                                        )
+                                                                                        ?.elementAtOrNull(2),
+                                                                                    'Reason',
+                                                                                  ),
+                                                                                  maxLines: 1,
+                                                                                  overflow: TextOverflow.ellipsis,
+                                                                                  style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                        font: GoogleFonts.inter(
+                                                                                          fontWeight: FontWeight.normal,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                        ),
+                                                                                        color: Colors.white,
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.normal,
                                                                                         fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
                                                                                       ),
-                                                                                      color: Colors.white,
-                                                                                      letterSpacing: 0.0,
-                                                                                      fontWeight: FontWeight.normal,
-                                                                                      fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
-                                                                                    ),
+                                                                                ),
                                                                               ),
                                                                             ].divide(SizedBox(width: 6.0)),
                                                                           ),

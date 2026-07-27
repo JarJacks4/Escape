@@ -451,17 +451,10 @@ class _LucilleSuggestionPageWidgetState
                                         0.0, 0.0, 0.0, 8.0),
                                     child: FlutterFlowAudioPlayer(
                                       audio: Audio.network(
-                                        FFAppState()
-                                            .SoundscapesAllTab
-                                            .firstOrNull!
-                                            .songUrl,
+                                        widget.exersiseSoundscape!,
                                         metas: Metas(
                                           title: valueOrDefault<String>(
-                                            that_audio_player_oo85ab_app_state
-                                                    .FFAppState()
-                                                .currentMediaAllTab
-                                                .firstOrNull
-                                                ?.mediaTitle,
+                                            widget.exerciseTitle,
                                             'Title',
                                           ),
                                         ),
@@ -592,7 +585,8 @@ class _LucilleSuggestionPageWidgetState
                                               },
                                               child:
                                                   ConfettiPageExpertCompWidget(
-                                                exerciseTitle: '',
+                                                exerciseTitle:
+                                                    widget.exerciseTitle ?? '',
                                               ),
                                             ),
                                           ),

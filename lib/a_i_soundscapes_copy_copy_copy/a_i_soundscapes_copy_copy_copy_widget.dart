@@ -306,7 +306,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
                       ),
                       Container(
                         width: double.infinity,
-                        height: 1165.6,
+                        height: MediaQuery.sizeOf(context).height,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
@@ -345,7 +345,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                 child: Image.asset(
                                                   'assets/images/89779ebdad6cda0831f05a306eebf7cd_(1).gif',
                                                   width: double.infinity,
-                                                  height: 1165.6,
+                                                  height: MediaQuery.sizeOf(context).height,
                                                   fit: BoxFit.cover,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[

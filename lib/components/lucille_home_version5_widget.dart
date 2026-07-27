@@ -9,7 +9,7 @@ import 'package:just_audio/just_audio.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'lucille_home_version5_model.dart';
 export 'lucille_home_version5_model.dart';
-import 'voice_chat_with_lucille_comp_widget.dart';
+import '/lucille_voice_chat_web_view/lucille_voice_chat_web_view_widget.dart';
 
 class LucilleHomeVersion5Widget extends StatefulWidget {
   const LucilleHomeVersion5Widget({super.key});
@@ -717,27 +717,17 @@ Lucille */
 
                                       logFirebaseEvent('Container_navigate_to');
 
-                                      await showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        enableDrag: false,
-                                        context: context,
-                                        builder: (context) {
-                                          return GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(context).unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child:
-                                                  VoiceChatWithLucilleCompWidget(),
-                                            ),
-                                          );
+                                      context.pushNamed(
+                                        LucilleVoiceChatWebViewWidget.routeName,
+                                        extra: <String, dynamic>{
+                                          '__transition_info__': TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.rightToLeft,
+                                            duration: Duration(milliseconds: 2),
+                                          ),
                                         },
-                                      ).then((value) => safeSetState(() {}));
+                                      );
                                     },
                                     child: Container(
                                       width: double.infinity,
@@ -947,25 +937,18 @@ Lucille */
                                             (_) => _model.soundPlayer5!.play());
 
                                     logFirebaseEvent('Container_navigate_to');
-                                    
-                                    await showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      enableDrag: false,
-                                      context: context,
-                                      builder: (context) {
-                                        return GestureDetector(
-                                          onTap: () {
-                                            FocusScope.of(context).unfocus();
-                                            FocusManager.instance.primaryFocus?.unfocus();
-                                          },
-                                          child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(context),
-                                            child: VoiceChatWithLucilleCompWidget(),
-                                          ),
-                                        );
+
+                                    context.pushNamed(
+                                      LucilleVoiceChatWebViewWidget.routeName,
+                                      extra: <String, dynamic>{
+                                        '__transition_info__': TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.rightToLeft,
+                                          duration: Duration(milliseconds: 2),
+                                        ),
                                       },
-                                    ).then((value) => safeSetState(() {}));
+                                    );
                                   },
                                   child: Container(
                                     height: 36.0,
@@ -1010,7 +993,7 @@ Lucille */
                                                                 context)
                                                             .labelMedium
                                                             .fontStyle,
-                                                  ),
+                                                ),
                                                   color: Colors.white,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
