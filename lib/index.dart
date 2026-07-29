@@ -166,6 +166,14 @@ export '/voice_text_journaling/voice_text_journaling_widget.dart'
     show VoiceTextJournalingWidget;
 export '/journal_history2/journal_history2_widget.dart'
     show JournalHistory2Widget;
+export '/voice_text_journaling_copy/voice_text_journaling_copy_widget.dart'
+    show VoiceTextJournalingCopyWidget;
+export '/voice_journal_result_copy/voice_journal_result_copy_widget.dart'
+    show VoiceJournalResultCopyWidget;
+export '/text_journal_version5/text_journal_version5_widget.dart'
+    show TextJournalVersion5Widget;
+export '/health_journal_copy/health_journal_copy_widget.dart'
+    show HealthJournalCopyWidget;
 export '/quests_page/quests_page_widget.dart' show QuestsPageWidget;
 export '/connection_community_start_page_version5/connection_community_start_page_version5_widget.dart'
     show ConnectionCommunityStartPageVersion5Widget;

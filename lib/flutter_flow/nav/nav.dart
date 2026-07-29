@@ -429,6 +429,53 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => NewJournalPickerWidget(),
           ),
           FFRoute(
+            name: ActiveVoiceJournalingWidget.routeName,
+            path: ActiveVoiceJournalingWidget.routePath,
+            builder: (context, params) => ActiveVoiceJournalingWidget(),
+          ),
+          FFRoute(
+            name: VoiceJournalResultCopyWidget.routeName,
+            path: VoiceJournalResultCopyWidget.routePath,
+            builder: (context, params) => VoiceJournalResultCopyWidget(
+              transcribedWords: params.getParam(
+                'transcribedWords',
+                ParamType.String,
+              ),
+              detectedMood: params.getParam(
+                'detectedMood',
+                ParamType.String,
+              ),
+              journalTitle: params.getParam(
+                'journalTitle',
+                ParamType.String,
+              ),
+              journalVoiceNote: params.getParam(
+                'journalVoiceNote',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: TextJournalVersion5Widget.routeName,
+            path: TextJournalVersion5Widget.routePath,
+            builder: (context, params) => TextJournalVersion5Widget(
+              transcribedText: params.getParam(
+                'transcribedText',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: VoiceTextJournalingCopyWidget.routeName,
+            path: VoiceTextJournalingCopyWidget.routePath,
+            builder: (context, params) => VoiceTextJournalingCopyWidget(),
+          ),
+          FFRoute(
+            name: HealthJournalCopyWidget.routeName,
+            path: HealthJournalCopyWidget.routePath,
+            builder: (context, params) => HealthJournalCopyWidget(),
+          ),
+          FFRoute(
             name: VoiceJournalResultWidget.routeName,
             path: VoiceJournalResultWidget.routePath,
             builder: (context, params) => VoiceJournalResultWidget(),
