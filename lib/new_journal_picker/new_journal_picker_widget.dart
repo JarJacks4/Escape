@@ -2,8 +2,10 @@ import '/components/journal_type_card_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:material_palette/material_palette.dart';
@@ -130,7 +132,7 @@ class _NewJournalPickerWidgetState extends State<NewJournalPickerWidget> {
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 25.0, 0.0, 0.0),
+                                0.0, 50.0, 0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -146,8 +148,15 @@ class _NewJournalPickerWidgetState extends State<NewJournalPickerWidget> {
                                         FlutterFlowTheme.of(context).tertiary,
                                     size: 28.0,
                                   ),
-                                  onPressed: () {
-                                    print('IconButton pressed ...');
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'NEW_JOURNAL_PICKER_IconButton_ON_TAP');
+                                    logFirebaseEvent(
+                                        'IconButton_haptic_feedback');
+                                    HapticFeedback.heavyImpact();
+                                    logFirebaseEvent(
+                                        'IconButton_navigate_back');
+                                    context.safePop();
                                   },
                                 ),
                                 Text(
@@ -157,11 +166,8 @@ class _NewJournalPickerWidgetState extends State<NewJournalPickerWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .override(
-                                        font: GoogleFonts.playfairDisplay(
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .headlineMedium
-                                                  .fontWeight,
+                                        font: GoogleFonts.cormorantSc(
+                                          fontWeight: FontWeight.bold,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
                                                   .headlineMedium
@@ -170,9 +176,7 @@ class _NewJournalPickerWidgetState extends State<NewJournalPickerWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                         letterSpacing: 0.0,
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .headlineMedium
-                                            .fontWeight,
+                                        fontWeight: FontWeight.bold,
                                         fontStyle: FlutterFlowTheme.of(context)
                                             .headlineMedium
                                             .fontStyle,
@@ -221,7 +225,7 @@ class _NewJournalPickerWidgetState extends State<NewJournalPickerWidget> {
                               ),
                               child: Container(
                                 decoration: BoxDecoration(
-                                  color: Color(0x321C2444),
+                                  color: Color(0xD21C2444),
                                   borderRadius: BorderRadius.circular(9999.0),
                                   shape: BoxShape.rectangle,
                                   border: Border.all(
@@ -239,32 +243,82 @@ class _NewJournalPickerWidgetState extends State<NewJournalPickerWidget> {
                           Container(
                             height: 32.0,
                           ),
-                          wrapWithModel(
-                            model: _model.journalTypeCardModel1,
-                            updateCallback: () => safeSetState(() {}),
-                            child: JournalTypeCardWidget(
-                              description:
-                                  'Automatically create health journal by Voice & Face detection with AI',
-                              icon: Icon(
-                                Icons.mic_rounded,
-                                size: 28.0,
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              logFirebaseEvent(
+                                  'NEW_JOURNAL_PICKER_JournalTypeCard_ON_TA');
+                              logFirebaseEvent(
+                                  'JournalTypeCard_haptic_feedback');
+                              HapticFeedback.heavyImpact();
+                              logFirebaseEvent('JournalTypeCard_navigate_to');
+
+                              context.pushNamed(
+                                ActiveVoiceJournalingWidget.routeName,
+                                extra: <String, dynamic>{
+                                  '__transition_info__': TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 2),
+                                  ),
+                                },
+                              );
+                            },
+                            child: wrapWithModel(
+                              model: _model.journalTypeCardModel1,
+                              updateCallback: () => safeSetState(() {}),
+                              child: JournalTypeCardWidget(
+                                description:
+                                    'Automatically create health journal by Voice & Face detection with AI',
+                                icon: Icon(
+                                  Icons.mic_rounded,
+                                  size: 28.0,
+                                ),
+                                iconBg: FlutterFlowTheme.of(context).primary,
+                                title: 'Voice Journal',
                               ),
-                              iconBg: FlutterFlowTheme.of(context).primary,
-                              title: 'Voice Journal',
                             ),
                           ),
-                          wrapWithModel(
-                            model: _model.journalTypeCardModel2,
-                            updateCallback: () => safeSetState(() {}),
-                            child: JournalTypeCardWidget(
-                              description:
-                                  'Set up manual text journal based on your current mood & conditions',
-                              icon: Icon(
-                                Icons.edit_note_rounded,
-                                size: 28.0,
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              logFirebaseEvent(
+                                  'NEW_JOURNAL_PICKER_JournalTypeCard_ON_TA');
+                              logFirebaseEvent(
+                                  'JournalTypeCard_haptic_feedback');
+                              HapticFeedback.heavyImpact();
+                              logFirebaseEvent('JournalTypeCard_navigate_to');
+
+                              context.pushNamed(
+                                TextJournalVersion5Widget.routeName,
+                                extra: <String, dynamic>{
+                                  '__transition_info__': TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 2),
+                                  ),
+                                },
+                              );
+                            },
+                            child: wrapWithModel(
+                              model: _model.journalTypeCardModel2,
+                              updateCallback: () => safeSetState(() {}),
+                              child: JournalTypeCardWidget(
+                                description:
+                                    'Set up manual text journal based on your current mood & conditions',
+                                icon: Icon(
+                                  Icons.edit_note_rounded,
+                                  size: 28.0,
+                                ),
+                                iconBg: Color(0x7939519F),
+                                title: 'Text Journal',
                               ),
-                              iconBg: FlutterFlowTheme.of(context).tertiary,
-                              title: 'Text Journal',
                             ),
                           ),
                           Container(
