@@ -33,7 +33,7 @@ class LucilleChatMainCall {
     String? message = 'Hey Lucille!',
     String? sessionId = '',
     String? userId = '',
-    String? imageUrl = '', 
+    String? imageUrl = '',
     String? fireBaseIDToken =
         '680ff8a48348fa9ba697c70ed9e4d1e15edd755b9853cf864203b41ac050652f',
     String? firebaseIDToken = '',
@@ -1761,17 +1761,20 @@ class DueTasksCall {
 
 class CreatePracticeTasksCall {
   Future<ApiCallResponse> call({
+    String? sourceExerciseID = '',
     String? title = '',
     String? description = '',
     String? dueDate = '',
+    String? targetCount = '',
   }) async {
     final baseUrl = LucilleTaskManagementGroup.getBaseUrl();
-
     final ffApiRequestBody = '''
 {
+  "source_exercise_id": "${escapeStringForJson(sourceExerciseID)}",
   "title": "${escapeStringForJson(title)}",
   "description": "${escapeStringForJson(description)}",
-  "due_date": "${escapeStringForJson(dueDate)}"
+  "due_date": "${escapeStringForJson(dueDate)}",
+  "target_count": "${escapeStringForJson(targetCount)}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Create Practice Tasks',
