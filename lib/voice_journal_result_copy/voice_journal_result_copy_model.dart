@@ -1,11 +1,12 @@
 import '/components/button_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'voice_journal_result_widget.dart' show VoiceJournalResultWidget;
+import 'voice_journal_result_copy_widget.dart'
+    show VoiceJournalResultCopyWidget;
 import 'package:flutter/material.dart';
 
-class VoiceJournalResultModel
-    extends FlutterFlowModel<VoiceJournalResultWidget> {
+class VoiceJournalResultCopyModel
+    extends FlutterFlowModel<VoiceJournalResultCopyWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for Column widget.

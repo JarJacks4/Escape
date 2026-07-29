@@ -59,7 +59,7 @@ class _JournalStatPillWidgetState extends State<JournalStatPillWidget> {
         ),
         child: Container(
           decoration: BoxDecoration(
-            color: Color(0x88203257),
+            color: Color(0x93D0E3F7),
             borderRadius: BorderRadius.circular(9999.0),
             shape: BoxShape.rectangle,
             border: Border.all(
@@ -93,7 +93,7 @@ class _JournalStatPillWidgetState extends State<JournalStatPillWidget> {
                                     .titleSmall
                                     .fontStyle,
                               ),
-                              color: FlutterFlowTheme.of(context).primaryText,
+                              color: FlutterFlowTheme.of(context).tertiary,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                               fontStyle: FlutterFlowTheme.of(context)

@@ -1,9 +1,11 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/button_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_palette/material_palette.dart';
 import 'journal_entry_detail_model.dart';
@@ -113,7 +115,7 @@ class _JournalEntryDetailWidgetState extends State<JournalEntryDetailWidget> {
                   },
                 ),
                 SingleChildScrollView(
-                  controller: _model.columnScrollController,
+                  controller: _model.columnScrollController1,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -128,43 +130,68 @@ class _JournalEntryDetailWidgetState extends State<JournalEntryDetailWidget> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Container(
-                                height: 100.0,
-                                child: Padding(
-                                  padding: EdgeInsets.all(24.0),
-                                  child: Container(
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 50.0, 0.0, 0.0),
+                                child: Container(
+                                  height: 100.0,
+                                  child: Padding(
+                                    padding: EdgeInsets.all(24.0),
                                     child: Container(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          FlutterFlowIconButton(
-                                            borderRadius: 8.0,
-                                            buttonSize: 40.0,
-                                            fillColor: Colors.transparent,
-                                            icon: Icon(
-                                              Icons.arrow_back_ios_new_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .tertiary,
-                                              size: 22.0,
+                                      child: Container(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 1.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            FlutterFlowIconButton(
+                                              borderRadius: 8.0,
+                                              buttonSize: 40.0,
+                                              fillColor: Colors.transparent,
+                                              icon: Icon(
+                                                Icons
+                                                    .arrow_back_ios_new_rounded,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
+                                                size: 22.0,
+                                              ),
+                                              onPressed: () {
+                                                print('IconButton pressed ...');
+                                              },
                                             ),
-                                            onPressed: () {
-                                              print('IconButton pressed ...');
-                                            },
-                                          ),
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'tf961ul8' /* Monday, Jan 24 */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelLarge
-                                                .override(
-                                                  font: GoogleFonts.workSans(
+                                            Text(
+                                              dateTimeFormat(
+                                                "MMMMEEEEd",
+                                                getCurrentTimestamp,
+                                                locale:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelLarge
+                                                  .override(
+                                                    font: GoogleFonts.workSans(
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelLarge
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelLarge
+                                                              .fontStyle,
+                                                    ),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
+                                                    letterSpacing: 0.0,
                                                     fontWeight:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -176,38 +203,25 @@ class _JournalEntryDetailWidgetState extends State<JournalEntryDetailWidget> {
                                                             .labelLarge
                                                             .fontStyle,
                                                   ),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelLarge
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelLarge
-                                                          .fontStyle,
-                                                ),
-                                          ),
-                                          FlutterFlowIconButton(
-                                            borderRadius: 9999.0,
-                                            buttonSize: 40.0,
-                                            fillColor: Color(0x66FFFFFF),
-                                            icon: Icon(
-                                              Icons.edit_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent1,
-                                              size: 22.0,
+                                              overflow: TextOverflow.ellipsis,
                                             ),
-                                            onPressed: () {
-                                              print('IconButton pressed ...');
-                                            },
-                                          ),
-                                        ],
+                                            FlutterFlowIconButton(
+                                              borderRadius: 9999.0,
+                                              buttonSize: 40.0,
+                                              fillColor: Color(0x66FFFFFF),
+                                              icon: Icon(
+                                                Icons.edit_rounded,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .accent1,
+                                                size: 22.0,
+                                              ),
+                                              onPressed: () {
+                                                print('IconButton pressed ...');
+                                              },
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -282,24 +296,43 @@ class _JournalEntryDetailWidgetState extends State<JournalEntryDetailWidget> {
                                         child: Padding(
                                           padding: EdgeInsets.all(32.0),
                                           child: Container(
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'f5eh5bpu' /* Today I woke up feeling a prof... */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyLarge
-                                                      .override(
-                                                        font: GoogleFonts
-                                                            .workSans(
+                                            child: SingleChildScrollView(
+                                              primary: false,
+                                              controller: _model
+                                                  .columnScrollController2,
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'f5eh5bpu' /* Today I woke up feeling a prof... */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyLarge
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .workSans(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontStyle,
+                                                          ),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -310,43 +343,39 @@ class _JournalEntryDetailWidgetState extends State<JournalEntryDetailWidget> {
                                                                       context)
                                                                   .bodyLarge
                                                                   .fontStyle,
+                                                          lineHeight: 1.6,
                                                         ),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyLarge
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyLarge
-                                                                .fontStyle,
-                                                        lineHeight: 1.6,
-                                                      ),
-                                                ),
-                                                Divider(
-                                                  height: 16.0,
-                                                  thickness: 1.0,
-                                                  indent: 0.0,
-                                                  endIndent: 0.0,
-                                                  color: Color(0x331C2444),
-                                                ),
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '85gqp4j0' /* I want to carry this intention... */,
                                                   ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font: GoogleFonts
-                                                            .workSans(
+                                                  Divider(
+                                                    height: 16.0,
+                                                    thickness: 1.0,
+                                                    indent: 0.0,
+                                                    endIndent: 0.0,
+                                                    color: Color(0x331C2444),
+                                                  ),
+                                                  Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '85gqp4j0' /* I want to carry this intention... */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .workSans(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle: FontStyle
+                                                                .italic,
+                                                          ),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .tertiary,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -355,21 +384,10 @@ class _JournalEntryDetailWidgetState extends State<JournalEntryDetailWidget> {
                                                           fontStyle:
                                                               FontStyle.italic,
                                                         ),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .tertiary,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FontStyle.italic,
-                                                      ),
-                                                ),
-                                              ].divide(SizedBox(height: 24.0)),
+                                                  ),
+                                                ].divide(
+                                                    SizedBox(height: 24.0)),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -532,18 +550,36 @@ class _JournalEntryDetailWidgetState extends State<JournalEntryDetailWidget> {
                                                           ].divide(SizedBox(
                                                               width: 4.0)),
                                                         ),
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'yf16ik6d' /* 8/10 */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleLarge
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .playfairDisplay(
+                                                        AuthUserStreamWidget(
+                                                          builder: (context) =>
+                                                              Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              valueOrDefault(
+                                                                  currentUserDocument
+                                                                      ?.currentMood,
+                                                                  ''),
+                                                              'Neutral',
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleLarge
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .playfairDisplay(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleLarge
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .accent1,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,
@@ -552,19 +588,7 @@ class _JournalEntryDetailWidgetState extends State<JournalEntryDetailWidget> {
                                                                       .titleLarge
                                                                       .fontStyle,
                                                                 ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .accent1,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLarge
-                                                                    .fontStyle,
-                                                              ),
+                                                          ),
                                                         ),
                                                       ].divide(SizedBox(
                                                           height: 4.0)),
@@ -668,10 +692,12 @@ class _JournalEntryDetailWidgetState extends State<JournalEntryDetailWidget> {
                                                               width: 4.0)),
                                                         ),
                                                         Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'ksisoahr' /* Low */,
+                                                          valueOrDefault<
+                                                              String>(
+                                                            FFAppConstants
+                                                                .StressLevels
+                                                                .firstOrNull,
+                                                            'Neutral',
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -689,7 +715,7 @@ class _JournalEntryDetailWidgetState extends State<JournalEntryDetailWidget> {
                                                                 ),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .accent1,
+                                                                    .tertiary,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -726,67 +752,77 @@ class _JournalEntryDetailWidgetState extends State<JournalEntryDetailWidget> {
             ),
             Align(
               alignment: AlignmentDirectional(0.0, 1.0),
-              child: Container(
-                height: 96.7,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 40.0,
-                      color: FlutterFlowTheme.of(context).primary,
-                      offset: Offset(
-                        0.0,
-                        25.0,
-                      ),
-                      spreadRadius: 50.0,
-                    )
-                  ],
-                  gradient: LinearGradient(
-                    colors: [
-                      FlutterFlowTheme.of(context).primaryBackground,
-                      Color(0xEEEDF1F7)
-                    ],
-                    stops: [0.0, 1.0],
-                    begin: AlignmentDirectional(0.0, 1.0),
-                    end: AlignmentDirectional(0, -1.0),
-                  ),
+              child: Material(
+                color: Colors.transparent,
+                elevation: 8.0,
+                shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(22.0),
                     topRight: Radius.circular(22.0),
                   ),
-                  shape: BoxShape.rectangle,
                 ),
-                child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
-                  child: Container(
+                child: Container(
+                  height: 96.7,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 40.0,
+                        color: FlutterFlowTheme.of(context).primary,
+                        offset: Offset(
+                          0.0,
+                          25.0,
+                        ),
+                        spreadRadius: 50.0,
+                      )
+                    ],
+                    gradient: LinearGradient(
+                      colors: [
+                        FlutterFlowTheme.of(context).primaryBackground,
+                        Color(0xEEEDF1F7)
+                      ],
+                      stops: [0.0, 1.0],
+                      begin: AlignmentDirectional(0.0, 1.0),
+                      end: AlignmentDirectional(0, -1.0),
+                    ),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(22.0),
+                      topRight: Radius.circular(22.0),
+                    ),
+                    shape: BoxShape.rectangle,
+                  ),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
                     child: Container(
-                      height: 79.4,
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          wrapWithModel(
-                            model: _model.buttonModel,
-                            updateCallback: () => safeSetState(() {}),
-                            child: ButtonWidget(
-                              content: 'Share Reflection',
-                              icon: Icon(
-                                Icons.share_rounded,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 16.0,
+                      child: Container(
+                        height: 79.4,
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            wrapWithModel(
+                              model: _model.buttonModel,
+                              updateCallback: () => safeSetState(() {}),
+                              child: ButtonWidget(
+                                content: 'See Journal Data',
+                                icon: FaIcon(
+                                  FontAwesomeIcons.bookReader,
+                                  color: FlutterFlowTheme.of(context).accent1,
+                                  size: 16.0,
+                                ),
+                                iconPresent: true,
+                                iconEndPresent: false,
+                                variant: 'outline',
+                                size: 'large',
+                                fullWidth: true,
+                                loading: false,
+                                disabled: false,
                               ),
-                              iconPresent: true,
-                              iconEndPresent: false,
-                              variant: 'outline',
-                              size: 'large',
-                              fullWidth: true,
-                              loading: false,
-                              disabled: false,
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

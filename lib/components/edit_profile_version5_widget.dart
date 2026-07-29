@@ -109,62 +109,65 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    FlutterFlowIconButton(
-                      buttonSize: 40.0,
-                      icon: Icon(
-                        Icons.arrow_back,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        size: 24.0,
-                      ),
-                      onPressed: () async {
-                        logFirebaseEvent(
-                            'EDIT_PROFILE_VERSION5_arrow_back_ICN_ON_');
-                        logFirebaseEvent('IconButton_haptic_feedback');
-                        HapticFeedback.lightImpact();
-                        logFirebaseEvent('IconButton_play_sound');
-                        _model.soundPlayer1 ??= AudioPlayer();
-                        if (_model.soundPlayer1!.playing) {
-                          await _model.soundPlayer1!.stop();
-                        }
-                        _model.soundPlayer1!.setVolume(1.0);
-                        _model.soundPlayer1!
-                            .setAsset(
-                                'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                            .then((_) => _model.soundPlayer1!.play());
-
-                        logFirebaseEvent('IconButton_navigate_back');
-                        context.safePop();
-                      },
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(80.0, 0.0, 0.0, 0.0),
-                      child: Text(
-                        FFLocalizations.of(context).getText(
-                          'wgi0ishw' /* Edit Profile */,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      FlutterFlowIconButton(
+                        buttonSize: 40.0,
+                        icon: Icon(
+                          Icons.arrow_back,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          size: 24.0,
                         ),
-                        style: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .override(
-                              font: GoogleFonts.cormorantSc(
+                        onPressed: () async {
+                          logFirebaseEvent(
+                              'EDIT_PROFILE_VERSION5_arrow_back_ICN_ON_');
+                          logFirebaseEvent('IconButton_haptic_feedback');
+                          HapticFeedback.lightImpact();
+                          logFirebaseEvent('IconButton_play_sound');
+                          _model.soundPlayer1 ??= AudioPlayer();
+                          if (_model.soundPlayer1!.playing) {
+                            await _model.soundPlayer1!.stop();
+                          }
+                          _model.soundPlayer1!.setVolume(1.0);
+                          _model.soundPlayer1!
+                              .setAsset(
+                                  'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                              .then((_) => _model.soundPlayer1!.play());
+
+                          logFirebaseEvent('IconButton_navigate_back');
+                          context.safePop();
+                        },
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(80.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            'wgi0ishw' /* Edit Profile */,
+                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .override(
+                                font: GoogleFonts.cormorantSc(
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .fontStyle,
+                                ),
+                                letterSpacing: 0.0,
                                 fontWeight: FontWeight.w500,
                                 fontStyle: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .fontStyle,
                               ),
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .headlineMedium
-                                  .fontStyle,
-                            ),
+                        ),
                       ),
-                    ),
-                  ].divide(SizedBox(width: 16.0)),
+                    ].divide(SizedBox(width: 16.0)),
+                  ),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,

@@ -3393,10 +3393,10 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            5.0, 10.0, 5.0, 175.0),
+                            5.0, 70.0, 5.0, 140.0),
                         child: smooth_page_indicator.SmoothPageIndicator(
                           controller: _model.pageViewController ??=
                               PageController(initialPage: 0),
@@ -3410,7 +3410,8 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                             );
                             safeSetState(() {});
                           },
-                          effect: smooth_page_indicator.SlideEffect(
+                          effect: smooth_page_indicator.ExpandingDotsEffect(
+                            expansionFactor: 5.0,
                             spacing: 8.0,
                             radius: 8.0,
                             dotWidth: 8.0,
@@ -3418,7 +3419,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                             dotColor: FlutterFlowTheme.of(context).secondary,
                             activeDotColor:
                                 FlutterFlowTheme.of(context).accent3,
-                            paintStyle: PaintingStyle.stroke,
+                            paintStyle: PaintingStyle.fill,
                           ),
                         ),
                       ),

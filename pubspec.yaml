@@ -39,7 +39,6 @@ dependencies:
       ref: cae7ceb6af99f4da1ec27136d312d0ef045c83d9
   audio_session: 0.2.2
   auto_size_text: 3.0.0
-  badges: 2.0.2
   blurhash_dart: 1.2.1
   buttons_tabbar: ^1.3.9
   cached_network_image: 3.4.1
@@ -222,6 +221,7 @@ dependencies:
   swipe_button_e4yciw:
     path: ./dependencies/swipe_button_e4yciw # 0.0.1
   synchronized: 3.4.0
+  table_calendar: 3.2.0
   that_audio_player_oo85ab:
     path: ./dependencies/that_audio_player_oo85ab # current
   tiktokfeed_wz8en7:

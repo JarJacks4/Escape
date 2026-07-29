@@ -236,8 +236,6 @@ export '/detailed_mood_breakdown/detailed_mood_breakdown_widget.dart'
     show DetailedMoodBreakdownWidget;
 export '/mindful_resources_hub/mindful_resources_hub_widget.dart'
     show MindfulResourcesHubWidget;
-export '/voice_journal_result/voice_journal_result_widget.dart'
-    show VoiceJournalResultWidget;
 export '/journal_entry_detail/journal_entry_detail_widget.dart'
     show JournalEntryDetailWidget;
 export '/dashboard_version5/dashboard_version5_widget.dart'
@@ -247,8 +245,6 @@ export '/sleep_tracking_quality_page/sleep_tracking_quality_page_widget.dart'
     show SleepTrackingQualityPageWidget;
 export '/lucille_voice_chat_web_view/lucille_voice_chat_web_view_widget.dart'
     show LucilleVoiceChatWebViewWidget;
-export '/voice_text_journaling/voice_text_journaling_widget.dart'
-    show VoiceTextJournalingWidget;
 export '/stress_management_hub/stress_management_hub_widget.dart'
     show StressManagementHubWidget;
 export '/expression_recorder2/expression_recorder2_widget.dart'
@@ -262,3 +258,11 @@ export '/a_i_therapy_chatbot/a_i_therapy_chatbot_widget.dart'
 export '/journal_history2/journal_history2_widget.dart'
     show JournalHistory2Widget;
 export '/see_all_page/see_all_page_widget.dart' show SeeAllPageWidget;
+export '/voice_text_journaling_copy/voice_text_journaling_copy_widget.dart'
+    show VoiceTextJournalingCopyWidget;
+export '/voice_journal_result_copy/voice_journal_result_copy_widget.dart'
+    show VoiceJournalResultCopyWidget;
+export '/text_journal_version5/text_journal_version5_widget.dart'
+    show TextJournalVersion5Widget;
+export '/health_journal_copy/health_journal_copy_widget.dart'
+    show HealthJournalCopyWidget;

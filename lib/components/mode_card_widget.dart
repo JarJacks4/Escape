@@ -58,11 +58,11 @@ class _ModeCardWidgetState extends State<ModeCardWidget> {
       child: Container(
         child: Container(
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
+            color: Color(0xB1D0E3F7),
             borderRadius: BorderRadius.circular(24.0),
             shape: BoxShape.rectangle,
             border: Border.all(
-              color: FlutterFlowTheme.of(context).alternate,
+              color: Color(0x331C2444),
               width: 1.0,
             ),
           ),
@@ -80,7 +80,7 @@ class _ModeCardWidgetState extends State<ModeCardWidget> {
                     decoration: BoxDecoration(
                       color: valueOrDefault<Color>(
                         widget.iconBg,
-                        Color(0x00000000),
+                        FlutterFlowTheme.of(context).tertiary,
                       ),
                       borderRadius: BorderRadius.circular(16.0),
                       shape: BoxShape.rectangle,
@@ -109,7 +109,7 @@ class _ModeCardWidgetState extends State<ModeCardWidget> {
                                       .titleMedium
                                       .fontStyle,
                                 ),
-                                color: FlutterFlowTheme.of(context).primaryText,
+                                color: FlutterFlowTheme.of(context).tertiary,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
                                 fontStyle: FlutterFlowTheme.of(context)

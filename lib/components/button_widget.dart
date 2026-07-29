@@ -73,7 +73,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
         decoration: BoxDecoration(
           color: () {
             if (widget.variant == 'secondary') {
-              return FlutterFlowTheme.of(context).primary;
+              return FlutterFlowTheme.of(context).accent1;
             } else if (widget.variant == 'outline') {
               return Colors.transparent;
             } else if (widget.variant == 'ghost') {
@@ -81,7 +81,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
             } else if (widget.variant == 'destructive') {
               return FlutterFlowTheme.of(context).error;
             } else {
-              return Color(0xEAEDF1F7);
+              return FlutterFlowTheme.of(context).accent1;
             }
           }(),
           borderRadius: BorderRadius.only(
@@ -224,15 +224,15 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                             ),
                             color: () {
                               if (widget.variant == 'secondary') {
-                                return FlutterFlowTheme.of(context).tertiary;
+                                return FlutterFlowTheme.of(context).primary;
                               } else if (widget.variant == 'outline') {
-                                return FlutterFlowTheme.of(context).primaryText;
+                                return FlutterFlowTheme.of(context).secondary;
                               } else if (widget.variant == 'ghost') {
                                 return FlutterFlowTheme.of(context).primary;
                               } else if (widget.variant == 'destructive') {
                                 return Color(0x00000000);
                               } else {
-                                return FlutterFlowTheme.of(context).alternate;
+                                return FlutterFlowTheme.of(context).primary;
                               }
                             }(),
                             letterSpacing: 0.0,

@@ -14,10 +14,10 @@ class ProfileVersion5Model extends FlutterFlowModel<ProfileVersion5Widget> {
   // State field(s) for Column widget.
   ScrollController? columnController;
   AudioPlayer? soundPlayer1;
-  bool isDataUploading_uploadDataTyq8 = false;
-  FFUploadedFile uploadedLocalFile_uploadDataTyq8 =
+  bool isDataUploading_uploadDataTyq85 = false;
+  FFUploadedFile uploadedLocalFile_uploadDataTyq85 =
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
-  String uploadedFileUrl_uploadDataTyq8 = '';
+  String uploadedFileUrl_uploadDataTyq85 = '';
 
   AudioPlayer? soundPlayer2;
   AudioPlayer? soundPlayer3;

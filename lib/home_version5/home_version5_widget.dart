@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/components/help_comp_widget.dart';
+import '/components/how_are_you_feeling_assessment_comp_widget.dart';
 import '/components/side_nav_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -121,6 +122,13 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         displayName: currentUserUid,
       );
 
+      logFirebaseEvent('HomeVersion5_backend_call');
+      _model.recommendedExercises =
+          await LucilleTherapyExercisesGroup.recommendedExercisesCall.call(
+        userID: currentUserUid,
+        limit: 1,
+      );
+
       logFirebaseEvent('HomeVersion5_trigger_app_event');
       FFAppEventService.instance.triggerAppEvent(
         AiRecommendationReadyEvent(
@@ -173,6 +181,46 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
             backgroundColor: FlutterFlowTheme.of(context).secondary,
           ),
         );
+      }
+
+      if (FFAppState().lastMoodDate !=
+          dateTimeFormat(
+            "yMMMd",
+            getCurrentTimestamp,
+            locale: FFLocalizations.of(context).languageCode,
+          )) {
+        logFirebaseEvent('HomeVersion5_bottom_sheet');
+        await showModalBottomSheet(
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          enableDrag: false,
+          context: context,
+          builder: (context) {
+            return WebViewAware(
+              child: GestureDetector(
+                onTap: () {
+                  FocusScope.of(context).unfocus();
+                  FocusManager.instance.primaryFocus?.unfocus();
+                },
+                child: Padding(
+                  padding: MediaQuery.viewInsetsOf(context),
+                  child: Container(
+                    height: MediaQuery.sizeOf(context).height * 0.95,
+                    child: HowAreYouFeelingAssessmentCompWidget(),
+                  ),
+                ),
+              ),
+            );
+          },
+        ).then((value) => safeSetState(() {}));
+
+        logFirebaseEvent('HomeVersion5_update_app_state');
+        FFAppState().lastMoodDate = dateTimeFormat(
+          "yMMMd",
+          getCurrentTimestamp,
+          locale: FFLocalizations.of(context).languageCode,
+        );
+        FFAppState().update(() {});
       }
     });
 
@@ -459,8 +507,8 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                   BorderRadius.circular(0.0),
                                               child: BackdropFilter(
                                                 filter: ImageFilter.blur(
-                                                  sigmaX: 20.0,
-                                                  sigmaY: 20.0,
+                                                  sigmaX: 15.0,
+                                                  sigmaY: 15.0,
                                                 ),
                                                 child: Container(
                                                   width: 100.0,
@@ -1040,8 +1088,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                     ),
                                                                                                   ),
                                                                                                   Text(
-                                                                                                    FFLocalizations.of(context).getText(
-                                                                                                      'dgxsq5zc' /* Learning Self-Care Basics */,
+                                                                                                    valueOrDefault<String>(
+                                                                                                      LucilleTherapyExercisesGroup.recommendedExercisesCall
+                                                                                                          .title(
+                                                                                                            (_model.recommendedExercises?.jsonBody ?? ''),
+                                                                                                          )
+                                                                                                          ?.contains((_model.recommendedExercises?.jsonBody ?? '').toString())
+                                                                                                          .toString(),
+                                                                                                      'Long Sip Breathing',
                                                                                                     ),
                                                                                                     style: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                                           font: GoogleFonts.inter(
@@ -1055,8 +1109,17 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                         ),
                                                                                                   ),
                                                                                                   Text(
-                                                                                                    FFLocalizations.of(context).getText(
-                                                                                                      'hcryf8vj' /* No Time Limit */,
+                                                                                                    valueOrDefault<String>(
+                                                                                                      (LucilleTherapyExercisesGroup.recommendedExercisesCall.duration(
+                                                                                                                    (_model.recommendedExercises?.jsonBody ?? ''),
+                                                                                                                  ) !=
+                                                                                                                  null &&
+                                                                                                              (LucilleTherapyExercisesGroup.recommendedExercisesCall.duration(
+                                                                                                                (_model.recommendedExercises?.jsonBody ?? ''),
+                                                                                                              ))!
+                                                                                                                  .isNotEmpty)
+                                                                                                          .toString(),
+                                                                                                      '0:00',
                                                                                                     ),
                                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                                           font: GoogleFonts.inter(
@@ -1088,7 +1151,51 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                 logFirebaseEvent('Button_navigate_to');
 
                                                                                                 context.pushNamed(
-                                                                                                  LucilleSuggestionsWidget.routeName,
+                                                                                                  LucilleSuggestionPageWidget.routeName,
+                                                                                                  queryParameters: {
+                                                                                                    'exerciseTitle': serializeParam(
+                                                                                                      (LucilleTherapyExercisesGroup.recommendedExercisesCall.title(
+                                                                                                                    (_model.recommendedExercises?.jsonBody ?? ''),
+                                                                                                                  ) !=
+                                                                                                                  null &&
+                                                                                                              (LucilleTherapyExercisesGroup.recommendedExercisesCall.title(
+                                                                                                                (_model.recommendedExercises?.jsonBody ?? ''),
+                                                                                                              ))!
+                                                                                                                  .isNotEmpty)
+                                                                                                          .toString(),
+                                                                                                      ParamType.String,
+                                                                                                    ),
+                                                                                                    'exerciseDescription': serializeParam(
+                                                                                                      (LucilleTherapyExercisesGroup.recommendedExercisesCall.description(
+                                                                                                                    (_model.recommendedExercises?.jsonBody ?? ''),
+                                                                                                                  ) !=
+                                                                                                                  null &&
+                                                                                                              (LucilleTherapyExercisesGroup.recommendedExercisesCall.description(
+                                                                                                                (_model.recommendedExercises?.jsonBody ?? ''),
+                                                                                                              ))!
+                                                                                                                  .isNotEmpty)
+                                                                                                          .toString(),
+                                                                                                      ParamType.String,
+                                                                                                    ),
+                                                                                                    'exerciseDuration': serializeParam(
+                                                                                                      LucilleTherapyExercisesGroup.recommendedExercisesCall
+                                                                                                          .duration(
+                                                                                                            (_model.recommendedExercises?.jsonBody ?? ''),
+                                                                                                          )
+                                                                                                          ?.firstOrNull
+                                                                                                          ?.toDouble(),
+                                                                                                      ParamType.double,
+                                                                                                    ),
+                                                                                                    'exersiseSoundscape': serializeParam(
+                                                                                                      LucilleTherapyExercisesGroup.recommendedExercisesCall
+                                                                                                          .recommendations(
+                                                                                                            (_model.recommendedExercises?.jsonBody ?? ''),
+                                                                                                          )
+                                                                                                          ?.firstOrNull
+                                                                                                          ?.toString(),
+                                                                                                      ParamType.String,
+                                                                                                    ),
+                                                                                                  }.withoutNulls,
                                                                                                   extra: <String, dynamic>{
                                                                                                     '__transition_info__': TransitionInfo(
                                                                                                       hasTransition: true,
@@ -1462,11 +1569,11 @@ Further ... */
                                                                                 logFirebaseEvent('Container_navigate_to');
 
                                                                                 context.pushNamed(
-                                                                                  JournalPageVersion5Widget.routeName,
+                                                                                  HealthJournalWidget.routeName,
                                                                                   extra: <String, dynamic>{
                                                                                     '__transition_info__': TransitionInfo(
                                                                                       hasTransition: true,
-                                                                                      transitionType: PageTransitionType.rightToLeft,
+                                                                                      transitionType: PageTransitionType.fade,
                                                                                       duration: Duration(milliseconds: 2),
                                                                                     ),
                                                                                   },

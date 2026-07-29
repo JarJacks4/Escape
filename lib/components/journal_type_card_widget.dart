@@ -108,7 +108,7 @@ class _JournalTypeCardWidgetState extends State<JournalTypeCardWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
-                                    font: GoogleFonts.playfairDisplay(
+                                    font: GoogleFonts.cormorantSc(
                                       fontWeight: FontWeight.bold,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .titleMedium
@@ -132,7 +132,7 @@ class _JournalTypeCardWidgetState extends State<JournalTypeCardWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    font: GoogleFonts.workSans(
+                                    font: GoogleFonts.inter(
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .fontWeight,

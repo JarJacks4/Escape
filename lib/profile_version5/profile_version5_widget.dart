@@ -358,7 +358,7 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                                   m.storagePath,
                                                                   context))) {
                                                         safeSetState(() => _model
-                                                                .isDataUploading_uploadDataTyq8 =
+                                                                .isDataUploading_uploadDataTyq85 =
                                                             true);
                                                         var selectedUploadedFiles =
                                                             <FFUploadedFile>[];
@@ -413,7 +413,7 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                           ScaffoldMessenger.of(
                                                                   context)
                                                               .hideCurrentSnackBar();
-                                                          _model.isDataUploading_uploadDataTyq8 =
+                                                          _model.isDataUploading_uploadDataTyq85 =
                                                               false;
                                                         }
                                                         if (selectedUploadedFiles
@@ -425,10 +425,10 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                                 selectedMedia
                                                                     .length) {
                                                           safeSetState(() {
-                                                            _model.uploadedLocalFile_uploadDataTyq8 =
+                                                            _model.uploadedLocalFile_uploadDataTyq85 =
                                                                 selectedUploadedFiles
                                                                     .first;
-                                                            _model.uploadedFileUrl_uploadDataTyq8 =
+                                                            _model.uploadedFileUrl_uploadDataTyq85 =
                                                                 downloadUrls
                                                                     .first;
                                                           });
@@ -447,7 +447,7 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                       logFirebaseEvent(
                                                           'IconButton_update_page_state');
                                                       _model.newProfilePic = _model
-                                                          .uploadedFileUrl_uploadDataTyq8;
+                                                          .uploadedFileUrl_uploadDataTyq85;
                                                       safeSetState(() {});
                                                       logFirebaseEvent(
                                                           'IconButton_update_app_state');
@@ -463,7 +463,7 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                           .update(
                                                               createUsersRecordData(
                                                         photoUrl: _model
-                                                            .uploadedFileUrl_uploadDataTyq8,
+                                                            .uploadedFileUrl_uploadDataTyq85,
                                                       ));
                                                       logFirebaseEvent(
                                                           'IconButton_show_snack_bar');

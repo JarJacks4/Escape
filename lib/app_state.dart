@@ -151,6 +151,14 @@ class FFAppState extends ChangeNotifier {
       _energyScore =
           await secureStorage.getInt('ff_energyScore') ?? _energyScore;
     });
+    await _safeInitAsync(() async {
+      _lastMoodDate =
+          await secureStorage.getString('ff_lastMoodDate') ?? _lastMoodDate;
+    });
+    await _safeInitAsync(() async {
+      _journalMood =
+          await secureStorage.getString('ff_journalMood') ?? _journalMood;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -2073,6 +2081,34 @@ class FFAppState extends ChangeNotifier {
   String get firebaseToken => _firebaseToken;
   set firebaseToken(String value) {
     _firebaseToken = value;
+  }
+
+  String _lastMoodDate = '';
+  String get lastMoodDate => _lastMoodDate;
+  set lastMoodDate(String value) {
+    _lastMoodDate = value;
+    secureStorage.setString('ff_lastMoodDate', value);
+  }
+
+  void deleteLastMoodDate() {
+    secureStorage.delete(key: 'ff_lastMoodDate');
+  }
+
+  String _journalMood = '';
+  String get journalMood => _journalMood;
+  set journalMood(String value) {
+    _journalMood = value;
+    secureStorage.setString('ff_journalMood', value);
+  }
+
+  void deleteJournalMood() {
+    secureStorage.delete(key: 'ff_journalMood');
+  }
+
+  int _journalStreak = 0;
+  int get journalStreak => _journalStreak;
+  set journalStreak(int value) {
+    _journalStreak = value;
   }
 
   final _lucilleSuggestedExercisesManager =

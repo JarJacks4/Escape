@@ -16,6 +16,8 @@ class HomeVersion5Model extends FlutterFlowModel<HomeVersion5Widget> {
   ApiCallResponse? createSession;
   // Stores action output result for [Backend Call - API (Update User Profile)] action in HomeVersion5 widget.
   ApiCallResponse? usersCompleteProfile;
+  // Stores action output result for [Backend Call - API (Recommended Exercises)] action in HomeVersion5 widget.
+  ApiCallResponse? recommendedExercises;
   // Model for SideNav component.
   late SideNavModel sideNavModel;
   // State field(s) for Column widget.

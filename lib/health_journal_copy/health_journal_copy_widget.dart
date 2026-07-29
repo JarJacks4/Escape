@@ -1,43 +1,43 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/health_journal_component_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:material_palette/material_palette.dart';
-import 'health_journal_model.dart';
-export 'health_journal_model.dart';
+import 'health_journal_copy_model.dart';
+export 'health_journal_copy_model.dart';
 
-class HealthJournalWidget extends StatefulWidget {
-  const HealthJournalWidget({super.key});
+class HealthJournalCopyWidget extends StatefulWidget {
+  const HealthJournalCopyWidget({super.key});
 
-  static String routeName = 'HealthJournal';
-  static String routePath = '/healthJournal';
+  static String routeName = 'HealthJournalCopy';
+  static String routePath = '/healthJournalCopy';
 
   @override
-  State<HealthJournalWidget> createState() => _HealthJournalWidgetState();
+  State<HealthJournalCopyWidget> createState() =>
+      _HealthJournalCopyWidgetState();
 }
 
-class _HealthJournalWidgetState extends State<HealthJournalWidget> {
-  late HealthJournalModel _model;
+class _HealthJournalCopyWidgetState extends State<HealthJournalCopyWidget> {
+  late HealthJournalCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HealthJournalModel());
+    _model = createModel(context, () => HealthJournalCopyModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'HealthJournal'});
+        parameters: {'screen_name': 'HealthJournalCopy'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('HEALTH_JOURNAL_HealthJournal_ON_INIT_STA');
-      logFirebaseEvent('HealthJournal_backend_call');
+      logFirebaseEvent('HEALTH_JOURNAL_COPY_HealthJournalCopy_ON');
+      logFirebaseEvent('HealthJournalCopy_backend_call');
       _model.getActiveExercise =
           await LucilleTherapyExercisesGroup.getActiveExerciseCall.call();
 
-      logFirebaseEvent('HealthJournal_backend_call');
+      logFirebaseEvent('HealthJournalCopy_backend_call');
       _model.listRecentSessions =
           await TheoryOfMindOnboardingGroup.userCompleteProfileCall.call();
     });
@@ -74,7 +74,7 @@ class _HealthJournalWidgetState extends State<HealthJournalWidget> {
                       : 200.0,
                   params: ShaderParams(values: {
                     'gradientCenterX': 0.5,
-                    'gradientCenterY': 0.5,
+                    'gradientCenterY': 0.3,
                     'gradientScale': 2.03,
                     'gradientOffset': -0.02,
                     'noiseIntensity': 0.51,
@@ -108,19 +108,30 @@ class _HealthJournalWidgetState extends State<HealthJournalWidget> {
                     'color7': Color(0x00808080),
                     'color8': Color(0x00808080),
                     'color9': Color(0x00808080),
-                    'color2': Color(0xEC8338CD),
-                    'color1': FlutterFlowTheme.of(context).accent1,
-                    'color0': Color(0x57EDF1F7)
+                    'color2': Color(0xCA39519F),
+                    'color0': Color(0x98EDF1F7),
+                    'color1': Color(0x6FC935E4)
                   }),
                   animationMode: ShaderAnimationMode.continuous,
                   cache: false,
                 );
               },
             ),
-            wrapWithModel(
-              model: _model.healthJournalComponentModel,
-              updateCallback: () => safeSetState(() {}),
-              child: HealthJournalComponentWidget(),
+            Container(
+              width: double.infinity,
+              height: 877.0,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0x30EDF1F7),
+                    Color(0x50D0E3F7),
+                    Color(0xB9673AB7)
+                  ],
+                  stops: [0.0, 0.5, 1.0],
+                  begin: AlignmentDirectional(0.0, -1.0),
+                  end: AlignmentDirectional(0, 1.0),
+                ),
+              ),
             ),
           ],
         ),

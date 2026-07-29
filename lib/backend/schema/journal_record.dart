@@ -122,6 +122,11 @@ class JournalRecord extends FirestoreRecord {
   DateTime? get timestamp => _timestamp;
   bool hasTimestamp() => _timestamp != null;
 
+  // "journalsThisYear" field.
+  int? _journalsThisYear;
+  int get journalsThisYear => _journalsThisYear ?? 0;
+  bool hasJournalsThisYear() => _journalsThisYear != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -149,6 +154,7 @@ class JournalRecord extends FirestoreRecord {
     _isAudioStopped = snapshotData['isAudioStopped'] as bool?;
     _transcribeText = getDataList(snapshotData['TranscribeText']);
     _timestamp = snapshotData['timestamp'] as DateTime?;
+    _journalsThisYear = castToType<int>(snapshotData['journalsThisYear']);
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -210,6 +216,7 @@ Map<String, dynamic> createJournalRecordData({
   bool? isAudioRecording,
   bool? isAudioStopped,
   DateTime? timestamp,
+  int? journalsThisYear,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -232,6 +239,7 @@ Map<String, dynamic> createJournalRecordData({
       'isAudioRecording': isAudioRecording,
       'isAudioStopped': isAudioStopped,
       'timestamp': timestamp,
+      'journalsThisYear': journalsThisYear,
     }.withoutNulls,
   );
 
@@ -264,7 +272,8 @@ class JournalRecordDocumentEquality implements Equality<JournalRecord> {
         e1?.isAudioRecording == e2?.isAudioRecording &&
         e1?.isAudioStopped == e2?.isAudioStopped &&
         listEquality.equals(e1?.transcribeText, e2?.transcribeText) &&
-        e1?.timestamp == e2?.timestamp;
+        e1?.timestamp == e2?.timestamp &&
+        e1?.journalsThisYear == e2?.journalsThisYear;
   }
 
   @override
@@ -289,7 +298,8 @@ class JournalRecordDocumentEquality implements Equality<JournalRecord> {
         e?.isAudioRecording,
         e?.isAudioStopped,
         e?.transcribeText,
-        e?.timestamp
+        e?.timestamp,
+        e?.journalsThisYear
       ]);
 
   @override

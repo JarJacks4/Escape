@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -67,27 +68,26 @@ class _InsightChipWidgetState extends State<InsightChipWidget> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               widget.icon!,
-              Text(
-                valueOrDefault<String>(
-                  widget.label,
-                  'Calm',
-                ),
-                style: FlutterFlowTheme.of(context).labelSmall.override(
-                      font: GoogleFonts.inter(
+              AuthUserStreamWidget(
+                builder: (context) => Text(
+                  valueOrDefault(currentUserDocument?.currentMood, ''),
+                  style: FlutterFlowTheme.of(context).labelSmall.override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FontWeight.w600,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                        ),
+                        color: valueOrDefault<Color>(
+                          widget.color,
+                          FlutterFlowTheme.of(context).primary,
+                        ),
+                        fontSize: 14.0,
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                         fontStyle:
                             FlutterFlowTheme.of(context).labelSmall.fontStyle,
                       ),
-                      color: valueOrDefault<Color>(
-                        widget.color,
-                        Color(0x00000000),
-                      ),
-                      fontSize: 14.0,
-                      letterSpacing: 0.0,
-                      fontWeight: FontWeight.w600,
-                      fontStyle:
-                          FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                    ),
+                ),
               ),
             ].divide(SizedBox(width: 4.0)),
           ),

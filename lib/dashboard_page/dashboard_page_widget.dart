@@ -57,7 +57,7 @@ class _DashboardPageWidgetState extends State<DashboardPageWidget> {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: Image.asset(
-                    'assets/images/Welcome_to_Escape.gif',
+                    'assets/images/922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)_(2).gif',
                   ).image,
                 ),
               ),
@@ -83,14 +83,10 @@ class _DashboardPageWidgetState extends State<DashboardPageWidget> {
                         end: AlignmentDirectional(0, 1.0),
                       ),
                     ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
-                      child: wrapWithModel(
-                        model: _model.dashboardModel,
-                        updateCallback: () => safeSetState(() {}),
-                        child: DashboardWidget(),
-                      ),
+                    child: wrapWithModel(
+                      model: _model.dashboardModel,
+                      updateCallback: () => safeSetState(() {}),
+                      child: DashboardWidget(),
                     ),
                   ),
                 ),

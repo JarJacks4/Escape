@@ -1,11 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/button_widget.dart';
-import '/components/calendar_day_widget.dart';
 import '/components/journal_card_widget.dart';
+import '/flutter_flow/flutter_flow_calendar.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -99,8 +101,7 @@ class _JournalHistoryWidgetState extends State<JournalHistoryWidget> {
               },
             ),
             SingleChildScrollView(
-              primary: false,
-              controller: _model.columnScrollController,
+              controller: _model.columnScrollController1,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -110,47 +111,331 @@ class _JournalHistoryWidgetState extends State<JournalHistoryWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
                     child: Container(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Container(
-                            child: Padding(
+                      child: SingleChildScrollView(
+                        primary: false,
+                        controller: _model.columnScrollController2,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Container(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 60.0, 24.0, 20.0),
+                                child: Container(
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      FlutterFlowIconButton(
+                                        borderRadius: 8.0,
+                                        buttonSize: 40.0,
+                                        icon: Icon(
+                                          Icons.arrow_back,
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          size: 24.0,
+                                        ),
+                                        onPressed: () async {
+                                          logFirebaseEvent(
+                                              'JOURNAL_HISTORY_arrow_back_ICN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'IconButton_haptic_feedback');
+                                          HapticFeedback.heavyImpact();
+                                          logFirebaseEvent(
+                                              'IconButton_navigate_back');
+                                          context.safePop();
+                                        },
+                                      ),
+                                      Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              '6739yzs1' /* My Journals */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineMedium
+                                                .override(
+                                                  font: GoogleFonts.cormorantSc(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .headlineMedium
+                                                            .fontStyle,
+                                                  ),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .headlineMedium
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              '0i038okm' /* Reflecting on your journey */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall
+                                                .override(
+                                                  font: GoogleFonts.inter(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodySmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodySmall
+                                                            .fontStyle,
+                                                  ),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                        ].divide(SizedBox(height: 4.0)),
+                                      ),
+                                      Container(
+                                        width: 48.0,
+                                        height: 48.0,
+                                        decoration: BoxDecoration(
+                                          color: Color(0x99FFFFFF),
+                                          shape: BoxShape.circle,
+                                        ),
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: AuthUserStreamWidget(
+                                          builder: (context) => Container(
+                                            width: 200.0,
+                                            height: 200.0,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Image.network(
+                                              currentUserPhoto,
+                                              fit: BoxFit.cover,
+                                              errorBuilder: (context, error,
+                                                      stackTrace) =>
+                                                  Image.asset(
+                                                'assets/images/error_image.jpg',
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 20.0),
+                                child: Container(
+                                  child: FlutterFlowCalendar(
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    iconColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    weekFormat: true,
+                                    weekStartsMonday: true,
+                                    initialDate: getCurrentTimestamp,
+                                    rowHeight: 45.0,
+                                    onChange: (DateTimeRange? newSelectedDate) {
+                                      safeSetState(() =>
+                                          _model.calendarSelectedDay =
+                                              newSelectedDate);
+                                    },
+                                    titleStyle: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          font: GoogleFonts.cormorantSc(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleLarge
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleLarge
+                                                    .fontStyle,
+                                          ),
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontStyle,
+                                        ),
+                                    dayOfWeekStyle: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLarge
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLarge
+                                                    .fontStyle,
+                                          ),
+                                          fontSize: 14.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontStyle,
+                                        ),
+                                    dateStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                    selectedDateStyle:
+                                        FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              font: GoogleFonts.inter(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontStyle,
+                                              ),
+                                              letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
+                                            ),
+                                    inactiveDateStyle:
+                                        FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              font: GoogleFonts.inter(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
+                                              letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .fontStyle,
+                                            ),
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 60.0, 24.0, 20.0),
-                              child: Container(
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Column(
-                                      mainAxisSize: MainAxisSize.min,
+                                  24.0, 0.0, 24.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 16.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                          MainAxisAlignment.spaceBetween,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                          CrossAxisAlignment.center,
                                       children: [
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            '6739yzs1' /* My Journals */,
+                                            'qv0viv4r' /* Recent Entries */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .headlineMedium
+                                              .titleLarge
                                               .override(
                                                 font:
                                                     GoogleFonts.playfairDisplay(
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .headlineMedium
+                                                          .titleLarge
                                                           .fontWeight,
                                                   fontStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .headlineMedium
+                                                          .titleLarge
                                                           .fontStyle,
                                                 ),
                                                 color:
@@ -159,185 +444,6 @@ class _JournalHistoryWidgetState extends State<JournalHistoryWidget> {
                                                 letterSpacing: 0.0,
                                                 fontWeight:
                                                     FlutterFlowTheme.of(context)
-                                                        .headlineMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            '0i038okm' /* Reflecting on your journey */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodySmall
-                                              .override(
-                                                font: GoogleFonts.workSans(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall
-                                                          .fontStyle,
-                                                ),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                letterSpacing: 0.0,
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(height: 4.0)),
-                                    ),
-                                    Container(
-                                      width: 48.0,
-                                      height: 48.0,
-                                      decoration: BoxDecoration(
-                                        color: Color(0x99FFFFFF),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: AuthUserStreamWidget(
-                                        builder: (context) => Container(
-                                          width: 200.0,
-                                          height: 200.0,
-                                          clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: Image.network(
-                                            currentUserPhoto,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 24.0),
-                              child: Container(
-                                child: SingleChildScrollView(
-                                  scrollDirection: Axis.horizontal,
-                                  controller: _model.rowScrollController,
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      wrapWithModel(
-                                        model: _model.calendarDayModel1,
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: CalendarDayWidget(
-                                          day: '21',
-                                          isToday: false,
-                                          status: 'none',
-                                        ),
-                                      ),
-                                      wrapWithModel(
-                                        model: _model.calendarDayModel2,
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: CalendarDayWidget(
-                                          day: '22',
-                                          isToday: false,
-                                          status: 'none',
-                                        ),
-                                      ),
-                                      wrapWithModel(
-                                        model: _model.calendarDayModel3,
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: CalendarDayWidget(
-                                          day: '23',
-                                          isToday: false,
-                                          status: 'none',
-                                        ),
-                                      ),
-                                      wrapWithModel(
-                                        model: _model.calendarDayModel4,
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: CalendarDayWidget(
-                                          day: '24',
-                                          isToday: true,
-                                          status: 'none',
-                                        ),
-                                      ),
-                                      wrapWithModel(
-                                        model: _model.calendarDayModel5,
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: CalendarDayWidget(
-                                          day: '25',
-                                          isToday: false,
-                                          status: 'none',
-                                        ),
-                                      ),
-                                      wrapWithModel(
-                                        model: _model.calendarDayModel6,
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: CalendarDayWidget(
-                                          day: '26',
-                                          isToday: false,
-                                          status: 'none',
-                                        ),
-                                      ),
-                                    ].divide(SizedBox(width: 16.0)),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 16.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'qv0viv4r' /* Recent Entries */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .override(
-                                              font: GoogleFonts.playfairDisplay(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
                                                         .titleLarge
                                                         .fontWeight,
                                                 fontStyle:
@@ -345,134 +451,143 @@ class _JournalHistoryWidgetState extends State<JournalHistoryWidget> {
                                                         .titleLarge
                                                         .fontStyle,
                                               ),
+                                        ),
+                                        wrapWithModel(
+                                          model: _model.buttonModel,
+                                          updateCallback: () =>
+                                              safeSetState(() {}),
+                                          child: ButtonWidget(
+                                            content: 'Newest',
+                                            iconPresent: false,
+                                            iconEnd: Icon(
+                                              Icons.expand_more_rounded,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleLarge
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleLarge
-                                                      .fontStyle,
+                                                      .secondaryBackground,
+                                              size: 16.0,
                                             ),
-                                      ),
-                                      wrapWithModel(
-                                        model: _model.buttonModel,
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: ButtonWidget(
-                                          content: 'Newest',
-                                          iconPresent: false,
-                                          iconEnd: Icon(
-                                            Icons.expand_more_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            size: 16.0,
-                                          ),
-                                          iconEndPresent: true,
-                                          variant: 'ghost',
-                                          size: 'medium',
-                                          fullWidth: false,
-                                          loading: false,
-                                          disabled: false,
-                                          icon: Icon(
-                                            Icons.filter_list,
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent2,
+                                            iconEndPresent: true,
+                                            variant: 'ghost',
+                                            size: 'medium',
+                                            fullWidth: false,
+                                            loading: false,
+                                            disabled: false,
+                                            icon: Icon(
+                                              Icons.filter_list,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent2,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                AuthUserStreamWidget(
-                                  builder: (context) => PagedListView<
-                                      DocumentSnapshot<Object?>?,
-                                      JournalRecord>(
-                                    pagingController:
-                                        _model.setListViewController(
-                                      JournalRecord.collection().where(
-                                        'JournalContent',
-                                        isEqualTo: valueOrDefault(
-                                            currentUserDocument?.currentMood,
-                                            ''),
-                                      ),
+                                      ],
                                     ),
-                                    padding: EdgeInsets.zero,
-                                    shrinkWrap: true,
-                                    reverse: false,
-                                    scrollDirection: Axis.vertical,
-                                    builderDelegate: PagedChildBuilderDelegate<
+                                  ),
+                                  AuthUserStreamWidget(
+                                    builder: (context) => PagedListView<
+                                        DocumentSnapshot<Object?>?,
                                         JournalRecord>(
-                                      // Customize what your widget looks like when it's loading the first page.
-                                      firstPageProgressIndicatorBuilder: (_) =>
-                                          Center(
-                                        child: SizedBox(
-                                          width: 100.0,
-                                          height: 100.0,
-                                          child: SpinKitWave(
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent1,
-                                            size: 100.0,
-                                          ),
+                                      pagingController:
+                                          _model.setListViewController(
+                                        JournalRecord.collection().where(
+                                          'JournalContent',
+                                          isEqualTo: valueOrDefault(
+                                              currentUserDocument?.currentMood,
+                                              ''),
                                         ),
                                       ),
-                                      // Customize what your widget looks like when it's loading another page.
-                                      newPageProgressIndicatorBuilder: (_) =>
-                                          Center(
-                                        child: SizedBox(
-                                          width: 100.0,
-                                          height: 100.0,
-                                          child: SpinKitWave(
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent1,
-                                            size: 100.0,
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      reverse: false,
+                                      scrollDirection: Axis.vertical,
+                                      builderDelegate:
+                                          PagedChildBuilderDelegate<
+                                              JournalRecord>(
+                                        // Customize what your widget looks like when it's loading the first page.
+                                        firstPageProgressIndicatorBuilder:
+                                            (_) => Center(
+                                          child: SizedBox(
+                                            width: 100.0,
+                                            height: 100.0,
+                                            child: SpinKitWave(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent1,
+                                              size: 100.0,
+                                            ),
                                           ),
                                         ),
-                                      ),
+                                        // Customize what your widget looks like when it's loading another page.
+                                        newPageProgressIndicatorBuilder: (_) =>
+                                            Center(
+                                          child: SizedBox(
+                                            width: 100.0,
+                                            height: 100.0,
+                                            child: SpinKitWave(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent1,
+                                              size: 100.0,
+                                            ),
+                                          ),
+                                        ),
 
-                                      itemBuilder: (context, _, listViewIndex) {
-                                        final listViewJournalRecord = _model
-                                            .listViewPagingController!
-                                            .itemList![listViewIndex];
-                                        return JournalCardWidget(
-                                          key: Key(
-                                              'Keydz0_${listViewIndex}_of_${_model.listViewPagingController!.itemList!.length}'),
-                                          date: dateTimeFormat(
-                                            "MMMMEEEEd",
-                                            listViewJournalRecord.timestamp,
-                                            locale: FFLocalizations.of(context)
-                                                .languageCode,
-                                          ),
-                                          hasVoice: true,
-                                          moodBg: FlutterFlowTheme.of(context)
-                                              .secondary,
-                                          moodColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
-                                          moodIcon: Icon(
-                                            Icons
-                                                .sentiment_satisfied_alt_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            size: 20.0,
-                                          ),
-                                          snippet:
-                                              'Had a great morning meditation session and feeling energized for the day ahead. The sun is out and I feel like I can conquer anything...',
-                                          title: 'Feeling Positive Today!',
-                                          trigger: 'Morning Meditation',
-                                        );
-                                      },
+                                        itemBuilder:
+                                            (context, _, listViewIndex) {
+                                          final listViewJournalRecord = _model
+                                              .listViewPagingController!
+                                              .itemList![listViewIndex];
+                                          return Hero(
+                                            tag: 'Journal',
+                                            transitionOnUserGestures: true,
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              child: JournalCardWidget(
+                                                key: Key(
+                                                    'Keydz0_${listViewIndex}_of_${_model.listViewPagingController!.itemList!.length}'),
+                                                date: dateTimeFormat(
+                                                  "MMMMEEEEd",
+                                                  listViewJournalRecord
+                                                      .timestamp,
+                                                  locale: FFLocalizations.of(
+                                                          context)
+                                                      .languageCode,
+                                                ),
+                                                hasVoice: true,
+                                                moodBg:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                                moodColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                moodIcon: Icon(
+                                                  Icons
+                                                      .sentiment_satisfied_alt_rounded,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  size: 20.0,
+                                                ),
+                                                snippet: listViewJournalRecord
+                                                    .journalContent,
+                                                title: listViewJournalRecord
+                                                    .journalTitle,
+                                                trigger: valueOrDefault(
+                                                    currentUserDocument
+                                                        ?.currentMood,
+                                                    ''),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -484,6 +599,7 @@ class _JournalHistoryWidgetState extends State<JournalHistoryWidget> {
               child: Padding(
                 padding: EdgeInsets.all(24.0),
                 child: Container(
+                  decoration: BoxDecoration(),
                   alignment: AlignmentDirectional(1.0, 1.0),
                   child: FloatingActionButton.extended(
                     onPressed: () {
@@ -499,7 +615,7 @@ class _JournalHistoryWidgetState extends State<JournalHistoryWidget> {
                     autofocus: true,
                     label: Text(
                       FFLocalizations.of(context).getText(
-                        '2n2l7b6k' /* Write Entry */,
+                        '241gphes' /* Write Entry */,
                       ),
                       style: FlutterFlowTheme.of(context).labelLarge.override(
                             font: GoogleFonts.inter(

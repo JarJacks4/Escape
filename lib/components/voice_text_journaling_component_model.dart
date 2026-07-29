@@ -1,9 +1,10 @@
-import '/components/insight_chip_widget.dart';
-import '/components/mode_card_widget.dart';
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'voice_text_journaling_component_widget.dart'
     show VoiceTextJournalingComponentWidget;
 import 'package:flutter/material.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class VoiceTextJournalingComponentModel
     extends FlutterFlowModel<VoiceTextJournalingComponentWidget> {
@@ -11,38 +12,58 @@ class VoiceTextJournalingComponentModel
 
   // State field(s) for Column widget.
   ScrollController? columnScrollController;
-  // Model for ModeCard.
-  late ModeCardModel modeCardModel1;
-  // Model for ModeCard.
-  late ModeCardModel modeCardModel2;
-  // Model for InsightChip.
-  late InsightChipModel insightChipModel1;
-  // Model for InsightChip.
-  late InsightChipModel insightChipModel2;
-  // Model for InsightChip.
-  late InsightChipModel insightChipModel3;
-  // Model for InsightChip.
-  late InsightChipModel insightChipModel4;
+  // State field(s) for Calendar widget.
+  DateTimeRange? calendarSelectedDay;
+  // State field(s) for ListView widget.
+
+  PagingController<DocumentSnapshot?, JournalRecord>? listViewPagingController;
+  Query? listViewPagingQuery;
+  List<StreamSubscription?> listViewStreamSubscriptions = [];
 
   @override
   void initState(BuildContext context) {
     columnScrollController = ScrollController();
-    modeCardModel1 = createModel(context, () => ModeCardModel());
-    modeCardModel2 = createModel(context, () => ModeCardModel());
-    insightChipModel1 = createModel(context, () => InsightChipModel());
-    insightChipModel2 = createModel(context, () => InsightChipModel());
-    insightChipModel3 = createModel(context, () => InsightChipModel());
-    insightChipModel4 = createModel(context, () => InsightChipModel());
+    calendarSelectedDay = DateTimeRange(
+      start: DateTime.now().startOfDay,
+      end: DateTime.now().endOfDay,
+    );
   }
 
   @override
   void dispose() {
     columnScrollController?.dispose();
-    modeCardModel1.dispose();
-    modeCardModel2.dispose();
-    insightChipModel1.dispose();
-    insightChipModel2.dispose();
-    insightChipModel3.dispose();
-    insightChipModel4.dispose();
+    listViewStreamSubscriptions.forEach((s) => s?.cancel());
+    listViewPagingController?.dispose();
+  }
+
+  /// Additional helper methods.
+  PagingController<DocumentSnapshot?, JournalRecord> setListViewController(
+    Query query, {
+    DocumentReference<Object?>? parent,
+  }) {
+    listViewPagingController ??= _createListViewController(query, parent);
+    if (listViewPagingQuery != query) {
+      listViewPagingQuery = query;
+      listViewPagingController?.refresh();
+    }
+    return listViewPagingController!;
+  }
+
+  PagingController<DocumentSnapshot?, JournalRecord> _createListViewController(
+    Query query,
+    DocumentReference<Object?>? parent,
+  ) {
+    final controller =
+        PagingController<DocumentSnapshot?, JournalRecord>(firstPageKey: null);
+    return controller
+      ..addPageRequestListener(
+        (nextPageMarker) => queryJournalRecordPage(
+          nextPageMarker: nextPageMarker,
+          streamSubscriptions: listViewStreamSubscriptions,
+          controller: controller,
+          pageSize: 10,
+          isStream: true,
+        ),
+      );
   }
 }

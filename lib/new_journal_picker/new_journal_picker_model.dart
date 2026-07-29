@@ -1,5 +1,6 @@
 import '/components/journal_type_card_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'new_journal_picker_widget.dart' show NewJournalPickerWidget;
 import 'package:flutter/material.dart';
 

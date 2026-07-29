@@ -1,46 +1,35 @@
-import '/backend/api_requests/api_calls.dart';
-import '/components/health_journal_component_widget.dart';
+import '/components/voice_text_journaling_component_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:material_palette/material_palette.dart';
-import 'health_journal_model.dart';
-export 'health_journal_model.dart';
+import 'voice_text_journaling_copy_model.dart';
+export 'voice_text_journaling_copy_model.dart';
 
-class HealthJournalWidget extends StatefulWidget {
-  const HealthJournalWidget({super.key});
+class VoiceTextJournalingCopyWidget extends StatefulWidget {
+  const VoiceTextJournalingCopyWidget({super.key});
 
-  static String routeName = 'HealthJournal';
-  static String routePath = '/healthJournal';
+  static String routeName = 'VoiceTextJournalingCopy';
+  static String routePath = '/voiceTextJournalingCopy';
 
   @override
-  State<HealthJournalWidget> createState() => _HealthJournalWidgetState();
+  State<VoiceTextJournalingCopyWidget> createState() =>
+      _VoiceTextJournalingCopyWidgetState();
 }
 
-class _HealthJournalWidgetState extends State<HealthJournalWidget> {
-  late HealthJournalModel _model;
+class _VoiceTextJournalingCopyWidgetState
+    extends State<VoiceTextJournalingCopyWidget> {
+  late VoiceTextJournalingCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HealthJournalModel());
+    _model = createModel(context, () => VoiceTextJournalingCopyModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'HealthJournal'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('HEALTH_JOURNAL_HealthJournal_ON_INIT_STA');
-      logFirebaseEvent('HealthJournal_backend_call');
-      _model.getActiveExercise =
-          await LucilleTherapyExercisesGroup.getActiveExerciseCall.call();
-
-      logFirebaseEvent('HealthJournal_backend_call');
-      _model.listRecentSessions =
-          await TheoryOfMindOnboardingGroup.userCompleteProfileCall.call();
-    });
+        parameters: {'screen_name': 'VoiceTextJournalingCopy'});
   }
 
   @override
@@ -74,7 +63,7 @@ class _HealthJournalWidgetState extends State<HealthJournalWidget> {
                       : 200.0,
                   params: ShaderParams(values: {
                     'gradientCenterX': 0.5,
-                    'gradientCenterY': 0.5,
+                    'gradientCenterY': 0.3,
                     'gradientScale': 2.03,
                     'gradientOffset': -0.02,
                     'noiseIntensity': 0.51,
@@ -108,9 +97,9 @@ class _HealthJournalWidgetState extends State<HealthJournalWidget> {
                     'color7': Color(0x00808080),
                     'color8': Color(0x00808080),
                     'color9': Color(0x00808080),
-                    'color2': Color(0xEC8338CD),
-                    'color1': FlutterFlowTheme.of(context).accent1,
-                    'color0': Color(0x57EDF1F7)
+                    'color2': Color(0xCA39519F),
+                    'color0': Color(0x98EDF1F7),
+                    'color1': Color(0x6FC935E4)
                   }),
                   animationMode: ShaderAnimationMode.continuous,
                   cache: false,
@@ -118,9 +107,9 @@ class _HealthJournalWidgetState extends State<HealthJournalWidget> {
               },
             ),
             wrapWithModel(
-              model: _model.healthJournalComponentModel,
+              model: _model.voiceTextJournalingComponentModel,
               updateCallback: () => safeSetState(() {}),
-              child: HealthJournalComponentWidget(),
+              child: VoiceTextJournalingComponentWidget(),
             ),
           ],
         ),
