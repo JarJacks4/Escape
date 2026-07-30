@@ -3224,6 +3224,10 @@ class EscapeAudioScriptCall {
     );
   }
 
+  static String? text(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.text''',
+      ));
   static dynamic error(dynamic response) => getJsonField(
         response,
         r'''$.error''',

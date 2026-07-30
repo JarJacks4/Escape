@@ -330,6 +330,7 @@ class _ActiveVoiceJournalingWidgetState
                                               _model.audioRecorder ??=
                                                   AudioRecorder(),
                                         );
+                                        _model.timerController.onStartTimer();
 
                                         logFirebaseEvent(
                                             'Container_backend_call');
@@ -358,6 +359,7 @@ class _ActiveVoiceJournalingWidgetState
                                                 audioBytes;
                                           },
                                         );
+                                        _model.timerController.onStopTimer();
 
                                         logFirebaseEvent(
                                             'Container_backend_call');
@@ -405,10 +407,11 @@ class _ActiveVoiceJournalingWidgetState
                                               {
                                                 'TranscribeText':
                                                     FieldValue.arrayUnion([
-                                                  (_model.gorqTranscriptionResult
-                                                              ?.jsonBody ??
-                                                          '')
-                                                      .toString()
+                                                  (EscapeAudioScriptCall
+                                                          .text(_model
+                                                              .gorqTranscriptionResult
+                                                              ?.jsonBody) ??
+                                                      '')
                                                 ]),
                                               },
                                             ),
@@ -476,9 +479,9 @@ class _ActiveVoiceJournalingWidgetState
                                   width: 355.51,
                                   height: 89.9,
                                   fit: BoxFit.contain,
-                                  animate: columnJournalRecord!.isAudioRecording
-                                      ? true
-                                      : false,
+                                  animate:
+                                      columnJournalRecord?.isAudioRecording ??
+                                          false,
                                 ),
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(24.0),
@@ -659,7 +662,7 @@ class _ActiveVoiceJournalingWidgetState
                                                 FFAppState().chatSessionId,
                                             userId: currentUserUid,
                                             message:
-                                                'Hey Lucille, could you summarize the mood from the following transcribed words? We only need the mood in one word: ${(_model.gorqTranscriptionResult?.jsonBody ?? '').toString()}',
+                                                'Hey Lucille, could you summarize the mood from the following transcribed words? We only need the mood in one word: ${(EscapeAudioScriptCall.text(_model.gorqTranscriptionResult?.jsonBody) ?? '')}',
                                           );
 
                                           logFirebaseEvent(
@@ -672,7 +675,7 @@ class _ActiveVoiceJournalingWidgetState
                                                 FFAppState().chatSessionId,
                                             userId: currentUserUid,
                                             message:
-                                                'Hey Lucille, could you summarize the a 3 Word Title from the following transcribed words? We only need the title in one word: ${(_model.gorqTranscriptionResult?.jsonBody ?? '').toString()}',
+                                                'Hey Lucille, could you summarize the a 3 Word Title from the following transcribed words? We only need the title in one word: ${(EscapeAudioScriptCall.text(_model.gorqTranscriptionResult?.jsonBody) ?? '')}',
                                           );
 
                                           logFirebaseEvent(
@@ -684,10 +687,11 @@ class _ActiveVoiceJournalingWidgetState
                                             queryParameters: {
                                               'transcribedWords':
                                                   serializeParam(
-                                                (_model.gorqTranscriptionResult
-                                                            ?.jsonBody ??
-                                                        '')
-                                                    .toString(),
+                                                (EscapeAudioScriptCall
+                                                        .text(_model
+                                                            .gorqTranscriptionResult
+                                                            ?.jsonBody) ??
+                                                    ''),
                                                 ParamType.String,
                                               ),
                                               'detectedMood': serializeParam(
