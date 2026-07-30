@@ -296,8 +296,12 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   shaders:
     - packages/material_palette/shaders/click_ripple.frag
+    - packages/material_palette/shaders/fbm_gradient.frag
     - packages/material_palette/shaders/pixel_dissolve.frag
+    - packages/material_palette/shaders/radial_fbm_gradient.frag
+    - packages/material_palette/shaders/radial_gritty_gradient.frag
     - packages/material_palette/shaders/radial_pixel_dissolve.frag
+    - packages/material_palette/shaders/radial_turbulence_gradient.frag
     - packages/material_palette/shaders/smoke.frag
 
   assets:
