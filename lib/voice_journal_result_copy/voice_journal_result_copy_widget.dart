@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/button_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -680,142 +681,131 @@ class _VoiceJournalResultCopyWidgetState
             ),
             Align(
               alignment: AlignmentDirectional(0.0, 1.0),
-              child: StreamBuilder<List<JournalRecord>>(
-                stream: queryJournalRecord(),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 100.0,
-                        height: 100.0,
-                        child: SpinKitWave(
-                          color: FlutterFlowTheme.of(context).accent1,
-                          size: 100.0,
+              child: Material(
+                color: Colors.transparent,
+                elevation: 15.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(22.0),
+                    topRight: Radius.circular(22.0),
+                  ),
+                ),
+                child: Container(
+                  height: 101.67,
+                  decoration: BoxDecoration(
+                    color: Color(0xA8F0831A),
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 40.0,
+                        color: Color(0xF0F0831A),
+                        offset: Offset(
+                          0.0,
+                          10.0,
                         ),
-                      ),
-                    );
-                  }
-                  List<JournalRecord> containerJournalRecordList =
-                      snapshot.data!;
-
-                  return Material(
-                    color: Colors.transparent,
-                    elevation: 15.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(22.0),
-                        topRight: Radius.circular(22.0),
-                      ),
+                        spreadRadius: 40.0,
+                      )
+                    ],
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(22.0),
+                      topRight: Radius.circular(22.0),
                     ),
+                    shape: BoxShape.rectangle,
+                    border: Border.all(
+                      color: Color(0x5BEDF1F7),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(32.0),
                     child: Container(
-                      height: 101.67,
-                      decoration: BoxDecoration(
-                        color: Color(0xA8F0831A),
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 40.0,
-                            color: Color(0xF0F0831A),
-                            offset: Offset(
-                              0.0,
-                              10.0,
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          logFirebaseEvent(
+                              'VOICE_JOURNAL_RESULT_COPY_Button_ON_TAP');
+                          logFirebaseEvent('Button_haptic_feedback');
+                          HapticFeedback.heavyImpact();
+                          logFirebaseEvent('Button_backend_call');
+
+                          // TEMP FIX: create a new JournalRecord instead of
+                          // updating a pre-existing one, since nothing in the
+                          // current flow creates a JournalRecord ahead of time.
+                          // NOTE: queryJournalRecord() used elsewhere (e.g.
+                          // HealthJournal) has no filter and falls back to a
+                          // collectionGroup('Journal') query across ALL users -
+                          // this is a known open issue to revisit with the team
+                          // (Firestore security rules / per-user scoping).
+                          await JournalRecord.createDoc(currentUserReference!)
+                              .set({
+                            ...createJournalRecordData(
+                              journalTitle: widget.journalTitle,
+                              journalContent: widget.transcribedWords,
+                              journalVoiceNote: widget.journalVoiceNote,
+                              moods: widget.detectedMood,
+                              timestamp: getCurrentTimestamp,
                             ),
-                            spreadRadius: 40.0,
-                          )
-                        ],
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(22.0),
-                          topRight: Radius.circular(22.0),
-                        ),
-                        shape: BoxShape.rectangle,
-                        border: Border.all(
-                          color: Color(0x5BEDF1F7),
-                        ),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(32.0),
-                        child: Container(
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'VOICE_JOURNAL_RESULT_COPY_Button_ON_TAP');
-                              logFirebaseEvent('Button_haptic_feedback');
-                              HapticFeedback.heavyImpact();
-                              logFirebaseEvent('Button_backend_call');
-
-                              await containerJournalRecordList
-                                  .firstOrNull!.reference
-                                  .update({
-                                ...createJournalRecordData(
-                                  journalContent: widget.transcribedWords,
-                                  journalVoiceNote: widget.journalVoiceNote,
+                            ...mapToFirestore(
+                              {
+                                'journalsThisYear': FieldValue.increment(1),
+                              },
+                            ),
+                          });
+                          logFirebaseEvent('Button_show_snack_bar');
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                'Journal Saved! Please check out the rest of our app to find out more about yourself!',
+                                style: TextStyle(
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryText,
                                 ),
-                                ...mapToFirestore(
-                                  {
-                                    'journalsThisYear': FieldValue.increment(1),
-                                  },
-                                ),
-                              });
-                              logFirebaseEvent('Button_show_snack_bar');
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'Journal Saved! Please check out the rest of our app to find out more about yourself!',
-                                    style: TextStyle(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
-                                  ),
-                                  duration: Duration(milliseconds: 4000),
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).secondary,
-                                ),
-                              );
-                              logFirebaseEvent('Button_hide_snack_bar');
-                              ScaffoldMessenger.of(context)
-                                  .hideCurrentSnackBar();
-                              logFirebaseEvent('Button_navigate_to');
-
-                              context.pushNamed(
-                                HealthJournalWidget.routeName,
-                                extra: <String, dynamic>{
-                                  '__transition_info__': TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 1),
-                                  ),
-                                },
-                              );
-                            },
-                            child: wrapWithModel(
-                              model: _model.buttonModel,
-                              updateCallback: () => safeSetState(() {}),
-                              child: ButtonWidget(
-                                content: 'Save Voice Journal',
-                                icon: Icon(
-                                  Icons.check_circle_rounded,
-                                  color: FlutterFlowTheme.of(context).success,
-                                  size: 16.0,
-                                ),
-                                iconPresent: true,
-                                iconEndPresent: false,
-                                variant: 'primary',
-                                size: 'X-Large',
-                                fullWidth: true,
-                                loading: false,
-                                disabled: false,
                               ),
+                              duration: Duration(milliseconds: 4000),
+                              backgroundColor:
+                                  FlutterFlowTheme.of(context).secondary,
                             ),
+                          );
+                          logFirebaseEvent('Button_hide_snack_bar');
+                          ScaffoldMessenger.of(context)
+                              .hideCurrentSnackBar();
+                          logFirebaseEvent('Button_navigate_to');
+
+                          context.pushNamed(
+                            HealthJournalWidget.routeName,
+                            extra: <String, dynamic>{
+                              '__transition_info__': TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 1),
+                              ),
+                            },
+                          );
+                        },
+                        child: wrapWithModel(
+                          model: _model.buttonModel,
+                          updateCallback: () => safeSetState(() {}),
+                          child: ButtonWidget(
+                            content: 'Save Voice Journal',
+                            icon: Icon(
+                              Icons.check_circle_rounded,
+                              color: FlutterFlowTheme.of(context).success,
+                              size: 16.0,
+                            ),
+                            iconPresent: true,
+                            iconEndPresent: false,
+                            variant: 'primary',
+                            size: 'X-Large',
+                            fullWidth: true,
+                            loading: false,
+                            disabled: false,
                           ),
                         ),
                       ),
                     ),
-                  );
-                },
+                  ),
+                ),
               ),
             ),
           ],
