@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
@@ -59,6 +60,7 @@ class _JournalPage1Version5WidgetState
   Widget build(BuildContext context) {
     return StreamBuilder<List<RitualSparkJournalRecord>>(
       stream: queryRitualSparkJournalRecord(
+        parent: currentUserReference,
         singleRecord: true,
       ),
       builder: (context, snapshot) {
@@ -77,10 +79,7 @@ class _JournalPage1Version5WidgetState
         }
         List<RitualSparkJournalRecord> containerRitualSparkJournalRecordList =
             snapshot.data!;
-        // Return an empty Container when the item does not exist.
-        if (snapshot.data!.isEmpty) {
-          return Container();
-        }
+
         final containerRitualSparkJournalRecord =
             containerRitualSparkJournalRecordList.isNotEmpty
                 ? containerRitualSparkJournalRecordList.first
@@ -905,8 +904,9 @@ class _JournalPage1Version5WidgetState
                                 'JOURNAL_PAGE1_VERSION5_SAVE_RITUAL_BTN_O');
                             logFirebaseEvent('Button_backend_call');
 
-                            await containerRitualSparkJournalRecord!.reference
-                                .update({
+                            await RitualSparkJournalRecord.createDoc(
+                                    currentUserReference!)
+                                .set({
                               ...createRitualSparkJournalRecordData(
                                 ritualSparkTitle: _model.textController1.text,
                                 ritualSparkContent: _model.textController2.text,

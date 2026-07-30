@@ -4,12 +4,24 @@ import 'dart:ui';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'soundscapes_see_all_page_model.dart';
 export 'soundscapes_see_all_page_model.dart';
 
 class SoundscapesSeeAllPageWidget extends StatefulWidget {
-  const SoundscapesSeeAllPageWidget({super.key});
+  const SoundscapesSeeAllPageWidget({
+    super.key,
+    this.songUrl,
+    this.albumArt,
+    this.songTitle,
+    this.songNumber,
+  });
+
+  final String? songUrl;
+  final String? albumArt;
+  final String? songTitle;
+  final int? songNumber;
 
   static String routeName = 'SoundscapesSeeAllPage';
   static String routePath = '/soundscapesSeeAllPage';
@@ -63,8 +75,8 @@ class _SoundscapesSeeAllPageWidgetState
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
-                      child: Image.network(
-                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/dream-sync-gaz8mn/assets/daa5uim2jn5j/Background-1.png',
+                      child: Image.asset(
+                        'assets/images/Untitled_design_(1).png',
                         width: double.infinity,
                         height: double.infinity,
                         fit: BoxFit.cover,
@@ -89,6 +101,70 @@ class _SoundscapesSeeAllPageWidgetState
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(-1.0, -1.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      25.0, 0.0, 0.0, 0.0),
+                                  child: FlutterFlowIconButton(
+                                    borderRadius: 8.0,
+                                    buttonSize: 60.0,
+                                    icon: Icon(
+                                      Icons.arrow_back,
+                                      color: FlutterFlowTheme.of(context).info,
+                                      size: 36.0,
+                                    ),
+                                    onPressed: () async {
+                                      logFirebaseEvent(
+                                          'SOUNDSCAPES_SEE_ALL_arrow_back_ICN_ON_TA');
+                                      logFirebaseEvent(
+                                          'IconButton_haptic_feedback');
+                                      HapticFeedback.heavyImpact();
+                                      logFirebaseEvent(
+                                          'IconButton_navigate_back');
+                                      context.safePop();
+                                    },
+                                  ),
+                                ),
+                              ),
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      65.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '6b00llxs' /* See All */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.cormorantSc(
+                                            fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          fontSize: 36.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -97,58 +173,42 @@ class _SoundscapesSeeAllPageWidgetState
                                     24.0, 0.0, 24.0, 24.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      borderRadius: 12.0,
-                                      buttonSize:
-                                          MediaQuery.sizeOf(context).width *
-                                              0.09,
-                                      icon: FaIcon(
-                                        FontAwesomeIcons.angleDown,
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
-                                        size: 15.0,
-                                      ),
-                                      onPressed: () async {
-                                        logFirebaseEvent(
-                                            'SOUNDSCAPES_SEE_ALL_angleDown_ICN_ON_TAP');
-                                        logFirebaseEvent(
-                                            'IconButton_navigate_back');
-                                        context.safePop();
-                                      },
-                                    ),
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        '2239v2tf' /* RELAXING ZEN MUSIC */,
-                                      ),
+                                    AnimatedDefaultTextStyle(
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'WorkSans',
+                                            font: GoogleFonts.inter(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
                                           ),
-                                    ),
-                                    FlutterFlowIconButton(
-                                      borderColor: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      borderRadius: 12.0,
-                                      buttonSize:
-                                          MediaQuery.sizeOf(context).width *
-                                              0.09,
-                                      icon: FaIcon(
-                                        FontAwesomeIcons.trashAlt,
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
-                                        size: 15.0,
+                                      duration: Duration(milliseconds: 600),
+                                      curve: Curves.easeIn,
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          '2239v2tf' /* RELAXING ZEN MUSIC */,
+                                        ),
                                       ),
-                                      onPressed: () {
-                                        print('IconButton pressed ...');
-                                      },
                                     ),
                                   ],
                                 ),
@@ -158,15 +218,7 @@ class _SoundscapesSeeAllPageWidgetState
                                 height: 250.0,
                                 child: CarouselSlider(
                                   items: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(16.0),
-                                      child: Image.network(
-                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/dream-sync-gaz8mn/assets/y7dv8mi4mu2r/image-10.jpg',
-                                        width: 200.0,
-                                        height: 200.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
+                                    Container(),
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(16.0),
                                       child: Image.network(
@@ -245,7 +297,7 @@ class _SoundscapesSeeAllPageWidgetState
                                       borderRadius: 30.0,
                                       buttonSize: 50.0,
                                       fillColor:
-                                          FlutterFlowTheme.of(context).primary,
+                                          FlutterFlowTheme.of(context).accent1,
                                       icon: Icon(
                                         Icons.pause,
                                         color:
@@ -303,7 +355,7 @@ class _SoundscapesSeeAllPageWidgetState
                                         Icon(
                                           Icons.music_note,
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryText,
+                                              .accent1,
                                           size: 20.0,
                                         ),
                                         Text(
@@ -313,9 +365,23 @@ class _SoundscapesSeeAllPageWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'WorkSans',
+                                                font: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ].divide(SizedBox(width: 6.0)),
@@ -327,14 +393,42 @@ class _SoundscapesSeeAllPageWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'WorkSans',
+                                            font: GoogleFonts.inter(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
                                             letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
                                           ),
                                     ),
                                   ],
                                 ),
                               ),
                             ].divide(SizedBox(height: 24.0)),
+                          ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.asset(
+                              'assets/images/Logo_ESCAPE_White.png',
+                              width: 200.0,
+                              height: 148.8,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                           SingleChildScrollView(
                             controller: _model.columnController2,
@@ -353,10 +447,20 @@ class _SoundscapesSeeAllPageWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'WorkSans',
+                                            font: GoogleFonts.inter(
+                                              fontWeight: FontWeight.w500,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
                                           ),
                                     ),
                                   ),

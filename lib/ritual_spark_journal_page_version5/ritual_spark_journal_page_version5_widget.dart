@@ -56,7 +56,7 @@ class _RitualSparkJournalPageVersion5WidgetState
             children: [
               Container(
                 width: double.infinity,
-                height: 872.8,
+                height: MediaQuery.sizeOf(context).height,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
@@ -73,8 +73,8 @@ class _RitualSparkJournalPageVersion5WidgetState
                       sigmaY: 60.0,
                     ),
                     child: Container(
-                      width: 100.0,
-                      height: 100.0,
+                      width: double.infinity,
+                      height: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [

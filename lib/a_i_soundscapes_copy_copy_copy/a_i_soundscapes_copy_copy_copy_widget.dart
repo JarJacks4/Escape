@@ -776,16 +776,53 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                                                                   ),
                                                                                                 ],
                                                                                               ),
-                                                                                              Text(
-                                                                                                FFLocalizations.of(context).getText(
-                                                                                                  'iu9uynwo' /* See all */,
+                                                                                              InkWell(
+                                                                                                splashColor: Colors.transparent,
+                                                                                                focusColor: Colors.transparent,
+                                                                                                hoverColor: Colors.transparent,
+                                                                                                highlightColor: Colors.transparent,
+                                                                                                onTap: () async {
+                                                                                                  logFirebaseEvent('A_I_SOUNDSCAPES_COPY_COPY_COPY_Text_q2mz');
+                                                                                                  logFirebaseEvent('Text_haptic_feedback');
+                                                                                                  HapticFeedback.heavyImpact();
+                                                                                                  logFirebaseEvent('Text_navigate_to');
+
+                                                                                                  context.pushNamed(
+                                                                                                    SoundscapesSeeAllPageWidget.routeName,
+                                                                                                    queryParameters: {
+                                                                                                      'songUrl': serializeParam(
+                                                                                                        FFAppState().SoundscapesAllTab.take(5).toList().where((e) => valueOrDefault(currentUserDocument?.currentMood, '') != '').toList().firstOrNull?.songUrl,
+                                                                                                        ParamType.String,
+                                                                                                      ),
+                                                                                                      'albumArt': serializeParam(
+                                                                                                        FFAppState().SoundscapesAllTab.elementAtOrNull(2)?.albumArt,
+                                                                                                        ParamType.String,
+                                                                                                      ),
+                                                                                                      'songTitle': serializeParam(
+                                                                                                        FFAppState().SoundscapesAllTab.take(5).toList().elementAtOrNull(1)?.songTitle,
+                                                                                                        ParamType.String,
+                                                                                                      ),
+                                                                                                    }.withoutNulls,
+                                                                                                    extra: <String, dynamic>{
+                                                                                                      '__transition_info__': TransitionInfo(
+                                                                                                        hasTransition: true,
+                                                                                                        transitionType: PageTransitionType.fade,
+                                                                                                        duration: Duration(milliseconds: 9),
+                                                                                                      ),
+                                                                                                    },
+                                                                                                  );
+                                                                                                },
+                                                                                                child: Text(
+                                                                                                  FFLocalizations.of(context).getText(
+                                                                                                    'iu9uynwo' /* See all */,
+                                                                                                  ),
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: 'WorkSans',
+                                                                                                        color: FlutterFlowTheme.of(context).tertiary,
+                                                                                                        letterSpacing: 0.0,
+                                                                                                        fontWeight: FontWeight.w600,
+                                                                                                      ),
                                                                                                 ),
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      fontFamily: 'WorkSans',
-                                                                                                      color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                      letterSpacing: 0.0,
-                                                                                                      fontWeight: FontWeight.w600,
-                                                                                                    ),
                                                                                               ),
                                                                                             ],
                                                                                           ),
