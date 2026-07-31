@@ -744,7 +744,6 @@ class _VoiceJournalResultCopyWidgetState
                               journalContent: widget.transcribedWords,
                               journalVoiceNote: widget.journalVoiceNote,
                               moods: widget.detectedMood,
-                              timestamp: getCurrentTimestamp,
                             ),
                             ...mapToFirestore(
                               {

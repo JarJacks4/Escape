@@ -321,6 +321,8 @@ Today I woke... */
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           isDense: true,
+                                          floatingLabelBehavior:
+                                              FloatingLabelBehavior.always,
                                           labelText: FFLocalizations.of(context)
                                               .getText(
                                             '803rhzqg' /* Input Title Here */,
@@ -1380,7 +1382,6 @@ Today I woke... */
                                     journalTitle: _model.textController1.text,
                                     journalContent:
                                         _model.textController2.text,
-                                    timestamp: getCurrentTimestamp,
                                   ),
                                   ...mapToFirestore(
                                     {
