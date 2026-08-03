@@ -1093,6 +1093,95 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => SoundscapesSeeAllPageWidget(),
           ),
           FFRoute(
+            name: SoundscapesSeeAllPageMusicMeditationsWidget.routeName,
+            path: SoundscapesSeeAllPageMusicMeditationsWidget.routePath,
+            builder: (context, params) =>
+                SoundscapesSeeAllPageMusicMeditationsWidget(
+              songUrl: params.getParam(
+                'songUrl',
+                ParamType.String,
+              ),
+              albumArt: params.getParam(
+                'albumArt',
+                ParamType.String,
+              ),
+              songTitle: params.getParam(
+                'songTitle',
+                ParamType.String,
+              ),
+              songNumber: params.getParam(
+                'songNumber',
+                ParamType.int,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: SoundscapesSeeAllPageNatureWidget.routeName,
+            path: SoundscapesSeeAllPageNatureWidget.routePath,
+            builder: (context, params) => SoundscapesSeeAllPageNatureWidget(
+              songUrl: params.getParam(
+                'songUrl',
+                ParamType.String,
+              ),
+              albumArt: params.getParam(
+                'albumArt',
+                ParamType.String,
+              ),
+              songTitle: params.getParam(
+                'songTitle',
+                ParamType.String,
+              ),
+              songNumber: params.getParam(
+                'songNumber',
+                ParamType.int,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: SoundscapesSeeAllPageSleepWidget.routeName,
+            path: SoundscapesSeeAllPageSleepWidget.routePath,
+            builder: (context, params) => SoundscapesSeeAllPageSleepWidget(
+              songUrl: params.getParam(
+                'songUrl',
+                ParamType.String,
+              ),
+              albumArt: params.getParam(
+                'albumArt',
+                ParamType.String,
+              ),
+              songTitle: params.getParam(
+                'songTitle',
+                ParamType.String,
+              ),
+              songNumber: params.getParam(
+                'songNumber',
+                ParamType.int,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: SoundscapesSeeAllPageFocusWidget.routeName,
+            path: SoundscapesSeeAllPageFocusWidget.routePath,
+            builder: (context, params) => SoundscapesSeeAllPageFocusWidget(
+              songUrl: params.getParam(
+                'songUrl',
+                ParamType.String,
+              ),
+              albumArt: params.getParam(
+                'albumArt',
+                ParamType.String,
+              ),
+              songTitle: params.getParam(
+                'songTitle',
+                ParamType.String,
+              ),
+              songNumber: params.getParam(
+                'songNumber',
+                ParamType.int,
+              ),
+            ),
+          ),
+          FFRoute(
             name: ForgotPasswordWidget.routeName,
             path: ForgotPasswordWidget.routePath,
             builder: (context, params) => ForgotPasswordWidget(),
