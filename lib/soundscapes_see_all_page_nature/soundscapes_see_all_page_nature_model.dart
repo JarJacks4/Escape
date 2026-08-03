@@ -1,11 +1,12 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'soundscapes_see_all_page_widget.dart' show SoundscapesSeeAllPageWidget;
+import 'soundscapes_see_all_page_nature_widget.dart'
+    show SoundscapesSeeAllPageNatureWidget;
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
-class SoundscapesSeeAllPageModel
-    extends FlutterFlowModel<SoundscapesSeeAllPageWidget> {
+class SoundscapesSeeAllPageNatureModel
+    extends FlutterFlowModel<SoundscapesSeeAllPageNatureWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for Column widget.

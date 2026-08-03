@@ -23,11 +23,11 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
-import 'soundscapes_see_all_page_model.dart';
-export 'soundscapes_see_all_page_model.dart';
+import 'soundscapes_see_all_page_sleep_model.dart';
+export 'soundscapes_see_all_page_sleep_model.dart';
 
-class SoundscapesSeeAllPageWidget extends StatefulWidget {
-  const SoundscapesSeeAllPageWidget({
+class SoundscapesSeeAllPageSleepWidget extends StatefulWidget {
+  const SoundscapesSeeAllPageSleepWidget({
     super.key,
     this.songUrl,
     this.albumArt,
@@ -40,27 +40,27 @@ class SoundscapesSeeAllPageWidget extends StatefulWidget {
   final String? songTitle;
   final int? songNumber;
 
-  static String routeName = 'SoundscapesSeeAllPage';
-  static String routePath = '/soundscapesSeeAllPage';
+  static String routeName = 'SoundscapesSeeAllPageSleep';
+  static String routePath = '/soundscapesSeeAllPageSleep';
 
   @override
-  State<SoundscapesSeeAllPageWidget> createState() =>
-      _SoundscapesSeeAllPageWidgetState();
+  State<SoundscapesSeeAllPageSleepWidget> createState() =>
+      _SoundscapesSeeAllPageSleepWidgetState();
 }
 
-class _SoundscapesSeeAllPageWidgetState
-    extends State<SoundscapesSeeAllPageWidget> {
-  late SoundscapesSeeAllPageModel _model;
+class _SoundscapesSeeAllPageSleepWidgetState
+    extends State<SoundscapesSeeAllPageSleepWidget> {
+  late SoundscapesSeeAllPageSleepModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SoundscapesSeeAllPageModel());
+    _model = createModel(context, () => SoundscapesSeeAllPageSleepModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'SoundscapesSeeAllPage'});
+        parameters: {'screen_name': 'SoundscapesSeeAllPageSleep'});
   }
 
   @override
@@ -143,7 +143,7 @@ class _SoundscapesSeeAllPageWidgetState
                                     ),
                                     onPressed: () async {
                                       logFirebaseEvent(
-                                          'SOUNDSCAPES_SEE_ALL_arrow_back_ICN_ON_TA');
+                                          'SOUNDSCAPES_SEE_ALL_SLEEP_arrow_back_ICN');
                                       logFirebaseEvent(
                                           'IconButton_haptic_feedback');
                                       HapticFeedback.heavyImpact();
@@ -155,13 +155,13 @@ class _SoundscapesSeeAllPageWidgetState
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      55.0, 0.0, 0.0, 0.0),
+                                      75.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      '6b00llxs' /* See All */,
+                                      '9oybd82u' /* Sleep */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -229,7 +229,7 @@ class _SoundscapesSeeAllPageWidgetState
                                       curve: Curves.easeIn,
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          '2239v2tf' /* All Self Care Songs */,
+                                          'y5ph67of' /* All Self Care Songs */,
                                         ),
                                       ),
                                     ),
@@ -334,7 +334,7 @@ class _SoundscapesSeeAllPageWidgetState
                                       ),
                                       onPressed: () async {
                                         logFirebaseEvent(
-                                            'SOUNDSCAPES_SEE_ALL_play_circle_ICN_ON_T');
+                                            'SOUNDSCAPES_SEE_ALL_SLEEP_play_circle_IC');
                                         logFirebaseEvent(
                                             'IconButton_haptic_feedback');
                                         HapticFeedback.heavyImpact();
@@ -389,7 +389,7 @@ class _SoundscapesSeeAllPageWidgetState
                                                       .serializeParam(
                                                 that_audio_player_oo85ab_app_state
                                                         .FFAppState()
-                                                    .currentMediaAllTab
+                                                    .currentMediaSleepTab
                                                     .elementAtOrNull(_model
                                                         .carouselCurrentIndex),
                                                 that_audio_player_oo85ab_serialization_util
@@ -425,6 +425,19 @@ class _SoundscapesSeeAllPageWidgetState
                                             $that_audio_player_oo85ab
                                                 .PlayerPageFINALAllTabWidget
                                                 .routeName,
+                                            queryParameters: {
+                                              'currentSong':
+                                                  that_audio_player_oo85ab_serialization_util
+                                                      .serializeParam(
+                                                that_audio_player_oo85ab_app_state
+                                                        .FFAppState()
+                                                    .currentMediaSleepTab
+                                                    .elementAtOrNull(_model
+                                                        .carouselCurrentIndex),
+                                                that_audio_player_oo85ab_serialization_util
+                                                    .ParamType.DataStruct,
+                                              ),
+                                            }.withoutNulls,
                                             extra: <String, dynamic>{
                                               '__transition_info__that_audio_player_oo85ab':
                                                   TransitionInfo(
@@ -575,7 +588,7 @@ class _SoundscapesSeeAllPageWidgetState
                                         24.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'kncaisaf' /* Recommended Music */,
+                                        '1a00zy6r' /* Recommended Music */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium

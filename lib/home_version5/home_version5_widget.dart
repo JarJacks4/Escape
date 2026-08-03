@@ -788,7 +788,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                         Text(
                                                                           FFLocalizations.of(context)
                                                                               .getText(
-                                                                            '27og520d' /* Goodmorning */,
+                                                                            '27og520d' /* Good morning */,
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyLarge

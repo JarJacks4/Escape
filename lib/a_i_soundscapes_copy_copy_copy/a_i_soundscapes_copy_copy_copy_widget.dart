@@ -299,7 +299,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                 }
                               }(),
                               width: 409.6,
-                              height: 876.8,
+                              height: MediaQuery.sizeOf(context).height * 1.0,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -308,7 +308,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
                       ),
                       Container(
                         width: double.infinity,
-                        height: 1165.6,
+                        height: MediaQuery.sizeOf(context).height * 1.0,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
@@ -331,6 +331,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
                             child: Stack(
                               children: [
                                 SingleChildScrollView(
+                                  primary: false,
                                   controller: _model.columnController2,
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -816,6 +817,10 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                                                                         'songTitle': serializeParam(
                                                                                                           FFAppState().SoundscapesAllTab.take(5).toList().elementAtOrNull(1)?.songTitle,
                                                                                                           ParamType.String,
+                                                                                                        ),
+                                                                                                        'songNumber': serializeParam(
+                                                                                                          FFAppState().currentMediaIndex,
+                                                                                                          ParamType.int,
                                                                                                         ),
                                                                                                       }.withoutNulls,
                                                                                                       extra: <String, dynamic>{
@@ -1765,20 +1770,61 @@ am... */
                                                                                                     ),
                                                                                                   ],
                                                                                                 ),
-                                                                                                Text(
-                                                                                                  FFLocalizations.of(context).getText(
-                                                                                                    '30s3xdcy' /* See all */,
-                                                                                                  ),
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        font: GoogleFonts.inter(
+                                                                                                InkWell(
+                                                                                                  splashColor: Colors.transparent,
+                                                                                                  focusColor: Colors.transparent,
+                                                                                                  hoverColor: Colors.transparent,
+                                                                                                  highlightColor: Colors.transparent,
+                                                                                                  onTap: () async {
+                                                                                                    logFirebaseEvent('A_I_SOUNDSCAPES_COPY_COPY_COPY_Text_2xf7');
+                                                                                                    logFirebaseEvent('Text_haptic_feedback');
+                                                                                                    HapticFeedback.heavyImpact();
+                                                                                                    logFirebaseEvent('Text_navigate_to');
+
+                                                                                                    context.pushNamed(
+                                                                                                      SoundscapesSeeAllPageMusicMeditationsWidget.routeName,
+                                                                                                      queryParameters: {
+                                                                                                        'songUrl': serializeParam(
+                                                                                                          FFAppState().SoundscapesMusicMeditationsTab.firstOrNull?.songUrl,
+                                                                                                          ParamType.String,
+                                                                                                        ),
+                                                                                                        'albumArt': serializeParam(
+                                                                                                          FFAppState().SoundscapesMusicMeditationsTab.firstOrNull?.albumArt,
+                                                                                                          ParamType.String,
+                                                                                                        ),
+                                                                                                        'songTitle': serializeParam(
+                                                                                                          FFAppState().SoundscapesMusicMeditationsTab.firstOrNull?.songTitle,
+                                                                                                          ParamType.String,
+                                                                                                        ),
+                                                                                                        'songNumber': serializeParam(
+                                                                                                          FFAppState().SoundscapesMusicMeditationsTab.length,
+                                                                                                          ParamType.int,
+                                                                                                        ),
+                                                                                                      }.withoutNulls,
+                                                                                                      extra: <String, dynamic>{
+                                                                                                        '__transition_info__': TransitionInfo(
+                                                                                                          hasTransition: true,
+                                                                                                          transitionType: PageTransitionType.fade,
+                                                                                                          duration: Duration(milliseconds: 9),
+                                                                                                        ),
+                                                                                                      },
+                                                                                                    );
+                                                                                                  },
+                                                                                                  child: Text(
+                                                                                                    FFLocalizations.of(context).getText(
+                                                                                                      '30s3xdcy' /* See all */,
+                                                                                                    ),
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          font: GoogleFonts.inter(
+                                                                                                            fontWeight: FontWeight.w600,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                          ),
+                                                                                                          color: FlutterFlowTheme.of(context).tertiary,
+                                                                                                          letterSpacing: 0.0,
                                                                                                           fontWeight: FontWeight.w600,
                                                                                                           fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                         ),
-                                                                                                        color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.w600,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                      ),
+                                                                                                  ),
                                                                                                 ),
                                                                                               ],
                                                                                             ),
@@ -2370,20 +2416,61 @@ am... */
                                                                                                     ),
                                                                                                   ],
                                                                                                 ),
-                                                                                                Text(
-                                                                                                  FFLocalizations.of(context).getText(
-                                                                                                    '5h2xik38' /* See all */,
-                                                                                                  ),
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        font: GoogleFonts.inter(
+                                                                                                InkWell(
+                                                                                                  splashColor: Colors.transparent,
+                                                                                                  focusColor: Colors.transparent,
+                                                                                                  hoverColor: Colors.transparent,
+                                                                                                  highlightColor: Colors.transparent,
+                                                                                                  onTap: () async {
+                                                                                                    logFirebaseEvent('A_I_SOUNDSCAPES_COPY_COPY_COPY_Text_dsgq');
+                                                                                                    logFirebaseEvent('Text_haptic_feedback');
+                                                                                                    HapticFeedback.heavyImpact();
+                                                                                                    logFirebaseEvent('Text_navigate_to');
+
+                                                                                                    context.pushNamed(
+                                                                                                      SoundscapesSeeAllPageNatureWidget.routeName,
+                                                                                                      queryParameters: {
+                                                                                                        'songUrl': serializeParam(
+                                                                                                          FFAppState().SoundscapesNatureTab.firstOrNull?.songUrl,
+                                                                                                          ParamType.String,
+                                                                                                        ),
+                                                                                                        'albumArt': serializeParam(
+                                                                                                          FFAppState().SoundscapesNatureTab.firstOrNull?.albumArt,
+                                                                                                          ParamType.String,
+                                                                                                        ),
+                                                                                                        'songTitle': serializeParam(
+                                                                                                          FFAppState().SoundscapesNatureTab.firstOrNull?.songTitle,
+                                                                                                          ParamType.String,
+                                                                                                        ),
+                                                                                                        'songNumber': serializeParam(
+                                                                                                          FFAppState().SoundscapesNatureTab.length,
+                                                                                                          ParamType.int,
+                                                                                                        ),
+                                                                                                      }.withoutNulls,
+                                                                                                      extra: <String, dynamic>{
+                                                                                                        '__transition_info__': TransitionInfo(
+                                                                                                          hasTransition: true,
+                                                                                                          transitionType: PageTransitionType.fade,
+                                                                                                          duration: Duration(milliseconds: 9),
+                                                                                                        ),
+                                                                                                      },
+                                                                                                    );
+                                                                                                  },
+                                                                                                  child: Text(
+                                                                                                    FFLocalizations.of(context).getText(
+                                                                                                      '5h2xik38' /* See all */,
+                                                                                                    ),
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          font: GoogleFonts.inter(
+                                                                                                            fontWeight: FontWeight.w600,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                          ),
+                                                                                                          color: FlutterFlowTheme.of(context).tertiary,
+                                                                                                          letterSpacing: 0.0,
                                                                                                           fontWeight: FontWeight.w600,
                                                                                                           fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                         ),
-                                                                                                        color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.w600,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                      ),
+                                                                                                  ),
                                                                                                 ),
                                                                                               ],
                                                                                             ),
@@ -2844,20 +2931,61 @@ am... */
                                                                                                     ),
                                                                                                   ],
                                                                                                 ),
-                                                                                                Text(
-                                                                                                  FFLocalizations.of(context).getText(
-                                                                                                    'p19tdm31' /* See all */,
-                                                                                                  ),
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        font: GoogleFonts.inter(
+                                                                                                InkWell(
+                                                                                                  splashColor: Colors.transparent,
+                                                                                                  focusColor: Colors.transparent,
+                                                                                                  hoverColor: Colors.transparent,
+                                                                                                  highlightColor: Colors.transparent,
+                                                                                                  onTap: () async {
+                                                                                                    logFirebaseEvent('A_I_SOUNDSCAPES_COPY_COPY_COPY_Text_rktg');
+                                                                                                    logFirebaseEvent('Text_haptic_feedback');
+                                                                                                    HapticFeedback.heavyImpact();
+                                                                                                    logFirebaseEvent('Text_navigate_to');
+
+                                                                                                    context.pushNamed(
+                                                                                                      SoundscapesSeeAllPageFocusWidget.routeName,
+                                                                                                      queryParameters: {
+                                                                                                        'songUrl': serializeParam(
+                                                                                                          FFAppState().SoundscapesFocusTab.firstOrNull?.songUrl,
+                                                                                                          ParamType.String,
+                                                                                                        ),
+                                                                                                        'albumArt': serializeParam(
+                                                                                                          FFAppState().SoundscapesFocusTab.firstOrNull?.albumArt,
+                                                                                                          ParamType.String,
+                                                                                                        ),
+                                                                                                        'songTitle': serializeParam(
+                                                                                                          FFAppState().SoundscapesFocusTab.firstOrNull?.songTitle,
+                                                                                                          ParamType.String,
+                                                                                                        ),
+                                                                                                        'songNumber': serializeParam(
+                                                                                                          FFAppState().SoundscapesFocusTab.length,
+                                                                                                          ParamType.int,
+                                                                                                        ),
+                                                                                                      }.withoutNulls,
+                                                                                                      extra: <String, dynamic>{
+                                                                                                        '__transition_info__': TransitionInfo(
+                                                                                                          hasTransition: true,
+                                                                                                          transitionType: PageTransitionType.fade,
+                                                                                                          duration: Duration(milliseconds: 9),
+                                                                                                        ),
+                                                                                                      },
+                                                                                                    );
+                                                                                                  },
+                                                                                                  child: Text(
+                                                                                                    FFLocalizations.of(context).getText(
+                                                                                                      'p19tdm31' /* See all */,
+                                                                                                    ),
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          font: GoogleFonts.inter(
+                                                                                                            fontWeight: FontWeight.w600,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                          ),
+                                                                                                          color: FlutterFlowTheme.of(context).tertiary,
+                                                                                                          letterSpacing: 0.0,
                                                                                                           fontWeight: FontWeight.w600,
                                                                                                           fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                         ),
-                                                                                                        color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.w600,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                      ),
+                                                                                                  ),
                                                                                                 ),
                                                                                               ],
                                                                                             ),
@@ -3463,27 +3591,31 @@ am... */
                                                                                                   onTap: () async {
                                                                                                     logFirebaseEvent('A_I_SOUNDSCAPES_COPY_COPY_COPY_Text_1os2');
                                                                                                     logFirebaseEvent('Text_haptic_feedback');
-                                                                                                    HapticFeedback.lightImpact();
-                                                                                                    logFirebaseEvent('Text_play_sound');
-                                                                                                    _model.soundPlayer17 ??= AudioPlayer();
-                                                                                                    if (_model.soundPlayer17!.playing) {
-                                                                                                      await _model.soundPlayer17!.stop();
-                                                                                                    }
-                                                                                                    _model.soundPlayer17!.setVolume(1.0);
-                                                                                                    _model.soundPlayer17!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer17!.play());
-
+                                                                                                    HapticFeedback.heavyImpact();
                                                                                                     logFirebaseEvent('Text_navigate_to');
 
                                                                                                     context.pushNamed(
-                                                                                                      $that_audio_player_oo85ab.PlayerPageFINALAllTabWidget.routeName,
+                                                                                                      SoundscapesSeeAllPageSleepWidget.routeName,
                                                                                                       queryParameters: {
-                                                                                                        'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
-                                                                                                          that_audio_player_oo85ab_app_state.FFAppState().currentMediaAllTab.firstOrNull,
-                                                                                                          that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
+                                                                                                        'songUrl': serializeParam(
+                                                                                                          FFAppState().SoundscapesSleepTab.firstOrNull?.songUrl,
+                                                                                                          ParamType.String,
+                                                                                                        ),
+                                                                                                        'albumArt': serializeParam(
+                                                                                                          FFAppState().SoundscapesSleepTab.firstOrNull?.albumArt,
+                                                                                                          ParamType.String,
+                                                                                                        ),
+                                                                                                        'songTitle': serializeParam(
+                                                                                                          FFAppState().SoundscapesSleepTab.firstOrNull?.songTitle,
+                                                                                                          ParamType.String,
+                                                                                                        ),
+                                                                                                        'songNumber': serializeParam(
+                                                                                                          FFAppState().SoundscapesSleepTab.length,
+                                                                                                          ParamType.int,
                                                                                                         ),
                                                                                                       }.withoutNulls,
                                                                                                       extra: <String, dynamic>{
-                                                                                                        '__transition_info__that_audio_player_oo85ab': TransitionInfo(
+                                                                                                        '__transition_info__': TransitionInfo(
                                                                                                           hasTransition: true,
                                                                                                           transitionType: PageTransitionType.fade,
                                                                                                           duration: Duration(milliseconds: 9),
@@ -3548,12 +3680,12 @@ am... */
                                                                                                                     logFirebaseEvent('Container_haptic_feedback');
                                                                                                                     HapticFeedback.mediumImpact();
                                                                                                                     logFirebaseEvent('Container_play_sound');
-                                                                                                                    _model.soundPlayer18 ??= AudioPlayer();
-                                                                                                                    if (_model.soundPlayer18!.playing) {
-                                                                                                                      await _model.soundPlayer18!.stop();
+                                                                                                                    _model.soundPlayer17 ??= AudioPlayer();
+                                                                                                                    if (_model.soundPlayer17!.playing) {
+                                                                                                                      await _model.soundPlayer17!.stop();
                                                                                                                     }
-                                                                                                                    _model.soundPlayer18!.setVolume(1.0);
-                                                                                                                    _model.soundPlayer18!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) => _model.soundPlayer18!.play());
+                                                                                                                    _model.soundPlayer17!.setVolume(1.0);
+                                                                                                                    _model.soundPlayer17!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) => _model.soundPlayer17!.play());
 
                                                                                                                     logFirebaseEvent('Container_custom_action');
                                                                                                                     await that_audio_player_oo85ab_actions.initializeThatAudioPlayerForPlaylists(
@@ -3772,12 +3904,12 @@ am... */
                                                                                                             logFirebaseEvent('Container_haptic_feedback');
                                                                                                             HapticFeedback.mediumImpact();
                                                                                                             logFirebaseEvent('Container_play_sound');
-                                                                                                            _model.soundPlayer19 ??= AudioPlayer();
-                                                                                                            if (_model.soundPlayer19!.playing) {
-                                                                                                              await _model.soundPlayer19!.stop();
+                                                                                                            _model.soundPlayer18 ??= AudioPlayer();
+                                                                                                            if (_model.soundPlayer18!.playing) {
+                                                                                                              await _model.soundPlayer18!.stop();
                                                                                                             }
-                                                                                                            _model.soundPlayer19!.setVolume(1.0);
-                                                                                                            _model.soundPlayer19!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) => _model.soundPlayer19!.play());
+                                                                                                            _model.soundPlayer18!.setVolume(1.0);
+                                                                                                            _model.soundPlayer18!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) => _model.soundPlayer18!.play());
 
                                                                                                             logFirebaseEvent('Container_custom_action');
                                                                                                             await that_audio_player_oo85ab_actions.initializeThatAudioPlayerForPlaylists(
@@ -3943,12 +4075,12 @@ am... */
                                                                                                             logFirebaseEvent('Container_haptic_feedback');
                                                                                                             HapticFeedback.lightImpact();
                                                                                                             logFirebaseEvent('Container_play_sound');
-                                                                                                            _model.soundPlayer20 ??= AudioPlayer();
-                                                                                                            if (_model.soundPlayer20!.playing) {
-                                                                                                              await _model.soundPlayer20!.stop();
+                                                                                                            _model.soundPlayer19 ??= AudioPlayer();
+                                                                                                            if (_model.soundPlayer19!.playing) {
+                                                                                                              await _model.soundPlayer19!.stop();
                                                                                                             }
-                                                                                                            _model.soundPlayer20!.setVolume(1.0);
-                                                                                                            _model.soundPlayer20!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer20!.play());
+                                                                                                            _model.soundPlayer19!.setVolume(1.0);
+                                                                                                            _model.soundPlayer19!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer19!.play());
 
                                                                                                             logFirebaseEvent('Container_navigate_to');
 

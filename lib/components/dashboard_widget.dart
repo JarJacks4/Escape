@@ -148,7 +148,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       .fontStyle,
                                 ),
                                 color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 18.0,
+                                fontSize: 22.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
                                 fontStyle: FlutterFlowTheme.of(context)
@@ -498,6 +498,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         .fontStyle,
                                   ),
                                   color: FlutterFlowTheme.of(context).primary,
+                                  fontSize: 22.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                   fontStyle: FlutterFlowTheme.of(context)
@@ -695,10 +696,7 @@ Progress */
                                           FlutterFlowTheme.of(context).accent4,
                                       center: Text(
                                         valueOrDefault<String>(
-                                          formatNumber(
-                                            FFAppState().pointsEarned,
-                                            formatType: FormatType.percent,
-                                          ),
+                                          FFAppState().pointsEarned.toString(),
                                           '0',
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -724,6 +722,7 @@ Progress */
                                                       .headlineSmall
                                                       .fontStyle,
                                             ),
+                                        overflow: TextOverflow.fade,
                                       ),
                                       startAngle: 45.0,
                                     ),
@@ -822,7 +821,7 @@ Progress */
                                                           ),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .alternate,
+                                                              .secondary,
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:

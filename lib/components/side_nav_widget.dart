@@ -815,7 +815,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                         'contentView_1_navigate_to');
 
                                     context.pushNamed(
-                                      ProfileVersion5Widget.routeName,
+                                      DashboardPageWidget.routeName,
                                       extra: <String, dynamic>{
                                         '__transition_info__': TransitionInfo(
                                           hasTransition: true,

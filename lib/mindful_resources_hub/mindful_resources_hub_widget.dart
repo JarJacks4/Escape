@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/activity_card_widget.dart';
 import '/components/pie_chart_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -275,25 +276,43 @@ class _MindfulResourcesHubWidgetState extends State<MindfulResourcesHubWidget> {
                                                     .fontStyle,
                                           ),
                                     ),
-                                    wrapWithModel(
-                                      model: _model.pieChartModel,
-                                      updateCallback: () => safeSetState(() {}),
-                                      child: PieChartWidget(
-                                        data: '45,30,15,10',
-                                        labels: 'Happy,Calm,Anxious,Sad',
-                                        colors: 'success,primary,warning,error',
-                                        centerValue: '',
-                                        centerValuePresent: false,
-                                        centerLabel: '',
-                                        centerLabelPresent: false,
-                                        animate: false,
-                                        startAngle: -90.0,
-                                        variant: 'donut',
-                                        size: 'medium',
-                                        legend: 'bottom',
-                                        legendValue: 'percent',
-                                        ring: 'medium',
-                                        gap: 'tight',
+                                    AuthUserStreamWidget(
+                                      builder: (context) => wrapWithModel(
+                                        model: _model.pieChartModel,
+                                        updateCallback: () =>
+                                            safeSetState(() {}),
+                                        child: Hero(
+                                          tag: 'charts',
+                                          transitionOnUserGestures: true,
+                                          child: Material(
+                                            color: Colors.transparent,
+                                            child: PieChartWidget(
+                                              data: valueOrDefault(
+                                                  currentUserDocument
+                                                      ?.currentMood,
+                                                  ''),
+                                              labels:
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'k4yf7zlv' /* Happy,Calm,Anxious,Sad */,
+                                              ),
+                                              colors:
+                                                  'success,primary,warning,error',
+                                              centerValue: '',
+                                              centerValuePresent: false,
+                                              centerLabel: '',
+                                              centerLabelPresent: false,
+                                              animate: true,
+                                              startAngle: -90.0,
+                                              variant: 'donut',
+                                              size: 'medium',
+                                              legend: 'bottom',
+                                              legendValue: 'percent',
+                                              ring: 'medium',
+                                              gap: 'tight',
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                     Row(

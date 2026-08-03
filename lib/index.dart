@@ -74,7 +74,6 @@ export '/destination_details_unreal_engine_version5/destination_details_unreal_e
     show DestinationDetailsUnrealEngineVersion5Widget;
 export '/chat_g_p_t_component/chat_ai_screen_1/chat_ai_screen1_widget.dart'
     show ChatAiScreen1Widget;
-export '/soundscapes/soundscapes_widget.dart' show SoundscapesWidget;
 export '/tabbar/tabbar_widget.dart' show TabbarWidget;
 export '/home_version5/home_version5_widget.dart' show HomeVersion5Widget;
 export '/reset_page/reset_page_widget.dart' show ResetPageWidget;
@@ -266,3 +265,11 @@ export '/text_journal_version5/text_journal_version5_widget.dart'
     show TextJournalVersion5Widget;
 export '/health_journal_copy/health_journal_copy_widget.dart'
     show HealthJournalCopyWidget;
+export '/soundscapes_see_all_page_music_meditations/soundscapes_see_all_page_music_meditations_widget.dart'
+    show SoundscapesSeeAllPageMusicMeditationsWidget;
+export '/soundscapes_see_all_page_nature/soundscapes_see_all_page_nature_widget.dart'
+    show SoundscapesSeeAllPageNatureWidget;
+export '/soundscapes_see_all_page_sleep/soundscapes_see_all_page_sleep_widget.dart'
+    show SoundscapesSeeAllPageSleepWidget;
+export '/soundscapes_see_all_page_focus/soundscapes_see_all_page_focus_widget.dart'
+    show SoundscapesSeeAllPageFocusWidget;
