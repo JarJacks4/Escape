@@ -235,8 +235,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'LucilleHome': LucilleHomeWidget(),
       'ExplorePageVersion5FINAL': ExplorePageVersion5FINALWidget(),
       'AISoundscapesCopyCopyCopy': AISoundscapesCopyCopyCopyWidget(),
-      'ConnectionCommunityStartPageVersion5':
-          ConnectionCommunityStartPageVersion5Widget(),
+      'MarketplaceVersion5': MarketplaceVersion5Widget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -307,15 +306,11 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.people_outline,
-                size: 24.0,
-              ),
-              activeIcon: FaIcon(
-                FontAwesomeIcons.peopleCarry,
+                FFIcons.kmarket,
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                'cly8mku8' /* Community */,
+                '6kelildm' /* Market */,
               ),
               tooltip: '',
             )

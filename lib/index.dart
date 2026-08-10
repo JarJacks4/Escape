@@ -287,3 +287,19 @@ export '/explore_page_version5_f_i_n_a_l/explore_page_version5_f_i_n_a_l_widget.
 export '/marketplace_version5/marketplace_version5_widget.dart'
     show MarketplaceVersion5Widget;
 export '/lucille_home/lucille_home_widget.dart' show LucilleHomeWidget;
+export '/a_i_soundscapes_copy_copy_copy_copy/a_i_soundscapes_copy_copy_copy_copy_widget.dart'
+    show AISoundscapesCopyCopyCopyCopyWidget;
+export '/relax_soundscape_details/relax_soundscape_details_widget.dart'
+    show RelaxSoundscapeDetailsWidget;
+export '/a_i_soundscapes_f_i_n_a_l/a_i_soundscapes_f_i_n_a_l_widget.dart'
+    show AISoundscapesFINALWidget;
+export '/soundscapes_details/soundscapes_details_widget.dart'
+    show SoundscapesDetailsWidget;
+export '/soundscapes_playlists/soundscapes_playlists_widget.dart'
+    show SoundscapesPlaylistsWidget;
+export '/could_i_get_page/could_i_get_page_widget.dart'
+    show CouldIGetPageWidget;
+export '/soundscapes_playlists_copy/soundscapes_playlists_copy_widget.dart'
+    show SoundscapesPlaylistsCopyWidget;
+export '/coming_soon_chakra_journey/coming_soon_chakra_journey_widget.dart'
+    show ComingSoonChakraJourneyWidget;
