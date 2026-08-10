@@ -29,6 +29,7 @@ export 'maxres_struct.dart';
 export 'medium_struct.dart';
 export 'mood_scanned_struct.dart';
 export 'page_info_struct.dart';
+export 'recently_played_music_struct.dart';
 export 'recommendations_struct.dart';
 export 'resource_id_struct.dart';
 export 'snippet_struct.dart';

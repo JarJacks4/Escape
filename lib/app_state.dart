@@ -153,6 +153,21 @@ class FFAppState extends ChangeNotifier {
       _energyScore =
           await secureStorage.getInt('ff_energyScore') ?? _energyScore;
     });
+    await _safeInitAsync(() async {
+      _recentlyPlayed = (await secureStorage.getStringList('ff_recentlyPlayed'))
+              ?.map((x) {
+                try {
+                  return RecentlyPlayedMusicStruct.fromSerializableMap(
+                      jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _recentlyPlayed;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -2104,6 +2119,52 @@ class FFAppState extends ChangeNotifier {
       _recommendedExercisesMoodScanManager.clear();
   void clearRecommendedExercisesMoodScanCacheKey(String? uniqueKey) =>
       _recommendedExercisesMoodScanManager.clearRequest(uniqueKey);
+
+  List<RecentlyPlayedMusicStruct> _recentlyPlayed = [];
+  List<RecentlyPlayedMusicStruct> get recentlyPlayed => _recentlyPlayed;
+  set recentlyPlayed(List<RecentlyPlayedMusicStruct> value) {
+    _recentlyPlayed = value;
+    secureStorage.setStringList(
+        'ff_recentlyPlayed', value.map((x) => x.serialize()).toList());
+  }
+
+  void deleteRecentlyPlayed() {
+    secureStorage.delete(key: 'ff_recentlyPlayed');
+  }
+
+  void addToRecentlyPlayed(RecentlyPlayedMusicStruct value) {
+    recentlyPlayed.add(value);
+    secureStorage.setStringList('ff_recentlyPlayed',
+        _recentlyPlayed.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromRecentlyPlayed(RecentlyPlayedMusicStruct value) {
+    recentlyPlayed.remove(value);
+    secureStorage.setStringList('ff_recentlyPlayed',
+        _recentlyPlayed.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromRecentlyPlayed(int index) {
+    recentlyPlayed.removeAt(index);
+    secureStorage.setStringList('ff_recentlyPlayed',
+        _recentlyPlayed.map((x) => x.serialize()).toList());
+  }
+
+  void updateRecentlyPlayedAtIndex(
+    int index,
+    RecentlyPlayedMusicStruct Function(RecentlyPlayedMusicStruct) updateFn,
+  ) {
+    recentlyPlayed[index] = updateFn(_recentlyPlayed[index]);
+    secureStorage.setStringList('ff_recentlyPlayed',
+        _recentlyPlayed.map((x) => x.serialize()).toList());
+  }
+
+  void insertAtIndexInRecentlyPlayed(
+      int index, RecentlyPlayedMusicStruct value) {
+    recentlyPlayed.insert(index, value);
+    secureStorage.setStringList('ff_recentlyPlayed',
+        _recentlyPlayed.map((x) => x.serialize()).toList());
+  }
 }
 
 void _safeInit(Function() initializeField) {
