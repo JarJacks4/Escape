@@ -234,7 +234,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'HomeVersion5': HomeVersion5Widget(),
       'LucilleHome': LucilleHomeWidget(),
       'ExplorePageVersion5FINAL': ExplorePageVersion5FINALWidget(),
-      'AISoundscapesCopyCopyCopy': AISoundscapesCopyCopyCopyWidget(),
+      'AISoundscapesFINAL': AISoundscapesFINALWidget(),
       'MarketplaceVersion5': MarketplaceVersion5Widget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);

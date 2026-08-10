@@ -847,6 +847,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
                       ),
                     )),
           FFRoute(
+              name: AISoundscapesFINALWidget.routeName,
+              path: AISoundscapesFINALWidget.routePath,
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'AISoundscapesFINAL')
+                  : NavBarPage(
+                      initialPage: 'AISoundscapesFINAL',
+                      page: AISoundscapesFINALWidget(
+                        meditationaudio: params.getParam(
+                          'meditationaudio',
+                          ParamType.String,
+                        ),
+                      ),
+                    )),
+          FFRoute(
             name: ResetPageCopyWidget.routeName,
             path: ResetPageCopyWidget.routePath,
             builder: (context, params) => ResetPageCopyWidget(),

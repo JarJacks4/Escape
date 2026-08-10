@@ -66719,4 +66719,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Market',
     },
   },
+  {
+    'k2k45i5p': {
+      'en': 'Sound',
+    },
+  },
 ].reduce((a, b) => a..addAll(b));
