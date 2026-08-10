@@ -34,11 +34,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'a_i_soundscapes_copy_copy_copy_copy_copy_model.dart';
-export 'a_i_soundscapes_copy_copy_copy_copy_copy_model.dart';
+import 'a_i_soundscapes_f_i_n_a_l_model.dart';
+export 'a_i_soundscapes_f_i_n_a_l_model.dart';
 
-class AISoundscapesCopyCopyCopyCopyCopyWidget extends StatefulWidget {
-  const AISoundscapesCopyCopyCopyCopyCopyWidget({
+class AISoundscapesFINALWidget extends StatefulWidget {
+  const AISoundscapesFINALWidget({
     super.key,
     String? meditationaudio,
   }) : this.meditationaudio = meditationaudio ??
@@ -46,18 +46,17 @@ class AISoundscapesCopyCopyCopyCopyCopyWidget extends StatefulWidget {
 
   final String meditationaudio;
 
-  static String routeName = 'AISoundscapesCopyCopyCopyCopyCopy';
-  static String routePath = '/aISoundscapesCopyCopyCopyCopyCopy';
+  static String routeName = 'AISoundscapesFINAL';
+  static String routePath = '/aISoundscapesFINAL';
 
   @override
-  State<AISoundscapesCopyCopyCopyCopyCopyWidget> createState() =>
-      _AISoundscapesCopyCopyCopyCopyCopyWidgetState();
+  State<AISoundscapesFINALWidget> createState() =>
+      _AISoundscapesFINALWidgetState();
 }
 
-class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
-    extends State<AISoundscapesCopyCopyCopyCopyCopyWidget>
+class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
     with TickerProviderStateMixin {
-  late AISoundscapesCopyCopyCopyCopyCopyModel _model;
+  late AISoundscapesFINALModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -66,21 +65,20 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
   @override
   void initState() {
     super.initState();
-    _model =
-        createModel(context, () => AISoundscapesCopyCopyCopyCopyCopyModel());
+    _model = createModel(context, () => AISoundscapesFINALModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'AISoundscapesCopyCopyCopyCopyCopy'});
+        parameters: {'screen_name': 'AISoundscapesFINAL'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
-      logFirebaseEvent('AISoundscapesCopyCopyCopyCopyCopy_update');
+      logFirebaseEvent('A_I_SOUNDSCAPES_F_I_N_A_L_AISoundscapesF');
+      logFirebaseEvent('AISoundscapesFINAL_update_app_state');
       FFAppState().isAllTab = true;
       safeSetState(() {});
       if (FFAppState().isFirstTimeUserSoundscapes) {
-        logFirebaseEvent('AISoundscapesCopyCopyCopyCopyCopy_haptic');
+        logFirebaseEvent('AISoundscapesFINAL_haptic_feedback');
         HapticFeedback.vibrate();
-        logFirebaseEvent('AISoundscapesCopyCopyCopyCopyCopy_bottom');
+        logFirebaseEvent('AISoundscapesFINAL_bottom_sheet');
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -398,7 +396,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                                     .transparent,
                                                             onTap: () async {
                                                               logFirebaseEvent(
-                                                                  'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                                  'A_I_SOUNDSCAPES_F_I_N_A_L_Image_ljk2bbzp');
                                                               logFirebaseEvent(
                                                                   'Image_haptic_feedback');
                                                               HapticFeedback
@@ -778,7 +776,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                     Colors.transparent,
                                                 onTap: () async {
                                                   logFirebaseEvent(
-                                                      'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                      'A_I_SOUNDSCAPES_F_I_N_A_L_Text_ON_TAP');
                                                   logFirebaseEvent(
                                                       'Text_haptic_feedback');
                                                   HapticFeedback.heavyImpact();
@@ -900,7 +898,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                             Colors.transparent,
                                                         onTap: () async {
                                                           logFirebaseEvent(
-                                                              'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                              'A_I_SOUNDSCAPES_F_I_N_A_L_SoundscapeCard');
                                                           logFirebaseEvent(
                                                               'SoundscapeCard_haptic_feedback');
                                                           HapticFeedback
@@ -1119,7 +1117,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                     Colors.transparent,
                                                 onTap: () async {
                                                   logFirebaseEvent(
-                                                      'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                      'A_I_SOUNDSCAPES_F_I_N_A_L_Text_ON_TAP');
                                                   logFirebaseEvent(
                                                       'Text_haptic_feedback');
                                                   HapticFeedback.heavyImpact();
@@ -1523,7 +1521,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                     ),
                                                     onPressed: () async {
                                                       logFirebaseEvent(
-                                                          'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                          'A_I_SOUNDSCAPES_F_I_N_A_L_IconButton_ON_');
                                                       logFirebaseEvent(
                                                           'IconButton_haptic_feedback');
                                                       HapticFeedback
@@ -1794,7 +1792,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       logFirebaseEvent(
-                                                          'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                          'A_I_SOUNDSCAPES_F_I_N_A_L_Text_ON_TAP');
                                                       logFirebaseEvent(
                                                           'Text_haptic_feedback');
                                                       HapticFeedback
@@ -1923,7 +1921,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                                     .transparent,
                                                             onTap: () async {
                                                               logFirebaseEvent(
-                                                                  'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                                  'A_I_SOUNDSCAPES_F_I_N_A_L_SoundscapeCard');
                                                               logFirebaseEvent(
                                                                   'SoundscapeCard_haptic_feedback');
                                                               HapticFeedback
@@ -2476,7 +2474,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                         ),
                                                         onPressed: () async {
                                                           logFirebaseEvent(
-                                                              'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                              'A_I_SOUNDSCAPES_F_I_N_A_L_IconButton_ON_');
                                                           logFirebaseEvent(
                                                               'IconButton_haptic_feedback');
                                                           HapticFeedback
@@ -2750,7 +2748,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       logFirebaseEvent(
-                                                          'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                          'A_I_SOUNDSCAPES_F_I_N_A_L_Text_ON_TAP');
                                                       logFirebaseEvent(
                                                           'Text_haptic_feedback');
                                                       HapticFeedback
@@ -2879,7 +2877,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                                     .transparent,
                                                             onTap: () async {
                                                               logFirebaseEvent(
-                                                                  'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                                  'A_I_SOUNDSCAPES_F_I_N_A_L_SoundscapeCard');
                                                               logFirebaseEvent(
                                                                   'SoundscapeCard_haptic_feedback');
                                                               HapticFeedback
@@ -3111,7 +3109,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       logFirebaseEvent(
-                                                          'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                          'A_I_SOUNDSCAPES_F_I_N_A_L_Text_ON_TAP');
                                                       logFirebaseEvent(
                                                           'Text_haptic_feedback');
                                                       HapticFeedback
@@ -3526,7 +3524,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                         ),
                                                         onPressed: () async {
                                                           logFirebaseEvent(
-                                                              'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                              'A_I_SOUNDSCAPES_F_I_N_A_L_IconButton_ON_');
                                                           logFirebaseEvent(
                                                               'IconButton_haptic_feedback');
                                                           HapticFeedback
@@ -3800,7 +3798,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       logFirebaseEvent(
-                                                          'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                          'A_I_SOUNDSCAPES_F_I_N_A_L_Text_ON_TAP');
                                                       logFirebaseEvent(
                                                           'Text_haptic_feedback');
                                                       HapticFeedback
@@ -3929,7 +3927,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                                     .transparent,
                                                             onTap: () async {
                                                               logFirebaseEvent(
-                                                                  'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                                  'A_I_SOUNDSCAPES_F_I_N_A_L_SoundscapeCard');
                                                               logFirebaseEvent(
                                                                   'SoundscapeCard_haptic_feedback');
                                                               HapticFeedback
@@ -4161,7 +4159,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       logFirebaseEvent(
-                                                          'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                          'A_I_SOUNDSCAPES_F_I_N_A_L_Text_ON_TAP');
                                                       logFirebaseEvent(
                                                           'Text_haptic_feedback');
                                                       HapticFeedback
@@ -4576,7 +4574,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                         ),
                                                         onPressed: () async {
                                                           logFirebaseEvent(
-                                                              'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                              'A_I_SOUNDSCAPES_F_I_N_A_L_IconButton_ON_');
                                                           logFirebaseEvent(
                                                               'IconButton_haptic_feedback');
                                                           HapticFeedback
@@ -4850,7 +4848,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       logFirebaseEvent(
-                                                          'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                          'A_I_SOUNDSCAPES_F_I_N_A_L_Text_ON_TAP');
                                                       logFirebaseEvent(
                                                           'Text_haptic_feedback');
                                                       HapticFeedback
@@ -4972,7 +4970,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                                     .transparent,
                                                             onTap: () async {
                                                               logFirebaseEvent(
-                                                                  'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                                  'A_I_SOUNDSCAPES_F_I_N_A_L_SoundscapeCard');
                                                               logFirebaseEvent(
                                                                   'SoundscapeCard_haptic_feedback');
                                                               HapticFeedback
@@ -5204,7 +5202,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       logFirebaseEvent(
-                                                          'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                          'A_I_SOUNDSCAPES_F_I_N_A_L_Text_ON_TAP');
                                                       logFirebaseEvent(
                                                           'Text_haptic_feedback');
                                                       HapticFeedback
@@ -5310,7 +5308,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                             Colors.transparent,
                                                         onTap: () async {
                                                           logFirebaseEvent(
-                                                              'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                              'A_I_SOUNDSCAPES_F_I_N_A_L_MoodCategoryCa');
                                                           logFirebaseEvent(
                                                               'MoodCategoryCard_haptic_feedback');
                                                           HapticFeedback
@@ -5379,7 +5377,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                             Colors.transparent,
                                                         onTap: () async {
                                                           logFirebaseEvent(
-                                                              'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                              'A_I_SOUNDSCAPES_F_I_N_A_L_MoodCategoryCa');
                                                           logFirebaseEvent(
                                                               'MoodCategoryCard_haptic_feedback');
                                                           HapticFeedback
@@ -5449,7 +5447,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                             Colors.transparent,
                                                         onTap: () async {
                                                           logFirebaseEvent(
-                                                              'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                              'A_I_SOUNDSCAPES_F_I_N_A_L_MoodCategoryCa');
                                                           logFirebaseEvent(
                                                               'MoodCategoryCard_haptic_feedback');
                                                           HapticFeedback
@@ -5756,7 +5754,7 @@ class _AISoundscapesCopyCopyCopyCopyCopyWidgetState
                                                         ),
                                                         onPressed: () async {
                                                           logFirebaseEvent(
-                                                              'A_I_SOUNDSCAPES_COPY_COPY_COPY_COPY_COPY');
+                                                              'A_I_SOUNDSCAPES_F_I_N_A_L_IconButton_ON_');
                                                           logFirebaseEvent(
                                                               'IconButton_haptic_feedback');
                                                           HapticFeedback

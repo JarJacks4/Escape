@@ -233,10 +233,8 @@ class _NavBarPageState extends State<NavBarPage> {
       'HomeVersion5': HomeVersion5Widget(),
       'LucilleHome': LucilleHomeWidget(),
       'ExplorePageVersion5FINAL': ExplorePageVersion5FINALWidget(),
-      'AISoundscapesCopyCopyCopyCopy': AISoundscapesCopyCopyCopyCopyWidget(),
+      'AISoundscapesFINAL': AISoundscapesFINALWidget(),
       'MarketplaceVersion5': MarketplaceVersion5Widget(),
-      'AISoundscapesCopyCopyCopyCopyCopy':
-          AISoundscapesCopyCopyCopyCopyCopyWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -301,7 +299,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 Icons.surround_sound,
               ),
               label: FFLocalizations.of(context).getText(
-                'lecy0w2a' /* Sound */,
+                'k2k45i5p' /* Sound */,
               ),
               tooltip: '',
             ),
@@ -312,18 +310,6 @@ class _NavBarPageState extends State<NavBarPage> {
               ),
               label: FFLocalizations.of(context).getText(
                 '6kelildm' /* Market */,
-              ),
-              tooltip: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                FFIcons.kmusic1,
-              ),
-              activeIcon: Icon(
-                Icons.surround_sound,
-              ),
-              label: FFLocalizations.of(context).getText(
-                'k2k45i5p' /* Sound */,
               ),
               tooltip: '',
             )

@@ -1179,19 +1179,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         ),
       ),
       FFRoute(
-          name: AISoundscapesCopyCopyCopyCopyWidget.routeName,
-          path: AISoundscapesCopyCopyCopyCopyWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'AISoundscapesCopyCopyCopyCopy')
-              : NavBarPage(
-                  initialPage: 'AISoundscapesCopyCopyCopyCopy',
-                  page: AISoundscapesCopyCopyCopyCopyWidget(
-                    meditationaudio: params.getParam(
-                      'meditationaudio',
-                      ParamType.String,
-                    ),
-                  ),
-                )),
+        name: AISoundscapesCopyCopyCopyCopyWidget.routeName,
+        path: AISoundscapesCopyCopyCopyCopyWidget.routePath,
+        builder: (context, params) => AISoundscapesCopyCopyCopyCopyWidget(
+          meditationaudio: params.getParam(
+            'meditationaudio',
+            ParamType.String,
+          ),
+        ),
+      ),
       FFRoute(
         name: RelaxSoundscapeDetailsWidget.routeName,
         path: RelaxSoundscapeDetailsWidget.routePath,
@@ -1207,13 +1203,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         ),
       ),
       FFRoute(
-          name: AISoundscapesCopyCopyCopyCopyCopyWidget.routeName,
-          path: AISoundscapesCopyCopyCopyCopyCopyWidget.routePath,
+          name: AISoundscapesFINALWidget.routeName,
+          path: AISoundscapesFINALWidget.routePath,
           builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'AISoundscapesCopyCopyCopyCopyCopy')
+              ? NavBarPage(initialPage: 'AISoundscapesFINAL')
               : NavBarPage(
-                  initialPage: 'AISoundscapesCopyCopyCopyCopyCopy',
-                  page: AISoundscapesCopyCopyCopyCopyCopyWidget(
+                  initialPage: 'AISoundscapesFINAL',
+                  page: AISoundscapesFINALWidget(
                     meditationaudio: params.getParam(
                       'meditationaudio',
                       ParamType.String,
