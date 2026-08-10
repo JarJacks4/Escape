@@ -153,7 +153,8 @@ class _MoodStatisticsWidgetState extends State<MoodStatisticsWidget> {
                                                     .headlineLarge
                                                     .fontStyle,
                                           ),
-                                          color: Colors.white,
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
                                           letterSpacing: 0.0,
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
@@ -182,7 +183,8 @@ class _MoodStatisticsWidgetState extends State<MoodStatisticsWidget> {
                                                     .bodyMedium
                                                     .fontStyle,
                                           ),
-                                          color: Color(0xCCFFFFFF),
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
                                           letterSpacing: 0.0,
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
@@ -274,7 +276,9 @@ class _MoodStatisticsWidgetState extends State<MoodStatisticsWidget> {
                                                               .titleMedium
                                                               .fontStyle,
                                                     ),
-                                                    color: Colors.white,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
                                                         FlutterFlowTheme.of(
@@ -534,7 +538,9 @@ class _MoodStatisticsWidgetState extends State<MoodStatisticsWidget> {
                                                                     .titleLarge
                                                                     .fontStyle,
                                                           ),
-                                                          color: Colors.white,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FlutterFlowTheme.of(
@@ -570,7 +576,10 @@ class _MoodStatisticsWidgetState extends State<MoodStatisticsWidget> {
                                                                 .labelMedium
                                                                 .fontStyle,
                                                       ),
-                                                      color: Color(0xB3FFFFFF),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .tertiary,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FlutterFlowTheme.of(
@@ -651,7 +660,9 @@ class _MoodStatisticsWidgetState extends State<MoodStatisticsWidget> {
                                                                     .titleLarge
                                                                     .fontStyle,
                                                           ),
-                                                          color: Colors.white,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FlutterFlowTheme.of(
@@ -687,7 +698,10 @@ class _MoodStatisticsWidgetState extends State<MoodStatisticsWidget> {
                                                                 .labelMedium
                                                                 .fontStyle,
                                                       ),
-                                                      color: Color(0xB3FFFFFF),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FlutterFlowTheme.of(
@@ -731,7 +745,8 @@ class _MoodStatisticsWidgetState extends State<MoodStatisticsWidget> {
                                             .titleLarge
                                             .fontStyle,
                                       ),
-                                      color: Colors.white,
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .titleLarge

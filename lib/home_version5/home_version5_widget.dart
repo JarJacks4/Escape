@@ -363,6 +363,13 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
             begin: 0.15,
             end: 1.0,
           ),
+          ShimmerEffect(
+            curve: Curves.easeIn,
+            delay: 2810.0.ms,
+            duration: 600.0.ms,
+            color: FlutterFlowTheme.of(context).primary,
+            angle: 0.524,
+          ),
         ],
       ),
       'buttonOnPageLoadAnimation': AnimationInfo(
@@ -944,6 +951,23 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                       ),
                                                                                 ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation4']!),
                                                                                 GestureDetector(
+                                                                                  onTap: () async {
+                                                                                    logFirebaseEvent('HOME_VERSION5_Container_gd32i09g_ON_TAP');
+                                                                                    logFirebaseEvent('Container_haptic_feedback');
+                                                                                    HapticFeedback.selectionClick();
+                                                                                    logFirebaseEvent('Container_navigate_to');
+
+                                                                                    context.pushNamed(
+                                                                                      MarketplaceVersion5Widget.routeName,
+                                                                                      extra: <String, dynamic>{
+                                                                                        '__transition_info__': TransitionInfo(
+                                                                                          hasTransition: true,
+                                                                                          transitionType: PageTransitionType.fade,
+                                                                                          duration: Duration(milliseconds: 2),
+                                                                                        ),
+                                                                                      },
+                                                                                    );
+                                                                                  },
                                                                                   onPanStart: (details) async {
                                                                                     logFirebaseEvent('HOME_VERSION5_Container_gd32i09g_ON_PAN_');
                                                                                     logFirebaseEvent('Container_haptic_feedback');
@@ -960,7 +984,9 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                     color: Colors.transparent,
                                                                                     elevation: 2.0,
                                                                                     shape: const CircleBorder(),
-                                                                                    child: Container(
+                                                                                    child: AnimatedContainer(
+                                                                                      duration: Duration(milliseconds: 100),
+                                                                                      curve: Curves.easeOut,
                                                                                       width: 40.0,
                                                                                       height: 40.0,
                                                                                       decoration: BoxDecoration(

@@ -13,7 +13,6 @@ import 'flutter_flow/internationalization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'flutter_flow/firebase_app_check_util.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'index.dart';
 
 import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
@@ -234,9 +233,10 @@ class _NavBarPageState extends State<NavBarPage> {
       'HomeVersion5': HomeVersion5Widget(),
       'LucilleHome': LucilleHomeWidget(),
       'ExplorePageVersion5FINAL': ExplorePageVersion5FINALWidget(),
-      'AISoundscapesCopyCopyCopy': AISoundscapesCopyCopyCopyWidget(),
-      'ConnectionCommunityStartPageVersion5':
-          ConnectionCommunityStartPageVersion5Widget(),
+      'AISoundscapesCopyCopyCopyCopy': AISoundscapesCopyCopyCopyCopyWidget(),
+      'MarketplaceVersion5': MarketplaceVersion5Widget(),
+      'AISoundscapesCopyCopyCopyCopyCopy':
+          AISoundscapesCopyCopyCopyCopyCopyWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -301,21 +301,29 @@ class _NavBarPageState extends State<NavBarPage> {
                 Icons.surround_sound,
               ),
               label: FFLocalizations.of(context).getText(
-                's8tgji9v' /* Sound */,
+                'lecy0w2a' /* Sound */,
               ),
               tooltip: '',
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.people_outline,
-                size: 24.0,
-              ),
-              activeIcon: FaIcon(
-                FontAwesomeIcons.peopleCarry,
+                FFIcons.kmarket,
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                'cly8mku8' /* Community */,
+                '6kelildm' /* Market */,
+              ),
+              tooltip: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                FFIcons.kmusic1,
+              ),
+              activeIcon: Icon(
+                Icons.surround_sound,
+              ),
+              label: FFLocalizations.of(context).getText(
+                'k2k45i5p' /* Sound */,
               ),
               tooltip: '',
             )

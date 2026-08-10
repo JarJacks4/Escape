@@ -317,6 +317,10 @@ class _MoodStatistics2WidgetState extends State<MoodStatistics2Widget> {
                                                                   .titleMedium
                                                                   .fontStyle,
                                                         ),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -680,6 +684,8 @@ class _MoodStatistics2WidgetState extends State<MoodStatistics2Widget> {
                                                   .titleMedium
                                                   .fontStyle,
                                         ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiary,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                         fontStyle: FlutterFlowTheme.of(context)

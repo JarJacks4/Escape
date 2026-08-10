@@ -483,14 +483,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         builder: (context, params) => QuestsPageWidget(),
       ),
       FFRoute(
-          name: ConnectionCommunityStartPageVersion5Widget.routeName,
-          path: ConnectionCommunityStartPageVersion5Widget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'ConnectionCommunityStartPageVersion5')
-              : NavBarPage(
-                  initialPage: 'ConnectionCommunityStartPageVersion5',
-                  page: ConnectionCommunityStartPageVersion5Widget(),
-                )),
+        name: ConnectionCommunityStartPageVersion5Widget.routeName,
+        path: ConnectionCommunityStartPageVersion5Widget.routePath,
+        builder: (context, params) =>
+            ConnectionCommunityStartPageVersion5Widget(),
+      ),
       FFRoute(
         name: EnergyScanVersion5Widget.routeName,
         path: EnergyScanVersion5Widget.routePath,
@@ -583,19 +580,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         builder: (context, params) => ExplorePageVersion5Widget(),
       ),
       FFRoute(
-          name: AISoundscapesCopyCopyCopyWidget.routeName,
-          path: AISoundscapesCopyCopyCopyWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'AISoundscapesCopyCopyCopy')
-              : NavBarPage(
-                  initialPage: 'AISoundscapesCopyCopyCopy',
-                  page: AISoundscapesCopyCopyCopyWidget(
-                    meditationaudio: params.getParam(
-                      'meditationaudio',
-                      ParamType.String,
-                    ),
-                  ),
-                )),
+        name: AISoundscapesCopyCopyCopyWidget.routeName,
+        path: AISoundscapesCopyCopyCopyWidget.routePath,
+        builder: (context, params) => AISoundscapesCopyCopyCopyWidget(
+          meditationaudio: params.getParam(
+            'meditationaudio',
+            ParamType.String,
+          ),
+        ),
+      ),
       FFRoute(
         name: ResetPageCopyWidget.routeName,
         path: ResetPageCopyWidget.routePath,
@@ -886,7 +879,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
       FFRoute(
         name: MarketplaceVersion5Widget.routeName,
         path: MarketplaceVersion5Widget.routePath,
-        builder: (context, params) => MarketplaceVersion5Widget(),
+        builder: (context, params) => params.isEmpty
+            ? NavBarPage(initialPage: 'MarketplaceVersion5')
+            : MarketplaceVersion5Widget(),
       ),
       FFRoute(
           name: LucilleHomeWidget.routeName,
@@ -1182,6 +1177,73 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             ParamType.int,
           ),
         ),
+      ),
+      FFRoute(
+          name: AISoundscapesCopyCopyCopyCopyWidget.routeName,
+          path: AISoundscapesCopyCopyCopyCopyWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'AISoundscapesCopyCopyCopyCopy')
+              : NavBarPage(
+                  initialPage: 'AISoundscapesCopyCopyCopyCopy',
+                  page: AISoundscapesCopyCopyCopyCopyWidget(
+                    meditationaudio: params.getParam(
+                      'meditationaudio',
+                      ParamType.String,
+                    ),
+                  ),
+                )),
+      FFRoute(
+        name: RelaxSoundscapeDetailsWidget.routeName,
+        path: RelaxSoundscapeDetailsWidget.routePath,
+        builder: (context, params) => RelaxSoundscapeDetailsWidget(
+          pageTitle: params.getParam(
+            'pageTitle',
+            ParamType.String,
+          ),
+          songNumber: params.getParam(
+            'songNumber',
+            ParamType.int,
+          ),
+        ),
+      ),
+      FFRoute(
+          name: AISoundscapesCopyCopyCopyCopyCopyWidget.routeName,
+          path: AISoundscapesCopyCopyCopyCopyCopyWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'AISoundscapesCopyCopyCopyCopyCopy')
+              : NavBarPage(
+                  initialPage: 'AISoundscapesCopyCopyCopyCopyCopy',
+                  page: AISoundscapesCopyCopyCopyCopyCopyWidget(
+                    meditationaudio: params.getParam(
+                      'meditationaudio',
+                      ParamType.String,
+                    ),
+                  ),
+                )),
+      FFRoute(
+        name: SoundscapesDetailsWidget.routeName,
+        path: SoundscapesDetailsWidget.routePath,
+        builder: (context, params) => SoundscapesDetailsWidget(),
+      ),
+      FFRoute(
+        name: SoundscapesPlaylistsWidget.routeName,
+        path: SoundscapesPlaylistsWidget.routePath,
+        builder: (context, params) => SoundscapesPlaylistsWidget(),
+      ),
+      FFRoute(
+        name: CouldIGetPageWidget.routeName,
+        path: CouldIGetPageWidget.routePath,
+        builder: (context, params) => CouldIGetPageWidget(),
+      ),
+      FFRoute(
+        name: SoundscapesPlaylistsCopyWidget.routeName,
+        path: SoundscapesPlaylistsCopyWidget.routePath,
+        builder: (context, params) => SoundscapesPlaylistsCopyWidget(),
+      ),
+      FFRoute(
+        name: ComingSoonChakraJourneyWidget.routeName,
+        path: ComingSoonChakraJourneyWidget.routePath,
+        builder: (context, params) => ComingSoonChakraJourneyWidget(),
       ),
       FFRoute(
         name: $cupertino_time_picker_hiuzb7.HomePageWidget.routeName,

@@ -13,11 +13,17 @@ class PlaylistStruct extends FFFirebaseStruct {
     String? title,
     String? coverUrl,
     List<TracksStruct>? tracks,
+    String? genre,
+    String? mood,
+    String? artist,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _id = id,
         _title = title,
         _coverUrl = coverUrl,
         _tracks = tracks,
+        _genre = genre,
+        _mood = mood,
+        _artist = artist,
         super(firestoreUtilData);
 
   // "id" field.
@@ -52,6 +58,27 @@ class PlaylistStruct extends FFFirebaseStruct {
 
   bool hasTracks() => _tracks != null;
 
+  // "genre" field.
+  String? _genre;
+  String get genre => _genre ?? '';
+  set genre(String? val) => _genre = val;
+
+  bool hasGenre() => _genre != null;
+
+  // "mood" field.
+  String? _mood;
+  String get mood => _mood ?? '';
+  set mood(String? val) => _mood = val;
+
+  bool hasMood() => _mood != null;
+
+  // "artist" field.
+  String? _artist;
+  String get artist => _artist ?? '';
+  set artist(String? val) => _artist = val;
+
+  bool hasArtist() => _artist != null;
+
   static PlaylistStruct fromMap(Map<String, dynamic> data) => PlaylistStruct(
         id: data['id'] as String?,
         title: data['title'] as String?,
@@ -60,6 +87,9 @@ class PlaylistStruct extends FFFirebaseStruct {
           data['tracks'],
           TracksStruct.fromMap,
         ),
+        genre: data['genre'] as String?,
+        mood: data['mood'] as String?,
+        artist: data['artist'] as String?,
       );
 
   static PlaylistStruct? maybeFromMap(dynamic data) =>
@@ -70,6 +100,9 @@ class PlaylistStruct extends FFFirebaseStruct {
         'title': _title,
         'cover_url': _coverUrl,
         'tracks': _tracks?.map((e) => e.toMap()).toList(),
+        'genre': _genre,
+        'mood': _mood,
+        'artist': _artist,
       }.withoutNulls;
 
   @override
@@ -90,6 +123,18 @@ class PlaylistStruct extends FFFirebaseStruct {
           _tracks,
           ParamType.DataStruct,
           isList: true,
+        ),
+        'genre': serializeParam(
+          _genre,
+          ParamType.String,
+        ),
+        'mood': serializeParam(
+          _mood,
+          ParamType.String,
+        ),
+        'artist': serializeParam(
+          _artist,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -116,6 +161,21 @@ class PlaylistStruct extends FFFirebaseStruct {
           true,
           structBuilder: TracksStruct.fromSerializableMap,
         ),
+        genre: deserializeParam(
+          data['genre'],
+          ParamType.String,
+          false,
+        ),
+        mood: deserializeParam(
+          data['mood'],
+          ParamType.String,
+          false,
+        ),
+        artist: deserializeParam(
+          data['artist'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -128,17 +188,24 @@ class PlaylistStruct extends FFFirebaseStruct {
         id == other.id &&
         title == other.title &&
         coverUrl == other.coverUrl &&
-        listEquality.equals(tracks, other.tracks);
+        listEquality.equals(tracks, other.tracks) &&
+        genre == other.genre &&
+        mood == other.mood &&
+        artist == other.artist;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([id, title, coverUrl, tracks]);
+  int get hashCode => const ListEquality()
+      .hash([id, title, coverUrl, tracks, genre, mood, artist]);
 }
 
 PlaylistStruct createPlaylistStruct({
   String? id,
   String? title,
   String? coverUrl,
+  String? genre,
+  String? mood,
+  String? artist,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -148,6 +215,9 @@ PlaylistStruct createPlaylistStruct({
       id: id,
       title: title,
       coverUrl: coverUrl,
+      genre: genre,
+      mood: mood,
+      artist: artist,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

@@ -212,7 +212,7 @@ class _SoundscapeCardWidgetState extends State<SoundscapeCardWidget> {
                                 .bodySmall
                                 .fontStyle,
                           ),
-                          color: FlutterFlowTheme.of(context).secondaryText,
+                          color: FlutterFlowTheme.of(context).tertiary,
                           letterSpacing: 0.0,
                           fontWeight:
                               FlutterFlowTheme.of(context).bodySmall.fontWeight,

@@ -418,7 +418,7 @@ class _MindPageVersion5CopyWidgetState extends State<MindPageVersion5CopyWidget>
                                                     safeSetState(() {}));
                                               },
                                               child: Container(
-                                                height: 170.0,
+                                                height: 190.0,
                                                 decoration: BoxDecoration(
                                                   boxShadow: [
                                                     BoxShadow(
@@ -631,7 +631,7 @@ Hone Your S... */
                                                 );
                                               },
                                               child: Container(
-                                                height: 170.0,
+                                                height: 190.0,
                                                 decoration: BoxDecoration(
                                                   boxShadow: [
                                                     BoxShadow(
@@ -835,7 +835,7 @@ Calm... */
                                                     safeSetState(() {}));
                                               },
                                               child: Container(
-                                                height: 170.0,
+                                                height: 190.0,
                                                 decoration: BoxDecoration(
                                                   boxShadow: [
                                                     BoxShadow(
@@ -1047,7 +1047,7 @@ Help Calm... */
                                                 );
                                               },
                                               child: Container(
-                                                height: 170.0,
+                                                height: 190.0,
                                                 decoration: BoxDecoration(
                                                   boxShadow: [
                                                     BoxShadow(

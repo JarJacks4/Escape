@@ -12,9 +12,7 @@ class MarketplaceModel extends FlutterFlowModel<MarketplaceWidget> {
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
   // State field(s) for Row widget.
-  ScrollController? rowController1;
-  // State field(s) for Row widget.
-  ScrollController? rowController2;
+  ScrollController? rowController;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -28,8 +26,7 @@ class MarketplaceModel extends FlutterFlowModel<MarketplaceWidget> {
   @override
   void initState(BuildContext context) {
     columnController1 = ScrollController();
-    rowController1 = ScrollController();
-    rowController2 = ScrollController();
+    rowController = ScrollController();
     columnController2 = ScrollController();
   }
 
@@ -39,8 +36,7 @@ class MarketplaceModel extends FlutterFlowModel<MarketplaceWidget> {
     textFieldFocusNode?.dispose();
     textController?.dispose();
 
-    rowController1?.dispose();
-    rowController2?.dispose();
+    rowController?.dispose();
     tabBarController?.dispose();
     columnController2?.dispose();
   }

@@ -250,26 +250,6 @@ class _ExplorePageVersion5FINALWidgetState
           ),
         ],
       ),
-      'lottieAnimationOnActionTriggerAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(1.0, 1.0),
-            end: Offset(1.1, 1.1),
-          ),
-          RotateEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: 0.0,
-            end: -0.06,
-          ),
-        ],
-      ),
       'containerOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -416,26 +396,6 @@ class _ExplorePageVersion5FINALWidgetState
             duration: 400.0.ms,
             begin: 0.6,
             end: 1.0,
-          ),
-        ],
-      ),
-      'lottieAnimationOnActionTriggerAnimation2': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(1.0, 1.0),
-            end: Offset(1.1, 1.1),
-          ),
-          RotateEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: 0.0,
-            end: -0.06,
           ),
         ],
       ),
@@ -588,26 +548,6 @@ class _ExplorePageVersion5FINALWidgetState
           ),
         ],
       ),
-      'lottieAnimationOnActionTriggerAnimation3': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(1.0, 1.0),
-            end: Offset(1.1, 1.1),
-          ),
-          RotateEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: 0.0,
-            end: -0.06,
-          ),
-        ],
-      ),
       'containerOnPageLoadAnimation4': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -754,26 +694,6 @@ class _ExplorePageVersion5FINALWidgetState
             duration: 400.0.ms,
             begin: 0.6,
             end: 1.0,
-          ),
-        ],
-      ),
-      'lottieAnimationOnActionTriggerAnimation4': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(1.0, 1.0),
-            end: Offset(1.1, 1.1),
-          ),
-          RotateEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: 0.0,
-            end: -0.06,
           ),
         ],
       ),
@@ -926,26 +846,6 @@ class _ExplorePageVersion5FINALWidgetState
           ),
         ],
       ),
-      'lottieAnimationOnActionTriggerAnimation5': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(1.0, 1.0),
-            end: Offset(1.1, 1.1),
-          ),
-          RotateEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: 0.0,
-            end: -0.06,
-          ),
-        ],
-      ),
       'containerOnPageLoadAnimation6': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -1095,7 +995,7 @@ class _ExplorePageVersion5FINALWidgetState
           ),
         ],
       ),
-      'lottieAnimationOnActionTriggerAnimation6': AnimationInfo(
+      'lottieAnimationOnActionTriggerAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onActionTrigger,
         applyInitialState: true,
         effectsBuilder: () => [
@@ -1264,7 +1164,7 @@ class _ExplorePageVersion5FINALWidgetState
           ),
         ],
       ),
-      'lottieAnimationOnActionTriggerAnimation7': AnimationInfo(
+      'lottieAnimationOnActionTriggerAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onActionTrigger,
         applyInitialState: true,
         effectsBuilder: () => [
@@ -2043,22 +1943,6 @@ class _ExplorePageVersion5FINALWidgetState
                                                               ],
                                                             ),
                                                           ),
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.9, -0.95),
-                                                            child: Lottie.asset(
-                                                              'assets/jsons/Isometric_data_analysis_(1).json',
-                                                              width: 117.5,
-                                                              height: 101.7,
-                                                              fit: BoxFit
-                                                                  .contain,
-                                                              animate: true,
-                                                            ).animateOnActionTrigger(
-                                                              animationsMap[
-                                                                  'lottieAnimationOnActionTriggerAnimation1']!,
-                                                            ),
-                                                          ),
                                                         ],
                                                       ),
                                                     ),
@@ -2098,10 +1982,10 @@ class _ExplorePageVersion5FINALWidgetState
                                             logFirebaseEvent(
                                                 'component_widget_animation');
                                             if (animationsMap[
-                                                    'lottieAnimationOnActionTriggerAnimation1'] !=
+                                                    'mouseRegionOnActionTriggerAnimation1'] !=
                                                 null) {
                                               animationsMap[
-                                                      'lottieAnimationOnActionTriggerAnimation1']!
+                                                      'mouseRegionOnActionTriggerAnimation1']!
                                                   .controller
                                                   .forward(from: 0.0);
                                             }
@@ -2174,10 +2058,10 @@ class _ExplorePageVersion5FINALWidgetState
                                             logFirebaseEvent(
                                                 'component_widget_animation');
                                             if (animationsMap[
-                                                    'lottieAnimationOnActionTriggerAnimation1'] !=
+                                                    'containerOnActionTriggerAnimation2'] !=
                                                 null) {
                                               animationsMap[
-                                                      'lottieAnimationOnActionTriggerAnimation1']!
+                                                      'containerOnActionTriggerAnimation2']!
                                                   .controller
                                                   .reverse();
                                             }
@@ -2624,22 +2508,6 @@ class _ExplorePageVersion5FINALWidgetState
                                                               ],
                                                             ),
                                                           ),
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.9, -0.95),
-                                                            child: Lottie.asset(
-                                                              'assets/jsons/body_man.json',
-                                                              width: 59.27,
-                                                              height: 101.7,
-                                                              fit: BoxFit
-                                                                  .contain,
-                                                              animate: true,
-                                                            ).animateOnActionTrigger(
-                                                              animationsMap[
-                                                                  'lottieAnimationOnActionTriggerAnimation2']!,
-                                                            ),
-                                                          ),
                                                         ],
                                                       ),
                                                     ),
@@ -2679,10 +2547,10 @@ class _ExplorePageVersion5FINALWidgetState
                                             logFirebaseEvent(
                                                 'component_widget_animation');
                                             if (animationsMap[
-                                                    'lottieAnimationOnActionTriggerAnimation1'] !=
+                                                    'mouseRegionOnActionTriggerAnimation2'] !=
                                                 null) {
                                               animationsMap[
-                                                      'lottieAnimationOnActionTriggerAnimation1']!
+                                                      'mouseRegionOnActionTriggerAnimation2']!
                                                   .controller
                                                   .forward(from: 0.0);
                                             }
@@ -2755,10 +2623,10 @@ class _ExplorePageVersion5FINALWidgetState
                                             logFirebaseEvent(
                                                 'component_widget_animation');
                                             if (animationsMap[
-                                                    'lottieAnimationOnActionTriggerAnimation1'] !=
+                                                    'containerOnActionTriggerAnimation5'] !=
                                                 null) {
                                               animationsMap[
-                                                      'lottieAnimationOnActionTriggerAnimation1']!
+                                                      'containerOnActionTriggerAnimation5']!
                                                   .controller
                                                   .reverse();
                                             }
@@ -3211,22 +3079,6 @@ class _ExplorePageVersion5FINALWidgetState
                                                               ],
                                                             ),
                                                           ),
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.9, -0.95),
-                                                            child: Lottie.asset(
-                                                              'assets/jsons/pulse.json',
-                                                              width: 117.5,
-                                                              height: 101.7,
-                                                              fit: BoxFit
-                                                                  .contain,
-                                                              animate: true,
-                                                            ).animateOnActionTrigger(
-                                                              animationsMap[
-                                                                  'lottieAnimationOnActionTriggerAnimation3']!,
-                                                            ),
-                                                          ),
                                                         ],
                                                       ),
                                                     ),
@@ -3266,10 +3118,10 @@ class _ExplorePageVersion5FINALWidgetState
                                             logFirebaseEvent(
                                                 'component_widget_animation');
                                             if (animationsMap[
-                                                    'lottieAnimationOnActionTriggerAnimation1'] !=
+                                                    'imageOnActionTriggerAnimation5'] !=
                                                 null) {
                                               animationsMap[
-                                                      'lottieAnimationOnActionTriggerAnimation1']!
+                                                      'imageOnActionTriggerAnimation5']!
                                                   .controller
                                                   .forward(from: 0.0);
                                             }
@@ -3342,10 +3194,10 @@ class _ExplorePageVersion5FINALWidgetState
                                             logFirebaseEvent(
                                                 'component_widget_animation');
                                             if (animationsMap[
-                                                    'lottieAnimationOnActionTriggerAnimation1'] !=
+                                                    'mouseRegionOnActionTriggerAnimation7'] !=
                                                 null) {
                                               animationsMap[
-                                                      'lottieAnimationOnActionTriggerAnimation1']!
+                                                      'mouseRegionOnActionTriggerAnimation7']!
                                                   .controller
                                                   .reverse();
                                             }
@@ -3764,7 +3616,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                                                   logFirebaseEvent('Icon_navigate_to');
 
                                                                                   context.pushNamed(
-                                                                                    JournalPageVersion5Widget.routeName,
+                                                                                    HealthJournalWidget.routeName,
                                                                                     extra: <String, dynamic>{
                                                                                       '__transition_info__': TransitionInfo(
                                                                                         hasTransition: true,
@@ -3790,22 +3642,6 @@ class _ExplorePageVersion5FINALWidgetState
                                                                   ],
                                                                 ),
                                                               ],
-                                                            ),
-                                                          ),
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.9, -0.95),
-                                                            child: Lottie.asset(
-                                                              'assets/jsons/Open_book.json',
-                                                              width: 117.5,
-                                                              height: 101.7,
-                                                              fit: BoxFit
-                                                                  .contain,
-                                                              animate: true,
-                                                            ).animateOnActionTrigger(
-                                                              animationsMap[
-                                                                  'lottieAnimationOnActionTriggerAnimation4']!,
                                                             ),
                                                           ),
                                                         ],
@@ -3847,10 +3683,10 @@ class _ExplorePageVersion5FINALWidgetState
                                             logFirebaseEvent(
                                                 'component_widget_animation');
                                             if (animationsMap[
-                                                    'lottieAnimationOnActionTriggerAnimation1'] !=
+                                                    'mouseRegionOnActionTriggerAnimation6'] !=
                                                 null) {
                                               animationsMap[
-                                                      'lottieAnimationOnActionTriggerAnimation1']!
+                                                      'mouseRegionOnActionTriggerAnimation6']!
                                                   .controller
                                                   .forward(from: 0.0);
                                             }
@@ -3923,10 +3759,10 @@ class _ExplorePageVersion5FINALWidgetState
                                             logFirebaseEvent(
                                                 'component_widget_animation');
                                             if (animationsMap[
-                                                    'lottieAnimationOnActionTriggerAnimation1'] !=
+                                                    'mouseRegionOnActionTriggerAnimation6'] !=
                                                 null) {
                                               animationsMap[
-                                                      'lottieAnimationOnActionTriggerAnimation1']!
+                                                      'mouseRegionOnActionTriggerAnimation6']!
                                                   .controller
                                                   .reverse();
                                             }
@@ -4189,10 +4025,10 @@ class _ExplorePageVersion5FINALWidgetState
                                                                           8.0),
                                                               child:
                                                                   Image.asset(
-                                                                'assets/images/download_(40)_(1).gif',
+                                                                'assets/images/Pi-Slices.gif',
                                                                 height: 576.0,
                                                                 fit: BoxFit
-                                                                    .contain,
+                                                                    .cover,
                                                               ),
                                                             ).animateOnActionTrigger(
                                                               animationsMap[
@@ -4373,22 +4209,6 @@ class _ExplorePageVersion5FINALWidgetState
                                                               ],
                                                             ),
                                                           ),
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.9, -0.95),
-                                                            child: Lottie.asset(
-                                                              'assets/jsons/Animation_-_1708889929967.json',
-                                                              width: 117.5,
-                                                              height: 101.7,
-                                                              fit: BoxFit
-                                                                  .contain,
-                                                              animate: true,
-                                                            ).animateOnActionTrigger(
-                                                              animationsMap[
-                                                                  'lottieAnimationOnActionTriggerAnimation5']!,
-                                                            ),
-                                                          ),
                                                         ],
                                                       ),
                                                     ),
@@ -4428,10 +4248,10 @@ class _ExplorePageVersion5FINALWidgetState
                                             logFirebaseEvent(
                                                 'component_widget_animation');
                                             if (animationsMap[
-                                                    'lottieAnimationOnActionTriggerAnimation1'] !=
+                                                    'mouseRegionOnActionTriggerAnimation7'] !=
                                                 null) {
                                               animationsMap[
-                                                      'lottieAnimationOnActionTriggerAnimation1']!
+                                                      'mouseRegionOnActionTriggerAnimation7']!
                                                   .controller
                                                   .forward(from: 0.0);
                                             }
@@ -4504,10 +4324,10 @@ class _ExplorePageVersion5FINALWidgetState
                                             logFirebaseEvent(
                                                 'component_widget_animation');
                                             if (animationsMap[
-                                                    'lottieAnimationOnActionTriggerAnimation1'] !=
+                                                    'mouseRegionOnActionTriggerAnimation7'] !=
                                                 null) {
                                               animationsMap[
-                                                      'lottieAnimationOnActionTriggerAnimation1']!
+                                                      'mouseRegionOnActionTriggerAnimation7']!
                                                   .controller
                                                   .reverse();
                                             }
@@ -4974,7 +4794,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                               animate: true,
                                                             ).animateOnActionTrigger(
                                                               animationsMap[
-                                                                  'lottieAnimationOnActionTriggerAnimation6']!,
+                                                                  'lottieAnimationOnActionTriggerAnimation1']!,
                                                             ),
                                                           ),
                                                         ],
@@ -5016,10 +4836,10 @@ class _ExplorePageVersion5FINALWidgetState
                                             logFirebaseEvent(
                                                 'component_widget_animation');
                                             if (animationsMap[
-                                                    'lottieAnimationOnActionTriggerAnimation1'] !=
+                                                    'mouseRegionOnActionTriggerAnimation7'] !=
                                                 null) {
                                               animationsMap[
-                                                      'lottieAnimationOnActionTriggerAnimation1']!
+                                                      'mouseRegionOnActionTriggerAnimation7']!
                                                   .controller
                                                   .forward(from: 0.0);
                                             }
@@ -5092,10 +4912,10 @@ class _ExplorePageVersion5FINALWidgetState
                                             logFirebaseEvent(
                                                 'component_widget_animation');
                                             if (animationsMap[
-                                                    'lottieAnimationOnActionTriggerAnimation1'] !=
+                                                    'imageOnActionTriggerAnimation14'] !=
                                                 null) {
                                               animationsMap[
-                                                      'lottieAnimationOnActionTriggerAnimation1']!
+                                                      'imageOnActionTriggerAnimation14']!
                                                   .controller
                                                   .reverse();
                                             }
@@ -5514,7 +5334,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                                                   logFirebaseEvent('Icon_navigate_to');
 
                                                                                   context.pushNamed(
-                                                                                    ComingSoonMarketplaceWidget.routeName,
+                                                                                    MarketplaceVersion5Widget.routeName,
                                                                                     extra: <String, dynamic>{
                                                                                       '__transition_info__': TransitionInfo(
                                                                                         hasTransition: true,
@@ -5555,7 +5375,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                               animate: true,
                                                             ).animateOnActionTrigger(
                                                               animationsMap[
-                                                                  'lottieAnimationOnActionTriggerAnimation7']!,
+                                                                  'lottieAnimationOnActionTriggerAnimation2']!,
                                                             ),
                                                           ),
                                                         ],
@@ -5597,10 +5417,10 @@ class _ExplorePageVersion5FINALWidgetState
                                             logFirebaseEvent(
                                                 'component_widget_animation');
                                             if (animationsMap[
-                                                    'lottieAnimationOnActionTriggerAnimation1'] !=
+                                                    'imageOnActionTriggerAnimation14'] !=
                                                 null) {
                                               animationsMap[
-                                                      'lottieAnimationOnActionTriggerAnimation1']!
+                                                      'imageOnActionTriggerAnimation14']!
                                                   .controller
                                                   .forward(from: 0.0);
                                             }
@@ -5673,10 +5493,10 @@ class _ExplorePageVersion5FINALWidgetState
                                             logFirebaseEvent(
                                                 'component_widget_animation');
                                             if (animationsMap[
-                                                    'lottieAnimationOnActionTriggerAnimation1'] !=
+                                                    'containerOnActionTriggerAnimation19'] !=
                                                 null) {
                                               animationsMap[
-                                                      'lottieAnimationOnActionTriggerAnimation1']!
+                                                      'containerOnActionTriggerAnimation19']!
                                                   .controller
                                                   .reverse();
                                             }

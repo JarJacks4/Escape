@@ -75,14 +75,10 @@ class _MarketplaceVersion5WidgetState extends State<MarketplaceVersion5Widget> {
                       width: 100.0,
                       height: 100.0,
                       decoration: BoxDecoration(),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
-                        child: wrapWithModel(
-                          model: _model.marketplaceModel,
-                          updateCallback: () => safeSetState(() {}),
-                          child: MarketplaceWidget(),
-                        ),
+                      child: wrapWithModel(
+                        model: _model.marketplaceModel,
+                        updateCallback: () => safeSetState(() {}),
+                        child: MarketplaceWidget(),
                       ),
                     ),
                   ),

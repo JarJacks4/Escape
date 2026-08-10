@@ -1117,7 +1117,8 @@ Lucille */
                                             'Container_navigate_to');
 
                                         context.pushNamed(
-                                          JournalPageVersion5Widget.routeName,
+                                          VoiceTextJournalingCopyWidget
+                                              .routeName,
                                           extra: <String, dynamic>{
                                             '__transition_info__':
                                                 TransitionInfo(
@@ -1266,8 +1267,7 @@ Lucille */
                                             'Container_navigate_to');
 
                                         context.pushNamed(
-                                          RitualSparkJournalPageVersion5Widget
-                                              .routeName,
+                                          TextJournalVersion5Widget.routeName,
                                           extra: <String, dynamic>{
                                             '__transition_info__':
                                                 TransitionInfo(
@@ -1335,9 +1335,7 @@ Lucille */
                                               Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'xcodmtx5' /* Voice Ritual 
-Spark */
-                                                  ,
+                                                  'xcodmtx5' /* Text Journal */,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
