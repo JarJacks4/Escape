@@ -56,6 +56,7 @@ class LucilleChatMainCall {
       cache: true,
       isStreamingApi: false,
       alwaysAllowBody: false,
+      client: ApiManager.getClient(withCredentials: true),
     );
   }
 
@@ -124,6 +125,7 @@ class CreateSessionCall {
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
+      client: ApiManager.getClient(withCredentials: true),
     );
   }
 
@@ -177,6 +179,7 @@ class ChatStreamCall {
       cache: false,
       isStreamingApi: true,
       alwaysAllowBody: false,
+      client: ApiManager.getClient(withCredentials: true),
     );
   }
 
@@ -234,6 +237,7 @@ class OnboardUserCall {
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
+      client: ApiManager.getClient(withCredentials: true),
     );
   }
 
@@ -273,6 +277,7 @@ class GetTherapyRecommendationsCall {
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
+      client: ApiManager.getClient(withCredentials: true),
     );
   }
 
@@ -393,6 +398,7 @@ class GetSoundscapesCall {
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
+      client: ApiManager.getClient(withCredentials: true),
     );
   }
 
