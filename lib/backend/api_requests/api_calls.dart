@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import 'package:ff_commons/api_requests/api_manager.dart';
 
 export 'package:ff_commons/api_requests/api_manager.dart' show ApiCallResponse;
@@ -817,6 +818,7 @@ class TheoryOfMindOnboardingGroup {
       UserCompleteProfileCall();
   static UpdateUserProfileCall updateUserProfileCall = UpdateUserProfileCall();
   static DeleteUserProfileCall deleteUserProfileCall = DeleteUserProfileCall();
+  static MoodCall moodCall = MoodCall();
 }
 
 class OnboardingUserCall {
@@ -982,6 +984,40 @@ class DeleteUserProfileCall {
         response,
         r'''$.user_id''',
       ));
+}
+
+class MoodCall {
+  Future<ApiCallResponse> call({
+    String? mood = '',
+    int? intensity,
+    String? context = '',
+    String? detectedVia = '',
+  }) async {
+    final baseUrl = TheoryOfMindOnboardingGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "mood": "${escapeStringForJson(mood)}",
+  "intensity": ${intensity},
+  "context": "${escapeStringForJson(context)}",
+  "detected_via": "${escapeStringForJson(detectedVia)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Mood',
+      apiUrl: '${baseUrl}/',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 /// End Theory of Mind Onboarding Group Code
@@ -3154,6 +3190,95 @@ class GetReviewsCall {
 }
 
 /// End Lucille Reviews Group Code
+
+/// Start Theory of Mind Lucille Core Chat Group Code
+
+class TheoryOfMindLucilleCoreChatGroup {
+  static String getBaseUrl() =>
+      'https://lucillellm2-286076426888.us-east4.run.app/';
+  static Map<String, String> headers = {
+    'Authorization': 'Bearer ${currentJwtToken}',
+  };
+  static CoreChatCall coreChatCall = CoreChatCall();
+  static VoiceChatCall voiceChatCall = VoiceChatCall();
+}
+
+class CoreChatCall {
+  Future<ApiCallResponse> call({
+    String? message = '',
+    String? sessionID = '',
+    String? userID = '',
+  }) async {
+    final baseUrl = TheoryOfMindLucilleCoreChatGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "message": "${escapeStringForJson(message)}",
+  "session_id": "${escapeStringForJson(sessionID)}",
+  "user_id": "${escapeStringForJson(userID)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Core Chat',
+      apiUrl: '${baseUrl}/chat',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${currentJwtToken}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class VoiceChatCall {
+  Future<ApiCallResponse> call({
+    String? sessionID = '',
+    String? userID = '',
+    String? audioInput = '',
+    String? responseFormat = '',
+    String? audioFormat = '',
+    String? ttsVoice = '',
+  }) async {
+    final baseUrl = TheoryOfMindLucilleCoreChatGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "message": "",
+  "session_id": "${escapeStringForJson(sessionID)}",
+  "user_id": "${escapeStringForJson(userID)}",
+  "audio_input": "${escapeStringForJson(audioInput)}",
+  "audio_format": "${escapeStringForJson(audioFormat)}",
+  "response_format": "${escapeStringForJson(responseFormat)}",
+  "tts_voice": "${escapeStringForJson(ttsVoice)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Voice Chat',
+      apiUrl: '${baseUrl}/chat/voice',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${currentJwtToken}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+/// End Theory of Mind Lucille Core Chat Group Code
 
 class LucilleStreamingBuildShipCall {
   static Future<ApiCallResponse> call({
