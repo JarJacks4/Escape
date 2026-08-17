@@ -197,6 +197,12 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                               }(),
                               width: 409.6,
                               height: MediaQuery.sizeOf(context).height * 1.0,
+                              cacheWidth: (409.6 *
+                                      MediaQuery.of(context).devicePixelRatio)
+                                  .round(),
+                              cacheHeight: (MediaQuery.sizeOf(context).height *
+                                      MediaQuery.of(context).devicePixelRatio)
+                                  .round(),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -665,6 +671,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                     Expanded(
                       child: TabBarView(
                         controller: _model.tabBarController,
+                        physics: NeverScrollableScrollPhysics(),
                         children: [
                           Column(
                             mainAxisSize: MainAxisSize.max,
@@ -1955,7 +1962,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                                   .initializeThatAudioPlayerForPlaylists(
                                                                 that_audio_player_oo85ab_app_state
                                                                         .FFAppState()
-                                                                    .currentMediaAllTab
+                                                                    .currentMediaMusicMeditations
                                                                     .toList(),
                                                                 featuredForYouIndex,
                                                               );
@@ -2911,7 +2918,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                                   .initializeThatAudioPlayerForPlaylists(
                                                                 that_audio_player_oo85ab_app_state
                                                                         .FFAppState()
-                                                                    .currentMediaAllTab
+                                                                    .currentMediaNatureTab
                                                                     .toList(),
                                                                 featuredForYouIndex,
                                                               );
@@ -3961,7 +3968,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                                   .initializeThatAudioPlayerForPlaylists(
                                                                 that_audio_player_oo85ab_app_state
                                                                         .FFAppState()
-                                                                    .currentMediaAllTab
+                                                                    .currentMediaFocus
                                                                     .toList(),
                                                                 featuredForYouIndex,
                                                               );
@@ -5004,7 +5011,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                                   .initializeThatAudioPlayerForPlaylists(
                                                                 that_audio_player_oo85ab_app_state
                                                                         .FFAppState()
-                                                                    .currentMediaAllTab
+                                                                    .currentMediaSleepTab
                                                                     .toList(),
                                                                 featuredForYouIndex,
                                                               );

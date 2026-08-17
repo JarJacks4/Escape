@@ -83,6 +83,7 @@ class _SoundscapeCardWidgetState extends State<SoundscapeCardWidget> {
                           widget.imgDesc,
                           'https://dimg.dreamflow.cloud/v1/image/misty%20pine%20forest%20in%20rain',
                         ),
+                        width: 180.0,
                         height: 140.0,
                         fit: BoxFit.cover,
                         alignment: Alignment(0.0, 0.0),
