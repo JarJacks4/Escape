@@ -1040,12 +1040,6 @@ class _ChatWithLucilleVersion5WidgetState
                                                           firebaseIDToken:
                                                               currentJwtToken,
                                                         );
-                                                        print(
-                                                            'DEBUG ChatStream statusCode: ${_model.lucilleStreamChat?.statusCode}');
-                                                        print(
-                                                            'DEBUG ChatStream jsonBody: ${_model.lucilleStreamChat?.jsonBody}');
-                                                        print(
-                                                            'DEBUG ChatStream succeeded: ${_model.lucilleStreamChat?.succeeded}');
                                                         if (_model
                                                                 .lucilleStreamChat
                                                                 ?.succeeded ??
@@ -1066,6 +1060,10 @@ class _ChatWithLucilleVersion5WidgetState
                                                                           m))
                                                               .listen(
                                                             (onMessageInput) async {
+                                                              print(
+                                                                  'DEBUG SSE raw message: ${onMessageInput.message}');
+                                                              print(
+                                                                  'DEBUG SSE raw chunk: ${onMessageInput.serverSentEvent.jsonData}');
                                                               final data =
                                                                   TheoryOfMindLucilleStreamChatStruct
                                                                       .maybeFromMap(
@@ -1073,8 +1071,13 @@ class _ChatWithLucilleVersion5WidgetState
                                                                     .serverSentEvent
                                                                     .jsonData,
                                                               );
-                                                              if (data == null)
+                                                              if (data == null) {
+                                                                print(
+                                                                    'DEBUG SSE parse failed: data is null after maybeFromMap');
                                                                 return;
+                                                              }
+                                                              print(
+                                                                  'DEBUG SSE parsed content: "${data.content}" done: ${data.done}');
 
                                                               if (_model
                                                                   .newMessage!) {
@@ -1150,6 +1153,8 @@ class _ChatWithLucilleVersion5WidgetState
                                                             },
                                                             onError:
                                                                 (onErrorInput) async {
+                                                              print(
+                                                                  'DEBUG SSE stream onError: $onErrorInput');
                                                               logFirebaseEvent(
                                                                   '_show_snack_bar');
                                                               ScaffoldMessenger
@@ -1176,6 +1181,8 @@ class _ChatWithLucilleVersion5WidgetState
                                                               );
                                                             },
                                                             onDone: () async {
+                                                              print(
+                                                                  'DEBUG SSE stream onDone fired');
                                                               _model.aiIsResponsing =
                                                                   false;
                                                               safeSetState(
@@ -1312,18 +1319,23 @@ class _ChatWithLucilleVersion5WidgetState
 
                                                         logFirebaseEvent(
                                                             'IconButton_scroll_to');
-                                                        await _model
-                                                            .listViewController
-                                                            ?.animateTo(
-                                                          _model
-                                                              .listViewController!
-                                                              .position
-                                                              .maxScrollExtent,
-                                                          duration: Duration(
-                                                              milliseconds:
-                                                                  100),
-                                                          curve: Curves.ease,
-                                                        );
+                                                        if (_model
+                                                                .listViewController
+                                                                ?.hasClients ??
+                                                            false) {
+                                                          await _model
+                                                              .listViewController
+                                                              ?.animateTo(
+                                                            _model
+                                                                .listViewController!
+                                                                .position
+                                                                .maxScrollExtent,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    100),
+                                                            curve: Curves.ease,
+                                                          );
+                                                        }
                                                         if (false) {
                                                           logFirebaseEvent(
                                                               'IconButton_bottom_sheet');
