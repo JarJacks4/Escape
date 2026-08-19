@@ -96,7 +96,8 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
 
   Future<void> _saveToFirestore() async {
     try {
-      final snapshot = await queryJournalRecord(singleRecord: true).first;
+      final snapshot = await queryJournalRecord(
+              parent: currentUserReference, singleRecord: true).first;
       DocumentReference ref;
       if (snapshot.isNotEmpty) {
         ref = snapshot.first.reference;

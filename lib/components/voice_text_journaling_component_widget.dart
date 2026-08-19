@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/insight_chip_widget.dart';
 import '/flutter_flow/flutter_flow_calendar.dart';
@@ -148,7 +149,9 @@ class _VoiceTextJournalingComponentWidgetState
                             sigmaY: 10.0,
                           ),
                           child: StreamBuilder<List<JournalRecord>>(
-                            stream: queryJournalRecord(),
+                            stream: queryJournalRecord(
+                              parent: currentUserReference,
+                            ),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {

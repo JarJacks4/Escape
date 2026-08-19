@@ -152,6 +152,7 @@ class _ActiveVoiceJournalingWidgetState
                     padding: EdgeInsets.all(35.0),
                     child: StreamBuilder<List<JournalRecord>>(
                       stream: queryJournalRecord(
+                        parent: currentUserReference,
                         singleRecord: true,
                       ),
                       builder: (context, snapshot) {
