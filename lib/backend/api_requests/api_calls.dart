@@ -15,7 +15,7 @@ class TheoryOfMindLucilleGroup {
   static String getBaseUrl({
     String? firebaseIDToken = '',
   }) =>
-      'https://lucillellm-861854898360.europe-west1.run.app/';
+      'https://lucille-861854898360.us-central1.run.app/';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
     'Authorization': 'Bearer [firebaseIDToken]',
@@ -541,7 +541,7 @@ class GetSoundscapesCall {
 
 class TheoryOfMindSessionManagementGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app/';
+      'https://lucille-861854898360.us-central1.run.app/';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -811,7 +811,7 @@ class ValidateSessionCall {
 
 class TheoryOfMindOnboardingGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app/';
+      'https://lucille-861854898360.us-central1.run.app/';
   static Map<String, String> headers = {};
   static OnboardingUserCall onboardingUserCall = OnboardingUserCall();
   static UserCompleteProfileCall userCompleteProfileCall =
@@ -1026,7 +1026,7 @@ class MoodCall {
 
 class LucilleMemoriesGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app/';
+      'https://lucille-861854898360.us-central1.run.app/';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -1276,7 +1276,7 @@ class ConsolidateMemoryCall {
 
 class LucilleTherapyExercisesGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app/';
+      'https://lucille-861854898360.us-central1.run.app/';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -1687,7 +1687,7 @@ class GetExerciseHistoryCall {
 
 class LucilleTaskManagementGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app/';
+      'https://lucille-861854898360.us-central1.run.app/';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -1970,7 +1970,7 @@ class GetProgressSummaryCall {
 
 class LucilleFeedbackSystemGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app/';
+      'https://lucille-861854898360.us-central1.run.app/';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -2190,7 +2190,7 @@ class EffectivenessCall {
 
 class LucilleSoundscapesGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app/';
+      'https://lucille-861854898360.us-central1.run.app/';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -2601,7 +2601,7 @@ class SoundscapeHistoryCall {
 
 class LucilleSafetyAndCrisisGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app/';
+      'https://lucille-861854898360.us-central1.run.app/';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -2826,7 +2826,7 @@ class SafetyCheckCall {
 
 class LucilleVoiceChatGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app/';
+      'https://lucille-861854898360.us-central1.run.app/';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -2904,7 +2904,7 @@ class SpeechToTextCall {
 
 class LucilleReviewsGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app/';
+      'https://lucille-861854898360.us-central1.run.app/';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -3195,7 +3195,7 @@ class GetReviewsCall {
 
 class TheoryOfMindLucilleCoreChatGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app/';
+      'https://lucille-861854898360.us-central1.run.app/';
   static Map<String, String> headers = {
     'Authorization': 'Bearer ${currentJwtToken}',
   };

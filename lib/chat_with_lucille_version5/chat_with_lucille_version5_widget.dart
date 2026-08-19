@@ -1040,6 +1040,14 @@ class _ChatWithLucilleVersion5WidgetState
                                                           firebaseIDToken:
                                                               currentJwtToken,
                                                         );
+                                                        print(
+                                                            'DEBUG ChatStream statusCode: ${_model.lucilleStreamChat?.statusCode}');
+                                                        print(
+                                                            'DEBUG ChatStream succeeded: ${_model.lucilleStreamChat?.succeeded}');
+                                                        print(
+                                                            'DEBUG ChatStream jsonBody: ${_model.lucilleStreamChat?.jsonBody}');
+                                                        print(
+                                                            'DEBUG ChatStream streamedResponse null: ${_model.lucilleStreamChat?.streamedResponse == null}');
                                                         if (_model
                                                                 .lucilleStreamChat
                                                                 ?.succeeded ??

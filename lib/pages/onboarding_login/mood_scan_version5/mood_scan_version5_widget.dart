@@ -771,7 +771,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                             .MultipartRequest(
                                                           'POST',
                                                           Uri.parse(
-                                                              'https://lucillellm2-286076426888.us-east4.run.app/facial-emotion/detect'),
+                                                              'https://lucille-861854898360.us-central1.run.app/facial-emotion/detect'),
                                                         );
                                                         request.headers[
                                                                 'Authorization'] =
