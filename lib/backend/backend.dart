@@ -16,6 +16,7 @@ import 'schema/subscriptions_record.dart';
 import 'schema/playlists_record.dart';
 import 'schema/history_record.dart';
 import 'schema/journal_record.dart';
+import 'schema/body_record.dart';
 import 'schema/user_moods_record.dart';
 import 'schema/user_moods_main_record.dart';
 import 'schema/ritual_spark_journal_record.dart';
@@ -47,6 +48,7 @@ export 'schema/user_moods_main_record.dart';
 export 'schema/ritual_spark_journal_record.dart';
 export 'schema/user_agent_state_record.dart';
 export 'schema/check_in_record.dart';
+export 'schema/body_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -1500,3 +1502,18 @@ Future updateUserDocument({String? email}) async {
   await currentUserDocument?.reference
       .update(createUsersRecordData(email: email));
 }
+
+/// Function to query BodyRecord once.
+Future<List<BodyRecord>> queryBodyRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      BodyRecord.collection(parent),
+      BodyRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );

@@ -303,3 +303,20 @@ export '/soundscapes_playlists_copy/soundscapes_playlists_copy_widget.dart'
     show SoundscapesPlaylistsCopyWidget;
 export '/coming_soon_chakra_journey/coming_soon_chakra_journey_widget.dart'
     show ComingSoonChakraJourneyWidget;
+export '/body_version5_movements_page/body_version5_movements_page_widget.dart'
+    show BodyVersion5MovementsPageWidget;
+export '/movement_preview_modal5/movement_preview_modal5_widget.dart'
+    show MovementPreviewModal5Widget;
+export '/body_session_complete_back_to_home/body_session_complete_back_to_home_widget.dart'
+    show BodySessionCompleteBackToHomeWidget;
+export '/movement_preview_modal5_new/movement_preview_modal5_new_widget.dart'
+    show MovementPreviewModal5NewWidget;
+export '/movement_preview_modal2_new/movement_preview_modal2_new_widget.dart'
+    show MovementPreviewModal2NewWidget;
+export '/active_session_timer2/active_session_timer2_widget.dart'
+    show ActiveSessionTimer2Widget;
+export '/active_session_reps1/active_session_reps1_widget.dart'
+    show ActiveSessionReps1Widget;
+export '/body_movement_session_completion/body_movement_session_completion_widget.dart'
+    show BodyMovementSessionCompletionWidget;
+export '/body_movement3/body_movement3_widget.dart' show BodyMovement3Widget;

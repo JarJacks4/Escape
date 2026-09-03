@@ -11,6 +11,7 @@ export 'lucille_stream_f_i_n_a_l_struct.dart';
 export 'media_struct.dart';
 export 'message_struct.dart';
 export 'model_configuration_struct.dart';
+export 'move_struct_struct.dart';
 export 'onboarding_goals_struct.dart';
 export 'playlist_struct.dart';
 export 'soundscapes_struct.dart';

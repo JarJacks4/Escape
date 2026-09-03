@@ -90,3 +90,58 @@ int? doubleToInt() {
     return value.toInt();
   }
 }
+
+int getUpdatedWeekCount(
+  DateTime? weekStartDate,
+  int? currentWeekCount,
+) {
+  final currentCount = currentWeekCount ?? 0;
+  if (weekStartDate == null) {
+    return 1;
+  }
+  final daysSinceWeekStart = DateTime.now().difference(weekStartDate).inDays;
+  if (daysSinceWeekStart >= 7) {
+    return 1;
+  }
+  return currentCount + 1;
+}
+
+DateTime getUpdatedWeekStartDate(
+  DateTime? weekStartDate,
+  int? currentWeekCount,
+) {
+  if (weekStartDate == null) {
+    return DateTime.now();
+  }
+  final daysSinceWeekStart = DateTime.now().difference(weekStartDate).inDays;
+  if (daysSinceWeekStart >= 7) {
+    return DateTime.now();
+  }
+  return weekStartDate;
+}
+
+int getUpdatedStreak(
+  DateTime? lastCompletedDate,
+  int? streakCount,
+) {
+  final currentStreak = streakCount ?? 0;
+  if (lastCompletedDate == null) {
+    return 1;
+  }
+  final now = DateTime.now();
+  final today = DateTime(now.year, now.month, now.day);
+  final lastCompletedDay = DateTime(
+    lastCompletedDate.year,
+    lastCompletedDate.month,
+    lastCompletedDate.day,
+  );
+  final daysDifference = today.difference(lastCompletedDay).inDays;
+
+  if (daysDifference == 0) {
+    return currentStreak;
+  } else if (daysDifference == 1) {
+    return currentStreak + 1;
+  } else {
+    return 1;
+  }
+}
