@@ -85,6 +85,8 @@ class _SoundscapeCardWidgetState extends State<SoundscapeCardWidget> {
                         ),
                         width: 180.0,
                         height: 140.0,
+                        memCacheWidth: 360,
+                        memCacheHeight: 280,
                         fit: BoxFit.cover,
                         alignment: Alignment(0.0, 0.0),
                       ),

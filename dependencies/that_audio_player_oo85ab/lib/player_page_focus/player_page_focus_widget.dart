@@ -231,6 +231,11 @@ class _PlayerPageFocusWidgetState extends State<PlayerPageFocusWidget>
                                 FFAppState().currentMedia.mediaBanner,
                                 width: double.infinity,
                                 height: 300.0,
+                                cacheWidth: (MediaQuery.of(context).size.width *
+                                        MediaQuery.of(context).devicePixelRatio)
+                                    .round(),
+                                cacheHeight: (300.0 * MediaQuery.of(context).devicePixelRatio)
+                                    .round(),
                                 fit: BoxFit.cover,
                               ),
                             ),
