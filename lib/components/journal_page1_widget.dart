@@ -1,5 +1,4 @@
 import '/backend/api_requests/api_calls.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -18,7 +17,6 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
@@ -227,213 +225,109 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                 ),
                 child: Padding(
                   padding: EdgeInsets.all(16.0),
-                  child: StreamBuilder<List<JournalRecord>>(
-                    stream: queryJournalRecord(
-                      singleRecord: true,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 100.0,
-                            height: 100.0,
-                            child: SpinKitWave(
-                              color: FlutterFlowTheme.of(context).accent1,
-                              size: 100.0,
-                            ),
-                          ),
-                        );
-                      }
-                      List<JournalRecord> columnJournalRecordList =
-                          snapshot.data!;
-                      final columnJournalRecord =
-                          columnJournalRecordList.isNotEmpty
-                              ? columnJournalRecordList.first
-                              : null;
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Flexible(
+                        flex: 1,
+                        child: Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 50.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                logFirebaseEvent(
+                                    'JOURNAL_PAGE1_LottieAnimation_kukw10w1_O');
+                                logFirebaseEvent(
+                                    'LottieAnimation_haptic_feedback');
+                                HapticFeedback.heavyImpact();
+                                logFirebaseEvent('LottieAnimation_play_sound');
+                                _model.soundPlayer ??= AudioPlayer();
+                                if (_model.soundPlayer!.playing) {
+                                  await _model.soundPlayer!.stop();
+                                }
+                                _model.soundPlayer!.setVolume(1.0);
+                                _model.soundPlayer!
+                                    .setAsset(
+                                        'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                                    .then((_) => _model.soundPlayer!.play());
 
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 50.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    logFirebaseEvent(
-                                        'JOURNAL_PAGE1_LottieAnimation_kukw10w1_O');
-                                    logFirebaseEvent(
-                                        'LottieAnimation_haptic_feedback');
-                                    HapticFeedback.heavyImpact();
-                                    logFirebaseEvent(
-                                        'LottieAnimation_play_sound');
-                                    _model.soundPlayer ??= AudioPlayer();
-                                    if (_model.soundPlayer!.playing) {
-                                      await _model.soundPlayer!.stop();
-                                    }
-                                    _model.soundPlayer!.setVolume(1.0);
-                                    _model.soundPlayer!
-                                        .setAsset(
-                                            'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                                        .then(
-                                            (_) => _model.soundPlayer!.play());
-
-                                    logFirebaseEvent(
-                                        'LottieAnimation_start_audio_recording');
-                                    await startAudioRecording(
-                                      context,
-                                      audioRecorder: _model.audioRecorder ??=
-                                          AudioRecorder(),
-                                    );
-
-                                    logFirebaseEvent(
-                                        'LottieAnimation_backend_call');
-
-                                    await columnJournalRecord!.reference
-                                        .update(createJournalRecordData(
-                                      isAudioRecording: true,
-                                    ));
+                                logFirebaseEvent(
+                                    'LottieAnimation_start_audio_recording');
+                                await startAudioRecording(
+                                  context,
+                                  audioRecorder: _model.audioRecorder ??=
+                                      AudioRecorder(),
+                                );
+                              },
+                              onDoubleTap: () async {
+                                logFirebaseEvent(
+                                    'JOURNAL_PAGE1_LottieAnimation_kukw10w1_O');
+                                logFirebaseEvent(
+                                    'LottieAnimation_haptic_feedback');
+                                HapticFeedback.heavyImpact();
+                                logFirebaseEvent(
+                                    'LottieAnimation_stop_audio_recording');
+                                await stopAudioRecording(
+                                  audioRecorder: _model.audioRecorder,
+                                  audioName: 'recordedFileBytes',
+                                  onRecordingComplete:
+                                      (audioFilePath, audioBytes) {
+                                    _model.audioJournalRecording =
+                                        audioFilePath;
+                                    _model.recordedFileBytes = audioBytes;
                                   },
-                                  onDoubleTap: () async {
-                                    logFirebaseEvent(
-                                        'JOURNAL_PAGE1_LottieAnimation_kukw10w1_O');
-                                    logFirebaseEvent(
-                                        'LottieAnimation_haptic_feedback');
-                                    HapticFeedback.heavyImpact();
-                                    logFirebaseEvent(
-                                        'LottieAnimation_stop_audio_recording');
-                                    await stopAudioRecording(
-                                      audioRecorder: _model.audioRecorder,
-                                      audioName: 'recordedFileBytes',
-                                      onRecordingComplete:
-                                          (audioFilePath, audioBytes) {
-                                        _model.audioJournalRecording =
-                                            audioFilePath;
-                                        _model.recordedFileBytes = audioBytes;
-                                      },
-                                    );
+                                );
 
-                                    logFirebaseEvent(
-                                        'LottieAnimation_update_component_state');
-                                    _model.voiceNote =
-                                        _model.audioJournalRecording;
-                                    safeSetState(() {});
-                                    logFirebaseEvent(
-                                        'LottieAnimation_backend_call');
-                                    _model.gorqTranscriptionResult =
-                                        await EscapeAudioScriptCall.call(
-                                      file: _model.voiceNoteFile,
-                                      gorqKey: FFAppState().gorqKey,
-                                    );
+                                logFirebaseEvent(
+                                    'LottieAnimation_update_component_state');
+                                _model.voiceNote = _model.audioJournalRecording;
+                                safeSetState(() {});
+                                logFirebaseEvent(
+                                    'LottieAnimation_backend_call');
+                                _model.gorqTranscriptionResult =
+                                    await EscapeAudioScriptCall.call(
+                                  file: _model.voiceNoteFile,
+                                  gorqKey: FFAppState().gorqKey,
+                                );
 
-                                    logFirebaseEvent(
-                                        'LottieAnimation_update_component_state');
-                                    _model.voiceNoteFile =
-                                        _model.recordedFileBytes;
-                                    _model.updateTranscriptWordsAtIndex(
-                                      _model.currentWordIndex!,
-                                      (_) => (_model.gorqTranscriptionResult
-                                                  ?.jsonBody ??
-                                              '')
-                                          .toString(),
-                                    );
-                                    _model.visibleText = (_model
-                                            .gorqTranscriptionResult
-                                            ?.bodyText ??
+                                logFirebaseEvent(
+                                    'LottieAnimation_update_component_state');
+                                _model.voiceNoteFile = _model.recordedFileBytes;
+                                _model.updateTranscriptWordsAtIndex(
+                                  _model.currentWordIndex!,
+                                  (_) => (_model.gorqTranscriptionResult
+                                              ?.jsonBody ??
+                                          '')
+                                      .toString(),
+                                );
+                                _model.visibleText =
+                                    (_model.gorqTranscriptionResult?.bodyText ??
                                         '');
-                                    _model.isTyping =
-                                        !(_model.isTyping ?? true);
-                                    safeSetState(() {});
-                                    logFirebaseEvent(
-                                        'LottieAnimation_backend_call');
+                                _model.isTyping = !(_model.isTyping ?? true);
+                                safeSetState(() {});
 
-                                    await columnJournalRecord!.reference
-                                        .update({
-                                      ...createJournalRecordData(
-                                        voiceNoteContent: _model.voiceNoteText,
-                                        isAudioStopped: true,
-                                        isAudioRecording: false,
-                                      ),
-                                      ...mapToFirestore(
-                                        {
-                                          'TranscribeText':
-                                              FieldValue.arrayUnion([
-                                            _model.transcriptWords
-                                                .elementAtOrNull(
-                                                    _model.currentWordIndex!)
-                                          ]),
-                                        },
-                                      ),
-                                    });
-                                    if ((_model.gorqTranscriptionResult
-                                            ?.succeeded ??
-                                        true)) {
-                                      logFirebaseEvent(
-                                          'LottieAnimation_backend_call');
-
-                                      await columnJournalRecord.reference
-                                          .update({
-                                        ...mapToFirestore(
-                                          {
-                                            'TranscribeText':
-                                                FieldValue.arrayUnion([
-                                              (_model.gorqTranscriptionResult
-                                                          ?.jsonBody ??
-                                                      '')
-                                                  .toString()
-                                            ]),
-                                          },
-                                        ),
-                                      });
-                                    } else {
-                                      logFirebaseEvent(
-                                          'LottieAnimation_show_snack_bar');
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'Trannscrip',
-                                            style: TextStyle(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                            ),
-                                          ),
-                                          duration:
-                                              Duration(milliseconds: 4000),
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondary,
-                                        ),
-                                      );
-                                    }
-
-                                    safeSetState(() {});
-                                  },
-                                  child: Lottie.asset(
-                                    'assets/jsons/Enable_mic.json',
-                                    width: 205.58,
-                                    height: 110.3,
-                                    fit: BoxFit.cover,
-                                    reverse: true,
-                                    animate: true,
-                                  ),
-                                ),
+                                safeSetState(() {});
+                              },
+                              child: Lottie.asset(
+                                'assets/jsons/Enable_mic.json',
+                                width: 205.58,
+                                height: 110.3,
+                                fit: BoxFit.cover,
+                                reverse: true,
+                                animate: true,
                               ),
                             ),
                           ),
-                        ].divide(SizedBox(height: 16.0)),
-                      );
-                    },
+                        ),
+                      ),
+                    ].divide(SizedBox(height: 16.0)),
                   ),
                 ),
               ),

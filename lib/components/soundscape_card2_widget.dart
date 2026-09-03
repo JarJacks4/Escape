@@ -90,33 +90,29 @@ class _SoundscapeCard2WidgetState extends State<SoundscapeCard2Widget> {
                       fit: BoxFit.cover,
                       alignment: Alignment(0.0, 0.0),
                     ),
-                    if (valueOrDefault<bool>(
-                      widget.isPlaying,
-                      true,
-                    ))
-                      ClipRRect(
-                        borderRadius: BorderRadius.only(),
-                        child: BackdropFilter(
-                          filter: ImageFilter.blur(
-                            sigmaX: 4.0,
-                            sigmaY: 4.0,
+                    ClipRRect(
+                      borderRadius: BorderRadius.only(),
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(
+                          sigmaX: 4.0,
+                          sigmaY: 4.0,
+                        ),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0x33EDF1F7),
+                            shape: BoxShape.rectangle,
                           ),
                           child: Container(
-                            decoration: BoxDecoration(
-                              color: Color(0x33EDF1F7),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: Container(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Icon(
-                                Icons.equalizer_rounded,
-                                color: Colors.black,
-                                size: 32.0,
-                              ),
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Icon(
+                              Icons.equalizer_rounded,
+                              color: Colors.black,
+                              size: 32.0,
                             ),
                           ),
                         ),
                       ),
+                    ),
                     Align(
                       alignment: AlignmentDirectional(1.0, 1.0),
                       child: Container(

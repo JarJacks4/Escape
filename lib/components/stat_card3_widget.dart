@@ -109,23 +109,10 @@ class _StatCard3WidgetState extends State<StatCard3Widget> {
                               .fontStyle,
                         ),
                   ),
-                  if (valueOrDefault<bool>(
-                    widget.hasUnit,
-                    false,
-                  ))
-                    Text(
-                      widget.unit,
-                      style: FlutterFlowTheme.of(context).bodySmall.override(
-                            font: GoogleFonts.inter(
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .fontStyle,
-                            ),
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            letterSpacing: 0.0,
+                  Text(
+                    widget.unit,
+                    style: FlutterFlowTheme.of(context).bodySmall.override(
+                          font: GoogleFonts.inter(
                             fontWeight: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .fontWeight,
@@ -133,7 +120,14 @@ class _StatCard3WidgetState extends State<StatCard3Widget> {
                                 .bodySmall
                                 .fontStyle,
                           ),
-                    ),
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          letterSpacing: 0.0,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                        ),
+                  ),
                 ].divide(SizedBox(width: 4.0)),
               ),
             ].divide(SizedBox(height: 4.0)),

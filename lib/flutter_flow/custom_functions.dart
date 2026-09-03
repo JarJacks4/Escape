@@ -84,3 +84,53 @@ int? doubleToInt() {
     return value.toInt();
   }
 }
+
+int getUpdatedWeekCount(
+  DateTime? weekStartDate,
+  int? currentWeekCont,
+) {
+  int getUpdatedWeekCount(DateTime weekStartDate, int currentWeekCount) {
+    final daysSinceWeekStart = DateTime.now().difference(weekStartDate).inDays;
+    if (daysSinceWeekStart >= 7) {
+      return 1;
+    }
+    return currentWeekCount + 1;
+  }
+}
+
+DateTime getUpdatedWeekStartDate(
+  DateTime? weekStartDate,
+  int? currentWeekCount,
+) {
+  DateTime getUpdatedWeekStartDate(DateTime weekStartDate) {
+    final daysSinceWeekStart = DateTime.now().difference(weekStartDate).inDays;
+    if (daysSinceWeekStart >= 7) {
+      return DateTime.now();
+    }
+    return weekStartDate;
+  }
+}
+
+int getUpdatedStreak(
+  DateTime? lastCompletedDate,
+  int? streakCount,
+) {
+  int getUpdatedStreak(DateTime lastCompletedDate, int streakCount) {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final lastCompletedDay = DateTime(
+      lastCompletedDate.year,
+      lastCompletedDate.month,
+      lastCompletedDate.day,
+    );
+    final daysDifference = today.difference(lastCompletedDay).inDays;
+
+    if (daysDifference == 0) {
+      return streakCount; // already completed today, don't double-count
+    } else if (daysDifference == 1) {
+      return streakCount + 1; // completed yesterday, streak continues
+    } else {
+      return 1; // gap was longer than a day, streak restarts
+    }
+  }
+}

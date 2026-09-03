@@ -184,7 +184,7 @@ class _MyAppState extends State<MyApp> {
           thickness: WidgetStateProperty.all(0.2),
           thumbColor: WidgetStateProperty.resolveWith((states) {
             if (states.contains(WidgetState.dragged)) {
-              return Color(4293952282);
+              return Color(4293784055);
             }
             if (states.contains(WidgetState.hovered)) {
               return Color(3053241442);
@@ -254,9 +254,9 @@ class _NavBarPageState extends State<NavBarPage> {
             _currentPage = null;
             _currentPageName = tabs.keys.toList()[i];
           }),
-          backgroundColor: Color(0xBDEDF1F7),
-          selectedItemColor: FlutterFlowTheme.of(context).accent1,
-          unselectedItemColor: Color(0xA55A5C60),
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          selectedItemColor: FlutterFlowTheme.of(context).accent3,
+          unselectedItemColor: Color(0x975A5C60),
           showSelectedLabels: true,
           showUnselectedLabels: true,
           type: BottomNavigationBarType.fixed,
@@ -264,7 +264,7 @@ class _NavBarPageState extends State<NavBarPage> {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.home_outlined,
-                size: 24.0,
+                size: 36.0,
               ),
               label: FFLocalizations.of(context).getText(
                 'vq4xsokl' /* Home */,

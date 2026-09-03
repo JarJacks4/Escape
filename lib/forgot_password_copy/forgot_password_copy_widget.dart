@@ -126,16 +126,15 @@ class _ForgotPasswordCopyWidgetState extends State<ForgotPasswordCopyWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   15.0, 0.0, 0.0, 0.0),
                                           child: FlutterFlowIconButton(
-                                            borderRadius: 8.0,
+                                            borderColor: Color(0x2BEDF1F7),
+                                            borderRadius: 50.0,
                                             buttonSize: 40.0,
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .accent1,
+                                            fillColor: Color(0x89EDF1F7),
                                             icon: Icon(
                                               Icons.arrow_back,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primary,
+                                                      .accent3,
                                               size: 24.0,
                                             ),
                                             onPressed: () async {
@@ -159,11 +158,7 @@ class _ForgotPasswordCopyWidgetState extends State<ForgotPasswordCopyWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   font: GoogleFonts.inter(
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontWeight,
+                                                    fontWeight: FontWeight.bold,
                                                     fontStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -172,11 +167,7 @@ class _ForgotPasswordCopyWidgetState extends State<ForgotPasswordCopyWidget> {
                                                   ),
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
+                                                  fontWeight: FontWeight.bold,
                                                   fontStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -190,7 +181,7 @@ class _ForgotPasswordCopyWidgetState extends State<ForgotPasswordCopyWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 40.0, 0.0, 0.0),
+                                        0.0, 80.0, 0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -659,7 +650,7 @@ class _ForgotPasswordCopyWidgetState extends State<ForgotPasswordCopyWidget> {
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .accent1,
+                                                        .accent3,
                                                 textStyle: FlutterFlowTheme.of(
                                                         context)
                                                     .titleSmall

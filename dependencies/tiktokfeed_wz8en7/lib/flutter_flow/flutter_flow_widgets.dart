@@ -406,6 +406,7 @@ class _FFFocusIndicatorState extends State<FFFocusIndicator> {
         splashColor: Colors.transparent,
         hoverColor: Colors.transparent,
         highlightColor: Colors.transparent,
+        focusColor: Colors.transparent,
         focusNode: _focusNode,
         onTap: widget.onTap,
         onLongPress: widget.onLongPress,

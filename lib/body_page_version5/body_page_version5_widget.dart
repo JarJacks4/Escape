@@ -57,7 +57,7 @@ class _BodyPageVersion5WidgetState extends State<BodyPageVersion5Widget> {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: Image.asset(
-                    'assets/images/d8b3cd809cf65ca8c4e3fb8c4a110b8f.gif',
+                    'assets/images/Untitled_design_(1).gif',
                   ).image,
                 ),
               ),

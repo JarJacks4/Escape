@@ -1242,6 +1242,136 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         builder: (context, params) => ComingSoonChakraJourneyWidget(),
       ),
       FFRoute(
+        name: BodyVersion5MovementsPageWidget.routeName,
+        path: BodyVersion5MovementsPageWidget.routePath,
+        builder: (context, params) => BodyVersion5MovementsPageWidget(),
+      ),
+      FFRoute(
+        name: TodaySMovesOverviewWidget.routeName,
+        path: TodaySMovesOverviewWidget.routePath,
+        builder: (context, params) => TodaySMovesOverviewWidget(),
+      ),
+      FFRoute(
+        name: MovementPreviewModal5Widget.routeName,
+        path: MovementPreviewModal5Widget.routePath,
+        builder: (context, params) => MovementPreviewModal5Widget(),
+      ),
+      FFRoute(
+        name: BodySessionCompleteBackToHomeWidget.routeName,
+        path: BodySessionCompleteBackToHomeWidget.routePath,
+        builder: (context, params) => BodySessionCompleteBackToHomeWidget(),
+      ),
+      FFRoute(
+        name: MovementPreviewModal5NewWidget.routeName,
+        path: MovementPreviewModal5NewWidget.routePath,
+        builder: (context, params) => MovementPreviewModal5NewWidget(),
+      ),
+      FFRoute(
+        name: MovementPreviewModal2NewWidget.routeName,
+        path: MovementPreviewModal2NewWidget.routePath,
+        builder: (context, params) => MovementPreviewModal2NewWidget(
+          moveName: params.getParam(
+            'moveName',
+            ParamType.String,
+          ),
+          cueText: params.getParam(
+            'cueText',
+            ParamType.String,
+          ),
+          modelUrl: params.getParam(
+            'modelUrl',
+            ParamType.String,
+          ),
+          accentColor: params.getParam(
+            'accentColor',
+            ParamType.Color,
+          ),
+        ),
+      ),
+      FFRoute(
+        name: ActiveSessionTimer2Widget.routeName,
+        path: ActiveSessionTimer2Widget.routePath,
+        builder: (context, params) => ActiveSessionTimer2Widget(
+          moves: params.getParam(
+            'moves',
+            ParamType.DataStruct,
+            isList: false,
+            structBuilder: MoveStructStruct.fromSerializableMap,
+          ),
+          currentIndex: params.getParam(
+            'currentIndex',
+            ParamType.int,
+          ),
+          sessionStartTime: params.getParam(
+            'sessionStartTime',
+            ParamType.DateTime,
+          ),
+        ),
+      ),
+      FFRoute(
+        name: ActiveSessionReps1Widget.routeName,
+        path: ActiveSessionReps1Widget.routePath,
+        builder: (context, params) => ActiveSessionReps1Widget(
+          moves: params.getParam(
+            'moves',
+            ParamType.DataStruct,
+            isList: false,
+            structBuilder: MoveStructStruct.fromSerializableMap,
+          ),
+          currentIndex: params.getParam(
+            'currentIndex',
+            ParamType.int,
+          ),
+          sessionStartTime: params.getParam(
+            'sessionStartTime',
+            ParamType.DateTime,
+          ),
+        ),
+      ),
+      FFRoute(
+        name: BodyMovementSessionCompletionWidget.routeName,
+        path: BodyMovementSessionCompletionWidget.routePath,
+        builder: (context, params) => BodyMovementSessionCompletionWidget(
+          movesCompleted: params.getParam(
+            'movesCompleted',
+            ParamType.int,
+          ),
+          elapsedMinutes: params.getParam(
+            'elapsedMinutes',
+            ParamType.int,
+          ),
+          sessionLabel: params.getParam(
+            'sessionLabel',
+            ParamType.String,
+          ),
+        ),
+      ),
+      FFRoute(
+        name: Screen4Widget.routeName,
+        path: Screen4Widget.routePath,
+        builder: (context, params) => Screen4Widget(),
+      ),
+      FFRoute(
+        name: BodyMovement3Widget.routeName,
+        path: BodyMovement3Widget.routePath,
+        builder: (context, params) => BodyMovement3Widget(
+          moves: params.getParam(
+            'moves',
+            ParamType.DataStruct,
+            isList: false,
+            structBuilder: MoveStructStruct.fromSerializableMap,
+          ),
+          currentIndex: params.getParam(
+            'currentIndex',
+            ParamType.int,
+          ),
+          sessionStartTime: params.getParam(
+            'sessionStartTime',
+            ParamType.DateTime,
+          ),
+        ),
+      ),
+      FFRoute(
         name: $cupertino_time_picker_hiuzb7.HomePageWidget.routeName,
         path: $cupertino_time_picker_hiuzb7.HomePageWidget.routePath,
         builder: (context, params) =>
@@ -1374,7 +1504,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         builder: (context, params) => $swipe_button_e4yciw.HomePageWidget(),
       )
     ].map((r) => r.toRoute(appStateNotifier)).toList(),
-    observers: [routeObserver],
+    observers: ffNavigatorObservers,
   );
 }
 

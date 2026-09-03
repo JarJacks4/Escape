@@ -44,12 +44,14 @@ class _LucilleFirstRecommendationCompWidgetState
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<UserAgentStateRecord>>(
-      stream: queryUserAgentStateRecord(
-        queryBuilder: (userAgentStateRecord) => userAgentStateRecord.where(
-          'userId',
-          isEqualTo: currentUserUid,
+      stream: FFAppState().todaysTasks(
+        requestFn: () => queryUserAgentStateRecord(
+          queryBuilder: (userAgentStateRecord) => userAgentStateRecord.where(
+            'userId',
+            isEqualTo: currentUserUid,
+          ),
+          singleRecord: true,
         ),
-        singleRecord: true,
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.

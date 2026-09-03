@@ -163,15 +163,15 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                         child: Hero(
                           tag: () {
                             if (FFAppState().isAllTab) {
-                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9';
+                              return 'https://res.cloudinary.com/djm6axyxz/image/upload/v1786933541/d62729e5768b9c70b89d9ffeb8856152_nrdyhn.gif';
                             } else if (FFAppState().isMusicMeditationsTab) {
-                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
+                              return 'https://res.cloudinary.com/djm6axyxz/image/upload/v1786933553/e085865feb0fb5cd989c30fa6b384526_zixulr.gif';
                             } else if (FFAppState().isNatureTab) {
-                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fdownload_(26)%20(1).gif?alt=media&token=77372ba9-5080-46ce-95fd-dbc17982ec56';
+                              return 'https://res.cloudinary.com/djm6axyxz/image/upload/v1786933535/8a5a1213081765cd5203014568985a0c_klfk85.gif';
                             } else if (FFAppState().isFocusTab) {
-                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
+                              return 'https://res.cloudinary.com/djm6axyxz/image/upload/v1786933532/e085865feb0fb5cd989c30fa6b384526__2_pxwku7.gif';
                             } else if (FFAppState().isSleepTab) {
-                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F90ac6093fb40e1d7398371b1d61a4e4a.gif?alt=media&token=3351172e-47e6-40e2-9ed4-fb4d549c64f5';
+                              return 'https://res.cloudinary.com/djm6axyxz/image/upload/v1786933916/';
                             } else {
                               return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
                             }
@@ -182,15 +182,15 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                             child: Image.network(
                               () {
                                 if (FFAppState().isAllTab) {
-                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9';
+                                  return 'https://res.cloudinary.com/djm6axyxz/image/upload/v1786933541/d62729e5768b9c70b89d9ffeb8856152_nrdyhn.gif';
                                 } else if (FFAppState().isMusicMeditationsTab) {
-                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
+                                  return 'https://res.cloudinary.com/djm6axyxz/image/upload/v1786933553/e085865feb0fb5cd989c30fa6b384526_zixulr.gif';
                                 } else if (FFAppState().isNatureTab) {
-                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fdownload_(26)%20(1).gif?alt=media&token=77372ba9-5080-46ce-95fd-dbc17982ec56';
+                                  return 'https://res.cloudinary.com/djm6axyxz/image/upload/v1786933535/8a5a1213081765cd5203014568985a0c_klfk85.gif';
                                 } else if (FFAppState().isFocusTab) {
-                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
+                                  return 'https://res.cloudinary.com/djm6axyxz/image/upload/v1786933532/e085865feb0fb5cd989c30fa6b384526__2_pxwku7.gif';
                                 } else if (FFAppState().isSleepTab) {
-                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F90ac6093fb40e1d7398371b1d61a4e4a.gif?alt=media&token=3351172e-47e6-40e2-9ed4-fb4d549c64f5';
+                                  return 'https://res.cloudinary.com/djm6axyxz/image/upload/v1786933916/';
                                 } else {
                                   return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
                                 }

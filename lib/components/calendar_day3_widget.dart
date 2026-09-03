@@ -133,66 +133,40 @@ class _CalendarDay3WidgetState extends State<CalendarDay3Widget> {
                   fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
                 ),
           ),
-          if (valueOrDefault<bool>(
-            () {
-              if (valueOrDefault<String>(
-                    widget.status,
-                    'none',
-                  ) ==
-                  'negative') {
-                return true;
-              } else if (valueOrDefault<String>(
-                    widget.status,
-                    'none',
-                  ) ==
-                  'neutral') {
-                return true;
-              } else if (valueOrDefault<String>(
-                    widget.status,
-                    'none',
-                  ) ==
-                  'positive') {
-                return true;
-              } else {
-                return false;
-              }
-            }(),
-            false,
-          ))
-            Container(
-              width: 4.0,
-              height: 4.0,
-              decoration: BoxDecoration(
-                color: valueOrDefault<Color>(
-                  () {
-                    if (valueOrDefault<String>(
-                          widget.status,
-                          'none',
-                        ) ==
-                        'negative') {
-                      return FlutterFlowTheme.of(context).error;
-                    } else if (valueOrDefault<String>(
-                          widget.status,
-                          'none',
-                        ) ==
-                        'neutral') {
-                      return FlutterFlowTheme.of(context).warning;
-                    } else if (valueOrDefault<String>(
-                          widget.status,
-                          'none',
-                        ) ==
-                        'positive') {
-                      return FlutterFlowTheme.of(context).success;
-                    } else {
-                      return Colors.transparent;
-                    }
-                  }(),
-                  Colors.transparent,
-                ),
-                borderRadius: BorderRadius.circular(9999.0),
-                shape: BoxShape.rectangle,
+          Container(
+            width: 4.0,
+            height: 4.0,
+            decoration: BoxDecoration(
+              color: valueOrDefault<Color>(
+                () {
+                  if (valueOrDefault<String>(
+                        widget.status,
+                        'none',
+                      ) ==
+                      'negative') {
+                    return FlutterFlowTheme.of(context).error;
+                  } else if (valueOrDefault<String>(
+                        widget.status,
+                        'none',
+                      ) ==
+                      'neutral') {
+                    return FlutterFlowTheme.of(context).warning;
+                  } else if (valueOrDefault<String>(
+                        widget.status,
+                        'none',
+                      ) ==
+                      'positive') {
+                    return FlutterFlowTheme.of(context).success;
+                  } else {
+                    return Colors.transparent;
+                  }
+                }(),
+                Colors.transparent,
               ),
+              borderRadius: BorderRadius.circular(9999.0),
+              shape: BoxShape.rectangle,
             ),
+          ),
         ].divide(SizedBox(height: 2.0)),
       ),
     );

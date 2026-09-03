@@ -286,52 +286,34 @@ class _JournalCardWidgetState extends State<JournalCardWidget> {
                               ),
                             ),
                           ),
-                          if (valueOrDefault<bool>(
-                            widget.hasVoice,
-                            true,
-                          ))
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(9999.0),
-                                shape: BoxShape.rectangle,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 4.0, 16.0, 4.0),
-                                child: Container(
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.mic_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent1,
-                                        size: 14.0,
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(9999.0),
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 4.0, 16.0, 4.0),
+                              child: Container(
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.mic_rounded,
+                                      color:
+                                          FlutterFlowTheme.of(context).accent1,
+                                      size: 14.0,
+                                    ),
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'hhmlc0jp' /* Voice Entry */,
                                       ),
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'hhmlc0jp' /* Voice Entry */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .override(
-                                              font: GoogleFonts.inter(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelSmall
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelSmall
-                                                        .fontStyle,
-                                              ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              letterSpacing: 0.0,
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .override(
+                                            font: GoogleFonts.inter(
                                               fontWeight:
                                                   FlutterFlowTheme.of(context)
                                                       .labelSmall
@@ -341,12 +323,24 @@ class _JournalCardWidgetState extends State<JournalCardWidget> {
                                                       .labelSmall
                                                       .fontStyle,
                                             ),
-                                      ),
-                                    ].divide(SizedBox(width: 4.0)),
-                                  ),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmall
+                                                    .fontStyle,
+                                          ),
+                                    ),
+                                  ].divide(SizedBox(width: 4.0)),
                                 ),
                               ),
                             ),
+                          ),
                         ].divide(SizedBox(width: 8.0)),
                       ),
                     ].divide(SizedBox(height: 16.0)),

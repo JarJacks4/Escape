@@ -285,19 +285,28 @@ class FirebaseAuthManager extends AuthManager
   }
 
   @override
-  Future verifySmsCode({
+  Future<BaseAuthUser?> verifySmsCode({
     required BuildContext context,
     required String smsCode,
   }) {
     if (kIsWeb) {
+      final confirmationResult =
+          phoneAuthManager.webPhoneAuthConfirmationResult;
+      if (confirmationResult == null) {
+        return _handleMissingPhoneVerification(context);
+      }
       return _signInOrCreateAccount(
         context,
-        () => phoneAuthManager.webPhoneAuthConfirmationResult!.confirm(smsCode),
+        () => confirmationResult.confirm(smsCode),
         'PHONE',
       );
     } else {
+      final verificationId = phoneAuthManager.phoneAuthVerificationCode;
+      if (verificationId == null) {
+        return _handleMissingPhoneVerification(context);
+      }
       final authCredential = PhoneAuthProvider.credential(
-        verificationId: phoneAuthManager.phoneAuthVerificationCode!,
+        verificationId: verificationId,
         smsCode: smsCode,
       );
       return _signInOrCreateAccount(
@@ -306,6 +315,19 @@ class FirebaseAuthManager extends AuthManager
         'PHONE',
       );
     }
+  }
+
+  // Called when verifySmsCode runs without a verification code having been sent
+  // (e.g. the code request failed). Surfaces a preset message instead of
+  // crashing on a null verification id / confirmation result.
+  Future<BaseAuthUser?> _handleMissingPhoneVerification(BuildContext context) {
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+          content:
+              Text('Please request a verification code before verifying.')),
+    );
+    return Future.value(null);
   }
 
   /// Tries to sign in or create an account using Firebase Auth.

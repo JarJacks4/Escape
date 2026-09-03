@@ -51,7 +51,7 @@ mixin PhoneSignInManager on AuthManager {
     required void Function(BuildContext) onCodeSent,
   });
 
-  Future verifySmsCode({
+  Future<BaseAuthUser?> verifySmsCode({
     required BuildContext context,
     required String smsCode,
   });

@@ -2172,6 +2172,64 @@ class FFAppState extends ChangeNotifier {
         _recentlyPlayed.map((x) => x.serialize()).toList());
   }
 
+  List<MoveStructStruct> _todaysMoves = [
+    MoveStructStruct.fromSerializableMap(jsonDecode(
+        '{\"name\":\"Brush Knee\",\"moveType\":\"Yang Style Tai Chi\",\"durationSeconds\":\"60\",\"repCount\":\"3\",\"cueText\":\"The fifth Tai Chi Movement, \\\"Brush Knee\\\", is typically used to free up the lower spine. Internally, this position gives the practictioner a balnce of the left and right sides of the body.\",\"modelUrl\":\"https://res.cloudinary.com/djm6axyxz/image/upload/v1787557244/Jared_tai_Chi_form1_animation_mtt13b.glb\",\"accentColor\":\"#1933dca3\"}')),
+    MoveStructStruct.fromSerializableMap(jsonDecode(
+        '{\"name\":\"Burpee\",\"moveType\":\"Basic Exercise\",\"durationSeconds\":\"3\",\"repCount\":\"0\",\"cueText\":\"Get ready — stand tall and prepare to move.\",\"modelUrl\":\"https://res.cloudinary.com/djm6axyxz/image/upload/v1787561553/Burpee_Start_d3yy9m.glb\",\"accentColor\":\"#7c4dff\"}')),
+    MoveStructStruct.fromSerializableMap(jsonDecode(
+        '{\"name\":\"Air Squat Bent Arms\",\"moveType\":\"Intermediate Exercise\",\"durationSeconds\":\"30\",\"repCount\":\"10\",\"cueText\":\"Hello World\",\"modelUrl\":\"https://res.cloudinary.com/djm6axyxz/image/upload/v1787561556/Air_Squat_Bent_Arms_gmcqhz.glb\",\"accentColor\":\"#2196f3\"}')),
+    MoveStructStruct.fromSerializableMap(jsonDecode(
+        '{\"name\":\"Overhead Squat\",\"moveType\":\"Intermediate Exercise\",\"durationSeconds\":\"30\",\"repCount\":\"10\",\"cueText\":\"Keep your arms extended overhead as you lower into a squat. Keep your chest up and stand tall.\",\"modelUrl\":\"Hello World\",\"accentColor\":\"#ff9800\"}')),
+    MoveStructStruct.fromSerializableMap(jsonDecode(
+        '{\"name\":\"Plank\",\"moveType\":\"Basic Exercise\",\"durationSeconds\":\"30\",\"repCount\":\"0\",\"cueText\":\"Hold a strong plank with your body straight. Keep your core tight and your hips level.\",\"modelUrl\":\"https://res.cloudinary.com/djm6axyxz/image/upload/v1787561553/Burpee_Start_d3yy9m.glb\",\"accentColor\":\"#4caf50\"}')),
+    MoveStructStruct.fromSerializableMap(jsonDecode(
+        '{\"name\":\"Arm Stretching\",\"moveType\":\"Basic Exercise\",\"durationSeconds\":\"20\",\"repCount\":\"0\",\"cueText\":\"Stretch your arms gently and keep your movements slow and controlled. Do not force the stretch.\",\"modelUrl\":\"https://res.cloudinary.com/djm6axyxz/image/upload/v1787561554/Arm_Stretching_kreq6h.glb\",\"accentColor\":\"#00bfa5\"}')),
+    MoveStructStruct.fromSerializableMap(jsonDecode(
+        '{\"name\":\"Air Squat\",\"moveType\":\"Basic Exercise\",\"durationSeconds\":\"30\",\"repCount\":\"10\",\"cueText\":\"Lower your hips into a squat while keeping your chest up. Push through your feet to stand tall.\",\"modelUrl\":\"https://res.cloudinary.com/djm6axyxz/image/upload/v1787561551/Air_Squat_kkpmkk.glb\",\"accentColor\":\"#2196f3\"}')),
+    MoveStructStruct.fromSerializableMap(jsonDecode(
+        '{\"name\":\"End Plank\",\"moveType\":\"Basic Exercise\",\"durationSeconds\":\"3\",\"repCount\":\"0\",\"cueText\":\"Finish your plank and slowly return to a comfortable standing position.\",\"modelUrl\":\"https://res.cloudinary.com/djm6axyxz/image/upload/v1787561545/End_Plank_h6i41h.glb\",\"accentColor\":\"#4caf50\"}')),
+    MoveStructStruct.fromSerializableMap(jsonDecode(
+        '{\"name\":\"Burpee Start\",\"moveType\":\"Intermediate Exercise\",\"durationSeconds\":\"3\",\"repCount\":\"0\",\"cueText\":\"Get ready to begin your burpees. Keep your core engaged and prepare for the movement.\",\"modelUrl\":\"https://res.cloudinary.com/djm6axyxz/image/upload/v1787561553/Burpee_Start_d3yy9m.glb\",\"accentColor\":\"#7c4dff\"}')),
+    MoveStructStruct.fromSerializableMap(jsonDecode(
+        '{\"name\":\"Burpee End\",\"moveType\":\"Intermediate Exercise\",\"durationSeconds\":\"3\",\"repCount\":\"0\",\"cueText\":\"Finish the movement and stand tall. Take a breath and prepare for the next exercise.\",\"modelUrl\":\"https://res.cloudinary.com/djm6axyxz/image/upload/v1787561553/Burpee_End_q5qvjj.glb\",\"accentColor\":\"#7c4dff\"}')),
+    MoveStructStruct.fromSerializableMap(jsonDecode(
+        '{\"name\":\"Start Plank\",\"moveType\":\"Basic Exercise\",\"durationSeconds\":\"3\",\"repCount\":\"0\",\"cueText\":\"Get into your plank position. Keep your hands grounded, body straight, and core tight.\",\"modelUrl\":\"https://res.cloudinary.com/djm6axyxz/image/upload/v1787561551/Start_Plank_s4cawo.glb\",\"accentColor\":\"#4caf50\"}'))
+  ];
+  List<MoveStructStruct> get todaysMoves => _todaysMoves;
+  set todaysMoves(List<MoveStructStruct> value) {
+    _todaysMoves = value;
+  }
+
+  void addToTodaysMoves(MoveStructStruct value) {
+    todaysMoves.add(value);
+  }
+
+  void removeFromTodaysMoves(MoveStructStruct value) {
+    todaysMoves.remove(value);
+  }
+
+  void removeAtIndexFromTodaysMoves(int index) {
+    todaysMoves.removeAt(index);
+  }
+
+  void updateTodaysMovesAtIndex(
+    int index,
+    MoveStructStruct Function(MoveStructStruct) updateFn,
+  ) {
+    todaysMoves[index] = updateFn(_todaysMoves[index]);
+  }
+
+  void insertAtIndexInTodaysMoves(int index, MoveStructStruct value) {
+    todaysMoves.insert(index, value);
+  }
+
+  bool _hasPreviewedAMove = false;
+  bool get hasPreviewedAMove => _hasPreviewedAMove;
+  set hasPreviewedAMove(bool value) {
+    _hasPreviewedAMove = value;
+  }
+
   final _lucilleSuggestedExercisesManager =
       FutureRequestManager<ApiCallResponse>();
   Future<ApiCallResponse> lucilleSuggestedExercises({
@@ -2205,6 +2263,22 @@ class FFAppState extends ChangeNotifier {
       _recommendedExercisesMoodScanManager.clear();
   void clearRecommendedExercisesMoodScanCacheKey(String? uniqueKey) =>
       _recommendedExercisesMoodScanManager.clearRequest(uniqueKey);
+
+  final _todaysTasksManager =
+      StreamRequestManager<List<UserAgentStateRecord>>();
+  Stream<List<UserAgentStateRecord>> todaysTasks({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Stream<List<UserAgentStateRecord>> Function() requestFn,
+  }) =>
+      _todaysTasksManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearTodaysTasksCache() => _todaysTasksManager.clear();
+  void clearTodaysTasksCacheKey(String? uniqueKey) =>
+      _todaysTasksManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

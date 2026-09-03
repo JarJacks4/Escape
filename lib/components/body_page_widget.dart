@@ -258,7 +258,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'dga7wx6t' /* 10 sessions */,
+                                    'dga7wx6t' /* 10 Movements */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
@@ -389,7 +389,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'rcxpfqhq' /* 15 sessions */,
+                                    'rcxpfqhq' /* 15 Movements */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
@@ -528,7 +528,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    '2bcpenvn' /* 18 sessions */,
+                                    '2bcpenvn' /* 18 Movements */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
@@ -720,7 +720,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                     logFirebaseEvent('Container_navigate_to');
 
                     context.pushNamed(
-                      BodyWarriorPoseTouchDesignerWidget.routeName,
+                      BeginSessionPageWidget.routeName,
                       extra: <String, dynamic>{
                         '__transition_info__': TransitionInfo(
                           hasTransition: true,

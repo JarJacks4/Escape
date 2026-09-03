@@ -95,72 +95,56 @@ class _TabGroupWidgetState extends State<TabGroupWidget> {
                 ),
               ),
             ),
-            if (valueOrDefault<bool>(
-              widget.label2Present,
-              true,
-            ))
-              Expanded(
-                flex: 1,
-                child: wrapWithModel(
-                  model: _model.tabItemModel2,
-                  updateCallback: () => safeSetState(() {}),
-                  child: TabItemWidget(
-                    label: valueOrDefault<String>(
-                      widget.label2,
-                      'Month',
-                    ),
-                    selected: false,
+            Expanded(
+              flex: 1,
+              child: wrapWithModel(
+                model: _model.tabItemModel2,
+                updateCallback: () => safeSetState(() {}),
+                child: TabItemWidget(
+                  label: valueOrDefault<String>(
+                    widget.label2,
+                    'Month',
                   ),
+                  selected: false,
                 ),
               ),
-            if (valueOrDefault<bool>(
-              widget.label3Present,
-              true,
-            ))
-              Expanded(
-                flex: 1,
-                child: wrapWithModel(
-                  model: _model.tabItemModel3,
-                  updateCallback: () => safeSetState(() {}),
-                  child: TabItemWidget(
-                    label: valueOrDefault<String>(
-                      widget.label3,
-                      'Year',
-                    ),
-                    selected: false,
+            ),
+            Expanded(
+              flex: 1,
+              child: wrapWithModel(
+                model: _model.tabItemModel3,
+                updateCallback: () => safeSetState(() {}),
+                child: TabItemWidget(
+                  label: valueOrDefault<String>(
+                    widget.label3,
+                    'Year',
                   ),
+                  selected: false,
                 ),
               ),
-            if (valueOrDefault<bool>(
-              widget.label4Present,
-              false,
-            ))
-              Expanded(
-                flex: 1,
-                child: wrapWithModel(
-                  model: _model.tabItemModel4,
-                  updateCallback: () => safeSetState(() {}),
-                  child: TabItemWidget(
-                    label: widget.label4,
-                    selected: false,
-                  ),
+            ),
+            Expanded(
+              flex: 1,
+              child: wrapWithModel(
+                model: _model.tabItemModel4,
+                updateCallback: () => safeSetState(() {}),
+                child: TabItemWidget(
+                  label: widget.label4,
+                  selected: false,
                 ),
               ),
-            if (valueOrDefault<bool>(
-              widget.label5Present,
-              false,
-            ))
-              Expanded(
-                flex: 1,
-                child: wrapWithModel(
-                  model: _model.tabItemModel5,
-                  updateCallback: () => safeSetState(() {}),
-                  child: TabItemWidget(
-                    label: widget.label5,
-                    selected: false,
-                  ),
+            ),
+            Expanded(
+              flex: 1,
+              child: wrapWithModel(
+                model: _model.tabItemModel5,
+                updateCallback: () => safeSetState(() {}),
+                child: TabItemWidget(
+                  label: widget.label5,
+                  selected: false,
                 ),
               ),
+            ),
           ].divide(SizedBox(width: 0.0)),
         ),
       ),
