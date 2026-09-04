@@ -46,6 +46,9 @@ class CreateAccountOnboardingFlowModel
   ScrollController? columnController1;
   // State field(s) for Column widget.
   ScrollController? columnController2;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController;
+  bool listViewStartAtEndApplied = false;
   AudioPlayer? soundPlayer5;
   // State field(s) for Column widget.
   ScrollController? columnController3;
@@ -67,6 +70,7 @@ class CreateAccountOnboardingFlowModel
   void initState(BuildContext context) {
     columnController1 = ScrollController();
     columnController2 = ScrollController();
+    listViewController = ScrollController();
     columnController3 = ScrollController();
   }
 
@@ -80,6 +84,7 @@ class CreateAccountOnboardingFlowModel
 
     columnController1?.dispose();
     columnController2?.dispose();
+    listViewController?.dispose();
     columnController3?.dispose();
   }
 }

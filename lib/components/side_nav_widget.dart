@@ -353,7 +353,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                           Icon(
                                             Icons.home_rounded,
                                             color: FlutterFlowTheme.of(context)
-                                                .accent3,
+                                                .accent4,
                                             size: 28.0,
                                           ),
                                           Padding(
@@ -437,8 +437,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                         'contentView_1_navigate_to');
 
                                     context.pushNamed(
-                                      ConnectionCommunityStartPageVersion5Widget
-                                          .routeName,
+                                      HealthJournalWidget.routeName,
                                       extra: <String, dynamic>{
                                         '__transition_info__': TransitionInfo(
                                           hasTransition: true,
@@ -483,7 +482,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                             ),
                                           ),
                                           Icon(
-                                            Icons.forum_rounded,
+                                            FFIcons.kjournalBook,
                                             color: Color(0xEAD0E3F7),
                                             size: 28.0,
                                           ),
@@ -494,7 +493,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'oy1bb3bl' /* Community */,
+                                                'oy1bb3bl' /* Journal */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)

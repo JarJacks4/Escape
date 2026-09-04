@@ -9987,7 +9987,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '80qqkrk7': {
-      'en': 'Practice Mindfulness',
+      'en': 'Sleep Better',
       'ar': 'الهدوء',
       'de': 'Ruhe',
       'es': 'Calma',
@@ -10001,7 +10001,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '平靜',
     },
     '4v01f4la': {
-      'en': 'Reduce Stress',
+      'en': 'Ease Stress and Anxiety',
       'ar': 'التمدد',
       'de': 'Dehnen',
       'es': 'Extensión',
@@ -10015,7 +10015,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '伸展',
     },
     '55wgp1jp': {
-      'en': 'Happiness',
+      'en': 'Build Resilience',
       'ar': 'زيادة التركيز',
       'de': 'Fokus erhöhen',
       'es': 'Aumentar el enfoque',
@@ -10029,7 +10029,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '提升專注力',
     },
     'wi8rf7cd': {
-      'en': 'Increase Focus',
+      'en': 'Sharpen Concentration',
       'ar': 'تاي تشي',
       'de': 'Tai Chi',
       'es': 'Tai Chi',
@@ -10043,7 +10043,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '太極拳',
     },
     'yy8u09oa': {
-      'en': 'Boost Energy',
+      'en': 'Feel Calmer',
       'ar': 'تأمل',
       'de': 'Meditation',
       'es': 'Meditación',
@@ -10057,7 +10057,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '冥想',
     },
     '1jz8ob3y': {
-      'en': 'Develop Gratitude',
+      'en': 'Lift Your Mood',
       'ar': 'الصحة العقلية',
       'de': 'Psychische Gesundheit',
       'es': 'Salud mental',
@@ -10071,7 +10071,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '心理健康',
     },
     'a1newfsb': {
-      'en': 'Improve Meditation',
+      'en': 'Recharge Daily',
       'ar': 'ينام',
       'de': 'Schlafen',
       'es': 'Dormir',
@@ -10083,6 +10083,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'uk': 'Сон',
       'zh_Hans': '睡觉',
       'zh_Hant': '睡覺',
+    },
+    'e6dvn956': {
+      'en': 'Strengthen Self-Awareness',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
     },
     'tt7yyfll': {
       'en': 'Continue',
@@ -10170,7 +10184,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '您想要個人化通知嗎？',
     },
     '52xpc8zp': {
-      'en': 'Tap to Give Notifications Permission',
+      'en': 'Tap to Give Permission',
       'ar': '',
       'de': '',
       'es': '',
@@ -18089,7 +18103,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'xmy7wncc': {
+    'mskoj8ev': {
       'en': 'Home',
       'ar': '',
       'de': '',
@@ -19053,7 +19067,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '家',
     },
     'oy1bb3bl': {
-      'en': 'Community',
+      'en': 'Journal',
       'ar': 'مجتمع',
       'de': 'Gemeinschaft',
       'es': 'Comunidad',
