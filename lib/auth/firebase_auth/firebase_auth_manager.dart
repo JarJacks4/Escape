@@ -172,12 +172,64 @@ class FirebaseAuthManager extends AuthManager
     BuildContext context,
     String email,
     String password,
-  ) =>
-      _signInOrCreateAccount(
-        context,
-        () => emailCreateAccountFunc(email, password),
-        'EMAIL',
+  ) async {
+    try {
+      final userCredential = await emailCreateAccountFunc(email, password);
+      logFirebaseAuthEvent(userCredential?.user, 'EMAIL');
+      if (userCredential?.user != null) {
+        await maybeCreateUser(userCredential!.user!);
+      }
+      return userCredential == null
+          ? null
+          : EscapeFirebaseUser.fromUserCredential(userCredential);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use') {
+        // Likely a leftover Auth account from a previous attempt where
+        // Firestore user-doc creation failed (e.g. the App Check 403
+        // issue). Try signing in with the same credentials instead of
+        // blocking the user with a confusing error.
+        try {
+          final retryCredential = await emailSignInFunc(email, password);
+          logFirebaseAuthEvent(retryCredential?.user, 'EMAIL');
+          if (retryCredential?.user != null) {
+            await maybeCreateUser(retryCredential!.user!);
+          }
+          return retryCredential == null
+              ? null
+              : EscapeFirebaseUser.fromUserCredential(retryCredential);
+        } catch (_) {
+          // Retry failed too (e.g. wrong password on a different
+          // account) - fall through to show the normal error below.
+        }
+      }
+      final errorMsg = switch (e.code) {
+        'email-already-in-use' => FFLocalizations.of(context).getText(
+            'u7xtcocl' /* This email is already in use b... */,
+          ),
+        'INVALID_LOGIN_CREDENTIALS' => FFLocalizations.of(context).getText(
+            'r9wa817j' /* Credentials are invalid. Take ... */,
+          ),
+        _ => FFLocalizations.of(context).getText(
+            'mmzozk4v' /* Authentication Error. Please T... */,
+          ),
+      };
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(errorMsg)),
       );
+      return null;
+    } catch (e) {
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(FFLocalizations.of(context).getText(
+            'mmzozk4v' /* Authentication Error. Please T... */,
+          )),
+        ),
+      );
+      return null;
+    }
+  }
 
   @override
   Future<BaseAuthUser?> signInAnonymously(
@@ -339,6 +391,19 @@ class FirebaseAuthManager extends AuthManager
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(errorMsg)),
+      );
+      return null;
+    } catch (e) {
+      // Catches non-FirebaseAuthException errors (e.g. Firestore
+      // permission-denied from maybeCreateUser due to the App Check 403
+      // issue), so the UI shows feedback instead of hanging silently.
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(FFLocalizations.of(context).getText(
+            'mmzozk4v' /* Authentication Error. Please T... */,
+          )),
+        ),
       );
       return null;
     }

@@ -190,7 +190,7 @@ class _CreateAccountOnboardingFlowWidgetState
                       FFAppState().onboardingTabIndex =
                           _model.pageViewCurrentIndex;
                       FFAppState().isOnboardingFinished =
-                          _model.pageViewCurrentIndex > 2 ? true : false;
+                          _model.pageViewCurrentIndex > 1 ? true : false;
                       safeSetState(() {});
                       _model.soundPlayer2 ??= AudioPlayer();
                       if (_model.soundPlayer2!.playing) {
@@ -223,8 +223,7 @@ class _CreateAccountOnboardingFlowWidgetState
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 80.0, 0.0, 0.0),
                                       child: Text(
-                                        FFLocalizations.of(context)
-                                            .getText('upu7xls9'),
+                                        'Step 1 of 3',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -723,192 +722,6 @@ class _CreateAccountOnboardingFlowWidgetState
                         ),
                       ),
 
-                      // PAGE 2: Interests
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 24.0, 24.0, 24.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 80.0, 0.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText('91qhm54s'),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'WorkSans',
-                                      color: Colors.white,
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                      shadows: [
-                                        Shadow(
-                                          color: Colors.black
-                                              .withOpacity(0.4),
-                                          blurRadius: 4.0,
-                                          offset: Offset(0, 1),
-                                        ),
-                                      ],
-                                    ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 25.0, 0.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText('305cal4q'),
-                                textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context)
-                                    .displaySmall
-                                    .override(
-                                      fontFamily: 'The Seasons',
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
-                            ),
-                            Text(
-                              FFLocalizations.of(context).getText('7zqdbzed'),
-                              textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'WorkSans',
-                                    color: Color(0xDA39519F),
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                            Expanded(
-                              child: Builder(
-                                builder: (context) {
-                                  final interest = FFAppConstants
-                                      .OnboardingInterests.toList();
-                                  return ListView.separated(
-                                    padding:
-                                        EdgeInsets.symmetric(vertical: 12.0),
-                                    scrollDirection: Axis.vertical,
-                                    itemCount: interest.length,
-                                    separatorBuilder: (_, __) =>
-                                        SizedBox(height: 12.0),
-                                    itemBuilder: (context, interestIndex) {
-                                      final interestItem =
-                                          interest[interestIndex];
-                                      return InkWell(
-                                        onTap: () async {
-                                          HapticFeedback.selectionClick();
-                                          safeSetState(() {});
-                                        },
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 55.2,
-                                          decoration: BoxDecoration(
-                                            color: valueOrDefault<Color>(
-                                              FFAppConstants
-                                                  .OnboardingGoalColors
-                                                  .firstOrNull,
-                                              Color(0xA3D0E3F7),
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                            border: Border.all(
-                                                color: Color(0x48EDF1F7)),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    36.0, 12.0, 24.0, 12.0),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    Container(
-                                                      width: 25.0,
-                                                      height: 25.0,
-                                                      decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                        image: DecorationImage(
-                                                          fit: BoxFit.cover,
-                                                          image: Image.asset(
-                                                                  'assets/images/f888a650f73ba5acfa7794b87773e0ae64ac7c72.png')
-                                                              .image,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    SizedBox(width: 12.0),
-                                                    Text(
-                                                      interestItem,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'WorkSans',
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                if (_model.interests)
-                                                  Icon(
-                                                    Icons.check_circle,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .success,
-                                                    size: 20.0,
-                                                  ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  );
-                                },
-                              ),
-                            ),
-                            
-                            FFButtonWidget(
-                              onPressed: () async {
-                                HapticFeedback.lightImpact();
-                                await _model.pageViewController?.nextPage(
-                                  duration: Duration(milliseconds: 300),
-                                  curve: Curves.ease,
-                                );
-                              },
-                              text: FFLocalizations.of(context)
-                                  .getText('hpuekj4w'),
-                              options: FFButtonOptions(
-                                width: double.infinity,
-                                height: 50.0,
-                                padding: EdgeInsets.all(8.0),
-                                color: Color(0xD7F0831A),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleMedium
-                                    .override(
-                                      fontFamily: 'WorkSans',
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      letterSpacing: 0.0,
-                                    ),
-                                elevation: 3.0,
-                                borderSide:
-                                    BorderSide(color: Color(0x4CEDF1F7)),
-                                borderRadius: BorderRadius.circular(24.0),
-                              ),
-                            ),
-                          ].divide(SizedBox(height: 16.0)),
-                        ),
-                      ),
-
                       // PAGE 3: Journey Goals
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -921,7 +734,7 @@ class _CreateAccountOnboardingFlowWidgetState
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 80.0, 0.0, 0.0),
                               child: Text(
-                                FFLocalizations.of(context).getText('xrg87m33'),
+                                'Step 2 of 3',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -1050,7 +863,8 @@ class _CreateAccountOnboardingFlowWidgetState
                       ),
 
                       // PAGE 4: Enable Notifications
-                      Padding(
+                      SingleChildScrollView(
+                        child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 24.0, 24.0, 24.0),
                         child: Column(
@@ -1061,7 +875,7 @@ class _CreateAccountOnboardingFlowWidgetState
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 80.0, 0.0, 0.0),
                               child: Text(
-                                FFLocalizations.of(context).getText('0blq1j6a'),
+                                'Step 3 of 3',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -1235,6 +1049,7 @@ class _CreateAccountOnboardingFlowWidgetState
                           ].divide(SizedBox(height: 32.0)),
                         ),
                       ),
+                      ),
                     ],
                   ),
                   // Page indicator
@@ -1246,7 +1061,7 @@ class _CreateAccountOnboardingFlowWidgetState
                       child: smooth_page_indicator.SmoothPageIndicator(
                         controller: _model.pageViewController ??=
                             PageController(initialPage: 0),
-                        count: 4,
+                        count: 3,
                         axisDirection: Axis.horizontal,
                         onDotClicked: (i) async {
                           await _model.pageViewController!.animateToPage(

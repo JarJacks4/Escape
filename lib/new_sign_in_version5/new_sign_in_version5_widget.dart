@@ -2956,7 +2956,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                           await UsersRecord
                                                               .collection
                                                               .doc(user.uid)
-                                                              .update(
+                                                              .set(
                                                                   createUsersRecordData(
                                                                 email: _model
                                                                     .createEmailTextController
@@ -2966,11 +2966,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                 displayName: _model
                                                                     .displayNameTextController
                                                                     .text,
-                                                                uid: random_data
-                                                                    .randomInteger(
-                                                                        0,
-                                                                        10000)
-                                                                    .toString(),
+                                                                uid: user.uid,
                                                               ));
 
                                                           logFirebaseEvent(

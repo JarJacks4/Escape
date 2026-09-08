@@ -1476,7 +1476,18 @@ Future<FFFirestorePage<T>> queryCollectionPage<T>(
 // Creates a Firestore document representing the logged in user if it doesn't yet exist
 Future maybeCreateUser(User user) async {
   final userRecord = UsersRecord.collection.doc(user.uid);
-  final userExists = await userRecord.get().then((u) => u.exists);
+  // For a brand-new user, this doc doesn't exist yet, and Firestore
+  // security rules that reference resource.data.uid deny reads on a
+  // non-existent resource - so this .get() call is EXPECTED to throw a
+  // permission-denied error for new sign-ups. Treat that specific failure
+  // as "doesn't exist yet" rather than letting it propagate and abort
+  // the whole sign-up flow.
+  bool userExists;
+  try {
+    userExists = await userRecord.get().then((u) => u.exists);
+  } catch (_) {
+    userExists = false;
+  }
   if (userExists) {
     currentUserDocument = await UsersRecord.getDocumentOnce(userRecord);
     return;
