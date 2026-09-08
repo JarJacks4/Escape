@@ -147,5 +147,17 @@ service cloud.firestore {
       allow write: if request.auth.uid == parent;
       allow delete: if request.auth.uid == parent;
     }
+
+    match /SelfCareGoals/{parent}/Body/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /{path=**}/Body/{document} {
+      allow read: if true;
+    }
+
   }
 }
