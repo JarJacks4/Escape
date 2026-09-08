@@ -229,9 +229,17 @@ class _CreateAccountOnboardingFlowWidgetState
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'WorkSans',
-                                              color: Color(0xCCFFFFFF),
+                                              color: Colors.white,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
+                                              shadows: [
+                                                Shadow(
+                                                  color: Colors.black
+                                                      .withOpacity(0.4),
+                                                  blurRadius: 4.0,
+                                                  offset: Offset(0, 1),
+                                                ),
+                                              ],
                                             ),
                                       ),
                                     ),
@@ -732,9 +740,17 @@ class _CreateAccountOnboardingFlowWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'WorkSans',
-                                      color: Color(0xCCFFFFFF),
+                                      color: Colors.white,
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
+                                      shadows: [
+                                        Shadow(
+                                          color: Colors.black
+                                              .withOpacity(0.4),
+                                          blurRadius: 4.0,
+                                          offset: Offset(0, 1),
+                                        ),
+                                      ],
                                     ),
                               ),
                             ),
@@ -910,9 +926,17 @@ class _CreateAccountOnboardingFlowWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'WorkSans',
-                                      color: Color(0xCCFFFFFF),
+                                      color: Colors.white,
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
+                                      shadows: [
+                                        Shadow(
+                                          color: Colors.black
+                                              .withOpacity(0.4),
+                                          blurRadius: 4.0,
+                                          offset: Offset(0, 1),
+                                        ),
+                                      ],
                                     ),
                               ),
                             ),
@@ -1042,9 +1066,17 @@ class _CreateAccountOnboardingFlowWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'WorkSans',
-                                      color: Color(0xCCFFFFFF),
+                                      color: Colors.white,
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
+                                      shadows: [
+                                        Shadow(
+                                          color: Colors.black
+                                              .withOpacity(0.4),
+                                          blurRadius: 4.0,
+                                          offset: Offset(0, 1),
+                                        ),
+                                      ],
                                     ),
                               ),
                             ),

@@ -82,6 +82,8 @@
     <string>In order to send notifications, Escape will need permission to send push notifications when your mood updates.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
     <string>In order to help Lucille give you a better self-care experience, we will need your permission for your device location when in usage of Escape.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>In order to help Lucille give you a better self-care experience, we will need your permission for your device location when in usage of Escape.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
     <string>Escape requires access to your Speech Recognition in order to use Talk With Lucille and many more features.</string>
     <key>UIBackgroundModes</key>
@@ -116,5 +118,9 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
 </dict>
 </plist>
