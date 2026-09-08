@@ -461,7 +461,7 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget>
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                '49qx75w9' /* Anxiety Relief Exercise With L... */,
+                                                '49qx75w9' /* Journaling Exercise With Lucil... */,
                                               ),
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -829,7 +829,7 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget>
                         labelColor: FlutterFlowTheme.of(context).primary,
                         unselectedLabelColor:
                             FlutterFlowTheme.of(context).secondaryText,
-                        backgroundColor: FlutterFlowTheme.of(context).accent1,
+                        backgroundColor: FlutterFlowTheme.of(context).accent3,
                         unselectedBackgroundColor: Color(0x445A5C60),
                         borderColor: Color(0xB2EDF1F7),
                         unselectedBorderColor: Color(0x45EDF1F7),
