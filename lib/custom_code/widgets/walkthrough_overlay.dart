@@ -98,20 +98,33 @@ class _WalkthroughOverlayState extends State<WalkthroughOverlay> {
   Widget build(BuildContext context) {
     final step = steps[currentStep];
 
+    // The width/height passed into this widget are unreliable
+    // (literally double.infinity from home_version5_widget.dart), so get
+    // the real screen height directly instead. Clamp the tooltip's 'top'
+    // position so the card (roughly ~220px tall including its button) never
+    // gets pushed past the bottom of the screen on shorter devices - this
+    // was causing the final step's "Get Started" button to be unreachable.
+    final screenHeight = MediaQuery.sizeOf(context).height;
+    const cardHeightEstimate = 220.0;
+    const bottomSafeMargin = 24.0;
+    final maxTop = screenHeight - cardHeightEstimate - bottomSafeMargin;
+    final rawTop = step['top'] as double;
+    final effectiveTop = rawTop > maxTop ? maxTop : rawTop;
+
     return Material(
       color: Colors.transparent,
       child: Stack(
         children: [
           // Dark overlay
           Container(
-            width: widget.width,
-            height: widget.height,
+            width: double.infinity,
+            height: double.infinity,
             color: Colors.black.withOpacity(0.6),
           ),
 
           // Tooltip box
           Positioned(
-            top: step['top'],
+            top: effectiveTop,
             left: 24,
             right: 24,
             child: AnimatedSwitcher(
