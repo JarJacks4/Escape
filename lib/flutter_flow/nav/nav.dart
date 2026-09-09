@@ -861,6 +861,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
                       ),
                     )),
           FFRoute(
+            name: RelaxSoundscapeDetailsWidget.routeName,
+            path: RelaxSoundscapeDetailsWidget.routePath,
+            builder: (context, params) => RelaxSoundscapeDetailsWidget(
+              pageTitle: params.getParam(
+                'pageTitle',
+                ParamType.String,
+              ),
+              songNumber: params.getParam(
+                'songNumber',
+                ParamType.int,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: SoundscapesDetailsWidget.routeName,
+            path: SoundscapesDetailsWidget.routePath,
+            builder: (context, params) => SoundscapesDetailsWidget(),
+          ),
+          FFRoute(
             name: ResetPageCopyWidget.routeName,
             path: ResetPageCopyWidget.routePath,
             builder: (context, params) => ResetPageCopyWidget(),
