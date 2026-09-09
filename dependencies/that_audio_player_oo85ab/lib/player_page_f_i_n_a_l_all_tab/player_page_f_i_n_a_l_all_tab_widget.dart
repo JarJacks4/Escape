@@ -244,26 +244,31 @@ class _PlayerPageFINALAllTabWidgetState
                                 ],
                               ),
                             ),
-                            Hero(
-                              tag: FFAppState().currentMedia.mediaBanner,
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(32.0),
-                                child: Image.network(
-                                  FFAppState().currentMedia.mediaBanner,
-                                  width: double.infinity,
-                                  height: 300.0,
-                                  cacheWidth: (MediaQuery.of(context)
-                                              .size
-                                              .width *
-                                          MediaQuery.of(context)
-                                              .devicePixelRatio)
-                                      .round(),
-                                  cacheHeight: (300.0 *
-                                          MediaQuery.of(context)
-                                              .devicePixelRatio)
-                                      .round(),
-                                  fit: BoxFit.cover,
+                            AspectRatio(
+                              aspectRatio: 1.0,
+                              child: Hero(
+                                tag: FFAppState().currentMedia.mediaBanner,
+                                transitionOnUserGestures: true,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(32.0),
+                                  child: Image.network(
+                                    FFAppState().currentMedia.mediaBanner,
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    cacheWidth: (MediaQuery.of(context)
+                                                .size
+                                                .width *
+                                            MediaQuery.of(context)
+                                                .devicePixelRatio)
+                                        .round(),
+                                    cacheHeight: (MediaQuery.of(context)
+                                                .size
+                                                .width *
+                                            MediaQuery.of(context)
+                                                .devicePixelRatio)
+                                        .round(),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ).animateOnPageLoad(
