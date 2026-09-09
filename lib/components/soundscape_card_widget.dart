@@ -68,7 +68,7 @@ class _SoundscapeCardWidgetState extends State<SoundscapeCardWidget> {
               ClipRRect(
                 borderRadius: BorderRadius.circular(16.0),
                 child: Container(
-                  height: 140.0,
+                  height: 180.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16.0),
                     shape: BoxShape.rectangle,
@@ -84,9 +84,9 @@ class _SoundscapeCardWidgetState extends State<SoundscapeCardWidget> {
                           'https://dimg.dreamflow.cloud/v1/image/misty%20pine%20forest%20in%20rain',
                         ),
                         width: 180.0,
-                        height: 140.0,
+                        height: 180.0,
                         memCacheWidth: 360,
-                        memCacheHeight: 280,
+                        memCacheHeight: 360,
                         fit: BoxFit.cover,
                         alignment: Alignment(0.0, 0.0),
                       ),
