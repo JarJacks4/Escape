@@ -105,21 +105,65 @@ class _DashboardWidgetState extends State<DashboardWidget>
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 25.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        dateTimeFormat(
-                          "MMMEd",
-                          getCurrentTimestamp,
-                          locale: FFLocalizations.of(context).languageCode,
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.inter(
+                  FlutterFlowIconButton(
+                    borderColor: Color(0x36EDF1F7),
+                    borderRadius: 65.0,
+                    buttonSize: 40.0,
+                    icon: Icon(
+                      Icons.arrow_back_outlined,
+                      color: FlutterFlowTheme.of(context).accent3,
+                      size: 24.0,
+                    ),
+                    onPressed: () async {
+                      logFirebaseEvent(
+                          'DASHBOARD_arrow_back_outlined_ICN_ON_TAP');
+                      logFirebaseEvent('IconButton_haptic_feedback');
+                      HapticFeedback.heavyImpact();
+                      logFirebaseEvent('IconButton_bottom_sheet');
+                      await showModalBottomSheet(
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        context: context,
+                        builder: (context) {
+                          return WebViewAware(
+                            child: Padding(
+                              padding: MediaQuery.viewInsetsOf(context),
+                              child: EditProfileVersion5Widget(),
+                            ),
+                          );
+                        },
+                      ).then((value) => safeSetState(() {}));
+                    },
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 100.0, 0.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          dateTimeFormat(
+                            "MMMEd",
+                            getCurrentTimestamp,
+                            locale: FFLocalizations.of(context).languageCode,
+                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                font: GoogleFonts.inter(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
+                                color: FlutterFlowTheme.of(context).alternate,
+                                letterSpacing: 0.0,
                                 fontWeight: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .fontWeight,
@@ -127,39 +171,31 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     .bodyMedium
                                     .fontStyle,
                               ),
-                              color: FlutterFlowTheme.of(context).alternate,
-                              letterSpacing: 0.0,
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
-                            ),
-                      ),
-                      AuthUserStreamWidget(
-                        builder: (context) => Text(
-                          'Hello, ${currentUserDisplayName}!',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                font: GoogleFonts.cormorantSc(
+                        ),
+                        AuthUserStreamWidget(
+                          builder: (context) => Text(
+                            'Hello, ${currentUserDisplayName}!',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  font: GoogleFonts.cormorantSc(
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  fontSize: 22.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                   fontStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .fontStyle,
                                 ),
-                                color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 22.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.bold,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontStyle,
-                              ),
+                          ),
                         ),
-                      ),
-                    ].divide(SizedBox(height: 8.0)),
+                      ].divide(SizedBox(height: 8.0)),
+                    ),
                   ),
                   Container(
                     width: 100.0,
