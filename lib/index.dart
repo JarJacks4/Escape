@@ -237,8 +237,6 @@ export '/mindful_resources_hub/mindful_resources_hub_widget.dart'
     show MindfulResourcesHubWidget;
 export '/journal_entry_detail/journal_entry_detail_widget.dart'
     show JournalEntryDetailWidget;
-export '/dashboard_version5/dashboard_version5_widget.dart'
-    show DashboardVersion5Widget;
 export '/dashboard_page/dashboard_page_widget.dart' show DashboardPageWidget;
 export '/sleep_tracking_quality_page/sleep_tracking_quality_page_widget.dart'
     show SleepTrackingQualityPageWidget;

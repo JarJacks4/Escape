@@ -84,6 +84,7 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                                 .fontStyle,
                           ),
                           color: FlutterFlowTheme.of(context).primary,
+                          fontSize: 22.0,
                           letterSpacing: 0.0,
                           fontWeight: FlutterFlowTheme.of(context)
                               .bodyMedium
@@ -116,7 +117,7 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                                   .bodyMedium
                                   .fontStyle,
                             ),
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color: FlutterFlowTheme.of(context).primary,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
                             fontStyle: FlutterFlowTheme.of(context)

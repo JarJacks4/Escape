@@ -20,6 +20,8 @@ import 'package:that_audio_player_oo85ab/app_state.dart'
     as that_audio_player_oo85ab_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
+import 'package:utility_functions_library_8g4bud/flutter_flow/custom_functions.dart'
+    as utility_functions_library_8g4bud_functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -93,7 +95,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
     context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(12.0, 14.0, 12.0, 14.0),
+      padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 14.0),
       child: SingleChildScrollView(
         controller: _model.columnController1,
         child: Column(
@@ -234,11 +236,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
                             ),
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: FlutterFlowIconButton(
-                              borderRadius: 8.0,
+                              borderRadius: 65.0,
                               buttonSize: 40.0,
+                              fillColor: FlutterFlowTheme.of(context).tertiary,
                               icon: Icon(
                                 Icons.edit,
-                                color: FlutterFlowTheme.of(context).info,
+                                color: FlutterFlowTheme.of(context).accent3,
                                 size: 24.0,
                               ),
                               onPressed: () async {
@@ -697,7 +700,7 @@ Progress */
                                       center: Text(
                                         valueOrDefault<String>(
                                           FFAppState().pointsEarned.toString(),
-                                          '0',
+                                          '0 Coins',
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .headlineSmall
@@ -961,34 +964,38 @@ Progress */
                     builder: (context) => wrapWithModel(
                       model: _model.metricCardModel,
                       updateCallback: () => safeSetState(() {}),
+                      updateOnChange: true,
                       child: MetricCardWidget(
-                        isPositive: 5.0,
+                        isPositive: FFAppState().pointsEarnedPercentage,
                         icon: Icon(
                           FFIcons.kemojiSmileyHappyFace,
                           color: FlutterFlowTheme.of(context).primary,
                           size: 36.0,
                         ),
-                        text: valueOrDefault(
+                        text: 'Current Mood',
+                        text2: valueOrDefault(
                             currentUserDocument?.currentMood, ''),
-                        text2: 'Current Mood',
                       ),
                     ),
                   ),
                   wrapWithModel(
                     model: _model.avgSleepCardModel,
                     updateCallback: () => safeSetState(() {}),
+                    updateOnChange: true,
                     child: MetricCardWidget(
-                      isPositive: 0.0,
+                      isPositive: utility_functions_library_8g4bud_functions
+                          .calculatePercentage(FFAppState().energyScore,
+                              FFAppState().pointsEarned),
                       icon: Icon(
                         Icons.spa,
                         color: FlutterFlowTheme.of(context).primary,
                         size: 36.0,
                       ),
-                      text: valueOrDefault<String>(
+                      text: 'Energy Level',
+                      text2: valueOrDefault<String>(
                         FFAppState().energyLevel,
-                        'Medium',
+                        'Energy Level',
                       ),
-                      text2: 'Energy Level',
                     ),
                   ),
                 ].divide(SizedBox(width: 5.0)).around(SizedBox(width: 5.0)),
@@ -1224,6 +1231,8 @@ Progress */
                                                           ),
                                                           '0',
                                                         ),
+                                                        overflow:
+                                                            TextOverflow.fade,
                                                       ),
                                                     ),
                                                     Icon(
@@ -1249,7 +1258,7 @@ Progress */
                                               ),
                                               child: Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                    -1.0, 0.0),
                                                 child: LinearPercentIndicator(
                                                   percent:
                                                       valueOrDefault<double>(
@@ -1260,14 +1269,14 @@ Progress */
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
-                                                          0.85,
+                                                          0.78,
                                                   lineHeight: 30.0,
                                                   animation: true,
                                                   animateFromLastPercent: true,
                                                   progressColor:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .accent1,
+                                                          .accent4,
                                                   backgroundColor:
                                                       Color(0xB4D0E3F7),
                                                   center: Text(
@@ -1313,7 +1322,7 @@ Progress */
                                                     overflow: TextOverflow.fade,
                                                   ),
                                                   barRadius:
-                                                      Radius.circular(50.0),
+                                                      Radius.circular(60.0),
                                                   padding: EdgeInsets.zero,
                                                 ),
                                               ),
@@ -1504,6 +1513,9 @@ This Week */
                                                                   .toString(),
                                                               '0',
                                                             ),
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .fade,
                                                           ),
                                                         ),
                                                         FaIcon(

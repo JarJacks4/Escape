@@ -50,43 +50,46 @@ class _DashboardPageWidgetState extends State<DashboardPageWidget> {
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Container(
-              width: double.infinity,
-              height: 875.89,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: Image.asset(
-                    'assets/images/922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)_(2).gif',
-                  ).image,
-                ),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(0.0),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 40.0,
-                    sigmaY: 40.0,
+            Flexible(
+              flex: 1,
+              child: Container(
+                width: double.infinity,
+                height: 959.1,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: Image.asset(
+                      'assets/images/922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)_(2).gif',
+                    ).image,
                   ),
-                  child: Container(
-                    width: 100.0,
-                    height: 100.0,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Color(0x2CEDF1F7),
-                          Color(0x4DD0E3F7),
-                          Color(0x76673AB7)
-                        ],
-                        stops: [0.0, 0.5, 1.0],
-                        begin: AlignmentDirectional(0.0, -1.0),
-                        end: AlignmentDirectional(0, 1.0),
-                      ),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(0.0),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 40.0,
+                      sigmaY: 40.0,
                     ),
-                    child: wrapWithModel(
-                      model: _model.dashboardModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: DashboardWidget(),
+                    child: Container(
+                      width: 100.0,
+                      height: 154.4,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0x2CEDF1F7),
+                            Color(0x4DD0E3F7),
+                            Color(0x76673AB7)
+                          ],
+                          stops: [0.0, 0.5, 1.0],
+                          begin: AlignmentDirectional(0.0, -1.0),
+                          end: AlignmentDirectional(0, 1.0),
+                        ),
+                      ),
+                      child: wrapWithModel(
+                        model: _model.dashboardModel,
+                        updateCallback: () => safeSetState(() {}),
+                        child: DashboardWidget(),
+                      ),
                     ),
                   ),
                 ),

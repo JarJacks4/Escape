@@ -2175,7 +2175,7 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                 },
                                 selectedChipStyle: ChipStyle(
                                   backgroundColor:
-                                      FlutterFlowTheme.of(context).accent1,
+                                      FlutterFlowTheme.of(context).accent3,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -2199,7 +2199,7 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                             .fontStyle,
                                       ),
                                   iconColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                      FlutterFlowTheme.of(context).primary,
                                   iconSize: 18.0,
                                   elevation: 4.0,
                                 ),
@@ -2846,7 +2846,7 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                         padding: EdgeInsets.all(8.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).accent1,
+                        color: FlutterFlowTheme.of(context).accent3,
                         textStyle:
                             FlutterFlowTheme.of(context).titleMedium.override(
                                   font: GoogleFonts.inter(
@@ -2866,8 +2866,8 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                       .titleMedium
                                       .fontStyle,
                                 ),
-                        elevation: 0.0,
-                        borderRadius: BorderRadius.circular(16.0),
+                        elevation: 3.0,
+                        borderRadius: BorderRadius.circular(50.0),
                       ),
                     ),
                   ),
