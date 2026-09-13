@@ -561,11 +561,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => MindfulResourcesHubWidget(),
           ),
           FFRoute(
-            name: DashboardVersion5Widget.routeName,
-            path: DashboardVersion5Widget.routePath,
-            builder: (context, params) => DashboardVersion5Widget(),
-          ),
-          FFRoute(
             name: DashboardPageWidget.routeName,
             path: DashboardPageWidget.routePath,
             builder: (context, params) => DashboardPageWidget(),

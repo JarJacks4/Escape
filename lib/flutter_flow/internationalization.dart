@@ -17249,23 +17249,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
   },
-  // DashboardVersion5
-  {
-    't93o6cwv': {
-      'en': 'Home',
-      'ar': 'بيت',
-      'de': 'Heim',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'it': 'Casa',
-      'ja': '家',
-      'ko': '집',
-      'ru': 'Дом',
-      'uk': 'Дім',
-      'zh_Hans': '家',
-      'zh_Hant': '家',
-    },
-  },
   // DashboardPage
   {
     'ixqnohrl': {

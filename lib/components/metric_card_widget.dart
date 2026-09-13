@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +51,7 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
         width: 182.0,
-        height: 152.0,
+        height: 180.75,
         decoration: BoxDecoration(
           color: Color(0x428EA7E9),
           borderRadius: BorderRadius.circular(12.0),
@@ -85,6 +84,7 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                                 .fontStyle,
                           ),
                           color: FlutterFlowTheme.of(context).primary,
+                          fontSize: 22.0,
                           letterSpacing: 0.0,
                           fontWeight: FlutterFlowTheme.of(context)
                               .bodyMedium
@@ -106,27 +106,24 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
-                    child: AuthUserStreamWidget(
-                      builder: (context) => Text(
-                        valueOrDefault<String>(
-                          valueOrDefault(currentUserDocument?.currentMood, ''),
-                          'Neutral',
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.cormorantSc(
-                                fontWeight: FontWeight.bold,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontStyle,
-                              ),
-                              color: FlutterFlowTheme.of(context).alternate,
-                              letterSpacing: 0.0,
+                    child: Text(
+                      FFLocalizations.of(context).getText(
+                        'gf7gpt0w' /* Current Mood */,
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.cormorantSc(
                               fontWeight: FontWeight.bold,
                               fontStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .fontStyle,
                             ),
-                      ),
+                            color: FlutterFlowTheme.of(context).primary,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                     ),
                   ),
                   Padding(
@@ -135,7 +132,7 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                     child: Text(
                       valueOrDefault<String>(
                         widget.text2,
-                        'Current Mood',
+                        'Calm',
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             font: GoogleFonts.inter(
@@ -145,6 +142,7 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                                   .fontStyle,
                             ),
                             color: FlutterFlowTheme.of(context).black,
+                            fontSize: 18.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
                             fontStyle: FlutterFlowTheme.of(context)

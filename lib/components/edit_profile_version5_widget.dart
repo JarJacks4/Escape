@@ -22,6 +22,7 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
 import 'edit_profile_version5_model.dart';
@@ -108,54 +109,65 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    FlutterFlowIconButton(
-                      buttonSize: 40.0,
-                      icon: Icon(
-                        Icons.arrow_back,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        size: 24.0,
-                      ),
-                      onPressed: () async {
-                        logFirebaseEvent(
-                            'EDIT_PROFILE_VERSION5_arrow_back_ICN_ON_');
-                        logFirebaseEvent('IconButton_haptic_feedback');
-                        HapticFeedback.lightImpact();
-                        logFirebaseEvent('IconButton_play_sound');
-                        _model.soundPlayer1 ??= AudioPlayer();
-                        if (_model.soundPlayer1!.playing) {
-                          await _model.soundPlayer1!.stop();
-                        }
-                        _model.soundPlayer1!.setVolume(1.0);
-                        _model.soundPlayer1!
-                            .setAsset(
-                                'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                            .then((_) => _model.soundPlayer1!.play());
-
-                        logFirebaseEvent('IconButton_navigate_back');
-                        context.safePop();
-                      },
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(80.0, 0.0, 0.0, 0.0),
-                      child: Text(
-                        FFLocalizations.of(context).getText(
-                          'wgi0ishw' /* Edit Profile */,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      FlutterFlowIconButton(
+                        buttonSize: 40.0,
+                        icon: Icon(
+                          Icons.arrow_back,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          size: 24.0,
                         ),
-                        style: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .override(
-                              fontFamily: 'The Seasons',
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
+                        onPressed: () async {
+                          logFirebaseEvent(
+                              'EDIT_PROFILE_VERSION5_arrow_back_ICN_ON_');
+                          logFirebaseEvent('IconButton_haptic_feedback');
+                          HapticFeedback.lightImpact();
+                          logFirebaseEvent('IconButton_play_sound');
+                          _model.soundPlayer1 ??= AudioPlayer();
+                          if (_model.soundPlayer1!.playing) {
+                            await _model.soundPlayer1!.stop();
+                          }
+                          _model.soundPlayer1!.setVolume(1.0);
+                          _model.soundPlayer1!
+                              .setAsset(
+                                  'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                              .then((_) => _model.soundPlayer1!.play());
+
+                          logFirebaseEvent('IconButton_navigate_back');
+                          context.safePop();
+                        },
                       ),
-                    ),
-                  ].divide(SizedBox(width: 16.0)),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(80.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            'wgi0ishw' /* Edit Profile */,
+                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .override(
+                                font: GoogleFonts.cormorantSc(
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .fontStyle,
+                                ),
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .fontStyle,
+                              ),
+                        ),
+                      ),
+                    ].divide(SizedBox(width: 16.0)),
+                  ),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
@@ -166,11 +178,19 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                         'i0741at5' /* PROFILE AVATAR */,
                       ),
                       style: FlutterFlowTheme.of(context).labelSmall.override(
-                            fontFamily: 'WorkSans',
+                            font: GoogleFonts.cormorantSc(
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .labelSmall
+                                  .fontStyle,
+                            ),
                             color: FlutterFlowTheme.of(context).alternate,
                             fontSize: 16.0,
                             letterSpacing: 0.0,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .fontStyle,
                           ),
                     ),
                     Expanded(
@@ -397,9 +417,35 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                                 photoUrl:
                                                     FFAppState().ProfilePicture,
                                               ));
-                                              if (FFAppState()
-                                                  .ProfilePicture
-                                                  .isNotEmpty) {
+                                              if (FFAppState().ProfilePicture ==
+                                                  '') {
+                                                logFirebaseEvent(
+                                                    'Icon_show_snack_bar');
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      'Profile Picture Uploaded!',
+                                                      style: TextStyle(
+                                                        fontFamily: 'WorkSans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontSize: 16.0,
+                                                      ),
+                                                    ),
+                                                    duration: Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .accent1,
+                                                  ),
+                                                );
+                                              } else if (currentUserPhoto != '') {
                                                 logFirebaseEvent(
                                                     'Icon_show_snack_bar');
                                                 ScaffoldMessenger.of(context)
@@ -566,9 +612,30 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                         .update(createUsersRecordData(
                                       photoUrl: FFAppState().ProfilePicture,
                                     ));
-                                    if (FFAppState()
-                                        .ProfilePicture
-                                        .isNotEmpty) {
+                                    if (FFAppState().ProfilePicture == '') {
+                                      logFirebaseEvent('Text_show_snack_bar');
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Profile Picture Uploaded!',
+                                            style: TextStyle(
+                                              fontFamily: 'WorkSans',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 16.0,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .accent1,
+                                        ),
+                                      );
+                                    } else if (currentUserPhoto != '') {
                                       logFirebaseEvent('Text_show_snack_bar');
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
@@ -623,10 +690,27 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'WorkSans',
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           color: FlutterFlowTheme.of(context)
                                               .accent1,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                 ),
@@ -663,12 +747,21 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .labelSmall
                                       .override(
-                                        fontFamily: 'WorkSans',
+                                        font: GoogleFonts.cormorantSc(
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelSmall
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .tertiary,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelSmall
+                                            .fontStyle,
                                       ),
                                 ),
                                 Align(
@@ -770,12 +863,33 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                                             .of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'WorkSans',
+                                                          font:
+                                                              GoogleFonts.inter(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .tertiary,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontStyle,
                                                         ),
                                                     hintText:
                                                         valueOrDefault<String>(
@@ -786,9 +900,30 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                                             .of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'WorkSans',
+                                                          font:
+                                                              GoogleFonts.inter(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontStyle,
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
@@ -872,8 +1007,29 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'WorkSans',
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                   maxLength: 33,
                                                   maxLengthEnforcement:
@@ -1007,12 +1163,33 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                                         context)
                                                     .labelMedium
                                                     .override(
-                                                      fontFamily: 'WorkSans',
+                                                      font: GoogleFonts.inter(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .tertiary,
                                                       letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
                                                     ),
                                                 hintText:
                                                     valueOrDefault<String>(
@@ -1023,9 +1200,30 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'WorkSans',
+                                                          font:
+                                                              GoogleFonts.inter(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontStyle,
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
@@ -1101,8 +1299,29 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'WorkSans',
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                               maxLength: 33,
                                               maxLengthEnforcement:
@@ -1236,12 +1455,33 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                                           .of(context)
                                                       .labelMedium
                                                       .override(
-                                                        fontFamily: 'WorkSans',
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .tertiary,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
                                                       ),
                                                   hintText: FFLocalizations.of(
                                                           context)
@@ -1252,8 +1492,29 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                                           .of(context)
                                                       .labelMedium
                                                       .override(
-                                                        fontFamily: 'WorkSans',
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
                                                       ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
@@ -1332,9 +1593,30 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'WorkSans',
+                                                          font:
+                                                              GoogleFonts.inter(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                 maxLength: 40,
                                                 maxLengthEnforcement:
@@ -1466,12 +1748,33 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                                           .of(context)
                                                       .labelMedium
                                                       .override(
-                                                        fontFamily: 'WorkSans',
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .tertiary,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
                                                       ),
                                                   hintText: FFLocalizations.of(
                                                           context)
@@ -1482,8 +1785,29 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                                           .of(context)
                                                       .labelMedium
                                                       .override(
-                                                        fontFamily: 'WorkSans',
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
                                                       ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
@@ -1562,9 +1886,30 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'WorkSans',
+                                                          font:
+                                                              GoogleFonts.inter(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                 maxLength: 40,
                                                 maxLengthEnforcement:
@@ -1642,11 +1987,32 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelSmall
                                                 .override(
-                                                  fontFamily: 'WorkSans',
+                                                  font: GoogleFonts.inter(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelSmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelSmall
+                                                            .fontStyle,
+                                                  ),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .tertiary,
                                                   letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelSmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelSmall
+                                                          .fontStyle,
                                                 ),
                                           ),
                                           Text(
@@ -1659,12 +2025,33 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyLarge
                                                 .override(
-                                                  fontFamily: 'WorkSans',
+                                                  font: GoogleFonts.inter(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyLarge
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyLarge
+                                                            .fontStyle,
+                                                  ),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryText,
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyLarge
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyLarge
+                                                          .fontStyle,
                                                 ),
                                             overflow: TextOverflow.ellipsis,
                                           ),
@@ -1690,11 +2077,19 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                         'v8iioe2n' /* MEDITATION PREFERENCES */,
                       ),
                       style: FlutterFlowTheme.of(context).labelSmall.override(
-                            fontFamily: 'WorkSans',
+                            font: GoogleFonts.cormorantSc(
+                              fontWeight: FontWeight.w600,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .labelSmall
+                                  .fontStyle,
+                            ),
                             color: FlutterFlowTheme.of(context).alternate,
                             fontSize: 14.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .fontStyle,
                           ),
                     ),
                     Align(
@@ -1722,10 +2117,23 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                 style: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelSmall
+                                            .fontStyle,
+                                      ),
                                       color:
                                           FlutterFlowTheme.of(context).tertiary,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontStyle,
                                     ),
                               ),
                               FlutterFlowChoiceChips(
@@ -1767,16 +2175,31 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                 },
                                 selectedChipStyle: ChipStyle(
                                   backgroundColor:
-                                      FlutterFlowTheme.of(context).accent1,
+                                      FlutterFlowTheme.of(context).accent3,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'WorkSans',
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         color: Colors.white,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                   iconColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                      FlutterFlowTheme.of(context).primary,
                                   iconSize: 18.0,
                                   elevation: 4.0,
                                 ),
@@ -1786,10 +2209,25 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'WorkSans',
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontStyle,
                                       ),
                                   iconColor:
                                       FlutterFlowTheme.of(context).primaryText,
@@ -1838,10 +2276,23 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                 style: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelSmall
+                                            .fontStyle,
+                                      ),
                                       color:
                                           FlutterFlowTheme.of(context).tertiary,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontStyle,
                                     ),
                               ),
                               FlutterFlowDropDown<String>(
@@ -1895,15 +2346,25 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                         headerForegroundColor:
                                             FlutterFlowTheme.of(context)
                                                 .secondary,
-                                        headerTextStyle:
-                                            FlutterFlowTheme.of(context)
-                                                .headlineLarge
-                                                .override(
-                                                  fontFamily: 'The Seasons',
-                                                  fontSize: 32.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
+                                        headerTextStyle: FlutterFlowTheme.of(
+                                                context)
+                                            .headlineLarge
+                                            .override(
+                                              font: GoogleFonts.cormorantSc(
+                                                fontWeight: FontWeight.w600,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineLarge
+                                                        .fontStyle,
+                                              ),
+                                              fontSize: 32.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineLarge
+                                                      .fontStyle,
+                                            ),
                                         pickerBackgroundColor:
                                             FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -1945,8 +2406,21 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                                 hintText: FFLocalizations.of(context).getText(
                                   '4xh2ge0g' /* Morning (6AM - 10AM) */,
@@ -1980,11 +2454,19 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                         'ongft6rm' /* NOTIFICATIONS */,
                       ),
                       style: FlutterFlowTheme.of(context).labelSmall.override(
-                            fontFamily: 'WorkSans',
+                            font: GoogleFonts.inter(
+                              fontWeight: FontWeight.w600,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .labelSmall
+                                  .fontStyle,
+                            ),
                             color: FlutterFlowTheme.of(context).tertiary,
                             fontSize: 14.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .labelSmall
+                                .fontStyle,
                           ),
                     ),
                     Align(
@@ -2026,8 +2508,27 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'WorkSans',
+                                                font: GoogleFonts.inter(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ].divide(SizedBox(width: 12.0)),
@@ -2036,8 +2537,8 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                   Switch(
                                     value: _model.switchValue1!,
                                     onChanged: (newValue) async {
-                                      safeSetState(
-                                          () => _model.switchValue1 = newValue);
+                                      safeSetState(() =>
+                                          _model.switchValue1 = newValue);
                                       if (newValue) {
                                         logFirebaseEvent(
                                             'EDIT_PROFILE_VERSION5_Switch_1ktyvdch_ON');
@@ -2142,8 +2643,27 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'WorkSans',
+                                                font: GoogleFonts.inter(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ].divide(SizedBox(width: 12.0)),
@@ -2152,8 +2672,8 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                   Switch(
                                     value: _model.switchValue2!,
                                     onChanged: (newValue) async {
-                                      safeSetState(
-                                          () => _model.switchValue2 = newValue);
+                                      safeSetState(() =>
+                                          _model.switchValue2 = newValue);
                                       if (newValue) {
                                         logFirebaseEvent(
                                             'EDIT_PROFILE_VERSION5_Switch_mr5b0ci7_ON');
@@ -2260,37 +2780,25 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
 
                         await currentUserReference!
                             .update(createUsersRecordData(
-                          email: _model.editEmailTextController.text.isNotEmpty
-                              ? _model.editEmailTextController.text
-                              : null,
-                          displayName: _model.textController1.text.isNotEmpty
-                              ? _model.textController1.text
-                              : null,
+                          email: _model.editEmailTextController.text,
+                          displayName: _model.textController1.text,
                           photoUrl: FFAppState().ProfilePicture,
                           favoriteTimeToMeditate: _model.datePicked,
                         ));
                         logFirebaseEvent('Button_auth');
-                        if (_model.passwordTextController.text.isNotEmpty) {
-                          try {
-                            await authManager.updatePassword(
-                              newPassword: _model.passwordTextController.text,
-                              context: context,
-                            );
-                          } catch (e) {
-                            print('Password update error: $e');
-                          }
-                        }
+                        await authManager.updatePassword(
+                          newPassword: _model.passwordTextController.text,
+                          context: context,
+                        );
                         safeSetState(() {});
 
                         logFirebaseEvent('Button_update_app_state');
-                        if (_model.choiceChipsValue != null) {
-                          FFAppState().preferredSessionLength =
-                              _model.choiceChipsValue!;
-                        }
-                        if (_model.dropDownValue != null) {
-                          FFAppState().TimeOfDayToMeditate =
-                              _model.dropDownValue!;
-                        }
+                        FFAppState().preferredSessionLength =
+                            _model.choiceChipsValue!;
+                        FFAppState().TimeOfDayToMeditate =
+                            _model.dropDownValue!;
+                        FFAppState().ProfilePicture =
+                            _model.uploadedFileUrl_uploadPhoto3;
                         FFAppState().update(() {});
                         logFirebaseEvent('Button_show_snack_bar');
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -2300,10 +2808,23 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'WorkSans',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color:
                                         FlutterFlowTheme.of(context).alternate,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                             ),
                             duration: Duration(milliseconds: 4000),
@@ -2325,15 +2846,28 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                         padding: EdgeInsets.all(8.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).accent1,
+                        color: FlutterFlowTheme.of(context).accent3,
                         textStyle:
                             FlutterFlowTheme.of(context).titleMedium.override(
-                                  fontFamily: 'WorkSans',
+                                  font: GoogleFonts.inter(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontStyle,
+                                  ),
                                   color: Colors.white,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .fontStyle,
                                 ),
-                        elevation: 0.0,
-                        borderRadius: BorderRadius.circular(16.0),
+                        elevation: 3.0,
+                        borderRadius: BorderRadius.circular(50.0),
                       ),
                     ),
                   ),
