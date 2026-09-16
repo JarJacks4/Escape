@@ -71,7 +71,7 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                   widget.icon!,
                   Text(
                     valueOrDefault<String>(
-                      widget.isPositive?.toString(),
+                      widget.isPositive?.toStringAsFixed(1),
                       '+5%',
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(

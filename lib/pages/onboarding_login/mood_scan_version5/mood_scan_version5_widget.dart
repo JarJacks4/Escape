@@ -29,6 +29,7 @@ import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
 import 'mood_scan_version5_model.dart';
 export 'mood_scan_version5_model.dart';
 
@@ -771,7 +772,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                             .MultipartRequest(
                                                           'POST',
                                                           Uri.parse(
-                                                              'https://lucille-861854898360.us-central1.run.app/facial-emotion/detect'),
+                                                              'https://lucille-861854898360.us-central1.run.app/users/$currentUserUid/mood/analyze-image'),
                                                         );
                                                         request.headers[
                                                                 'Authorization'] =
@@ -784,6 +785,10 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                 .bodyBytes,
                                                             filename:
                                                                 'mood_photo.jpg',
+                                                            contentType:
+                                                                MediaType(
+                                                                    'image',
+                                                                    'jpeg'),
                                                           ),
                                                         );
 
@@ -802,24 +807,15 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                 responseBody);
                                                         if (decoded['status'] ==
                                                                 'success' &&
-                                                            decoded['results'] !=
-                                                                null &&
-                                                            (decoded['results']
-                                                                    as List)
-                                                                .isNotEmpty) {
-                                                          final firstFace =
-                                                              decoded['results']
-                                                                  [0];
+                                                            decoded['detected_emotion'] !=
+                                                                null) {
                                                           final predictedEmotion =
-                                                              (firstFace['predicted_emotion'] ??
+                                                              (decoded['detected_emotion'] ??
                                                                       'neutral')
                                                                   .toString();
-                                                          final probabilities =
-                                                              firstFace['probabilities']
-                                                                      as Map<
-                                                                          String,
-                                                                          dynamic>? ??
-                                                                  {};
+                                                          final intensity =
+                                                              (decoded['intensity'] ??
+                                                                      5) as num;
 
                                                           moodResultText =
                                                               predictedEmotion[
@@ -831,27 +827,20 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                           energyLevelText =
                                                               moodResultText;
 
-                                                          final fear =
-                                                              (probabilities[
-                                                                          'fear'] ??
-                                                                      0.0)
-                                                                  as num;
-                                                          final angry =
-                                                              (probabilities[
-                                                                          'angry'] ??
-                                                                      0.0)
-                                                                  as num;
-                                                          final sad =
-                                                              (probabilities[
-                                                                          'sad'] ??
-                                                                      0.0)
-                                                                  as num;
-                                                          stressLevelValue =
-                                                              (fear.toDouble() +
-                                                                      angry.toDouble() +
-                                                                      sad.toDouble())
+                                                          const negativeEmotions = [
+                                                            'angry',
+                                                            'fear',
+                                                            'sad',
+                                                            'disgust'
+                                                          ];
+                                                          stressLevelValue = negativeEmotions
+                                                                  .contains(predictedEmotion
+                                                                      .toLowerCase())
+                                                              ? (intensity /
+                                                                      10.0)
                                                                   .clamp(0.0,
-                                                                      1.0);
+                                                                      1.0)
+                                                              : 0.2;
                                                         }
                                                       } catch (e) {
                                                         debugPrint(
