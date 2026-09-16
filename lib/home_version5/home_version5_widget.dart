@@ -1031,9 +1031,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                     ),
                                                                                                   ),
                                                                                                   Text(
-                                                                                                    FFLocalizations.of(context).getText(
-                                                                                                      'dgxsq5zc' /* Learning Self-Care Basics */,
-                                                                                                    ),
+                                                                                                    'Learning Self-Care Basics',
                                                                                                     style: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                                           font: GoogleFonts.inter(
                                                                                                             fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
@@ -1046,9 +1044,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                         ),
                                                                                                   ),
                                                                                                   Text(
-                                                                                                    FFLocalizations.of(context).getText(
-                                                                                                      'hcryf8vj' /* No Time Limit */,
-                                                                                                    ),
+                                                                                                    'No Time Limit',
                                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                                           font: GoogleFonts.inter(
                                                                                                             fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
