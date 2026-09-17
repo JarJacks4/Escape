@@ -619,7 +619,7 @@ class _CreateAccountOnboardingFlowWidgetState
                                               FFLocalizations.of(context)
                                                   .getText('sphvnu0g'),
                                               FFLocalizations.of(context)
-                                                  .getText('iuo582xt'),
+                                                  .getText('scvzos7b'),
                                               FFLocalizations.of(context)
                                                   .getText('f73v9ogm'),
                                               FFLocalizations.of(context)
@@ -646,7 +646,7 @@ class _CreateAccountOnboardingFlowWidgetState
                                                     ),
                                             hintText:
                                                 FFLocalizations.of(context)
-                                                    .getText('fq01bjqh'),
+                                                    .getText('bzrfwp2o'),
                                             icon: Icon(
                                               Icons.keyboard_arrow_down_rounded,
                                               color:
