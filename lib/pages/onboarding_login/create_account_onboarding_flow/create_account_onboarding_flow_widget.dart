@@ -627,8 +627,6 @@ class _CreateAccountOnboardingFlowWidgetState
                                               FFLocalizations.of(context)
                                                   .getText('sdfysbnz'),
                                               FFLocalizations.of(context)
-                                                  .getText('tfvcmzxt'),
-                                              FFLocalizations.of(context)
                                                   .getText('kv66rdru'),
                                               FFLocalizations.of(context)
                                                   .getText('narijuog'),
