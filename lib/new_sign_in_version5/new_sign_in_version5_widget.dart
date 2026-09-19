@@ -505,6 +505,8 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                                 fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                 fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
+                                                                          keyboardType:
+                                                                              TextInputType.emailAddress,
                                                                           enableInteractiveSelection:
                                                                               true,
                                                                           validator: _model
