@@ -857,7 +857,7 @@ Lucille */
                                     height: 36.0,
                                     decoration: BoxDecoration(
                                       color:
-                                          FlutterFlowTheme.of(context).accent1,
+                                          FlutterFlowTheme.of(context).accent3,
                                       boxShadow: [
                                         BoxShadow(
                                           blurRadius: 15.0,
@@ -953,7 +953,7 @@ Lucille */
                                     height: 36.0,
                                     decoration: BoxDecoration(
                                       color:
-                                          FlutterFlowTheme.of(context).accent1,
+                                          FlutterFlowTheme.of(context).accent3,
                                       boxShadow: [
                                         BoxShadow(
                                           blurRadius: 15.0,

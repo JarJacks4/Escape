@@ -10,9 +10,7 @@ class AISoundscapesFINALModel
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for Column widget.
-  ScrollController? columnController;
-  // State field(s) for Column widget.
-  ScrollController? columnScrollController;
+  ScrollController? columnController1;
   AudioPlayer? soundPlayer1;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
@@ -21,6 +19,8 @@ class AISoundscapesFINALModel
   int get tabBarPreviousIndex =>
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
+  // State field(s) for Column widget.
+  ScrollController? columnController2;
   // State field(s) for Row widget.
   ScrollController? rowScrollController1;
   AudioPlayer? soundPlayer2;
@@ -33,6 +33,8 @@ class AISoundscapesFINALModel
   // Model for MoodCategoryCard.
   late MoodCategoryCardModel moodCategoryCardModel3;
   AudioPlayer? soundPlayer3;
+  // State field(s) for Column widget.
+  ScrollController? columnController3;
   // State field(s) for Row widget.
   ScrollController? rowScrollController3;
   AudioPlayer? soundPlayer4;
@@ -45,6 +47,8 @@ class AISoundscapesFINALModel
   // Model for MoodCategoryCard.
   late MoodCategoryCardModel moodCategoryCardModel6;
   AudioPlayer? soundPlayer5;
+  // State field(s) for Column widget.
+  ScrollController? columnController4;
   // State field(s) for Row widget.
   ScrollController? rowScrollController5;
   AudioPlayer? soundPlayer6;
@@ -57,6 +61,8 @@ class AISoundscapesFINALModel
   // Model for MoodCategoryCard.
   late MoodCategoryCardModel moodCategoryCardModel9;
   AudioPlayer? soundPlayer7;
+  // State field(s) for Column widget.
+  ScrollController? columnController5;
   // State field(s) for Row widget.
   ScrollController? rowScrollController7;
   AudioPlayer? soundPlayer8;
@@ -69,6 +75,8 @@ class AISoundscapesFINALModel
   // Model for MoodCategoryCard.
   late MoodCategoryCardModel moodCategoryCardModel12;
   AudioPlayer? soundPlayer9;
+  // State field(s) for Column widget.
+  ScrollController? columnController6;
   // State field(s) for Row widget.
   ScrollController? rowScrollController9;
   AudioPlayer? soundPlayer10;
@@ -84,8 +92,8 @@ class AISoundscapesFINALModel
 
   @override
   void initState(BuildContext context) {
-    columnController = ScrollController();
-    columnScrollController = ScrollController();
+    columnController1 = ScrollController();
+    columnController2 = ScrollController();
     rowScrollController1 = ScrollController();
     rowScrollController2 = ScrollController();
     moodCategoryCardModel1 =
@@ -94,6 +102,7 @@ class AISoundscapesFINALModel
         createModel(context, () => MoodCategoryCardModel());
     moodCategoryCardModel3 =
         createModel(context, () => MoodCategoryCardModel());
+    columnController3 = ScrollController();
     rowScrollController3 = ScrollController();
     rowScrollController4 = ScrollController();
     moodCategoryCardModel4 =
@@ -102,6 +111,7 @@ class AISoundscapesFINALModel
         createModel(context, () => MoodCategoryCardModel());
     moodCategoryCardModel6 =
         createModel(context, () => MoodCategoryCardModel());
+    columnController4 = ScrollController();
     rowScrollController5 = ScrollController();
     rowScrollController6 = ScrollController();
     moodCategoryCardModel7 =
@@ -110,6 +120,7 @@ class AISoundscapesFINALModel
         createModel(context, () => MoodCategoryCardModel());
     moodCategoryCardModel9 =
         createModel(context, () => MoodCategoryCardModel());
+    columnController5 = ScrollController();
     rowScrollController7 = ScrollController();
     rowScrollController8 = ScrollController();
     moodCategoryCardModel10 =
@@ -118,6 +129,7 @@ class AISoundscapesFINALModel
         createModel(context, () => MoodCategoryCardModel());
     moodCategoryCardModel12 =
         createModel(context, () => MoodCategoryCardModel());
+    columnController6 = ScrollController();
     rowScrollController9 = ScrollController();
     rowScrollController10 = ScrollController();
     moodCategoryCardModel13 =
@@ -130,29 +142,33 @@ class AISoundscapesFINALModel
 
   @override
   void dispose() {
-    columnController?.dispose();
-    columnScrollController?.dispose();
+    columnController1?.dispose();
     tabBarController?.dispose();
+    columnController2?.dispose();
     rowScrollController1?.dispose();
     rowScrollController2?.dispose();
     moodCategoryCardModel1.dispose();
     moodCategoryCardModel2.dispose();
     moodCategoryCardModel3.dispose();
+    columnController3?.dispose();
     rowScrollController3?.dispose();
     rowScrollController4?.dispose();
     moodCategoryCardModel4.dispose();
     moodCategoryCardModel5.dispose();
     moodCategoryCardModel6.dispose();
+    columnController4?.dispose();
     rowScrollController5?.dispose();
     rowScrollController6?.dispose();
     moodCategoryCardModel7.dispose();
     moodCategoryCardModel8.dispose();
     moodCategoryCardModel9.dispose();
+    columnController5?.dispose();
     rowScrollController7?.dispose();
     rowScrollController8?.dispose();
     moodCategoryCardModel10.dispose();
     moodCategoryCardModel11.dispose();
     moodCategoryCardModel12.dispose();
+    columnController6?.dispose();
     rowScrollController9?.dispose();
     rowScrollController10?.dispose();
     moodCategoryCardModel13.dispose();

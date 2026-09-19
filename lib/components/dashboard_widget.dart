@@ -23,8 +23,10 @@ import 'package:tiktokfeed_wz8en7/app_state.dart'
 import 'package:utility_functions_library_8g4bud/flutter_flow/custom_functions.dart'
     as utility_functions_library_8g4bud_functions;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:collection/collection.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -62,6 +64,21 @@ class _DashboardWidgetState extends State<DashboardWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => DashboardModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('DASHBOARD_COMP_Dashboard_ON_INIT_STATE');
+      logFirebaseEvent('Dashboard_backend_call');
+      await TheoryOfMindLucilleGroup.lucilleChatMainCall.call(
+        sessionId: FFAppState().chatSessionId,
+        message: '',
+      );
+
+      logFirebaseEvent('Dashboard_firestore_query');
+      await queryUsersRecordOnce(
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
+    });
 
     animationsMap.addAll({
       'lottieAnimationOnPageLoadAnimation': AnimationInfo(
@@ -101,191 +118,139 @@ class _DashboardWidgetState extends State<DashboardWidget>
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 25.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  FlutterFlowIconButton(
-                    borderColor: Color(0x36EDF1F7),
-                    borderRadius: 65.0,
-                    buttonSize: 40.0,
-                    icon: Icon(
-                      Icons.arrow_back_outlined,
-                      color: FlutterFlowTheme.of(context).accent3,
-                      size: 24.0,
+            Flexible(
+              flex: 1,
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(8.0, 50.0, 8.0, 25.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    FlutterFlowIconButton(
+                      borderColor: Color(0x36EDF1F7),
+                      borderRadius: 65.0,
+                      buttonSize: 40.0,
+                      icon: Icon(
+                        Icons.arrow_back_outlined,
+                        color: FlutterFlowTheme.of(context).accent3,
+                        size: 24.0,
+                      ),
+                      onPressed: () async {
+                        logFirebaseEvent(
+                            'DASHBOARD_arrow_back_outlined_ICN_ON_TAP');
+                        logFirebaseEvent('IconButton_haptic_feedback');
+                        HapticFeedback.heavyImpact();
+                        logFirebaseEvent('IconButton_navigate_back');
+                        context.safePop();
+                      },
                     ),
-                    onPressed: () async {
-                      logFirebaseEvent(
-                          'DASHBOARD_arrow_back_outlined_ICN_ON_TAP');
-                      logFirebaseEvent('IconButton_haptic_feedback');
-                      HapticFeedback.heavyImpact();
-                      logFirebaseEvent('IconButton_bottom_sheet');
-                      await showModalBottomSheet(
-                        isScrollControlled: true,
-                        backgroundColor: Colors.transparent,
-                        context: context,
-                        builder: (context) {
-                          return WebViewAware(
-                            child: Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: EditProfileVersion5Widget(),
-                            ),
-                          );
-                        },
-                      ).then((value) => safeSetState(() {}));
-                    },
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 100.0, 0.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          dateTimeFormat(
-                            "MMMEd",
-                            getCurrentTimestamp,
-                            locale: FFLocalizations.of(context).languageCode,
-                          ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                font: GoogleFonts.inter(
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
-                                ),
-                                color: FlutterFlowTheme.of(context).alternate,
-                                letterSpacing: 0.0,
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontStyle,
+                    Flexible(
+                      flex: 1,
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 0.0, 150.0, 0.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              dateTimeFormat(
+                                "MMMEd",
+                                getCurrentTimestamp,
+                                locale:
+                                    FFLocalizations.of(context).languageCode,
                               ),
-                        ),
-                        AuthUserStreamWidget(
-                          builder: (context) => Text(
-                            'Hello, ${currentUserDisplayName}!',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  font: GoogleFonts.cormorantSc(
-                                    fontWeight: FontWeight.bold,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  fontSize: 22.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
-                                ),
-                          ),
-                        ),
-                      ].divide(SizedBox(height: 8.0)),
-                    ),
-                  ),
-                  Container(
-                    width: 100.0,
-                    height: 63.0,
-                    decoration: BoxDecoration(),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          width: 45.0,
-                          height: 45.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            shape: BoxShape.circle,
-                          ),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'DASHBOARD_LottieAnimation_4fwfvh7g_ON_TA');
-                              logFirebaseEvent(
-                                  'LottieAnimation_haptic_feedback');
-                              HapticFeedback.lightImpact();
-                              logFirebaseEvent('LottieAnimation_play_sound');
-                              _model.soundPlayer1 ??= AudioPlayer();
-                              if (_model.soundPlayer1!.playing) {
-                                await _model.soundPlayer1!.stop();
-                              }
-                              _model.soundPlayer1!.setVolume(0.67);
-                              _model.soundPlayer1!
-                                  .setAsset(
-                                      'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                                  .then((_) => _model.soundPlayer1!.play());
-
-                              logFirebaseEvent('LottieAnimation_bottom_sheet');
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                context: context,
-                                builder: (context) {
-                                  return WebViewAware(
-                                    child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: HelpCompWidget(),
-                                    ),
-                                  );
-                                },
-                              ).then((value) => safeSetState(() {}));
-                            },
-                            child: Lottie.asset(
-                              'assets/jsons/question_mark_blue.json',
-                              width: 200.0,
-                              height: 200.0,
-                              fit: BoxFit.contain,
-                              repeat: false,
-                              animate: true,
                             ),
-                          ).animateOnPageLoad(animationsMap[
-                              'lottieAnimationOnPageLoadAnimation']!),
+                            AuthUserStreamWidget(
+                              builder: (context) => Text(
+                                'Hello, ${currentUserDisplayName}!',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.cormorantSc(
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      fontSize: 22.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ].divide(SizedBox(height: 8.0)),
                         ),
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Container(
+                      ),
+                    ),
+                    Container(
+                      width: 100.0,
+                      height: 63.0,
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
                             width: 45.0,
                             height: 45.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).accent1,
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
                               shape: BoxShape.circle,
                             ),
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: FlutterFlowIconButton(
-                              borderRadius: 65.0,
-                              buttonSize: 40.0,
-                              fillColor: FlutterFlowTheme.of(context).tertiary,
-                              icon: Icon(
-                                Icons.edit,
-                                color: FlutterFlowTheme.of(context).accent3,
-                                size: 24.0,
-                              ),
-                              onPressed: () async {
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
                                 logFirebaseEvent(
-                                    'DASHBOARD_COMP_edit_ICN_ON_TAP');
-                                logFirebaseEvent('IconButton_haptic_feedback');
-                                HapticFeedback.heavyImpact();
-                                logFirebaseEvent('IconButton_bottom_sheet');
+                                    'DASHBOARD_LottieAnimation_4fwfvh7g_ON_TA');
+                                logFirebaseEvent(
+                                    'LottieAnimation_haptic_feedback');
+                                HapticFeedback.lightImpact();
+                                logFirebaseEvent('LottieAnimation_play_sound');
+                                _model.soundPlayer1 ??= AudioPlayer();
+                                if (_model.soundPlayer1!.playing) {
+                                  await _model.soundPlayer1!.stop();
+                                }
+                                _model.soundPlayer1!.setVolume(0.67);
+                                _model.soundPlayer1!
+                                    .setAsset(
+                                        'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                                    .then((_) => _model.soundPlayer1!.play());
+
+                                logFirebaseEvent(
+                                    'LottieAnimation_bottom_sheet');
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,
@@ -295,19 +260,73 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       child: Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
-                                        child: EditProfileVersion5Widget(),
+                                        child: HelpCompWidget(),
                                       ),
                                     );
                                   },
                                 ).then((value) => safeSetState(() {}));
                               },
+                              child: Lottie.asset(
+                                'assets/jsons/question_mark_blue.json',
+                                width: 200.0,
+                                height: 200.0,
+                                fit: BoxFit.contain,
+                                repeat: false,
+                                animate: true,
+                              ),
+                            ).animateOnPageLoad(animationsMap[
+                                'lottieAnimationOnPageLoadAnimation']!),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Container(
+                              width: 45.0,
+                              height: 45.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).accent1,
+                                shape: BoxShape.circle,
+                              ),
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: FlutterFlowIconButton(
+                                borderRadius: 65.0,
+                                buttonSize: 40.0,
+                                fillColor:
+                                    FlutterFlowTheme.of(context).tertiary,
+                                icon: Icon(
+                                  Icons.edit,
+                                  color: FlutterFlowTheme.of(context).accent3,
+                                  size: 24.0,
+                                ),
+                                onPressed: () async {
+                                  logFirebaseEvent(
+                                      'DASHBOARD_COMP_edit_ICN_ON_TAP');
+                                  logFirebaseEvent(
+                                      'IconButton_haptic_feedback');
+                                  HapticFeedback.heavyImpact();
+                                  logFirebaseEvent('IconButton_bottom_sheet');
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    context: context,
+                                    builder: (context) {
+                                      return WebViewAware(
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: EditProfileVersion5Widget(),
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => safeSetState(() {}));
+                                },
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Flexible(
@@ -387,10 +406,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                               child: FlutterFlowIconButton(
                                 borderRadius: 50.0,
                                 buttonSize: 40.0,
-                                fillColor: FlutterFlowTheme.of(context).accent1,
+                                fillColor: FlutterFlowTheme.of(context).accent3,
                                 icon: Icon(
                                   Icons.add,
-                                  color: FlutterFlowTheme.of(context).info,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
                                   size: 24.0,
                                 ),
                                 onPressed: () async {
@@ -871,7 +891,8 @@ Progress */
                                                                   .bodyMedium
                                                                   .fontStyle,
                                                         ),
-                                                    overflow: TextOverflow.fade,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
                                                   ),
                                                 ),
                                               ),

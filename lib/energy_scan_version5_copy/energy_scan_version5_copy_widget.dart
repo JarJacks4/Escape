@@ -4380,7 +4380,7 @@ Cen... */
                                         logFirebaseEvent('Button_navigate_to');
 
                                         context.pushNamed(
-                                          MoodAnalyzerSuccessWidget.routeName,
+                                          HomeVersion5Widget.routeName,
                                           extra: <String, dynamic>{
                                             '__transition_info__':
                                                 TransitionInfo(
@@ -4388,7 +4388,7 @@ Cen... */
                                               transitionType:
                                                   PageTransitionType.fade,
                                               duration:
-                                                  Duration(milliseconds: 2),
+                                                  Duration(milliseconds: 9),
                                             ),
                                           },
                                         );

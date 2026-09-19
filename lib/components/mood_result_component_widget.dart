@@ -633,7 +633,7 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget>
                       logFirebaseEvent('MOOD_RESULT_COMPONENT_HOME_BTN_ON_TAP');
                       logFirebaseEvent('Button_navigate_to');
 
-                      context.pushNamed(LucilleBody1PageWidget.routeName);
+                      context.pushNamed(HomeVersion5Widget.routeName);
                     },
                     text: FFLocalizations.of(context).getText(
                       'lkz6f17s' /* Home */,

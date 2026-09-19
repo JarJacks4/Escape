@@ -258,7 +258,7 @@ Coming Soon on ... */
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .accent1,
+                                                      .accent3,
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmall
@@ -275,7 +275,10 @@ Coming Soon on ... */
                                                                   .titleSmall
                                                                   .fontStyle,
                                                         ),
-                                                        color: Colors.white,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FlutterFlowTheme.of(

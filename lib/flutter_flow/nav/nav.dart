@@ -277,45 +277,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         builder: (context, params) => LongBreathingGoalWidget(),
       ),
       FFRoute(
-        name: FacialMoodAnalyzerChoiceLoginWidget.routeName,
-        path: FacialMoodAnalyzerChoiceLoginWidget.routePath,
-        builder: (context, params) => FacialMoodAnalyzerChoiceLoginWidget(),
-      ),
-      FFRoute(
-        name: FacialMoodAnalyzerPageWidget.routeName,
-        path: FacialMoodAnalyzerPageWidget.routePath,
-        builder: (context, params) => FacialMoodAnalyzerPageWidget(),
-      ),
-      FFRoute(
-        name: MoodAnalyzerSuccessWidget.routeName,
-        path: MoodAnalyzerSuccessWidget.routePath,
-        builder: (context, params) => MoodAnalyzerSuccessWidget(),
-      ),
-      FFRoute(
         name: ReelsWidget.routeName,
         path: ReelsWidget.routePath,
         builder: (context, params) => ReelsWidget(),
       ),
       FFRoute(
-        name: FacialMoodAnalyzerChoiceLucilleCardWidget.routeName,
-        path: FacialMoodAnalyzerChoiceLucilleCardWidget.routePath,
-        builder: (context, params) =>
-            FacialMoodAnalyzerChoiceLucilleCardWidget(),
-      ),
-      FFRoute(
         name: SettingsWidget.routeName,
         path: SettingsWidget.routePath,
         builder: (context, params) => SettingsWidget(),
-      ),
-      FFRoute(
-        name: BodyReorderWidget.routeName,
-        path: BodyReorderWidget.routePath,
-        builder: (context, params) => BodyReorderWidget(
-          tabIndex: params.getParam(
-            'tabIndex',
-            ParamType.int,
-          ),
-        ),
       ),
       FFRoute(
         name: DepressionReorderWidget.routeName,
@@ -712,11 +681,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         ),
       ),
       FFRoute(
-        name: MoodSaverWidget.routeName,
-        path: MoodSaverWidget.routePath,
-        builder: (context, params) => MoodSaverWidget(),
-      ),
-      FFRoute(
         name: MoodScanHelpWidget.routeName,
         path: MoodScanHelpWidget.routePath,
         builder: (context, params) => MoodScanHelpWidget(),
@@ -730,26 +694,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         name: RespirationPageWidget.routeName,
         path: RespirationPageWidget.routePath,
         builder: (context, params) => RespirationPageWidget(),
-      ),
-      FFRoute(
-        name: LucilleBody1PageWidget.routeName,
-        path: LucilleBody1PageWidget.routePath,
-        builder: (context, params) => LucilleBody1PageWidget(),
-      ),
-      FFRoute(
-        name: CoachingSessionPageWidget.routeName,
-        path: CoachingSessionPageWidget.routePath,
-        builder: (context, params) => CoachingSessionPageWidget(),
-      ),
-      FFRoute(
-        name: MoodSaverPageWidget.routeName,
-        path: MoodSaverPageWidget.routePath,
-        builder: (context, params) => MoodSaverPageWidget(),
-      ),
-      FFRoute(
-        name: MoodScannerPageWidget.routeName,
-        path: MoodScannerPageWidget.routePath,
-        builder: (context, params) => MoodScannerPageWidget(),
       ),
       FFRoute(
         name: ScanMoodLaodingPageWidget.routeName,
@@ -1365,6 +1309,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             ParamType.DateTime,
           ),
         ),
+      ),
+      FFRoute(
+        name: ExploreHelpWidget.routeName,
+        path: ExploreHelpWidget.routePath,
+        builder: (context, params) => ExploreHelpWidget(),
+      ),
+      FFRoute(
+        name: MindHelpWidget.routeName,
+        path: MindHelpWidget.routePath,
+        builder: (context, params) => MindHelpWidget(),
+      ),
+      FFRoute(
+        name: BodyHelpWidget.routeName,
+        path: BodyHelpWidget.routePath,
+        builder: (context, params) => BodyHelpWidget(),
+      ),
+      FFRoute(
+        name: JournalHelpWidget.routeName,
+        path: JournalHelpWidget.routePath,
+        builder: (context, params) => JournalHelpWidget(),
       ),
       FFRoute(
         name: $cupertino_time_picker_hiuzb7.HomePageWidget.routeName,

@@ -110,7 +110,7 @@ class _MoodResultPageWidgetState extends State<MoodResultPageWidget>
               flex: 1,
               child: Container(
                 width: double.infinity,
-                height: 941.84,
+                height: MediaQuery.sizeOf(context).height * 1.2,
                 decoration: BoxDecoration(
                   color: Color(0xFF0A0A14),
                   image: DecorationImage(
@@ -1063,7 +1063,7 @@ class _MoodResultPageWidgetState extends State<MoodResultPageWidget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
+                                                    16.0, 0.0, 16.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.min,
                                               mainAxisAlignment:

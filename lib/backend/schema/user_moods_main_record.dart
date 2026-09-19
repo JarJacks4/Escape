@@ -46,6 +46,27 @@ class UserMoodsMainRecord extends FirestoreRecord {
   String get currentMoodDescription => _currentMoodDescription ?? '';
   bool hasCurrentMoodDescription() => _currentMoodDescription != null;
 
+  // "MoodSummaryForTheDay" field.
+  String? _moodSummaryForTheDay;
+  String get moodSummaryForTheDay => _moodSummaryForTheDay ?? '';
+  bool hasMoodSummaryForTheDay() => _moodSummaryForTheDay != null;
+
+  // "MoodSummaryForTheWeek" field.
+  List<String>? _moodSummaryForTheWeek;
+  List<String> get moodSummaryForTheWeek => _moodSummaryForTheWeek ?? const [];
+  bool hasMoodSummaryForTheWeek() => _moodSummaryForTheWeek != null;
+
+  // "MoodSummaryForTheMonth" field.
+  List<String>? _moodSummaryForTheMonth;
+  List<String> get moodSummaryForTheMonth =>
+      _moodSummaryForTheMonth ?? const [];
+  bool hasMoodSummaryForTheMonth() => _moodSummaryForTheMonth != null;
+
+  // "MoodSummaryForTheYear" field.
+  String? _moodSummaryForTheYear;
+  String get moodSummaryForTheYear => _moodSummaryForTheYear ?? '';
+  bool hasMoodSummaryForTheYear() => _moodSummaryForTheYear != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -55,6 +76,11 @@ class UserMoodsMainRecord extends FirestoreRecord {
     _timestamp = snapshotData['timestamp'] as DateTime?;
     _moodHistory = getDataList(snapshotData['moodHistory']);
     _currentMoodDescription = snapshotData['CurrentMoodDescription'] as String?;
+    _moodSummaryForTheDay = snapshotData['MoodSummaryForTheDay'] as String?;
+    _moodSummaryForTheWeek = getDataList(snapshotData['MoodSummaryForTheWeek']);
+    _moodSummaryForTheMonth =
+        getDataList(snapshotData['MoodSummaryForTheMonth']);
+    _moodSummaryForTheYear = snapshotData['MoodSummaryForTheYear'] as String?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -102,6 +128,8 @@ Map<String, dynamic> createUserMoodsMainRecordData({
   String? currentMoodPhoto,
   DateTime? timestamp,
   String? currentMoodDescription,
+  String? moodSummaryForTheDay,
+  String? moodSummaryForTheYear,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -110,6 +138,8 @@ Map<String, dynamic> createUserMoodsMainRecordData({
       'CurrentMoodPhoto': currentMoodPhoto,
       'timestamp': timestamp,
       'CurrentMoodDescription': currentMoodDescription,
+      'MoodSummaryForTheDay': moodSummaryForTheDay,
+      'MoodSummaryForTheYear': moodSummaryForTheYear,
     }.withoutNulls,
   );
 
@@ -128,7 +158,13 @@ class UserMoodsMainRecordDocumentEquality
         e1?.currentMoodPhoto == e2?.currentMoodPhoto &&
         e1?.timestamp == e2?.timestamp &&
         listEquality.equals(e1?.moodHistory, e2?.moodHistory) &&
-        e1?.currentMoodDescription == e2?.currentMoodDescription;
+        e1?.currentMoodDescription == e2?.currentMoodDescription &&
+        e1?.moodSummaryForTheDay == e2?.moodSummaryForTheDay &&
+        listEquality.equals(
+            e1?.moodSummaryForTheWeek, e2?.moodSummaryForTheWeek) &&
+        listEquality.equals(
+            e1?.moodSummaryForTheMonth, e2?.moodSummaryForTheMonth) &&
+        e1?.moodSummaryForTheYear == e2?.moodSummaryForTheYear;
   }
 
   @override
@@ -138,7 +174,11 @@ class UserMoodsMainRecordDocumentEquality
         e?.currentMoodPhoto,
         e?.timestamp,
         e?.moodHistory,
-        e?.currentMoodDescription
+        e?.currentMoodDescription,
+        e?.moodSummaryForTheDay,
+        e?.moodSummaryForTheWeek,
+        e?.moodSummaryForTheMonth,
+        e?.moodSummaryForTheYear
       ]);
 
   @override

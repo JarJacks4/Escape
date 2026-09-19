@@ -1,6 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -75,11 +74,8 @@ class _MoodSaverComponentWidgetState extends State<MoodSaverComponentWidget> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               FFButtonWidget(
-                onPressed: () async {
-                  logFirebaseEvent('MOOD_SAVER_COMPONENT_SAVE_MOOD_BTN_ON_TA');
-                  logFirebaseEvent('Button_navigate_to');
-
-                  context.pushNamed(MoodSaverWidget.routeName);
+                onPressed: () {
+                  print('Button pressed ...');
                 },
                 text: FFLocalizations.of(context).getText(
                   'hy1yzk2m' /* Save Mood */,
@@ -125,11 +121,8 @@ class _MoodSaverComponentWidgetState extends State<MoodSaverComponentWidget> {
                 ),
               ),
               FFButtonWidget(
-                onPressed: () async {
-                  logFirebaseEvent('MOOD_SAVER_COMPONENT_FINISH_BTN_ON_TAP');
-                  logFirebaseEvent('Button_navigate_to');
-
-                  context.pushNamed(LucilleBody1PageWidget.routeName);
+                onPressed: () {
+                  print('Button pressed ...');
                 },
                 text: FFLocalizations.of(context).getText(
                   'e7gehqun' /* Finish */,

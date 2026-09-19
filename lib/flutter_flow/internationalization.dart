@@ -1892,168 +1892,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '家',
     },
   },
-  // FacialMoodAnalyzerChoiceLogin
-  {
-    'wlag196m': {
-      'en': 'Daily Mood Scan',
-      'ar': 'مسح المزاج اليومي',
-      'de': 'Täglicher Stimmungsscan',
-      'es': 'Análisis diario del estado de ánimo',
-      'fr': 'Analyse quotidienne de l\'humeur',
-      'it': 'Scansione dell\'umore giornaliera',
-      'ja': '毎日の気分スキャン',
-      'ko': '일일 기분 검사',
-      'ru': 'Ежедневное сканирование настроения',
-      'uk': 'Щоденний аналіз настрою',
-      'zh_Hans': '每日情绪扫描',
-      'zh_Hant': '每日情緒掃描',
-    },
-    '9r3t2uk9': {
-      'en':
-          'Tap the Scan Mood Button below to have Lucille scan your mood for the day.\n\nThis will help your daily self-care algorithm to help you find increased success on Escape',
-      'ar':
-          'اضغط على زر \"مسح الحالة المزاجية\" أدناه لتفحص لوسيل حالتك المزاجية لهذا اليوم.\n\nسيساعدك هذا على تحسين خوارزمية العناية الذاتية اليومية لديك لتحقيق المزيد من النجاح في لعبة Escape.',
-      'de':
-          'Tippe unten auf „Stimmung scannen“, damit Lucille deine Stimmung für den Tag scannt.\n\nDas unterstützt deinen täglichen Selbstfürsorge-Algorithmus und hilft dir, bei Escape erfolgreicher zu sein.',
-      'es':
-          'Pulsa el botón \"Escanear Estado de Ánimo\" a continuación para que Lucille analice tu estado de ánimo del día.\n\nEsto te ayudará a optimizar tu algoritmo de autocuidado diario para que tengas más éxito en Escape.',
-      'fr':
-          'Appuyez sur le bouton « Scanner votre humeur » ci-dessous pour que Lucille analyse votre humeur du jour.\n\nCela aidera votre algorithme de bien-être quotidien à améliorer votre réussite sur Escape.',
-      'it':
-          'Tocca il pulsante Scansiona Umore qui sotto per far sì che Lucille analizzi il tuo umore giornaliero.\n\nQuesto aiuterà il tuo algoritmo di auto-cura quotidiano ad aiutarti a raggiungere un maggiore successo su Escape.',
-      'ja':
-          '下の「気分をスキャン」ボタンをタップすると、ルシールがその日のあなたの気分をスキャンします。\n\nこれにより、毎日のセルフケアアルゴリズムが強化され、Escape での成功率が向上します。',
-      'ko':
-          '아래 기분 스캔 버튼을 탭하면 루실이 오늘의 기분을 스캔해 드립니다.\n\n이 기능은 매일의 셀프 케어 알고리즘을 통해 Escape에서 더 큰 성공을 거두는 데 도움이 됩니다.',
-      'ru':
-          'Нажмите кнопку «Сканировать настроение» ниже, чтобы Люсиль просканировала ваше настроение на день.\n\nЭто поможет вашему ежедневному алгоритму заботы о себе помочь вам добиться большего успеха на Escape',
-      'uk':
-          'Натисніть кнопку «Сканувати настрій» нижче, щоб Люсіль просканувала ваш настрій на день.\n\nЦе допоможе вашому щоденному алгоритму догляду за собою досягти більшого успіху в Escape.',
-      'zh_Hans':
-          '点击下方的“扫描心情”按钮，让露西尔扫描你当天的心情。\n\n这将有助于你的日常自我护理算法，帮助你在 Escape 上获得更高的成功。',
-      'zh_Hant':
-          '點擊下方的「掃描心情」按鈕，讓露西爾掃描你當天的心情。\n\n這將有助於你的日常自我照護演算法，幫助你在 Escape 上獲得更高的成功。',
-    },
-    '8g9f8voi': {
-      'en': 'Go Home',
-      'ar': 'العودة إلى المنزل',
-      'de': 'Nach Hause gehen',
-      'es': 'Ir a casa',
-      'fr': 'Rentrer à la maison',
-      'it': 'Vai a casa',
-      'ja': '家に帰れ',
-      'ko': '집으로 가세요',
-      'ru': 'Иди домой',
-      'uk': 'Додому',
-      'zh_Hans': '回家',
-      'zh_Hant': '回家',
-    },
-    'gq8nilf4': {
-      'en': 'Scan Mood',
-      'ar': 'مسح المزاج',
-      'de': 'Scan-Stimmung',
-      'es': 'Escanear el estado de ánimo',
-      'fr': 'Analyse de l\'humeur',
-      'it': 'Scansiona l\'umore',
-      'ja': 'スキャンムード',
-      'ko': '기분 스캔',
-      'ru': 'Сканировать настроение',
-      'uk': 'Сканувати настрій',
-      'zh_Hans': '扫描心情',
-      'zh_Hant': '掃描心情',
-    },
-    'o202hguc': {
-      'en': 'Home',
-      'ar': 'بيت',
-      'de': 'Heim',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'it': 'Casa',
-      'ja': '家',
-      'ko': '집',
-      'ru': 'Дом',
-      'uk': 'Дім',
-      'zh_Hans': '家',
-      'zh_Hant': '家',
-    },
-  },
-  // FacialMoodAnalyzerPage
-  {
-    'vwdywqtl': {
-      'en':
-          'Once your mood is generated above, tap Save Mood below to save your mood for the day!\n\nTap Retry if you feel that there is an error and would like to re-scan.',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'ux2iw9cn': {
-      'en': 'Skip to Home',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'd2tlln3o': {
-      'en': 'Scan Mood',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '1j4rwrmy': {
-      'en': 'Home',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-  },
-  // MoodAnalyzerSuccess
-  {
-    '4y6ftlhj': {
-      'en': 'Home',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-  },
   // reels
   {
     'd63pbol2': {
@@ -2071,91 +1909,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '6usod8dj': {
-      'en': 'Home',
-      'ar': 'بيت',
-      'de': 'Heim',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'it': 'Casa',
-      'ja': '家',
-      'ko': '집',
-      'ru': 'Дом',
-      'uk': 'Дім',
-      'zh_Hans': '家',
-      'zh_Hant': '家',
-    },
-  },
-  // FacialMoodAnalyzerChoiceLucilleCard
-  {
-    'xfalks6a': {
-      'en': 'Daily Mood Scan',
-      'ar': 'مسح المزاج اليومي',
-      'de': 'Täglicher Stimmungsscan',
-      'es': 'Análisis diario del estado de ánimo',
-      'fr': 'Analyse quotidienne de l\'humeur',
-      'it': 'Scansione dell\'umore giornaliera',
-      'ja': '毎日の気分スキャン',
-      'ko': '일일 기분 검사',
-      'ru': 'Ежедневное сканирование настроения',
-      'uk': 'Щоденний аналіз настрою',
-      'zh_Hans': '每日情绪扫描',
-      'zh_Hant': '每日情緒掃描',
-    },
-    'o18hzro1': {
-      'en':
-          'Tap the Continue Button below to have Lucille scan your mood for the day.\n\nThis will help your daily self-care algorithm to help you find increased success on Escape',
-      'ar':
-          'اضغط على زر \"مسح الحالة المزاجية\" أدناه لتفحص لوسيل حالتك المزاجية لهذا اليوم.\n\nسيساعدك هذا على تحسين خوارزمية العناية الذاتية اليومية لديك لتحقيق المزيد من النجاح في لعبة Escape.',
-      'de':
-          'Tippe unten auf „Stimmung scannen“, damit Lucille deine Stimmung für den Tag scannt.\n\nDas unterstützt deinen täglichen Selbstfürsorge-Algorithmus und hilft dir, bei Escape erfolgreicher zu sein.',
-      'es':
-          'Pulsa el botón \"Escanear Estado de Ánimo\" a continuación para que Lucille analice tu estado de ánimo del día.\n\nEsto te ayudará a optimizar tu algoritmo de autocuidado diario para que tengas más éxito en Escape.',
-      'fr':
-          'Appuyez sur le bouton « Scanner votre humeur » ci-dessous pour que Lucille analyse votre humeur du jour.\n\nCela aidera votre algorithme de bien-être quotidien à améliorer votre réussite sur Escape.',
-      'it':
-          'Tocca il pulsante Scansiona Umore qui sotto per far sì che Lucille analizzi il tuo umore giornaliero.\n\nQuesto aiuterà il tuo algoritmo di auto-cura quotidiano ad aiutarti a raggiungere un maggiore successo su Escape.',
-      'ja':
-          '下の「気分をスキャン」ボタンをタップすると、ルシールがその日のあなたの気分をスキャンします。\n\nこれにより、毎日のセルフケアアルゴリズムが強化され、Escape での成功率が向上します。',
-      'ko':
-          '아래 기분 스캔 버튼을 탭하면 루실이 오늘의 기분을 스캔해 드립니다.\n\n이 기능은 매일의 셀프 케어 알고리즘을 통해 Escape에서 더 큰 성공을 거두는 데 도움이 됩니다.',
-      'ru':
-          'Нажмите кнопку «Сканировать настроение» ниже, чтобы Люсиль просканировала ваше настроение на день.\n\nЭто поможет вашему ежедневному алгоритму заботы о себе помочь вам добиться большего успеха на Escape',
-      'uk':
-          'Натисніть кнопку «Сканувати настрій» нижче, щоб Люсіль просканувала ваш настрій на день.\n\nЦе допоможе вашому щоденному алгоритму догляду за собою досягти більшого успіху в Escape.',
-      'zh_Hans':
-          '点击下方的“扫描心情”按钮，让露西尔扫描你当天的心情。\n\n这将有助于你的日常自我护理算法，帮助你在 Escape 上获得更高的成功。',
-      'zh_Hant':
-          '點擊下方的「掃描心情」按鈕，讓露西爾掃描你當天的心情。\n\n這將有助於你的日常自我照護演算法，幫助你在 Escape 上獲得更高的成功。',
-    },
-    'desap5kz': {
-      'en': 'Go Home',
-      'ar': 'العودة إلى المنزل',
-      'de': 'Nach Hause gehen',
-      'es': 'Ir a casa',
-      'fr': 'Rentrer à la maison',
-      'it': 'Vai a casa',
-      'ja': '家に帰れ',
-      'ko': '집으로 가세요',
-      'ru': 'Иди домой',
-      'uk': 'Додому',
-      'zh_Hans': '回家',
-      'zh_Hant': '回家',
-    },
-    'geh9rcii': {
-      'en': 'Continue',
-      'ar': 'مسح المزاج',
-      'de': 'Scan-Stimmung',
-      'es': 'Escanear el estado de ánimo',
-      'fr': 'Analyse de l\'humeur',
-      'it': 'Scansiona l\'umore',
-      'ja': 'スキャンムード',
-      'ko': '기분 스캔',
-      'ru': 'Сканировать настроение',
-      'uk': 'Сканувати настрій',
-      'zh_Hans': '扫描心情',
-      'zh_Hant': '掃描心情',
-    },
-    'a9vr15gg': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -2274,37 +2027,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'ate7j5ue': {
-      'en': 'Home',
-      'ar': 'بيت',
-      'de': 'Heim',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'it': 'Casa',
-      'ja': '家',
-      'ko': '집',
-      'ru': 'Дом',
-      'uk': 'Дім',
-      'zh_Hans': '家',
-      'zh_Hant': '家',
-    },
-  },
-  // BodyReorder
-  {
-    'g2kc2smi': {
-      'en': 'Back',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'pdwede8c': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -13717,23 +13439,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '家',
     },
   },
-  // MoodSaver
-  {
-    '6ozwyngp': {
-      'en': 'Home',
-      'ar': 'بيت',
-      'de': 'Heim',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'it': 'Casa',
-      'ja': '家',
-      'ko': '집',
-      'ru': 'Дом',
-      'uk': 'Дім',
-      'zh_Hans': '家',
-      'zh_Hant': '家',
-    },
-  },
   // MoodScanHelp
   {
     'z6pqq8r7': {
@@ -13771,74 +13476,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // RespirationPage
   {
     'mxjo555o': {
-      'en': 'Home',
-      'ar': 'بيت',
-      'de': 'Heim',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'it': 'Casa',
-      'ja': '家',
-      'ko': '집',
-      'ru': 'Дом',
-      'uk': 'Дім',
-      'zh_Hans': '家',
-      'zh_Hant': '家',
-    },
-  },
-  // LucilleBody1Page
-  {
-    '5e2faojb': {
-      'en': 'Home',
-      'ar': 'بيت',
-      'de': 'Heim',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'it': 'Casa',
-      'ja': '家',
-      'ko': '집',
-      'ru': 'Дом',
-      'uk': 'Дім',
-      'zh_Hans': '家',
-      'zh_Hant': '家',
-    },
-  },
-  // coachingSessionPage
-  {
-    'qnjomgvl': {
-      'en': 'Home',
-      'ar': 'بيت',
-      'de': 'Heim',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'it': 'Casa',
-      'ja': '家',
-      'ko': '집',
-      'ru': 'Дом',
-      'uk': 'Дім',
-      'zh_Hans': '家',
-      'zh_Hant': '家',
-    },
-  },
-  // moodSaverPage
-  {
-    'pl8aja9s': {
-      'en': 'Home',
-      'ar': 'بيت',
-      'de': 'Heim',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'it': 'Casa',
-      'ja': '家',
-      'ko': '집',
-      'ru': 'Дом',
-      'uk': 'Дім',
-      'zh_Hans': '家',
-      'zh_Hant': '家',
-    },
-  },
-  // MoodScannerPage
-  {
-    '5wq37d26': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -20915,6 +20552,74 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'uk': '',
       'zh_Hans': '',
       'zh_Hant': '',
+    },
+  },
+  // ExploreHelp
+  {
+    'dyixniu8': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // MindHelp
+  {
+    'kircwxc9': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // BodyHelp
+  {
+    '5mz24kwh': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // JournalHelp
+  {
+    '2rsz6i61': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
     },
   },
   // TopNav1
@@ -56845,7 +56550,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Marketplace
   {
-    '7gggz44l': {
+    'amynaehz': {
       'en': 'Escape Marketplace',
       'ar': '',
       'de': '',
@@ -56859,7 +56564,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'qi77jaua': {
+    'zbjo3qp9': {
       'en': 'Search for Products...',
       'ar': '',
       'de': '',
@@ -56873,7 +56578,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'o0nr5ti8': {
+    'qe472t2s': {
       'en': 'Self-Care Recommendations',
       'ar': '',
       'de': '',
@@ -56887,7 +56592,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'epgpnceg': {
+    'gudmq7ik': {
       'en': 'See all',
       'ar': '',
       'de': '',
@@ -56901,7 +56606,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '49qx75w9': {
+    'j4477r85': {
       'en': 'Journaling Exercise With Lucille',
       'ar': '',
       'de': '',
@@ -56915,7 +56620,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'o5608cia': {
+    'dbzb6n1q': {
       'en': 'For Meditation Help',
       'ar': '',
       'de': '',
@@ -56929,7 +56634,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'cai24n94': {
+    'w10pnqun': {
       'en': 'Price: 200 Escape Coins',
       'ar': '',
       'de': '',
@@ -56943,7 +56648,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '9u2zh2wg': {
+    'ns5e85pu': {
       'en': 'Anxiety Relief Exercise With Lucille',
       'ar': '',
       'de': '',
@@ -56957,7 +56662,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'gmeukf7s': {
+    'q7lsfg2v': {
       'en': 'For Meditation Help',
       'ar': '',
       'de': '',
@@ -56971,7 +56676,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'ejv2luys': {
+    'apb534sh': {
       'en': 'Price: 200 Escape Coins',
       'ar': '',
       'de': '',
@@ -56985,7 +56690,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '1k5zunes': {
+    'm8w49ue8': {
       'en': 'All',
       'ar': '',
       'de': '',
@@ -56999,7 +56704,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'lakfzlkm': {
+    'wzu5rkzl': {
       'en': 'Bath Body Works',
       'ar': '',
       'de': '',
@@ -57013,7 +56718,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'e9fqb9pk': {
+    'k6jajf8m': {
       'en': '15% Off All Body Butters',
       'ar': '',
       'de': '',
@@ -57027,7 +56732,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'dkkzvm1u': {
+    'wwwl895q': {
       'en': '4.8',
       'ar': '',
       'de': '',
@@ -57041,7 +56746,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '3zpw38o2': {
+    'fngi5pur': {
       'en': 'Olay',
       'ar': '',
       'de': '',
@@ -57055,7 +56760,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'rrlg0pt5': {
+    '292panj2': {
       'en': '50% Off Self-Care Appliances',
       'ar': '',
       'de': '',
@@ -57069,7 +56774,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'fwhd45n7': {
+    '1qjgfect': {
       'en': '4.8',
       'ar': '',
       'de': '',
@@ -57083,7 +56788,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '9n0j2yw4': {
+    'rlvtmuge': {
       'en': 'Netrogena',
       'ar': '',
       'de': '',
@@ -57097,7 +56802,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'g1gue1no': {
+    '6xoesbbt': {
       'en': '20% Off Skin Care Products',
       'ar': '',
       'de': '',
@@ -57111,7 +56816,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    't5nc4r6f': {
+    'vy8jbiep': {
       'en': '4.8',
       'ar': '',
       'de': '',
@@ -57125,7 +56830,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    't5895yj9': {
+    'twji6l9k': {
       'en': 'Panera Bread',
       'ar': '',
       'de': '',
@@ -57139,7 +56844,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'syiif4gy': {
+    'b4mqlpt0': {
       'en': '40% Off Salads and Drinks',
       'ar': '',
       'de': '',
@@ -57153,7 +56858,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'r8t2w269': {
+    '148mfafe': {
       'en': '4.8',
       'ar': '',
       'de': '',
@@ -57167,7 +56872,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'yxmmeudc': {
+    'fzd4gqrd': {
       'en': 'Whole Foods',
       'ar': '',
       'de': '',
@@ -57181,7 +56886,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '5s4uhu7m': {
+    '2k0yks1k': {
       'en': '20% Off \nFinal Order',
       'ar': '',
       'de': '',
@@ -57195,7 +56900,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '70eu2gkc': {
+    'kgaqo4i1': {
       'en': '4.8',
       'ar': '',
       'de': '',
@@ -57209,7 +56914,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'wkojcgim': {
+    '3v833a6z': {
       'en': 'Sprout\'s',
       'ar': '',
       'de': '',
@@ -57223,7 +56928,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'o26qs8c4': {
+    'wynhfs3a': {
       'en': '50% Off Final Cart Order',
       'ar': '',
       'de': '',
@@ -57237,7 +56942,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'nryqbl6c': {
+    'hcdb8lyw': {
       'en': '4.8',
       'ar': '',
       'de': '',
@@ -57251,7 +56956,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'yhala8eq': {
+    '9bztlbuo': {
       'en': 'Shop',
       'ar': '',
       'de': '',
@@ -57265,7 +56970,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'epej15iz': {
+    '5u46sg9q': {
       'en': 'Bath Body Works',
       'ar': '',
       'de': '',
@@ -57279,7 +56984,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '3ezxjmpg': {
+    'vsngwwa6': {
       'en': '15% Off All Body Butters',
       'ar': '',
       'de': '',
@@ -57293,7 +56998,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'gtymsl9l': {
+    '05kaylm0': {
       'en': '4.8',
       'ar': '',
       'de': '',
@@ -57307,7 +57012,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'nownj962': {
+    'zw2xozq6': {
       'en': 'Olay',
       'ar': '',
       'de': '',
@@ -57321,7 +57026,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'z7uzh7e3': {
+    '17x096y8': {
       'en': '50% Off Self-Care Appliances',
       'ar': '',
       'de': '',
@@ -57335,7 +57040,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '6fffudcp': {
+    '9ap0wy42': {
       'en': '4.8',
       'ar': '',
       'de': '',
@@ -57349,7 +57054,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'u1oz9kap': {
+    'dvg78jom': {
       'en': 'Netrogena',
       'ar': '',
       'de': '',
@@ -57363,7 +57068,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'rxxaqnww': {
+    'syfgnuma': {
       'en': '20% Off Skin Care Products',
       'ar': '',
       'de': '',
@@ -57377,7 +57082,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'jcfi7kd6': {
+    'o7ft36e9': {
       'en': '4.8',
       'ar': '',
       'de': '',
@@ -57391,7 +57096,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'h94r25rw': {
+    '7atxzd0q': {
       'en': 'Panera Bread',
       'ar': '',
       'de': '',
@@ -57405,7 +57110,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'q46bvg16': {
+    'hl76ztfh': {
       'en': '40% Off Salads and Drinks',
       'ar': '',
       'de': '',
@@ -57419,7 +57124,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '7y1hywas': {
+    'qes4w0go': {
       'en': '4.8',
       'ar': '',
       'de': '',
@@ -57433,7 +57138,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '9ulflvc6': {
+    'yjwt9m0z': {
       'en': 'Whole Foods',
       'ar': '',
       'de': '',
@@ -57447,7 +57152,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'ombtoiue': {
+    'sk24kd1l': {
       'en': '20% Off \nFinal Order',
       'ar': '',
       'de': '',
@@ -57461,7 +57166,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '0mlihctw': {
+    '6cugcrkp': {
       'en': '4.8',
       'ar': '',
       'de': '',
@@ -57475,7 +57180,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'tbpvcynn': {
+    '1f298kq9': {
       'en': 'Sprout\'s',
       'ar': '',
       'de': '',
@@ -57489,7 +57194,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'zl3153b4': {
+    'iz2qbl2j': {
       'en': '50% Off Final Cart Order',
       'ar': '',
       'de': '',
@@ -57503,7 +57208,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'ica7500s': {
+    'm2n9xzpn': {
       'en': '4.8',
       'ar': '',
       'de': '',
@@ -57517,7 +57222,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'n45r1fju': {
+    'yr7vqzjp': {
       'en': 'Add-Ons',
       'ar': '',
       'de': '',
@@ -57531,7 +57236,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'p79460hc': {
+    'w51ze887': {
       'en': 'Premium Self-Care',
       'ar': '',
       'de': '',
@@ -57545,7 +57250,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'nepmy63x': {
+    'fidg0bt1': {
       'en': 'See all',
       'ar': '',
       'de': '',
@@ -57559,7 +57264,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'lr1f1g9r': {
+    '8hytqpsy': {
       'en': 'Meditation Beginner\'s Guide',
       'ar': '',
       'de': '',
@@ -57573,7 +57278,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'd8ijrt6v': {
+    'x679o01n': {
       'en': 'For Meditation Help',
       'ar': '',
       'de': '',
@@ -57587,7 +57292,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '9tsy97x2': {
+    'aemhiwuh': {
       'en': 'Price: 200 Escape Coins',
       'ar': '',
       'de': '',
@@ -57601,7 +57306,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'fd383pvx': {
+    '1c1x73ws': {
       'en': 'Anxiety Relief Exercise With Lucille',
       'ar': '',
       'de': '',
@@ -57615,7 +57320,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'owvkm22r': {
+    '9rbdobak': {
       'en': 'For Meditation Help',
       'ar': '',
       'de': '',
@@ -57629,7 +57334,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'hlp1ssz0': {
+    '7hugczzn': {
       'en': 'Price: 200 Escape Coins',
       'ar': '',
       'de': '',
@@ -57643,7 +57348,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'p0tg4mqe': {
+    'ce9ntioh': {
       'en': 'Chakra Scan',
       'ar': '',
       'de': '',
@@ -57657,7 +57362,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'kzejxkyj': {
+    'zuqimny3': {
       'en': 'For Productivity Help',
       'ar': '',
       'de': '',
@@ -57671,7 +57376,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'jo4ez5bs': {
+    'uobnkjal': {
       'en': 'Price: 200 Escape Coins',
       'ar': '',
       'de': '',
@@ -57685,7 +57390,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'bquvrrd1': {
+    'pnwacjrr': {
       'en': 'Finding Friends',
       'ar': '',
       'de': '',
@@ -57699,7 +57404,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'sv5f54oh': {
+    'gfb5pv3d': {
       'en': 'Self-Care Blog',
       'ar': '',
       'de': '',
@@ -57713,7 +57418,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'uxhbryon': {
+    't9emah6b': {
       'en': 'Price: 200 Escape Coins',
       'ar': '',
       'de': '',
@@ -57727,7 +57432,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'et3g53j4': {
+    '0w54rl53': {
       'en': 'Escape Quest Guide',
       'ar': '',
       'de': '',
@@ -57741,7 +57446,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'v90qdgcv': {
+    '9pink57r': {
       'en': 'Mobile app Help',
       'ar': '',
       'de': '',
@@ -57755,7 +57460,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'rv69yhlz': {
+    'qf9z78jq': {
       'en': 'Price: 200 Escape Coins',
       'ar': '',
       'de': '',
@@ -57769,7 +57474,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '1kmyx96m': {
+    'b044cqt7': {
       'en': 'AR Mood Scan',
       'ar': '',
       'de': '',
@@ -57783,7 +57488,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'i8b8uo73': {
+    '8vx777xh': {
       'en': 'Advanced Lucille Features',
       'ar': '',
       'de': '',
@@ -57797,7 +57502,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '1c8aek4o': {
+    'y6zrib9l': {
       'en': 'Price: 1000 Escape Coins',
       'ar': '',
       'de': '',
@@ -57811,7 +57516,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'cmggmub7': {
+    'mh4mjdbm': {
       'en': 'Worlds',
       'ar': '',
       'de': '',
@@ -59710,219 +59415,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
   },
-  // LucilleBody1
-  {
-    'cbbaaxqu': {
-      'en': 'E S C A P E',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'pv1g636n': {
-      'en': 'N E U R A L   W E L L N E S S',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '9swarw9x': {
-      'en': 'Mood Scanner',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'to0dcv5v': {
-      'en': 'Check in with your emotional state',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'upyh3d2y': {
-      'en': 'M O V E M E N T',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'jfsw586g': {
-      'en': 'Yoga',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'k3q6ydbb': {
-      'en': 'Connect breath and body',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '43naf0xj': {
-      'en': 'Pilates',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'x951rpcu': {
-      'en': 'Core strength and control',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'ttrieqax': {
-      'en': 'Yang Style Tai Chi',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '82f5mfxl': {
-      'en': 'Flowing energy cultivation',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '2j20fv3g': {
-      'en': 'Stretching',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'yl5lek0t': {
-      'en': 'Release and restore',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'mdpx7d6n': {
-      'en': 'Kemetic Yoga',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'x7knimml': {
-      'en': 'Ancient wisdom practice',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-  },
   // LucilleSoundscapeSuggestion
   {
     'yfiohfz1': {
@@ -60259,65 +59751,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
   },
-  // coachingSession
-  {
-    'z35kmx1e': {
-      'en': 'ALIGNMENT',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'prmsbe0s': {
-      'en': 'Find Your  Center',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'imxzyglp': {
-      'en': 'End Session',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '7u8m715n': {
-      'en': '50%',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-  },
   // moodSaverComponent
   {
     'z431hkoa': {
@@ -60350,107 +59783,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'e7gehqun': {
       'en': 'Finish',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-  },
-  // balancePage
-  {
-    '01t2w1ed': {
-      'en': 'How do you feel?',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'wk8wdc6z': {
-      'en': '',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'xehttu5h': {
-      'en': 'Low energy',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '5g0bojif': {
-      'en': 'Balanced',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '1ybc075f': {
-      'en': 'Elevated',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'x2shunmj': {
-      'en': 'Balanced',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'y60lf37n': {
-      'en': 'Save & Continue',
       'ar': '',
       'de': '',
       'es': '',

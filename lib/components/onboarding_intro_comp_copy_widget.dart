@@ -1207,7 +1207,7 @@ class _OnboardingIntroCompCopyWidgetState
                                                               'Button_navigate_to');
 
                                                           context.pushNamed(
-                                                            FacialMoodAnalyzerChoiceLoginWidget
+                                                            YoureAllSetPageVersion5Widget
                                                                 .routeName,
                                                             extra: <String,
                                                                 dynamic>{
