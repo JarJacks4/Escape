@@ -1,3 +1,4 @@
+import '/begin_session_page/begin_session_page_widget.dart';
 import '/components/coming_soon_body_comp_widget.dart';
 import '/components/help_comp_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -655,20 +656,18 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                 'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
                             .then((_) => _model.soundPlayer5!.play());
 
-                        logFirebaseEvent('Container_bottom_sheet');
-                        await showModalBottomSheet(
-                          isScrollControlled: true,
-                          backgroundColor: Colors.transparent,
-                          context: context,
-                          builder: (context) {
-                            return WebViewAware(
-                              child: Padding(
-                                padding: MediaQuery.viewInsetsOf(context),
-                                child: ComingSoonBodyCompWidget(),
-                              ),
-                            );
+                        logFirebaseEvent('Container_navigate_to');
+
+                        context.pushNamed(
+                          BeginSessionPageWidget.routeName,
+                          extra: <String, dynamic>{
+                            '__transition_info__': TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.rightToLeft,
+                              duration: Duration(milliseconds: 2),
+                            ),
                           },
-                        ).then((value) => safeSetState(() {}));
+                        );
                       },
                       child: Container(
                         width: 357.0,

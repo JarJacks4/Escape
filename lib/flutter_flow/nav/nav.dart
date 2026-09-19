@@ -1012,6 +1012,48 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => BeginSessionPageWidget(),
           ),
           FFRoute(
+            name: MovementPreviewModal2NewWidget.routeName,
+            path: MovementPreviewModal2NewWidget.routePath,
+            builder: (context, params) => MovementPreviewModal2NewWidget(
+              moveName: params.getParam(
+                'moveName',
+                ParamType.String,
+              ),
+              cueText: params.getParam(
+                'cueText',
+                ParamType.String,
+              ),
+              modelUrl: params.getParam(
+                'modelUrl',
+                ParamType.String,
+              ),
+              accentColor: params.getParam(
+                'accentColor',
+                ParamType.Color,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: ActiveSessionReps1Widget.routeName,
+            path: ActiveSessionReps1Widget.routePath,
+            builder: (context, params) => ActiveSessionReps1Widget(
+              moves: params.getParam(
+                'moves',
+                ParamType.DataStruct,
+                isList: false,
+                structBuilder: MoveStructStruct.fromSerializableMap,
+              ),
+              currentIndex: params.getParam(
+                'currentIndex',
+                ParamType.int,
+              ),
+              sessionStartTime: params.getParam(
+                'sessionStartTime',
+                ParamType.DateTime,
+              ),
+            ),
+          ),
+          FFRoute(
             name: RespirationPageWidget.routeName,
             path: RespirationPageWidget.routePath,
             builder: (context, params) => RespirationPageWidget(),
