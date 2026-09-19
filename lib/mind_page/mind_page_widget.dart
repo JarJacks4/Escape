@@ -50,7 +50,7 @@ class _MindPageWidgetState extends State<MindPageWidget> {
           children: [
             Container(
               width: double.infinity,
-              height: 873.89,
+              height: 963.5,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
@@ -72,7 +72,7 @@ class _MindPageWidgetState extends State<MindPageWidget> {
                   ),
                   Container(
                     width: double.infinity,
-                    height: 903.58,
+                    height: 961.2,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
