@@ -655,29 +655,39 @@ class _ActiveVoiceJournalingWidgetState
                                           HapticFeedback.heavyImpact();
                                           logFirebaseEvent(
                                               'IconButton_backend_call');
-                                          _model.transcribedMood =
-                                              await TheoryOfMindLucilleGroup
-                                                  .lucilleChatMainCall
-                                                  .call(
-                                            sessionId:
-                                                FFAppState().chatSessionId,
-                                            userId: currentUserUid,
-                                            message:
-                                                'Hey Lucille, could you summarize the mood from the following transcribed words? We only need the mood in one word: ${(EscapeAudioScriptCall.text(_model.gorqTranscriptionResult?.jsonBody) ?? '')}',
-                                          );
-
-                                          logFirebaseEvent(
-                                              'IconButton_backend_call');
+                                          final transcribedText =
+                                              (EscapeAudioScriptCall.text(
+                                                      _model
+                                                          .gorqTranscriptionResult
+                                                          ?.jsonBody) ??
+                                                  '');
+                                          final results = await Future.wait([
+                                            TheoryOfMindLucilleGroup
+                                                .lucilleChatMainCall
+                                                .call(
+                                              sessionId:
+                                                  FFAppState().chatSessionId,
+                                              userId: currentUserUid,
+                                              firebaseIDToken:
+                                                  currentJwtToken,
+                                              message:
+                                                  'Hey Lucille, could you summarize the mood from the following transcribed words? We only need the mood in one word: $transcribedText',
+                                            ),
+                                            TheoryOfMindLucilleGroup
+                                                .lucilleChatMainCall
+                                                .call(
+                                              sessionId:
+                                                  FFAppState().chatSessionId,
+                                              userId: currentUserUid,
+                                              firebaseIDToken:
+                                                  currentJwtToken,
+                                              message:
+                                                  'Reply with ONLY a 3-word title summarizing this journal entry. No punctuation, no quotation marks, no explanation, no extra sentences — just the 3 words: $transcribedText',
+                                            ),
+                                          ]);
+                                          _model.transcribedMood = results[0];
                                           _model.transcriptionTitle =
-                                              await TheoryOfMindLucilleGroup
-                                                  .lucilleChatMainCall
-                                                  .call(
-                                            sessionId:
-                                                FFAppState().chatSessionId,
-                                            userId: currentUserUid,
-                                            message:
-                                                'Hey Lucille, could you summarize the a 3 Word Title from the following transcribed words? We only need the title in one word: ${(EscapeAudioScriptCall.text(_model.gorqTranscriptionResult?.jsonBody) ?? '')}',
-                                          );
+                                              results[1];
 
                                           logFirebaseEvent(
                                               'IconButton_navigate_to');
@@ -708,6 +718,40 @@ class _ActiveVoiceJournalingWidgetState
                                               'journalVoiceNote':
                                                   serializeParam(
                                                 _model.audioJournalRecording,
+                                                ParamType.String,
+                                              ),
+                                              'journalTitle': serializeParam(
+                                                (() {
+                                                  final rawTitle = TheoryOfMindLucilleGroup
+                                                      .lucilleChatMainCall
+                                                      .response(
+                                                    (_model.transcriptionTitle
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  );
+                                                  if (rawTitle == null || rawTitle.isEmpty) {
+                                                    return rawTitle;
+                                                  }
+                                                  // Try to extract a quoted title first (handles cases
+                                                  // where the model wraps the title in a full sentence).
+                                                  final quoteMatch = RegExp(r'["“]([^"”]+)["”]')
+                                                      .firstMatch(rawTitle);
+                                                  var cleaned = quoteMatch != null
+                                                      ? quoteMatch.group(1)!
+                                                      : rawTitle;
+                                                  // Strip markdown bold/asterisks and trailing punctuation.
+                                                  cleaned = cleaned
+                                                      .replaceAll('*', '')
+                                                      .replaceAll('.', '')
+                                                      .trim();
+                                                  // Fallback: cap to first 5 words in case the model still
+                                                  // returned a full sentence with no quotes.
+                                                  final words = cleaned.split(RegExp(r'\s+'));
+                                                  if (words.length > 5) {
+                                                    cleaned = words.take(3).join(' ');
+                                                  }
+                                                  return cleaned;
+                                                })(),
                                                 ParamType.String,
                                               ),
                                             }.withoutNulls,
