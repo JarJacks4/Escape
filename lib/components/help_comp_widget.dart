@@ -630,7 +630,13 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                                 .resolve(
                                                     Directionality.of(context)),
                                         child: WebViewAware(
-                                          child: LoginIntroDialogueCompWidget(),
+                                          child: Container(
+                                            height: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.5,
+                                            child:
+                                                LoginIntroDialogueCompWidget(),
+                                          ),
                                         ),
                                       );
                                     },

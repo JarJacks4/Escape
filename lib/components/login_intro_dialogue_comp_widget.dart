@@ -85,6 +85,7 @@ class _LoginIntroDialogueCompWidgetState
                         children: [
                           Column(
                             mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
                                 width: double.infinity,
@@ -389,6 +390,7 @@ class _LoginIntroDialogueCompWidgetState
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Flexible(
                                 flex: 1,
@@ -397,7 +399,7 @@ class _LoginIntroDialogueCompWidgetState
                                   child: Container(
                                     width: double.infinity,
                                     height:
-                                        MediaQuery.sizeOf(context).height * 0.4,
+                                        MediaQuery.sizeOf(context).height * 0.7,
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         fit: BoxFit.cover,
@@ -428,7 +430,7 @@ class _LoginIntroDialogueCompWidgetState
                                         ),
                                         child: Container(
                                           width: 117.6,
-                                          height: 100.0,
+                                          height: 125.19,
                                           decoration: BoxDecoration(
                                             boxShadow: [
                                               BoxShadow(
