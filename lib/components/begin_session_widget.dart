@@ -9,7 +9,12 @@ export 'begin_session_model.dart';
 
 /// New Component Gen
 class BeginSessionWidget extends StatefulWidget {
-  const BeginSessionWidget({super.key});
+  const BeginSessionWidget({
+    super.key,
+    this.currentIndex,
+  });
+
+  final int? currentIndex;
 
   @override
   State<BeginSessionWidget> createState() => _BeginSessionWidgetState();
@@ -140,8 +145,16 @@ class _BeginSessionWidgetState extends State<BeginSessionWidget> {
                                     'BEGIN_SESSION_COMP_Btn_ON_TAP');
                                 logFirebaseEvent('Btn_navigate_to');
 
-                                context
-                                    .pushNamed(RespirationPageWidget.routeName);
+                                context.pushNamed(
+                                  BodyVersion5MovementsPageWidget.routeName,
+                                  extra: <String, dynamic>{
+                                    '__transition_info__': TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 200),
+                                    ),
+                                  },
+                                );
                               },
                               text: FFLocalizations.of(context).getText(
                                 '5p7h5xgz' /* Begin  Session */,

@@ -290,7 +290,7 @@ class _BodyMovementSessionCompletionWidgetState
                             ].divide(SizedBox(height: 16.0)),
                           ),
                           Container(
-                            height: 32.0,
+                            height: 17.6,
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
@@ -596,10 +596,16 @@ class _BodyMovementSessionCompletionWidgetState
                                                         backgroundColor:
                                                             Color(0x741C2444),
                                                         center: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            '19lj4i7d' /* 50% */,
+                                                          valueOrDefault<
+                                                              String>(
+                                                            formatNumber(
+                                                              _model.streakData
+                                                                  ?.streakCount,
+                                                              formatType:
+                                                                  FormatType
+                                                                      .percent,
+                                                            ),
+                                                            '50%',
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -687,7 +693,7 @@ class _BodyMovementSessionCompletionWidgetState
                             ),
                           ),
                           Container(
-                            height: 40.0,
+                            height: 20.8,
                           ),
                           Container(
                             height: 20.0,
@@ -695,7 +701,7 @@ class _BodyMovementSessionCompletionWidgetState
                           FFButtonWidget(
                             onPressed: () async {
                               logFirebaseEvent(
-                                  'BODY_MOVEMENT_SESSION_COMPLETION_BACK_TO');
+                                  'BODY_MOVEMENT_SESSION_COMPLETION_COMPLET');
                               logFirebaseEvent('Button_haptic_feedback');
                               HapticFeedback.selectionClick();
                               logFirebaseEvent('Button_play_sound');
@@ -718,7 +724,7 @@ class _BodyMovementSessionCompletionWidgetState
                               logFirebaseEvent('Button_navigate_to');
 
                               context.pushNamed(
-                                HomeVersion5Widget.routeName,
+                                BodySessionCompleteBackToHomeWidget.routeName,
                                 extra: <String, dynamic>{
                                   '__transition_info__': TransitionInfo(
                                     hasTransition: true,
@@ -729,7 +735,7 @@ class _BodyMovementSessionCompletionWidgetState
                               );
                             },
                             text: FFLocalizations.of(context).getText(
-                              'h9j21n3n' /* Back to Home */,
+                              'h9j21n3n' /* Complete Exercise */,
                             ),
                             options: FFButtonOptions(
                               height: 52.83,

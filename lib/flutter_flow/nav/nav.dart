@@ -1009,7 +1009,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
           FFRoute(
             name: BeginSessionPageWidget.routeName,
             path: BeginSessionPageWidget.routePath,
-            builder: (context, params) => BeginSessionPageWidget(),
+            builder: (context, params) => BeginSessionPageWidget(
+              currentIndex: params.getParam(
+                'currentIndex',
+                ParamType.int,
+              ),
+            ),
           ),
           FFRoute(
             name: MovementPreviewModal2NewWidget.routeName,
@@ -1037,6 +1042,75 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             name: ActiveSessionReps1Widget.routeName,
             path: ActiveSessionReps1Widget.routePath,
             builder: (context, params) => ActiveSessionReps1Widget(
+              moves: params.getParam(
+                'moves',
+                ParamType.DataStruct,
+                isList: false,
+                structBuilder: MoveStructStruct.fromSerializableMap,
+              ),
+              currentIndex: params.getParam(
+                'currentIndex',
+                ParamType.int,
+              ),
+              sessionStartTime: params.getParam(
+                'sessionStartTime',
+                ParamType.DateTime,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: BodyVersion5MovementsPageWidget.routeName,
+            path: BodyVersion5MovementsPageWidget.routePath,
+            builder: (context, params) => BodyVersion5MovementsPageWidget(),
+          ),
+          FFRoute(
+            name: BodySessionCompleteBackToHomeWidget.routeName,
+            path: BodySessionCompleteBackToHomeWidget.routePath,
+            builder: (context, params) =>
+                BodySessionCompleteBackToHomeWidget(),
+          ),
+          FFRoute(
+            name: ActiveSessionTimer2Widget.routeName,
+            path: ActiveSessionTimer2Widget.routePath,
+            builder: (context, params) => ActiveSessionTimer2Widget(
+              moves: params.getParam(
+                'moves',
+                ParamType.DataStruct,
+                isList: false,
+                structBuilder: MoveStructStruct.fromSerializableMap,
+              ),
+              currentIndex: params.getParam(
+                'currentIndex',
+                ParamType.int,
+              ),
+              sessionStartTime: params.getParam(
+                'sessionStartTime',
+                ParamType.DateTime,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: BodyMovementSessionCompletionWidget.routeName,
+            path: BodyMovementSessionCompletionWidget.routePath,
+            builder: (context, params) => BodyMovementSessionCompletionWidget(
+              movesCompleted: params.getParam(
+                'movesCompleted',
+                ParamType.int,
+              ),
+              elapsedMinutes: params.getParam(
+                'elapsedMinutes',
+                ParamType.int,
+              ),
+              sessionLabel: params.getParam(
+                'sessionLabel',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: BodyMovement3Widget.routeName,
+            path: BodyMovement3Widget.routePath,
+            builder: (context, params) => BodyMovement3Widget(
               moves: params.getParam(
                 'moves',
                 ParamType.DataStruct,
