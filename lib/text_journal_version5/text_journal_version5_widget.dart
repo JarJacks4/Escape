@@ -84,22 +84,6 @@ class _TextJournalVersion5WidgetState extends State<TextJournalVersion5Widget> {
     _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
-          _model.textController2?.text = FFLocalizations.of(context).getText(
-            'diha0a23' /* 
-Sample Journal:
-
-Today I woke... */
-            ,
-          );
-          _model.textController3?.text = FFLocalizations.of(context).getText(
-            'x3wwg4yd' /* 
-Sample Journal:
-
-Today I woke... */
-            ,
-          );
-        }));
   }
 
   @override
@@ -741,7 +725,10 @@ Today I woke... */
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'vh7aj111' /* Type Here */,
+                                                          'diha0a23' /* 
+Sample Journal:
+
+Today I woke... */
                                                         ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
