@@ -174,6 +174,34 @@ class FFAppState extends ChangeNotifier {
               .toList() ??
           _recentlyPlayed;
     });
+    await _safeInitAsync(() async {
+      _TaiChiMoves = (await secureStorage.getStringList('ff_TaiChiMoves'))
+              ?.map((x) {
+                try {
+                  return MoveStructStruct.fromSerializableMap(jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _TaiChiMoves;
+    });
+    await _safeInitAsync(() async {
+      _YogaMoves = (await secureStorage.getStringList('ff_YogaMoves'))
+              ?.map((x) {
+                try {
+                  return MoveStructStruct.fromSerializableMap(jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _YogaMoves;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -2228,6 +2256,96 @@ class FFAppState extends ChangeNotifier {
   bool get hasPreviewedAMove => _hasPreviewedAMove;
   set hasPreviewedAMove(bool value) {
     _hasPreviewedAMove = value;
+  }
+
+  List<MoveStructStruct> _TaiChiMoves = [];
+  List<MoveStructStruct> get TaiChiMoves => _TaiChiMoves;
+  set TaiChiMoves(List<MoveStructStruct> value) {
+    _TaiChiMoves = value;
+    secureStorage.setStringList(
+        'ff_TaiChiMoves', value.map((x) => x.serialize()).toList());
+  }
+
+  void deleteTaiChiMoves() {
+    secureStorage.delete(key: 'ff_TaiChiMoves');
+  }
+
+  void addToTaiChiMoves(MoveStructStruct value) {
+    TaiChiMoves.add(value);
+    secureStorage.setStringList(
+        'ff_TaiChiMoves', _TaiChiMoves.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromTaiChiMoves(MoveStructStruct value) {
+    TaiChiMoves.remove(value);
+    secureStorage.setStringList(
+        'ff_TaiChiMoves', _TaiChiMoves.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromTaiChiMoves(int index) {
+    TaiChiMoves.removeAt(index);
+    secureStorage.setStringList(
+        'ff_TaiChiMoves', _TaiChiMoves.map((x) => x.serialize()).toList());
+  }
+
+  void updateTaiChiMovesAtIndex(
+    int index,
+    MoveStructStruct Function(MoveStructStruct) updateFn,
+  ) {
+    TaiChiMoves[index] = updateFn(_TaiChiMoves[index]);
+    secureStorage.setStringList(
+        'ff_TaiChiMoves', _TaiChiMoves.map((x) => x.serialize()).toList());
+  }
+
+  void insertAtIndexInTaiChiMoves(int index, MoveStructStruct value) {
+    TaiChiMoves.insert(index, value);
+    secureStorage.setStringList(
+        'ff_TaiChiMoves', _TaiChiMoves.map((x) => x.serialize()).toList());
+  }
+
+  List<MoveStructStruct> _YogaMoves = [];
+  List<MoveStructStruct> get YogaMoves => _YogaMoves;
+  set YogaMoves(List<MoveStructStruct> value) {
+    _YogaMoves = value;
+    secureStorage.setStringList(
+        'ff_YogaMoves', value.map((x) => x.serialize()).toList());
+  }
+
+  void deleteYogaMoves() {
+    secureStorage.delete(key: 'ff_YogaMoves');
+  }
+
+  void addToYogaMoves(MoveStructStruct value) {
+    YogaMoves.add(value);
+    secureStorage.setStringList(
+        'ff_YogaMoves', _YogaMoves.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromYogaMoves(MoveStructStruct value) {
+    YogaMoves.remove(value);
+    secureStorage.setStringList(
+        'ff_YogaMoves', _YogaMoves.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromYogaMoves(int index) {
+    YogaMoves.removeAt(index);
+    secureStorage.setStringList(
+        'ff_YogaMoves', _YogaMoves.map((x) => x.serialize()).toList());
+  }
+
+  void updateYogaMovesAtIndex(
+    int index,
+    MoveStructStruct Function(MoveStructStruct) updateFn,
+  ) {
+    YogaMoves[index] = updateFn(_YogaMoves[index]);
+    secureStorage.setStringList(
+        'ff_YogaMoves', _YogaMoves.map((x) => x.serialize()).toList());
+  }
+
+  void insertAtIndexInYogaMoves(int index, MoveStructStruct value) {
+    YogaMoves.insert(index, value);
+    secureStorage.setStringList(
+        'ff_YogaMoves', _YogaMoves.map((x) => x.serialize()).toList());
   }
 
   final _lucilleSuggestedExercisesManager =

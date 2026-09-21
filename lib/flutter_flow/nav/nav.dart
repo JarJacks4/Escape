@@ -688,7 +688,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
       FFRoute(
         name: BeginSessionPageWidget.routeName,
         path: BeginSessionPageWidget.routePath,
-        builder: (context, params) => BeginSessionPageWidget(),
+        builder: (context, params) => BeginSessionPageWidget(
+          currentIndex: params.getParam(
+            'currentIndex',
+            ParamType.int,
+          ),
+        ),
       ),
       FFRoute(
         name: RespirationPageWidget.routeName,
@@ -1329,6 +1334,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         name: JournalHelpWidget.routeName,
         path: JournalHelpWidget.routePath,
         builder: (context, params) => JournalHelpWidget(),
+      ),
+      FFRoute(
+        name: TaiChiMovesChoiceWidget.routeName,
+        path: TaiChiMovesChoiceWidget.routePath,
+        builder: (context, params) => TaiChiMovesChoiceWidget(),
       ),
       FFRoute(
         name: $cupertino_time_picker_hiuzb7.HomePageWidget.routeName,

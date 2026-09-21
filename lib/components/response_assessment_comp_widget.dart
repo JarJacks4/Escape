@@ -113,7 +113,7 @@ class _ResponseAssessmentCompWidgetState
                       alignment: AlignmentDirectional(0.0, 1.0),
                       child: Container(
                         width: double.infinity,
-                        height: MediaQuery.sizeOf(context).height * 0.69,
+                        height: MediaQuery.sizeOf(context).height * 0.739,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             fit: BoxFit.cover,

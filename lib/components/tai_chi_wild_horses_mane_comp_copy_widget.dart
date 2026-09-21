@@ -6,20 +6,21 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'calm_breathing_comp_model.dart';
-export 'calm_breathing_comp_model.dart';
+import 'tai_chi_wild_horses_mane_comp_copy_model.dart';
+export 'tai_chi_wild_horses_mane_comp_copy_model.dart';
 
-class CalmBreathingCompWidget extends StatefulWidget {
-  const CalmBreathingCompWidget({super.key});
+class TaiChiWildHorsesManeCompCopyWidget extends StatefulWidget {
+  const TaiChiWildHorsesManeCompCopyWidget({super.key});
 
   @override
-  State<CalmBreathingCompWidget> createState() =>
-      _CalmBreathingCompWidgetState();
+  State<TaiChiWildHorsesManeCompCopyWidget> createState() =>
+      _TaiChiWildHorsesManeCompCopyWidgetState();
 }
 
-class _CalmBreathingCompWidgetState extends State<CalmBreathingCompWidget>
+class _TaiChiWildHorsesManeCompCopyWidgetState
+    extends State<TaiChiWildHorsesManeCompCopyWidget>
     with TickerProviderStateMixin {
-  late CalmBreathingCompModel _model;
+  late TaiChiWildHorsesManeCompCopyModel _model;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -32,7 +33,7 @@ class _CalmBreathingCompWidgetState extends State<CalmBreathingCompWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CalmBreathingCompModel());
+    _model = createModel(context, () => TaiChiWildHorsesManeCompCopyModel());
 
     animationsMap.addAll({
       'imageOnPageLoadAnimation': AnimationInfo(
@@ -41,23 +42,15 @@ class _CalmBreathingCompWidgetState extends State<CalmBreathingCompWidget>
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 2500.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
         ],
       ),
       'textOnPageLoadAnimation1': AnimationInfo(
-        loop: true,
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
-          ShimmerEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 1340.0.ms,
-            color: FlutterFlowTheme.of(context).accent1,
-            angle: 0.524,
-          ),
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
@@ -106,21 +99,16 @@ class _CalmBreathingCompWidgetState extends State<CalmBreathingCompWidget>
     return Stack(
       children: [
         AnimatedOpacity(
-          opacity: 0.5,
+          opacity: 0.3,
           duration: 740.0.ms,
           curve: Curves.easeInOut,
-          child: Hero(
-            tag: 'BackgroundPicture',
-            transitionOnUserGestures: true,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(16.0),
-              child: Image.asset(
-                'assets/images/Erica_Anderson_(5).gif',
-                width: double.infinity,
-                height: double.infinity,
-                fit: BoxFit.cover,
-                alignment: Alignment(0.0, 0.0),
-              ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16.0),
+            child: Image.asset(
+              'assets/images/e3bedab340c6acae47e0f98a0b163900.gif',
+              width: double.infinity,
+              height: double.infinity,
+              fit: BoxFit.cover,
             ),
           ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
         ),
@@ -128,7 +116,7 @@ class _CalmBreathingCompWidgetState extends State<CalmBreathingCompWidget>
           alignment: AlignmentDirectional(0.0, 1.0),
           child: Container(
             width: double.infinity,
-            height: 302.3,
+            height: 291.1,
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -176,7 +164,7 @@ class _CalmBreathingCompWidgetState extends State<CalmBreathingCompWidget>
                               12.0, 6.0, 12.0, 6.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              '0pf5aoxc' /* Beginner - 50 XP */,
+                              'mbn6ui2j' /* Intermediate - 100 XP */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -207,65 +195,77 @@ class _CalmBreathingCompWidgetState extends State<CalmBreathingCompWidget>
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            '5x4eg2zt' /* Calm Breathing */,
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.cormorantSc(
-                                      fontWeight: FontWeight.bold,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    fontSize: 22.0,
-                                    letterSpacing: 0.0,
+                      Flexible(
+                        flex: 1,
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 8.0, 0.0, 8.0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              'ya8zzqw7' /* Parting The Wild Horses Mane */,
+                            ),
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  font: GoogleFonts.cormorantSc(
                                     fontWeight: FontWeight.bold,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                        ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation1']!),
-                      ),
-                      Text(
-                        FFLocalizations.of(context).getText(
-                          'psu4cwex' /* Use a breathing method to help... */,
+                                  fontSize: 22.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation1']!),
                         ),
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.inter(
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 15.0),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            '6ioqzmaj' /* Take a small moment in time to... */,
+                          ),
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                font: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w300,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 12.0,
+                                letterSpacing: 0.0,
                                 fontWeight: FontWeight.w300,
                                 fontStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .fontStyle,
+                                lineHeight: 1.5,
                               ),
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              fontSize: 14.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w300,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
-                              lineHeight: 1.5,
-                            ),
-                      ).animateOnPageLoad(
-                          animationsMap['textOnPageLoadAnimation2']!),
+                          overflow: TextOverflow.fade,
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation2']!),
+                      ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 12.0, 0.0, 12.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             logFirebaseEvent(
-                                'CALM_BREATHING_START_NOW_BTN_ON_TAP');
+                                'TAI_CHI_WILD_HORSES_MANE_COPY_START_NOW_');
                             logFirebaseEvent('Button_navigate_to');
 
                             context.pushNamed(
-                              CalmBreathingWidget.routeName,
+                              DeepBreathingWidget.routeName,
                               extra: <String, dynamic>{
                                 '__transition_info__': TransitionInfo(
                                   hasTransition: true,
@@ -276,7 +276,7 @@ class _CalmBreathingCompWidgetState extends State<CalmBreathingCompWidget>
                             );
                           },
                           text: FFLocalizations.of(context).getText(
-                            '0axdbez2' /* Start Now */,
+                            'n6yo25o2' /* Start Now */,
                           ),
                           options: FFButtonOptions(
                             width: 200.0,
@@ -295,7 +295,7 @@ class _CalmBreathingCompWidgetState extends State<CalmBreathingCompWidget>
                                         .titleSmall
                                         .fontStyle,
                                   ),
-                                  color: FlutterFlowTheme.of(context).accent1,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,

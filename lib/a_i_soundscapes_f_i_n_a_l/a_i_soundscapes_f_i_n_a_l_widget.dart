@@ -159,16 +159,16 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                   Stack(
                     children: [
                       Opacity(
-                        opacity: 0.5,
+                        opacity: 0.7,
                         child: Hero(
                           tag: 'background',
                           transitionOnUserGestures: true,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
-                              'assets/images/393161f003938642367522786b3f5271.gif',
-                              width: 409.6,
-                              height: MediaQuery.sizeOf(context).height * 1.0,
+                              'assets/images/Untitled_design_(1).gif',
+                              width: 452.2,
+                              height: MediaQuery.sizeOf(context).height * 1.207,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -486,7 +486,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                                       .cormorantSc(
                                                                     fontWeight:
                                                                         FontWeight
-                                                                            .w600,
+                                                                            .bold,
                                                                     fontStyle: FlutterFlowTheme.of(
                                                                             context)
                                                                         .titleMedium
@@ -501,7 +501,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                                       0.0,
                                                                   fontWeight:
                                                                       FontWeight
-                                                                          .w600,
+                                                                          .bold,
                                                                   fontStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .titleMedium
@@ -632,6 +632,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                         controller: _model.tabBarController,
                         children: [
                           SingleChildScrollView(
+                            physics: const AlwaysScrollableScrollPhysics(),
                             controller: _model.columnController2,
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -763,15 +764,8 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                         'Text_navigate_to');
 
                                                     context.pushNamed(
-                                                      RelaxSoundscapeDetailsWidget
+                                                      SoundscapesDetailsWidget
                                                           .routeName,
-                                                      queryParameters: {
-                                                        'pageTitle':
-                                                            serializeParam(
-                                                          'All Soundscapes',
-                                                          ParamType.String,
-                                                        ),
-                                                      }.withoutNulls,
                                                       extra: <String, dynamic>{
                                                         '__transition_info__':
                                                             TransitionInfo(
@@ -1160,7 +1154,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                           ),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primary,
+                                                              .alternate,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FlutterFlowTheme.of(
@@ -1667,6 +1661,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               SingleChildScrollView(
+                                physics: const AlwaysScrollableScrollPhysics(),
                                 controller: _model.columnController3,
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -2632,6 +2627,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                             children: [
                               SingleChildScrollView(
                                 primary: false,
+                                physics: const AlwaysScrollableScrollPhysics(),
                                 controller: _model.columnController4,
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -3691,6 +3687,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                             children: [
                               SingleChildScrollView(
                                 primary: false,
+                                physics: const AlwaysScrollableScrollPhysics(),
                                 controller: _model.columnController5,
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -4751,6 +4748,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                             children: [
                               SingleChildScrollView(
                                 primary: false,
+                                physics: const AlwaysScrollableScrollPhysics(),
                                 controller: _model.columnController6,
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,

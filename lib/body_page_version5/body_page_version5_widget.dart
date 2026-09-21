@@ -52,7 +52,7 @@ class _BodyPageVersion5WidgetState extends State<BodyPageVersion5Widget> {
           children: [
             Container(
               width: double.infinity,
-              height: 877.78,
+              height: 967.4,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
@@ -70,7 +70,7 @@ class _BodyPageVersion5WidgetState extends State<BodyPageVersion5Widget> {
                   ),
                   child: Container(
                     width: 100.0,
-                    height: 100.0,
+                    height: 175.2,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [

@@ -129,8 +129,11 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Container(
-                    height: 16.0,
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                    child: Container(
+                      height: 16.0,
+                    ),
                   ),
                   Padding(
                     padding:
@@ -203,8 +206,8 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                           },
                           child: Icon(
                             Icons.home,
-                            color: FlutterFlowTheme.of(context).secondary,
-                            size: 24.0,
+                            color: FlutterFlowTheme.of(context).primary,
+                            size: 36.0,
                           ),
                         ),
                       ],

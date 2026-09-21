@@ -294,3 +294,5 @@ export '/explore_help/explore_help_widget.dart' show ExploreHelpWidget;
 export '/mind_help/mind_help_widget.dart' show MindHelpWidget;
 export '/body_help/body_help_widget.dart' show BodyHelpWidget;
 export '/journal_help/journal_help_widget.dart' show JournalHelpWidget;
+export '/tai_chi_moves_choice/tai_chi_moves_choice_widget.dart'
+    show TaiChiMovesChoiceWidget;

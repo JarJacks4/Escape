@@ -71,19 +71,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
       opacity: widget.disabled ? 0.55 : 1.0,
       child: Container(
         decoration: BoxDecoration(
-          color: () {
-            if (widget.variant == 'secondary') {
-              return FlutterFlowTheme.of(context).accent1;
-            } else if (widget.variant == 'outline') {
-              return Colors.transparent;
-            } else if (widget.variant == 'ghost') {
-              return Colors.transparent;
-            } else if (widget.variant == 'destructive') {
-              return FlutterFlowTheme.of(context).error;
-            } else {
-              return FlutterFlowTheme.of(context).accent1;
-            }
-          }(),
+          color: FlutterFlowTheme.of(context).accent3,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(valueOrDefault<double>(
               () {

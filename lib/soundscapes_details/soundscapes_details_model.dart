@@ -21,12 +21,13 @@ class SoundscapesDetailsModel
   AudioPlayer? soundPlayer2;
   // State field(s) for Row widget.
   ScrollController? rowController3;
-  // State field(s) for Row widget.
-  ScrollController? rowController4;
   AudioPlayer? soundPlayer3;
   // State field(s) for Row widget.
-  ScrollController? rowController5;
+  ScrollController? rowController4;
   AudioPlayer? soundPlayer4;
+  // State field(s) for Row widget.
+  ScrollController? rowController5;
+  AudioPlayer? soundPlayer5;
 
   @override
   void initState(BuildContext context) {

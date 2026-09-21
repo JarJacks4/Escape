@@ -181,20 +181,18 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                   'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
                               .then((_) => _model.soundPlayer1!.play());
 
-                          logFirebaseEvent('Container_bottom_sheet');
-                          await showModalBottomSheet(
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            context: context,
-                            builder: (context) {
-                              return WebViewAware(
-                                child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: ComingSoonBodyCompWidget(),
-                                ),
-                              );
+                          logFirebaseEvent('Container_navigate_to');
+
+                          context.pushNamed(
+                            BeginSessionPageWidget.routeName,
+                            extra: <String, dynamic>{
+                              '__transition_info__': TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 11),
+                              ),
                             },
-                          ).then((value) => safeSetState(() {}));
+                          );
                         },
                         child: Container(
                           height: 140.0,
@@ -258,7 +256,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'dga7wx6t' /* 10 Movements */,
+                                    'dga7wx6t' /* 5 Movements */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
@@ -312,20 +310,24 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                   'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
                               .then((_) => _model.soundPlayer2!.play());
 
-                          logFirebaseEvent('Container_bottom_sheet');
-                          await showModalBottomSheet(
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            context: context,
-                            builder: (context) {
-                              return WebViewAware(
-                                child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: ComingSoonBodyCompWidget(),
-                                ),
-                              );
+                          logFirebaseEvent('Container_navigate_to');
+
+                          context.pushNamed(
+                            BeginSessionPageWidget.routeName,
+                            queryParameters: {
+                              'currentIndex': serializeParam(
+                                1,
+                                ParamType.int,
+                              ),
+                            }.withoutNulls,
+                            extra: <String, dynamic>{
+                              '__transition_info__': TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 11),
+                              ),
                             },
-                          ).then((value) => safeSetState(() {}));
+                          );
                         },
                         child: Container(
                           height: 140.0,
@@ -368,7 +370,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    '4kil046d' /* Pilates */,
+                                    '4kil046d' /* Stretching */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyLarge
@@ -389,7 +391,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'rcxpfqhq' /* 15 Movements */,
+                                    'rcxpfqhq' /* 5 Movements */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
@@ -451,20 +453,24 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                   'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
                               .then((_) => _model.soundPlayer3!.play());
 
-                          logFirebaseEvent('Container_bottom_sheet');
-                          await showModalBottomSheet(
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            context: context,
-                            builder: (context) {
-                              return WebViewAware(
-                                child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: ComingSoonBodyCompWidget(),
-                                ),
-                              );
+                          logFirebaseEvent('Container_navigate_to');
+
+                          context.pushNamed(
+                            BeginSessionPageWidget.routeName,
+                            queryParameters: {
+                              'currentIndex': serializeParam(
+                                2,
+                                ParamType.int,
+                              ),
+                            }.withoutNulls,
+                            extra: <String, dynamic>{
+                              '__transition_info__': TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 11),
+                              ),
                             },
-                          ).then((value) => safeSetState(() {}));
+                          );
                         },
                         child: Container(
                           height: 140.0,
@@ -528,7 +534,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    '2bcpenvn' /* 18 Movements */,
+                                    '2bcpenvn' /* 4 Movements */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
@@ -659,7 +665,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'ri5jfl0t' /* Sensory rituals */,
+                                    'ri5jfl0t' /* Sensory Rituals */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
@@ -720,7 +726,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                     logFirebaseEvent('Container_navigate_to');
 
                     context.pushNamed(
-                      BeginSessionPageWidget.routeName,
+                      LucilleSuggestionsWidget.routeName,
                       extra: <String, dynamic>{
                         '__transition_info__': TransitionInfo(
                           hasTransition: true,
@@ -844,152 +850,123 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.all(15.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          logFirebaseEvent(
-                              'BODY_PAGE_COMP_Container_0w93wcf8_ON_TAP');
-                          logFirebaseEvent('Container_haptic_feedback');
-                          HapticFeedback.lightImpact();
-                          logFirebaseEvent('Container_play_sound');
-                          _model.soundPlayer6 ??= AudioPlayer();
-                          if (_model.soundPlayer6!.playing) {
-                            await _model.soundPlayer6!.stop();
-                          }
-                          _model.soundPlayer6!.setVolume(1.0);
-                          _model.soundPlayer6!
-                              .setAsset(
-                                  'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                              .then((_) => _model.soundPlayer6!.play());
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'BODY_PAGE_COMP_Container_0w93wcf8_ON_TAP');
+                            logFirebaseEvent('Container_haptic_feedback');
+                            HapticFeedback.lightImpact();
+                            logFirebaseEvent('Container_play_sound');
+                            _model.soundPlayer6 ??= AudioPlayer();
+                            if (_model.soundPlayer6!.playing) {
+                              await _model.soundPlayer6!.stop();
+                            }
+                            _model.soundPlayer6!.setVolume(1.0);
+                            _model.soundPlayer6!
+                                .setAsset(
+                                    'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                                .then((_) => _model.soundPlayer6!.play());
 
-                          logFirebaseEvent('Container_bottom_sheet');
-                          await showModalBottomSheet(
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            context: context,
-                            builder: (context) {
-                              return WebViewAware(
-                                child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: ComingSoonBodyCompWidget(),
-                                ),
-                              );
-                            },
-                          ).then((value) => safeSetState(() {}));
-                        },
-                        child: Container(
-                          width: 357.0,
-                          height: 92.0,
-                          decoration: BoxDecoration(
-                            color: Color(0x53EDF1F7),
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 10.0,
-                                color: Color(0x5CEDF1F7),
-                                offset: Offset(
-                                  0.0,
-                                  2.0,
-                                ),
-                              )
-                            ],
-                            borderRadius: BorderRadius.circular(16.0),
-                            border: Border.all(
-                              color: Color(0x33EDF1F7),
+                            logFirebaseEvent('Container_bottom_sheet');
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              context: context,
+                              builder: (context) {
+                                return WebViewAware(
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: ComingSoonBodyCompWidget(),
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+                          },
+                          child: Container(
+                            width: 357.0,
+                            height: 98.0,
+                            decoration: BoxDecoration(
+                              color: Color(0x53EDF1F7),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 10.0,
+                                  color: Color(0x5CEDF1F7),
+                                  offset: Offset(
+                                    0.0,
+                                    2.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(16.0),
+                              border: Border.all(
+                                color: Color(0x33EDF1F7),
+                              ),
                             ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 16.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Container(
-                                  width: 48.0,
-                                  height: 48.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context).accent3,
-                                    image: DecorationImage(
-                                      fit: BoxFit.cover,
-                                      image: Image.asset(
-                                        'assets/images/morning.gif',
-                                      ).image,
-                                    ),
-                                    borderRadius: BorderRadius.circular(12.0),
-                                    border: Border.all(
-                                      color: Color(0x3EEDF1F7),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 16.0, 16.0, 16.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: 48.0,
+                                    height: 48.0,
+                                    decoration: BoxDecoration(
+                                      color:
+                                          FlutterFlowTheme.of(context).accent3,
+                                      image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: Image.asset(
+                                          'assets/images/morning.gif',
+                                        ).image,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                      border: Border.all(
+                                        color: Color(0x3EEDF1F7),
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Flexible(
-                                  flex: 1,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          '510yp12u' /* Morning Mobility */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .override(
-                                              font: GoogleFonts.cormorantSc(
+                                  Flexible(
+                                    flex: 1,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            '510yp12u' /* Morning Mobility */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge
+                                              .override(
+                                                font: GoogleFonts.cormorantSc(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyLarge
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.bold,
                                                 fontStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .fontStyle,
                                               ),
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLarge
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'zms3g2y1' /* Start your body gently */,
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              font: GoogleFonts.inter(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontStyle,
-                                              ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                      Flexible(
-                                        flex: 1,
-                                        child: Text(
+                                        Text(
                                           FFLocalizations.of(context).getText(
-                                            'evppfs5t' /* 8 sessions */,
+                                            'zms3g2y1' /* Start your body gently */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
@@ -1008,7 +985,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                                 ),
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .accent3,
+                                                        .primary,
                                                 letterSpacing: 0.0,
                                                 fontWeight:
                                                     FlutterFlowTheme.of(context)
@@ -1020,515 +997,200 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                                         .fontStyle,
                                               ),
                                         ),
-                                      ),
-                                    ].divide(SizedBox(height: 4.0)),
+                                        Flexible(
+                                          flex: 1,
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'evppfs5t' /* 8 sessions */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall
+                                                .override(
+                                                  font: GoogleFonts.inter(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodySmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodySmall
+                                                            .fontStyle,
+                                                  ),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent3,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                        ),
+                                      ].divide(SizedBox(height: 4.0)),
+                                    ),
                                   ),
-                                ),
-                              ].divide(SizedBox(width: 16.0)),
+                                ].divide(SizedBox(width: 16.0)),
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.all(15.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          logFirebaseEvent(
-                              'BODY_PAGE_COMP_Container_hm9xc371_ON_TAP');
-                          logFirebaseEvent('Container_haptic_feedback');
-                          HapticFeedback.lightImpact();
-                          logFirebaseEvent('Container_play_sound');
-                          _model.soundPlayer7 ??= AudioPlayer();
-                          if (_model.soundPlayer7!.playing) {
-                            await _model.soundPlayer7!.stop();
-                          }
-                          _model.soundPlayer7!.setVolume(1.0);
-                          _model.soundPlayer7!
-                              .setAsset(
-                                  'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                              .then((_) => _model.soundPlayer7!.play());
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'BODY_PAGE_COMP_Container_hm9xc371_ON_TAP');
+                            logFirebaseEvent('Container_haptic_feedback');
+                            HapticFeedback.lightImpact();
+                            logFirebaseEvent('Container_play_sound');
+                            _model.soundPlayer7 ??= AudioPlayer();
+                            if (_model.soundPlayer7!.playing) {
+                              await _model.soundPlayer7!.stop();
+                            }
+                            _model.soundPlayer7!.setVolume(1.0);
+                            _model.soundPlayer7!
+                                .setAsset(
+                                    'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                                .then((_) => _model.soundPlayer7!.play());
 
-                          logFirebaseEvent('Container_bottom_sheet');
-                          await showModalBottomSheet(
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            context: context,
-                            builder: (context) {
-                              return WebViewAware(
-                                child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: ComingSoonBodyCompWidget(),
-                                ),
-                              );
-                            },
-                          ).then((value) => safeSetState(() {}));
-                        },
-                        child: Container(
-                          width: 357.0,
-                          height: 94.4,
-                          decoration: BoxDecoration(
-                            color: Color(0x53EDF1F7),
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 4.0,
-                                color: Color(0x33000000),
-                                offset: Offset(
-                                  0.0,
-                                  2.0,
-                                ),
-                              )
-                            ],
-                            borderRadius: BorderRadius.circular(16.0),
-                            border: Border.all(
-                              color: Color(0x33EDF1F7),
+                            logFirebaseEvent('Container_bottom_sheet');
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              context: context,
+                              builder: (context) {
+                                return WebViewAware(
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: ComingSoonBodyCompWidget(),
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+                          },
+                          child: Container(
+                            width: 357.0,
+                            height: 106.3,
+                            decoration: BoxDecoration(
+                              color: Color(0x53EDF1F7),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 4.0,
+                                  color: Color(0x33000000),
+                                  offset: Offset(
+                                    0.0,
+                                    2.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(16.0),
+                              border: Border.all(
+                                color: Color(0x33EDF1F7),
+                              ),
                             ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 16.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Container(
-                                  width: 48.0,
-                                  height: 48.0,
-                                  decoration: BoxDecoration(
-                                    color:
-                                        FlutterFlowTheme.of(context).secondary,
-                                    image: DecorationImage(
-                                      fit: BoxFit.cover,
-                                      image: Image.asset(
-                                        'assets/images/gemstone.gif',
-                                      ).image,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 16.0, 16.0, 16.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: 48.0,
+                                    height: 48.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: Image.asset(
+                                          'assets/images/gemstone.gif',
+                                        ).image,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12.0),
                                     ),
-                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
-                                ),
-                                Expanded(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          '02hcr6rx' /* Grounding Flow */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .override(
-                                              font: GoogleFonts.cormorantSc(
-                                                fontWeight: FontWeight.bold,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .fontStyle,
-                                              ),
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLarge
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'qnqqbyk3' /* Stabilize, stretch, align */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              font: GoogleFonts.inter(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontStyle,
-                                              ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'p1l11ox2' /* 10 sessions */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              font: GoogleFonts.inter(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontStyle,
-                                              ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent1,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                    ].divide(SizedBox(height: 4.0)),
-                                  ),
-                                ),
-                              ].divide(SizedBox(width: 16.0)),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(15.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          logFirebaseEvent(
-                              'BODY_PAGE_COMP_Container_a28cspdq_ON_TAP');
-                          logFirebaseEvent('Container_haptic_feedback');
-                          HapticFeedback.lightImpact();
-                          logFirebaseEvent('Container_play_sound');
-                          _model.soundPlayer8 ??= AudioPlayer();
-                          if (_model.soundPlayer8!.playing) {
-                            await _model.soundPlayer8!.stop();
-                          }
-                          _model.soundPlayer8!.setVolume(1.0);
-                          _model.soundPlayer8!
-                              .setAsset(
-                                  'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                              .then((_) => _model.soundPlayer8!.play());
-
-                          logFirebaseEvent('Container_bottom_sheet');
-                          await showModalBottomSheet(
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            context: context,
-                            builder: (context) {
-                              return WebViewAware(
-                                child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: ComingSoonBodyCompWidget(),
-                                ),
-                              );
-                            },
-                          ).then((value) => safeSetState(() {}));
-                        },
-                        child: Container(
-                          width: 357.0,
-                          height: 94.4,
-                          decoration: BoxDecoration(
-                            color: Color(0x53EDF1F7),
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 4.0,
-                                color: Color(0x33000000),
-                                offset: Offset(
-                                  0.0,
-                                  2.0,
-                                ),
-                              )
-                            ],
-                            borderRadius: BorderRadius.circular(16.0),
-                            border: Border.all(
-                              color: Color(0x33EDF1F7),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 16.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Container(
-                                  width: 48.0,
-                                  height: 48.0,
-                                  decoration: BoxDecoration(
-                                    color:
-                                        FlutterFlowTheme.of(context).tertiary,
-                                    image: DecorationImage(
-                                      fit: BoxFit.cover,
-                                      image: Image.asset(
-                                        'assets/images/night-time.gif',
-                                      ).image,
-                                    ),
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'kg3e8ou7' /* Evening Release */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .override(
-                                              font: GoogleFonts.cormorantSc(
-                                                fontWeight: FontWeight.bold,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .fontStyle,
-                                              ),
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLarge
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'tyrnoho2' /* Let go of stored tension */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              font: GoogleFonts.inter(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontStyle,
-                                              ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'dk6gsc99' /* 6 sessions */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              font: GoogleFonts.inter(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontStyle,
-                                              ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent1,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                    ].divide(SizedBox(height: 4.0)),
-                                  ),
-                                ),
-                              ].divide(SizedBox(width: 16.0)),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(15.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          logFirebaseEvent(
-                              'BODY_PAGE_COMP_Container_wizgcv5m_ON_TAP');
-                          logFirebaseEvent('Container_haptic_feedback');
-                          HapticFeedback.lightImpact();
-                          logFirebaseEvent('Container_play_sound');
-                          _model.soundPlayer9 ??= AudioPlayer();
-                          if (_model.soundPlayer9!.playing) {
-                            await _model.soundPlayer9!.stop();
-                          }
-                          _model.soundPlayer9!.setVolume(1.0);
-                          _model.soundPlayer9!
-                              .setAsset(
-                                  'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                              .then((_) => _model.soundPlayer9!.play());
-
-                          logFirebaseEvent('Container_bottom_sheet');
-                          await showModalBottomSheet(
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            context: context,
-                            builder: (context) {
-                              return WebViewAware(
-                                child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: ComingSoonBodyCompWidget(),
-                                ),
-                              );
-                            },
-                          ).then((value) => safeSetState(() {}));
-                        },
-                        child: Container(
-                          width: 357.0,
-                          height: 109.89,
-                          decoration: BoxDecoration(
-                            color: Color(0x53EDF1F7),
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 4.0,
-                                color: Color(0x33000000),
-                                offset: Offset(
-                                  0.0,
-                                  2.0,
-                                ),
-                              )
-                            ],
-                            borderRadius: BorderRadius.circular(16.0),
-                            border: Border.all(
-                              color: Color(0x33EDF1F7),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 16.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Container(
-                                  width: 48.0,
-                                  height: 48.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context).accent2,
-                                    image: DecorationImage(
-                                      fit: BoxFit.cover,
-                                      image: Image.asset(
-                                        'assets/images/rotate.gif',
-                                      ).image,
-                                    ),
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                ),
-                                Flexible(
-                                  flex: 1,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          '131czxdo' /* Resonance Reset */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .override(
-                                              font: GoogleFonts.cormorantSc(
-                                                fontWeight: FontWeight.bold,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .fontStyle,
-                                              ),
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLarge
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'z3s09a9p' /* A sensory ritual for facial & ... */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              font: GoogleFonts.inter(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontStyle,
-                                              ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                      Flexible(
-                                        flex: 1,
-                                        child: Text(
+                                  Expanded(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
                                           FFLocalizations.of(context).getText(
-                                            'q3okb1yo' /* 4 sessions */,
+                                            '02hcr6rx' /* Grounding Flow */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge
+                                              .override(
+                                                font: GoogleFonts.cormorantSc(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyLarge
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLarge
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'qnqqbyk3' /* Stabilize, stretch, align */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'p1l11ox2' /* 10 sessions */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
@@ -1559,11 +1221,389 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                                                         .fontStyle,
                                               ),
                                         ),
-                                      ),
-                                    ].divide(SizedBox(height: 4.0)),
+                                      ].divide(SizedBox(height: 4.0)),
+                                    ),
                                   ),
-                                ),
-                              ].divide(SizedBox(width: 16.0)),
+                                ].divide(SizedBox(width: 16.0)),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'BODY_PAGE_COMP_Container_a28cspdq_ON_TAP');
+                            logFirebaseEvent('Container_haptic_feedback');
+                            HapticFeedback.lightImpact();
+                            logFirebaseEvent('Container_play_sound');
+                            _model.soundPlayer8 ??= AudioPlayer();
+                            if (_model.soundPlayer8!.playing) {
+                              await _model.soundPlayer8!.stop();
+                            }
+                            _model.soundPlayer8!.setVolume(1.0);
+                            _model.soundPlayer8!
+                                .setAsset(
+                                    'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                                .then((_) => _model.soundPlayer8!.play());
+
+                            logFirebaseEvent('Container_bottom_sheet');
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              context: context,
+                              builder: (context) {
+                                return WebViewAware(
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: ComingSoonBodyCompWidget(),
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+                          },
+                          child: Container(
+                            width: 357.0,
+                            height: 94.3,
+                            decoration: BoxDecoration(
+                              color: Color(0x53EDF1F7),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 4.0,
+                                  color: Color(0x33000000),
+                                  offset: Offset(
+                                    0.0,
+                                    2.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(16.0),
+                              border: Border.all(
+                                color: Color(0x33EDF1F7),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 16.0, 16.0, 16.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: 48.0,
+                                    height: 48.0,
+                                    decoration: BoxDecoration(
+                                      color:
+                                          FlutterFlowTheme.of(context).tertiary,
+                                      image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: Image.asset(
+                                          'assets/images/night-time.gif',
+                                        ).image,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'kg3e8ou7' /* Evening Release */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge
+                                              .override(
+                                                font: GoogleFonts.cormorantSc(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyLarge
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLarge
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'tyrnoho2' /* Let go of stored tension */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'dk6gsc99' /* 6 sessions */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .accent1,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ].divide(SizedBox(height: 4.0)),
+                                    ),
+                                  ),
+                                ].divide(SizedBox(width: 16.0)),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'BODY_PAGE_COMP_Container_wizgcv5m_ON_TAP');
+                            logFirebaseEvent('Container_haptic_feedback');
+                            HapticFeedback.lightImpact();
+                            logFirebaseEvent('Container_play_sound');
+                            _model.soundPlayer9 ??= AudioPlayer();
+                            if (_model.soundPlayer9!.playing) {
+                              await _model.soundPlayer9!.stop();
+                            }
+                            _model.soundPlayer9!.setVolume(1.0);
+                            _model.soundPlayer9!
+                                .setAsset(
+                                    'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                                .then((_) => _model.soundPlayer9!.play());
+
+                            logFirebaseEvent('Container_bottom_sheet');
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              context: context,
+                              builder: (context) {
+                                return WebViewAware(
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: ComingSoonBodyCompWidget(),
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+                          },
+                          child: Container(
+                            width: 357.0,
+                            height: 109.9,
+                            decoration: BoxDecoration(
+                              color: Color(0x53EDF1F7),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 4.0,
+                                  color: Color(0x33000000),
+                                  offset: Offset(
+                                    0.0,
+                                    2.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(16.0),
+                              border: Border.all(
+                                color: Color(0x33EDF1F7),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 16.0, 16.0, 16.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: 48.0,
+                                    height: 48.0,
+                                    decoration: BoxDecoration(
+                                      color:
+                                          FlutterFlowTheme.of(context).accent2,
+                                      image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: Image.asset(
+                                          'assets/images/rotate.gif',
+                                        ).image,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                  ),
+                                  Flexible(
+                                    flex: 1,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            '131czxdo' /* Resonance Reset */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge
+                                              .override(
+                                                font: GoogleFonts.cormorantSc(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyLarge
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLarge
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'z3s09a9p' /* A sensory ritual for facial & ... */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                        Flexible(
+                                          flex: 1,
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'q3okb1yo' /* 4 sessions */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall
+                                                .override(
+                                                  font: GoogleFonts.inter(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodySmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodySmall
+                                                            .fontStyle,
+                                                  ),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent1,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                        ),
+                                      ].divide(SizedBox(height: 4.0)),
+                                    ),
+                                  ),
+                                ].divide(SizedBox(width: 16.0)),
+                              ),
                             ),
                           ),
                         ),

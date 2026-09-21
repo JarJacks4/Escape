@@ -262,7 +262,7 @@ class _ActiveVoiceJournalingWidgetState
                                                     ),
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .accent3,
+                                                        .accent4,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                     fontStyle:
@@ -443,7 +443,7 @@ class _ActiveVoiceJournalingWidgetState
                                         height: 80.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
-                                              .accent1,
+                                              .accent3,
                                           borderRadius:
                                               BorderRadius.circular(9999.0),
                                           shape: BoxShape.rectangle,

@@ -160,8 +160,12 @@ class _JournalEntryDetailWidgetState extends State<JournalEntryDetailWidget> {
                                                         .tertiary,
                                                 size: 22.0,
                                               ),
-                                              onPressed: () {
-                                                print('IconButton pressed ...');
+                                              onPressed: () async {
+                                                logFirebaseEvent(
+                                                    'JOURNAL_ENTRY_DETAIL_IconButton_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'IconButton_navigate_back');
+                                                context.safePop();
                                               },
                                             ),
                                             Text(
@@ -577,7 +581,7 @@ class _JournalEntryDetailWidgetState extends State<JournalEntryDetailWidget> {
                                                                   ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .accent1,
+                                                                      .accent3,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -767,7 +771,7 @@ class _JournalEntryDetailWidgetState extends State<JournalEntryDetailWidget> {
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 40.0,
-                        color: FlutterFlowTheme.of(context).primary,
+                        color: FlutterFlowTheme.of(context).accent1,
                         offset: Offset(
                           0.0,
                           25.0,

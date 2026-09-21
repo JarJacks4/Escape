@@ -148,8 +148,11 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Container(
-                    height: 16.0,
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                    child: Container(
+                      height: 16.0,
+                    ),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -220,7 +223,7 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                         child: Icon(
                           Icons.home,
                           color: FlutterFlowTheme.of(context).secondary,
-                          size: 24.0,
+                          size: 36.0,
                         ),
                       ),
                     ],

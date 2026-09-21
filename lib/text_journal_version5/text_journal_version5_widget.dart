@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import '/index.dart';
-import 'dart:async';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
 import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
@@ -17,6 +16,7 @@ import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -55,6 +55,23 @@ class _TextJournalVersion5WidgetState extends State<TextJournalVersion5Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'TextJournalVersion5'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('TEXT_JOURNAL_VERSION5_TextJournalVersion');
+      logFirebaseEvent('TextJournalVersion5_backend_call');
+      _model.journalPrompt =
+          await TheoryOfMindLucilleGroup.lucilleChatMainCall.call(
+        message:
+            'Could I get a journal prompt based on my: ${valueOrDefault(currentUserDocument?.currentMood, '')},${FFAppState().energyLevel}, and ${FFAppState().stressLevel.toString()}. Please Make sure the user can answer in at least two paragraphs to your prompt, and has the right balance between depth & productivity. The prompt should be no longer the 2-3 Sentences.',
+        sessionId: FFAppState().chatSessionId,
+        userId: currentUserUid,
+      );
+
+      if (!(_model.journalPrompt?.succeeded ?? true)) {
+        return;
+      }
+    });
+
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -65,13 +82,6 @@ class _TextJournalVersion5WidgetState extends State<TextJournalVersion5Widget> {
     _model.textFieldFocusNode3 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
-          _model.textController2?.text = FFLocalizations.of(context).getText(
-            'diha0a23' /* 
-Sample Journal:
-
-Today I woke... */
-            ,
-          );
           _model.textController3?.text = FFLocalizations.of(context).getText(
             'x3wwg4yd' /* 
 Sample Journal:
@@ -498,6 +508,8 @@ Today I woke... */
                               Padding(
                                 padding: EdgeInsets.all(24.0),
                                 child: Container(
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.3,
                                   decoration: BoxDecoration(
                                     color: Color(0x99FFFFFF),
                                     borderRadius: BorderRadius.circular(32.0),
@@ -510,184 +522,89 @@ Today I woke... */
                                   child: Padding(
                                     padding: EdgeInsets.all(32.0),
                                     child: Container(
-                                      child: FutureBuilder<ApiCallResponse>(
-                                        future: (_model.apiRequestCompleter ??=
-                                                Completer<ApiCallResponse>()
-                                                  ..complete(
-                                                      LucilleTaskManagementGroup
-                                                          .createPracticeTasksCall
-                                                          .call(
-                                                    sourceExerciseID:
-                                                        FFAppState().exerciseID,
-                                                  )))
-                                            .future,
-                                        builder: (context, snapshot) {
-                                          // Customize what your widget looks like when it's loading.
-                                          if (!snapshot.hasData) {
-                                            return Center(
-                                              child: SizedBox(
-                                                width: 100.0,
-                                                height: 100.0,
-                                                child: SpinKitWave(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent1,
-                                                  size: 100.0,
-                                                ),
+                                      child: SingleChildScrollView(
+                                        primary: false,
+                                        controller:
+                                            _model.columnScrollController2,
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            GradientText(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'lxcek53n' /* Journal Prompt */,
                                               ),
-                                            );
-                                          }
-                                          final columnCreatePracticeTasksResponse =
-                                              snapshot.data!;
-
-                                          return RefreshIndicator(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondary,
-                                            backgroundColor:
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleMedium
+                                                  .override(
+                                                    font:
+                                                        GoogleFonts.cormorantSc(
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMedium
+                                                              .fontStyle,
+                                                    ),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .accent1,
+                                                    fontSize: 22.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleMedium
+                                                            .fontStyle,
+                                                  ),
+                                              colors: [
                                                 FlutterFlowTheme.of(context)
-                                                    .accent1,
-                                            onRefresh: () async {
-                                              logFirebaseEvent(
-                                                  'TEXT_JOURNAL_VERSION5_Column_ON_PULL_TO_');
-                                              logFirebaseEvent(
-                                                  'Column_refresh_database_request');
-                                              safeSetState(() => _model
-                                                  .apiRequestCompleter = null);
-                                              await _model
-                                                  .waitForApiRequestCompleted();
-                                            },
-                                            child: SingleChildScrollView(
-                                              primary: false,
-                                              physics:
-                                                  const AlwaysScrollableScrollPhysics(),
-                                              controller: _model
-                                                  .columnScrollController2,
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
+                                                    .alternate,
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary
+                                              ],
+                                              gradientDirection:
+                                                  GradientDirection.ltr,
+                                              gradientType: GradientType.linear,
+                                            ),
+                                            Divider(
+                                              height: 16.0,
+                                              thickness: 1.0,
+                                              indent: 0.0,
+                                              endIndent: 0.0,
+                                              color: Color(0x331C2444),
+                                            ),
+                                            RichText(
+                                              textScaler: MediaQuery.of(context)
+                                                  .textScaler,
+                                              text: TextSpan(
                                                 children: [
-                                                  GradientText(
-                                                    FFLocalizations.of(context)
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
                                                         .getText(
-                                                      'lxcek53n' /* Journal Prompt */,
+                                                      'tw8z0h2v' /*  */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .titleMedium
+                                                        .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .cormorantSc(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .accent1,
-                                                          fontSize: 22.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                    colors: [
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .alternate,
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .accent1
-                                                    ],
-                                                    gradientDirection:
-                                                        GradientDirection.ltr,
-                                                    gradientType:
-                                                        GradientType.linear,
-                                                  ),
-                                                  Divider(
-                                                    height: 16.0,
-                                                    thickness: 1.0,
-                                                    indent: 0.0,
-                                                    endIndent: 0.0,
-                                                    color: Color(0x331C2444),
-                                                  ),
-                                                  RichText(
-                                                    textScaler:
-                                                        MediaQuery.of(context)
-                                                            .textScaler,
-                                                    text: TextSpan(
-                                                      children: [
-                                                        TextSpan(
-                                                          text: valueOrDefault<
-                                                              String>(
-                                                            LucilleChatStruct
-                                                                    .maybeFromMap(
-                                                                        columnCreatePracticeTasksResponse
-                                                                            .jsonBody)
-                                                                ?.content,
-                                                            'Journal Prompt:',
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                font:
-                                                                    GoogleFonts
-                                                                        .inter(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        )
-                                                      ],
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .inter(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                            fontSize: 16.0,
-                                                            letterSpacing: 0.0,
+                                                          font:
+                                                              GoogleFonts.inter(
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                             fontStyle:
@@ -696,14 +613,64 @@ Today I woke... */
                                                                     .bodyMedium
                                                                     .fontStyle,
                                                           ),
-                                                    ),
+                                                          fontSize: 18.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                   ),
-                                                ].divide(
-                                                    SizedBox(height: 24.0)),
+                                                  TextSpan(
+                                                    text:
+                                                        valueOrDefault<String>(
+                                                      TheoryOfMindLucilleGroup
+                                                          .lucilleChatMainCall
+                                                          .response(
+                                                        (_model.journalPrompt
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ),
+                                                      'Think of a time where uncondtional love was not present in your life.',
+                                                    ),
+                                                    style: GoogleFonts.inter(
+                                                      fontWeight:
+                                                          FontWeight.w300,
+                                                      fontSize: 16.0,
+                                                    ),
+                                                  )
+                                                ],
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font:
+                                                              GoogleFonts.inter(
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          fontSize: 18.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                               ),
                                             ),
-                                          );
-                                        },
+                                          ].divide(SizedBox(height: 24.0)),
+                                        ),
                                       ),
                                     ),
                                   ),

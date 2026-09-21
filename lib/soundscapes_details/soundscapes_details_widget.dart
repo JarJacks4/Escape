@@ -141,9 +141,9 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                     },
                                     child: Icon(
                                       Icons.chevron_left,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      size: 24.0,
+                                      color:
+                                          FlutterFlowTheme.of(context).accent3,
+                                      size: 36.0,
                                     ),
                                   ),
                                   Padding(
@@ -594,7 +594,7 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                                                   ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondaryText,
+                                                                      .secondary,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight: FlutterFlowTheme.of(
@@ -881,7 +881,7 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                 children: [
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      '22hmowqt' /* Top Daily Playlist */,
+                                      '22hmowqt' /* Top Moods */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
@@ -912,500 +912,271 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                 ],
                               ),
                             ),
-                            SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              controller: _model.rowController3,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Container(
-                                    width: 152.0,
-                                    height: 211.0,
-                                    decoration: BoxDecoration(),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 10.0, 0.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            width: 171.0,
-                                            height: 140.0,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(10.0),
-                                                topRight: Radius.circular(10.0),
-                                                bottomLeft:
-                                                    Radius.circular(10.0),
-                                                bottomRight:
-                                                    Radius.circular(10.0),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'iu0vlswv' /* Amaphupho */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium
-                                                      .override(
-                                                        font: GoogleFonts.inter(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .fontStyle,
-                                                      ),
+                            Builder(
+                              builder: (context) {
+                                final albums =
+                                    that_audio_player_oo85ab_app_state
+                                            .FFAppState()
+                                        .currentMediaAllTab
+                                        .toList();
+
+                                return SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  controller: _model.rowController3,
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: List.generate(albums.length,
+                                        (albumsIndex) {
+                                      final albumsItem = albums[albumsIndex];
+                                      return InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          logFirebaseEvent(
+                                              'SOUNDSCAPES_DETAILS_Container_h6y2x9d2_O');
+                                          logFirebaseEvent(
+                                              'Container_haptic_feedback');
+                                          HapticFeedback.heavyImpact();
+                                          logFirebaseEvent(
+                                              'Container_play_sound');
+                                          _model.soundPlayer3 ??= AudioPlayer();
+                                          if (_model.soundPlayer3!.playing) {
+                                            await _model.soundPlayer3!.stop();
+                                          }
+                                          _model.soundPlayer3!.setVolume(0.51);
+                                          _model.soundPlayer3!
+                                              .setAsset(
+                                                  'assets/audios/universfield-interface-soft-click-131438.mp3')
+                                              .then((_) =>
+                                                  _model.soundPlayer3!.play());
+
+                                          logFirebaseEvent(
+                                              'Container_custom_action');
+                                          await that_audio_player_oo85ab_actions
+                                              .initializeThatAudioPlayerForPlaylists(
+                                            that_audio_player_oo85ab_app_state
+                                                    .FFAppState()
+                                                .currentMediaAllTab
+                                                .toList(),
+                                            albumsIndex,
+                                          );
+                                          if (that_audio_player_oo85ab_app_state
+                                                  .FFAppState()
+                                              .isThatAudioPlayerPlaying) {
+                                            logFirebaseEvent(
+                                                'Container_custom_action');
+                                            await actions.pauseAudio();
+                                            logFirebaseEvent(
+                                                'Container_custom_action');
+                                            await actions.seekAudioToValue(
+                                              0.0,
+                                              albumsIndex,
+                                            );
+                                            logFirebaseEvent(
+                                                'Container_custom_action');
+                                            await actions.playAudio();
+                                            logFirebaseEvent(
+                                                'Container_navigate_to');
+
+                                            context.pushNamed(
+                                              $that_audio_player_oo85ab
+                                                  .PlayerPageFINALAllTabWidget
+                                                  .routeName,
+                                              queryParameters: {
+                                                'currentSong':
+                                                    that_audio_player_oo85ab_serialization_util
+                                                        .serializeParam(
+                                                  albumsItem,
+                                                  that_audio_player_oo85ab_serialization_util
+                                                      .ParamType.DataStruct,
                                                 ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
+                                              }.withoutNulls,
+                                              extra: <String, dynamic>{
+                                                '__transition_info__that_audio_player_oo85ab':
+                                                    TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType
+                                                          .bottomToTop,
+                                                  duration:
+                                                      Duration(milliseconds: 2),
+                                                ),
+                                              },
+                                            );
+                                          } else {
+                                            logFirebaseEvent(
+                                                'Container_custom_action');
+                                            await that_audio_player_oo85ab_actions
+                                                .seekAudioToValue(
+                                              0.0,
+                                              albumsIndex,
+                                            );
+                                            logFirebaseEvent(
+                                                'Container_custom_action');
+                                            await actions.playAudio();
+                                            logFirebaseEvent(
+                                                'Container_navigate_to');
+
+                                            context.pushNamed(
+                                              $that_audio_player_oo85ab
+                                                  .PlayerPageFINALAllTabWidget
+                                                  .routeName,
+                                              extra: <String, dynamic>{
+                                                '__transition_info__that_audio_player_oo85ab':
+                                                    TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType
+                                                          .bottomToTop,
+                                                  duration:
+                                                      Duration(milliseconds: 1),
+                                                ),
+                                              },
+                                            );
+                                          }
+                                        },
+                                        child: Container(
+                                          width: 152.0,
+                                          height: 211.0,
+                                          decoration: BoxDecoration(),
+                                          child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 2.0, 0.0, 0.0),
-                                            child: Row(
+                                                    0.0, 0.0, 10.0, 0.0),
+                                            child: Column(
                                               mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
                                               children: [
-                                                Expanded(
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'ljjhels6' /* Fragments of Time */,
+                                                Container(
+                                                  width: 171.0,
+                                                  height: 140.0,
+                                                  decoration: BoxDecoration(
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: Image.network(
+                                                        albumsItem.mediaBanner,
+                                                      ).image,
                                                     ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .labelSmall
-                                                        .override(
-                                                          font:
-                                                              GoogleFonts.inter(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmall
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmall
-                                                                    .fontStyle,
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(10.0),
+                                                      topRight:
+                                                          Radius.circular(10.0),
+                                                      bottomLeft:
+                                                          Radius.circular(10.0),
+                                                      bottomRight:
+                                                          Radius.circular(10.0),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 8.0, 0.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        albumsItem.mood,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .inter(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 2.0, 0.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Expanded(
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'xr3nsst5' /* Fragments of Time */,
                                                           ),
-                                                          color: FlutterFlowTheme
+                                                          style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryText,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelSmall
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelSmall
-                                                                  .fontStyle,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: 152.0,
-                                      height: 211.0,
-                                      decoration: BoxDecoration(),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            width: 171.0,
-                                            height: 140.0,
-                                            decoration: BoxDecoration(
-                                              image: DecorationImage(
-                                                fit: BoxFit.cover,
-                                                image: Image.asset(
-                                                  'assets/images/cord-allman-jYHotfQFHk0-unsplash.jpg',
-                                                ).image,
-                                              ),
-                                              borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(10.0),
-                                                topRight: Radius.circular(10.0),
-                                                bottomLeft:
-                                                    Radius.circular(10.0),
-                                                bottomRight:
-                                                    Radius.circular(10.0),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'puwpjiig' /* Amaphupho */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium
-                                                      .override(
-                                                        font: GoogleFonts.inter(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .fontStyle,
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 2.0, 0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '69c7jtx0' /* Dj Maphorisa ft Dj kabza the s... */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .labelSmall
-                                                        .override(
-                                                          font:
-                                                              GoogleFonts.inter(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
+                                                              .labelSmall
+                                                              .override(
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelSmall
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelSmall
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
                                                                         context)
                                                                     .labelSmall
                                                                     .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
+                                                                fontStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .labelSmall
                                                                     .fontStyle,
-                                                          ),
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelSmall
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelSmall
-                                                                  .fontStyle,
+                                                              ),
                                                         ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'p2dtjxei' /* Amaphupho */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium
-                                                      .override(
-                                                        font: GoogleFonts.inter(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .fontStyle,
                                                       ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ],
                                             ),
                                           ),
-                                        ],
-                                      ),
-                                    ),
+                                        ),
+                                      );
+                                    }),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: 152.0,
-                                      height: 211.0,
-                                      decoration: BoxDecoration(),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            width: 171.0,
-                                            height: 140.0,
-                                            decoration: BoxDecoration(
-                                              image: DecorationImage(
-                                                fit: BoxFit.cover,
-                                                image: Image.asset(
-                                                  'assets/images/shot-by-joe-LJrebKiQ-qg-unsplash.jpg',
-                                                ).image,
-                                              ),
-                                              borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(10.0),
-                                                topRight: Radius.circular(10.0),
-                                                bottomLeft:
-                                                    Radius.circular(10.0),
-                                                bottomRight:
-                                                    Radius.circular(10.0),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'a9rf7a8t' /* Amaphupho */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium
-                                                      .override(
-                                                        font: GoogleFonts.inter(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .fontStyle,
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 2.0, 0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'yial41pq' /* Dj Maphorisa ft Dj kabza the s... */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .labelSmall
-                                                        .override(
-                                                          font:
-                                                              GoogleFonts.inter(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmall
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmall
-                                                                    .fontStyle,
-                                                          ),
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelSmall
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelSmall
-                                                                  .fontStyle,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'brj94zjs' /* Amaphupho */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium
-                                                      .override(
-                                                        font: GoogleFonts.inter(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .fontStyle,
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                );
+                              },
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -1492,20 +1263,20 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                               HapticFeedback.heavyImpact();
                                               logFirebaseEvent(
                                                   'Container_play_sound');
-                                              _model.soundPlayer3 ??=
+                                              _model.soundPlayer4 ??=
                                                   AudioPlayer();
                                               if (_model
-                                                  .soundPlayer3!.playing) {
-                                                await _model.soundPlayer3!
+                                                  .soundPlayer4!.playing) {
+                                                await _model.soundPlayer4!
                                                     .stop();
                                               }
-                                              _model.soundPlayer3!
+                                              _model.soundPlayer4!
                                                   .setVolume(0.51);
-                                              _model.soundPlayer3!
+                                              _model.soundPlayer4!
                                                   .setAsset(
                                                       'assets/audios/universfield-interface-soft-click-131438.mp3')
                                                   .then((_) => _model
-                                                      .soundPlayer3!
+                                                      .soundPlayer4!
                                                       .play());
 
                                               logFirebaseEvent(
@@ -1619,7 +1390,7 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                                     flex: 1,
                                                     child: Container(
                                                       width: 116.0,
-                                                      height: 106.0,
+                                                      height: 144.01,
                                                       decoration: BoxDecoration(
                                                         image: DecorationImage(
                                                           fit: BoxFit.cover,
@@ -1812,20 +1583,20 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                               HapticFeedback.heavyImpact();
                                               logFirebaseEvent(
                                                   'Container_play_sound');
-                                              _model.soundPlayer4 ??=
+                                              _model.soundPlayer5 ??=
                                                   AudioPlayer();
                                               if (_model
-                                                  .soundPlayer4!.playing) {
-                                                await _model.soundPlayer4!
+                                                  .soundPlayer5!.playing) {
+                                                await _model.soundPlayer5!
                                                     .stop();
                                               }
-                                              _model.soundPlayer4!
+                                              _model.soundPlayer5!
                                                   .setVolume(0.51);
-                                              _model.soundPlayer4!
+                                              _model.soundPlayer5!
                                                   .setAsset(
                                                       'assets/audios/universfield-interface-soft-click-131438.mp3')
                                                   .then((_) => _model
-                                                      .soundPlayer4!
+                                                      .soundPlayer5!
                                                       .play());
 
                                               logFirebaseEvent(
@@ -1942,7 +1713,7 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                                     flex: 1,
                                                     child: Container(
                                                       width: 116.0,
-                                                      height: 106.0,
+                                                      height: 126.79,
                                                       decoration: BoxDecoration(
                                                         image: DecorationImage(
                                                           fit: BoxFit.cover,

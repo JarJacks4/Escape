@@ -377,7 +377,7 @@ class _YogaTutorialBasicCompWidgetState
                                         iconColor: FlutterFlowTheme.of(context)
                                             .alternate,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .accent3,
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -689,7 +689,7 @@ class _YogaTutorialBasicCompWidgetState
                                                       colors: [
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .primary,
+                                                            .accent3,
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .secondary
@@ -934,7 +934,7 @@ class _YogaTutorialBasicCompWidgetState
                                                       colors: [
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .primary,
+                                                            .accent3,
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .secondary
