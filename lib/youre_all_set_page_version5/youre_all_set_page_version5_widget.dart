@@ -229,7 +229,7 @@ class _YoureAllSetPageVersion5WidgetState
                                                     .fontStyle,
                                           ),
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryText,
+                                              .secondary,
                                           letterSpacing: 0.0,
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
@@ -260,7 +260,7 @@ class _YoureAllSetPageVersion5WidgetState
                                                     .fontStyle,
                                           ),
                                           color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                              .secondary,
                                           letterSpacing: 0.0,
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
@@ -1664,7 +1664,7 @@ class _YoureAllSetPageVersion5WidgetState
                                                   'Container_navigate_to');
 
                                               context.pushNamed(
-                                                ExplorePageVersion5Widget
+                                                ExplorePageVersion5FINALWidget
                                                     .routeName,
                                                 extra: <String, dynamic>{
                                                   '__transition_info__':

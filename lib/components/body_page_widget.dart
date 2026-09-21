@@ -740,7 +740,6 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                     width: double.infinity,
                     height: 60.0,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: Image.asset(

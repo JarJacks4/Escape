@@ -245,19 +245,6 @@ class _NavBarVersion5WidgetState extends State<NavBarVersion5Widget>
                     logFirebaseEvent('Column_update_component_state');
                     _model.number = 1;
                     safeSetState(() {});
-                    logFirebaseEvent('Column_navigate_to');
-
-                    context.pushNamed(
-                      ExplorePageWidget.routeName,
-                      extra: <String, dynamic>{
-                        '__transition_info__': TransitionInfo(
-                          hasTransition: true,
-                          transitionType: PageTransitionType.fade,
-                          duration: Duration(milliseconds: 9),
-                        ),
-                      },
-                    );
-
                     logFirebaseEvent('Column_widget_animation');
                     if (animationsMap['containerOnActionTriggerAnimation2'] !=
                         null) {

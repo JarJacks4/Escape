@@ -368,11 +368,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         builder: (context, params) => ChatAiScreen1Widget(),
       ),
       FFRoute(
-        name: TabbarWidget.routeName,
-        path: TabbarWidget.routePath,
-        builder: (context, params) => TabbarWidget(),
-      ),
-      FFRoute(
           name: HomeVersion5Widget.routeName,
           path: HomeVersion5Widget.routePath,
           builder: (context, params) => params.isEmpty
@@ -390,11 +385,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         name: MindPageWidget.routeName,
         path: MindPageWidget.routePath,
         builder: (context, params) => MindPageWidget(),
-      ),
-      FFRoute(
-        name: ExplorePageWidget.routeName,
-        path: ExplorePageWidget.routePath,
-        builder: (context, params) => ExplorePageWidget(),
       ),
       FFRoute(
         name: BodyPageVersion5Widget.routeName,
@@ -542,11 +532,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         name: EnergyScanVersion5CopyWidget.routeName,
         path: EnergyScanVersion5CopyWidget.routePath,
         builder: (context, params) => EnergyScanVersion5CopyWidget(),
-      ),
-      FFRoute(
-        name: ExplorePageVersion5Widget.routeName,
-        path: ExplorePageVersion5Widget.routePath,
-        builder: (context, params) => ExplorePageVersion5Widget(),
       ),
       FFRoute(
         name: AISoundscapesCopyCopyCopyWidget.routeName,
@@ -728,11 +713,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         ),
       ),
       FFRoute(
-        name: WebViewSampleWidget.routeName,
-        path: WebViewSampleWidget.routePath,
-        builder: (context, params) => WebViewSampleWidget(),
-      ),
-      FFRoute(
         name: Sample2Widget.routeName,
         path: Sample2Widget.routePath,
         builder: (context, params) => Sample2Widget(),
@@ -855,11 +835,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         name: MindfulTrackerVersion7PageWidget.routeName,
         path: MindfulTrackerVersion7PageWidget.routePath,
         builder: (context, params) => MindfulTrackerVersion7PageWidget(),
-      ),
-      FFRoute(
-        name: FilterFreudScoreWidget.routeName,
-        path: FilterFreudScoreWidget.routePath,
-        builder: (context, params) => FilterFreudScoreWidget(),
       ),
       FFRoute(
         name: FreudScorePageWidget.routeName,

@@ -1,5 +1,4 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -274,23 +273,10 @@ class _FreudScoreWidgetState extends State<FreudScoreWidget> {
                                   .fontStyle,
                             ),
                       ),
-                      InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          logFirebaseEvent(
-                              'FREUD_SCORE_COMP_Icon_m3luv15f_ON_TAP');
-                          logFirebaseEvent('Icon_navigate_to');
-
-                          context.pushNamed(FilterFreudScoreWidget.routeName);
-                        },
-                        child: Icon(
-                          FFIcons.kfilterAlt,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 24.0,
-                        ),
+                      Icon(
+                        FFIcons.kfilterAlt,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 24.0,
                       ),
                     ],
                   ),
