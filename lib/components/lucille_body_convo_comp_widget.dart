@@ -176,7 +176,7 @@ class _LucilleBodyConvoCompWidgetState
                 ),
                 Container(
                   decoration: BoxDecoration(
-                    color: Color(0xFF2D354E),
+                    color: FlutterFlowTheme.of(context).primary,
                     borderRadius: BorderRadius.circular(20.0),
                     shape: BoxShape.rectangle,
                     border: Border.all(
@@ -227,7 +227,7 @@ class _LucilleBodyConvoCompWidgetState
                     Container(
                       height: 34.0,
                       decoration: BoxDecoration(
-                        color: Color(0xFF2D354E),
+                        color: FlutterFlowTheme.of(context).accent3,
                         borderRadius: BorderRadius.circular(8.0),
                         border: Border.all(
                           color: Color(0x1A141A2D),
@@ -277,7 +277,7 @@ class _LucilleBodyConvoCompWidgetState
                     Container(
                       height: 34.0,
                       decoration: BoxDecoration(
-                        color: Color(0xFF2D354E),
+                        color: FlutterFlowTheme.of(context).accent3,
                         borderRadius: BorderRadius.circular(8.0),
                         border: Border.all(
                           color: Color(0x1A141A2D),
@@ -327,7 +327,7 @@ class _LucilleBodyConvoCompWidgetState
                     Container(
                       height: 34.0,
                       decoration: BoxDecoration(
-                        color: Color(0xFF2D354E),
+                        color: FlutterFlowTheme.of(context).accent3,
                         borderRadius: BorderRadius.circular(8.0),
                         border: Border.all(
                           color: Color(0x1A141A2D),
@@ -377,7 +377,7 @@ class _LucilleBodyConvoCompWidgetState
                     Container(
                       height: 34.0,
                       decoration: BoxDecoration(
-                        color: Color(0xFF2D354E),
+                        color: FlutterFlowTheme.of(context).accent3,
                         borderRadius: BorderRadius.circular(8.0),
                         border: Border.all(
                           color: Color(0x1A141A2D),
@@ -428,7 +428,7 @@ class _LucilleBodyConvoCompWidgetState
                 ),
                 Container(
                   decoration: BoxDecoration(
-                    color: Color(0xFF1B2137),
+                    color: FlutterFlowTheme.of(context).tertiary,
                     borderRadius: BorderRadius.circular(9999.0),
                     shape: BoxShape.rectangle,
                     border: Border.all(
@@ -460,7 +460,7 @@ class _LucilleBodyConvoCompWidgetState
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                                  color: Color(0x66141A2D),
+                                  color: FlutterFlowTheme.of(context).primary,
                                   letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .bodyMedium

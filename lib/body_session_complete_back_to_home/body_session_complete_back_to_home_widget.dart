@@ -96,9 +96,9 @@ class _BodySessionCompleteBackToHomeWidgetState
                     'color7': Color(0x00808080),
                     'color8': Color(0x00808080),
                     'color9': Color(0x00808080),
-                    'color2': FlutterFlowTheme.of(context).success,
-                    'color1': Color(0xEDD0E3F7),
-                    'color0': Color(0xFF09F696)
+                    'color1': FlutterFlowTheme.of(context).tertiary,
+                    'color2': FlutterFlowTheme.of(context).alternate,
+                    'color0': FlutterFlowTheme.of(context).primary
                   }),
                   animationMode: ShaderAnimationMode.continuous,
                   cache: false,
@@ -231,7 +231,7 @@ yourself */
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    color: Color(0xFF141A2D),
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 32.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
@@ -257,7 +257,8 @@ yourself */
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    color: Color(0x99141A2D),
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -316,16 +317,6 @@ yourself */
                         ),
                       ].divide(SizedBox(height: 32.0)),
                     ),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xFF242A41),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(32.0),
-                      topRight: Radius.circular(32.0),
-                    ),
-                    shape: BoxShape.rectangle,
                   ),
                 ),
               ],

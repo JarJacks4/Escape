@@ -701,7 +701,7 @@ class _BodyMovementSessionCompletionWidgetState
                           FFButtonWidget(
                             onPressed: () async {
                               logFirebaseEvent(
-                                  'BODY_MOVEMENT_SESSION_COMPLETION_BACK_TO');
+                                  'BODY_MOVEMENT_SESSION_COMPLETION_COMPLET');
                               logFirebaseEvent('Button_haptic_feedback');
                               HapticFeedback.selectionClick();
                               logFirebaseEvent('Button_play_sound');
@@ -724,7 +724,7 @@ class _BodyMovementSessionCompletionWidgetState
                               logFirebaseEvent('Button_navigate_to');
 
                               context.pushNamed(
-                                HomeVersion5Widget.routeName,
+                                BodySessionCompleteBackToHomeWidget.routeName,
                                 extra: <String, dynamic>{
                                   '__transition_info__': TransitionInfo(
                                     hasTransition: true,
@@ -735,7 +735,7 @@ class _BodyMovementSessionCompletionWidgetState
                               );
                             },
                             text: FFLocalizations.of(context).getText(
-                              'h9j21n3n' /* Back to Home */,
+                              'h9j21n3n' /* Complete Exercise */,
                             ),
                             options: FFButtonOptions(
                               height: 52.83,

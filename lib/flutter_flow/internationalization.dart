@@ -20097,7 +20097,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'h9j21n3n': {
-      'en': 'Back to Home',
+      'en': 'Complete Exercise',
       'ar': '',
       'de': '',
       'es': '',
