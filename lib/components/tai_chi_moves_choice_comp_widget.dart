@@ -1,8 +1,7 @@
 import '/components/before_bed_breathing_comp_widget.dart';
-import '/components/calm_breathing_comp_widget.dart';
-import '/components/deep_breathing_comp_widget.dart';
-import '/components/long_breathe_meditation_f_i_n_a_l_widget.dart';
 import '/components/short_breathe_meditation_f_i_n_a_l_widget.dart';
+import '/components/tai_chi_fair_lady_works_at_shuttle_comp_widget.dart';
+import '/components/tai_chi_wild_horses_mane_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -11,20 +10,20 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'breathing_choice_comp_model.dart';
-export 'breathing_choice_comp_model.dart';
+import 'tai_chi_moves_choice_comp_model.dart';
+export 'tai_chi_moves_choice_comp_model.dart';
 
-class BreathingChoiceCompWidget extends StatefulWidget {
-  const BreathingChoiceCompWidget({super.key});
+class TaiChiMovesChoiceCompWidget extends StatefulWidget {
+  const TaiChiMovesChoiceCompWidget({super.key});
 
   @override
-  State<BreathingChoiceCompWidget> createState() =>
-      _BreathingChoiceCompWidgetState();
+  State<TaiChiMovesChoiceCompWidget> createState() =>
+      _TaiChiMovesChoiceCompWidgetState();
 }
 
-class _BreathingChoiceCompWidgetState extends State<BreathingChoiceCompWidget>
-    with TickerProviderStateMixin {
-  late BreathingChoiceCompModel _model;
+class _TaiChiMovesChoiceCompWidgetState
+    extends State<TaiChiMovesChoiceCompWidget> with TickerProviderStateMixin {
+  late TaiChiMovesChoiceCompModel _model;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -37,7 +36,7 @@ class _BreathingChoiceCompWidgetState extends State<BreathingChoiceCompWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BreathingChoiceCompModel());
+    _model = createModel(context, () => TaiChiMovesChoiceCompModel());
 
     animationsMap.addAll({
       'carouselOnPageLoadAnimation': AnimationInfo(
@@ -81,20 +80,16 @@ class _BreathingChoiceCompWidgetState extends State<BreathingChoiceCompWidget>
               child: CarouselSlider(
                 items: [
                   wrapWithModel(
-                    model: _model.deepBreathingCompModel,
+                    model: _model.taiChiWildHorsesManeCompModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: DeepBreathingCompWidget(),
+                    child: TaiChiWildHorsesManeCompWidget(),
                   ),
                   wrapWithModel(
-                    model: _model.calmBreathingCompModel,
+                    model: _model.taiChiFairLadyWorksAtShuttleCompModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: CalmBreathingCompWidget(),
+                    child: TaiChiFairLadyWorksAtShuttleCompWidget(),
                   ),
-                  wrapWithModel(
-                    model: _model.longBreatheMeditationFINALModel,
-                    updateCallback: () => safeSetState(() {}),
-                    child: LongBreatheMeditationFINALWidget(),
-                  ),
+                  Container(),
                   wrapWithModel(
                     model: _model.beforeBedBreathingCompModel,
                     updateCallback: () => safeSetState(() {}),
@@ -127,12 +122,12 @@ class _BreathingChoiceCompWidgetState extends State<BreathingChoiceCompWidget>
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 8.0),
             child: FFButtonWidget(
               onPressed: () async {
-                logFirebaseEvent('BREATHING_CHOICE_BACK_TO_HOME_BTN_ON_TAP');
+                logFirebaseEvent('TAI_CHI_MOVES_CHOICE_BACK_TO_HOME_BTN_ON');
                 logFirebaseEvent('Button_navigate_back');
                 context.safePop();
               },
               text: FFLocalizations.of(context).getText(
-                'rfrdzkly' /* Back to Home */,
+                'z94554fg' /* Back to Home */,
               ),
               icon: Icon(
                 Icons.arrow_back,

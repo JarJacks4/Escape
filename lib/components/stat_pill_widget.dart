@@ -76,7 +76,7 @@ class _StatPillWidgetState extends State<StatPillWidget> {
                               .titleMedium
                               .fontStyle,
                         ),
-                        color: Color(0xFF141A2D),
+                        color: FlutterFlowTheme.of(context).primary,
                         fontSize: 22.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.bold,

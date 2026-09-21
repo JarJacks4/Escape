@@ -16,6 +16,7 @@ class BodyPageModel extends FlutterFlowModel<BodyPageWidget> {
   AudioPlayer? soundPlayer6;
   AudioPlayer? soundPlayer7;
   AudioPlayer? soundPlayer8;
+  AudioPlayer? soundPlayer9;
 
   @override
   void initState(BuildContext context) {
