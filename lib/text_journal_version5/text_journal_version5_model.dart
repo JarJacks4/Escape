@@ -10,6 +10,9 @@ class TextJournalVersion5Model
     extends FlutterFlowModel<TextJournalVersion5Widget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - API (Lucille Chat Main)] action in TextJournalVersion5 widget.
+  ApiCallResponse? journalPrompt;
+
   // State field(s) for Column widget.
   ScrollController? columnScrollController1;
   // State field(s) for TextField widget.
