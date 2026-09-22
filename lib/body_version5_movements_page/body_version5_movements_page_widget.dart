@@ -335,19 +335,17 @@ class _BodyVersion5MovementsPageWidgetState
                                             children: [
                                               Builder(
                                                 builder: (context) {
-                                                  final moveList = FFAppState()
-                                                      .todaysMoves
-                                                      .map((e) => e)
-                                                      .toList()
-                                                      .where(
-                                                          (e) => e.name == '')
-                                                      .toList();
+                                                  final moveList =
+                                                      FFAppState().todaysMoves;
 
                                                   return ListView.separated(
                                                     padding:
                                                         EdgeInsets.symmetric(
                                                             vertical: 25.0),
                                                     shrinkWrap: true,
+                                                    primary: false,
+                                                    physics:
+                                                        NeverScrollableScrollPhysics(),
                                                     scrollDirection:
                                                         Axis.vertical,
                                                     itemCount: moveList.length,

@@ -145,8 +145,8 @@ class _MovementPreviewModal2NewWidgetState
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 size: 24.0,
                               ),
-                              onPressed: () {
-                                print('IconButton pressed ...');
+                              onPressed: () async {
+                                context.pop();
                               },
                             ),
                             Text(
