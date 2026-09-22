@@ -12,6 +12,9 @@ class ActiveVoiceJournalingModel
     extends FlutterFlowModel<ActiveVoiceJournalingWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Whether the mood/title generation calls are in flight after tapping the checkmark.
+  bool isSavingJournal = false;
+
   AudioPlayer? soundPlayer;
   AudioRecorder? audioRecorder;
   String? audioJournalRecording;

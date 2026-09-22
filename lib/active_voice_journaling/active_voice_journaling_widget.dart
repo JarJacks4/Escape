@@ -641,18 +641,32 @@ class _ActiveVoiceJournalingWidgetState
                                         buttonSize: 56.0,
                                         fillColor: FlutterFlowTheme.of(context)
                                             .success,
-                                        icon: Icon(
-                                          Icons.check_rounded,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondary,
-                                          size: 40.0,
-                                        ),
+                                        icon: _model.isSavingJournal
+                                            ? Icon(
+                                                Icons.hourglass_empty_rounded,
+                                                color: FlutterFlowTheme.of(
+                                                        context)
+                                                    .secondary,
+                                                size: 40.0,
+                                              )
+                                            : Icon(
+                                                Icons.check_rounded,
+                                                color: FlutterFlowTheme.of(
+                                                        context)
+                                                    .secondary,
+                                                size: 40.0,
+                                              ),
                                         onPressed: () async {
+                                          if (_model.isSavingJournal) {
+                                            return;
+                                          }
                                           logFirebaseEvent(
                                               'ACTIVE_VOICE_JOURNALING_IconButton_ON_TA');
                                           logFirebaseEvent(
                                               'IconButton_haptic_feedback');
                                           HapticFeedback.heavyImpact();
+                                          _model.isSavingJournal = true;
+                                          safeSetState(() {});
                                           logFirebaseEvent(
                                               'IconButton_backend_call');
                                           final transcribedText =
