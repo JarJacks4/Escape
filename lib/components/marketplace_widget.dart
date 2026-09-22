@@ -1018,6 +1018,8 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget>
                               child: ListView(
                                 padding: EdgeInsets.zero,
                                 shrinkWrap: true,
+                                primary: false,
+                                physics: NeverScrollableScrollPhysics(),
                                 scrollDirection: Axis.vertical,
                                 children: [
                                   Material(
@@ -2244,6 +2246,8 @@ Final Order */
                                     child: ListView(
                                       padding: EdgeInsets.zero,
                                       shrinkWrap: true,
+                                      primary: false,
+                                      physics: NeverScrollableScrollPhysics(),
                                       scrollDirection: Axis.vertical,
                                       children: [
                                         Material(
@@ -3598,6 +3602,8 @@ Final Order */
                                           childAspectRatio: 0.65,
                                         ),
                                         scrollDirection: Axis.vertical,
+                                        primary: false,
+                                        physics: NeverScrollableScrollPhysics(),
                                         children: [
                                           Container(
                                             width: 160.0,
