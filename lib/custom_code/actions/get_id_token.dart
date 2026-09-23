@@ -24,10 +24,12 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'package:firebase_auth/firebase_auth.dart';
+
 Future<String> getIdToken() async {
   final user = FirebaseAuth.instance.currentUser;
   if (user == null) return '';
-  return await user.getIdToken(true); // true = force refresh
+  return await user.getIdToken(true) ?? ''; // true = force refresh
 }
 
 // Set your action name, define your arguments and return parameter,

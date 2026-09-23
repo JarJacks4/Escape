@@ -185,6 +185,12 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
 
                           context.pushNamed(
                             BeginSessionPageWidget.routeName,
+                            queryParameters: {
+                              'currentIndex': serializeParam(
+                                0,
+                                ParamType.int,
+                              ),
+                            }.withoutNulls,
                             extra: <String, dynamic>{
                               '__transition_info__': TransitionInfo(
                                 hasTransition: true,

@@ -220,7 +220,7 @@ Energy Center */
                                       .headlineSmall
                                       .fontStyle,
                                 ),
-                                color: Colors.white,
+                                color: FlutterFlowTheme.of(context).primary,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
                                 fontStyle: FlutterFlowTheme.of(context)

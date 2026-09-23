@@ -149,7 +149,7 @@ class _BodyCardWidgetState extends State<BodyCardWidget>
                                         .titleMedium
                                         .fontStyle,
                                   ),
-                                  color: Colors.white,
+                                  color: FlutterFlowTheme.of(context).alternate,
                                   fontSize: 28.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w300,

@@ -94,7 +94,7 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget>
                         fontStyle:
                             FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                       ),
-                      color: Colors.white,
+                      color: FlutterFlowTheme.of(context).primary,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.bold,
                       fontStyle:

@@ -517,7 +517,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                       .bodySmall
                                                       .fontStyle,
                                             ),
-                                            color: Colors.white,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
                                             fontWeight:
@@ -766,7 +767,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                       .bodySmall
                                                       .fontStyle,
                                             ),
-                                            color: Colors.white,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
                                             fontWeight:
@@ -1014,7 +1016,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                       .bodySmall
                                                       .fontStyle,
                                             ),
-                                            color: Colors.white,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
                                             fontWeight:
@@ -1138,7 +1141,10 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                                 .titleSmall
                                                                 .fontStyle,
                                                       ),
-                                                      color: Colors.white,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FlutterFlowTheme.of(

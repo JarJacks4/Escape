@@ -98,7 +98,7 @@ class _StartingRealmCompVersion5WidgetState
                   width: double.infinity,
                   height: 104.0,
                   decoration: BoxDecoration(
-                    color: Color(0xFFF0831A),
+                    color: FlutterFlowTheme.of(context).warning,
                     borderRadius: BorderRadius.circular(12.0),
                   ),
                   child: Padding(
@@ -139,7 +139,8 @@ class _StartingRealmCompVersion5WidgetState
                                             .bodyLarge
                                             .fontStyle,
                                       ),
-                                      color: Colors.white,
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -164,7 +165,7 @@ class _StartingRealmCompVersion5WidgetState
                                             .fontStyle,
                                       ),
                                       color:
-                                          FlutterFlowTheme.of(context).primary,
+                                          FlutterFlowTheme.of(context).tertiary,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
@@ -229,7 +230,7 @@ class _StartingRealmCompVersion5WidgetState
                                             .fontStyle,
                                       ),
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                          .alternate,
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -254,7 +255,7 @@ class _StartingRealmCompVersion5WidgetState
                                             .fontStyle,
                                       ),
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                          .alternate,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
@@ -551,7 +552,7 @@ class _StartingRealmCompVersion5WidgetState
                     padding: EdgeInsets.all(8.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
+                    color: FlutterFlowTheme.of(context).accent3,
                     textStyle: FlutterFlowTheme.of(context)
                         .titleMedium
                         .override(

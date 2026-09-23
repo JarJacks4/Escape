@@ -48,7 +48,7 @@ class _OnboardingButtonWidgetState extends State<OnboardingButtonWidget> {
         ),
         child: Icon(
           Icons.chevron_right,
-          color: Colors.white,
+          color: FlutterFlowTheme.of(context).primary,
           size: 36.0,
         ),
       ),

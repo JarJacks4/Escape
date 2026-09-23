@@ -245,7 +245,7 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
                               tileColor: FlutterFlowTheme.of(context)
                                   .primaryBackground,
                               activeColor: FlutterFlowTheme.of(context).primary,
-                              checkColor: Colors.white,
+                              checkColor: FlutterFlowTheme.of(context).accent3,
                               dense: false,
                               controlAffinity: ListTileControlAffinity.trailing,
                               contentPadding: EdgeInsetsDirectional.fromSTEB(
@@ -532,7 +532,7 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
                           tileColor:
                               FlutterFlowTheme.of(context).primaryBackground,
                           activeColor: FlutterFlowTheme.of(context).primary,
-                          checkColor: Colors.white,
+                          checkColor: FlutterFlowTheme.of(context).accent3,
                           dense: false,
                           controlAffinity: ListTileControlAffinity.trailing,
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
