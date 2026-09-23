@@ -482,7 +482,7 @@ class _BodyVersion5MovementsPageWidgetState
                                 ],
                               ),
                               child: Visibility(
-                                visible: FFAppState().hasPreviewedAMove,
+                                visible: true, // TEMP: was FFAppState().hasPreviewedAMove, which is never set to true anywhere — button was permanently unreachable. Revert once the preview-unlock flow is implemented.
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,

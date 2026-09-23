@@ -25,6 +25,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'package:model_viewer_plus/model_viewer_plus.dart';
+
 class VectaryModelViewer extends StatefulWidget {
   const VectaryModelViewer({
     super.key,
@@ -44,6 +46,21 @@ class VectaryModelViewer extends StatefulWidget {
 class _VectaryModelViewerState extends State<VectaryModelViewer> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    // Guard against a page not having set assetPath yet
+    if (widget.assetPath == null || widget.assetPath!.isEmpty) {
+      return SizedBox(width: widget.width, height: widget.height);
+    }
+
+    return SizedBox(
+      width: widget.width,
+      height: widget.height,
+      child: ModelViewer(
+        backgroundColor: Colors.transparent,
+        src: widget.assetPath!,
+        alt: 'Exercise pose',
+        autoPlay: true,
+        cameraControls: true,
+      ),
+    );
   }
 }

@@ -28,6 +28,7 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
   aligned_dialog: 0.0.6
+  model_viewer_plus: ^1.9.3
   animations: ^2.1.2
   assets_audio_player: 
     git:
