@@ -375,7 +375,8 @@ class _BodyVersion5MovementsPageWidgetState
                                                           logFirebaseEvent(
                                                               'MoveCard_navigate_to');
 
-                                                          context.pushNamed(
+                                                          await context
+                                                              .pushNamed(
                                                             MovementPreviewModal2NewWidget
                                                                 .routeName,
                                                             queryParameters: {
@@ -422,6 +423,17 @@ class _BodyVersion5MovementsPageWidgetState
                                                               ),
                                                             },
                                                           );
+
+                                                          // Unlock the
+                                                          // 'Start Session'
+                                                          // button now that
+                                                          // the user has
+                                                          // previewed a move
+                                                          // and returned.
+                                                          FFAppState()
+                                                                  .hasPreviewedAMove =
+                                                              true;
+                                                          safeSetState(() {});
                                                         },
                                                         child: Hero(
                                                           tag: 'BodyMoves',
@@ -482,7 +494,7 @@ class _BodyVersion5MovementsPageWidgetState
                                 ],
                               ),
                               child: Visibility(
-                                visible: true, // TEMP: was FFAppState().hasPreviewedAMove, which is never set to true anywhere — button was permanently unreachable. Revert once the preview-unlock flow is implemented.
+                                visible: FFAppState().hasPreviewedAMove,
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
