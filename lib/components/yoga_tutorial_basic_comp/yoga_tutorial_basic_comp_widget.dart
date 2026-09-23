@@ -391,7 +391,9 @@ class _YogaTutorialBasicCompWidgetState
                                                         .titleSmall
                                                         .fontStyle,
                                               ),
-                                              color: Colors.white,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
                                               letterSpacing: 0.0,
                                               fontWeight:
                                                   FlutterFlowTheme.of(context)
@@ -541,7 +543,9 @@ class _YogaTutorialBasicCompWidgetState
                                                         .bodySmall
                                                         .fontStyle,
                                               ),
-                                              color: Colors.white,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight:
@@ -781,7 +785,9 @@ class _YogaTutorialBasicCompWidgetState
                                                         .bodySmall
                                                         .fontStyle,
                                               ),
-                                              color: Colors.white,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight:
@@ -1026,7 +1032,9 @@ class _YogaTutorialBasicCompWidgetState
                                                         .bodySmall
                                                         .fontStyle,
                                               ),
-                                              color: Colors.white,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight:

@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'starting_realm_comp_version5_model.dart';
 export 'starting_realm_comp_version5_model.dart';
 
@@ -75,11 +76,18 @@ class _StartingRealmCompVersion5WidgetState
                   '65d5a6gz' /* Your Starting Realm? */,
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'The Seasons',
+                      font: GoogleFonts.cormorantSc(
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontStyle,
+                      ),
                       color: FlutterFlowTheme.of(context).primaryText,
                       fontSize: 28.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.bold,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                     ),
               ),
             ),
@@ -90,7 +98,7 @@ class _StartingRealmCompVersion5WidgetState
                   width: double.infinity,
                   height: 104.0,
                   decoration: BoxDecoration(
-                    color: Color(0xFFF0831A),
+                    color: FlutterFlowTheme.of(context).warning,
                     borderRadius: BorderRadius.circular(12.0),
                   ),
                   child: Padding(
@@ -125,11 +133,20 @@ class _StartingRealmCompVersion5WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
-                                      fontFamily: 'WorkSans',
-                                      color: Colors.white,
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontStyle,
                                     ),
                               ),
                               Text(
@@ -139,11 +156,24 @@ class _StartingRealmCompVersion5WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontStyle,
+                                      ),
                                       color:
-                                          FlutterFlowTheme.of(context).primary,
+                                          FlutterFlowTheme.of(context).tertiary,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontStyle,
                                     ),
                               ),
                             ].divide(SizedBox(height: 4.0)),
@@ -193,12 +223,20 @@ class _StartingRealmCompVersion5WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                          .alternate,
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontStyle,
                                     ),
                               ),
                               Text(
@@ -208,11 +246,24 @@ class _StartingRealmCompVersion5WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontStyle,
+                                      ),
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                          .alternate,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontStyle,
                                     ),
                               ),
                             ].divide(SizedBox(height: 4.0)),
@@ -261,10 +312,18 @@ class _StartingRealmCompVersion5WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontStyle,
                                     ),
                               ),
                               Text(
@@ -274,11 +333,24 @@ class _StartingRealmCompVersion5WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontStyle,
+                                      ),
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontStyle,
                                     ),
                               ),
                             ].divide(SizedBox(height: 4.0)),
@@ -327,10 +399,18 @@ class _StartingRealmCompVersion5WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontStyle,
                                     ),
                               ),
                               Text(
@@ -340,11 +420,24 @@ class _StartingRealmCompVersion5WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontStyle,
+                                      ),
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontStyle,
                                     ),
                               ),
                             ].divide(SizedBox(height: 4.0)),
@@ -393,10 +486,18 @@ class _StartingRealmCompVersion5WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontStyle,
                                     ),
                               ),
                               Text(
@@ -406,11 +507,24 @@ class _StartingRealmCompVersion5WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontStyle,
+                                      ),
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontStyle,
                                     ),
                               ),
                             ].divide(SizedBox(height: 4.0)),
@@ -438,14 +552,27 @@ class _StartingRealmCompVersion5WidgetState
                     padding: EdgeInsets.all(8.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
+                    color: FlutterFlowTheme.of(context).accent3,
                     textStyle: FlutterFlowTheme.of(context)
                         .titleMedium
                         .override(
-                          fontFamily: 'WorkSans',
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .fontStyle,
+                          ),
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .fontStyle,
                         ),
                     elevation: 0.0,
                     borderRadius: BorderRadius.circular(12.0),
@@ -457,9 +584,19 @@ class _StartingRealmCompVersion5WidgetState
                   ),
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'WorkSans',
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
                         color: FlutterFlowTheme.of(context).secondaryText,
                         letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                       ),
                 ),
               ].divide(SizedBox(height: 16.0)),

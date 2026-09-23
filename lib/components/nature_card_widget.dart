@@ -167,7 +167,7 @@ class _NatureCardWidgetState extends State<NatureCardWidget>
                                           .titleMedium
                                           .fontStyle,
                                     ),
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 28.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,

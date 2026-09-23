@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'subscription_model.dart';
 export 'subscription_model.dart';
 
@@ -110,8 +111,21 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
                     'h9pjda3f' /* Subscription / Payment */,
                   ),
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'The Seasons',
+                        font: GoogleFonts.cormorantSc(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .fontStyle,
+                        ),
                         letterSpacing: 0.0,
+                        fontWeight: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontWeight,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontStyle,
                       ),
                 ),
               ),
@@ -122,8 +136,19 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
                     'xk1c06fz' /* Your Subscription */,
                   ),
                   style: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'WorkSans',
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontStyle,
+                        ),
                         letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelMedium.fontStyle,
                       ),
                 ),
               ),
@@ -176,8 +201,21 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelSmall
+                                            .fontStyle,
+                                      ),
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontStyle,
                                     ),
                               ),
                               subtitle: Text(
@@ -187,14 +225,27 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'The Seasons',
+                                      font: GoogleFonts.cormorantSc(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontStyle,
+                                      ),
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .fontStyle,
                                     ),
                               ),
                               tileColor: FlutterFlowTheme.of(context)
                                   .primaryBackground,
                               activeColor: FlutterFlowTheme.of(context).primary,
-                              checkColor: Colors.white,
+                              checkColor: FlutterFlowTheme.of(context).accent3,
                               dense: false,
                               controlAffinity: ListTileControlAffinity.trailing,
                               contentPadding: EdgeInsetsDirectional.fromSTEB(
@@ -212,8 +263,21 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'WorkSans',
+                                  font: GoogleFonts.inter(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontStyle,
+                                  ),
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontStyle,
                                 ),
                           ),
                         ),
@@ -229,8 +293,19 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
                     'j2tkpe32' /* Other Offers */,
                   ),
                   style: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'WorkSans',
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontStyle,
+                        ),
                         letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelMedium.fontStyle,
                       ),
                 ),
               ),
@@ -284,8 +359,21 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelSmall
+                                            .fontStyle,
+                                      ),
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontStyle,
                                     ),
                               ),
                               subtitle: Text(
@@ -295,8 +383,21 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'The Seasons',
+                                      font: GoogleFonts.cormorantSc(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontStyle,
+                                      ),
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .fontStyle,
                                     ),
                               ),
                               tileColor: FlutterFlowTheme.of(context)
@@ -320,8 +421,21 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'WorkSans',
+                                  font: GoogleFonts.inter(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontStyle,
+                                  ),
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontStyle,
                                 ),
                           ),
                         ),
@@ -374,8 +488,21 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
-                                  fontFamily: 'WorkSans',
+                                  font: GoogleFonts.inter(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .fontStyle,
+                                  ),
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .fontStyle,
                                   lineHeight: 1.5,
                                 ),
                           ),
@@ -385,14 +512,27 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
                             ),
                             style:
                                 FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'WorkSans',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontStyle,
+                                      ),
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontStyle,
                                     ),
                           ),
                           tileColor:
                               FlutterFlowTheme.of(context).primaryBackground,
                           activeColor: FlutterFlowTheme.of(context).primary,
-                          checkColor: Colors.white,
+                          checkColor: FlutterFlowTheme.of(context).accent3,
                           dense: false,
                           controlAffinity: ListTileControlAffinity.trailing,
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
@@ -431,10 +571,23 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'WorkSans',
+                                  font: GoogleFonts.inter(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
                                 ),
                             elevation: 2.0,
                             borderSide: BorderSide(

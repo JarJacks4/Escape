@@ -6,6 +6,7 @@ import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'settings_model.dart';
 export 'settings_model.dart';
 
@@ -92,9 +93,16 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   'us2rtri2' /* Settings Page */,
                 ),
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
-                      fontFamily: 'WorkSans',
+                      font: GoogleFonts.inter(
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineSmall
+                            .fontStyle,
+                      ),
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.bold,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineSmall.fontStyle,
                     ),
               ),
               actions: [],
@@ -116,9 +124,22 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       'zlag303h' /* Choose what notifcations you w... */,
                     ),
                     style: FlutterFlowTheme.of(context).labelMedium.override(
-                          fontFamily: 'WorkSans',
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .fontStyle,
+                          ),
                           color: FlutterFlowTheme.of(context).tertiary,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontStyle,
                         ),
                   ),
                 ),
@@ -141,9 +162,16 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       'ct0jyvsv' /* Push Notifications */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily: 'WorkSans',
+                          font: GoogleFonts.inter(
+                            fontWeight: FontWeight.w600,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                           lineHeight: 2.0,
                         ),
                   ),
@@ -152,13 +180,25 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       '7fhrrzay' /* Receive Push notifications fro... */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'WorkSans',
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           color: Color(0xFF8B97A2),
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
                   ),
                   tileColor: FlutterFlowTheme.of(context).primary,
-                  activeColor: FlutterFlowTheme.of(context).primary,
+                  activeThumbColor: FlutterFlowTheme.of(context).primary,
                   activeTrackColor: FlutterFlowTheme.of(context).tertiary,
                   dense: false,
                   controlAffinity: ListTileControlAffinity.trailing,
@@ -181,9 +221,15 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   '5cbxvi36' /* Location Services */,
                 ),
                 style: FlutterFlowTheme.of(context).bodyLarge.override(
-                      fontFamily: 'WorkSans',
+                      font: GoogleFonts.inter(
+                        fontWeight: FontWeight.w600,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                      ),
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w600,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                       lineHeight: 2.0,
                     ),
               ),
@@ -192,13 +238,22 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   'sik8rt4l' /* Allow us to track your locatio... */,
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'WorkSans',
+                      font: GoogleFonts.inter(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
                       color: Color(0xFF8B97A2),
                       letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                     ),
               ),
               tileColor: FlutterFlowTheme.of(context).primary,
-              activeColor: FlutterFlowTheme.of(context).primary,
+              activeThumbColor: FlutterFlowTheme.of(context).primary,
               activeTrackColor: FlutterFlowTheme.of(context).tertiary,
               dense: false,
               controlAffinity: ListTileControlAffinity.trailing,
@@ -225,9 +280,18 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).accent1,
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'WorkSans',
+                      font: GoogleFonts.inter(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                      ),
                       color: FlutterFlowTheme.of(context).primary,
                       letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).titleSmall.fontStyle,
                     ),
                 elevation: 3.0,
                 borderSide: BorderSide(
