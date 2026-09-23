@@ -131,7 +131,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color primaryText = const Color(0xFF1C2444);
   late Color secondaryText = const Color(0xFF5A5C60);
   late Color primaryBackground = const Color(0xFFEDF1F7);
-  late Color secondaryBackground = const Color(0xFF1C2444);
+  late Color secondaryBackground = const Color(0xFFFFFFFF); // was 0xFF1C2444 (dark navy) -- wrong for a light-mode background, caused text-on-dark-background rendering issues (e.g. MovementStatWidget's stat row rendering as an unreadable dark box). Fixed to match upstream 5ac0df9.
   late Color accent1 = const Color(0xFFF0831A);
   late Color accent2 = const Color(0xFFD0E3F7);
   late Color accent3 = const Color(0xFFFCC462);
