@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -12,10 +14,6 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>Escape</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>en</string>
@@ -31,73 +29,84 @@
 		<string>uk</string>
 		<string>ko</string>
 	</array>
-
+	<key>CFBundleName</key>
+	<string>Escape</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
 	<array>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>com.googleusercontent.apps.861854898360-7ooga7hhe9og6krtt8ncohr285q5gdql</string>
-                
-            </array>
-        </dict>
-
-        <dict>
-        <key>CFBundleTypeRole</key>
-        <string>Editor</string>
-        <key>CFBundleURLName</key>
-        <string>escape.com</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-        <string>escapeinnerverse</string>
-        </array>
-        </dict>
-    </array>
-    <key>FlutterDeepLinkingEnabled</key>
-    <true/>
-
-
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.861854898360-7ooga7hhe9og6krtt8ncohr285q5gdql</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>escape.com</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>escapeinnerverse</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>FlutterDeepLinkingEnabled</key>
+	<true/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-
-	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>Escape requires access to your Location in order to use parts of our app.</string>
 	<key>NSCameraUsageDescription</key>
-    <string>Escape requires access to your Camera in order to use parts of our app.</string>
-	<key>NSMicrophoneUsageDescription</key>
-    <string>Escape requires access to your Microphone in order to use parts of our app.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-    <string>Escape requires access to your Photo Library in order to use parts of our app.</string>
-	<key>PermissionGroupNotification</key>
-    <string>In order to take a picture for your mood, Escape will need permission to access your notifications.</string>
-	<key>NSPushNotification</key>
-    <string>In order to send notifications, Escape will need permission to send push notifications when your mood updates.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>In order to help Lucille give you a better self-care experience, we will need your permission for your device location when in usage of Escape.</string>
+	<string>Escape requires access to your Camera in order to use parts of our app.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>In order to help Lucille give you a better self-care experience, we will need your permission for your device location when in usage of Escape.</string>
+	<string>In order to help Lucille give you a better self-care experience, we will need your permission for your device location when in usage of Escape.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>In order to help Lucille give you a better self-care experience, we will need your permission for your device location when in usage of Escape.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Escape requires access to your Microphone in order to use parts of our app.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Escape requires access to your Photo Library in order to use parts of our app.</string>
+	<key>NSPushNotification</key>
+	<string>In order to send notifications, Escape will need permission to send push notifications when your mood updates.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-    <string>Escape requires access to your Speech Recognition in order to use Talk With Lucille and many more features.</string>
-    <key>UIBackgroundModes</key>
-    <array>
-        <string>audio</string>
-    </array>
-
-
-<!-- Start of UIBackgroundModes -->
-<key>UIBackgroundModes</key>
+	<string>Escape requires access to your Speech Recognition in order to use Talk With Lucille and many more features.</string>
+	<key>PermissionGroupNotification</key>
+	<string>In order to take a picture for your mood, Escape will need permission to access your notifications.</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneClassName</key>
+					<string>UIWindowScene</string>
+					<key>UISceneConfigurationName</key>
+					<string>flutter</string>
+					<key>UISceneDelegateClassName</key>
+					<string>FlutterSceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>Main</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
 	</array>
-<!-- End of UIBackgroundModes -->
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -117,10 +126,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-
-	<key>CADisableMinimumFrameDurationOnPhone</key>
-	<true/>
-	<key>UIApplicationSupportsIndirectInputEvents</key>
-	<true/>
 </dict>
 </plist>
