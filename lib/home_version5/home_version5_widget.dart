@@ -1329,8 +1329,7 @@ Further ... */
                                                                     ),
                                                                   ),
                                                                 ),
-                                                                Flexible(
-                                                                  flex: 1,
+                                                                Container(
                                                                   child:
                                                                       SingleChildScrollView(
                                                                     scrollDirection:
@@ -1347,9 +1346,7 @@ Further ... */
                                                                               .center,
                                                                       children:
                                                                           [
-                                                                        Flexible(
-                                                                          flex:
-                                                                              1,
+                                                                        Container(
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -1434,9 +1431,7 @@ Further ... */
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                        Flexible(
-                                                                          flex:
-                                                                              1,
+                                                                        Container(
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -1521,9 +1516,7 @@ Further ... */
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                        Flexible(
-                                                                          flex:
-                                                                              1,
+                                                                        Container(
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -1614,9 +1607,7 @@ Further ... */
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                        Flexible(
-                                                                          flex:
-                                                                              1,
+                                                                        Container(
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -1701,9 +1692,7 @@ Further ... */
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                        Flexible(
-                                                                          flex:
-                                                                              1,
+                                                                        Container(
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -2012,8 +2001,7 @@ Further ... */
                                                                     ),
                                                                   ),
                                                                 ),
-                                                                Flexible(
-                                                                  flex: 1,
+                                                                Container(
                                                                   child:
                                                                       Container(
                                                                     width: double

@@ -61,7 +61,7 @@ class _EmptyChatsWidgetState extends State<EmptyChatsWidget>
       decoration: BoxDecoration(),
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Column(
-        mainAxisSize: MainAxisSize.max,
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
@@ -112,7 +112,7 @@ class _EmptyChatsWidgetState extends State<EmptyChatsWidget>
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(15.0),
+                  padding: EdgeInsets.all(12.0),
                   child: Image.asset(
                     'assets/images/Logo_ESCAPE_Black.png',
                     height: 26.67,

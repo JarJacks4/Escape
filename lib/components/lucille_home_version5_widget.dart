@@ -45,7 +45,7 @@ class _LucilleHomeVersion5WidgetState extends State<LucilleHomeVersion5Widget> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: MediaQuery.sizeOf(context).height * 1.0,
+      height: double.infinity,
       decoration: BoxDecoration(),
       child: Container(
         width: 100.0,
@@ -61,119 +61,130 @@ class _LucilleHomeVersion5WidgetState extends State<LucilleHomeVersion5Widget> {
                 padding: EdgeInsetsDirectional.fromSTEB(25.0, 75.0, 25.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: 48.0,
-                          height: 48.0,
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 40.0,
-                                color: FlutterFlowTheme.of(context).secondary,
-                                offset: Offset(
-                                  0.0,
-                                  0.0,
-                                ),
-                              )
-                            ],
-                            shape: BoxShape.circle,
-                          ),
-                          child: Container(
-                            width: 200.0,
-                            height: 200.0,
-                            clipBehavior: Clip.antiAlias,
+                    Expanded(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: 48.0,
+                            height: 48.0,
                             decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 40.0,
+                                  color: FlutterFlowTheme.of(context).secondary,
+                                  offset: Offset(
+                                    0.0,
+                                    0.0,
+                                  ),
+                                )
+                              ],
                               shape: BoxShape.circle,
                             ),
-                            child: Image.asset(
-                              'assets/images/7b5466eebefd1ecf1b8b13a24cd282703941d5c8.png',
-                              fit: BoxFit.cover,
+                            child: Container(
+                              width: 200.0,
+                              height: 200.0,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                              ),
+                              child: Image.asset(
+                                'assets/images/7b5466eebefd1ecf1b8b13a24cd282703941d5c8.png',
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
-                        ),
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            AuthUserStreamWidget(
-                              builder: (context) => Text(
-                                valueOrDefault<String>(
-                                  () {
-                                    if (dateTimeFormat(
-                                          "Hm",
-                                          getCurrentTimestamp,
-                                          locale: FFLocalizations.of(context)
-                                              .languageCode,
-                                        ) !=
-                                        '12') {
-                                      return 'Good Morning, ${currentUserDisplayName}!';
-                                    } else if (dateTimeFormat(
-                                          "Hm",
-                                          getCurrentTimestamp,
-                                          locale: FFLocalizations.of(context)
-                                              .languageCode,
-                                        ) !=
-                                        '17') {
-                                      return 'Good Afternoon, ${currentUserDisplayName}!';
-                                    } else {
-                                      return 'Good Evening, ${currentUserDisplayName}!';
-                                    }
-                                  }(),
-                                  'Good Morning!',
+                          Expanded(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                AuthUserStreamWidget(
+                                  builder: (context) => Text(
+                                    valueOrDefault<String>(
+                                      () {
+                                        if (dateTimeFormat(
+                                              "Hm",
+                                              getCurrentTimestamp,
+                                              locale:
+                                                  FFLocalizations.of(context)
+                                                      .languageCode,
+                                            ) !=
+                                            '12') {
+                                          return 'Good Morning, ${currentUserDisplayName}!';
+                                        } else if (dateTimeFormat(
+                                              "Hm",
+                                              getCurrentTimestamp,
+                                              locale:
+                                                  FFLocalizations.of(context)
+                                                      .languageCode,
+                                            ) !=
+                                            '17') {
+                                          return 'Good Afternoon, ${currentUserDisplayName}!';
+                                        } else {
+                                          return 'Good Evening, ${currentUserDisplayName}!';
+                                        }
+                                      }(),
+                                      'Good Morning!',
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          font: GoogleFonts.cormorantSc(
+                                            fontWeight: FontWeight.w600,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Colors.white,
+                                          fontSize: 22.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                          fontStyle: FlutterFlowTheme.of(context)
+                                              .titleMedium
+                                              .fontStyle,
+                                        ),
+                                  ),
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .titleMedium
-                                    .override(
-                                      font: GoogleFonts.cormorantSc(
-                                        fontWeight: FontWeight.w600,
+                                Text(
+                                  FFLocalizations.of(context).getText(
+                                    'a2argwud' /* How can I assist you today? */,
+                                  ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .fontWeight,
+                                          fontStyle: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .fontStyle,
+                                        ),
+                                        color: Color(0xFFAAAACC),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .titleMedium
+                                            .bodySmall
                                             .fontStyle,
                                       ),
-                                      color: Colors.white,
-                                      fontSize: 22.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .fontStyle,
-                                    ),
-                              ),
+                                ),
+                              ].divide(SizedBox(height: 4.0)),
                             ),
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                'a2argwud' /* How can I assist you today? */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontStyle,
-                                    ),
-                                    color: Color(0xFFAAAACC),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontStyle,
-                                  ),
-                            ),
-                          ].divide(SizedBox(height: 4.0)),
-                        ),
-                      ].divide(SizedBox(width: 12.0)),
+                          ),
+                        ].divide(SizedBox(width: 12.0)),
+                      ),
                     ),
+                    SizedBox(width: 12.0),
                     Container(
                       width: 40.0,
                       height: 40.0,
@@ -239,8 +250,7 @@ class _LucilleHomeVersion5WidgetState extends State<LucilleHomeVersion5Widget> {
                   ].divide(SizedBox(height: 8.0)),
                 ),
               ),
-              Flexible(
-                flex: 1,
+              Container(
                 child: Align(
                   alignment: AlignmentDirectional(0.0, 0.0),
                   child: Padding(
@@ -465,8 +475,7 @@ class _LucilleHomeVersion5WidgetState extends State<LucilleHomeVersion5Widget> {
                   ),
                 ),
               ),
-              Flexible(
-                flex: 1,
+              Container(
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                   child: Container(
@@ -574,7 +583,7 @@ class _LucilleHomeVersion5WidgetState extends State<LucilleHomeVersion5Widget> {
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 100.0,
+                                      height: double.infinity,
                                       decoration: BoxDecoration(
                                         gradient: LinearGradient(
                                           colors: [
@@ -731,7 +740,7 @@ Lucille */
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 100.0,
+                                      height: double.infinity,
                                       decoration: BoxDecoration(
                                         gradient: LinearGradient(
                                           colors: [
@@ -1018,8 +1027,7 @@ Lucille */
                   ),
                 ),
               ),
-              Flexible(
-                flex: 1,
+              Container(
                 child: Align(
                   alignment: AlignmentDirectional(0.0, 0.0),
                   child: Container(
@@ -1133,7 +1141,7 @@ Lucille */
                                       },
                                       child: Container(
                                         width: double.infinity,
-                                        height: 100.0,
+                                        height: double.infinity,
                                         decoration: BoxDecoration(
                                           gradient: LinearGradient(
                                             colors: [
@@ -1283,7 +1291,7 @@ Lucille */
                                       },
                                       child: Container(
                                         width: double.infinity,
-                                        height: 100.0,
+                                        height: double.infinity,
                                         decoration: BoxDecoration(
                                           gradient: LinearGradient(
                                             colors: [
