@@ -521,7 +521,7 @@ class _OnboardingPageViewWidgetState extends State<OnboardingPageViewWidget> {
                                                                           'WorkSans',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primary,
+                                                                          .primaryText,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -902,7 +902,7 @@ class _OnboardingPageViewWidgetState extends State<OnboardingPageViewWidget> {
                                                                           'WorkSans',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primary,
+                                                                          .primaryText,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1282,7 +1282,7 @@ class _OnboardingPageViewWidgetState extends State<OnboardingPageViewWidget> {
                                                                           'WorkSans',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primary,
+                                                                          .primaryText,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
