@@ -52,50 +52,40 @@ class _BeginSessionPageWidgetState extends State<BeginSessionPageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).alternate,
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
+        body: Stack(
+          fit: StackFit.expand,
           children: [
-            Container(
-              width: double.infinity,
-              height: 957.19,
-              decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryBackground,
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: Image.asset(
-                    'assets/images/fdc4eed9423862348bcc86e35c0c78d0.gif',
-                  ).image,
+            Image.asset(
+              'assets/images/fdc4eed9423862348bcc86e35c0c78d0.gif',
+              fit: BoxFit.cover,
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(0.0),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: 5.0,
+                  sigmaY: 5.0,
                 ),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(0.0),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 5.0,
-                    sigmaY: 5.0,
-                  ),
-                  child: Container(
-                    width: 100.0,
-                    height: 100.0,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Color(0x22EDF1F7),
-                          Color(0x4F1C2444),
-                          Color(0xFFB10BE8)
-                        ],
-                        stops: [0.0, 0.5, 1.0],
-                        begin: AlignmentDirectional(0.0, -1.0),
-                        end: AlignmentDirectional(0, 1.0),
-                      ),
+                child: Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0x22EDF1F7),
+                        Color(0x4F1C2444),
+                        Color(0xFFB10BE8)
+                      ],
+                      stops: [0.0, 0.5, 1.0],
+                      begin: AlignmentDirectional(0.0, -1.0),
+                      end: AlignmentDirectional(0, 1.0),
                     ),
-                    child: wrapWithModel(
-                      model: _model.beginSessionModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: BeginSessionWidget(
-                        currentIndex: widget.currentIndex,
-                      ),
+                  ),
+                  child: wrapWithModel(
+                    model: _model.beginSessionModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: BeginSessionWidget(
+                      currentIndex: widget.currentIndex,
                     ),
                   ),
                 ),

@@ -47,47 +47,42 @@ class _BodyPageVersion5WidgetState extends State<BodyPageVersion5Widget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
+        body: Stack(
+          fit: StackFit.expand,
           children: [
-            Container(
-              width: double.infinity,
-              height: 967.4,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: Image.asset(
-                    'assets/images/Untitled_design_(1).gif',
-                  ).image,
-                ),
+            Image.asset(
+              'assets/images/Untitled_design_(1).gif',
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => ColoredBox(
+                color: FlutterFlowTheme.of(context).primaryBackground,
               ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(0.0),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 20.0,
-                    sigmaY: 20.0,
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(0.0),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: 20.0,
+                  sigmaY: 20.0,
+                ),
+                child: Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0x89EDF1F7),
+                        Color(0x8EF1B3EB),
+                        Color(0x8EFCC462)
+                      ],
+                      stops: [0.0, 0.5, 1.0],
+                      begin: AlignmentDirectional(1.0, -0.64),
+                      end: AlignmentDirectional(-1.0, 0.64),
+                    ),
                   ),
-                  child: Container(
-                    width: 100.0,
-                    height: 175.2,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Color(0x89EDF1F7),
-                          Color(0x8EF1B3EB),
-                          Color(0x8EFCC462)
-                        ],
-                        stops: [0.0, 0.5, 1.0],
-                        begin: AlignmentDirectional(1.0, -0.64),
-                        end: AlignmentDirectional(-1.0, 0.64),
-                      ),
-                    ),
-                    child: wrapWithModel(
-                      model: _model.bodyPageModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: BodyPageWidget(),
-                    ),
+                  child: wrapWithModel(
+                    model: _model.bodyPageModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: BodyPageWidget(),
                   ),
                 ),
               ),

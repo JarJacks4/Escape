@@ -78,6 +78,8 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
 
   @override
   Widget build(BuildContext context) {
+    final isCompact = MediaQuery.sizeOf(context).height < 720.0;
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -142,14 +144,14 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
               },
             ),
             Padding(
-              padding: EdgeInsets.all(24.0),
+              padding: EdgeInsets.all(isCompact ? 16.0 : 24.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Container(
-                    height: 16.0,
+                    height: isCompact ? 6.0 : 16.0,
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -238,8 +240,8 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                         alignment: AlignmentDirectional(0.0, 0.0),
                         children: [
                           Container(
-                            width: 240.0,
-                            height: 240.0,
+                            width: isCompact ? 180.0 : 240.0,
+                            height: isCompact ? 180.0 : 240.0,
                             decoration: BoxDecoration(
                               color: Color(0x05D3B3C2),
                               borderRadius: BorderRadius.circular(9999.0),
@@ -257,8 +259,8 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                                 sigmaY: 40.0,
                               ),
                               child: Container(
-                                width: 236.6,
-                                height: 245.41,
+                                width: isCompact ? 176.0 : 236.6,
+                                height: isCompact ? 186.0 : 245.41,
                                 decoration: BoxDecoration(
                                   color: Color(0x26D3B3C2),
                                   borderRadius: BorderRadius.circular(9999.0),
@@ -274,8 +276,8 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                                 sigmaY: 20.0,
                               ),
                               child: Container(
-                                width: 254.8,
-                                height: 296.63,
+                                width: isCompact ? 190.0 : 254.8,
+                                height: isCompact ? 210.0 : 296.63,
                                 decoration: BoxDecoration(
                                   color: Color(0x4DD3B3C2),
                                   borderRadius: BorderRadius.circular(9999.0),
@@ -285,8 +287,8 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                             ),
                           ),
                           Container(
-                            width: 236.3,
-                            height: 294.53,
+                            width: isCompact ? 180.0 : 236.3,
+                            height: isCompact ? 205.0 : 294.53,
                             decoration: BoxDecoration(
                               color: Color(0xFFF5E6E8),
                               boxShadow: [
@@ -336,7 +338,7 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                                     .fontStyle,
                               ),
                               color: FlutterFlowTheme.of(context).primary,
-                              fontSize: 32.0,
+                              fontSize: isCompact ? 26.0 : 32.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                               fontStyle: FlutterFlowTheme.of(context)
@@ -353,6 +355,8 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                             'Let everything go heavy. This is yours — just breathe and arrive.',
                           ),
                           textAlign: TextAlign.center,
+                          maxLines: isCompact ? 3 : 5,
+                          overflow: TextOverflow.ellipsis,
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
@@ -407,7 +411,7 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                                       .fontStyle,
                                 ),
                                 color: FlutterFlowTheme.of(context).accent3,
-                                fontSize: 36.0,
+                                fontSize: isCompact ? 30.0 : 36.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FlutterFlowTheme.of(context)
                                     .headlineSmall
@@ -420,7 +424,12 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(
+                          0.0,
+                          isCompact ? 12.0 : 25.0,
+                          0.0,
+                          0.0,
+                        ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -428,12 +437,12 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                       children: [
                         FlutterFlowIconButton(
                           borderRadius: 50.0,
-                          buttonSize: 76.93,
+                          buttonSize: isCompact ? 64.0 : 76.93,
                           fillColor: FlutterFlowTheme.of(context).accent4,
                           icon: Icon(
                             Icons.pause_circle,
                             color: FlutterFlowTheme.of(context).alternate,
-                            size: 48.0,
+                            size: isCompact ? 40.0 : 48.0,
                           ),
                           onPressed: () async {
                             logFirebaseEvent(
@@ -537,7 +546,7 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                       ),
                     ),
                   Container(
-                    height: 24.0,
+                    height: isCompact ? 12.0 : 24.0,
                   ),
                 ],
               ),

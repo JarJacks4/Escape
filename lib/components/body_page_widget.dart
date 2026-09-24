@@ -850,13 +850,11 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                   ),
                 ),
               ),
-              Flexible(
-                flex: 1,
+              Container(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Expanded(
-                      flex: 1,
+                    Container(
                       child: Padding(
                         padding: EdgeInsets.all(15.0),
                         child: InkWell(
@@ -1049,8 +1047,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                         ),
                       ),
                     ),
-                    Expanded(
-                      flex: 1,
+                    Container(
                       child: Padding(
                         padding: EdgeInsets.all(15.0),
                         child: InkWell(
@@ -1235,8 +1232,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                         ),
                       ),
                     ),
-                    Expanded(
-                      flex: 1,
+                    Container(
                       child: Padding(
                         padding: EdgeInsets.all(15.0),
                         child: InkWell(
@@ -1421,8 +1417,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                         ),
                       ),
                     ),
-                    Expanded(
-                      flex: 1,
+                    Container(
                       child: Padding(
                         padding: EdgeInsets.all(15.0),
                         child: InkWell(

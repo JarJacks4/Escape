@@ -60,6 +60,8 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
 
   @override
   Widget build(BuildContext context) {
+    final isCompact = MediaQuery.sizeOf(context).height < 720.0;
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -127,7 +129,7 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(24.0),
+              padding: EdgeInsets.all(isCompact ? 16.0 : 24.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -135,7 +137,12 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(
+                          0.0,
+                          isCompact ? 12.0 : 30.0,
+                          0.0,
+                          0.0,
+                        ),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -223,8 +230,8 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
                               sigmaY: 40.0,
                             ),
                             child: Container(
-                              width: 220.0,
-                              height: 220.0,
+                              width: isCompact ? 170.0 : 220.0,
+                              height: isCompact ? 170.0 : 220.0,
                               decoration: BoxDecoration(
                                 color: Color(0x1AABA0E6),
                                 borderRadius: BorderRadius.circular(9999.0),
@@ -234,8 +241,8 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
                           ),
                         ),
                         Container(
-                          width: 271.23,
-                          height: 250.8,
+                          width: isCompact ? 190.0 : 271.23,
+                          height: isCompact ? 200.0 : 250.8,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(9999.0),
                             shape: BoxShape.rectangle,
@@ -246,8 +253,8 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
                           ),
                         ),
                         Container(
-                          width: 211.6,
-                          height: 228.05,
+                          width: isCompact ? 175.0 : 211.6,
+                          height: isCompact ? 195.0 : 228.05,
                           decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
@@ -304,7 +311,7 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
                                     .fontStyle,
                               ),
                               color: FlutterFlowTheme.of(context).primary,
-                              fontSize: 32.0,
+                              fontSize: isCompact ? 26.0 : 32.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                               fontStyle: FlutterFlowTheme.of(context)
@@ -325,6 +332,7 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
                               ),
                               textAlign: TextAlign.center,
                               maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -354,7 +362,7 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
                     ].divide(SizedBox(height: 16.0)),
                   ),
                   Container(
-                    height: 32.0,
+                    height: isCompact ? 12.0 : 32.0,
                   ),
                   Column(
                     mainAxisSize: MainAxisSize.min,
@@ -392,7 +400,7 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
                                         .fontStyle,
                                   ),
                                   color: FlutterFlowTheme.of(context).accent4,
-                                  fontSize: 42.0,
+                                  fontSize: isCompact ? 32.0 : 42.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .headlineSmall
@@ -517,7 +525,7 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
                     ),
                   ),
                   Container(
-                    height: 16.0,
+                    height: isCompact ? 8.0 : 16.0,
                   ),
                 ],
               ),

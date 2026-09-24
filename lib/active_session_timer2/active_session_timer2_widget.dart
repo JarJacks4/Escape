@@ -59,6 +59,8 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
 
   @override
   Widget build(BuildContext context) {
+    final isCompact = MediaQuery.sizeOf(context).height < 720.0;
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -123,18 +125,23 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
               },
             ),
             Padding(
-              padding: EdgeInsets.all(24.0),
+              padding: EdgeInsets.all(isCompact ? 16.0 : 24.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Container(
-                    height: 16.0,
+                    height: isCompact ? 6.0 : 16.0,
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(
+                          0.0,
+                          isCompact ? 8.0 : 15.0,
+                          0.0,
+                          0.0,
+                        ),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -223,8 +230,8 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                               sigmaY: 40.0,
                             ),
                             child: Container(
-                              width: 240.0,
-                              height: 240.0,
+                              width: isCompact ? 180.0 : 240.0,
+                              height: isCompact ? 180.0 : 240.0,
                               decoration: BoxDecoration(
                                 color: Color(0x0DA3D2D2),
                                 borderRadius: BorderRadius.circular(9999.0),
@@ -240,8 +247,8 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                               sigmaY: 20.0,
                             ),
                             child: Container(
-                              width: 200.0,
-                              height: 200.0,
+                              width: isCompact ? 155.0 : 200.0,
+                              height: isCompact ? 155.0 : 200.0,
                               decoration: BoxDecoration(
                                 color: Color(0x1AA3D2D2),
                                 borderRadius: BorderRadius.circular(9999.0),
@@ -251,8 +258,8 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                           ),
                         ),
                         Container(
-                          width: 270.26,
-                          height: 263.9,
+                          width: isCompact ? 190.0 : 270.26,
+                          height: isCompact ? 205.0 : 263.9,
                           decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
@@ -322,6 +329,8 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                                 'Move at your own tempo. Rise and fold like a slow, steady wave.',
                               ),
                               textAlign: TextAlign.center,
+                              maxLines: isCompact ? 3 : 5,
+                              overflow: TextOverflow.ellipsis,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -351,7 +360,7 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                     ].divide(SizedBox(height: 16.0)),
                   ),
                   Container(
-                    height: 32.0,
+                    height: isCompact ? 12.0 : 32.0,
                   ),
                   Column(
                     mainAxisSize: MainAxisSize.min,
@@ -392,7 +401,7 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                                         .fontStyle,
                                   ),
                                   color: FlutterFlowTheme.of(context).accent3,
-                                  fontSize: 36.0,
+                                  fontSize: isCompact ? 30.0 : 36.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .headlineSmall
@@ -461,7 +470,12 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                   Container(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                          EdgeInsetsDirectional.fromSTEB(
+                            0.0,
+                            0.0,
+                            0.0,
+                            isCompact ? 12.0 : 24.0,
+                          ),
                       child: Container(
                         child: InkWell(
                           splashColor: Colors.transparent,

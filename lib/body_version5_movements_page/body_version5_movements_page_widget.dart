@@ -68,21 +68,17 @@ class _BodyVersion5MovementsPageWidgetState
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
+        body: Stack(
+          fit: StackFit.expand,
           children: [
-            Container(
-              width: double.infinity,
-              height: 874.4,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: Image.asset(
-                    'assets/images/Untitled_design_(1).gif',
-                  ).image,
-                ),
+            Image.asset(
+              'assets/images/Untitled_design_(1).gif',
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => ColoredBox(
+                color: FlutterFlowTheme.of(context).primaryBackground,
               ),
-              child: ClipRRect(
+            ),
+            ClipRRect(
                 borderRadius: BorderRadius.circular(0.0),
                 child: BackdropFilter(
                   filter: ImageFilter.blur(
@@ -121,6 +117,29 @@ class _BodyVersion5MovementsPageWidgetState
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                      24.0,
+                                      24.0,
+                                      24.0,
+                                      0.0,
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(-1.0, 0.0),
+                                      child: IconButton(
+                                        icon: Icon(
+                                          Icons.arrow_back_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                        ),
+                                        onPressed: () {
+                                          context.goNamed(
+                                            BodyPageVersion5Widget.routeName,
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ),
                                   Padding(
                                     padding: EdgeInsets.all(24.0),
                                     child: Container(
@@ -435,15 +454,9 @@ class _BodyVersion5MovementsPageWidgetState
                                                               true;
                                                           safeSetState(() {});
                                                         },
-                                                        child: Hero(
-                                                          tag: 'BodyMoves',
-                                                          transitionOnUserGestures:
-                                                              true,
-                                                          child: Material(
-                                                            color: Colors
-                                                                .transparent,
-                                                            child:
-                                                                MoveCardWidget(
+                                                        child: Material(
+                                                          color: Colors.transparent,
+                                                          child: MoveCardWidget(
                                                               key: Key(
                                                                   'Keyxj2_${moveListIndex}_of_${moveList.length}'),
                                                               duration: moveListItem
@@ -458,7 +471,6 @@ class _BodyVersion5MovementsPageWidgetState
                                                               type: moveListItem
                                                                   .moveType,
                                                             ),
-                                                          ),
                                                         ),
                                                       );
                                                     },
@@ -557,7 +569,6 @@ class _BodyVersion5MovementsPageWidgetState
                   ),
                 ),
               ),
-            ),
           ],
         ),
       ),
