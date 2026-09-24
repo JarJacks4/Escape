@@ -60,6 +60,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         parameters: {'screen_name': 'HomeVersion5'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (!mounted) return;
       logFirebaseEvent('HOME_VERSION5_HomeVersion5_ON_INIT_STATE');
       if (valueOrDefault<bool>(
           currentUserDocument?.hasSeenWalkthrough, false)) {
@@ -86,6 +87,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
           await TheoryOfMindOnboardingGroup.userCompleteProfileCall.call(
         userID: currentUserUid,
       );
+      if (!mounted) return;
 
       if (FFAppState().chatSessionId != '') {
         logFirebaseEvent('HomeVersion5_show_snack_bar');
@@ -107,6 +109,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         logFirebaseEvent('HomeVersion5_backend_call');
         _model.createSession =
             await TheoryOfMindSessionManagementGroup.createIDCall.call();
+        if (!mounted) return;
 
         logFirebaseEvent('HomeVersion5_update_app_state');
         FFAppState().chatSessionId =
@@ -121,6 +124,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
           await TheoryOfMindOnboardingGroup.updateUserProfileCall.call(
         userID: currentUserUid,
       );
+      if (!mounted) return;
 
       logFirebaseEvent('HomeVersion5_trigger_app_event');
       FFAppEventService.instance.triggerAppEvent(
@@ -619,7 +623,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                 animationMode: ShaderAnimationMode.explicit,
                                                                                 animationConfig: ShaderAnimationConfig(duration: Duration(milliseconds: (2400.0).round()), curve: Curves.easeIn, invert: true),
                                                                                 child: Hero(
-                                                                                  tag: 'logo',
+                                                                                  tag: 'homeHeaderLogo',
                                                                                   transitionOnUserGestures: true,
                                                                                   child: ClipRRect(
                                                                                     borderRadius: BorderRadius.circular(8.0),
@@ -2440,7 +2444,7 @@ Further ... */
                                                                   ),
                                                                 ),
                                                                 Hero(
-                                                                  tag: 'logo',
+                                                                  tag: 'homeFooterLogo',
                                                                   transitionOnUserGestures:
                                                                       true,
                                                                   child:

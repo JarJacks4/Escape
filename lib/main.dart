@@ -220,28 +220,54 @@ class NavBarPage extends StatefulWidget {
 class _NavBarPageState extends State<NavBarPage> {
   String _currentPageName = 'HomeVersion5';
   late Widget? _currentPage;
+  final _tabs = <String, Widget>{
+    'HomeVersion5': HomeVersion5Widget(),
+    'LucilleHome': LucilleHomeWidget(),
+    'ExplorePageVersion5FINAL': ExplorePageVersion5FINALWidget(),
+    'AISoundscapesFINAL': AISoundscapesFINALWidget(),
+    'MarketplaceVersion5': MarketplaceVersion5Widget(),
+  };
+  final _visitedPages = <String>{};
 
   @override
   void initState() {
     super.initState();
     _currentPageName = widget.initialPage ?? _currentPageName;
     _currentPage = widget.page;
+    if (_tabs.containsKey(_currentPageName)) {
+      if (_currentPage != null) {
+        _tabs[_currentPageName] = _currentPage!;
+        _currentPage = null;
+      }
+      _visitedPages.add(_currentPageName);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    final tabs = {
-      'HomeVersion5': HomeVersion5Widget(),
-      'LucilleHome': LucilleHomeWidget(),
-      'ExplorePageVersion5FINAL': ExplorePageVersion5FINALWidget(),
-      'AISoundscapesFINAL': AISoundscapesFINALWidget(),
-      'MarketplaceVersion5': MarketplaceVersion5Widget(),
-    };
-    final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
+    final currentIndex = _tabs.keys.toList().indexOf(_currentPageName);
 
     return Scaffold(
       resizeToAvoidBottomInset: !widget.disableResizeToAvoidBottomInset,
-      body: _currentPage ?? tabs[_currentPageName],
+      body: _currentPage ??
+          IndexedStack(
+            index: currentIndex < 0 ? null : currentIndex,
+            children: _tabs.entries.map((entry) {
+              final isActive = entry.key == _currentPageName;
+              return TickerMode(
+                enabled: isActive,
+                child: HeroMode(
+                  enabled: isActive,
+                  child: ExcludeFocus(
+                    excluding: !isActive,
+                    child: _visitedPages.contains(entry.key)
+                        ? entry.value
+                        : const SizedBox.shrink(),
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
       bottomNavigationBar: Visibility(
         visible: responsiveVisibility(
           context: context,
@@ -250,10 +276,11 @@ class _NavBarPageState extends State<NavBarPage> {
           desktop: false,
         ),
         child: BottomNavigationBar(
-          currentIndex: currentIndex,
+          currentIndex: currentIndex < 0 ? 0 : currentIndex,
           onTap: (i) => safeSetState(() {
             _currentPage = null;
-            _currentPageName = tabs.keys.toList()[i];
+            _currentPageName = _tabs.keys.toList()[i];
+            _visitedPages.add(_currentPageName);
           }),
           backgroundColor: Color(0xBDEDF1F7),
           selectedItemColor: FlutterFlowTheme.of(context).accent1,

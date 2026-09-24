@@ -409,11 +409,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => LucilleVoiceChatWebViewWidget(),
           ),
           FFRoute(
-            name: LucilleVoiceChatWebViewWidget.routeName,
-            path: LucilleVoiceChatWebViewWidget.routePath,
-            builder: (context, params) => LucilleVoiceChatWebViewWidget(),
-          ),
-          FFRoute(
             name: HealthJournalWidget.routeName,
             path: HealthJournalWidget.routePath,
             builder: (context, params) => HealthJournalWidget(),
@@ -1499,7 +1494,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) =>
                 $that_slideable_list_item_mrpo3s.HomePageWidget(),
           )
-        ].map((r) => r.toRoute(appStateNotifier)).toList(),
+        ].map((r) => r.toRoute(appStateNotifier, isSubRoute: true)).toList(),
       ),
     ].map((r) => r.toRoute(appStateNotifier)).toList(),
     observers: [routeObserver],
@@ -1676,9 +1671,11 @@ class FFRoute {
   final Widget Function(BuildContext, FFParameters) builder;
   final List<GoRoute> routes;
 
-  GoRoute toRoute(AppStateNotifier appStateNotifier) => GoRoute(
+  GoRoute toRoute(AppStateNotifier appStateNotifier,
+          {bool isSubRoute = false}) =>
+      GoRoute(
         name: name,
-        path: path,
+        path: isSubRoute && path.startsWith('/') ? path.substring(1) : path,
         redirect: (context, state) {
           if (appStateNotifier.shouldRedirect) {
             final redirectLocation = appStateNotifier.getRedirectLocation();
