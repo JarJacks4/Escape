@@ -87,6 +87,18 @@ class _PlayerPageNatureWidgetState extends State<PlayerPageNatureWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
+    final screenSize = MediaQuery.sizeOf(context);
+    final isCompactHeight = screenSize.height < 720.0;
+    final artworkSize = min(
+      screenSize.width - 48.0,
+      isCompactHeight ? screenSize.height * 0.34 : 300.0,
+    );
+    final mediaBannerUrl = FFAppState().currentMedia.mediaBanner.trim();
+    final mediaBannerUri = Uri.tryParse(mediaBannerUrl);
+    final hasValidMediaBanner = mediaBannerUri != null &&
+        (mediaBannerUri.scheme == 'http' || mediaBannerUri.scheme == 'https') &&
+        mediaBannerUri.host.isNotEmpty;
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -141,7 +153,11 @@ class _PlayerPageNatureWidgetState extends State<PlayerPageNatureWidget>
                     ),
                     child: Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
-                          24.0, 45.0, 24.0, 24.0),
+                        24.0,
+                        isCompactHeight ? 20.0 : 45.0,
+                        24.0,
+                        isCompactHeight ? 16.0 : 24.0,
+                      ),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -150,7 +166,11 @@ class _PlayerPageNatureWidgetState extends State<PlayerPageNatureWidget>
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 15.0, 15.0, 0.0),
+                                15.0,
+                                isCompactHeight ? 4.0 : 15.0,
+                                15.0,
+                                0.0,
+                              ),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -239,21 +259,46 @@ class _PlayerPageNatureWidgetState extends State<PlayerPageNatureWidget>
                                 ],
                               ),
                             ),
-                            Hero(
-                              tag: FFAppState().currentMedia.mediaBanner,
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(32.0),
-                                child: Image.network(
-                                  FFAppState().currentMedia.mediaBanner,
-                                  width: double.infinity,
-                                  height: 300.0,
-                                  cacheWidth: (MediaQuery.of(context).size.width *
-                                          MediaQuery.of(context).devicePixelRatio)
-                                      .round(),
-                                  cacheHeight: (300.0 * MediaQuery.of(context).devicePixelRatio)
-                                      .round(),
-                                  fit: BoxFit.cover,
+                            Align(
+                              alignment: AlignmentDirectional.center,
+                              child: SizedBox(
+                                width: artworkSize,
+                                height: artworkSize,
+                                child: Hero(
+                                  tag: hasValidMediaBanner
+                                      ? mediaBannerUrl
+                                      : 'nature-audio-player-placeholder',
+                                  transitionOnUserGestures: true,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(32.0),
+                                    child: hasValidMediaBanner
+                                        ? Image.network(
+                                            mediaBannerUrl,
+                                            width: artworkSize,
+                                            height: artworkSize,
+                                            cacheWidth: (artworkSize *
+                                                    MediaQuery.of(context)
+                                                        .devicePixelRatio)
+                                                .round(),
+                                            cacheHeight: (artworkSize *
+                                                    MediaQuery.of(context)
+                                                        .devicePixelRatio)
+                                                .round(),
+                                            errorBuilder: (context, error, stackTrace) => Image.asset(
+                                              'packages/that_audio_player_oo85ab/assets/images/Create_Tab_Bar_Page_(1).png',
+                                              width: artworkSize,
+                                              height: artworkSize,
+                                              fit: BoxFit.cover,
+                                            ),
+                                            fit: BoxFit.cover,
+                                          )
+                                        : Image.asset(
+                                            'packages/that_audio_player_oo85ab/assets/images/Create_Tab_Bar_Page_(1).png',
+                                            width: artworkSize,
+                                            height: artworkSize,
+                                            fit: BoxFit.cover,
+                                          ),
+                                  ),
                                 ),
                               ),
                             ).animateOnPageLoad(
@@ -266,6 +311,7 @@ class _PlayerPageNatureWidgetState extends State<PlayerPageNatureWidget>
                                   Text(
                                     FFAppState().currentMedia.mediaTitle,
                                     maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(
@@ -295,6 +341,7 @@ class _PlayerPageNatureWidgetState extends State<PlayerPageNatureWidget>
                                   Text(
                                     FFAppState().currentMedia.mediaArtist,
                                     maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
@@ -604,7 +651,9 @@ class _PlayerPageNatureWidgetState extends State<PlayerPageNatureWidget>
                                 ),
                               ],
                             ),
-                          ].divide(SizedBox(height: 45.0)),
+                          ].divide(SizedBox(
+                            height: isCompactHeight ? 16.0 : 45.0,
+                          )),
                         ),
                       ),
                     ),

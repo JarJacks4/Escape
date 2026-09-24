@@ -53,8 +53,31 @@ class _SoundscapeCardWidgetState extends State<SoundscapeCardWidget> {
     super.dispose();
   }
 
+  bool _isValidImageUrl(String url) {
+    final uri = Uri.tryParse(url.trim());
+    return uri != null &&
+        (uri.scheme == 'http' || uri.scheme == 'https') &&
+        uri.host.isNotEmpty;
+  }
+
+  Widget _imageFallback() {
+    return Container(
+      width: 180.0,
+      height: 180.0,
+      color: const Color(0x4439519F),
+      alignment: Alignment.center,
+      child: Icon(
+        Icons.music_note_rounded,
+        color: FlutterFlowTheme.of(context).primary,
+        size: 32.0,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final imageUrl = widget.imgDesc.trim();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
       child: Container(
@@ -76,20 +99,22 @@ class _SoundscapeCardWidgetState extends State<SoundscapeCardWidget> {
                   child: Stack(
                     alignment: AlignmentDirectional(-1.0, -1.0),
                     children: [
-                      CachedNetworkImage(
-                        fadeInDuration: Duration(milliseconds: 0),
-                        fadeOutDuration: Duration(milliseconds: 0),
-                        imageUrl: valueOrDefault<String>(
-                          widget.imgDesc,
-                          'https://dimg.dreamflow.cloud/v1/image/misty%20pine%20forest%20in%20rain',
-                        ),
-                        width: 180.0,
-                        height: 180.0,
-                        memCacheWidth: 360,
-                        memCacheHeight: 360,
-                        fit: BoxFit.cover,
-                        alignment: Alignment(0.0, 0.0),
-                      ),
+                      if (_isValidImageUrl(imageUrl))
+                        CachedNetworkImage(
+                          fadeInDuration: Duration(milliseconds: 0),
+                          fadeOutDuration: Duration(milliseconds: 0),
+                          imageUrl: imageUrl,
+                          width: 180.0,
+                          height: 180.0,
+                          memCacheWidth: 360,
+                          memCacheHeight: 360,
+                          fit: BoxFit.cover,
+                          alignment: Alignment(0.0, 0.0),
+                          errorWidget: (context, error, stackTrace) =>
+                              _imageFallback(),
+                        )
+                      else
+                        _imageFallback(),
                       Align(
                         alignment: AlignmentDirectional(-1.0, -1.0),
                         child: Padding(

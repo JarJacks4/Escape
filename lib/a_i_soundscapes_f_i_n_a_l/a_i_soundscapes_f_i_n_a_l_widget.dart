@@ -126,6 +126,45 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
     });
   }
 
+  bool _isValidMediaBannerUrl(String? url) {
+    if (url == null) return false;
+    final uri = Uri.tryParse(url.trim());
+    return uri != null &&
+        (uri.scheme == 'http' || uri.scheme == 'https') &&
+        uri.host.isNotEmpty;
+  }
+
+  Widget _buildMediaBanner(String? url) {
+    if (!_isValidMediaBannerUrl(url)) {
+      return Container(
+        color: const Color(0x4439519F),
+        alignment: Alignment.center,
+        child: Icon(
+          Icons.music_note_rounded,
+          color: FlutterFlowTheme.of(context).primary,
+          size: 24.0,
+        ),
+      );
+    }
+
+    return CachedNetworkImage(
+      fadeInDuration: Duration.zero,
+      fadeOutDuration: Duration.zero,
+      imageUrl: url!.trim(),
+      fit: BoxFit.cover,
+      alignment: const Alignment(0.0, 0.0),
+      errorWidget: (context, error, stackTrace) => Container(
+        color: const Color(0x4439519F),
+        alignment: Alignment.center,
+        child: Icon(
+          Icons.music_note_rounded,
+          color: FlutterFlowTheme.of(context).primary,
+          size: 24.0,
+        ),
+      ),
+    );
+  }
+
   @override
   void dispose() {
     _model.dispose();
@@ -1383,26 +1422,15 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                         shape:
                                                             BoxShape.rectangle,
                                                       ),
-                                                      child: CachedNetworkImage(
-                                                        fadeInDuration:
-                                                            Duration(
-                                                                milliseconds:
-                                                                    0),
-                                                        fadeOutDuration:
-                                                            Duration(
-                                                                milliseconds:
-                                                                    0),
-                                                        imageUrl: that_audio_player_oo85ab_app_state
+                                                      child: _buildMediaBanner(
+                                                        that_audio_player_oo85ab_app_state
                                                                 .FFAppState()
                                                             .currentMediaMusicMeditations
                                                             .elementAtOrNull(
                                                                 that_audio_player_oo85ab_app_state
                                                                         .FFAppState()
-                                                                    .currentMediaIndex)!
-                                                            .mediaBanner,
-                                                        fit: BoxFit.cover,
-                                                        alignment:
-                                                            Alignment(0.0, 0.0),
+                                                                    .currentMediaIndex)
+                                                            ?.mediaBanner,
                                                       ),
                                                     ),
                                                   ),
@@ -2337,29 +2365,15 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                             shape: BoxShape
                                                                 .rectangle,
                                                           ),
-                                                          child:
-                                                              CachedNetworkImage(
-                                                            fadeInDuration:
-                                                                Duration(
-                                                                    milliseconds:
-                                                                        0),
-                                                            fadeOutDuration:
-                                                                Duration(
-                                                                    milliseconds:
-                                                                        0),
-                                                            imageUrl: that_audio_player_oo85ab_app_state
+                                                          child: _buildMediaBanner(
+                                                        that_audio_player_oo85ab_app_state
                                                                     .FFAppState()
                                                                 .currentMediaMusicMeditations
                                                                 .elementAtOrNull(
                                                                     that_audio_player_oo85ab_app_state
                                                                             .FFAppState()
-                                                                        .currentMediaIndex)!
-                                                                .mediaBanner,
-                                                            fit: BoxFit.cover,
-                                                            alignment:
-                                                                Alignment(
-                                                                    0.0, 0.0),
-                                                          ),
+                                                                        .currentMediaIndex)?.mediaBanner,
+                                                      ),
                                                         ),
                                                       ),
                                                       Expanded(
@@ -3387,29 +3401,15 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                             shape: BoxShape
                                                                 .rectangle,
                                                           ),
-                                                          child:
-                                                              CachedNetworkImage(
-                                                            fadeInDuration:
-                                                                Duration(
-                                                                    milliseconds:
-                                                                        0),
-                                                            fadeOutDuration:
-                                                                Duration(
-                                                                    milliseconds:
-                                                                        0),
-                                                            imageUrl: that_audio_player_oo85ab_app_state
+                                                          child: _buildMediaBanner(
+                                                        that_audio_player_oo85ab_app_state
                                                                     .FFAppState()
                                                                 .currentMediaMusicMeditations
                                                                 .elementAtOrNull(
                                                                     that_audio_player_oo85ab_app_state
                                                                             .FFAppState()
-                                                                        .currentMediaIndex)!
-                                                                .mediaBanner,
-                                                            fit: BoxFit.cover,
-                                                            alignment:
-                                                                Alignment(
-                                                                    0.0, 0.0),
-                                                          ),
+                                                                        .currentMediaIndex)?.mediaBanner,
+                                                      ),
                                                         ),
                                                       ),
                                                       Expanded(
@@ -4437,29 +4437,15 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                             shape: BoxShape
                                                                 .rectangle,
                                                           ),
-                                                          child:
-                                                              CachedNetworkImage(
-                                                            fadeInDuration:
-                                                                Duration(
-                                                                    milliseconds:
-                                                                        0),
-                                                            fadeOutDuration:
-                                                                Duration(
-                                                                    milliseconds:
-                                                                        0),
-                                                            imageUrl: that_audio_player_oo85ab_app_state
+                                                          child: _buildMediaBanner(
+                                                        that_audio_player_oo85ab_app_state
                                                                     .FFAppState()
                                                                 .currentMediaMusicMeditations
                                                                 .elementAtOrNull(
                                                                     that_audio_player_oo85ab_app_state
                                                                             .FFAppState()
-                                                                        .currentMediaIndex)!
-                                                                .mediaBanner,
-                                                            fit: BoxFit.cover,
-                                                            alignment:
-                                                                Alignment(
-                                                                    0.0, 0.0),
-                                                          ),
+                                                                        .currentMediaIndex)?.mediaBanner,
+                                                      ),
                                                         ),
                                                       ),
                                                       Expanded(
@@ -5617,29 +5603,15 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                             shape: BoxShape
                                                                 .rectangle,
                                                           ),
-                                                          child:
-                                                              CachedNetworkImage(
-                                                            fadeInDuration:
-                                                                Duration(
-                                                                    milliseconds:
-                                                                        0),
-                                                            fadeOutDuration:
-                                                                Duration(
-                                                                    milliseconds:
-                                                                        0),
-                                                            imageUrl: that_audio_player_oo85ab_app_state
+                                                          child: _buildMediaBanner(
+                                                        that_audio_player_oo85ab_app_state
                                                                     .FFAppState()
                                                                 .currentMediaMusicMeditations
                                                                 .elementAtOrNull(
                                                                     that_audio_player_oo85ab_app_state
                                                                             .FFAppState()
-                                                                        .currentMediaIndex)!
-                                                                .mediaBanner,
-                                                            fit: BoxFit.cover,
-                                                            alignment:
-                                                                Alignment(
-                                                                    0.0, 0.0),
-                                                          ),
+                                                                        .currentMediaIndex)?.mediaBanner,
+                                                      ),
                                                         ),
                                                       ),
                                                       Expanded(

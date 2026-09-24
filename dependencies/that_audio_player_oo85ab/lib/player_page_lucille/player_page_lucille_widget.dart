@@ -103,6 +103,13 @@ class _PlayerPageLucilleWidgetState extends State<PlayerPageLucilleWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
+    final screenSize = MediaQuery.sizeOf(context);
+    final isCompactHeight = screenSize.height < 720.0;
+    final artworkSize = min(
+      screenSize.width - 48.0,
+      isCompactHeight ? screenSize.height * 0.34 : 300.0,
+    );
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -113,7 +120,7 @@ class _PlayerPageLucilleWidgetState extends State<PlayerPageLucilleWidget>
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Container(
           width: double.infinity,
-          height: 845.2,
+          height: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
@@ -129,13 +136,13 @@ class _PlayerPageLucilleWidgetState extends State<PlayerPageLucilleWidget>
                 child: Image.asset(
                   'packages/that_audio_player_oo85ab/assets/images/922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)_(2).gif',
                   width: double.infinity,
-                  height: 844.89,
+                  height: double.infinity,
                   fit: BoxFit.cover,
                 ),
               ),
               Container(
                 width: double.infinity,
-                height: 858.19,
+                height: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
@@ -157,7 +164,11 @@ class _PlayerPageLucilleWidgetState extends State<PlayerPageLucilleWidget>
                     ),
                     child: Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
-                          24.0, 45.0, 24.0, 24.0),
+                        24.0,
+                        isCompactHeight ? 20.0 : 45.0,
+                        24.0,
+                        isCompactHeight ? 16.0 : 24.0,
+                      ),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -166,7 +177,11 @@ class _PlayerPageLucilleWidgetState extends State<PlayerPageLucilleWidget>
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 15.0, 15.0, 0.0),
+                                15.0,
+                                isCompactHeight ? 4.0 : 15.0,
+                                15.0,
+                                0.0,
+                              ),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -253,16 +268,23 @@ class _PlayerPageLucilleWidgetState extends State<PlayerPageLucilleWidget>
                                 ],
                               ),
                             ),
-                            Hero(
-                              tag: 'backgroundGif',
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(32.0),
-                                child: Image.asset(
-                                  'packages/that_audio_player_oo85ab/assets/images/download_(26)_(1).gif',
-                                  width: double.infinity,
-                                  height: 300.0,
-                                  fit: BoxFit.cover,
+                            Align(
+                              alignment: AlignmentDirectional.center,
+                              child: SizedBox(
+                                width: artworkSize,
+                                height: artworkSize,
+                                child: Hero(
+                                  tag: 'backgroundGif',
+                                  transitionOnUserGestures: true,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(32.0),
+                                    child: Image.asset(
+                                      'packages/that_audio_player_oo85ab/assets/images/download_(26)_(1).gif',
+                                      width: artworkSize,
+                                      height: artworkSize,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ).animateOnPageLoad(
@@ -278,6 +300,7 @@ class _PlayerPageLucilleWidgetState extends State<PlayerPageLucilleWidget>
                                       'Title',
                                     ),
                                     maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(
@@ -310,6 +333,7 @@ class _PlayerPageLucilleWidgetState extends State<PlayerPageLucilleWidget>
                                       'Category',
                                     ),
                                     maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
@@ -634,7 +658,9 @@ class _PlayerPageLucilleWidgetState extends State<PlayerPageLucilleWidget>
                                 ),
                               ],
                             ),
-                          ].divide(SizedBox(height: 45.0)),
+                          ].divide(SizedBox(
+                            height: isCompactHeight ? 16.0 : 45.0,
+                          )),
                         ),
                       ),
                     ),
