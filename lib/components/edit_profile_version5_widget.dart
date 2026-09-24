@@ -193,8 +193,7 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                 .fontStyle,
                           ),
                     ),
-                    Expanded(
-                      flex: 1,
+                    SizedBox(
                       child: Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Container(
@@ -722,8 +721,7 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                     ),
                   ].divide(SizedBox(height: 16.0)),
                 ),
-                Flexible(
-                  flex: 1,
+                SizedBox(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -2747,8 +2745,7 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                     ),
                   ].divide(SizedBox(height: 16.0)),
                 ),
-                Flexible(
-                  flex: 1,
+                SizedBox(
                   child: Align(
                     alignment: AlignmentDirectional(0.0, -1.0),
                     child: FFButtonWidget(

@@ -48,6 +48,7 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
       alignment: AlignmentDirectional(1.0, 0.0),
       child: Container(
         width: 291.3,
+        height: MediaQuery.sizeOf(context).height,
         decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
@@ -65,7 +66,7 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
             ),
             child: Container(
               width: 100.0,
-              height: 894.09,
+              height: double.infinity,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
@@ -89,17 +90,15 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                     primary: false,
                     controller: _model.columnController,
                     child: Column(
-                      mainAxisSize: MainAxisSize.max,
+                      mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Flexible(
-                          flex: 1,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Padding(
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 70.0, 0.0),
                                 child: Text(
@@ -115,8 +114,8 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                         fontWeight: FontWeight.bold,
                                       ),
                                 ),
-                              ),
-                              FlutterFlowIconButton(
+                            ),
+                            FlutterFlowIconButton(
                                 borderRadius: 20.0,
                                 buttonSize: 40.0,
                                 fillColor: Color(0x5BFFFFFF),
@@ -134,14 +133,13 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                   logFirebaseEvent('IconButton_dismiss_dialog');
                                   Navigator.pop(context);
                                 },
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                         Align(
                           alignment: AlignmentDirectional(1.0, -1.0),
                           child: Container(
-                            width: 330.0,
+                            width: double.infinity,
                             decoration: BoxDecoration(
                               color: Color(0x6BC8A2C8),
                               borderRadius: BorderRadius.circular(16.0),
@@ -267,7 +265,7 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                 );
                               },
                               child: Container(
-                                width: 320.0,
+                                width: double.infinity,
                                 height: 100.0,
                                 decoration: BoxDecoration(
                                   color: Color(0x869B9BB0),
@@ -376,7 +374,7 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                               );
                             },
                             child: Container(
-                              width: 320.0,
+                              width: double.infinity,
                               height: 106.7,
                               decoration: BoxDecoration(
                                 color: Color(0x869B9BB0),
@@ -457,7 +455,7 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                 );
                               },
                               child: Container(
-                                width: 320.0,
+                                width: double.infinity,
                                 height: 100.0,
                                 decoration: BoxDecoration(
                                   color: Color(0x869B9BB0),
@@ -545,7 +543,7 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                   );
                                 },
                                 child: Container(
-                                  width: 320.0,
+                                  width: double.infinity,
                                   height: 100.0,
                                   decoration: BoxDecoration(
                                     color: Color(0x869B9BB0),
@@ -627,7 +625,7 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                 );
                               },
                               child: Container(
-                                width: 320.0,
+                                width: double.infinity,
                                 height: 100.0,
                                 decoration: BoxDecoration(
                                   color: Color(0x869B9BB0),
@@ -708,7 +706,7 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                 );
                               },
                               child: Container(
-                                width: 320.0,
+                                width: double.infinity,
                                 height: 100.0,
                                 decoration: BoxDecoration(
                                   color: Color(0x869B9BB0),

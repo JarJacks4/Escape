@@ -85,6 +85,52 @@ class _DashboardWidgetState extends State<DashboardWidget>
     Error.throwWithStackTrace(error, stackTrace);
   }
 
+  bool _isValidProfileImageUrl(String url) {
+    final uri = Uri.tryParse(url.trim());
+    return uri != null &&
+        (uri.scheme == 'http' || uri.scheme == 'https') &&
+        uri.host.isNotEmpty;
+  }
+
+  Widget _profileImageFallback({
+    required double width,
+    required double height,
+  }) {
+    return Container(
+      width: width,
+      height: height,
+      color: const Color(0x84D0E3F7),
+      alignment: Alignment.center,
+      child: Icon(
+        Icons.person_rounded,
+        color: FlutterFlowTheme.of(context).primary,
+        size: width * 0.45,
+      ),
+    );
+  }
+
+  Widget _buildProfileImage(
+    String imageUrl, {
+    required double width,
+    required double height,
+  }) {
+    if (!_isValidProfileImageUrl(imageUrl)) {
+      return _profileImageFallback(width: width, height: height);
+    }
+
+    return CachedNetworkImage(
+      fadeInDuration: const Duration(milliseconds: 700),
+      fadeOutDuration: const Duration(milliseconds: 700),
+      imageUrl: imageUrl,
+      width: width,
+      height: height,
+      fit: BoxFit.cover,
+      alignment: const Alignment(0.0, 0.0),
+      errorWidget: (context, error, stackTrace) =>
+          _profileImageFallback(width: width, height: height),
+    );
+  }
+
   @override
   void dispose() {
     _model.maybeDispose();
@@ -99,6 +145,13 @@ class _DashboardWidgetState extends State<DashboardWidget>
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
     context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
     context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
+
+    final isCompactLayout = MediaQuery.sizeOf(context).width < 390.0;
+    final profileImageUrl =
+        valueOrDefault<String>(_model.newProfilePicture, currentUserPhoto).trim();
+    final profileHeroTag = profileImageUrl.isNotEmpty
+        ? profileImageUrl
+        : 'dashboard-profile-photo';
 
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 14.0),
@@ -127,40 +180,40 @@ class _DashboardWidgetState extends State<DashboardWidget>
                           'DASHBOARD_arrow_back_outlined_ICN_ON_TAP');
                       logFirebaseEvent('IconButton_haptic_feedback');
                       HapticFeedback.heavyImpact();
-                      logFirebaseEvent('IconButton_bottom_sheet');
-                      await showModalBottomSheet(
-                        isScrollControlled: true,
-                        backgroundColor: Colors.transparent,
-                        context: context,
-                        builder: (context) {
-                          return WebViewAware(
-                            child: Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: EditProfileVersion5Widget(),
-                            ),
-                          );
-                        },
-                      ).then((value) => safeSetState(() {}));
+                      logFirebaseEvent('IconButton_navigate_back');
+                      context.safePop();
                     },
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 100.0, 0.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          dateTimeFormat(
-                            "MMMEd",
-                            getCurrentTimestamp,
-                            locale: FFLocalizations.of(context).languageCode,
-                          ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                font: GoogleFonts.inter(
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            dateTimeFormat(
+                              "MMMEd",
+                              getCurrentTimestamp,
+                              locale: FFLocalizations.of(context).languageCode,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  font: GoogleFonts.inter(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .fontWeight,
@@ -168,39 +221,34 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       .bodyMedium
                                       .fontStyle,
                                 ),
-                                color: FlutterFlowTheme.of(context).alternate,
-                                letterSpacing: 0.0,
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontStyle,
-                              ),
-                        ),
-                        AuthUserStreamWidget(
-                          builder: (context) => Text(
-                            'Hello, ${currentUserDisplayName}!',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  font: GoogleFonts.cormorantSc(
+                          ),
+                          AuthUserStreamWidget(
+                            builder: (context) => Text(
+                              'Hello, ${currentUserDisplayName}!',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.cormorantSc(
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    fontSize: 22.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  fontSize: 22.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
-                                ),
+                            ),
                           ),
-                        ),
-                      ].divide(SizedBox(height: 8.0)),
+                        ].divide(SizedBox(height: 8.0)),
+                      ),
                     ),
                   ),
                   Container(
@@ -240,7 +288,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                               _model.soundPlayer1!
                                   .setAsset(
                                       'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                                  .then<void>((_) => mounted ? _model.soundPlayer1!.play() : null, onError: _handleAudioError);
+                                  .then<void>(
+                                      (_) => mounted
+                                          ? _model.soundPlayer1!.play()
+                                          : null,
+                                      onError: _handleAudioError);
 
                               logFirebaseEvent('LottieAnimation_bottom_sheet');
                               await showModalBottomSheet(
@@ -317,8 +369,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                 ],
               ),
             ),
-            Flexible(
-              flex: 1,
+            SizedBox(
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 25.0, 16.0, 25.0),
                 child: Column(
@@ -362,29 +413,14 @@ class _DashboardWidgetState extends State<DashboardWidget>
                           Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Hero(
-                              tag: valueOrDefault<String>(
-                                  _model.newProfilePicture, currentUserPhoto),
+                              tag: profileHeroTag,
                               transitionOnUserGestures: true,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(100.0),
-                                child: CachedNetworkImage(
-                                  fadeInDuration: Duration(milliseconds: 700),
-                                  fadeOutDuration: Duration(milliseconds: 700),
-                                  imageUrl: valueOrDefault<String>(
-                                      _model.newProfilePicture,
-                                      currentUserPhoto),
+                                child: _buildProfileImage(
+                                  profileImageUrl,
                                   width: 117.6,
                                   height: 120.0,
-                                  fit: BoxFit.cover,
-                                  alignment: Alignment(0.0, 0.0),
-                                  errorWidget: (context, error, stackTrace) =>
-                                      Image.asset(
-                                    'assets/images/error_image.jpg',
-                                    width: 117.6,
-                                    height: 120.0,
-                                    fit: BoxFit.cover,
-                                    alignment: Alignment(0.0, 0.0),
-                                  ),
                                 ),
                               ),
                             ),
@@ -419,7 +455,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                   _model.soundPlayer2!
                                       .setAsset(
                                           'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                                      .then<void>((_) => mounted ? _model.soundPlayer2!.play() : null, onError: _handleAudioError);
+                                      .then<void>(
+                                          (_) => mounted
+                                              ? _model.soundPlayer2!.play()
+                                              : null,
+                                          onError: _handleAudioError);
 
                                   logFirebaseEvent(
                                       'IconButton_upload_media_to_firebase');
@@ -597,8 +637,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                 ),
               ),
             ),
-            Flexible(
-              flex: 1,
+            SizedBox(
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
                 child: FutureBuilder<ApiCallResponse>(
@@ -644,33 +683,36 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'seftrx1c' /* Escape Self-Care 
+                                  Expanded(
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'seftrx1c' /* Escape Self-Care
 Progress */
-                                      ,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.cormorantSc(
+                                        ,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: GoogleFonts.cormorantSc(
+                                              fontWeight: FontWeight.bold,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            fontSize: 22.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                             fontStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
                                                     .fontStyle,
                                           ),
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          fontSize: 22.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
+                                    ),
                                   ),
+                                  SizedBox(width: 8.0),
                                   AuthUserStreamWidget(
                                     builder: (context) => FFButtonWidget(
                                       onPressed: () {
@@ -732,12 +774,15 @@ Progress */
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 15.0, 0.0),
+                                        0.0,
+                                        0.0,
+                                        isCompactLayout ? 8.0 : 15.0,
+                                        0.0),
                                     child: CircularPercentIndicator(
                                       percent: FFAppState()
                                           .pointsEarnedPercentage
                                           .clamp(0.0, 1.0),
-                                      radius: 60.0,
+                                      radius: isCompactLayout ? 52.0 : 60.0,
                                       lineWidth: 8.0,
                                       animation: true,
                                       animateFromLastPercent: true,
@@ -778,12 +823,15 @@ Progress */
                                       startAngle: 45.0,
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        4.0, 12.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: 177.4,
-                                      height: 160.5,
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          isCompactLayout ? 0.0 : 4.0,
+                                          12.0,
+                                          0.0,
+                                          0.0),
+                                      child: Container(
+                                        height: 160.5,
                                       decoration: BoxDecoration(),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -991,6 +1039,7 @@ Progress */
                                       ),
                                     ),
                                   ),
+                                ),
                                 ],
                               ),
                             ),
@@ -1008,49 +1057,53 @@ Progress */
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  AuthUserStreamWidget(
-                    builder: (context) => wrapWithModel(
-                      model: _model.metricCardModel,
+                  Expanded(
+                    child: AuthUserStreamWidget(
+                      builder: (context) => wrapWithModel(
+                        model: _model.metricCardModel,
+                        updateCallback: () => safeSetState(() {}),
+                        updateOnChange: true,
+                        child: MetricCardWidget(
+                          isPositive: FFAppState().pointsEarnedPercentage,
+                          icon: Icon(
+                            FFIcons.kemojiSmileyHappyFace,
+                            color: FlutterFlowTheme.of(context).primary,
+                            size: 36.0,
+                          ),
+                          text: 'Current Mood',
+                          text2: valueOrDefault(
+                              currentUserDocument?.currentMood, ''),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10.0),
+                  Expanded(
+                    child: wrapWithModel(
+                      model: _model.avgSleepCardModel,
                       updateCallback: () => safeSetState(() {}),
                       updateOnChange: true,
                       child: MetricCardWidget(
-                        isPositive: FFAppState().pointsEarnedPercentage,
+                        isPositive: utility_functions_library_8g4bud_functions
+                            .calculatePercentage(FFAppState().energyScore,
+                                FFAppState().pointsEarned),
                         icon: Icon(
-                          FFIcons.kemojiSmileyHappyFace,
+                          Icons.spa,
                           color: FlutterFlowTheme.of(context).primary,
                           size: 36.0,
                         ),
-                        text: 'Current Mood',
-                        text2: valueOrDefault(
-                            currentUserDocument?.currentMood, ''),
+                        text: 'Energy Level',
+                        text2: valueOrDefault<String>(
+                          FFAppState().energyLevel,
+                          'Energy Level',
+                        ),
                       ),
                     ),
                   ),
-                  wrapWithModel(
-                    model: _model.avgSleepCardModel,
-                    updateCallback: () => safeSetState(() {}),
-                    updateOnChange: true,
-                    child: MetricCardWidget(
-                      isPositive: utility_functions_library_8g4bud_functions
-                          .calculatePercentage(FFAppState().energyScore,
-                              FFAppState().pointsEarned),
-                      icon: Icon(
-                        Icons.spa,
-                        color: FlutterFlowTheme.of(context).primary,
-                        size: 36.0,
-                      ),
-                      text: 'Energy Level',
-                      text2: valueOrDefault<String>(
-                        FFAppState().energyLevel,
-                        'Energy Level',
-                      ),
-                    ),
-                  ),
-                ].divide(SizedBox(width: 5.0)).around(SizedBox(width: 5.0)),
+                ],
               ),
             ),
-            Flexible(
-              flex: 1,
+            SizedBox(
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                 child: SingleChildScrollView(
@@ -1149,18 +1202,21 @@ Progress */
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
+                                                Expanded(
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment.start,
+                                                    children: [
                                                     Text(
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
                                                         '0ah1y063' /* Journey Progress */,
                                                       ),
+                                                      maxLines: 1,
+                                                      overflow: TextOverflow.ellipsis,
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1196,6 +1252,8 @@ Progress */
                                                           .getText(
                                                         'dw64tfw0' /* Keep nurturing your growth */,
                                                       ),
+                                                      maxLines: 1,
+                                                      overflow: TextOverflow.ellipsis,
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1228,12 +1286,14 @@ Progress */
                                                                     .fontStyle,
                                                               ),
                                                     ),
-                                                  ].divide(
-                                                      SizedBox(height: 4.0)),
+                                                    ].divide(
+                                                        SizedBox(height: 4.0)),
+                                                  ),
                                                 ),
+                                                SizedBox(width: 8.0),
                                                 Row(
                                                   mainAxisSize:
-                                                      MainAxisSize.max,
+                                                      MainAxisSize.min,
                                                   children: [
                                                     AnimatedDefaultTextStyle(
                                                       style:
@@ -1304,19 +1364,15 @@ Progress */
                                                 borderRadius:
                                                     BorderRadius.circular(4.0),
                                               ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    -1.0, 0.0),
-                                                child: LinearPercentIndicator(
+                                              child: LayoutBuilder(
+                                                builder: (context, constraints) =>
+                                                    LinearPercentIndicator(
                                                   percent: (valueOrDefault(
                                                     FFAppState()
                                                         .pointsEarnedPercentage,
                                                     0.0,
                                                   )).clamp(0.0, 1.0),
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          0.78,
+                                                  width: constraints.maxWidth,
                                                   lineHeight: 30.0,
                                                   animation: true,
                                                   animateFromLastPercent: true,
@@ -1441,6 +1497,8 @@ Progress */
 This Week */
                                                             ,
                                                           ),
+                                                          maxLines: 2,
+                                                          overflow: TextOverflow.ellipsis,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .titleMedium
@@ -1475,6 +1533,8 @@ This Week */
                                                               .getText(
                                                             '91babdvu' /* Number of Escape Coins Earned ... */,
                                                           ),
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow.ellipsis,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodySmall
@@ -1517,7 +1577,7 @@ This Week */
                                                                 5.0, 0.0),
                                                     child: Row(
                                                       mainAxisSize:
-                                                          MainAxisSize.max,
+                                                          MainAxisSize.min,
                                                       children: [
                                                         AnimatedDefaultTextStyle(
                                                           style: FlutterFlowTheme
@@ -1596,17 +1656,16 @@ This Week */
                 ),
               ),
             ),
-            Flexible(
-              flex: 1,
+            SizedBox(
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      width: 162.4,
-                      height: 64.7,
+                    Expanded(
+                      child: Container(
+                        height: 64.7,
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
@@ -1637,7 +1696,11 @@ This Week */
                           _model.soundPlayer3!
                               .setAsset(
                                   'assets/audios/ES_Game_Over,_Defeat,_Loss,_Negative,_Notification_01_-_Epidemic_Sound.mp3')
-                              .then<void>((_) => mounted ? _model.soundPlayer3!.play() : null, onError: _handleAudioError);
+                              .then<void>(
+                                  (_) => mounted
+                                      ? _model.soundPlayer3!.play()
+                                      : null,
+                                  onError: _handleAudioError);
 
                           logFirebaseEvent('Button_bottom_sheet');
                           await showModalBottomSheet(
@@ -1694,9 +1757,10 @@ This Week */
                         ),
                       ),
                     ),
-                    Container(
-                      width: 180.0,
-                      height: 60.0,
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: 60.0,
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
@@ -1726,7 +1790,11 @@ This Week */
                           _model.soundPlayer4!
                               .setAsset(
                                   'assets/audios/ES_Game_Over,_Defeat,_Loss,_Negative,_Notification_01_-_Epidemic_Sound.mp3')
-                              .then<void>((_) => mounted ? _model.soundPlayer4!.play() : null, onError: _handleAudioError);
+                              .then<void>(
+                                  (_) => mounted
+                                      ? _model.soundPlayer4!.play()
+                                      : null,
+                                  onError: _handleAudioError);
 
                           logFirebaseEvent('Button_auth');
                           GoRouter.of(context).prepareAuthEvent();
@@ -1777,18 +1845,18 @@ This Week */
                         ),
                       ),
                     ),
+                    ),
                   ].divide(SizedBox(width: 16.0)),
                 ),
               ),
             ),
-            Flexible(
-              flex: 1,
+            SizedBox(
               child: Align(
                 alignment: AlignmentDirectional(0.0, 1.0),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 25.0),
                   child: Hero(
-                    tag: 'logo',
+                    tag: 'profileLogo',
                     transitionOnUserGestures: true,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),

@@ -50,7 +50,7 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 182.0,
+        width: double.infinity,
         height: 180.75,
         decoration: BoxDecoration(
           color: Color(0x428EA7E9),
@@ -134,6 +134,8 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                         widget.text2,
                         'Calm',
                       ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             font: GoogleFonts.inter(
                               fontWeight: FontWeight.w500,

@@ -162,6 +162,41 @@ class _SideNavWidgetState extends State<SideNavWidget>
     });
   }
 
+  bool _isValidProfilePhotoUrl(String url) {
+    final uri = Uri.tryParse(url.trim());
+    return uri != null &&
+        (uri.scheme == 'http' || uri.scheme == 'https') &&
+        uri.host.isNotEmpty;
+  }
+
+  Widget _profilePhotoFallback() {
+    return Container(
+      color: const Color(0x84D0E3F7),
+      alignment: Alignment.center,
+      child: Icon(
+        Icons.person_rounded,
+        color: FlutterFlowTheme.of(context).primary,
+        size: 28.0,
+      ),
+    );
+  }
+
+  Widget _buildProfilePhoto(String imageUrl) {
+    if (!_isValidProfilePhotoUrl(imageUrl)) {
+      return _profilePhotoFallback();
+    }
+
+    return CachedNetworkImage(
+      fadeInDuration: const Duration(milliseconds: 500),
+      fadeOutDuration: const Duration(milliseconds: 500),
+      imageUrl: imageUrl,
+      width: double.infinity,
+      height: 44.0,
+      fit: BoxFit.cover,
+      errorWidget: (context, error, stackTrace) => _profilePhotoFallback(),
+    );
+  }
+
   @override
   void dispose() {
     _model.maybeDispose();
@@ -176,6 +211,11 @@ class _SideNavWidgetState extends State<SideNavWidget>
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
     context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
     context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
+
+    final profilePhotoUrl = currentUserPhoto.trim();
+    final profileHeroTag = _isValidProfilePhotoUrl(profilePhotoUrl)
+        ? profilePhotoUrl
+        : 'side-nav-profile-photo';
 
     return Visibility(
       visible: responsiveVisibility(
@@ -243,9 +283,9 @@ class _SideNavWidgetState extends State<SideNavWidget>
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 16.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          child: ListView(
+                            primary: false,
+                            padding: EdgeInsets.zero,
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -262,8 +302,10 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                         child: Image.asset(
                                           'assets/images/ESCAPE_Logo_Clear.png',
                                           width: 246.8,
-                                          height: 237.0,
-                                          fit: BoxFit.cover,
+                                          height: MediaQuery.sizeOf(context).height < 700.0
+                                              ? 170.0
+                                              : 237.0,
+                                          fit: BoxFit.contain,
                                         ),
                                       ).animateOnPageLoad(animationsMap[
                                           'imageOnPageLoadAnimation']!),
@@ -1055,7 +1097,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                   ),
                                 ),
                               ),
-                              Expanded(
+                              Container(
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 16.0, 16.0),
@@ -1088,8 +1130,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    Expanded(
-                                                      flex: 1,
+                                                    Container(
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -1125,7 +1166,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                                                   (context) =>
                                                                       Hero(
                                                                 tag:
-                                                                    currentUserPhoto,
+                                                                    profileHeroTag,
                                                                 transitionOnUserGestures:
                                                                     true,
                                                                 child:
@@ -1135,23 +1176,8 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                                                           .circular(
                                                                               8.0),
                                                                   child:
-                                                                      CachedNetworkImage(
-                                                                    fadeInDuration:
-                                                                        Duration(
-                                                                            milliseconds:
-                                                                                500),
-                                                                    fadeOutDuration:
-                                                                        Duration(
-                                                                            milliseconds:
-                                                                                500),
-                                                                    imageUrl:
-                                                                        currentUserPhoto,
-                                                                    width: double
-                                                                        .infinity,
-                                                                    height:
-                                                                        44.0,
-                                                                    fit: BoxFit
-                                                                        .cover,
+                                                                      _buildProfilePhoto(
+                                                                    profilePhotoUrl,
                                                                   ),
                                                                 ),
                                                               ),

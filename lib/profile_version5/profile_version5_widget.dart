@@ -130,8 +130,7 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Flexible(
-                                  flex: 1,
+                                SizedBox(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 55.0, 16.0, 0.0),
@@ -202,8 +201,7 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                     ),
                                   ),
                                 ),
-                                Flexible(
-                                  flex: 1,
+                                SizedBox(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 16.0, 0.0),
@@ -543,8 +541,7 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                     ),
                                   ),
                                 ),
-                                Flexible(
-                                  flex: 1,
+                                SizedBox(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 16.0, 0.0),
@@ -949,8 +946,7 @@ This Week */
                                     ),
                                   ),
                                 ),
-                                Flexible(
-                                  flex: 1,
+                                SizedBox(
                                   child: Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
@@ -1054,8 +1050,7 @@ This Week */
                                     ),
                                   ),
                                 ),
-                                Flexible(
-                                  flex: 1,
+                                SizedBox(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 16.0, 0.0),
@@ -1186,8 +1181,7 @@ This Week */
                                     ),
                                   ),
                                 ),
-                                Flexible(
-                                  flex: 1,
+                                SizedBox(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 25.0, 0.0, 0.0),
@@ -1400,8 +1394,7 @@ This Week */
                                     ),
                                   ),
                                 ),
-                                Flexible(
-                                  flex: 1,
+                                SizedBox(
                                   child: Align(
                                     alignment: AlignmentDirectional(0.0, 1.0),
                                     child: Padding(

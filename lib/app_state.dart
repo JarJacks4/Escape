@@ -598,8 +598,7 @@ class FFAppState extends ChangeNotifier {
     _numberOfGoalsCompleted = value;
   }
 
-  UserProfileStruct _UserProfile = UserProfileStruct.fromSerializableMap(jsonDecode(
-      '{\"username\":\"/Users/display_name\",\"ProfilePicture\":\"/Users/photo_url\"}'));
+  UserProfileStruct _UserProfile = UserProfileStruct();
   UserProfileStruct get UserProfile => _UserProfile;
   set UserProfile(UserProfileStruct value) {
     _UserProfile = value;
