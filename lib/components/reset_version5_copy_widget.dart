@@ -316,7 +316,7 @@ class _ResetVersion5CopyWidgetState extends State<ResetVersion5CopyWidget>
                                   child: SingleChildScrollView(
                                     controller: _model.columnController1,
                                     child: Column(
-                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Flexible(
                                           flex: 1,
@@ -2372,7 +2372,7 @@ melt away... */
                                   primary: false,
                                   controller: _model.columnController2,
                                   child: Column(
-                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Flexible(
                                         flex: 1,
@@ -4191,7 +4191,7 @@ fire o... */
                                   primary: false,
                                   controller: _model.columnController4,
                                   child: Column(
-                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Flexible(
                                         flex: 1,
@@ -6270,7 +6270,7 @@ co... */
                                   primary: false,
                                   controller: _model.columnController6,
                                   child: Column(
-                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Flexible(
                                         flex: 1,

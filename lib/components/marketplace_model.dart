@@ -20,14 +20,10 @@ class MarketplaceModel extends FlutterFlowModel<MarketplaceWidget> {
   int get tabBarPreviousIndex =>
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
-  // State field(s) for Column widget.
-  ScrollController? columnController2;
-
   @override
   void initState(BuildContext context) {
     columnController1 = ScrollController();
     rowController = ScrollController();
-    columnController2 = ScrollController();
   }
 
   @override
@@ -38,6 +34,5 @@ class MarketplaceModel extends FlutterFlowModel<MarketplaceWidget> {
 
     rowController?.dispose();
     tabBarController?.dispose();
-    columnController2?.dispose();
   }
 }

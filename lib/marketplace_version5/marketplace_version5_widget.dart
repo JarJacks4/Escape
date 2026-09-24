@@ -51,11 +51,9 @@ class _MarketplaceVersion5WidgetState extends State<MarketplaceVersion5Widget> {
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Flexible(
-              flex: 1,
+            Expanded(
               child: Container(
                 width: double.infinity,
-                height: 920.8,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,

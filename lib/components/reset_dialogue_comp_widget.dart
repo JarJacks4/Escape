@@ -68,7 +68,9 @@ class _ResetDialogueCompWidgetState extends State<ResetDialogueCompWidget>
       child: Padding(
         padding: EdgeInsets.all(15.0),
         child: Container(
-          height: 600.0,
+          height: (MediaQuery.sizeOf(context).height - 30.0)
+              .clamp(0.0, 600.0)
+              .toDouble(),
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -87,11 +89,11 @@ class _ResetDialogueCompWidgetState extends State<ResetDialogueCompWidget>
             alignment: AlignmentDirectional(0.0, 0.0),
             child: Container(
               width: double.infinity,
-              height: 480.4,
+              height: double.infinity,
               decoration: BoxDecoration(),
               child: Container(
                 width: double.infinity,
-                height: 500.0,
+                height: double.infinity,
                 child: Stack(
                   children: [
                     Padding(
@@ -105,12 +107,10 @@ class _ResetDialogueCompWidgetState extends State<ResetDialogueCompWidget>
                           Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Flexible(
-                                flex: 1,
+                              Expanded(
                                 child: Container(
                                   width: double.infinity,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.497,
+                                  height: double.infinity,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       fit: BoxFit.cover,
@@ -376,12 +376,10 @@ class _ResetDialogueCompWidgetState extends State<ResetDialogueCompWidget>
                           Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Flexible(
-                                flex: 1,
+                              Expanded(
                                 child: Container(
                                   width: double.infinity,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.546,
+                                  height: double.infinity,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       fit: BoxFit.cover,
@@ -728,14 +726,12 @@ class _ResetDialogueCompWidgetState extends State<ResetDialogueCompWidget>
                           Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Flexible(
-                                flex: 1,
+                              Expanded(
                                 child: Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Container(
                                     width: double.infinity,
-                                    height: MediaQuery.sizeOf(context).height *
-                                        0.541,
+                                    height: double.infinity,
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         fit: BoxFit.cover,
@@ -1094,12 +1090,10 @@ class _ResetDialogueCompWidgetState extends State<ResetDialogueCompWidget>
                           Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Flexible(
-                                flex: 1,
+                              Expanded(
                                 child: Container(
                                   width: double.infinity,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.518,
+                                  height: double.infinity,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       fit: BoxFit.cover,
@@ -1446,12 +1440,10 @@ class _ResetDialogueCompWidgetState extends State<ResetDialogueCompWidget>
                           Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Flexible(
-                                flex: 1,
+                              Expanded(
                                 child: Container(
                                   width: double.infinity,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.515,
+                                  height: double.infinity,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       fit: BoxFit.cover,
@@ -1798,12 +1790,10 @@ class _ResetDialogueCompWidgetState extends State<ResetDialogueCompWidget>
                           Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Flexible(
-                                flex: 1,
+                              Expanded(
                                 child: Container(
                                   width: double.infinity,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.518,
+                                  height: double.infinity,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       fit: BoxFit.cover,
@@ -2150,12 +2140,10 @@ class _ResetDialogueCompWidgetState extends State<ResetDialogueCompWidget>
                           Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Flexible(
-                                flex: 1,
+                              Expanded(
                                 child: Container(
                                   width: double.infinity,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.521,
+                                  height: double.infinity,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       fit: BoxFit.cover,

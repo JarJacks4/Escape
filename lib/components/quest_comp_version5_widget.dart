@@ -74,7 +74,7 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
         child: SingleChildScrollView(
           controller: _model.columnController,
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 25.0),

@@ -1321,14 +1321,12 @@ class _ExplorePageVersion5FINALWidgetState
             ),
           ),
         ),
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
+        body: SingleChildScrollView(
+          padding: EdgeInsets.only(bottom: 24.0),
           child: Stack(
             children: [
               Container(
                 width: double.infinity,
-                height: 874.09,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
@@ -1345,8 +1343,7 @@ class _ExplorePageVersion5FINALWidgetState
                       sigmaY: 20.0,
                     ),
                     child: Container(
-                      width: 100.0,
-                      height: 100.0,
+                      width: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
@@ -1360,7 +1357,7 @@ class _ExplorePageVersion5FINALWidgetState
                         ),
                       ),
                       child: Column(
-                        mainAxisSize: MainAxisSize.max,
+                        mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
@@ -1478,7 +1475,7 @@ class _ExplorePageVersion5FINALWidgetState
                                             alignment:
                                                 AlignmentDirectional(0.0, 0.0),
                                             child: Hero(
-                                              tag: 'logo',
+                                              tag: 'exploreHeaderLogo',
                                               transitionOnUserGestures: true,
                                               child: ClipRRect(
                                                 borderRadius:
@@ -2005,7 +2002,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                                                 },
                                                                                 child: Icon(
                                                                                   Icons.arrow_right_alt,
-                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                  color: Color(0xFFF0831A),
                                                                                   size: 24.0,
                                                                                 ),
                                                                               ),
@@ -2578,7 +2575,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                                                 },
                                                                                 child: Icon(
                                                                                   Icons.arrow_right_alt,
-                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                  color: Color(0xFFF0831A),
                                                                                   size: 24.0,
                                                                                 ),
                                                                               ),
@@ -3152,7 +3149,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                                                 ),
                                                                                 child: Icon(
                                                                                   Icons.arrow_right_alt,
-                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                  color: Color(0xFFF0831A),
                                                                                   size: 24.0,
                                                                                 ),
                                                                               ),
@@ -3725,7 +3722,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                                                 },
                                                                                 child: Icon(
                                                                                   Icons.arrow_right_alt,
-                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                  color: Color(0xFFF0831A),
                                                                                   size: 24.0,
                                                                                 ),
                                                                               ),
@@ -4298,7 +4295,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                                                 },
                                                                                 child: Icon(
                                                                                   Icons.arrow_right_alt,
-                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                  color: Color(0xFFF0831A),
                                                                                   size: 24.0,
                                                                                 ),
                                                                               ),
@@ -4873,7 +4870,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                                                 },
                                                                                 child: Icon(
                                                                                   Icons.arrow_right_alt,
-                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                  color: Color(0xFFF0831A),
                                                                                   size: 24.0,
                                                                                 ),
                                                                               ),
@@ -5446,7 +5443,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                                                 },
                                                                                 child: Icon(
                                                                                   Icons.arrow_right_alt,
-                                                                                  color: FlutterFlowTheme.of(context).accent1,
+                                                                                  color: Color(0xFFF0831A),
                                                                                   size: 24.0,
                                                                                 ),
                                                                               ),

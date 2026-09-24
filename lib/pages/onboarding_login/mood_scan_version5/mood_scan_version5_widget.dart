@@ -193,9 +193,8 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                   color: Colors.transparent,
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                child: ListView(
+                                  padding: EdgeInsets.zero,
                                   children: [
                                     Column(
                                       mainAxisSize: MainAxisSize.max,

@@ -43,11 +43,11 @@ class _MarketplaceComingSoonCompWidgetState
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 874.4,
+      height: double.infinity,
       decoration: BoxDecoration(),
       child: Container(
         width: double.infinity,
-        height: MediaQuery.sizeOf(context).height * 1.0,
+        height: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
@@ -88,14 +88,20 @@ class _MarketplaceComingSoonCompWidgetState
                   Align(
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                        0.0,
+                        MediaQuery.sizeOf(context).height < 750.0 ? 24.0 : 70.0,
+                        0.0,
+                        0.0,
+                      ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
                           'assets/images/ESCAPE_Logo_Clear.png',
                           width: 219.66,
-                          height: 324.4,
+                          height: MediaQuery.sizeOf(context).height < 750.0
+                              ? 180.0
+                              : 324.4,
                           fit: BoxFit.cover,
                           alignment: Alignment(0.0, 0.0),
                         ),
@@ -106,7 +112,9 @@ class _MarketplaceComingSoonCompWidgetState
                     alignment: AlignmentDirectional(-1.0, 1.0),
                     child: Container(
                       width: double.infinity,
-                      height: 451.6,
+                      height: MediaQuery.sizeOf(context).height < 750.0
+                          ? 380.0
+                          : 451.6,
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(

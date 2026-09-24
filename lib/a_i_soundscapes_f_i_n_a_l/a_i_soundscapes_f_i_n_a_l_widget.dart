@@ -712,8 +712,9 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                         controller: _model.tabBarController,
                         physics: NeverScrollableScrollPhysics(),
                         children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
+                          ListView(
+                            primary: false,
+                            padding: EdgeInsets.zero,
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -1701,8 +1702,9 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                               ),
                             ],
                           ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
+                          ListView(
+                            primary: false,
+                            padding: EdgeInsets.zero,
                             children: [
                               Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -2643,8 +2645,9 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                               ),
                             ],
                           ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
+                          ListView(
+                            primary: false,
+                            padding: EdgeInsets.zero,
                             children: [
                               Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -3679,8 +3682,9 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                               ),
                             ],
                           ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
+                          ListView(
+                            primary: false,
+                            padding: EdgeInsets.zero,
                             children: [
                               Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -4715,8 +4719,9 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                               ),
                             ],
                           ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
+                          ListView(
+                            primary: false,
+                            padding: EdgeInsets.zero,
                             children: [
                               Column(
                                 mainAxisSize: MainAxisSize.max,

@@ -32,7 +32,6 @@ class _QuestsPageWidgetState extends State<QuestsPageWidget> {
   @override
   void dispose() {
     _model.dispose();
-
     super.dispose();
   }
 
@@ -45,65 +44,56 @@ class _QuestsPageWidgetState extends State<QuestsPageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        body: Stack(
-          children: [
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: MediaQuery.sizeOf(context).height * 1.0,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: Image.asset(
-                        'assets/images/935fcf2608d9c428008d505d92c3a910.gif',
-                      ).image,
-                    ),
-                    gradient: LinearGradient(
-                      colors: [
-                        FlutterFlowTheme.of(context).primary,
-                        FlutterFlowTheme.of(context).secondary
-                      ],
-                      stops: [0.0, 1.0],
-                      begin: AlignmentDirectional(0.0, -1.0),
-                      end: AlignmentDirectional(0, 1.0),
-                    ),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(0.0),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(
-                        sigmaX: 20.0,
-                        sigmaY: 20.0,
-                      ),
-                      child: Container(
-                        width: 100.0,
-                        height: 100.0,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color(0x27EDF1F7),
-                              Color(0x42D0E3F7),
-                              Color(0xDAE7A42E)
-                            ],
-                            stops: [0.0, 0.5, 1.0],
-                            begin: AlignmentDirectional(1.0, -0.64),
-                            end: AlignmentDirectional(-1.0, 0.64),
-                          ),
-                        ),
-                        child: wrapWithModel(
-                          model: _model.questCompVersion5Model,
-                          updateCallback: () => safeSetState(() {}),
-                          child: QuestCompVersion5Widget(),
-                        ),
-                      ),
-                    ),
+        body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: Image.asset(
+                'assets/images/935fcf2608d9c428008d505d92c3a910.gif',
+              ).image,
+            ),
+            gradient: LinearGradient(
+              colors: [
+                FlutterFlowTheme.of(context).primary,
+                FlutterFlowTheme.of(context).secondary,
+              ],
+              stops: [0.0, 1.0],
+              begin: AlignmentDirectional(0.0, -1.0),
+              end: AlignmentDirectional(0.0, 1.0),
+            ),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(0.0),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(
+                sigmaX: 20.0,
+                sigmaY: 20.0,
+              ),
+              child: Container(
+                width: 100.0,
+                height: 100.0,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0x27EDF1F7),
+                      Color(0x42D0E3F7),
+                      Color(0xDAE7A42E),
+                    ],
+                    stops: [0.0, 0.5, 1.0],
+                    begin: AlignmentDirectional(1.0, -0.64),
+                    end: AlignmentDirectional(-1.0, 0.64),
                   ),
                 ),
-              ],
+                child: wrapWithModel(
+                  model: _model.questCompVersion5Model,
+                  updateCallback: () => safeSetState(() {}),
+                  child: QuestCompVersion5Widget(),
+                ),
+              ),
             ),
-          ],
+          ),
         ),
       ),
     );

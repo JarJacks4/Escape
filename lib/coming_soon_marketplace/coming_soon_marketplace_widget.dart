@@ -51,10 +51,12 @@ class _ComingSoonMarketplaceWidgetState
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            wrapWithModel(
-              model: _model.marketplaceComingSoonCompModel,
-              updateCallback: () => safeSetState(() {}),
-              child: MarketplaceComingSoonCompWidget(),
+            Expanded(
+              child: wrapWithModel(
+                model: _model.marketplaceComingSoonCompModel,
+                updateCallback: () => safeSetState(() {}),
+                child: MarketplaceComingSoonCompWidget(),
+              ),
             ),
           ],
         ),

@@ -502,6 +502,7 @@ class _RelaxSoundscapeDetailsWidgetState
                       ),
                       SingleChildScrollView(
                         controller: _model.columnController2,
+                        physics: const NeverScrollableScrollPhysics(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -546,6 +547,8 @@ class _RelaxSoundscapeDetailsWidgetState
 
                                 return ListView.separated(
                                   padding: EdgeInsets.zero,
+                                  primary: false,
+                                  physics: const NeverScrollableScrollPhysics(),
                                   shrinkWrap: true,
                                   scrollDirection: Axis.vertical,
                                   itemCount: recommendedMusic.length,

@@ -56,7 +56,7 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget>
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: MediaQuery.sizeOf(context).height * 1.0,
+      height: double.infinity,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
@@ -77,8 +77,7 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget>
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Flexible(
-                  flex: 1,
+                Container(
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
@@ -386,16 +385,14 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget>
                     ),
                   ].divide(SizedBox(width: 4.0)),
                 ),
-                Flexible(
-                  flex: 1,
+                Container(
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     controller: _model.rowController,
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Flexible(
-                          flex: 1,
+                        Container(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -723,7 +720,7 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget>
                                                       Radius.circular(16.0),
                                                 ),
                                                 child: Image.asset(
-                                                  'assets/images/Untitled_design_(1).gif',
+                                                  'assets/images/e3bedab340c6acae47e0f98a0b163900.gif',
                                                   width: 183.5,
                                                   height: 120.0,
                                                   fit: BoxFit.cover,
@@ -2236,7 +2233,7 @@ Final Order */
                             ),
                             SingleChildScrollView(
                               primary: false,
-                              controller: _model.columnController2,
+                              physics: const NeverScrollableScrollPhysics(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
