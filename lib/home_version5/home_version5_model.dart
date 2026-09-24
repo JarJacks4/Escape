@@ -47,6 +47,19 @@ class HomeVersion5Model extends FlutterFlowModel<HomeVersion5Widget> {
 
   @override
   void dispose() {
+    soundPlayer1?.dispose();
+    soundPlayer2?.dispose();
+    soundPlayer3?.dispose();
+    soundPlayer4?.dispose();
+    soundPlayer5?.dispose();
+    soundPlayer6?.dispose();
+    soundPlayer7?.dispose();
+    soundPlayer8?.dispose();
+    soundPlayer9?.dispose();
+    soundPlayer10?.dispose();
+    soundPlayer11?.dispose();
+    soundPlayer12?.dispose();
+    soundPlayer13?.dispose();
     sideNavModel.dispose();
     columnController?.dispose();
     listViewController?.dispose();

@@ -74,11 +74,12 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
       if (_model.soundPlayer1!.playing) {
         await _model.soundPlayer1!.stop();
       }
+      if (!mounted) return;
       _model.soundPlayer1!.setVolume(0.86);
       _model.soundPlayer1!
           .setAsset(
               'assets/audios/lucadialessandro-calm-ambient-intro-490646.mp3')
-          .then((_) => _model.soundPlayer1!.play());
+          .then<void>((_) => mounted ? _model.soundPlayer1!.play() : null, onError: _handleAudioError);
 
       logFirebaseEvent('HomeVersion5_backend_call');
       _model.usersCompleteProfile4 =
@@ -326,6 +327,12 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
     });
   }
 
+  void _handleAudioError(Object error, StackTrace stackTrace) {
+    // Disposing a player can interrupt an in-flight asset load.
+    if (!mounted && error is PlayerInterruptedException) return;
+    Error.throwWithStackTrace(error, stackTrace);
+  }
+
   @override
   void dispose() {
     _model.dispose();
@@ -553,9 +560,9 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             if (_model.soundPlayer2!.playing) {
                                                                               await _model.soundPlayer2!.stop();
                                                                             }
+                                                                            if (!mounted) return;
                                                                             _model.soundPlayer2!.setVolume(0.62);
-                                                                            _model.soundPlayer2!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) =>
-                                                                                _model.soundPlayer2!.play());
+                                                                            _model.soundPlayer2!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then<void>((_) => mounted ? _model.soundPlayer2!.play() : null, onError: _handleAudioError);
 
                                                                             logFirebaseEvent('Icon_bottom_sheet');
                                                                             await showModalBottomSheet(
@@ -666,8 +673,9 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                 if (_model.soundPlayer3!.playing) {
                                                                                   await _model.soundPlayer3!.stop();
                                                                                 }
+                                                                                if (!mounted) return;
                                                                                 _model.soundPlayer3!.setVolume(0.67);
-                                                                                _model.soundPlayer3!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer3!.play());
+                                                                                _model.soundPlayer3!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then<void>((_) => mounted ? _model.soundPlayer3!.play() : null, onError: _handleAudioError);
 
                                                                                 logFirebaseEvent('LottieAnimation_bottom_sheet');
                                                                                 await showModalBottomSheet(
@@ -896,8 +904,9 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                     if (_model.soundPlayer4!.playing) {
                                                                                       await _model.soundPlayer4!.stop();
                                                                                     }
+                                                                                    if (!mounted) return;
                                                                                     _model.soundPlayer4!.setVolume(1.0);
-                                                                                    _model.soundPlayer4!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav').then((_) => _model.soundPlayer4!.play());
+                                                                                    _model.soundPlayer4!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav').then<void>((_) => mounted ? _model.soundPlayer4!.play() : null, onError: _handleAudioError);
                                                                                                                                                                     },
                                                                                   child: Material(
                                                                                     color: Colors.transparent,
@@ -1069,8 +1078,9 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                 if (_model.soundPlayer5!.playing) {
                                                                                                   await _model.soundPlayer5!.stop();
                                                                                                 }
+                                                                                                if (!mounted) return;
                                                                                                 _model.soundPlayer5!.setVolume(1.0);
-                                                                                                _model.soundPlayer5!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav').then((_) => _model.soundPlayer5!.play());
+                                                                                                _model.soundPlayer5!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav').then<void>((_) => mounted ? _model.soundPlayer5!.play() : null, onError: _handleAudioError);
 
                                                                                                 logFirebaseEvent('Button_navigate_to');
 
@@ -1256,8 +1266,9 @@ Further ... */
                                                                                             if (_model.soundPlayer6!.playing) {
                                                                                               await _model.soundPlayer6!.stop();
                                                                                             }
+                                                                                            if (!mounted) return;
                                                                                             _model.soundPlayer6!.setVolume(1.0);
-                                                                                            _model.soundPlayer6!.setAsset('assets/audios/ES_Notification,_Attention,_Text,_Reveal,_Positive_01_-_Epidemic_Sound_-_2170-2760.wav').then((_) => _model.soundPlayer6!.play());
+                                                                                            _model.soundPlayer6!.setAsset('assets/audios/ES_Notification,_Attention,_Text,_Reveal,_Positive_01_-_Epidemic_Sound_-_2170-2760.wav').then<void>((_) => mounted ? _model.soundPlayer6!.play() : null, onError: _handleAudioError);
 
                                                                                             logFirebaseEvent('Button_navigate_to');
 
@@ -1357,8 +1368,9 @@ Further ... */
                                                                                 if (_model.soundPlayer7!.playing) {
                                                                                   await _model.soundPlayer7!.stop();
                                                                                 }
+                                                                                if (!mounted) return;
                                                                                 _model.soundPlayer7!.setVolume(1.0);
-                                                                                _model.soundPlayer7!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer7!.play());
+                                                                                _model.soundPlayer7!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then<void>((_) => mounted ? _model.soundPlayer7!.play() : null, onError: _handleAudioError);
 
                                                                                 logFirebaseEvent('Container_navigate_to');
 
@@ -1443,8 +1455,9 @@ Further ... */
                                                                                 if (_model.soundPlayer8!.playing) {
                                                                                   await _model.soundPlayer8!.stop();
                                                                                 }
+                                                                                if (!mounted) return;
                                                                                 _model.soundPlayer8!.setVolume(1.0);
-                                                                                _model.soundPlayer8!.setAsset('assets/audios/ES_Notification,_Attention,_Text,_Reveal,_Positive_01_-_Epidemic_Sound_-_2170-2760.wav').then((_) => _model.soundPlayer8!.play());
+                                                                                _model.soundPlayer8!.setAsset('assets/audios/ES_Notification,_Attention,_Text,_Reveal,_Positive_01_-_Epidemic_Sound_-_2170-2760.wav').then<void>((_) => mounted ? _model.soundPlayer8!.play() : null, onError: _handleAudioError);
 
                                                                                 logFirebaseEvent('Container_navigate_to');
 
@@ -1529,8 +1542,9 @@ Further ... */
                                                                                 if (_model.soundPlayer9!.playing) {
                                                                                   await _model.soundPlayer9!.stop();
                                                                                 }
+                                                                                if (!mounted) return;
                                                                                 _model.soundPlayer9!.setVolume(1.0);
-                                                                                _model.soundPlayer9!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) => _model.soundPlayer9!.play());
+                                                                                _model.soundPlayer9!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then<void>((_) => mounted ? _model.soundPlayer9!.play() : null, onError: _handleAudioError);
 
                                                                                 logFirebaseEvent('Container_navigate_to');
 
@@ -1621,8 +1635,9 @@ Further ... */
                                                                                 if (_model.soundPlayer10!.playing) {
                                                                                   await _model.soundPlayer10!.stop();
                                                                                 }
+                                                                                if (!mounted) return;
                                                                                 _model.soundPlayer10!.setVolume(1.0);
-                                                                                _model.soundPlayer10!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) => _model.soundPlayer10!.play());
+                                                                                _model.soundPlayer10!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then<void>((_) => mounted ? _model.soundPlayer10!.play() : null, onError: _handleAudioError);
 
                                                                                 logFirebaseEvent('Container_navigate_to');
 
@@ -1707,8 +1722,9 @@ Further ... */
                                                                                 if (_model.soundPlayer11!.playing) {
                                                                                   await _model.soundPlayer11!.stop();
                                                                                 }
+                                                                                if (!mounted) return;
                                                                                 _model.soundPlayer11!.setVolume(1.0);
-                                                                                _model.soundPlayer11!.setAsset('assets/audios/ES_Ding,_Complex,_Shine_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer11!.play());
+                                                                                _model.soundPlayer11!.setAsset('assets/audios/ES_Ding,_Complex,_Shine_-_Epidemic_Sound.mp3').then<void>((_) => mounted ? _model.soundPlayer11!.play() : null, onError: _handleAudioError);
 
                                                                                 logFirebaseEvent('Container_navigate_to');
 
@@ -1944,8 +1960,9 @@ Further ... */
                                                                                     if (_model.soundPlayer12!.playing) {
                                                                                       await _model.soundPlayer12!.stop();
                                                                                     }
+                                                                                    if (!mounted) return;
                                                                                     _model.soundPlayer12!.setVolume(1.0);
-                                                                                    _model.soundPlayer12!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer12!.play());
+                                                                                    _model.soundPlayer12!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then<void>((_) => mounted ? _model.soundPlayer12!.play() : null, onError: _handleAudioError);
 
                                                                                     logFirebaseEvent('Button_navigate_to');
 
@@ -2148,8 +2165,9 @@ Further ... */
                                                                                             if (_model.soundPlayer13!.playing) {
                                                                                               await _model.soundPlayer13!.stop();
                                                                                             }
+                                                                                            if (!mounted) return;
                                                                                             _model.soundPlayer13!.setVolume(0.62);
-                                                                                            _model.soundPlayer13!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer13!.play());
+                                                                                            _model.soundPlayer13!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then<void>((_) => mounted ? _model.soundPlayer13!.play() : null, onError: _handleAudioError);
 
                                                                                             logFirebaseEvent('Button_navigate_to');
 

@@ -39,6 +39,10 @@ class DashboardModel extends FlutterFlowModel<DashboardWidget> {
 
   @override
   void dispose() {
+    soundPlayer1?.dispose();
+    soundPlayer2?.dispose();
+    soundPlayer3?.dispose();
+    soundPlayer4?.dispose();
     columnController1?.dispose();
     metricCardModel.dispose();
     avgSleepCardModel.dispose();

@@ -79,6 +79,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
     });
   }
 
+  void _handleAudioError(Object error, StackTrace stackTrace) {
+    // Disposing a player can interrupt an in-flight asset load.
+    if (!mounted && error is PlayerInterruptedException) return;
+    Error.throwWithStackTrace(error, stackTrace);
+  }
+
   @override
   void dispose() {
     _model.maybeDispose();
@@ -229,11 +235,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
                               if (_model.soundPlayer1!.playing) {
                                 await _model.soundPlayer1!.stop();
                               }
+                              if (!mounted) return;
                               _model.soundPlayer1!.setVolume(0.67);
                               _model.soundPlayer1!
                                   .setAsset(
                                       'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                                  .then((_) => _model.soundPlayer1!.play());
+                                  .then<void>((_) => mounted ? _model.soundPlayer1!.play() : null, onError: _handleAudioError);
 
                               logFirebaseEvent('LottieAnimation_bottom_sheet');
                               await showModalBottomSheet(
@@ -407,11 +414,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                   if (_model.soundPlayer2!.playing) {
                                     await _model.soundPlayer2!.stop();
                                   }
+                                  if (!mounted) return;
                                   _model.soundPlayer2!.setVolume(1.0);
                                   _model.soundPlayer2!
                                       .setAsset(
                                           'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                                      .then((_) => _model.soundPlayer2!.play());
+                                      .then<void>((_) => mounted ? _model.soundPlayer2!.play() : null, onError: _handleAudioError);
 
                                   logFirebaseEvent(
                                       'IconButton_upload_media_to_firebase');
@@ -1624,11 +1632,12 @@ This Week */
                           if (_model.soundPlayer3!.playing) {
                             await _model.soundPlayer3!.stop();
                           }
+                          if (!mounted) return;
                           _model.soundPlayer3!.setVolume(1.0);
                           _model.soundPlayer3!
                               .setAsset(
                                   'assets/audios/ES_Game_Over,_Defeat,_Loss,_Negative,_Notification_01_-_Epidemic_Sound.mp3')
-                              .then((_) => _model.soundPlayer3!.play());
+                              .then<void>((_) => mounted ? _model.soundPlayer3!.play() : null, onError: _handleAudioError);
 
                           logFirebaseEvent('Button_bottom_sheet');
                           await showModalBottomSheet(
@@ -1712,11 +1721,12 @@ This Week */
                           if (_model.soundPlayer4!.playing) {
                             await _model.soundPlayer4!.stop();
                           }
+                          if (!mounted) return;
                           _model.soundPlayer4!.setVolume(1.0);
                           _model.soundPlayer4!
                               .setAsset(
                                   'assets/audios/ES_Game_Over,_Defeat,_Loss,_Negative,_Notification_01_-_Epidemic_Sound.mp3')
-                              .then((_) => _model.soundPlayer4!.play());
+                              .then<void>((_) => mounted ? _model.soundPlayer4!.play() : null, onError: _handleAudioError);
 
                           logFirebaseEvent('Button_auth');
                           GoRouter.of(context).prepareAuthEvent();
