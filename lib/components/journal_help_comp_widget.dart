@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:cached_network_image/cached_network_image.dart';
@@ -990,7 +989,7 @@ class _JournalHelpCompWidgetState extends State<JournalHelpCompWidget>
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             logFirebaseEvent(
-                                                'JOURNAL_HELP_START_BASIC_BREATHING_BTN_O');
+                                                'JOURNAL_HELP_START_JOURNALING_BTN_ON_TAP');
                                             logFirebaseEvent(
                                                 'Button_haptic_feedback');
                                             HapticFeedback.lightImpact();
@@ -1009,15 +1008,12 @@ class _JournalHelpCompWidgetState extends State<JournalHelpCompWidget>
                                                     _model.soundPlayer!.play());
 
                                             logFirebaseEvent(
-                                                'Button_navigate_to');
-
-                                            context.pushNamed(
-                                                BasicBreathingGoalPageWidget
-                                                    .routeName);
+                                                'Button_bottom_sheet');
+                                            Navigator.pop(context);
                                           },
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            'm125veyk' /* Start Basic Breathing */,
+                                            'm125veyk' /* Start Journaling! */,
                                           ),
                                           options: FFButtonOptions(
                                             height: 40.0,

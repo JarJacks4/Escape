@@ -59876,7 +59876,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '最後一步，極度緩慢地呼氣，重複這些步驟，直到滿意為止！呼氣時，你應該感覺到一股暖流順著背部流淌，並伴隨著向上提升的感覺。\n\n請參閱本指南，了解如何冥想！',
     },
     'm125veyk': {
-      'en': 'Start Basic Breathing',
+      'en': 'Start Journaling!',
       'ar': 'نهاية البرنامج التعليمي',
       'de': 'Tutorial beenden',
       'es': 'Fin del tutorial',
@@ -60084,7 +60084,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '步驟 1',
     },
     'f0okjhv0': {
-      'en': 'Find Your Posture',
+      'en': 'Tell Us How You Feel',
       'ar': 'ابحث عن وضعيتك',
       'de': 'Finden Sie Ihre Haltung',
       'es': 'Encuentra tu postura',
@@ -60099,7 +60099,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ucv263f4': {
       'en':
-          'Once you find your peaceful space, take a seat with your back straight and lower back relaxed. Before moving into any meditation, posture is important when centering the breath and body.\n\nSwipe to Start!',
+          'Start by sharing your mood or what you need right now — calm, focus, sleep, or something else. This helps shape the soundscape that gets built just for you.\n\nSwipe to Start!',
       'ar':
           'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
       'de':
@@ -60138,7 +60138,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '第 2 步',
     },
     'fjnupb3q': {
-      'en': 'Breathe In Slowly For 3 Seconds',
+      'en': 'Let Lucille Curate Your Sound',
       'ar': 'تنفس ببطء لمدة 3 ثوان',
       'de': 'Atmen Sie 3 Sekunden lang langsam ein',
       'es': 'Respira lentamente durante 3 segundos',
@@ -60153,7 +60153,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'b271abrk': {
       'en':
-          'Now take the time to breathe in extremely slow for three slow seconds, bringing the mind and heart to a slower pace. When the heartbeat has slowed, the need to exhale arises. \n\nSwipe for the Next Step!',
+          'Based on what you shared, Lucille blends tones, textures, and ambience into a soundscape made for this exact moment — not a static playlist, but something that adapts to you.\n\nSwipe for the Next Step!',
       'ar':
           'الآن، خذ وقتك في التنفس ببطء شديد لمدة ثلاث ثوانٍ، مما يُبطئ نبضات قلبك وعقلك. عندما يهدأ نبض قلبك، تشعر بالحاجة إلى الزفير.\n\nمرر للخطوة التالية!',
       'de':
@@ -60190,7 +60190,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '步驟3',
     },
     'agulekqm': {
-      'en': 'Breathe Out Slowly for 7 Seconds',
+      'en': 'Press Play and Settle In',
       'ar': 'الزفير ببطء لمدة 7 ثوان',
       'de': 'Atme 7 Sekunden lang langsam aus',
       'es': 'Exhala lentamente durante 7 segundos',
@@ -60205,7 +60205,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '06mg75zg': {
       'en':
-          'For the final step, extremely slowly release your breath and repeat the steps until satisfied! When you exhale, you should feel a warm feeling go down your back with a rising feeling of uplift. \n\nRefer Back to this Guide for Help on How to Meditate!',
+          'Put on your headphones, dim the lights if you can, and let the soundscape carry you. You can adjust the volume, loop it as long as you need, or save it to revisit whenever this feeling comes back.\n\nYou\'re all set. Enjoy your soundscape.',
       'ar':
           'للخطوة الأخيرة، أطلق أنفاسك ببطء شديد وكرر الخطوات حتى تشعر بالرضا! عند الزفير، ستشعر بدفء يسري في ظهرك مع شعور متصاعد بالرفعة.\n\nارجع إلى هذا الدليل للحصول على مساعدة حول كيفية التأمل!',
       'de':
@@ -60230,7 +60230,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '最後一步，極度緩慢地呼氣，重複這些步驟，直到滿意為止！呼氣時，你應該感覺到一股暖流順著背部流淌，並伴隨著向上提升的感覺。\n\n請參閱本指南，了解如何冥想！',
     },
     'ep03ohwb': {
-      'en': 'Start Basic Breathing',
+      'en': 'Start Listening Now',
       'ar': 'نهاية البرنامج التعليمي',
       'de': 'Tutorial beenden',
       'es': 'Fin del tutorial',

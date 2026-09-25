@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -1245,11 +1244,8 @@ class _MoodScanHelpCompWidgetState extends State<MoodScanHelpCompWidget>
                                                         .play());
 
                                                 logFirebaseEvent(
-                                                    'Button_navigate_to');
-
-                                                context.pushNamed(
-                                                    BasicBreathingGoalPageWidget
-                                                        .routeName);
+                                                    'Button_bottom_sheet');
+                                                Navigator.pop(context);
                                               },
                                               text: FFLocalizations.of(context)
                                                   .getText(
@@ -1339,8 +1335,8 @@ class _MoodScanHelpCompWidgetState extends State<MoodScanHelpCompWidget>
                         radius: 40.0,
                         dotWidth: 10.0,
                         dotHeight: 10.0,
-                        dotColor: FlutterFlowTheme.of(context).tertiary,
-                        activeDotColor: FlutterFlowTheme.of(context).secondary,
+                        dotColor: FlutterFlowTheme.of(context).alternate,
+                        activeDotColor: FlutterFlowTheme.of(context).warning,
                         paintStyle: PaintingStyle.fill,
                       ),
                     ),
