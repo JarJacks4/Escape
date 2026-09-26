@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/components/soundscapes_help_copy_widget.dart';
 import '/components/lucille_soundscape_suggestion_widget.dart';
 import '/components/mood_category_card_widget.dart';
 import '/components/soundscape_card_widget.dart';
@@ -33,6 +34,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
+import 'package:lottie/lottie.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'a_i_soundscapes_f_i_n_a_l_model.dart';
 export 'a_i_soundscapes_f_i_n_a_l_model.dart';
@@ -401,6 +403,48 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                             ),
                                                           ].divide(SizedBox(
                                                               height: 4.0)),
+                                                        ),
+                                                        InkWell(
+                                                          splashColor: Colors.transparent,
+                                                          focusColor: Colors.transparent,
+                                                          hoverColor: Colors.transparent,
+                                                          highlightColor: Colors.transparent,
+                                                          onTap: () async {
+                                                            logFirebaseEvent('A_I_SOUNDSCAPES_F_I_N_A_L_LottieAnimatio');
+                                                            logFirebaseEvent('LottieAnimation_haptic_feedback');
+                                                            HapticFeedback.lightImpact();
+                                                            logFirebaseEvent('LottieAnimation_bottom_sheet');
+                                                            await showModalBottomSheet(
+                                                              isScrollControlled: true,
+                                                              backgroundColor: Colors.transparent,
+                                                              context: context,
+                                                              builder: (context) {
+                                                                return WebViewAware(
+                                                                  child: GestureDetector(
+                                                                    onTap: () {
+                                                                      FocusScope.of(context).unfocus();
+                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                    },
+                                                                    child: Padding(
+                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                      child: Container(
+                                                                        height: double.infinity,
+                                                                        child: SoundscapesHelpCopyWidget(),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              },
+                                                            ).then((value) => safeSetState(() {}));
+                                                          },
+                                                          child: Lottie.asset(
+                                                            'assets/jsons/question_mark_blue.json',
+                                                            width: 50.1,
+                                                            height: 49.0,
+                                                            fit: BoxFit.contain,
+                                                            repeat: false,
+                                                            animate: true,
+                                                          ),
                                                         ),
                                                         Container(
                                                           width: 48.0,
