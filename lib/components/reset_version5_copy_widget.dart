@@ -1,4 +1,4 @@
-import '/components/reset_dialogue_comp_widget.dart';
+import '/components/reset_mood_help_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -149,42 +149,41 @@ class _ResetVersion5CopyWidgetState extends State<ResetVersion5CopyWidget>
                         ],
                         shape: BoxShape.circle,
                       ),
-                      child: Builder(
-                        builder: (context) => InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            logFirebaseEvent(
-                                'RESET_VERSION5_COPY_LottieAnimation_wxuy');
-                            logFirebaseEvent('LottieAnimation_haptic_feedback');
-                            HapticFeedback.lightImpact();
-                            logFirebaseEvent('LottieAnimation_alert_dialog');
-                            await showDialog(
-                              context: context,
-                              builder: (dialogContext) {
-                                return Dialog(
-                                  elevation: 0,
-                                  insetPadding: EdgeInsets.zero,
-                                  backgroundColor: Colors.transparent,
-                                  alignment: AlignmentDirectional(0.0, 0.0)
-                                      .resolve(Directionality.of(context)),
-                                  child: WebViewAware(
-                                    child: ResetDialogueCompWidget(),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          logFirebaseEvent(
+                              'RESET_VERSION5_COPY_LottieAnimation_wxuy');
+                          logFirebaseEvent('LottieAnimation_haptic_feedback');
+                          HapticFeedback.lightImpact();
+                          logFirebaseEvent('LottieAnimation_bottom_sheet');
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            context: context,
+                            builder: (context) {
+                              return WebViewAware(
+                                child: Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: Container(
+                                    height: double.infinity,
+                                    child: ResetMoodHelpCompWidget(),
                                   ),
-                                );
-                              },
-                            );
-                          },
-                          child: Lottie.asset(
-                            'assets/jsons/question_mark_blue.json',
-                            width: 200.0,
-                            height: 200.0,
-                            fit: BoxFit.contain,
-                            repeat: false,
-                            animate: true,
-                          ),
+                                ),
+                              );
+                            },
+                          ).then((value) => safeSetState(() {}));
+                        },
+                        child: Lottie.asset(
+                          'assets/jsons/question_mark_blue.json',
+                          width: 200.0,
+                          height: 200.0,
+                          fit: BoxFit.contain,
+                          repeat: false,
+                          animate: true,
                         ),
                       ),
                     ),
