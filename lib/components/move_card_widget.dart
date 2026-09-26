@@ -152,7 +152,7 @@ class _MoveCardWidgetState extends State<MoveCardWidget> {
                           children: [
                             Icon(
                               Icons.play_arrow_rounded,
-                              color: FlutterFlowTheme.of(context).primary,
+                              color: FlutterFlowTheme.of(context).secondaryText,
                               size: 14.0,
                             ),
                             Text(
@@ -170,7 +170,7 @@ class _MoveCardWidgetState extends State<MoveCardWidget> {
                                           .labelSmall
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context).primary,
+                                    color: FlutterFlowTheme.of(context).secondaryText,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelSmall

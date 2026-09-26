@@ -319,7 +319,7 @@ class _Button7WidgetState extends State<Button7Widget> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(
+                    if (widget.iconPresent) Icon(
                       Icons.help,
                       color: valueOrDefault<Color>(
                         () {
@@ -415,7 +415,7 @@ class _Button7WidgetState extends State<Button7Widget> {
                           ),
                       overflow: TextOverflow.clip,
                     ),
-                    Icon(
+                    if (widget.iconEndPresent) Icon(
                       Icons.help,
                       color: valueOrDefault<Color>(
                         () {
@@ -455,7 +455,7 @@ class _Button7WidgetState extends State<Button7Widget> {
                 ),
               ),
             ),
-            CircularPercentIndicator(
+            if (widget.loading) CircularPercentIndicator(
               percent: 0.0,
               radius: 7.0,
               lineWidth: 2.0,

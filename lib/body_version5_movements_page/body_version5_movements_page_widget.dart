@@ -182,7 +182,7 @@ class _BodyVersion5MovementsPageWidgetState
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primary,
+                                                                .primaryText,
                                                         fontSize: 18.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
