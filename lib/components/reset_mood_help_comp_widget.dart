@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:cached_network_image/cached_network_image.dart';
@@ -1039,11 +1038,8 @@ Rough moment? Enter your rese... */
                                                     _model.soundPlayer!.play());
 
                                             logFirebaseEvent(
-                                                'Button_navigate_to');
-
-                                            context.pushNamed(
-                                                BasicBreathingGoalPageWidget
-                                                    .routeName);
+                                                'Button_bottom_sheet');
+                                            Navigator.pop(context);
                                           },
                                           text: FFLocalizations.of(context)
                                               .getText(

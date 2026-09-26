@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -480,7 +479,7 @@ class _SoundscapesHelpCopyWidgetState extends State<SoundscapesHelpCopyWidget>
                                         0.0, 0.0, 0.0, 4.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'f0okjhv0' /* Find Your Posture */,
+                                        'f0okjhv0' /* Tell Us How You Feel */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -498,7 +497,7 @@ class _SoundscapesHelpCopyWidgetState extends State<SoundscapesHelpCopyWidget>
                                         0.0, 0.0, 0.0, 30.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'ucv263f4' /* Once you find your peaceful sp... */,
+                                        'ucv263f4' /* Start by sharing your mood or ... */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleSmall
@@ -691,7 +690,7 @@ class _SoundscapesHelpCopyWidgetState extends State<SoundscapesHelpCopyWidget>
                                         0.0, 0.0, 0.0, 4.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'fjnupb3q' /* Breathe In Slowly For 3 Second... */,
+                                        'fjnupb3q' /* Let Lucille Curate Your Sound */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -709,7 +708,7 @@ class _SoundscapesHelpCopyWidgetState extends State<SoundscapesHelpCopyWidget>
                                         0.0, 0.0, 0.0, 30.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'b271abrk' /* Now take the time to breathe i... */,
+                                        'b271abrk' /* Based on what you shared, Luci... */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleSmall
@@ -901,7 +900,7 @@ class _SoundscapesHelpCopyWidgetState extends State<SoundscapesHelpCopyWidget>
                                         0.0, 0.0, 0.0, 4.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'agulekqm' /* Breathe Out Slowly for 7 Secon... */,
+                                        'agulekqm' /* Press Play and Settle In */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -919,7 +918,7 @@ class _SoundscapesHelpCopyWidgetState extends State<SoundscapesHelpCopyWidget>
                                         0.0, 0.0, 0.0, 24.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        '06mg75zg' /* For the final step, extremely ... */,
+                                        '06mg75zg' /* Put on your headphones, dim th... */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleSmall
@@ -969,7 +968,7 @@ class _SoundscapesHelpCopyWidgetState extends State<SoundscapesHelpCopyWidget>
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             logFirebaseEvent(
-                                                'SOUNDSCAPES_HELP_COPY_START_BASIC_BREATH');
+                                                'SOUNDSCAPES_HELP_COPY_START_LISTENING_NO');
                                             logFirebaseEvent(
                                                 'Button_haptic_feedback');
                                             HapticFeedback.lightImpact();
@@ -988,15 +987,12 @@ class _SoundscapesHelpCopyWidgetState extends State<SoundscapesHelpCopyWidget>
                                                     _model.soundPlayer!.play());
 
                                             logFirebaseEvent(
-                                                'Button_navigate_to');
-
-                                            context.pushNamed(
-                                                BasicBreathingGoalPageWidget
-                                                    .routeName);
+                                                'Button_bottom_sheet');
+                                            Navigator.pop(context);
                                           },
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            'ep03ohwb' /* Start Basic Breathing */,
+                                            'ep03ohwb' /* Start Listening Now */,
                                           ),
                                           options: FFButtonOptions(
                                             height: 40.0,
