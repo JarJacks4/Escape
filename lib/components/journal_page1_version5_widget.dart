@@ -607,95 +607,92 @@ class _JournalPage1Version5WidgetState
                                     fontWeight: FontWeight.bold,
                                   ),
                         ),
-                        Expanded(
-                          flex: 1,
-                          child: FlutterFlowChoiceChips(
-                            options: [
-                              ChipData(
-                                  FFLocalizations.of(context).getText(
-                                    'lccc5b3u' /* Gratitude */,
-                                  ),
-                                  FontAwesomeIcons.gratipay),
-                              ChipData(
-                                  FFLocalizations.of(context).getText(
-                                    'iq445vos' /* Mindfulness */,
-                                  ),
-                                  FontAwesomeIcons.brain),
-                              ChipData(
-                                  FFLocalizations.of(context).getText(
-                                    'izfsa1lx' /* Goals */,
-                                  ),
-                                  FFIcons.kgoal),
-                              ChipData(
-                                  FFLocalizations.of(context).getText(
-                                    '038apdss' /* Reflection */,
-                                  ),
-                                  FFIcons.kmirror),
-                              ChipData(
-                                  FFLocalizations.of(context).getText(
-                                    '19mi3ilr' /* Growth */,
-                                  ),
-                                  Icons.north),
-                              ChipData(
-                                  FFLocalizations.of(context).getText(
-                                    'lg2yhk8w' /* Wellness */,
-                                  ),
-                                  FFIcons.khealthUp)
-                            ],
-                            onChanged: (val) async {
-                              safeSetState(
-                                  () => _model.choiceChipsValues = val);
-                              logFirebaseEvent(
-                                  'JOURNAL_PAGE1_VERSION5_ChoiceChips_jsvbh');
-                              logFirebaseEvent('ChoiceChips_haptic_feedback');
-                              HapticFeedback.selectionClick();
-                            },
-                            selectedChipStyle: ChipStyle(
-                              backgroundColor:
-                                  FlutterFlowTheme.of(context).accent1,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'WorkSans',
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    letterSpacing: 0.0,
-                                  ),
-                              iconColor: FlutterFlowTheme.of(context).success,
-                              iconSize: 16.0,
-                              elevation: 3.0,
-                              borderColor: Color(0x3EEDF1F7),
-                              borderRadius: BorderRadius.circular(9999.0),
-                            ),
-                            unselectedChipStyle: ChipStyle(
-                              backgroundColor: Color(0x885A5C60),
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'WorkSans',
-                                    color: Color(0x85EDF1F7),
-                                    letterSpacing: 0.0,
-                                  ),
-                              iconColor: FlutterFlowTheme.of(context).primary,
-                              iconSize: 16.0,
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(9999.0),
-                            ),
-                            chipSpacing: 8.0,
-                            rowSpacing: 8.0,
-                            multiselect: true,
-                            initialized: _model.choiceChipsValues != null,
-                            alignment: WrapAlignment.spaceEvenly,
-                            controller: _model.choiceChipsValueController ??=
-                                FormFieldController<List<String>>(
-                              [
+                        FlutterFlowChoiceChips(
+                          options: [
+                            ChipData(
                                 FFLocalizations.of(context).getText(
-                                  's4u88ude' /* Growth */,
-                                )
-                              ],
-                            ),
-                            wrapped: true,
+                                  'lccc5b3u' /* Gratitude */,
+                                ),
+                                FontAwesomeIcons.gratipay),
+                            ChipData(
+                                FFLocalizations.of(context).getText(
+                                  'iq445vos' /* Mindfulness */,
+                                ),
+                                FontAwesomeIcons.brain),
+                            ChipData(
+                                FFLocalizations.of(context).getText(
+                                  'izfsa1lx' /* Goals */,
+                                ),
+                                FFIcons.kgoal),
+                            ChipData(
+                                FFLocalizations.of(context).getText(
+                                  '038apdss' /* Reflection */,
+                                ),
+                                FFIcons.kmirror),
+                            ChipData(
+                                FFLocalizations.of(context).getText(
+                                  '19mi3ilr' /* Growth */,
+                                ),
+                                Icons.north),
+                            ChipData(
+                                FFLocalizations.of(context).getText(
+                                  'lg2yhk8w' /* Wellness */,
+                                ),
+                                FFIcons.khealthUp)
+                          ],
+                          onChanged: (val) async {
+                            safeSetState(
+                                () => _model.choiceChipsValues = val);
+                            logFirebaseEvent(
+                                'JOURNAL_PAGE1_VERSION5_ChoiceChips_jsvbh');
+                            logFirebaseEvent('ChoiceChips_haptic_feedback');
+                            HapticFeedback.selectionClick();
+                          },
+                          selectedChipStyle: ChipStyle(
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).accent1,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'WorkSans',
+                                  color:
+                                      FlutterFlowTheme.of(context).alternate,
+                                  letterSpacing: 0.0,
+                                ),
+                            iconColor: FlutterFlowTheme.of(context).success,
+                            iconSize: 16.0,
+                            elevation: 3.0,
+                            borderColor: Color(0x3EEDF1F7),
+                            borderRadius: BorderRadius.circular(9999.0),
                           ),
+                          unselectedChipStyle: ChipStyle(
+                            backgroundColor: Color(0x885A5C60),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'WorkSans',
+                                  color: Color(0x85EDF1F7),
+                                  letterSpacing: 0.0,
+                                ),
+                            iconColor: FlutterFlowTheme.of(context).primary,
+                            iconSize: 16.0,
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(9999.0),
+                          ),
+                          chipSpacing: 8.0,
+                          rowSpacing: 8.0,
+                          multiselect: true,
+                          initialized: _model.choiceChipsValues != null,
+                          alignment: WrapAlignment.spaceEvenly,
+                          controller: _model.choiceChipsValueController ??=
+                              FormFieldController<List<String>>(
+                            [
+                              FFLocalizations.of(context).getText(
+                                's4u88ude' /* Growth */,
+                              )
+                            ],
+                          ),
+                          wrapped: true,
                         ),
                       ].divide(SizedBox(height: 12.0)),
                     ),

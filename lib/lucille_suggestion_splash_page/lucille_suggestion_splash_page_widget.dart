@@ -83,23 +83,13 @@ class _LucilleSuggestionSplashPageWidgetState
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Container(
-              width: double.infinity,
-              height: 874.99,
-              decoration: BoxDecoration(),
-              child: Lottie.asset(
-                'assets/jsons/Transition_01.json',
-                width: 200.0,
-                height: 200.0,
-                fit: BoxFit.fill,
-                repeat: false,
-                animate: true,
-              ),
-            ),
-          ],
+        body: SizedBox.expand(
+          child: Lottie.asset(
+            'assets/jsons/Transition_01.json',
+            fit: BoxFit.fill,
+            repeat: false,
+            animate: true,
+          ),
         ),
       ),
     );

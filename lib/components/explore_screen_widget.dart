@@ -49,7 +49,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
         child: SingleChildScrollView(
           controller: _model.columnController,
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
@@ -179,6 +179,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
               ListView(
                 padding: EdgeInsets.zero,
                 shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.vertical,
                 children: [
                   SingleChildScrollView(
@@ -226,7 +227,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                             },
                             child: Container(
                               width: 250.0,
-                              height: 228.8,
+                              height: 240.0,
                               decoration: BoxDecoration(
                                 color: Color(0x9BFFFFFF),
                                 boxShadow: [
@@ -250,23 +251,24 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(16.0),
-                                        topRight: Radius.circular(16.0),
-                                      ),
-                                      child: Image.asset(
-                                        'assets/images/download_(26).gif',
-                                        width: double.infinity,
-                                        height: 138.4,
-                                        fit: BoxFit.cover,
+                                    Expanded(
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(16.0),
+                                          topRight: Radius.circular(16.0),
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/download_(26).gif',
+                                          width: double.infinity,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 12.0, 12.0, 12.0),
                                       child: Column(
-                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisSize: MainAxisSize.min,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
@@ -344,7 +346,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                             },
                             child: Container(
                               width: 250.0,
-                              height: 228.8,
+                              height: 240.0,
                               decoration: BoxDecoration(
                                 color: Color(0x9BFFFFFF),
                                 boxShadow: [
@@ -368,23 +370,24 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(16.0),
-                                        topRight: Radius.circular(16.0),
-                                      ),
-                                      child: Image.asset(
-                                        'assets/images/410068eaae8e8af9d98244764fb0a21a.gif',
-                                        width: double.infinity,
-                                        height: 138.4,
-                                        fit: BoxFit.cover,
+                                    Expanded(
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(16.0),
+                                          topRight: Radius.circular(16.0),
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/410068eaae8e8af9d98244764fb0a21a.gif',
+                                          width: double.infinity,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 12.0, 12.0, 12.0),
                                       child: Column(
-                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisSize: MainAxisSize.min,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
@@ -1274,7 +1277,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                     },
                     child: Container(
                       width: 164.6,
-                      height: 158.4,
+                      constraints: BoxConstraints(minHeight: 158.4),
                       decoration: BoxDecoration(
                         color: Color(0x43FFFFFF),
                         boxShadow: [
@@ -1293,7 +1296,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                       child: Padding(
                         padding: EdgeInsets.all(16.0),
                         child: Column(
-                          mainAxisSize: MainAxisSize.max,
+                          mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
@@ -1316,7 +1319,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 8.0, 8.0, 8.0),
                               child: Column(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
@@ -1388,7 +1391,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                     },
                     child: Container(
                       width: 164.6,
-                      height: 158.4,
+                      constraints: BoxConstraints(minHeight: 158.4),
                       decoration: BoxDecoration(
                         color: Color(0x43FFFFFF),
                         boxShadow: [
@@ -1407,7 +1410,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                       child: Padding(
                         padding: EdgeInsets.all(16.0),
                         child: Column(
-                          mainAxisSize: MainAxisSize.max,
+                          mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
@@ -1430,7 +1433,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 8.0, 8.0, 8.0),
                               child: Column(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
@@ -1508,7 +1511,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                     },
                     child: Container(
                       width: 164.6,
-                      height: 158.4,
+                      constraints: BoxConstraints(minHeight: 158.4),
                       decoration: BoxDecoration(
                         color: Color(0x43FFFFFF),
                         boxShadow: [
@@ -1527,7 +1530,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                       child: Padding(
                         padding: EdgeInsets.all(16.0),
                         child: Column(
-                          mainAxisSize: MainAxisSize.max,
+                          mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
@@ -1550,7 +1553,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 8.0, 8.0, 8.0),
                               child: Column(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
@@ -1622,7 +1625,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                     },
                     child: Container(
                       width: 164.6,
-                      height: 158.4,
+                      constraints: BoxConstraints(minHeight: 158.4),
                       decoration: BoxDecoration(
                         color: Color(0x43FFFFFF),
                         boxShadow: [
@@ -1641,7 +1644,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                       child: Padding(
                         padding: EdgeInsets.all(16.0),
                         child: Column(
-                          mainAxisSize: MainAxisSize.max,
+                          mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
@@ -1664,7 +1667,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 8.0, 8.0, 8.0),
                               child: Column(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
@@ -1702,11 +1705,9 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                   ),
                 ].divide(SizedBox(width: 12.0)),
               ),
-              Flexible(
-                flex: 1,
-                child: Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: FFButtonWidget(
+              Padding(
+                padding: EdgeInsets.all(15.0),
+                child: FFButtonWidget(
                     onPressed: () async {
                       logFirebaseEvent(
                           'EXPLORE_SCREEN_LET_LUCILLE_CHOOSE_FOR_ME');
@@ -1745,7 +1746,6 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
                     ),
                   ),
                 ),
-              ),
               Align(
                 alignment: AlignmentDirectional(0.0, 0.0),
                 child: ClipRRect(

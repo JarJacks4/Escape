@@ -318,11 +318,9 @@ class _MindPageVersion5CopyWidgetState extends State<MindPageVersion5CopyWidget>
                               child: SingleChildScrollView(
                                 controller: _model.columnController1,
                                 child: Column(
-                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Flexible(
-                                      flex: 1,
-                                      child: Row(
+                                    Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
@@ -383,7 +381,7 @@ class _MindPageVersion5CopyWidgetState extends State<MindPageVersion5CopyWidget>
                                                     safeSetState(() {}));
                                               },
                                               child: Container(
-                                                height: 170.0,
+                                                constraints: BoxConstraints(minHeight: 170.0),
                                                 decoration: BoxDecoration(
                                                   boxShadow: [
                                                     BoxShadow(
@@ -451,9 +449,7 @@ class _MindPageVersion5CopyWidgetState extends State<MindPageVersion5CopyWidget>
                                                           ),
                                                         ),
                                                       ),
-                                                      Flexible(
-                                                        flex: 1,
-                                                        child: Column(
+                                                      Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           crossAxisAlignment:
@@ -482,9 +478,7 @@ class _MindPageVersion5CopyWidgetState extends State<MindPageVersion5CopyWidget>
                                                                             .bold,
                                                                   ),
                                                             ),
-                                                            Flexible(
-                                                              flex: 1,
-                                                              child: Text(
+                                                            Text(
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
@@ -505,11 +499,9 @@ Hone Your S... */
                                                                           0.0,
                                                                     ),
                                                               ),
-                                                            ),
                                                           ].divide(SizedBox(
                                                               height: 4.0)),
                                                         ),
-                                                      ),
                                                     ].divide(
                                                         SizedBox(height: 12.0)),
                                                   ),
@@ -517,9 +509,7 @@ Hone Your S... */
                                               ),
                                             ),
                                           ),
-                                          Flexible(
-                                            flex: 1,
-                                            child: InkWell(
+                                          InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
                                               hoverColor: Colors.transparent,
@@ -569,7 +559,7 @@ Hone Your S... */
                                                 );
                                               },
                                               child: Container(
-                                                height: 170.0,
+                                                constraints: BoxConstraints(minHeight: 170.0),
                                                 decoration: BoxDecoration(
                                                   boxShadow: [
                                                     BoxShadow(
@@ -637,9 +627,7 @@ Hone Your S... */
                                                           ),
                                                         ),
                                                       ),
-                                                      Flexible(
-                                                        flex: 1,
-                                                        child: Column(
+                                                      Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           crossAxisAlignment:
@@ -668,9 +656,7 @@ Hone Your S... */
                                                                             .bold,
                                                                   ),
                                                             ),
-                                                            Flexible(
-                                                              flex: 1,
-                                                              child: Text(
+                                                            Text(
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
@@ -691,24 +677,18 @@ Calm... */
                                                                           0.0,
                                                                     ),
                                                               ),
-                                                            ),
                                                           ].divide(SizedBox(
                                                               height: 4.0)),
                                                         ),
-                                                      ),
                                                     ].divide(
                                                         SizedBox(height: 12.0)),
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                          ),
                                         ].divide(SizedBox(width: 16.0)),
                                       ),
-                                    ),
-                                    Flexible(
-                                      flex: 1,
-                                      child: Row(
+                                    Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
@@ -746,7 +726,7 @@ Calm... */
                                                     safeSetState(() {}));
                                               },
                                               child: Container(
-                                                height: 170.0,
+                                                constraints: BoxConstraints(minHeight: 170.0),
                                                 decoration: BoxDecoration(
                                                   boxShadow: [
                                                     BoxShadow(
@@ -813,9 +793,7 @@ Calm... */
                                                           ),
                                                         ),
                                                       ),
-                                                      Flexible(
-                                                        flex: 1,
-                                                        child: Column(
+                                                      Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           crossAxisAlignment:
@@ -844,9 +822,7 @@ Calm... */
                                                                             .bold,
                                                                   ),
                                                             ),
-                                                            Flexible(
-                                                              flex: 1,
-                                                              child: Text(
+                                                            Text(
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
@@ -867,11 +843,9 @@ Help Calm... */
                                                                           0.0,
                                                                     ),
                                                               ),
-                                                            ),
                                                           ].divide(SizedBox(
                                                               height: 4.0)),
                                                         ),
-                                                      ),
                                                     ].divide(
                                                         SizedBox(height: 12.0)),
                                                   ),
@@ -931,7 +905,7 @@ Help Calm... */
                                                 );
                                               },
                                               child: Container(
-                                                height: 170.0,
+                                                constraints: BoxConstraints(minHeight: 170.0),
                                                 decoration: BoxDecoration(
                                                   boxShadow: [
                                                     BoxShadow(
@@ -998,9 +972,7 @@ Help Calm... */
                                                           ),
                                                         ),
                                                       ),
-                                                      Flexible(
-                                                        flex: 1,
-                                                        child: Column(
+                                                      Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           crossAxisAlignment:
@@ -1029,9 +1001,7 @@ Help Calm... */
                                                                             .bold,
                                                                   ),
                                                             ),
-                                                            Flexible(
-                                                              flex: 1,
-                                                              child: Text(
+                                                            Text(
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
@@ -1050,11 +1020,9 @@ Help Calm... */
                                                                           0.0,
                                                                     ),
                                                               ),
-                                                            ),
                                                           ].divide(SizedBox(
                                                               height: 4.0)),
                                                         ),
-                                                      ),
                                                     ].divide(
                                                         SizedBox(height: 12.0)),
                                                   ),
@@ -1064,7 +1032,6 @@ Help Calm... */
                                           ),
                                         ].divide(SizedBox(width: 16.0)),
                                       ),
-                                    ),
                                     Align(
                                       alignment:
                                           AlignmentDirectional(-1.0, 0.0),
@@ -1119,7 +1086,7 @@ Help Calm... */
                                             },
                                             child: Container(
                                               width: 335.0,
-                                              height: 136.0,
+                                              constraints: BoxConstraints(minHeight: 136.0),
                                               decoration: BoxDecoration(
                                                 boxShadow: [
                                                   BoxShadow(
@@ -1299,7 +1266,7 @@ Help Calm... */
                                             },
                                             child: Container(
                                               width: 335.0,
-                                              height: 136.0,
+                                              constraints: BoxConstraints(minHeight: 136.0),
                                               decoration: BoxDecoration(
                                                 boxShadow: [
                                                   BoxShadow(
@@ -1481,7 +1448,7 @@ Help Calm... */
                                             },
                                             child: Container(
                                               width: 335.0,
-                                              height: 136.0,
+                                              constraints: BoxConstraints(minHeight: 136.0),
                                               decoration: BoxDecoration(
                                                 boxShadow: [
                                                   BoxShadow(
@@ -1672,7 +1639,7 @@ Help Calm... */
                                             },
                                             child: Container(
                                               width: 335.0,
-                                              height: 147.8,
+                                              constraints: BoxConstraints(minHeight: 147.8),
                                               decoration: BoxDecoration(
                                                 boxShadow: [
                                                   BoxShadow(
@@ -1814,7 +1781,7 @@ Help Calm... */
                             builder: (context) => SingleChildScrollView(
                               controller: _model.columnController2,
                               child: Column(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Align(
                                     alignment: AlignmentDirectional(-1.0, -1.0),
@@ -1843,11 +1810,8 @@ Help Calm... */
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 40.0, 0.0, 0.0),
-                                      child: SingleChildScrollView(
-                                        primary: false,
-                                        controller: _model.columnController3,
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
                                           children: [
                                             Align(
                                               alignment: AlignmentDirectional(
@@ -1903,7 +1867,7 @@ Help Calm... */
                                                 },
                                                 child: Container(
                                                   width: 329.5,
-                                                  height: 163.9,
+                                                  constraints: BoxConstraints(minHeight: 163.9),
                                                   decoration: BoxDecoration(
                                                     boxShadow: [
                                                       BoxShadow(
@@ -2139,7 +2103,7 @@ Help Calm... */
                                                 },
                                                 child: Container(
                                                   width: 329.5,
-                                                  height: 163.9,
+                                                  constraints: BoxConstraints(minHeight: 163.9),
                                                   decoration: BoxDecoration(
                                                     boxShadow: [
                                                       BoxShadow(
@@ -2387,7 +2351,7 @@ Help Calm... */
                                                 },
                                                 child: Container(
                                                   width: 329.5,
-                                                  height: 163.9,
+                                                  constraints: BoxConstraints(minHeight: 163.9),
                                                   decoration: BoxDecoration(
                                                     boxShadow: [
                                                       BoxShadow(
@@ -2639,7 +2603,7 @@ Help Calm... */
                                                 },
                                                 child: Container(
                                                   width: 329.5,
-                                                  height: 163.9,
+                                                  constraints: BoxConstraints(minHeight: 163.9),
                                                   decoration: BoxDecoration(
                                                     boxShadow: [
                                                       BoxShadow(
@@ -2887,7 +2851,7 @@ Help Calm... */
                                                 },
                                                 child: Container(
                                                   width: 329.5,
-                                                  height: 163.9,
+                                                  constraints: BoxConstraints(minHeight: 163.9),
                                                   decoration: BoxDecoration(
                                                     boxShadow: [
                                                       BoxShadow(
@@ -3136,7 +3100,7 @@ Help Calm... */
                                                 },
                                                 child: Container(
                                                   width: 329.5,
-                                                  height: 163.9,
+                                                  constraints: BoxConstraints(minHeight: 163.9),
                                                   decoration: BoxDecoration(
                                                     boxShadow: [
                                                       BoxShadow(
@@ -3384,7 +3348,7 @@ Help Calm... */
                                                 },
                                                 child: Container(
                                                   width: 329.5,
-                                                  height: 163.9,
+                                                  constraints: BoxConstraints(minHeight: 163.9),
                                                   decoration: BoxDecoration(
                                                     boxShadow: [
                                                       BoxShadow(
@@ -3674,7 +3638,7 @@ Help Calm... */
                                                     },
                                                     child: Container(
                                                       width: 150.0,
-                                                      height: 160.0,
+                                                      constraints: BoxConstraints(minHeight: 160.0),
                                                       decoration: BoxDecoration(
                                                         gradient:
                                                             LinearGradient(
@@ -3838,7 +3802,7 @@ Help Calm... */
                                                     },
                                                     child: Container(
                                                       width: 150.0,
-                                                      height: 160.0,
+                                                      constraints: BoxConstraints(minHeight: 160.0),
                                                       decoration: BoxDecoration(
                                                         gradient:
                                                             LinearGradient(
@@ -4007,7 +3971,7 @@ Help Calm... */
                                                   },
                                                   child: Container(
                                                     width: 150.0,
-                                                    height: 150.0,
+                                                    constraints: BoxConstraints(minHeight: 150.0),
                                                     decoration: BoxDecoration(
                                                       gradient: LinearGradient(
                                                         colors: [
@@ -4172,7 +4136,7 @@ Help Calm... */
                                                   },
                                                   child: Container(
                                                     width: 150.0,
-                                                    height: 150.0,
+                                                    constraints: BoxConstraints(minHeight: 150.0),
                                                     decoration: BoxDecoration(
                                                       gradient: LinearGradient(
                                                         colors: [
@@ -4283,7 +4247,6 @@ Help Calm... */
                                             ),
                                           ].divide(SizedBox(height: 16.0)),
                                         ),
-                                      ),
                                     ),
                                   ),
                                 ],

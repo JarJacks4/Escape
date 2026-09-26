@@ -49,22 +49,27 @@ class _LucilleVoiceChatWebViewWidgetState
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Stack(
+          fit: StackFit.expand,
           children: [
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Flexible(
-                  flex: 1,
-                  child: FlutterFlowWebView(
-                    content:
-                        'https://streams.vagon.io/streams/997c79bc-b2e6-49ad-818e-3b64bbc57213',
-                    bypass: true,
-                    height: MediaQuery.sizeOf(context).height,
-                    verticalScroll: true,
-                    horizontalScroll: true,
-                  ),
-                ),
-              ],
+            LayoutBuilder(
+              builder: (context, constraints) {
+                if (!constraints.hasBoundedWidth ||
+                    !constraints.hasBoundedHeight ||
+                    constraints.maxWidth <= 0.0 ||
+                    constraints.maxHeight <= 0.0) {
+                  return const SizedBox.shrink();
+                }
+
+                return FlutterFlowWebView(
+                  content:
+                      'https://streams.vagon.io/streams/997c79bc-b2e6-49ad-818e-3b64bbc57213',
+                  bypass: true,
+                  width: constraints.maxWidth,
+                  height: constraints.maxHeight,
+                  verticalScroll: true,
+                  horizontalScroll: true,
+                );
+              },
             ),
             SafeArea(
               child: Padding(

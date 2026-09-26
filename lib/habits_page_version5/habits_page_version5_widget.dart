@@ -49,30 +49,25 @@ class _HabitsPageVersion5WidgetState extends State<HabitsPageVersion5Widget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                width: double.infinity,
-                height: 872.8,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      FlutterFlowTheme.of(context).primary,
-                      FlutterFlowTheme.of(context).secondary
-                    ],
-                    stops: [0.0, 1.0],
-                    begin: AlignmentDirectional(0.0, -1.0),
-                    end: AlignmentDirectional(0, 1.0),
-                  ),
-                ),
-                child: wrapWithModel(
-                  model: _model.habitsVersion5Model,
-                  updateCallback: () => safeSetState(() {}),
-                  child: HabitsVersion5Widget(),
+          child: SizedBox.expand(
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    FlutterFlowTheme.of(context).primary,
+                    FlutterFlowTheme.of(context).secondary
+                  ],
+                  stops: [0.0, 1.0],
+                  begin: AlignmentDirectional(0.0, -1.0),
+                  end: AlignmentDirectional(0, 1.0),
                 ),
               ),
-            ],
+              child: wrapWithModel(
+                model: _model.habitsVersion5Model,
+                updateCallback: () => safeSetState(() {}),
+                child: HabitsVersion5Widget(),
+              ),
+            ),
           ),
         ),
       ),

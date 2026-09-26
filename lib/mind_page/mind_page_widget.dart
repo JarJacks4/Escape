@@ -45,63 +45,47 @@ class _MindPageWidgetState extends State<MindPageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
+        body: Stack(
+          fit: StackFit.expand,
           children: [
+            Image.asset(
+              'assets/images/Create_Tab_Bar_Page_(1).png',
+              fit: BoxFit.cover,
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.asset(
+                'assets/images/Pi-Slices.gif',
+                fit: BoxFit.cover,
+              ),
+            ),
             Container(
-              width: double.infinity,
-              height: 873.89,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: Image.asset(
-                    'assets/images/Create_Tab_Bar_Page_(1).png',
-                  ).image,
+                gradient: LinearGradient(
+                  colors: [
+                    FlutterFlowTheme.of(context).tertiary,
+                    FlutterFlowTheme.of(context).secondary,
+                    Color(0x5FEDF1F7),
+                    Color(0x80673AB7)
+                  ],
+                  stops: [0.0, 0.5, 0.75, 1.0],
+                  begin: AlignmentDirectional(1.0, 0.87),
+                  end: AlignmentDirectional(-1.0, -0.87),
                 ),
               ),
-              child: Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset(
-                      'assets/images/Pi-Slices.gif',
-                      width: double.infinity,
-                      height: 881.94,
-                      fit: BoxFit.cover,
-                    ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(0.0),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(
+                    sigmaX: 40.0,
+                    sigmaY: 40.0,
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 903.58,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          FlutterFlowTheme.of(context).tertiary,
-                          FlutterFlowTheme.of(context).secondary,
-                          Color(0x5FEDF1F7),
-                          Color(0x80673AB7)
-                        ],
-                        stops: [0.0, 0.5, 0.75, 1.0],
-                        begin: AlignmentDirectional(1.0, 0.87),
-                        end: AlignmentDirectional(-1.0, -0.87),
-                      ),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(0.0),
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(
-                          sigmaX: 40.0,
-                          sigmaY: 40.0,
-                        ),
-                        child: wrapWithModel(
-                          model: _model.mindPageVersion5CopyModel,
-                          updateCallback: () => safeSetState(() {}),
-                          child: MindPageVersion5CopyWidget(),
-                        ),
-                      ),
-                    ),
+                  child: wrapWithModel(
+                    model: _model.mindPageVersion5CopyModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: MindPageVersion5CopyWidget(),
                   ),
-                ],
+                ),
               ),
             ),
           ],

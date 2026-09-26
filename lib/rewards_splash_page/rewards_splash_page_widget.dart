@@ -1,11 +1,9 @@
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 import 'rewards_splash_page_model.dart';
@@ -22,13 +20,10 @@ class RewardsSplashPageWidget extends StatefulWidget {
       _RewardsSplashPageWidgetState();
 }
 
-class _RewardsSplashPageWidgetState extends State<RewardsSplashPageWidget>
-    with TickerProviderStateMixin {
+class _RewardsSplashPageWidgetState extends State<RewardsSplashPageWidget> {
   late RewardsSplashPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -58,6 +53,9 @@ class _RewardsSplashPageWidgetState extends State<RewardsSplashPageWidget>
           milliseconds: 2000,
         ),
       );
+      if (!mounted) {
+        return;
+      }
       logFirebaseEvent('RewardsSplashPage_navigate_to');
 
       context.pushReplacementNamed(
@@ -70,21 +68,6 @@ class _RewardsSplashPageWidgetState extends State<RewardsSplashPageWidget>
           ),
         },
       );
-    });
-
-    animationsMap.addAll({
-      'columnOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeIn,
-            delay: 0.0.ms,
-            duration: 500.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
     });
   }
 
@@ -105,25 +88,12 @@ class _RewardsSplashPageWidgetState extends State<RewardsSplashPageWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: SafeArea(
-          top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                width: double.infinity,
-                height: 874.99,
-                decoration: BoxDecoration(),
-                child: Lottie.asset(
-                  'assets/jsons/Flying_Coin.json',
-                  width: 200.0,
-                  height: 200.0,
-                  fit: BoxFit.cover,
-                  animate: true,
-                ),
-              ),
-            ],
-          ).animateOnPageLoad(animationsMap['columnOnPageLoadAnimation']!),
+        body: SizedBox.expand(
+          child: Lottie.asset(
+            'assets/jsons/Flying_Coin.json',
+            fit: BoxFit.cover,
+            animate: true,
+          ),
         ),
       ),
     );

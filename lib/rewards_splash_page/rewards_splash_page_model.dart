@@ -13,5 +13,7 @@ class RewardsSplashPageModel extends FlutterFlowModel<RewardsSplashPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
+  void dispose() {
+    soundPlayer?.dispose();
+  }
 }

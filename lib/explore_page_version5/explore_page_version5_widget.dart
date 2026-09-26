@@ -114,142 +114,97 @@ class _ExplorePageVersion5WidgetState extends State<ExplorePageVersion5Widget>
             ),
           ),
         ),
-        body: Align(
-          alignment: AlignmentDirectional(0.0, 1.0),
-          child: Stack(
-            children: [
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Flexible(
-                    flex: 1,
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 8.0,
+                    color: Colors.white,
+                    offset: Offset(
+                      0.0,
+                      8.0,
+                    ),
+                    spreadRadius: 20.0,
+                  )
+                ],
+                gradient: LinearGradient(
+                  colors: [
+                    FlutterFlowTheme.of(context).primary,
+                    FlutterFlowTheme.of(context).tertiary,
+                    FlutterFlowTheme.of(context).secondary
+                  ],
+                  stops: [0.0, 0.2, 1.0],
+                  begin: AlignmentDirectional(0.0, -1.0),
+                  end: AlignmentDirectional(0.0, 1.0),
+                ),
+              ),
+            ),
+            Positioned.fill(
+              child: Opacity(
+                opacity: 0.5,
+                child: Hero(
+                  tag: 'background',
+                  transitionOnUserGestures: true,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/images/Reset_All_Tab_(1).png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ).animateOnPageLoad(
+                    animationsMap['imageOnPageLoadAnimation']!),
+              ),
+            ),
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0x78D0E3F7),
+                      Color(0x53D0E3F7),
+                      Color(0x75FFFFFF)
+                    ],
+                    stops: [0.0, 0.5, 1.0],
+                    begin: AlignmentDirectional(0.0, -1.0),
+                    end: AlignmentDirectional(0.0, 1.0),
+                  ),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(0.0),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 80.0,
+                      sigmaY: 80.0,
+                    ),
                     child: Container(
-                      width: double.infinity,
-                      height: MediaQuery.sizeOf(context).height * 1.0,
                       decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 8.0,
-                            color: Colors.white,
-                            offset: Offset(
-                              0.0,
-                              8.0,
-                            ),
-                            spreadRadius: 20.0,
-                          )
-                        ],
                         gradient: LinearGradient(
                           colors: [
-                            FlutterFlowTheme.of(context).primary,
-                            FlutterFlowTheme.of(context).tertiary,
-                            FlutterFlowTheme.of(context).secondary
+                            Color(0x5339519F),
+                            Color(0x9CD0E3F7),
+                            Color(0x22E600F9)
                           ],
-                          stops: [0.0, 0.2, 1.0],
-                          begin: AlignmentDirectional(0.0, -1.0),
-                          end: AlignmentDirectional(0, 1.0),
+                          stops: [0.0, 0.5, 1.0],
+                          begin: AlignmentDirectional(1.0, -0.64),
+                          end: AlignmentDirectional(-1.0, 0.64),
                         ),
                       ),
-                      child: SingleChildScrollView(
-                        controller: _model.columnController,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Flexible(
-                              flex: 1,
-                              child: Stack(
-                                children: [
-                                  Opacity(
-                                    opacity: 0.5,
-                                    child: Hero(
-                                      tag: 'background',
-                                      transitionOnUserGestures: true,
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.asset(
-                                          'assets/images/Reset_All_Tab_(1).png',
-                                          width: 409.6,
-                                          height: 876.8,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'imageOnPageLoadAnimation']!),
-                                  ),
-                                  Stack(
-                                    alignment: AlignmentDirectional(0.0, 1.0),
-                                    children: [
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, -1.0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 917.39,
-                                          decoration: BoxDecoration(
-                                            gradient: LinearGradient(
-                                              colors: [
-                                                Color(0x78D0E3F7),
-                                                Color(0x53D0E3F7),
-                                                Color(0x75FFFFFF)
-                                              ],
-                                              stops: [0.0, 0.5, 1.0],
-                                              begin: AlignmentDirectional(
-                                                  0.0, -1.0),
-                                              end: AlignmentDirectional(0, 1.0),
-                                            ),
-                                          ),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(0.0),
-                                            child: BackdropFilter(
-                                              filter: ImageFilter.blur(
-                                                sigmaX: 80.0,
-                                                sigmaY: 80.0,
-                                              ),
-                                              child: Container(
-                                                width: 100.0,
-                                                height: 66.59,
-                                                decoration: BoxDecoration(
-                                                  gradient: LinearGradient(
-                                                    colors: [
-                                                      Color(0x5339519F),
-                                                      Color(0x9CD0E3F7),
-                                                      Color(0x22E600F9)
-                                                    ],
-                                                    stops: [0.0, 0.5, 1.0],
-                                                    begin: AlignmentDirectional(
-                                                        1.0, -0.64),
-                                                    end: AlignmentDirectional(
-                                                        -1.0, 0.64),
-                                                  ),
-                                                ),
-                                                child: wrapWithModel(
-                                                  model:
-                                                      _model.exploreScreenModel,
-                                                  updateCallback: () =>
-                                                      safeSetState(() {}),
-                                                  child: ExploreScreenWidget(),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ).animateOnPageLoad(animationsMap[
-                                            'containerOnPageLoadAnimation']!),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                      child: wrapWithModel(
+                        model: _model.exploreScreenModel,
+                        updateCallback: () => safeSetState(() {}),
+                        child: ExploreScreenWidget(),
                       ),
                     ),
                   ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation']!),
+            ),
+          ],
         ),
       ),
     );

@@ -467,8 +467,8 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                       sigmaY: 1.0,
                                     ),
                                     child: Container(
-                                      width: 109.6,
-                                      height: 100.0,
+                                      width: double.infinity,
+                                      height: double.infinity,
                                       decoration: BoxDecoration(
                                         gradient: LinearGradient(
                                           colors: [
@@ -1586,8 +1586,8 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                           sigmaY: 1.0,
                                         ),
                                         child: Container(
-                                          width: 109.6,
-                                          height: 100.0,
+                                          width: double.infinity,
+                                          height: double.infinity,
                                           decoration: BoxDecoration(
                                             gradient: LinearGradient(
                                               colors: [
@@ -2658,8 +2658,8 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                           sigmaY: 1.0,
                                         ),
                                         child: Container(
-                                          width: 109.6,
-                                          height: 100.0,
+                                          width: double.infinity,
+                                          height: double.infinity,
                                           decoration: BoxDecoration(
                                             gradient: LinearGradient(
                                               colors: [
