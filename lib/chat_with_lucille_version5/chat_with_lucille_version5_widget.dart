@@ -25,6 +25,7 @@ import 'package:tiktokfeed_wz8en7/app_state.dart'
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:ff_commons/api_requests/api_streaming.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -1040,13 +1041,13 @@ class _ChatWithLucilleVersion5WidgetState
                                                           firebaseIDToken:
                                                               currentJwtToken,
                                                         );
-                                                        print(
+                                                        if (kDebugMode) debugPrint(
                                                             'DEBUG ChatStream statusCode: ${_model.lucilleStreamChat?.statusCode}');
-                                                        print(
+                                                        if (kDebugMode) debugPrint(
                                                             'DEBUG ChatStream succeeded: ${_model.lucilleStreamChat?.succeeded}');
-                                                        print(
+                                                        if (kDebugMode) debugPrint(
                                                             'DEBUG ChatStream jsonBody: ${_model.lucilleStreamChat?.jsonBody}');
-                                                        print(
+                                                        if (kDebugMode) debugPrint(
                                                             'DEBUG ChatStream streamedResponse null: ${_model.lucilleStreamChat?.streamedResponse == null}');
                                                         if (_model
                                                                 .lucilleStreamChat
@@ -1068,9 +1069,9 @@ class _ChatWithLucilleVersion5WidgetState
                                                                           m))
                                                               .listen(
                                                             (onMessageInput) async {
-                                                              print(
+                                                              if (kDebugMode) debugPrint(
                                                                   'DEBUG SSE raw message: ${onMessageInput.message}');
-                                                              print(
+                                                              if (kDebugMode) debugPrint(
                                                                   'DEBUG SSE raw chunk: ${onMessageInput.serverSentEvent.jsonData}');
                                                               final data =
                                                                   TheoryOfMindLucilleStreamChatStruct
@@ -1080,11 +1081,11 @@ class _ChatWithLucilleVersion5WidgetState
                                                                     .jsonData,
                                                               );
                                                               if (data == null) {
-                                                                print(
+                                                                if (kDebugMode) debugPrint(
                                                                     'DEBUG SSE parse failed: data is null after maybeFromMap');
                                                                 return;
                                                               }
-                                                              print(
+                                                              if (kDebugMode) debugPrint(
                                                                   'DEBUG SSE parsed content: "${data.content}" done: ${data.done}');
 
                                                               if (_model
@@ -1161,7 +1162,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                             },
                                                             onError:
                                                                 (onErrorInput) async {
-                                                              print(
+                                                              if (kDebugMode) debugPrint(
                                                                   'DEBUG SSE stream onError: $onErrorInput');
                                                               logFirebaseEvent(
                                                                   '_show_snack_bar');
@@ -1189,7 +1190,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                               );
                                                             },
                                                             onDone: () async {
-                                                              print(
+                                                              if (kDebugMode) debugPrint(
                                                                   'DEBUG SSE stream onDone fired');
                                                               _model.aiIsResponsing =
                                                                   false;

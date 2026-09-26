@@ -183,10 +183,6 @@ class ChatStreamCall {
   "user_id": "${userID}"
 }''';
 
-    print('=== ChatStream URL: ${baseUrl}chat/stream');
-    print('=== ChatStream body: $ffApiRequestBody');
-    print('=== ChatStream token: $firebaseIDToken');
-
     return ApiManager.instance.makeApiCall(
       callName: 'ChatStream',
       apiUrl: '${baseUrl}chat/stream',
