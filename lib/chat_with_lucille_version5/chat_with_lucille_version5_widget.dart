@@ -962,7 +962,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primary,
+                                                                .primaryText,
                                                         size: 30.0,
                                                       ),
                                                       showLoadingIndicator:

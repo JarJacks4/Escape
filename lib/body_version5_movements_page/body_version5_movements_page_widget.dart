@@ -120,7 +120,7 @@ class _BodyVersion5MovementsPageWidgetState
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0,
-                                      24.0,
+                                      MediaQuery.paddingOf(context).top + 8.0,
                                       24.0,
                                       0.0,
                                     ),
