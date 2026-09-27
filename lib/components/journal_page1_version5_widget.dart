@@ -955,18 +955,6 @@ class _JournalPage1Version5WidgetState
                                 'JOURNAL_PAGE1_VERSION5_VOICE_NOTE_BTN_ON');
                             logFirebaseEvent('Button_haptic_feedback');
                             HapticFeedback.selectionClick();
-                            logFirebaseEvent('Button_navigate_to');
-
-                            context.pushNamed(
-                              RitualSparkJournalPageVersion5Widget.routeName,
-                              extra: <String, dynamic>{
-                                '__transition_info__': TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 2),
-                                ),
-                              },
-                            );
                           },
                           text: FFLocalizations.of(context).getText(
                             'pmbe37iu' /* Voice Note */,

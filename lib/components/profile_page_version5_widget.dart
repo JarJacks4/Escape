@@ -954,19 +954,6 @@ This Week */
                             .setAsset(
                                 'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
                             .then((_) => _model.soundPlayer4!.play());
-
-                        logFirebaseEvent('Button_navigate_to');
-
-                        context.pushNamed(
-                          RitualSparkJournalPageVersion5Widget.routeName,
-                          extra: <String, dynamic>{
-                            '__transition_info__': TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 2),
-                            ),
-                          },
-                        );
                       },
                       text: FFLocalizations.of(context).getText(
                         'q7cncnx2' /* Reflect */,

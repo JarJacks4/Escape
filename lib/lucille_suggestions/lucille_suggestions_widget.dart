@@ -891,7 +891,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                         .sizeOf(
                                                                             context)
                                                                     .height *
-                                                                0.27,
+                                                                0.303,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: Color(
@@ -911,193 +911,195 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                   EdgeInsets
                                                                       .all(
                                                                           15.0),
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Container(
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              Color(0x33FFFFFF),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(12.0),
-                                                                        ),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              6.0,
-                                                                              10.0,
-                                                                              6.0),
+                                                              child:
+                                                                  SingleChildScrollView(
+                                                                primary: false,
+                                                                physics:
+                                                                    const AlwaysScrollableScrollPhysics(),
+                                                                controller: _model
+                                                                    .columnController1,
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children:
+                                                                          [
+                                                                        Container(
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                Color(0x33FFFFFF),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(12.0),
+                                                                          ),
                                                                           child:
-                                                                              Text(
-                                                                            valueOrDefault<String>(
-                                                                              LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                  .modality(
-                                                                                    columnRecommendedExercisesResponse.jsonBody,
-                                                                                  )
-                                                                                  ?.firstOrNull,
-                                                                              'Mind',
-                                                                            ),
-                                                                            style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                  font: GoogleFonts.inter(
+                                                                              Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                10.0,
+                                                                                6.0,
+                                                                                10.0,
+                                                                                6.0),
+                                                                            child:
+                                                                                Text(
+                                                                              valueOrDefault<String>(
+                                                                                LucilleTherapyExercisesGroup.recommendedExercisesCall
+                                                                                    .modality(
+                                                                                      columnRecommendedExercisesResponse.jsonBody,
+                                                                                    )
+                                                                                    ?.firstOrNull,
+                                                                                'Mind',
+                                                                              ),
+                                                                              style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                    font: GoogleFonts.inter(
+                                                                                      fontWeight: FontWeight.w500,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                    ),
+                                                                                    color: Colors.white,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                     fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
                                                                                   ),
-                                                                                  color: Colors.white,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w500,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
-                                                                                ),
+                                                                            ),
                                                                           ),
                                                                         ),
-                                                                      ),
-                                                                    ].divide(SizedBox(
-                                                                        width:
-                                                                            8.0)),
-                                                                  ),
-                                                                  Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      LucilleTherapyExercisesGroup
-                                                                          .recommendedExercisesCall
-                                                                          .title(
-                                                                            columnRecommendedExercisesResponse.jsonBody,
-                                                                          )
-                                                                          ?.firstOrNull,
-                                                                      'Calm Breathing',
+                                                                      ].divide(SizedBox(
+                                                                              width: 8.0)),
                                                                     ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .displaySmall
-                                                                        .override(
-                                                                          font:
-                                                                              GoogleFonts.cormorantSc(
+                                                                    Text(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        LucilleTherapyExercisesGroup
+                                                                            .recommendedExercisesCall
+                                                                            .title(
+                                                                              columnRecommendedExercisesResponse.jsonBody,
+                                                                            )
+                                                                            ?.firstOrNull,
+                                                                        'Calm Breathing',
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .displaySmall
+                                                                          .override(
+                                                                            font:
+                                                                                GoogleFonts.cormorantSc(
+                                                                              fontWeight: FontWeight.bold,
+                                                                              fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
+                                                                            ),
+                                                                            color:
+                                                                                Colors.white,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.bold,
                                                                             fontStyle:
                                                                                 FlutterFlowTheme.of(context).displaySmall.fontStyle,
                                                                           ),
-                                                                          color:
-                                                                              Colors.white,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.bold,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .displaySmall
-                                                                              .fontStyle,
+                                                                    ),
+                                                                    Flexible(
+                                                                      flex: 1,
+                                                                      child:
+                                                                          Text(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          LucilleTherapyExercisesGroup
+                                                                              .recommendedExercisesCall
+                                                                              .description(
+                                                                                columnRecommendedExercisesResponse.jsonBody,
+                                                                              )
+                                                                              ?.firstOrNull,
+                                                                          'A gentle breathing exercise to help focus your mind and body.',
                                                                         ),
-                                                                  ),
-                                                                  Flexible(
-                                                                    flex: 1,
-                                                                    child: Text(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        LucilleTherapyExercisesGroup
-                                                                            .recommendedExercisesCall
-                                                                            .description(
-                                                                              columnRecommendedExercisesResponse.jsonBody,
-                                                                            )
-                                                                            ?.firstOrNull,
-                                                                        'A gentle breathing exercise to help focus your mind and body.',
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            font:
-                                                                                GoogleFonts.inter(
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              font: GoogleFonts.inter(
+                                                                                fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                              ),
+                                                                              color: Color(0xFFEEEEFF),
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                               fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                             ),
-                                                                            color:
-                                                                                Color(0xFFEEEEFF),
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.normal,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                          ),
-                                                                      overflow:
-                                                                          TextOverflow
-                                                                              .fade,
-                                                                    ),
-                                                                  ),
-                                                                  Container(
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: Color(
-                                                                          0x33FFFFFF),
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              20.0),
-                                                                      border:
-                                                                          Border
-                                                                              .all(
-                                                                        color: Color(
-                                                                            0x6ED0E3F7),
+                                                                        overflow:
+                                                                            TextOverflow.fade,
                                                                       ),
                                                                     ),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          12.0,
-                                                                          6.0,
-                                                                          12.0,
-                                                                          6.0),
+                                                                    Flexible(
+                                                                      flex: 1,
                                                                       child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children:
-                                                                            [
-                                                                          Icon(
-                                                                            Icons.access_time_rounded,
+                                                                          Container(
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              Color(0x33FFFFFF),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(20.0),
+                                                                          border:
+                                                                              Border.all(
                                                                             color:
-                                                                                Colors.white,
-                                                                            size:
-                                                                                16.0,
+                                                                                Color(0x6ED0E3F7),
                                                                           ),
-                                                                          Text(
-                                                                            valueOrDefault<String>(
-                                                                              LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                  .duration(
-                                                                                    columnRecommendedExercisesResponse.jsonBody,
-                                                                                  )
-                                                                                  ?.firstOrNull
-                                                                                  ?.toString(),
-                                                                              'None',
-                                                                            ),
-                                                                            style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                  font: GoogleFonts.inter(
-                                                                                    fontWeight: FontWeight.normal,
-                                                                                    fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                        ),
+                                                                        child:
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              12.0,
+                                                                              6.0,
+                                                                              12.0,
+                                                                              6.0),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children:
+                                                                                [
+                                                                              Icon(
+                                                                                Icons.access_time_rounded,
+                                                                                color: Colors.white,
+                                                                                size: 16.0,
+                                                                              ),
+                                                                              Flexible(
+                                                                                flex: 1,
+                                                                                child: Text(
+                                                                                  valueOrDefault<String>(
+                                                                                    LucilleTherapyExercisesGroup.recommendedExercisesCall
+                                                                                        .duration(
+                                                                                          columnRecommendedExercisesResponse.jsonBody,
+                                                                                        )
+                                                                                        ?.firstOrNull
+                                                                                        ?.toString(),
+                                                                                    'None',
                                                                                   ),
-                                                                                  color: Colors.white,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.normal,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                  style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                        font: GoogleFonts.inter(
+                                                                                          fontWeight: FontWeight.normal,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                        ),
+                                                                                        color: Colors.white,
+                                                                                        letterSpacing: 0.0,
+                                                                                        fontWeight: FontWeight.normal,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                      ),
                                                                                 ),
+                                                                              ),
+                                                                            ].divide(SizedBox(width: 6.0)),
                                                                           ),
-                                                                        ].divide(SizedBox(width: 6.0)),
+                                                                        ),
                                                                       ),
                                                                     ),
-                                                                  ),
-                                                                ].divide(SizedBox(
-                                                                    height:
-                                                                        12.0)),
+                                                                  ].divide(SizedBox(
+                                                                      height:
+                                                                          12.0)),
+                                                                ),
                                                               ),
                                                             ),
                                                           ).animateOnPageLoad(
@@ -1227,7 +1229,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                         Icons
                                                                             .keyboard_arrow_up_rounded,
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .accent1,
+                                                                            .accent3,
                                                                         size:
                                                                             24.0,
                                                                       ),
@@ -1910,7 +1912,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                 height: MediaQuery.sizeOf(
                                                                             context)
                                                                         .height *
-                                                                    0.27,
+                                                                    0.272,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Color(
@@ -1930,169 +1932,172 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                       EdgeInsets
                                                                           .all(
                                                                               15.0),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children:
-                                                                            [
-                                                                          Flexible(
-                                                                            flex:
-                                                                                1,
-                                                                            child:
-                                                                                Container(
-                                                                              decoration: BoxDecoration(
-                                                                                color: Color(0x33FFFFFF),
-                                                                                borderRadius: BorderRadius.circular(12.0),
-                                                                              ),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 6.0, 10.0, 6.0),
-                                                                                child: Text(
-                                                                                  valueOrDefault<String>(
-                                                                                    LucilleTherapyExercisesGroup.recommendedExercisesCall.detectedIntent(
-                                                                                      columnRecommendedExercisesResponse.jsonBody,
+                                                                  child:
+                                                                      SingleChildScrollView(
+                                                                    primary:
+                                                                        false,
+                                                                    physics:
+                                                                        const AlwaysScrollableScrollPhysics(),
+                                                                    controller:
+                                                                        _model
+                                                                            .columnController2,
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children:
+                                                                          [
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children:
+                                                                              [
+                                                                            Flexible(
+                                                                              flex: 1,
+                                                                              child: Container(
+                                                                                decoration: BoxDecoration(
+                                                                                  color: Color(0x33FFFFFF),
+                                                                                  borderRadius: BorderRadius.circular(12.0),
+                                                                                ),
+                                                                                child: Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 6.0, 10.0, 6.0),
+                                                                                  child: Text(
+                                                                                    valueOrDefault<String>(
+                                                                                      LucilleTherapyExercisesGroup.recommendedExercisesCall.detectedIntent(
+                                                                                        columnRecommendedExercisesResponse.jsonBody,
+                                                                                      ),
+                                                                                      'Mind',
                                                                                     ),
-                                                                                    'Mind',
+                                                                                    style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                          font: GoogleFonts.inter(
+                                                                                            fontWeight: FontWeight.w500,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                          ),
+                                                                                          color: Colors.white,
+                                                                                          letterSpacing: 0.0,
+                                                                                          fontWeight: FontWeight.w500,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ].divide(SizedBox(width: 8.0)),
+                                                                        ),
+                                                                        Text(
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            LucilleTherapyExercisesGroup.recommendedExercisesCall
+                                                                                .title(
+                                                                                  columnRecommendedExercisesResponse.jsonBody,
+                                                                                )
+                                                                                ?.elementAtOrNull(5),
+                                                                            'Calm Breathing',
+                                                                          ),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .override(
+                                                                                font: GoogleFonts.inter(
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
+                                                                                ),
+                                                                                color: Colors.white,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.bold,
+                                                                                fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
+                                                                              ),
+                                                                        ),
+                                                                        Flexible(
+                                                                          flex:
+                                                                              1,
+                                                                          child:
+                                                                              Text(
+                                                                            valueOrDefault<String>(
+                                                                              LucilleTherapyExercisesGroup.recommendedExercisesCall
+                                                                                  .description(
+                                                                                    columnRecommendedExercisesResponse.jsonBody,
+                                                                                  )
+                                                                                  ?.elementAtOrNull(5),
+                                                                              'A gentle breathing exercise to help focus your mind and body.',
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  font: GoogleFonts.inter(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
+                                                                                  color: Color(0xFFEEEEFF),
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
+                                                                            overflow:
+                                                                                TextOverflow.fade,
+                                                                          ),
+                                                                        ),
+                                                                        Container(
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                Color(0x33FFFFFF),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(20.0),
+                                                                            border:
+                                                                                Border.all(
+                                                                              color: Color(0x6ED0E3F7),
+                                                                            ),
+                                                                          ),
+                                                                          child:
+                                                                              Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                12.0,
+                                                                                6.0,
+                                                                                12.0,
+                                                                                6.0),
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Icon(
+                                                                                  Icons.access_time_rounded,
+                                                                                  color: Colors.white,
+                                                                                  size: 16.0,
+                                                                                ),
+                                                                                Text(
+                                                                                  valueOrDefault<String>(
+                                                                                    LucilleTherapyExercisesGroup.recommendedExercisesCall
+                                                                                        .reason(
+                                                                                          columnRecommendedExercisesResponse.jsonBody,
+                                                                                        )
+                                                                                        ?.sortedList(
+                                                                                            keyOf: (e) => LucilleTherapyExercisesGroup.recommendedExercisesCall.detectedEmotion(
+                                                                                                  columnRecommendedExercisesResponse.jsonBody,
+                                                                                                )!,
+                                                                                            desc: true)
+                                                                                        .elementAtOrNull(3),
+                                                                                    'Reason',
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).labelLarge.override(
                                                                                         font: GoogleFonts.inter(
-                                                                                          fontWeight: FontWeight.w500,
+                                                                                          fontWeight: FontWeight.normal,
                                                                                           fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
                                                                                         ),
                                                                                         color: Colors.white,
                                                                                         letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.w500,
-                                                                                        fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ].divide(SizedBox(width: 8.0)),
-                                                                      ),
-                                                                      Text(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          LucilleTherapyExercisesGroup
-                                                                              .recommendedExercisesCall
-                                                                              .title(
-                                                                                columnRecommendedExercisesResponse.jsonBody,
-                                                                              )
-                                                                              ?.elementAtOrNull(5),
-                                                                          'Calm Breathing',
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .displaySmall
-                                                                            .override(
-                                                                              font: GoogleFonts.inter(
-                                                                                fontWeight: FontWeight.bold,
-                                                                                fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
-                                                                              ),
-                                                                              color: Colors.white,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.bold,
-                                                                              fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
-                                                                            ),
-                                                                      ),
-                                                                      Flexible(
-                                                                        flex: 1,
-                                                                        child:
-                                                                            Text(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                .description(
-                                                                                  columnRecommendedExercisesResponse.jsonBody,
-                                                                                )
-                                                                                ?.elementAtOrNull(5),
-                                                                            'A gentle breathing exercise to help focus your mind and body.',
-                                                                          ),
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                font: GoogleFonts.inter(
-                                                                                  fontWeight: FontWeight.normal,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                ),
-                                                                                color: Color(0xFFEEEEFF),
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                              ),
-                                                                          overflow:
-                                                                              TextOverflow.fade,
-                                                                        ),
-                                                                      ),
-                                                                      Container(
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              Color(0x33FFFFFF),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(20.0),
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                Color(0x6ED0E3F7),
-                                                                          ),
-                                                                        ),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              12.0,
-                                                                              6.0,
-                                                                              12.0,
-                                                                              6.0),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children:
-                                                                                [
-                                                                              Icon(
-                                                                                Icons.access_time_rounded,
-                                                                                color: Colors.white,
-                                                                                size: 16.0,
-                                                                              ),
-                                                                              Text(
-                                                                                valueOrDefault<String>(
-                                                                                  LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                      .reason(
-                                                                                        columnRecommendedExercisesResponse.jsonBody,
-                                                                                      )
-                                                                                      ?.sortedList(
-                                                                                          keyOf: (e) => LucilleTherapyExercisesGroup.recommendedExercisesCall.detectedEmotion(
-                                                                                                columnRecommendedExercisesResponse.jsonBody,
-                                                                                              )!,
-                                                                                          desc: true)
-                                                                                      .elementAtOrNull(3),
-                                                                                  'Reason',
-                                                                                ),
-                                                                                style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                      font: GoogleFonts.inter(
                                                                                         fontWeight: FontWeight.normal,
                                                                                         fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
                                                                                       ),
-                                                                                      color: Colors.white,
-                                                                                      letterSpacing: 0.0,
-                                                                                      fontWeight: FontWeight.normal,
-                                                                                      fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
-                                                                                    ),
-                                                                              ),
-                                                                            ].divide(SizedBox(width: 6.0)),
+                                                                                ),
+                                                                              ].divide(SizedBox(width: 6.0)),
+                                                                            ),
                                                                           ),
                                                                         ),
-                                                                      ),
-                                                                    ].divide(SizedBox(
-                                                                        height:
-                                                                            12.0)),
+                                                                      ].divide(SizedBox(
+                                                                              height: 12.0)),
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ).animateOnPageLoad(
@@ -2659,8 +2664,9 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                               height: 44.0,
                                                               decoration:
                                                                   BoxDecoration(
-                                                                color: Color(
-                                                                    0x33FFFFFF),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
                                                                 boxShadow: [
                                                                   BoxShadow(
                                                                     blurRadius:
@@ -2904,171 +2910,176 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                       EdgeInsets
                                                                           .all(
                                                                               15.0),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children:
-                                                                            [
-                                                                          Flexible(
-                                                                            flex:
-                                                                                1,
-                                                                            child:
-                                                                                Container(
-                                                                              decoration: BoxDecoration(
-                                                                                color: Color(0x33FFFFFF),
-                                                                                borderRadius: BorderRadius.circular(12.0),
-                                                                              ),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 6.0, 10.0, 6.0),
-                                                                                child: Text(
-                                                                                  valueOrDefault<String>(
-                                                                                    LucilleTherapyExercisesGroup.recommendedExercisesCall.detectedIntent(
-                                                                                      columnRecommendedExercisesResponse.jsonBody,
+                                                                  child:
+                                                                      SingleChildScrollView(
+                                                                    primary:
+                                                                        false,
+                                                                    physics:
+                                                                        const AlwaysScrollableScrollPhysics(),
+                                                                    controller:
+                                                                        _model
+                                                                            .columnController3,
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children:
+                                                                          [
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children:
+                                                                              [
+                                                                            Flexible(
+                                                                              flex: 1,
+                                                                              child: Container(
+                                                                                decoration: BoxDecoration(
+                                                                                  color: Color(0x33FFFFFF),
+                                                                                  borderRadius: BorderRadius.circular(12.0),
+                                                                                ),
+                                                                                child: Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 6.0, 10.0, 6.0),
+                                                                                  child: Text(
+                                                                                    valueOrDefault<String>(
+                                                                                      LucilleTherapyExercisesGroup.recommendedExercisesCall.detectedIntent(
+                                                                                        columnRecommendedExercisesResponse.jsonBody,
+                                                                                      ),
+                                                                                      'Mind',
                                                                                     ),
-                                                                                    'Mind',
-                                                                                  ),
-                                                                                  style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                        font: GoogleFonts.inter(
+                                                                                    style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                          font: GoogleFonts.inter(
+                                                                                            fontWeight: FontWeight.w500,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                          ),
+                                                                                          color: Colors.white,
+                                                                                          letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.w500,
                                                                                           fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
                                                                                         ),
-                                                                                        color: Colors.white,
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.w500,
-                                                                                        fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
-                                                                                      ),
-                                                                                  overflow: TextOverflow.fade,
+                                                                                    overflow: TextOverflow.fade,
+                                                                                  ),
                                                                                 ),
                                                                               ),
                                                                             ),
-                                                                          ),
-                                                                        ].divide(SizedBox(width: 8.0)),
-                                                                      ),
-                                                                      Text(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          LucilleTherapyExercisesGroup
-                                                                              .recommendedExercisesCall
-                                                                              .title(
-                                                                                columnRecommendedExercisesResponse.jsonBody,
-                                                                              )
-                                                                              ?.elementAtOrNull(3),
-                                                                          'Calm Breathing',
+                                                                          ].divide(SizedBox(width: 8.0)),
                                                                         ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .displaySmall
-                                                                            .override(
-                                                                              font: GoogleFonts.inter(
-                                                                                fontWeight: FontWeight.bold,
-                                                                                fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
-                                                                              ),
-                                                                              color: Colors.white,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.bold,
-                                                                              fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
+                                                                        Flexible(
+                                                                          flex:
+                                                                              1,
+                                                                          child:
+                                                                              Text(
+                                                                            valueOrDefault<String>(
+                                                                              LucilleTherapyExercisesGroup.recommendedExercisesCall
+                                                                                  .title(
+                                                                                    columnRecommendedExercisesResponse.jsonBody,
+                                                                                  )
+                                                                                  ?.elementAtOrNull(3),
+                                                                              'Calm Breathing',
                                                                             ),
-                                                                        overflow:
-                                                                            TextOverflow.fade,
-                                                                      ),
-                                                                      Flexible(
-                                                                        flex: 1,
-                                                                        child:
-                                                                            Text(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                .description(
-                                                                                  columnRecommendedExercisesResponse.jsonBody,
-                                                                                )
-                                                                                ?.elementAtOrNull(3),
-                                                                            'A gentle breathing exercise to help focus your mind and body.',
+                                                                            style: FlutterFlowTheme.of(context).displaySmall.override(
+                                                                                  font: GoogleFonts.inter(
+                                                                                    fontWeight: FontWeight.bold,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
+                                                                                  ),
+                                                                                  color: Colors.white,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
+                                                                                ),
+                                                                            overflow:
+                                                                                TextOverflow.fade,
                                                                           ),
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                font: GoogleFonts.inter(
+                                                                        ),
+                                                                        Flexible(
+                                                                          flex:
+                                                                              1,
+                                                                          child:
+                                                                              Text(
+                                                                            valueOrDefault<String>(
+                                                                              LucilleTherapyExercisesGroup.recommendedExercisesCall
+                                                                                  .description(
+                                                                                    columnRecommendedExercisesResponse.jsonBody,
+                                                                                  )
+                                                                                  ?.elementAtOrNull(3),
+                                                                              'A gentle breathing exercise to help focus your mind and body.',
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  font: GoogleFonts.inter(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
+                                                                                  color: Color(0xFFEEEEFF),
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
                                                                                   fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
-                                                                                color: Color(0xFFEEEEFF),
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                              ),
-                                                                          overflow:
-                                                                              TextOverflow.fade,
-                                                                        ),
-                                                                      ),
-                                                                      Container(
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              Color(0x33FFFFFF),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(20.0),
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                Color(0x6ED0E3F7),
+                                                                            overflow:
+                                                                                TextOverflow.fade,
                                                                           ),
                                                                         ),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              12.0,
-                                                                              6.0,
-                                                                              12.0,
-                                                                              6.0),
+                                                                        Flexible(
+                                                                          flex:
+                                                                              1,
                                                                           child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children:
-                                                                                [
-                                                                              Icon(
-                                                                                Icons.access_time_rounded,
-                                                                                color: Colors.white,
-                                                                                size: 16.0,
+                                                                              Container(
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: Color(0x33FFFFFF),
+                                                                              borderRadius: BorderRadius.circular(20.0),
+                                                                              border: Border.all(
+                                                                                color: Color(0x6ED0E3F7),
                                                                               ),
-                                                                              Text(
-                                                                                valueOrDefault<String>(
-                                                                                  (LucilleTherapyExercisesGroup.recommendedExercisesCall.reason(
-                                                                                                columnRecommendedExercisesResponse.jsonBody,
-                                                                                              ) !=
-                                                                                              null &&
-                                                                                          (LucilleTherapyExercisesGroup.recommendedExercisesCall.reason(
-                                                                                            columnRecommendedExercisesResponse.jsonBody,
-                                                                                          ))!
-                                                                                              .isNotEmpty)
-                                                                                      .toString(),
-                                                                                  'Reason',
-                                                                                ),
-                                                                                style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                      font: GoogleFonts.inter(
-                                                                                        fontWeight: FontWeight.normal,
-                                                                                        fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                            ),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(12.0, 6.0, 12.0, 6.0),
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  Icon(
+                                                                                    Icons.access_time_rounded,
+                                                                                    color: Colors.white,
+                                                                                    size: 16.0,
+                                                                                  ),
+                                                                                  Flexible(
+                                                                                    flex: 1,
+                                                                                    child: Text(
+                                                                                      valueOrDefault<String>(
+                                                                                        (LucilleTherapyExercisesGroup.recommendedExercisesCall.reason(
+                                                                                                      columnRecommendedExercisesResponse.jsonBody,
+                                                                                                    ) !=
+                                                                                                    null &&
+                                                                                                (LucilleTherapyExercisesGroup.recommendedExercisesCall.reason(
+                                                                                                  columnRecommendedExercisesResponse.jsonBody,
+                                                                                                ))!
+                                                                                                    .isNotEmpty)
+                                                                                            .toString(),
+                                                                                        'Reason',
                                                                                       ),
-                                                                                      color: Colors.white,
-                                                                                      letterSpacing: 0.0,
-                                                                                      fontWeight: FontWeight.normal,
-                                                                                      fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                      style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                            font: GoogleFonts.inter(
+                                                                                              fontWeight: FontWeight.normal,
+                                                                                              fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                            ),
+                                                                                            color: Colors.white,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.normal,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                                                                                          ),
                                                                                     ),
+                                                                                  ),
+                                                                                ].divide(SizedBox(width: 6.0)),
                                                                               ),
-                                                                            ].divide(SizedBox(width: 6.0)),
+                                                                            ),
                                                                           ),
                                                                         ),
-                                                                      ),
-                                                                    ].divide(SizedBox(
-                                                                        height:
-                                                                            12.0)),
+                                                                      ].divide(SizedBox(
+                                                                              height: 12.0)),
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ).animateOnPageLoad(

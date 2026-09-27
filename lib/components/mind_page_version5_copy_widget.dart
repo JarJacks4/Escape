@@ -362,7 +362,7 @@ class _MindPageVersion5CopyWidgetState extends State<MindPageVersion5CopyWidget>
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Expanded(
+                                          Flexible(
                                             flex: 1,
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -418,6 +418,7 @@ class _MindPageVersion5CopyWidgetState extends State<MindPageVersion5CopyWidget>
                                                     safeSetState(() {}));
                                               },
                                               child: Container(
+                                                width: double.infinity,
                                                 height: 190.0,
                                                 decoration: BoxDecoration(
                                                   boxShadow: [
@@ -582,7 +583,7 @@ Hone Your S... */
                                               ),
                                             ),
                                           ),
-                                          Expanded(
+                                          Flexible(
                                             flex: 1,
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -634,6 +635,7 @@ Hone Your S... */
                                                 );
                                               },
                                               child: Container(
+                                                width: double.infinity,
                                                 height: 190.0,
                                                 decoration: BoxDecoration(
                                                   boxShadow: [
@@ -808,7 +810,7 @@ Calm... */
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Expanded(
+                                          Flexible(
                                             flex: 1,
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -841,6 +843,7 @@ Calm... */
                                                     safeSetState(() {}));
                                               },
                                               child: Container(
+                                                width: double.infinity,
                                                 height: 190.0,
                                                 decoration: BoxDecoration(
                                                   boxShadow: [
@@ -1004,7 +1007,7 @@ Help Calm... */
                                               ),
                                             ),
                                           ),
-                                          Expanded(
+                                          Flexible(
                                             flex: 1,
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -1056,6 +1059,7 @@ Help Calm... */
                                                 );
                                               },
                                               child: Container(
+                                                width: double.infinity,
                                                 height: 190.0,
                                                 decoration: BoxDecoration(
                                                   boxShadow: [

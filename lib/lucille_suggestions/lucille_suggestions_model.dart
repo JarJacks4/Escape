@@ -20,18 +20,24 @@ class LucilleSuggestionsModel
       ? pageViewController!.page!.round()
       : 0;
   AudioPlayer? soundPlayer1;
+  // State field(s) for Column widget.
+  ScrollController? columnController1;
   AudioPlayer? soundPlayer2;
   // Stores action output result for [Backend Call - API (Recommended Soundscapes)] action in Swipeable widget.
   ApiCallResponse? recommendedSoundscapes;
   // Stores action output result for [Backend Call - API (Get Soundscape)] action in Swipeable widget.
   ApiCallResponse? getSoundscape;
   AudioPlayer? soundPlayer3;
+  // State field(s) for Column widget.
+  ScrollController? columnController2;
   AudioPlayer? soundPlayer4;
   // Stores action output result for [Backend Call - API (Recommended Soundscapes)] action in Swipeable widget.
   ApiCallResponse? recommendedSoundscapes62;
   // Stores action output result for [Backend Call - API (Get Soundscape)] action in Swipeable widget.
   ApiCallResponse? getSoundscape3;
   AudioPlayer? soundPlayer5;
+  // State field(s) for Column widget.
+  ScrollController? columnController3;
   AudioPlayer? soundPlayer6;
   // Stores action output result for [Backend Call - API (Recommended Soundscapes)] action in Swipeable widget.
   ApiCallResponse? recommendedSoundscapes4;
@@ -56,10 +62,18 @@ class LucilleSuggestionsModel
       _suggestionCacheManager.clearRequest(uniqueKey);
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    columnController1 = ScrollController();
+    columnController2 = ScrollController();
+    columnController3 = ScrollController();
+  }
 
   @override
   void dispose() {
+    columnController1?.dispose();
+    columnController2?.dispose();
+    columnController3?.dispose();
+
     /// Dispose query cache managers for this widget.
 
     clearSuggestionCacheCache();

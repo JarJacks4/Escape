@@ -907,28 +907,31 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                           children: [
                                                                             Flexible(
                                                                               flex: 1,
-                                                                              child: AuthUserStreamWidget(
-                                                                                builder: (context) => AnimatedDefaultTextStyle(
-                                                                                  style: FlutterFlowTheme.of(context).bodyLarge.override(
-                                                                                        font: GoogleFonts.cormorantSc(
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+                                                                                child: AuthUserStreamWidget(
+                                                                                  builder: (context) => AnimatedDefaultTextStyle(
+                                                                                    style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                          font: GoogleFonts.cormorantSc(
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                                                                                          ),
+                                                                                          color: FlutterFlowTheme.of(context).alternate,
+                                                                                          letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.bold,
                                                                                           fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                                                                                         ),
-                                                                                        color: FlutterFlowTheme.of(context).alternate,
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.bold,
-                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                                                                                    duration: Duration(milliseconds: 600),
+                                                                                    curve: Curves.easeIn,
+                                                                                    child: Text(
+                                                                                      valueOrDefault<String>(
+                                                                                        currentUserDisplayName != '' ? currentUserDisplayName : currentUserEmail,
+                                                                                        'Escape User',
                                                                                       ),
-                                                                                  duration: Duration(milliseconds: 600),
-                                                                                  curve: Curves.easeIn,
-                                                                                  child: Text(
-                                                                                    valueOrDefault<String>(
-                                                                                      currentUserDisplayName != '' ? currentUserDisplayName : currentUserEmail,
-                                                                                      'Escape User',
+                                                                                      overflow: TextOverflow.fade,
                                                                                     ),
-                                                                                    overflow: TextOverflow.fade,
-                                                                                  ),
-                                                                                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation3']!),
+                                                                                  ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation3']!),
+                                                                                ),
                                                                               ),
                                                                             ),
                                                                             Row(
@@ -1104,7 +1107,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                                               fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                                                                                                               fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
                                                                                                             ),
-                                                                                                            color: FlutterFlowTheme.of(context).primary,
+                                                                                                            color: FlutterFlowTheme.of(context).alternate,
                                                                                                             fontSize: 12.0,
                                                                                                             letterSpacing: 0.0,
                                                                                                             fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,

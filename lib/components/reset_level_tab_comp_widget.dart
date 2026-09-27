@@ -1112,7 +1112,7 @@ class _ResetLevelTabCompWidgetState extends State<ResetLevelTabCompWidget> {
                     },
                     child: Container(
                       width: 335.0,
-                      height: 87.1,
+                      height: 96.89,
                       decoration: BoxDecoration(
                         color: Color(0x81EDF1F7),
                         image: DecorationImage(
@@ -1264,7 +1264,15 @@ with a wi... */
                       logFirebaseEvent('Container_navigate_to');
 
                       context.pushNamed(
-                          RitualSparkJournalPageVersion5Widget.routeName);
+                        HealthJournalWidget.routeName,
+                        extra: <String, dynamic>{
+                          '__transition_info__': TransitionInfo(
+                            hasTransition: true,
+                            transitionType: PageTransitionType.fade,
+                            duration: Duration(milliseconds: 3),
+                          ),
+                        },
+                      );
                     },
                     child: Container(
                       width: 335.0,
@@ -1295,7 +1303,7 @@ with a wi... */
                                 children: [
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      '3iin3qvw' /* Ritual Spark */,
+                                      '3iin3qvw' /* Health Journal */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge

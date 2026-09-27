@@ -383,7 +383,7 @@ Mastery */
                                   borderRadius: 16.0,
                                   buttonSize: 64.0,
                                   fillColor:
-                                      FlutterFlowTheme.of(context).accent1,
+                                      FlutterFlowTheme.of(context).accent3,
                                   icon: FaIcon(
                                     FontAwesomeIcons.trophy,
                                     color: FlutterFlowTheme.of(context).primary,
@@ -471,7 +471,7 @@ daily ... */
                                           .labelMedium
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context).accent1,
+                                    color: FlutterFlowTheme.of(context).accent3,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -498,8 +498,9 @@ daily ... */
                             lineHeight: 8.0,
                             animation: true,
                             animateFromLastPercent: true,
-                            progressColor: FlutterFlowTheme.of(context).accent1,
-                            backgroundColor: Color(0xFFEDF1F7),
+                            progressColor: FlutterFlowTheme.of(context).accent3,
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).alternate,
                             center: Text(
                               FFLocalizations.of(context).getText(
                                 'nypjx9mp' /* 50% */,
@@ -689,7 +690,7 @@ daily ... */
                                                   .fontStyle,
                                         ),
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .accent3,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                         fontStyle: FlutterFlowTheme.of(context)
@@ -748,7 +749,7 @@ daily ... */
                 children: [
                   Icon(
                     Icons.explore,
-                    color: FlutterFlowTheme.of(context).primary,
+                    color: FlutterFlowTheme.of(context).accent4,
                     size: 20.0,
                   ),
                   Text(
@@ -927,7 +928,7 @@ daily ... */
                             padding: EdgeInsets.all(8.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).accent1,
+                            color: FlutterFlowTheme.of(context).accent3,
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -1111,7 +1112,7 @@ daily ... */
                             padding: EdgeInsets.all(8.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).accent1,
+                            color: FlutterFlowTheme.of(context).accent3,
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -1295,7 +1296,7 @@ daily ... */
                             padding: EdgeInsets.all(8.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).accent1,
+                            color: FlutterFlowTheme.of(context).accent3,
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -1479,7 +1480,7 @@ daily ... */
                             padding: EdgeInsets.all(8.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).accent1,
+                            color: FlutterFlowTheme.of(context).accent3,
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -1663,7 +1664,7 @@ daily ... */
                             padding: EdgeInsets.all(8.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).accent1,
+                            color: FlutterFlowTheme.of(context).accent3,
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(

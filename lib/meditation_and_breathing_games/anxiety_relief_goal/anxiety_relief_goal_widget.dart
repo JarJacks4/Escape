@@ -304,7 +304,7 @@ class _AnxietyReliefGoalWidgetState extends State<AnxietyReliefGoalWidget> {
                               16.0, 0.0, 16.0, 0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).accent1,
+                          color: FlutterFlowTheme.of(context).accent3,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     font: GoogleFonts.inter(

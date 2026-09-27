@@ -1838,8 +1838,7 @@ melt away... */
                                                   'Container_navigate_to');
 
                                               context.pushNamed(
-                                                RitualSparkJournalPageVersion5Widget
-                                                    .routeName,
+                                                HealthJournalWidget.routeName,
                                                 extra: <String, dynamic>{
                                                   '__transition_info__':
                                                       TransitionInfo(
@@ -1927,7 +1926,7 @@ melt away... */
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                'jiagy7k8' /* Ritual Spark */,
+                                                                'jiagy7k8' /* Health Journal */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -1961,7 +1960,7 @@ melt away... */
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                'rntai9gt' /* Mindful sipping practice */,
+                                                                'rntai9gt' /* Mindful Voice and Text Journal */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -4772,7 +4771,7 @@ fire o... */
                                                               'Container_navigate_to');
 
                                                           context.pushNamed(
-                                                              RitualSparkJournalPageVersion5Widget
+                                                              HealthJournalWidget
                                                                   .routeName);
                                                         },
                                                         child: Container(
@@ -4841,7 +4840,7 @@ fire o... */
                                                                       Text(
                                                                         FFLocalizations.of(context)
                                                                             .getText(
-                                                                          '80zx4jh2' /* Ritual Spark */,
+                                                                          '80zx4jh2' /* Health Journal */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyLarge
@@ -5152,7 +5151,8 @@ fire o... */
                                                                   CrossAxisAlignment
                                                                       .center,
                                                               children: [
-                                                                Expanded(
+                                                                Flexible(
+                                                                  flex: 1,
                                                                   child: Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -5375,7 +5375,8 @@ fire o... */
                                                                   CrossAxisAlignment
                                                                       .center,
                                                               children: [
-                                                                Expanded(
+                                                                Flexible(
+                                                                  flex: 1,
                                                                   child: Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -5547,7 +5548,7 @@ fire o... */
                                                         },
                                                         child: Container(
                                                           width: 335.0,
-                                                          height: 95.5,
+                                                          height: 112.47,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: Color(
@@ -5875,7 +5876,7 @@ fire o... */
                                                         },
                                                         child: Container(
                                                           width: 335.0,
-                                                          height: 87.1,
+                                                          height: 107.58,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: Color(
@@ -5924,7 +5925,8 @@ fire o... */
                                                                   CrossAxisAlignment
                                                                       .center,
                                                               children: [
-                                                                Expanded(
+                                                                Flexible(
+                                                                  flex: 1,
                                                                   child: Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -6083,12 +6085,12 @@ with a wi... */
                                                               'Container_navigate_to');
 
                                                           context.pushNamed(
-                                                              RitualSparkJournalPageVersion5Widget
+                                                              HealthJournalWidget
                                                                   .routeName);
                                                         },
                                                         child: Container(
                                                           width: 335.0,
-                                                          height: 90.7,
+                                                          height: 101.34,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: Color(
@@ -6137,7 +6139,8 @@ with a wi... */
                                                                   CrossAxisAlignment
                                                                       .center,
                                                               children: [
-                                                                Expanded(
+                                                                Flexible(
+                                                                  flex: 1,
                                                                   child: Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -6155,7 +6158,7 @@ with a wi... */
                                                                             Text(
                                                                           FFLocalizations.of(context)
                                                                               .getText(
-                                                                            '4edztejw' /* Ritual Spark */,
+                                                                            '4edztejw' /* Health Journal */,
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyLarge

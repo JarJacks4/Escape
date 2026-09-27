@@ -1296,26 +1296,8 @@ This Week */
                                         ),
                                         Expanded(
                                           child: FFButtonWidget(
-                                            onPressed: () async {
-                                              logFirebaseEvent(
-                                                  'PROFILE_VERSION5_PAGE_REFLECT_BTN_ON_TAP');
-                                              logFirebaseEvent(
-                                                  'Button_navigate_to');
-
-                                              context.pushNamed(
-                                                RitualSparkJournalPageVersion5Widget
-                                                    .routeName,
-                                                extra: <String, dynamic>{
-                                                  '__transition_info__':
-                                                      TransitionInfo(
-                                                    hasTransition: true,
-                                                    transitionType:
-                                                        PageTransitionType.fade,
-                                                    duration: Duration(
-                                                        milliseconds: 2),
-                                                  ),
-                                                },
-                                              );
+                                            onPressed: () {
+                                              print('Button pressed ...');
                                             },
                                             text: FFLocalizations.of(context)
                                                 .getText(

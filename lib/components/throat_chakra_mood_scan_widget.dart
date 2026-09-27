@@ -854,7 +854,7 @@ Energy Center */
                             logFirebaseEvent('Container_navigate_to');
 
                             context.pushNamed(
-                              RitualSparkJournalPageVersion5Widget.routeName,
+                              HealthJournalWidget.routeName,
                               extra: <String, dynamic>{
                                 '__transition_info__': TransitionInfo(
                                   hasTransition: true,
