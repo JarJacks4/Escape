@@ -29,6 +29,11 @@ class FFAppState extends ChangeNotifier {
           await secureStorage.getInt('ff_pointsEarned') ?? _pointsEarned;
     });
     await _safeInitAsync(() async {
+      _joinedChallenges =
+          (await secureStorage.getStringList('ff_joinedChallenges')) ??
+              _joinedChallenges;
+    });
+    await _safeInitAsync(() async {
       _chatSessionId =
           await secureStorage.getString('ff_chatSessionId') ?? _chatSessionId;
       _chatSessionId = '';
@@ -328,6 +333,23 @@ class FFAppState extends ChangeNotifier {
 
   void deletePointsEarned() {
     secureStorage.delete(key: 'ff_pointsEarned');
+  }
+
+  List<String> _joinedChallenges = [];
+  List<String> get joinedChallenges => _joinedChallenges;
+  set joinedChallenges(List<String> value) {
+    _joinedChallenges = value;
+    secureStorage.setStringList('ff_joinedChallenges', value);
+  }
+
+  void addToJoinedChallenges(String value) {
+    _joinedChallenges.add(value);
+    secureStorage.setStringList('ff_joinedChallenges', _joinedChallenges);
+  }
+
+  void removeFromJoinedChallenges(String value) {
+    _joinedChallenges.remove(value);
+    secureStorage.setStringList('ff_joinedChallenges', _joinedChallenges);
   }
 
   String _deepFeelings = '';

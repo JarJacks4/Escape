@@ -12,6 +12,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'quest_comp_version5_model.dart';
 export 'quest_comp_version5_model.dart';
@@ -66,8 +67,38 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
     super.dispose();
   }
 
+  Future<void> _toggleChallenge(String id, String name) async {
+    final appState = FFAppState();
+    final isJoined = appState.joinedChallenges.contains(id);
+
+    logFirebaseEvent(
+      isJoined ? 'QUEST_LEAVE_CHALLENGE' : 'QUEST_JOIN_CHALLENGE',
+      parameters: {'challenge': id},
+    );
+    appState.update(() {
+      if (isJoined) {
+        appState.removeFromJoinedChallenges(id);
+      } else {
+        appState.addToJoinedChallenges(id);
+      }
+    });
+
+    if (!mounted) return;
+    HapticFeedback.lightImpact();
+    ScaffoldMessenger.of(context)
+      ..clearSnackBars()
+      ..showSnackBar(
+        SnackBar(
+          content: Text(isJoined ? 'Left $name' : 'Joined $name'),
+          duration: Duration(milliseconds: 2500),
+        ),
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
@@ -698,12 +729,17 @@ daily ... */
                           ].divide(SizedBox(width: 4.0)),
                         ),
                         FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            'a6cb90fy' /* + Join Challenge */,
+                          onPressed: () => _toggleChallenge(
+                            'vulnerability_explorer',
+                            'Vulnerability Explorer',
                           ),
+                          text: FFAppState()
+                                  .joinedChallenges
+                                  .contains('vulnerability_explorer')
+                              ? 'Joined ✓'
+                              : FFLocalizations.of(context).getText(
+                                  'a6cb90fy' /* + Join Challenge */,
+                                ),
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 40.0,
@@ -829,12 +865,17 @@ daily ... */
                           ].divide(SizedBox(width: 4.0)),
                         ),
                         FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            '0ej01fa5' /* + Join Challenge */,
+                          onPressed: () => _toggleChallenge(
+                            'mindful_morning',
+                            'Mindful Morning',
                           ),
+                          text: FFAppState()
+                                  .joinedChallenges
+                                  .contains('mindful_morning')
+                              ? 'Joined ✓'
+                              : FFLocalizations.of(context).getText(
+                                  '0ej01fa5' /* + Join Challenge */,
+                                ),
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 40.0,
@@ -960,12 +1001,17 @@ daily ... */
                           ].divide(SizedBox(width: 4.0)),
                         ),
                         FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            'bivleyf1' /* + Join Challenge */,
+                          onPressed: () => _toggleChallenge(
+                            'community_connection',
+                            'Community Connection',
                           ),
+                          text: FFAppState()
+                                  .joinedChallenges
+                                  .contains('community_connection')
+                              ? 'Joined ✓'
+                              : FFLocalizations.of(context).getText(
+                                  'bivleyf1' /* + Join Challenge */,
+                                ),
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 40.0,
@@ -1091,12 +1137,17 @@ daily ... */
                           ].divide(SizedBox(width: 4.0)),
                         ),
                         FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            '2io63hxv' /* + Join Challenge */,
+                          onPressed: () => _toggleChallenge(
+                            'streak_master',
+                            'Streak Master',
                           ),
+                          text: FFAppState()
+                                  .joinedChallenges
+                                  .contains('streak_master')
+                              ? 'Joined ✓'
+                              : FFLocalizations.of(context).getText(
+                                  '2io63hxv' /* + Join Challenge */,
+                                ),
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 40.0,
@@ -1222,12 +1273,17 @@ daily ... */
                           ].divide(SizedBox(width: 4.0)),
                         ),
                         FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            'akvxyekg' /* + Join Challenge */,
+                          onPressed: () => _toggleChallenge(
+                            'insight_seeker',
+                            'Insight Seeker',
                           ),
+                          text: FFAppState()
+                                  .joinedChallenges
+                                  .contains('insight_seeker')
+                              ? 'Joined ✓'
+                              : FFLocalizations.of(context).getText(
+                                  'akvxyekg' /* + Join Challenge */,
+                                ),
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 40.0,
