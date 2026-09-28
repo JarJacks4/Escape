@@ -34,6 +34,18 @@ class FFAppState extends ChangeNotifier {
               _joinedChallenges;
     });
     await _safeInitAsync(() async {
+      _activeChallengeId =
+          await secureStorage.getString('ff_activeChallengeId') ??
+              _activeChallengeId;
+    });
+    await _safeInitAsync(() async {
+      _questCheckIns = (await secureStorage.getStringList('ff_questCheckIns'))
+              ?.map(DateTime.tryParse)
+              .whereType<DateTime>()
+              .toList() ??
+          _questCheckIns;
+    });
+    await _safeInitAsync(() async {
       _chatSessionId =
           await secureStorage.getString('ff_chatSessionId') ?? _chatSessionId;
       _chatSessionId = '';
@@ -350,6 +362,32 @@ class FFAppState extends ChangeNotifier {
   void removeFromJoinedChallenges(String value) {
     _joinedChallenges.remove(value);
     secureStorage.setStringList('ff_joinedChallenges', _joinedChallenges);
+  }
+
+  String _activeChallengeId = 'emotion_mastery_7';
+  String get activeChallengeId => _activeChallengeId;
+  set activeChallengeId(String value) {
+    _activeChallengeId = value;
+    secureStorage.setString('ff_activeChallengeId', value);
+  }
+
+  List<DateTime> _questCheckIns = [];
+  List<DateTime> get questCheckIns => _questCheckIns;
+  set questCheckIns(List<DateTime> value) {
+    _questCheckIns = value;
+    _persistQuestCheckIns();
+  }
+
+  void addToQuestCheckIns(DateTime value) {
+    _questCheckIns.add(value);
+    _persistQuestCheckIns();
+  }
+
+  void _persistQuestCheckIns() {
+    secureStorage.setStringList(
+      'ff_questCheckIns',
+      _questCheckIns.map((date) => date.toIso8601String()).toList(),
+    );
   }
 
   String _deepFeelings = '';

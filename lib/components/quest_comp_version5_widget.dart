@@ -1,4 +1,6 @@
 import '/components/help_comp_widget.dart';
+import '/components/challenge_detail_sheet_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -95,9 +97,30 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
       );
   }
 
+  Future<void> _showChallengeDetails() async {
+    logFirebaseEvent('QUEST_ACTIVE_CHALLENGE_BOTTOM_SHEET');
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => ChallengeDetailSheetWidget(
+        challengeId: FFAppState().activeChallengeId,
+        title: '7-Day Emotion Mastery',
+        subtitle: 'Complete 7 consecutive daily quests',
+        totalDays: 7,
+        xp: 500,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    final challengeDaysDone =
+        functions.challengeStreak(FFAppState().questCheckIns);
+    final challengeProgress = functions.challengeProgress(challengeDaysDone, 7);
+    final challengeDaysLeft = functions.challengeDaysLeft(challengeDaysDone, 7);
 
     return Container(
       child: Padding(
@@ -311,295 +334,289 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
               ),
               Flexible(
                 flex: 1,
-                child: Container(
-                  width: 337.3,
-                  height: 331.0,
-                  decoration: BoxDecoration(
-                    color: Color(0xE5FFFFFF),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 10.0,
-                        color: FlutterFlowTheme.of(context).secondary,
-                        offset: Offset(
-                          0.0,
-                          0.0,
-                        ),
-                        spreadRadius: 5.0,
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional(-1.0, -1.0),
-                          child: Row(
+                child: GestureDetector(
+                  onTap: _showChallengeDetails,
+                  child: Container(
+                    width: 337.3,
+                    height: 331.0,
+                    decoration: BoxDecoration(
+                      color: Color(0xE5FFFFFF),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 10.0,
+                          color: FlutterFlowTheme.of(context).secondary,
+                          offset: Offset(
+                            0.0,
+                            0.0,
+                          ),
+                          spreadRadius: 5.0,
+                        )
+                      ],
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          16.0, 16.0, 16.0, 16.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, -1.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Flexible(
+                                  flex: 1,
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      't5xf5kiv' /* 7-Day Emotion Mastery */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(1.0, -1.0),
+                                  child: FlutterFlowIconButton(
+                                    borderRadius: 16.0,
+                                    buttonSize: 64.0,
+                                    fillColor:
+                                        FlutterFlowTheme.of(context).accent1,
+                                    icon: FaIcon(
+                                      FontAwesomeIcons.trophy,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      size: 24.0,
+                                    ),
+                                    onPressed: _showChallengeDetails,
+                                  ).animateOnPageLoad(animationsMap[
+                                      'iconButtonOnPageLoadAnimation']!),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'wf7y9sug' /* Complete 7 consecutive daily ... */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'WorkSans',
+                                  color: FlutterFlowTheme.of(context).tertiary,
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                          Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Flexible(
-                                flex: 1,
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    't5xf5kiv' /* 7-Day Emotion 
-Mastery */
-                                    ,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'fhxyy08p' /* Progress */,
                                 ),
+                                style: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'WorkSans',
+                                      color:
+                                          FlutterFlowTheme.of(context).tertiary,
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
-                              Align(
-                                alignment: AlignmentDirectional(1.0, -1.0),
-                                child: FlutterFlowIconButton(
-                                  borderRadius: 16.0,
-                                  buttonSize: 64.0,
-                                  fillColor:
-                                      FlutterFlowTheme.of(context).accent1,
-                                  icon: FaIcon(
-                                    FontAwesomeIcons.trophy,
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    size: 24.0,
-                                  ),
-                                  onPressed: () {
-                                    print('IconButton pressed ...');
-                                  },
-                                ).animateOnPageLoad(animationsMap[
-                                    'iconButtonOnPageLoadAnimation']!),
+                              Text(
+                                functions
+                                    .challengePercentLabel(challengeProgress),
+                                style: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'WorkSans',
+                                      color:
+                                          FlutterFlowTheme.of(context).accent1,
+                                      letterSpacing: 0.0,
+                                    ),
+                                overflow: TextOverflow.fade,
                               ),
                             ],
                           ),
-                        ),
-                        Text(
-                          FFLocalizations.of(context).getText(
-                            'wf7y9sug' /* Complete 7 consecutive 
-daily ... */
-                            ,
+                          Container(
+                            width: double.infinity,
+                            height: 20.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                            child: LinearPercentIndicator(
+                              percent: challengeProgress,
+                              width: 120.0,
+                              lineHeight: 8.0,
+                              animation: true,
+                              animateFromLastPercent: true,
+                              progressColor:
+                                  FlutterFlowTheme.of(context).accent1,
+                              backgroundColor: Color(0xFFEDF1F7),
+                              center: Text(
+                                functions
+                                    .challengePercentLabel(challengeProgress),
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .override(
+                                      fontFamily: 'WorkSans',
+                                      letterSpacing: 0.0,
+                                    ),
+                                overflow: TextOverflow.fade,
+                              ),
+                              barRadius: Radius.circular(15.0),
+                              padding: EdgeInsets.zero,
+                            ),
                           ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodySmall
-                              .override(
-                                fontFamily: 'WorkSans',
-                                color: FlutterFlowTheme.of(context).tertiary,
-                                letterSpacing: 0.0,
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                height: 100.0,
+                                child: VerticalDivider(
+                                  thickness: 0.2,
+                                  indent: 20.0,
+                                  endIndent: 20.0,
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                ),
                               ),
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                'fhxyy08p' /* Progress */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .override(
-                                    fontFamily: 'WorkSans',
-                                    color:
-                                        FlutterFlowTheme.of(context).tertiary,
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '$challengeDaysDone',
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                   ),
-                            ),
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                'hmr6c51m' /* 71% */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .override(
-                                    fontFamily: 'WorkSans',
-                                    color: FlutterFlowTheme.of(context).accent1,
-                                    letterSpacing: 0.0,
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'ufivfv04' /* Days Done */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
-                              overflow: TextOverflow.fade,
-                            ),
-                          ],
-                        ),
-                        Container(
-                          width: double.infinity,
-                          height: 20.0,
-                          decoration: BoxDecoration(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            borderRadius: BorderRadius.circular(16.0),
+                                ].divide(SizedBox(height: 4.0)),
+                              ),
+                              SizedBox(
+                                height: 100.0,
+                                child: VerticalDivider(
+                                  thickness: 0.2,
+                                  indent: 20.0,
+                                  endIndent: 20.0,
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                ),
+                              ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '$challengeDaysLeft',
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'sp14u7yo' /* Days Left */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ].divide(SizedBox(height: 4.0)),
+                              ),
+                              SizedBox(
+                                height: 100.0,
+                                child: VerticalDivider(
+                                  thickness: 0.2,
+                                  indent: 20.0,
+                                  endIndent: 20.0,
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                ),
+                              ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'vrycz6m3' /* 500 */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent1,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      '2ad7ag8q' /* XP Reward */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ].divide(SizedBox(height: 4.0)),
+                              ),
+                              SizedBox(
+                                height: 100.0,
+                                child: VerticalDivider(
+                                  thickness: 0.2,
+                                  indent: 20.0,
+                                  endIndent: 20.0,
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                ),
+                              ),
+                            ],
                           ),
-                          child: LinearPercentIndicator(
-                            percent: 0.5,
-                            width: 120.0,
-                            lineHeight: 8.0,
-                            animation: true,
-                            animateFromLastPercent: true,
-                            progressColor: FlutterFlowTheme.of(context).accent1,
-                            backgroundColor: Color(0xFFEDF1F7),
-                            center: Text(
-                              FFLocalizations.of(context).getText(
-                                'nypjx9mp' /* 50% */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .headlineSmall
-                                  .override(
-                                    fontFamily: 'WorkSans',
-                                    letterSpacing: 0.0,
-                                  ),
-                              overflow: TextOverflow.fade,
-                            ),
-                            barRadius: Radius.circular(15.0),
-                            padding: EdgeInsets.zero,
-                          ),
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(
-                              height: 100.0,
-                              child: VerticalDivider(
-                                thickness: 0.2,
-                                indent: 20.0,
-                                endIndent: 20.0,
-                                color: FlutterFlowTheme.of(context).alternate,
-                              ),
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'gprdy9lb' /* 5 */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .headlineSmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'ufivfv04' /* Days Done */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                              ].divide(SizedBox(height: 4.0)),
-                            ),
-                            SizedBox(
-                              height: 100.0,
-                              child: VerticalDivider(
-                                thickness: 0.2,
-                                indent: 20.0,
-                                endIndent: 20.0,
-                                color: FlutterFlowTheme.of(context).alternate,
-                              ),
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'b6o7xlzz' /* 2 */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .headlineSmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'sp14u7yo' /* Days Left */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                              ].divide(SizedBox(height: 4.0)),
-                            ),
-                            SizedBox(
-                              height: 100.0,
-                              child: VerticalDivider(
-                                thickness: 0.2,
-                                indent: 20.0,
-                                endIndent: 20.0,
-                                color: FlutterFlowTheme.of(context).alternate,
-                              ),
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'vrycz6m3' /* 500 */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .headlineSmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent1,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    '2ad7ag8q' /* XP Reward */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                              ].divide(SizedBox(height: 4.0)),
-                            ),
-                            SizedBox(
-                              height: 100.0,
-                              child: VerticalDivider(
-                                thickness: 0.2,
-                                indent: 20.0,
-                                endIndent: 20.0,
-                                color: FlutterFlowTheme.of(context).alternate,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ].divide(SizedBox(height: 12.0)),
+                        ].divide(SizedBox(height: 12.0)),
+                      ),
                     ),
                   ),
                 ),

@@ -37,6 +37,78 @@ import 'package:utility_functions_library_8g4bud/flutter_flow/custom_functions.d
 import 'package:that_audio_player_oo85ab/flutter_flow/custom_functions.dart'
     as that_audio_player_oo85ab_functions;
 
+int challengeStreak(List<DateTime>? checkIns) {
+  if (checkIns == null || checkIns.isEmpty) return 0;
+
+  final completedDays =
+      checkIns.map((date) => DateTime(date.year, date.month, date.day)).toSet();
+  final now = DateTime.now();
+  var day = DateTime(now.year, now.month, now.day);
+
+  if (!completedDays.contains(day)) {
+    day = DateTime(day.year, day.month, day.day - 1);
+  }
+
+  var streak = 0;
+  while (completedDays.contains(day)) {
+    streak++;
+    day = DateTime(day.year, day.month, day.day - 1);
+  }
+  return streak;
+}
+
+double challengeProgress(int completedDays, int totalDays) {
+  if (totalDays <= 0) return 0.0;
+  return (completedDays / totalDays).clamp(0.0, 1.0).toDouble();
+}
+
+int challengeDaysLeft(int completedDays, int totalDays) {
+  return math.max(totalDays - completedDays, 0);
+}
+
+String challengePercentLabel(double progress) {
+  return '${(progress * 100).round()}%';
+}
+
+List<DateTime> challengeDays(List<DateTime>? checkIns, int totalDays) {
+  final completedDays = (checkIns ?? [])
+      .map((date) => DateTime(date.year, date.month, date.day))
+      .toSet();
+  final now = DateTime.now();
+  final today = DateTime(now.year, now.month, now.day);
+  var start = completedDays.contains(today)
+      ? today
+      : DateTime(today.year, today.month, today.day - 1);
+
+  while (completedDays
+      .contains(DateTime(start.year, start.month, start.day - 1))) {
+    start = DateTime(start.year, start.month, start.day - 1);
+  }
+  if (!completedDays.contains(start)) start = today;
+
+  return List.generate(
+    totalDays,
+    (index) => DateTime(start.year, start.month, start.day + index),
+  );
+}
+
+String challengeDayStatus(DateTime day, List<DateTime>? checkIns) {
+  final normalizedDay = DateTime(day.year, day.month, day.day);
+  final now = DateTime.now();
+  final today = DateTime(now.year, now.month, now.day);
+  final isCompleted = (checkIns ?? []).any(
+    (checkIn) =>
+        checkIn.year == normalizedDay.year &&
+        checkIn.month == normalizedDay.month &&
+        checkIn.day == normalizedDay.day,
+  );
+
+  if (isCompleted) return 'Completed';
+  if (normalizedDay == today) return 'Today';
+  if (normalizedDay.isAfter(today)) return 'Upcoming';
+  return 'Missed';
+}
+
 int? getMinutesSinceDateTimeLastActivity(DateTime? lastActivity) {
   int getMinutesSince(DateTime lastActivity) {
     return DateTime.now().difference(lastActivity).inMinutes;
