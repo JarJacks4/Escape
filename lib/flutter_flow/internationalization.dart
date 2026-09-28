@@ -5036,23 +5036,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '家',
     },
   },
-  // RitualSparkJournalPageVersion5
-  {
-    '7f7nww6d': {
-      'en': 'Home',
-      'ar': 'بيت',
-      'de': 'Heim',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'it': 'Casa',
-      'ja': '家',
-      'ko': '집',
-      'ru': 'Дом',
-      'uk': 'Дім',
-      'zh_Hans': '家',
-      'zh_Hant': '家',
-    },
-  },
   // QuestsPage
   {
     'vbv27w78': {
@@ -13853,23 +13836,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '家',
     },
   },
-  // ScanMoodLaodingPage
-  {
-    '4zo23mto': {
-      'en': 'Home',
-      'ar': 'بيت',
-      'de': 'Heim',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'it': 'Casa',
-      'ja': '家',
-      'ko': '집',
-      'ru': 'Дом',
-      'uk': 'Дім',
-      'zh_Hans': '家',
-      'zh_Hant': '家',
-    },
-  },
   // MoodResultPage
   {
     'amc292jb': {
@@ -14002,23 +13968,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // WebViewSample
   {
     'bho9cnyy': {
-      'en': 'Home',
-      'ar': 'بيت',
-      'de': 'Heim',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'it': 'Casa',
-      'ja': '家',
-      'ko': '집',
-      'ru': 'Дом',
-      'uk': 'Дім',
-      'zh_Hans': '家',
-      'zh_Hant': '家',
-    },
-  },
-  // sample2
-  {
-    'od6lbm8i': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -39474,7 +39423,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'jiagy7k8': {
-      'en': 'Ritual Spark',
+      'en': 'Health Journal',
       'ar': '',
       'de': '',
       'es': '',
@@ -39488,7 +39437,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'rntai9gt': {
-      'en': 'Mindful sipping practice',
+      'en': 'Mindful Voice and Text Journal',
       'ar': '',
       'de': '',
       'es': '',
@@ -40062,7 +40011,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '80zx4jh2': {
-      'en': 'Ritual Spark',
+      'en': 'Health Journal',
       'ar': '',
       'de': '',
       'es': '',
@@ -40329,7 +40278,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '4edztejw': {
-      'en': 'Ritual Spark',
+      'en': 'Health Journal',
       'ar': '',
       'de': '',
       'es': '',
@@ -41735,7 +41684,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'jzhygcsd': {
-      'en': 'Ritual Spark',
+      'en': 'Journal',
       'ar': '',
       'de': '',
       'es': '',
@@ -41749,7 +41698,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'ivu9fwrs': {
-      'en': 'Mindful sipping practice',
+      'en': 'Mindful Text or Voice Journal',
       'ar': '',
       'de': '',
       'es': '',
@@ -42215,7 +42164,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '3iin3qvw': {
-      'en': 'Ritual Spark',
+      'en': 'Health Journal',
       'ar': '',
       'de': '',
       'es': '',
