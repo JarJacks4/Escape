@@ -62,7 +62,10 @@ class _ChallengeDetailSheetWidgetState
     if (completedDays >= widget.totalDays &&
         !appState.completedChallenges.contains(widget.challengeId)) {
       appState.update(
-        () => appState.addToCompletedChallenges(widget.challengeId),
+        () {
+          appState.pointsEarned += widget.xp;
+          appState.addToCompletedChallenges(widget.challengeId);
+        },
       );
     }
     ScaffoldMessenger.of(context)
