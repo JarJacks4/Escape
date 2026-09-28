@@ -1034,7 +1034,7 @@ melt away... */
                 logFirebaseEvent('Container_navigate_to');
 
                 context.pushNamed(
-                  RitualSparkJournalPageVersion5Widget.routeName,
+                  HealthJournalWidget.routeName,
                   extra: <String, dynamic>{
                     '__transition_info__': TransitionInfo(
                       hasTransition: true,
@@ -1086,7 +1086,7 @@ melt away... */
                             children: [
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'jzhygcsd' /* Ritual Spark */,
+                                  'jzhygcsd' /* Journal */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .titleMedium
@@ -1106,7 +1106,7 @@ melt away... */
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'ivu9fwrs' /* Mindful sipping practice */,
+                                  'ivu9fwrs' /* Mindful Text or Voice Journal */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
