@@ -1,5 +1,8 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/permissions_util.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/rewards_splash_page/rewards_splash_page_widget.dart';
@@ -58,6 +61,8 @@ class _ChallengeDetailSheetWidgetState
     );
     appState.update(() => appState.addToQuestCheckIns(DateTime.now()));
 
+    await _requestQuestReminderPermission(appState);
+
     if (!mounted) return;
     final completedDays = functions.challengeStreak(appState.questCheckIns);
     var completedNow = false;
@@ -84,6 +89,41 @@ class _ChallengeDetailSheetWidgetState
       final rootContext = appNavigatorKey.currentContext;
       Navigator.of(context).pop();
       rootContext?.pushNamed(RewardsSplashPageWidget.routeName);
+    }
+  }
+
+  Future<void> _requestQuestReminderPermission(FFAppState appState) async {
+    if (appState.askedQuestReminders) return;
+    appState.update(() => appState.askedQuestReminders = true);
+
+    final wantsReminder = await showDialog<bool>(
+          context: context,
+          builder: (dialogContext) => AlertDialog(
+            title: Text('Want a morning reminder?'),
+            content: Text(
+              'We\'ll nudge you at 9 AM so your streak doesn\'t slip.',
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(dialogContext, false),
+                child: Text('Not now'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(dialogContext, true),
+                child: Text('Remind me'),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+    if (!wantsReminder) return;
+
+    await requestPermission(notificationsPermission);
+    final isAllowed = await getPermissionStatus(notificationsPermission);
+    if (isAllowed && currentUserReference != null) {
+      await currentUserReference!.update(
+        createUsersRecordData(notificationsAllowed: true),
+      );
     }
   }
 

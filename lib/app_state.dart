@@ -51,6 +51,11 @@ class FFAppState extends ChangeNotifier {
               _completedChallenges;
     });
     await _safeInitAsync(() async {
+      _askedQuestReminders =
+          await secureStorage.getBool('ff_askedQuestReminders') ??
+              _askedQuestReminders;
+    });
+    await _safeInitAsync(() async {
       _chatSessionId =
           await secureStorage.getString('ff_chatSessionId') ?? _chatSessionId;
       _chatSessionId = '';
@@ -409,6 +414,13 @@ class FFAppState extends ChangeNotifier {
       'ff_completedChallenges',
       _completedChallenges,
     );
+  }
+
+  bool _askedQuestReminders = false;
+  bool get askedQuestReminders => _askedQuestReminders;
+  set askedQuestReminders(bool value) {
+    _askedQuestReminders = value;
+    secureStorage.setBool('ff_askedQuestReminders', value);
   }
 
   String _deepFeelings = '';
