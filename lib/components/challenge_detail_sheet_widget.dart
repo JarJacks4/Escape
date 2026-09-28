@@ -2,6 +2,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/rewards_splash_page/rewards_splash_page_widget.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -59,8 +60,10 @@ class _ChallengeDetailSheetWidgetState
 
     if (!mounted) return;
     final completedDays = functions.challengeStreak(appState.questCheckIns);
+    var completedNow = false;
     if (completedDays >= widget.totalDays &&
         !appState.completedChallenges.contains(widget.challengeId)) {
+      completedNow = true;
       appState.update(
         () {
           appState.pointsEarned += widget.xp;
@@ -76,6 +79,12 @@ class _ChallengeDetailSheetWidgetState
           duration: Duration(milliseconds: 2500),
         ),
       );
+
+    if (completedNow) {
+      final rootContext = appNavigatorKey.currentContext;
+      Navigator.of(context).pop();
+      rootContext?.pushNamed(RewardsSplashPageWidget.routeName);
+    }
   }
 
   @override
