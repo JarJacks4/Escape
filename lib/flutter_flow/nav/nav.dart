@@ -711,12 +711,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => StartingRealmWidget(),
           ),
           FFRoute(
-            name: RitualSparkJournalPageVersion5Widget.routeName,
-            path: RitualSparkJournalPageVersion5Widget.routePath,
-            builder: (context, params) =>
-                RitualSparkJournalPageVersion5Widget(),
-          ),
-          FFRoute(
             name: QuestsPageWidget.routeName,
             path: QuestsPageWidget.routePath,
             builder: (context, params) => QuestsPageWidget(),
@@ -1148,11 +1142,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => MoodScannerPageWidget(),
           ),
           FFRoute(
-            name: ScanMoodLaodingPageWidget.routeName,
-            path: ScanMoodLaodingPageWidget.routePath,
-            builder: (context, params) => ScanMoodLaodingPageWidget(),
-          ),
-          FFRoute(
             name: MoodResultPageWidget.routeName,
             path: MoodResultPageWidget.routePath,
             builder: (context, params) => MoodResultPageWidget(
@@ -1178,11 +1167,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             name: WebViewSampleWidget.routeName,
             path: WebViewSampleWidget.routePath,
             builder: (context, params) => WebViewSampleWidget(),
-          ),
-          FFRoute(
-            name: Sample2Widget.routeName,
-            path: Sample2Widget.routePath,
-            builder: (context, params) => Sample2Widget(),
           ),
           FFRoute(
             name: PlanetWidget.routeName,
