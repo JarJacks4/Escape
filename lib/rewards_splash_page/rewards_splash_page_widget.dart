@@ -47,12 +47,6 @@ class _RewardsSplashPageWidgetState extends State<RewardsSplashPageWidget> {
           .setAsset('assets/audios/universfield-level-up-04-243762.mp3')
           .then((_) => _model.soundPlayer!.play());
 
-      logFirebaseEvent('RewardsSplashPage_wait__delay');
-      await Future.delayed(
-        Duration(
-          milliseconds: 2000,
-        ),
-      );
       if (!mounted) {
         return;
       }
