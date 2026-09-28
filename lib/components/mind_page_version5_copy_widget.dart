@@ -889,7 +889,7 @@ Help Calm... */
                                                     'Container_navigate_to');
 
                                                 context.pushNamed(
-                                                  RitualSparkJournalPageVersion5Widget
+                                                  JournalHistoryWidget
                                                       .routeName,
                                                   extra: <String, dynamic>{
                                                     '__transition_info__':
