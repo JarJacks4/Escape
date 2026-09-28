@@ -1126,7 +1126,7 @@ Lucille */
                                             'Container_navigate_to');
 
                                         context.pushNamed(
-                                          JournalPageVersion5Widget.routeName,
+                                          ActiveVoiceJournalingWidget.routeName,
                                           extra: <String, dynamic>{
                                             '__transition_info__':
                                                 TransitionInfo(
@@ -1275,7 +1275,7 @@ Lucille */
                                             'Container_navigate_to');
 
                                         context.pushNamed(
-                                          RitualSparkJournalPageVersion5Widget
+                                          TextJournalVersion5Widget
                                               .routeName,
                                           extra: <String, dynamic>{
                                             '__transition_info__':

@@ -320,7 +320,7 @@ class _MoodWeatherVersion5CompWidgetState
                                 logFirebaseEvent('Button_navigate_to');
 
                                 context.pushNamed(
-                                  RitualSparkJournalPageVersion5Widget
+                                  HealthJournalWidget
                                       .routeName,
                                   extra: <String, dynamic>{
                                     '__transition_info__': TransitionInfo(
