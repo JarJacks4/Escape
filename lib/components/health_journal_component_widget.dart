@@ -66,7 +66,7 @@ class _HealthJournalComponentWidgetState
                   decoration: BoxDecoration(),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 60.0, 24.0, 20.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 35.0, 24.0, 20.0),
                     child: Container(
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -179,53 +179,57 @@ class _HealthJournalComponentWidgetState
                               animate: true,
                             ),
                           ),
-                          Container(
-                            width: 48.0,
-                            height: 48.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xC039519F),
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 40.0,
-                                  color: Color(0xCBD0E3F7),
-                                  offset: Offset(
-                                    0.0,
-                                    0.0,
-                                  ),
-                                )
-                              ],
-                              borderRadius: BorderRadius.circular(9999.0),
-                              shape: BoxShape.rectangle,
-                            ),
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                logFirebaseEvent(
-                                    'HEALTH_JOURNAL_COMPONENT_Icon_ON_TAP');
-                                logFirebaseEvent('Icon_haptic_feedback');
-                                HapticFeedback.heavyImpact();
-                                logFirebaseEvent('Icon_navigate_to');
-
-                                context.pushNamed(
-                                  HomeVersion5Widget.routeName,
-                                  extra: <String, dynamic>{
-                                    '__transition_info__': TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.rightToLeft,
-                                      duration: Duration(milliseconds: 1),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 15.0, 0.0),
+                            child: Container(
+                              width: 48.0,
+                              height: 48.0,
+                              decoration: BoxDecoration(
+                                color: Color(0xC039519F),
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 40.0,
+                                    color: Color(0xCBD0E3F7),
+                                    offset: Offset(
+                                      0.0,
+                                      0.0,
                                     ),
-                                  },
-                                );
-                              },
-                              child: Icon(
-                                Icons.home,
-                                color: FlutterFlowTheme.of(context).secondary,
-                                size: 24.0,
+                                  )
+                                ],
+                                borderRadius: BorderRadius.circular(9999.0),
+                                shape: BoxShape.rectangle,
+                              ),
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  logFirebaseEvent(
+                                      'HEALTH_JOURNAL_COMPONENT_Icon_ON_TAP');
+                                  logFirebaseEvent('Icon_haptic_feedback');
+                                  HapticFeedback.heavyImpact();
+                                  logFirebaseEvent('Icon_navigate_to');
+
+                                  context.pushNamed(
+                                    HomeVersion5Widget.routeName,
+                                    extra: <String, dynamic>{
+                                      '__transition_info__': TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.rightToLeft,
+                                        duration: Duration(milliseconds: 1),
+                                      ),
+                                    },
+                                  );
+                                },
+                                child: Icon(
+                                  Icons.home,
+                                  color: FlutterFlowTheme.of(context).secondary,
+                                  size: 24.0,
+                                ),
                               ),
                             ),
                           ),
@@ -528,8 +532,8 @@ class _HealthJournalComponentWidgetState
                                             CrossAxisAlignment.center,
                                         children: [
                                           Container(
-                                            width: 48.0,
-                                            height: 48.0,
+                                            width: 46.2,
+                                            height: 50.73,
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(16.0),
@@ -538,8 +542,7 @@ class _HealthJournalComponentWidgetState
                                             alignment:
                                                 AlignmentDirectional(0.0, 0.0),
                                             child: Icon(
-                                              Icons
-                                                  .sentiment_very_satisfied_rounded,
+                                              FFIcons.kjournalBook,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .success,
