@@ -945,9 +945,13 @@ class _ChatWithLucilleVersion5WidgetState
                                                         FlutterFlowIconButton(
                                                       borderColor:
                                                           Colors.transparent,
-                                                      borderRadius: 30.0,
+                                                      borderRadius: 11.0,
                                                       borderWidth: 1.0,
                                                       buttonSize: 60.0,
+                                                      fillColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .accent3,
                                                       hoverColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1410,6 +1414,11 @@ class _ChatWithLucilleVersion5WidgetState
                                                                       .accent3,
                                                             ),
                                                           );
+                                                          logFirebaseEvent(
+                                                              'IconButton_hide_snack_bar');
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .clearSnackBars();
                                                         }
 
                                                         safeSetState(() {});
