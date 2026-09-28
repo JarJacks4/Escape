@@ -58,8 +58,8 @@ class _RewardsSplashPageWidgetState extends State<RewardsSplashPageWidget> {
       }
       logFirebaseEvent('RewardsSplashPage_navigate_to');
 
-      context.pushReplacementNamed(
-        ExplorePageVersion5Widget.routeName,
+      context.goNamed(
+        ExplorePageVersion5FINALWidget.routeName,
         extra: <String, dynamic>{
           '__transition_info__': TransitionInfo(
             hasTransition: true,
