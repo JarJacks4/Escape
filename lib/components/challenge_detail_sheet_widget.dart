@@ -59,6 +59,12 @@ class _ChallengeDetailSheetWidgetState
 
     if (!mounted) return;
     final completedDays = functions.challengeStreak(appState.questCheckIns);
+    if (completedDays >= widget.totalDays &&
+        !appState.completedChallenges.contains(widget.challengeId)) {
+      appState.update(
+        () => appState.addToCompletedChallenges(widget.challengeId),
+      );
+    }
     ScaffoldMessenger.of(context)
       ..clearSnackBars()
       ..showSnackBar(
@@ -173,7 +179,9 @@ class _ChallengeDetailSheetWidgetState
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                         child: Text(
-                          completedDays >= widget.totalDays
+                          FFAppState()
+                                  .completedChallenges
+                                  .contains(widget.challengeId)
                               ? 'Completed'
                               : 'Active',
                           style:

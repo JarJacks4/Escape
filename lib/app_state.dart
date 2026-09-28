@@ -46,6 +46,11 @@ class FFAppState extends ChangeNotifier {
           _questCheckIns;
     });
     await _safeInitAsync(() async {
+      _completedChallenges =
+          (await secureStorage.getStringList('ff_completedChallenges')) ??
+              _completedChallenges;
+    });
+    await _safeInitAsync(() async {
       _chatSessionId =
           await secureStorage.getString('ff_chatSessionId') ?? _chatSessionId;
       _chatSessionId = '';
@@ -387,6 +392,22 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setStringList(
       'ff_questCheckIns',
       _questCheckIns.map((date) => date.toIso8601String()).toList(),
+    );
+  }
+
+  List<String> _completedChallenges = [];
+  List<String> get completedChallenges => _completedChallenges;
+  set completedChallenges(List<String> value) {
+    _completedChallenges = value;
+    secureStorage.setStringList('ff_completedChallenges', value);
+  }
+
+  void addToCompletedChallenges(String value) {
+    if (_completedChallenges.contains(value)) return;
+    _completedChallenges.add(value);
+    secureStorage.setStringList(
+      'ff_completedChallenges',
+      _completedChallenges,
     );
   }
 
