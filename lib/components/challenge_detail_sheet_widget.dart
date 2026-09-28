@@ -1,6 +1,7 @@
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -46,6 +47,28 @@ class _ChallengeDetailSheetWidgetState
     super.dispose();
   }
 
+  Future<void> _completeTodayCheckIn() async {
+    final appState = FFAppState();
+    if (functions.checkedInToday(appState.questCheckIns)) return;
+
+    logFirebaseEvent(
+      'QUEST_DAILY_CHECK_IN',
+      parameters: {'challenge': widget.challengeId},
+    );
+    appState.update(() => appState.addToQuestCheckIns(DateTime.now()));
+
+    if (!mounted) return;
+    final completedDays = functions.challengeStreak(appState.questCheckIns);
+    ScaffoldMessenger.of(context)
+      ..clearSnackBars()
+      ..showSnackBar(
+        SnackBar(
+          content: Text('Day $completedDays of ${widget.totalDays} done'),
+          duration: Duration(milliseconds: 2500),
+        ),
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
@@ -56,6 +79,7 @@ class _ChallengeDetailSheetWidgetState
     final daysLeft =
         functions.challengeDaysLeft(completedDays, widget.totalDays);
     final days = functions.challengeDays(checkIns, widget.totalDays);
+    final isCheckedInToday = functions.checkedInToday(checkIns);
 
     return SafeArea(
       top: false,
@@ -292,6 +316,25 @@ class _ChallengeDetailSheetWidgetState
                   ),
                 );
               }),
+              FFButtonWidget(
+                onPressed: isCheckedInToday ? null : _completeTodayCheckIn,
+                text: isCheckedInToday
+                    ? 'Checked in today ✓'
+                    : 'Complete Today\'s Check-In',
+                icon: Icon(Icons.trending_up, size: 20.0),
+                options: FFButtonOptions(
+                  width: double.infinity,
+                  height: 56.0,
+                  color: FlutterFlowTheme.of(context).accent1,
+                  disabledColor: FlutterFlowTheme.of(context).secondaryText,
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                        fontFamily: 'WorkSans',
+                        color: Colors.white,
+                        letterSpacing: 0.0,
+                      ),
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+              ),
             ].divide(SizedBox(height: 16.0)),
           ),
         ),

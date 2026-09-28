@@ -57,6 +57,15 @@ int challengeStreak(List<DateTime>? checkIns) {
   return streak;
 }
 
+bool checkedInToday(List<DateTime>? checkIns) {
+  if (checkIns == null) return false;
+  final now = DateTime.now();
+  return checkIns.any(
+    (date) =>
+        date.year == now.year && date.month == now.month && date.day == now.day,
+  );
+}
+
 double challengeProgress(int completedDays, int totalDays) {
   if (totalDays <= 0) return 0.0;
   return (completedDays / totalDays).clamp(0.0, 1.0).toDouble();
