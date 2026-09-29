@@ -423,6 +423,21 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setBool('ff_askedQuestReminders', value);
   }
 
+  // Debug helper for repeating the quest flow without clearing unrelated data.
+  void resetQuestDataForTesting() {
+    _joinedChallenges = [];
+    _activeChallengeId = 'emotion_mastery_7';
+    _questCheckIns = [];
+    _completedChallenges = [];
+    _askedQuestReminders = false;
+
+    secureStorage.delete(key: 'ff_joinedChallenges');
+    secureStorage.delete(key: 'ff_activeChallengeId');
+    secureStorage.delete(key: 'ff_questCheckIns');
+    secureStorage.delete(key: 'ff_completedChallenges');
+    secureStorage.delete(key: 'ff_askedQuestReminders');
+  }
+
   String _deepFeelings = '';
   String get deepFeelings => _deepFeelings;
   set deepFeelings(String value) {

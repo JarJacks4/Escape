@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -112,6 +113,42 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
         xp: 500,
       ),
     );
+  }
+
+  Future<void> _confirmResetQuestData() async {
+    if (!kDebugMode) return;
+
+    final shouldReset = await showDialog<bool>(
+          context: context,
+          builder: (dialogContext) => AlertDialog(
+            title: Text('Reset Quest test data?'),
+            content: Text(
+              'This clears joined challenges, check-ins, completion, and the reminder prompt. Total XP will not be changed.',
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(dialogContext, false),
+                child: Text('Cancel'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(dialogContext, true),
+                child: Text('Reset'),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+    if (!shouldReset || !mounted) return;
+
+    FFAppState().update(() => FFAppState().resetQuestDataForTesting());
+    ScaffoldMessenger.of(context)
+      ..clearSnackBars()
+      ..showSnackBar(
+        SnackBar(
+          content: Text('Quest test data reset'),
+          duration: Duration(milliseconds: 2500),
+        ),
+      );
   }
 
   @override
@@ -336,6 +373,8 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
                 flex: 1,
                 child: GestureDetector(
                   onTap: _showChallengeDetails,
+                  // Keep test controls out of production builds.
+                  onLongPress: kDebugMode ? _confirmResetQuestData : null,
                   child: Container(
                     width: 337.3,
                     height: 331.0,
