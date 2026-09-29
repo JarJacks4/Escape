@@ -497,7 +497,7 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                         logFirebaseEvent('Button_update_page_state');
                         _model.localIndex = _model.localIndex! + 1;
                         safeSetState(() {});
-                        if (widget.moves != _model.currentMove) {
+                        { // always advance to the timer step
                           logFirebaseEvent('Button_timer');
                           _model.timerController.onStartTimer();
                           logFirebaseEvent('Button_navigate_to');

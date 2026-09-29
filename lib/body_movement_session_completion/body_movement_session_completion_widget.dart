@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/stat_pill_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -53,6 +54,7 @@ class _BodyMovementSessionCompletionWidgetState
       logFirebaseEvent('BODY_MOVEMENT_SESSION_COMPLETION_BodyMov');
       logFirebaseEvent('BodyMovementSessionCompletion_firestore_');
       _model.streakData = await queryBodyRecordOnce(
+        parent: currentUserReference,
         singleRecord: true,
       ).then((s) => s.firstOrNull);
     });
@@ -63,6 +65,16 @@ class _BodyMovementSessionCompletionWidgetState
     _model.dispose();
 
     super.dispose();
+  }
+
+  int _weeklyTarget() {
+    final t = _model.streakData?.weeklyTarget ?? 0;
+    return t > 0 ? t : 5;
+  }
+
+  int _remainingThisWeek() {
+    final left = _weeklyTarget() - (_model.streakData?.currentWeekCount ?? 0);
+    return left > 0 ? left : 0;
   }
 
   @override
@@ -408,7 +420,7 @@ class _BodyMovementSessionCompletionWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  '${_model.streakData?.streakCount.toString()} - Day Streak',
+                                                  '${(_model.streakData?.streakCount ?? 0).toString()} - Day Streak',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelLarge
@@ -481,7 +493,7 @@ class _BodyMovementSessionCompletionWidgetState
                                           ].divide(SizedBox(width: 16.0)),
                                         ),
                                         Text(
-                                          '${_model.streakData?.currentWeekCount.toString()}/${_model.streakData?.weeklyTarget.toString()}',
+                                          '${(_model.streakData?.currentWeekCount ?? 0).toString()}/${_weeklyTarget().toString()}',
                                           style: FlutterFlowTheme.of(context)
                                               .titleSmall
                                               .override(
@@ -580,10 +592,7 @@ class _BodyMovementSessionCompletionWidgetState
                                                     Expanded(
                                                       child:
                                                           LinearPercentIndicator(
-                                                        percent: _model
-                                                            .streakData!
-                                                            .streakCount
-                                                            .toDouble(),
+                                                        percent: ((_model.streakData?.streakCount ?? 0) / 7).clamp(0.0, 1.0).toDouble(),
                                                         width: 250.0,
                                                         lineHeight: 20.0,
                                                         animation: true,
@@ -596,17 +605,7 @@ class _BodyMovementSessionCompletionWidgetState
                                                         backgroundColor:
                                                             Color(0x741C2444),
                                                         center: Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            formatNumber(
-                                                              _model.streakData
-                                                                  ?.streakCount,
-                                                              formatType:
-                                                                  FormatType
-                                                                      .percent,
-                                                            ),
-                                                            '50%',
-                                                          ),
+                                                          '${(((_model.streakData?.streakCount ?? 0) / 7).clamp(0.0, 1.0) * 100).round()}%',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .headlineSmall
@@ -658,7 +657,7 @@ class _BodyMovementSessionCompletionWidgetState
                                       ),
                                     ),
                                     Text(
-                                      'Just ${_model.streakData?.weeklyTarget.toString()}more to reach this week\'s goal — a calmer you is closer than you think.',
+                                      'Just ${_remainingThisWeek()} more to reach this week\'s goal — a calmer you is closer than you think.',
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall

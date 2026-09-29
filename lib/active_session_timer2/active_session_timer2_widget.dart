@@ -44,10 +44,12 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ActiveSessionTimer2Model());
+    _model.localIndex = widget.currentIndex ?? 0;
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ActiveSessionTimer2'});
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => _model.timerController.onStartTimer());
   }
 
   @override
@@ -373,7 +375,7 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           FlutterFlowTimer(
-                            initialTime: widget.moves!.durationSeconds,
+                            initialTime: widget.moves!.durationSeconds * 1000,
                             getDisplayTime: (value) =>
                                 StopWatchTimer.getDisplayTime(
                               value,
@@ -489,10 +491,9 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                             HapticFeedback.heavyImpact();
                             logFirebaseEvent('Button_update_page_state');
                             _model.currentMove = widget.moves;
-                            _model.localIndex = _model.localIndex! + 1;
+                            _model.localIndex = (_model.localIndex ?? 0) + 1;
                             safeSetState(() {});
-                            if (widget.moves?.repCount !=
-                                _model.currentMove?.durationSeconds) {
+                            { // always advance to the next move
                               logFirebaseEvent('Button_timer');
                               _model.timerController.onStartTimer();
                               logFirebaseEvent('Button_navigate_to');

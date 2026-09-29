@@ -1,3 +1,4 @@
+import '/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -276,7 +277,8 @@ yourself */
                               0.0, 100.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () {
-                              print('Button pressed ...');
+                              logFirebaseEvent('BODY_SESSION_COMPLETE_back_home_ON_TAP');
+                              context.goNamed(HomeVersion5Widget.routeName);
                             },
                             text: FFLocalizations.of(context).getText(
                               'awzclird' /* Back to Home */,

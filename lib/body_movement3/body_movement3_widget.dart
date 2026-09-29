@@ -452,30 +452,32 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
                       logFirebaseEvent('Button_timer');
                       _model.timerController.onStopTimer();
                       logFirebaseEvent('Button_firestore_query');
-                      _model.bodyCollectionQuery = await queryBodyRecordOnce();
-                      logFirebaseEvent('Button_backend_call');
-                      _model.goalDoc = await BodyRecord.getDocumentOnce(
-                          _model.bodyCollectionQuery!.firstOrNull!.reference);
-                      logFirebaseEvent('Button_backend_call');
-
-                      await _model.goalDoc!.reference
-                          .update(createBodyRecordData(
-                        weeklyTarget: functions
-                            .getUpdatedWeekStartDate(
-                                _model.goalDoc?.weekStartDate,
-                                _model.goalDoc?.currentWeekCount)
-                            .secondsSinceEpoch,
-                        currentWeekCount: functions.getUpdatedWeekCount(
-                            _model.goalDoc?.weekStartDate,
-                            _model.goalDoc?.currentWeekCount),
-                        weekStartDate: functions.getUpdatedWeekStartDate(
-                            _model.goalDoc?.weekStartDate,
-                            _model.goalDoc?.currentWeekCount),
-                        streakCount: functions.getUpdatedStreak(
-                            _model.goalDoc?.lastCompletedDate,
-                            _model.goalDoc?.streakCount),
-                        lastCompletedDate: getCurrentTimestamp,
-                      ));
+                      try {
+                        _model.bodyCollectionQuery = await queryBodyRecordOnce(
+                          parent: currentUserReference,
+                          singleRecord: true,
+                        );
+                        _model.goalDoc = _model.bodyCollectionQuery?.firstOrNull;
+                        final goalData = createBodyRecordData(
+                          currentWeekCount: functions.getUpdatedWeekCount(
+                              _model.goalDoc?.weekStartDate, _model.goalDoc?.currentWeekCount),
+                          weekStartDate: functions.getUpdatedWeekStartDate(
+                              _model.goalDoc?.weekStartDate, _model.goalDoc?.currentWeekCount),
+                          streakCount: functions.getUpdatedStreak(
+                              _model.goalDoc?.lastCompletedDate, _model.goalDoc?.streakCount),
+                          lastCompletedDate: getCurrentTimestamp,
+                        );
+                        if (_model.goalDoc != null) {
+                          await _model.goalDoc!.reference.update(goalData);
+                        } else if (currentUserReference != null) {
+                          await BodyRecord.createDoc(currentUserReference!).set({
+          ...goalData,
+          ...createBodyRecordData(weeklyTarget: 5),
+        });
+                        }
+                      } catch (_) {
+                        // Never block the user from reaching the completion page.
+                      }
                       logFirebaseEvent('Button_navigate_to');
 
                       context.pushNamed(

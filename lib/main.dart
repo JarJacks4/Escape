@@ -55,7 +55,10 @@ void main() async {
   await that_audio_player_oo85abAppState.initializePersistedState();
 
   if (!kIsWeb) {
-    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+    FlutterError.onError = (details) {
+      if (kDebugMode) FlutterError.presentError(details);
+      FirebaseCrashlytics.instance.recordFlutterFatalError(details);
+    };
   }
 
   await initializeFirebaseAppCheck();
