@@ -176,19 +176,23 @@ class _DeepSleepGoalWidgetState extends State<DeepSleepGoalWidget> {
                         ],
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 300.0, 0.0, 8.0),
-                      child: FlutterFlowAudioPlayer(
-                        audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Ashkira%20-%20Place%20of%20Light%20(432%20Hz)%20-%20369.mp3?alt=media&token=54deda0a-e53c-42f0-8edc-8c436fedc940',
-                          metas: Metas(
-                            id: 'ES_Ashkira%20-%20Place%20of%20Light%20(432%20Hz)%20-%20369.mp3?alt=media&token=54deda0a-e53c-42f0-8edc-8c436fedc940-5158bfa6',
-                            title: 'Ashkira - Place of Light (432 Hz)',
-                          ),
-                        ),
-                        titleTextStyle:
-                            FlutterFlowTheme.of(context).titleLarge.override(
+                    Expanded(
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, 1.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 8.0),
+                          child: FlutterFlowAudioPlayer(
+                            audio: Audio.network(
+                              'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Ashkira%20-%20Place%20of%20Light%20(432%20Hz)%20-%20369.mp3?alt=media&token=54deda0a-e53c-42f0-8edc-8c436fedc940',
+                              metas: Metas(
+                                id: 'ES_Ashkira%20-%20Place%20of%20Light%20(432%20Hz)%20-%20369.mp3?alt=media&token=54deda0a-e53c-42f0-8edc-8c436fedc940-5158bfa6',
+                                title: 'Ashkira - Place of Light (432 Hz)',
+                              ),
+                            ),
+                            titleTextStyle: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .override(
                                   font: GoogleFonts.cormorantSc(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .titleLarge
@@ -206,33 +210,39 @@ class _DeepSleepGoalWidgetState extends State<DeepSleepGoalWidget> {
                                       .titleLarge
                                       .fontStyle,
                                 ),
-                        playbackDurationTextStyle:
-                            FlutterFlowTheme.of(context).labelMedium.override(
-                                  font: GoogleFonts.inter(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontStyle,
-                                ),
-                        fillColor: Color(0x4ED0E3F7),
-                        playbackButtonColor:
-                            FlutterFlowTheme.of(context).accent1,
-                        activeTrackColor: FlutterFlowTheme.of(context).accent1,
-                        inactiveTrackColor:
-                            FlutterFlowTheme.of(context).primary,
-                        elevation: 0.0,
-                        playInBackground: PlayInBackground.disabledPause,
+                            playbackDurationTextStyle:
+                                FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
+                            fillColor: Color(0x4ED0E3F7),
+                            playbackButtonColor:
+                                FlutterFlowTheme.of(context).accent1,
+                            activeTrackColor:
+                                FlutterFlowTheme.of(context).accent1,
+                            inactiveTrackColor:
+                                FlutterFlowTheme.of(context).primary,
+                            elevation: 0.0,
+                            playInBackground: PlayInBackground.disabledPause,
+                          ),
+                        ),
                       ),
                     ),
                     Builder(

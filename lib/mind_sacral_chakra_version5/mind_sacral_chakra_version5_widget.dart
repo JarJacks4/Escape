@@ -115,7 +115,7 @@ class _MindSacralChakraVersion5WidgetState
               child: SingleChildScrollView(
                 controller: _model.columnController,
                 child: Column(
-                  mainAxisSize: MainAxisSize.max,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Padding(
                       padding:

@@ -102,7 +102,7 @@ class _ConfettiPageExpertCompWidgetState
             ),
           ),
           Container(
-            height: 797.19,
+            height: MediaQuery.sizeOf(context).height * 0.95,
             decoration: BoxDecoration(),
             alignment: AlignmentDirectional(0.0, 1.0),
             child: Material(
@@ -113,7 +113,7 @@ class _ConfettiPageExpertCompWidgetState
               ),
               child: Container(
                 width: 345.6,
-                height: 786.8,
+                height: double.infinity,
                 decoration: BoxDecoration(
                   color: Color(0x48D0E3F7),
                   boxShadow: [
@@ -132,8 +132,7 @@ class _ConfettiPageExpertCompWidgetState
                     color: Color(0x84EDF1F7),
                   ),
                 ),
-                child: Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                child: SingleChildScrollView(
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),

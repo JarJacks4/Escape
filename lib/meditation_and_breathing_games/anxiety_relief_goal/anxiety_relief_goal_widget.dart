@@ -177,19 +177,24 @@ class _AnxietyReliefGoalWidgetState extends State<AnxietyReliefGoalWidget> {
                         ],
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 350.0, 0.0, 8.0),
-                      child: FlutterFlowAudioPlayer(
-                        audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f',
-                          metas: Metas(
-                            id: 'ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f-fc0640cb',
-                            title: 'A Prayer for Light - Sayuri Hayashi Egnell',
-                          ),
-                        ),
-                        titleTextStyle:
-                            FlutterFlowTheme.of(context).titleLarge.override(
+                    Expanded(
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, 1.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 8.0),
+                          child: FlutterFlowAudioPlayer(
+                            audio: Audio.network(
+                              'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f',
+                              metas: Metas(
+                                id: 'ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f-fc0640cb',
+                                title:
+                                    'A Prayer for Light - Sayuri Hayashi Egnell',
+                              ),
+                            ),
+                            titleTextStyle: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .override(
                                   font: GoogleFonts.cormorantSc(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .titleLarge
@@ -207,40 +212,45 @@ class _AnxietyReliefGoalWidgetState extends State<AnxietyReliefGoalWidget> {
                                       .titleLarge
                                       .fontStyle,
                                 ),
-                        playbackDurationTextStyle:
-                            FlutterFlowTheme.of(context).labelMedium.override(
-                          font: GoogleFonts.inter(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .fontStyle,
-                          ),
-                          color: FlutterFlowTheme.of(context).primary,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .labelMedium
-                              .fontWeight,
-                          fontStyle: FlutterFlowTheme.of(context)
-                              .labelMedium
-                              .fontStyle,
-                          shadows: [
-                            Shadow(
+                            playbackDurationTextStyle:
+                                FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                              font: GoogleFonts.inter(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
+                              ),
                               color: FlutterFlowTheme.of(context).primary,
-                              offset: Offset(2.0, 2.0),
-                              blurRadius: 8.0,
-                            )
-                          ],
+                              letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .fontStyle,
+                              shadows: [
+                                Shadow(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  offset: Offset(2.0, 2.0),
+                                  blurRadius: 8.0,
+                                )
+                              ],
+                            ),
+                            fillColor: Color(0x4ED0E3F7),
+                            playbackButtonColor:
+                                FlutterFlowTheme.of(context).accent1,
+                            activeTrackColor:
+                                FlutterFlowTheme.of(context).accent1,
+                            inactiveTrackColor:
+                                FlutterFlowTheme.of(context).primary,
+                            elevation: 0.0,
+                            playInBackground: PlayInBackground.disabledPause,
+                          ),
                         ),
-                        fillColor: Color(0x4ED0E3F7),
-                        playbackButtonColor:
-                            FlutterFlowTheme.of(context).accent1,
-                        activeTrackColor: FlutterFlowTheme.of(context).accent1,
-                        inactiveTrackColor:
-                            FlutterFlowTheme.of(context).primary,
-                        elevation: 0.0,
-                        playInBackground: PlayInBackground.disabledPause,
                       ),
                     ),
                     Builder(

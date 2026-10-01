@@ -74,9 +74,7 @@ class _HealthJournalComponentWidgetState
                             (FFMainAxisAlignment.end).flutterValue,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 80.0, 0.0),
+                          Expanded(
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.start,

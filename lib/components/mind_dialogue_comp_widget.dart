@@ -105,7 +105,7 @@ class _MindDialogueCompWidgetState extends State<MindDialogueCompWidget>
                         children: [
                           Container(
                             width: double.infinity,
-                            height: MediaQuery.sizeOf(context).height * 0.449,
+                            height: 430.0,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 fit: BoxFit.cover,
@@ -333,7 +333,7 @@ class _MindDialogueCompWidgetState extends State<MindDialogueCompWidget>
                         children: [
                           Container(
                             width: double.infinity,
-                            height: MediaQuery.sizeOf(context).height * 0.443,
+                            height: 430.0,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 fit: BoxFit.cover,
@@ -628,8 +628,7 @@ class _MindDialogueCompWidgetState extends State<MindDialogueCompWidget>
                               alignment: AlignmentDirectional(0.0, 0.0),
                               child: Container(
                                 width: double.infinity,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.464,
+                                height: 430.0,
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
@@ -946,7 +945,7 @@ class _MindDialogueCompWidgetState extends State<MindDialogueCompWidget>
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Container(
                               width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height * 0.48,
+                              height: 430.0,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
@@ -1248,7 +1247,7 @@ class _MindDialogueCompWidgetState extends State<MindDialogueCompWidget>
                         children: [
                           Container(
                             width: double.infinity,
-                            height: MediaQuery.sizeOf(context).height * 0.499,
+                            height: 430.0,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 fit: BoxFit.cover,
@@ -1539,7 +1538,7 @@ class _MindDialogueCompWidgetState extends State<MindDialogueCompWidget>
                         children: [
                           Container(
                             width: double.infinity,
-                            height: MediaQuery.sizeOf(context).height * 0.487,
+                            height: 430.0,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 fit: BoxFit.cover,
@@ -1830,7 +1829,7 @@ class _MindDialogueCompWidgetState extends State<MindDialogueCompWidget>
                         children: [
                           Container(
                             width: double.infinity,
-                            height: MediaQuery.sizeOf(context).height * 0.478,
+                            height: 430.0,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 fit: BoxFit.cover,
