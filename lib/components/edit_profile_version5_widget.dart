@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/permissions_util.dart';
+import '/flutter_flow/quest_reminder_service.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
 import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
@@ -2543,6 +2544,12 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                               context)
                                           : false;
                                       if (!context.mounted) return;
+                                      if (!notificationsAllowed) {
+                                        await QuestReminderService
+                                            .cancelDailyReminder();
+                                        FFAppState().update(() => FFAppState()
+                                            .questRemindersEnabled = false);
+                                      }
                                       safeSetState(() => _model.switchValue1 =
                                           notificationsAllowed);
                                       if (currentUserReference != null) {

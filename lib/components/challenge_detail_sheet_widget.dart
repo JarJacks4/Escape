@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/permissions_util.dart';
+import '/flutter_flow/quest_reminder_service.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/rewards_splash_page/rewards_splash_page_widget.dart';
@@ -86,6 +87,8 @@ class _ChallengeDetailSheetWidgetState
       );
 
     if (completedNow) {
+      await QuestReminderService.cancelDailyReminder();
+      appState.update(() => appState.questRemindersEnabled = false);
       final rootContext = appNavigatorKey.currentContext;
       Navigator.of(context).pop();
       rootContext?.pushNamed(RewardsSplashPageWidget.routeName);
@@ -119,9 +122,22 @@ class _ChallengeDetailSheetWidgetState
     if (!wantsReminder) return;
 
     final isAllowed = await requestNotificationPermissionWithSettings(context);
+    final reminderScheduled =
+        isAllowed && await QuestReminderService.scheduleDailyReminder();
+    appState.update(
+      () => appState.questRemindersEnabled = reminderScheduled,
+    );
     if (currentUserReference != null) {
       await currentUserReference!.update(
-        createUsersRecordData(notificationsAllowed: isAllowed),
+        createUsersRecordData(notificationsAllowed: reminderScheduled),
+      );
+    }
+    if (isAllowed && !reminderScheduled && mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('The 9 AM Quest reminder could not be scheduled.'),
+          duration: Duration(milliseconds: 4000),
+        ),
       );
     }
   }

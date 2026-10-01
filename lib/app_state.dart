@@ -56,6 +56,11 @@ class FFAppState extends ChangeNotifier {
               _askedQuestReminders;
     });
     await _safeInitAsync(() async {
+      _questRemindersEnabled =
+          await secureStorage.getBool('ff_questRemindersEnabled') ??
+              _questRemindersEnabled;
+    });
+    await _safeInitAsync(() async {
       _chatSessionId =
           await secureStorage.getString('ff_chatSessionId') ?? _chatSessionId;
       _chatSessionId = '';
@@ -423,6 +428,13 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setBool('ff_askedQuestReminders', value);
   }
 
+  bool _questRemindersEnabled = false;
+  bool get questRemindersEnabled => _questRemindersEnabled;
+  set questRemindersEnabled(bool value) {
+    _questRemindersEnabled = value;
+    secureStorage.setBool('ff_questRemindersEnabled', value);
+  }
+
   // Debug helper for repeating the quest flow without clearing unrelated data.
   void resetQuestDataForTesting() {
     _joinedChallenges = [];
@@ -430,12 +442,14 @@ class FFAppState extends ChangeNotifier {
     _questCheckIns = [];
     _completedChallenges = [];
     _askedQuestReminders = false;
+    _questRemindersEnabled = false;
 
     secureStorage.delete(key: 'ff_joinedChallenges');
     secureStorage.delete(key: 'ff_activeChallengeId');
     secureStorage.delete(key: 'ff_questCheckIns');
     secureStorage.delete(key: 'ff_completedChallenges');
     secureStorage.delete(key: 'ff_askedQuestReminders');
+    secureStorage.delete(key: 'ff_questRemindersEnabled');
   }
 
   String _deepFeelings = '';

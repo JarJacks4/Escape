@@ -13,6 +13,7 @@ import 'flutter_flow/internationalization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'flutter_flow/firebase_app_check_util.dart';
+import 'flutter_flow/quest_reminder_service.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'index.dart';
 
@@ -35,6 +36,7 @@ void main() async {
   await initFirebase();
 
   await FFLocalizations.initialize();
+  await QuestReminderService.initialize();
 
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
