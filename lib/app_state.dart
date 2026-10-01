@@ -452,6 +452,33 @@ class FFAppState extends ChangeNotifier {
     secureStorage.delete(key: 'ff_questRemindersEnabled');
   }
 
+  // Debug helper that makes the next check-in complete the seven-day Quest.
+  void prepareFinalQuestDayForTesting() {
+    final now = DateTime.now();
+    _joinedChallenges = [_activeChallengeId];
+    _questCheckIns = List.generate(
+      6,
+      (index) => DateTime(
+        now.year,
+        now.month,
+        now.day - (6 - index),
+        9,
+      ),
+    );
+    _completedChallenges = [];
+    _askedQuestReminders = false;
+    _questRemindersEnabled = false;
+
+    secureStorage.setStringList('ff_joinedChallenges', _joinedChallenges);
+    _persistQuestCheckIns();
+    secureStorage.setStringList(
+      'ff_completedChallenges',
+      _completedChallenges,
+    );
+    secureStorage.setBool('ff_askedQuestReminders', false);
+    secureStorage.setBool('ff_questRemindersEnabled', false);
+  }
+
   String _deepFeelings = '';
   String get deepFeelings => _deepFeelings;
   set deepFeelings(String value) {

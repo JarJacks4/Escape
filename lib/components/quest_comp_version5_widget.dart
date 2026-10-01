@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/quest_reminder_service.dart';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/foundation.dart';
@@ -115,37 +116,52 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
     );
   }
 
-  Future<void> _confirmResetQuestData() async {
+  Future<void> _showQuestTestTools() async {
     if (!kDebugMode) return;
 
-    final shouldReset = await showDialog<bool>(
-          context: context,
-          builder: (dialogContext) => AlertDialog(
-            title: Text('Reset Quest test data?'),
-            content: Text(
-              'This clears joined challenges, check-ins, completion, and the reminder prompt. Total XP will not be changed.',
-            ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(dialogContext, false),
-                child: Text('Cancel'),
-              ),
-              TextButton(
-                onPressed: () => Navigator.pop(dialogContext, true),
-                child: Text('Reset'),
-              ),
-            ],
+    final action = await showDialog<String>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text('Quest test tools'),
+        content: Text(
+          'Reset Quest data or prepare six completed days to test the final check-in. Total XP will not be changed.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: Text('Cancel'),
           ),
-        ) ??
-        false;
-    if (!shouldReset || !mounted) return;
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext, 'reset'),
+            child: Text('Reset'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext, 'day7'),
+            child: Text('Prepare Day 7'),
+          ),
+        ],
+      ),
+    );
+    if (action == null || !mounted) return;
 
-    FFAppState().update(() => FFAppState().resetQuestDataForTesting());
+    await QuestReminderService.cancelDailyReminder();
+    if (!mounted) return;
+    FFAppState().update(() {
+      if (action == 'day7') {
+        FFAppState().prepareFinalQuestDayForTesting();
+      } else {
+        FFAppState().resetQuestDataForTesting();
+      }
+    });
     ScaffoldMessenger.of(context)
       ..clearSnackBars()
       ..showSnackBar(
         SnackBar(
-          content: Text('Quest test data reset'),
+          content: Text(
+            action == 'day7'
+                ? 'Quest is ready for the Day 7 check-in'
+                : 'Quest test data reset',
+          ),
           duration: Duration(milliseconds: 2500),
         ),
       );
@@ -374,7 +390,7 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
                 child: GestureDetector(
                   onTap: _showChallengeDetails,
                   // Keep test controls out of production builds.
-                  onLongPress: kDebugMode ? _confirmResetQuestData : null,
+                  onLongPress: kDebugMode ? _showQuestTestTools : null,
                   child: Container(
                     width: 337.3,
                     height: 331.0,
