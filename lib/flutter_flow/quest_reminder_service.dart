@@ -4,6 +4,15 @@ import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
+tz.TZDateTime nextDailyQuestReminder(tz.TZDateTime now) {
+  final location = now.location;
+  var nextReminder = tz.TZDateTime(location, now.year, now.month, now.day, 9);
+  if (!nextReminder.isAfter(now)) {
+    nextReminder = tz.TZDateTime(location, now.year, now.month, now.day + 1, 9);
+  }
+  return nextReminder;
+}
+
 class QuestReminderService {
   QuestReminderService._();
 
@@ -42,11 +51,7 @@ class QuestReminderService {
       await cancelDailyReminder();
 
       final now = tz.TZDateTime.now(tz.local);
-      var nextReminder =
-          tz.TZDateTime(tz.local, now.year, now.month, now.day, 9);
-      if (!nextReminder.isAfter(now)) {
-        nextReminder = nextReminder.add(const Duration(days: 1));
-      }
+      final nextReminder = nextDailyQuestReminder(now);
 
       await _notifications.zonedSchedule(
         id: _dailyReminderId,
