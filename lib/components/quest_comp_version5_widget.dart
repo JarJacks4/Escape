@@ -513,28 +513,31 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
                                   .primaryBackground,
                               borderRadius: BorderRadius.circular(16.0),
                             ),
-                            child: LinearPercentIndicator(
-                              percent: challengeProgress,
-                              width: 120.0,
-                              lineHeight: 8.0,
-                              animation: true,
-                              animateFromLastPercent: true,
-                              progressColor:
-                                  FlutterFlowTheme.of(context).accent1,
-                              backgroundColor: Color(0xFFEDF1F7),
-                              center: Text(
-                                functions
-                                    .challengePercentLabel(challengeProgress),
-                                style: FlutterFlowTheme.of(context)
-                                    .headlineSmall
-                                    .override(
-                                      fontFamily: 'WorkSans',
-                                      letterSpacing: 0.0,
-                                    ),
-                                overflow: TextOverflow.fade,
+                            child: LayoutBuilder(
+                              builder: (context, constraints) =>
+                                  LinearPercentIndicator(
+                                percent: challengeProgress,
+                                width: constraints.maxWidth,
+                                lineHeight: 8.0,
+                                animation: true,
+                                animateFromLastPercent: true,
+                                progressColor:
+                                    FlutterFlowTheme.of(context).accent1,
+                                backgroundColor: Color(0xFFEDF1F7),
+                                center: Text(
+                                  functions
+                                      .challengePercentLabel(challengeProgress),
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .override(
+                                        fontFamily: 'WorkSans',
+                                        letterSpacing: 0.0,
+                                      ),
+                                  overflow: TextOverflow.fade,
+                                ),
+                                barRadius: Radius.circular(15.0),
+                                padding: EdgeInsets.zero,
                               ),
-                              barRadius: Radius.circular(15.0),
-                              padding: EdgeInsets.zero,
                             ),
                           ),
                           Row(
