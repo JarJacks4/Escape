@@ -980,9 +980,6 @@ class _CreateAccountOnboardingFlowWidgetState
                                         'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav')
                                     .then((_) => _model.soundPlayer8!.play());
 
-                                await requestPermission(
-                                    notificationsPermission);
-
                                 try {
                                   await currentUserReference!.update({
                                     ...createUsersRecordData(

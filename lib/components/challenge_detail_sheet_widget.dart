@@ -118,11 +118,10 @@ class _ChallengeDetailSheetWidgetState
         false;
     if (!wantsReminder) return;
 
-    await requestPermission(notificationsPermission);
-    final isAllowed = await getPermissionStatus(notificationsPermission);
-    if (isAllowed && currentUserReference != null) {
+    final isAllowed = await requestNotificationPermissionWithSettings(context);
+    if (currentUserReference != null) {
       await currentUserReference!.update(
-        createUsersRecordData(notificationsAllowed: true),
+        createUsersRecordData(notificationsAllowed: isAllowed),
       );
     }
   }

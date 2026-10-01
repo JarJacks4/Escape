@@ -2535,77 +2535,45 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                   Switch(
                                     value: _model.switchValue1!,
                                     onChanged: (newValue) async {
-                                      safeSetState(() =>
-                                          _model.switchValue1 = newValue);
-                                      if (newValue) {
-                                        logFirebaseEvent(
-                                            'EDIT_PROFILE_VERSION5_Switch_1ktyvdch_ON');
-                                        logFirebaseEvent(
-                                            'Switch_haptic_feedback');
-                                        HapticFeedback.selectionClick();
-                                        if (await getPermissionStatus(
-                                            notificationsPermission)) {
-                                          logFirebaseEvent(
-                                              'Switch_show_snack_bar');
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                'Notifications have been activated!',
-                                                style: TextStyle(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                ),
-                                              ),
-                                              duration:
-                                                  Duration(milliseconds: 4000),
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                            ),
-                                          );
-                                        } else {
-                                          logFirebaseEvent(
-                                              'Switch_request_permissions');
-                                          await requestPermission(
-                                              notificationsPermission);
-                                        }
-                                      } else {
-                                        logFirebaseEvent(
-                                            'EDIT_PROFILE_VERSION5_Switch_1ktyvdch_ON');
-                                        logFirebaseEvent(
-                                            'Switch_haptic_feedback');
-                                        HapticFeedback.selectionClick();
-                                        if (!(await getPermissionStatus(
-                                            notificationsPermission))) {
-                                          logFirebaseEvent(
-                                              'Switch_show_snack_bar');
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                'Notifications have been deactivated!',
-                                                style: TextStyle(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                ),
-                                              ),
-                                              duration:
-                                                  Duration(milliseconds: 4000),
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                            ),
-                                          );
-                                        } else {
-                                          logFirebaseEvent(
-                                              'Switch_request_permissions');
-                                          await requestPermission(
-                                              notificationsPermission);
-                                        }
+                                      logFirebaseEvent(
+                                          'EDIT_PROFILE_VERSION5_Switch_1ktyvdch_ON');
+                                      HapticFeedback.selectionClick();
+                                      final notificationsAllowed = newValue
+                                          ? await requestNotificationPermissionWithSettings(
+                                              context)
+                                          : false;
+                                      if (!context.mounted) return;
+                                      safeSetState(() => _model.switchValue1 =
+                                          notificationsAllowed);
+                                      if (currentUserReference != null) {
+                                        await currentUserReference!.update(
+                                          createUsersRecordData(
+                                            notificationsAllowed:
+                                                notificationsAllowed,
+                                          ),
+                                        );
                                       }
+                                      if (!context.mounted) return;
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            notificationsAllowed
+                                                ? 'Notifications have been activated!'
+                                                : 'Notifications have been deactivated!',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
+                                        ),
+                                      );
                                     },
                                     activeThumbColor:
                                         FlutterFlowTheme.of(context).accent1,

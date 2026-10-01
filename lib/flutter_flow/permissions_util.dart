@@ -1,5 +1,6 @@
 import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/material.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -32,4 +33,37 @@ Future<void> requestPermission(Permission setting) async {
     }
   }
   await setting.request();
+}
+
+Future<bool> requestNotificationPermissionWithSettings(
+  BuildContext context,
+) async {
+  if (await getPermissionStatus(notificationsPermission)) return true;
+
+  await requestPermission(notificationsPermission);
+  if (await getPermissionStatus(notificationsPermission)) return true;
+  if (!context.mounted) return false;
+
+  final shouldOpenSettings = await showDialog<bool>(
+        context: context,
+        builder: (dialogContext) => AlertDialog(
+          title: const Text('Notifications are turned off'),
+          content: const Text(
+            'To receive Quest reminders, allow notifications for Escape in your device settings.',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(dialogContext, false),
+              child: const Text('Not now'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(dialogContext, true),
+              child: const Text('Open Settings'),
+            ),
+          ],
+        ),
+      ) ??
+      false;
+  if (shouldOpenSettings) await openAppSettings();
+  return false;
 }

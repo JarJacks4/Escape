@@ -328,13 +328,16 @@ personalized n... */
                                           'ENABLE_NOTIFICATIONS_COMPLETE_TUTORIAL_B');
                                       logFirebaseEvent(
                                           'Button_request_permissions');
-                                      await requestPermission(
-                                          notificationsPermission);
+                                      final notificationsAllowed =
+                                          await requestNotificationPermissionWithSettings(
+                                              context);
+                                      if (!context.mounted) return;
                                       logFirebaseEvent('Button_backend_call');
 
                                       await currentUserReference!.update({
                                         ...createUsersRecordData(
-                                          notificationsAllowed: true,
+                                          notificationsAllowed:
+                                              notificationsAllowed,
                                         ),
                                         ...mapToFirestore(
                                           {
