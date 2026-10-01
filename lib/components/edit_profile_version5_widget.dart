@@ -2544,12 +2544,27 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                               context)
                                           : false;
                                       if (!context.mounted) return;
-                                      if (!notificationsAllowed) {
+                                      var questReminderEnabled =
+                                          FFAppState().questRemindersEnabled;
+                                      if (notificationsAllowed &&
+                                          FFAppState()
+                                              .questCheckIns
+                                              .isNotEmpty &&
+                                          !FFAppState()
+                                              .completedChallenges
+                                              .contains(FFAppState()
+                                                  .activeChallengeId)) {
+                                        questReminderEnabled =
+                                            await QuestReminderService
+                                                .scheduleDailyReminder();
+                                      } else if (!notificationsAllowed) {
                                         await QuestReminderService
                                             .cancelDailyReminder();
-                                        FFAppState().update(() => FFAppState()
-                                            .questRemindersEnabled = false);
+                                        questReminderEnabled = false;
                                       }
+                                      FFAppState().update(() => FFAppState()
+                                              .questRemindersEnabled =
+                                          questReminderEnabled);
                                       safeSetState(() => _model.switchValue1 =
                                           notificationsAllowed);
                                       if (currentUserReference != null) {

@@ -125,7 +125,10 @@ class _ChallengeDetailSheetWidgetState
     final reminderScheduled =
         isAllowed && await QuestReminderService.scheduleDailyReminder();
     appState.update(
-      () => appState.questRemindersEnabled = reminderScheduled,
+      () {
+        appState.questRemindersEnabled = reminderScheduled;
+        if (!reminderScheduled) appState.askedQuestReminders = false;
+      },
     );
     if (currentUserReference != null) {
       await currentUserReference!.update(
