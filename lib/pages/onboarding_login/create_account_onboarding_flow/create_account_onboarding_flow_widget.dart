@@ -582,7 +582,7 @@ class _CreateAccountOnboardingFlowWidgetState
                                       children: [
                                         Text(
                                           FFLocalizations.of(context)
-                                              .getText('j0g3owto'),
+                                              .getText('bzrfwp2o'),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
