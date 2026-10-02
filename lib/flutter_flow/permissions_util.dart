@@ -49,7 +49,7 @@ Future<bool> requestNotificationPermissionWithSettings(
         builder: (dialogContext) => AlertDialog(
           title: const Text('Notifications are turned off'),
           content: const Text(
-            'To receive Quest reminders, allow notifications for Escape in your device settings.',
+            'To receive notifications from Escape, allow notifications in your device settings.',
           ),
           actions: [
             TextButton(
