@@ -2373,31 +2373,18 @@ class _YoureAllSetPageVersion5WidgetState
                                 ],
                               ),
                             ),
-                            Flexible(
-                              flex: 1,
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    '5vxd5w52' /* You can access all features fr... */,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .override(
-                                        font: GoogleFonts.inter(
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelSmall
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelSmall
-                                                  .fontStyle,
-                                        ),
-                                        color: Color(0xB9EDF1F7),
-                                        letterSpacing: 0.0,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  '5vxd5w52' /* You can access all features fr... */,
+                                ),
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .labelSmall
+                                    .override(
+                                      font: GoogleFonts.inter(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .labelSmall
                                             .fontWeight,
@@ -2405,7 +2392,15 @@ class _YoureAllSetPageVersion5WidgetState
                                             .labelSmall
                                             .fontStyle,
                                       ),
-                                ),
+                                      color: Color(0xB9EDF1F7),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontStyle,
+                                    ),
                               ),
                             ),
                             ClipRRect(
