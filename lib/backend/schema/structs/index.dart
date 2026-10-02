@@ -14,6 +14,7 @@ export 'model_configuration_struct.dart';
 export 'move_struct_struct.dart';
 export 'onboarding_goals_struct.dart';
 export 'playlist_struct.dart';
+export 'playlist_track_struct.dart';
 export 'soundscapes_struct.dart';
 export 'theory_of_mind_lucille_stream_chat_struct.dart';
 export 'therapy_recommendatins_lucille_struct.dart';

@@ -302,10 +302,16 @@ class ApiManager {
   static Map<String, String> toStringMap(Map map) =>
       map.map((key, value) => MapEntry(key.toString(), value.toString()));
 
-  static String asQueryParams(Map<String, dynamic> map) => map.entries
-      .map((e) =>
-          "${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value.toString())}")
-      .join('&');
+  // Null values are omitted rather than sent as the string "null".
+  static Map<String, dynamic> withoutNullValues(Map<String, dynamic> map) =>
+      Map.fromEntries(map.entries.where((e) => e.value != null));
+
+  static String asQueryParams(Map<String, dynamic> map) =>
+      withoutNullValues(map)
+          .entries
+          .map((e) =>
+              "${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value.toString())}")
+          .join('&');
 
   static Future<ApiCallResponse> urlRequest(
     ApiCallType callType,
@@ -417,8 +423,9 @@ class ApiManager {
         e is List<FFUploadedFile> ||
         (e is List && e.firstOrNull is FFUploadedFile);
 
-    final nonFileParams = toStringMap(
-        Map.fromEntries(params.entries.where((e) => !isFile(e.value))));
+    final nonFileParams = toStringMap(Map.fromEntries(withoutNullValues(params)
+        .entries
+        .where((e) => !isFile(e.value))));
 
     List<http.MultipartFile> files = [];
     params.entries.where((e) => isFile(e.value)).forEach((e) {
@@ -481,7 +488,7 @@ class ApiManager {
         break;
       case BodyType.X_WWW_FORM_URL_ENCODED:
         contentType = 'application/x-www-form-urlencoded';
-        postBody = toStringMap(params ?? {});
+        postBody = toStringMap(withoutNullValues(params ?? {}));
         break;
       case BodyType.MULTIPART:
         contentType = 'multipart/form-data';

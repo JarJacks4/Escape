@@ -232,6 +232,11 @@ class UsersRecord extends FirestoreRecord {
   int get coinsEarned => _coinsEarned ?? 0;
   bool hasCoinsEarned() => _coinsEarned != null;
 
+  // "isLocationAllowed" field.
+  bool? _isLocationAllowed;
+  bool get isLocationAllowed => _isLocationAllowed ?? false;
+  bool hasIsLocationAllowed() => _isLocationAllowed != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
@@ -282,6 +287,7 @@ class UsersRecord extends FirestoreRecord {
     _pronouns = snapshotData['Pronouns'] as String?;
     _onboardingGoals = getDataList(snapshotData['OnboardingGoals']);
     _coinsEarned = castToType<int>(snapshotData['coinsEarned']);
+    _isLocationAllowed = snapshotData['isLocationAllowed'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -360,6 +366,7 @@ Map<String, dynamic> createUsersRecordData({
   DocumentReference? lastJournal,
   String? pronouns,
   int? coinsEarned,
+  bool? isLocationAllowed,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -405,6 +412,7 @@ Map<String, dynamic> createUsersRecordData({
       'LastJournal': lastJournal,
       'Pronouns': pronouns,
       'coinsEarned': coinsEarned,
+      'isLocationAllowed': isLocationAllowed,
     }.withoutNulls,
   );
 
@@ -463,7 +471,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.lastJournal == e2?.lastJournal &&
         e1?.pronouns == e2?.pronouns &&
         listEquality.equals(e1?.onboardingGoals, e2?.onboardingGoals) &&
-        e1?.coinsEarned == e2?.coinsEarned;
+        e1?.coinsEarned == e2?.coinsEarned &&
+        e1?.isLocationAllowed == e2?.isLocationAllowed;
   }
 
   @override
@@ -510,7 +519,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.lastJournal,
         e?.pronouns,
         e?.onboardingGoals,
-        e?.coinsEarned
+        e?.coinsEarned,
+        e?.isLocationAllowed
       ]);
 
   @override

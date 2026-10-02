@@ -243,8 +243,8 @@ class OnboardUserCall {
 
     final ffApiRequestBody = '''
 {
-  "user_id": "${escapeStringForJson(userID)}",
-  "responses": "${escapeStringForJson(responses)}"
+  "user_id": ${userID == null ? 'null' : '"${escapeStringForJson(userID)}"'},
+  "responses": ${responses == null ? 'null' : '"${escapeStringForJson(responses)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Onboard User',
@@ -1552,7 +1552,7 @@ class StartExerciseCall {
 
     final ffApiRequestBody = '''
 {
-  "exercise_id": "${escapeStringForJson(exerciseID)}"
+  "exercise_id": ${exerciseID == null ? 'null' : '"${escapeStringForJson(exerciseID)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Start Exercise',
@@ -1582,7 +1582,7 @@ class AdvanceExerciseCall {
 
     final ffApiRequestBody = '''
 {
-  "note": "${escapeStringForJson(note)}"
+  "note": ${note == null ? 'null' : '"${escapeStringForJson(note)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Advance Exercise',
@@ -2466,7 +2466,7 @@ class StartSoundCall {
 
     final ffApiRequestBody = '''
 {
-  "soundscape_id": "${escapeStringForJson(soundscapeId)}"
+  "soundscape_id": ${soundscapeId == null ? 'null' : '"${escapeStringForJson(soundscapeId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Start Sound',
@@ -2840,8 +2840,8 @@ class TextToSpeechCall {
 
     final ffApiRequestBody = '''
 {
-  "text": "${escapeStringForJson(text)}",
-  "voice": "${escapeStringForJson(voice)}",
+  "text": ${text == null ? 'null' : '"${escapeStringForJson(text)}"'},
+  "voice": ${voice == null ? 'null' : '"${escapeStringForJson(voice)}"'},
   "rate": ${rate}
 }''';
     return ApiManager.instance.makeApiCall(
@@ -2916,7 +2916,7 @@ class GenerateReviewCall {
 
     final ffApiRequestBody = '''
 {
-  "period_days": "${escapeStringForJson(periodDays)}"
+  "period_days": ${periodDays == null ? 'null' : '"${escapeStringForJson(periodDays)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Generate Review',
@@ -3283,8 +3283,8 @@ class LucilleStreamingBuildShipCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "message": "${escapeStringForJson(message)}",
-  "session_id": "${escapeStringForJson(sessionID)}"
+  "message": ${message == null ? 'null' : '"${escapeStringForJson(message)}"'},
+  "session_id": ${sessionID == null ? 'null' : '"${escapeStringForJson(sessionID)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Lucille Streaming BuildShip',

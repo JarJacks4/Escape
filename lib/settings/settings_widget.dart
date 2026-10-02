@@ -1,11 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'settings_model.dart';
 export 'settings_model.dart';
@@ -24,7 +24,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
   late SettingsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -32,8 +31,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
     _model = createModel(context, () => SettingsModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Settings'});
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
   }
 
   @override
@@ -45,22 +42,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (currentUserLocationValue == null) {
-      return Container(
-        color: FlutterFlowTheme.of(context).primaryBackground,
-        child: Center(
-          child: SizedBox(
-            width: 100.0,
-            height: 100.0,
-            child: SpinKitWave(
-              color: FlutterFlowTheme.of(context).accent1,
-              size: 100.0,
-            ),
-          ),
-        ),
-      );
-    }
-
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primary,
@@ -156,6 +137,23 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       currentUserDocument?.notificationsAllowed, false),
                   onChanged: (newValue) async {
                     safeSetState(() => _model.switchListTileValue1 = newValue);
+                    if (newValue) {
+                      logFirebaseEvent(
+                          'SETTINGS_SwitchListTile_qk92hbtj_ON_TOGG');
+                      logFirebaseEvent('SwitchListTile_backend_call');
+
+                      await currentUserReference!.update(createUsersRecordData(
+                        notificationsAllowed: true,
+                      ));
+                    } else {
+                      logFirebaseEvent(
+                          'SETTINGS_SwitchListTile_qk92hbtj_ON_TOGG');
+                      logFirebaseEvent('SwitchListTile_backend_call');
+
+                      await currentUserReference!.update(createUsersRecordData(
+                        notificationsAllowed: false,
+                      ));
+                    }
                   },
                   title: Text(
                     FFLocalizations.of(context).getText(
@@ -198,8 +196,11 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                         ),
                   ),
                   tileColor: FlutterFlowTheme.of(context).primary,
-                  activeThumbColor: FlutterFlowTheme.of(context).primary,
-                  activeTrackColor: FlutterFlowTheme.of(context).tertiary,
+                  activeThumbColor: FlutterFlowTheme.of(context).accent3,
+                  activeTrackColor: FlutterFlowTheme.of(context).alternate,
+                  inactiveThumbColor:
+                      FlutterFlowTheme.of(context).secondaryText,
+                  inactiveTrackColor: Color(0x4739519F),
                   dense: false,
                   controlAffinity: ListTileControlAffinity.trailing,
                   contentPadding:
@@ -208,57 +209,79 @@ class _SettingsWidgetState extends State<SettingsWidget> {
               ),
             ),
           ),
-          Material(
-            color: Colors.transparent,
-            child: SwitchListTile.adaptive(
-              value: _model.switchListTileValue2 ??=
-                  currentUserLocationValue != null,
-              onChanged: (newValue) async {
-                safeSetState(() => _model.switchListTileValue2 = newValue);
-              },
-              title: Text(
-                FFLocalizations.of(context).getText(
-                  '5cbxvi36' /* Location Services */,
-                ),
-                style: FlutterFlowTheme.of(context).bodyLarge.override(
-                      font: GoogleFonts.inter(
+          AuthUserStreamWidget(
+            builder: (context) => Material(
+              color: Colors.transparent,
+              child: SwitchListTile.adaptive(
+                value: _model.switchListTileValue2 ??= valueOrDefault<bool>(
+                    currentUserDocument?.isLocationAllowed, false),
+                onChanged: (newValue) async {
+                  safeSetState(() => _model.switchListTileValue2 = newValue);
+                  if (newValue) {
+                    logFirebaseEvent(
+                        'SETTINGS_SwitchListTile_qr6atdpc_ON_TOGG');
+                    logFirebaseEvent('SwitchListTile_backend_call');
+
+                    await currentUserReference!.update(createUsersRecordData(
+                      isLocationAllowed: true,
+                    ));
+                  } else {
+                    logFirebaseEvent(
+                        'SETTINGS_SwitchListTile_qr6atdpc_ON_TOGG');
+                    logFirebaseEvent('SwitchListTile_backend_call');
+
+                    await currentUserReference!.update(createUsersRecordData(
+                      isLocationAllowed: false,
+                    ));
+                  }
+                },
+                title: Text(
+                  FFLocalizations.of(context).getText(
+                    '5cbxvi36' /* Location Services */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyLarge.override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FontWeight.w600,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                        ),
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                         fontStyle:
                             FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                        lineHeight: 2.0,
                       ),
-                      letterSpacing: 0.0,
-                      fontWeight: FontWeight.w600,
-                      fontStyle:
-                          FlutterFlowTheme.of(context).bodyLarge.fontStyle,
-                      lineHeight: 2.0,
-                    ),
-              ),
-              subtitle: Text(
-                FFLocalizations.of(context).getText(
-                  'sik8rt4l' /* Allow us to track your locatio... */,
                 ),
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      font: GoogleFonts.inter(
+                subtitle: Text(
+                  FFLocalizations.of(context).getText(
+                    'sik8rt4l' /* Allow us to track your locatio... */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
+                        color: Color(0xFF8B97A2),
+                        letterSpacing: 0.0,
                         fontWeight:
                             FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                         fontStyle:
                             FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                       ),
-                      color: Color(0xFF8B97A2),
-                      letterSpacing: 0.0,
-                      fontWeight:
-                          FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                      fontStyle:
-                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                    ),
+                ),
+                tileColor: FlutterFlowTheme.of(context).primary,
+                activeThumbColor: FlutterFlowTheme.of(context).accent3,
+                activeTrackColor: FlutterFlowTheme.of(context).alternate,
+                inactiveThumbColor: FlutterFlowTheme.of(context).secondaryText,
+                inactiveTrackColor: Color(0x3C39519F),
+                dense: false,
+                controlAffinity: ListTileControlAffinity.trailing,
+                contentPadding:
+                    EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 24.0, 12.0),
               ),
-              tileColor: FlutterFlowTheme.of(context).primary,
-              activeThumbColor: FlutterFlowTheme.of(context).primary,
-              activeTrackColor: FlutterFlowTheme.of(context).tertiary,
-              dense: false,
-              controlAffinity: ListTileControlAffinity.trailing,
-              contentPadding:
-                  EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 24.0, 12.0),
             ),
           ),
           Padding(

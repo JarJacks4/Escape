@@ -34,7 +34,7 @@ class StartSoundCall {
 
     final ffApiRequestBody = '''
 {
-  "soundscape_id": "${escapeStringForJson(soundscapeId)}"
+  "soundscape_id": ${soundscapeId == null ? 'null' : '"${escapeStringForJson(soundscapeId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Start Sound',
