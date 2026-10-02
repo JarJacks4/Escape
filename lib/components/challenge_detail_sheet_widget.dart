@@ -4,6 +4,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/permissions_util.dart';
 import '/flutter_flow/quest_reminder_service.dart';
+import '/flutter_flow/quest_sync_service.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/rewards_splash_page/rewards_splash_page_widget.dart';
@@ -61,6 +62,7 @@ class _ChallengeDetailSheetWidgetState
       parameters: {'challenge': widget.challengeId},
     );
     appState.update(() => appState.addToQuestCheckIns(DateTime.now()));
+    QuestSyncService.instance.saveLocalState();
 
     await _requestQuestReminderPermission(appState);
 
@@ -77,6 +79,7 @@ class _ChallengeDetailSheetWidgetState
         },
       );
     }
+    QuestSyncService.instance.saveLocalState();
     ScaffoldMessenger.of(context)
       ..clearSnackBars()
       ..showSnackBar(
@@ -89,6 +92,7 @@ class _ChallengeDetailSheetWidgetState
     if (completedNow) {
       await QuestReminderService.cancelDailyReminder();
       appState.update(() => appState.questRemindersEnabled = false);
+      QuestSyncService.instance.saveLocalState();
       final rootContext = appNavigatorKey.currentContext;
       Navigator.of(context).pop();
       rootContext?.pushNamed(RewardsSplashPageWidget.routeName);
@@ -98,6 +102,7 @@ class _ChallengeDetailSheetWidgetState
   Future<void> _requestQuestReminderPermission(FFAppState appState) async {
     if (appState.askedQuestReminders) return;
     appState.update(() => appState.askedQuestReminders = true);
+    QuestSyncService.instance.saveLocalState();
 
     final wantsReminder = await showDialog<bool>(
           context: context,
@@ -130,6 +135,7 @@ class _ChallengeDetailSheetWidgetState
         if (!reminderScheduled) appState.askedQuestReminders = false;
       },
     );
+    QuestSyncService.instance.saveLocalState();
     if (currentUserReference != null) {
       await currentUserReference!.update(
         createUsersRecordData(notificationsAllowed: reminderScheduled),

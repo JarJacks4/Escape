@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/quest_reminder_service.dart';
+import '/flutter_flow/quest_sync_service.dart';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/foundation.dart';
@@ -92,6 +93,7 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
       await QuestReminderService.cancelDailyReminder();
       appState.update(() => appState.questRemindersEnabled = false);
     }
+    QuestSyncService.instance.saveLocalState();
 
     if (!mounted) return;
     HapticFeedback.lightImpact();
@@ -159,6 +161,7 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
         FFAppState().resetQuestDataForTesting();
       }
     });
+    QuestSyncService.instance.saveLocalState();
     ScaffoldMessenger.of(context)
       ..clearSnackBars()
       ..showSnackBar(

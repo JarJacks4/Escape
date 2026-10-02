@@ -14,6 +14,7 @@ import 'package:flutter/foundation.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'flutter_flow/firebase_app_check_util.dart';
 import 'flutter_flow/quest_reminder_service.dart';
+import 'flutter_flow/quest_sync_service.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'index.dart';
 
@@ -68,6 +69,7 @@ void main() async {
   }
 
   await initializeFirebaseAppCheck();
+  QuestSyncService.instance.start(appState);
 
   FFAppEventService.instance.init(onGlobalEvent: handleGlobalEvent);
 

@@ -61,6 +61,16 @@ class FFAppState extends ChangeNotifier {
               _questRemindersEnabled;
     });
     await _safeInitAsync(() async {
+      _questOwnerUid =
+          await secureStorage.getString('ff_questOwnerUid') ?? _questOwnerUid;
+    });
+    await _safeInitAsync(() async {
+      _questUpdatedAt = DateTime.tryParse(
+            await secureStorage.getString('ff_questUpdatedAt') ?? '',
+          ) ??
+          _questUpdatedAt;
+    });
+    await _safeInitAsync(() async {
       _chatSessionId =
           await secureStorage.getString('ff_chatSessionId') ?? _chatSessionId;
       _chatSessionId = '';
@@ -433,6 +443,62 @@ class FFAppState extends ChangeNotifier {
   set questRemindersEnabled(bool value) {
     _questRemindersEnabled = value;
     secureStorage.setBool('ff_questRemindersEnabled', value);
+  }
+
+  String _questOwnerUid = '';
+  String get questOwnerUid => _questOwnerUid;
+  set questOwnerUid(String value) {
+    _questOwnerUid = value;
+    secureStorage.setString('ff_questOwnerUid', value);
+  }
+
+  DateTime? _questUpdatedAt;
+  DateTime? get questUpdatedAt => _questUpdatedAt;
+  set questUpdatedAt(DateTime? value) {
+    _questUpdatedAt = value;
+    if (value == null) {
+      secureStorage.delete(key: 'ff_questUpdatedAt');
+    } else {
+      secureStorage.setString('ff_questUpdatedAt', value.toIso8601String());
+    }
+  }
+
+  void replaceQuestState({
+    required String ownerUid,
+    required String activeChallengeId,
+    required List<String> joinedChallenges,
+    required List<DateTime> checkIns,
+    required List<String> completedChallenges,
+    required bool askedQuestReminders,
+    required bool questRemindersEnabled,
+    required DateTime updatedAt,
+  }) {
+    _questOwnerUid = ownerUid;
+    _activeChallengeId = activeChallengeId;
+    _joinedChallenges = List<String>.from(joinedChallenges);
+    _questCheckIns = List<DateTime>.from(checkIns);
+    _completedChallenges = List<String>.from(completedChallenges);
+    _askedQuestReminders = askedQuestReminders;
+    _questRemindersEnabled = questRemindersEnabled;
+    _questUpdatedAt = updatedAt;
+
+    secureStorage.setString('ff_questOwnerUid', _questOwnerUid);
+    secureStorage.setString('ff_activeChallengeId', _activeChallengeId);
+    secureStorage.setStringList('ff_joinedChallenges', _joinedChallenges);
+    _persistQuestCheckIns();
+    secureStorage.setStringList(
+      'ff_completedChallenges',
+      _completedChallenges,
+    );
+    secureStorage.setBool('ff_askedQuestReminders', _askedQuestReminders);
+    secureStorage.setBool(
+      'ff_questRemindersEnabled',
+      _questRemindersEnabled,
+    );
+    secureStorage.setString(
+      'ff_questUpdatedAt',
+      _questUpdatedAt!.toIso8601String(),
+    );
   }
 
   // Debug helper for repeating the quest flow without clearing unrelated data.
