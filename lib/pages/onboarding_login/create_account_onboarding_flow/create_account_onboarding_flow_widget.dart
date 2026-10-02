@@ -214,10 +214,12 @@ class _CreateAccountOnboardingFlowWidgetState
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 24.0, 24.0, 24.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
+                                child: SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 80.0, 0.0, 0.0),
@@ -707,7 +709,8 @@ class _CreateAccountOnboardingFlowWidgetState
                                         ),
                                       ),
                                     ),
-                                  ].divide(SizedBox(height: 24.0)),
+                                    ].divide(SizedBox(height: 24.0)),
+                                  ),
                                 ),
                               ),
                             ),

@@ -2917,6 +2917,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                   .validate()) {
                                                             _model.createAccountValidation =
                                                                 false;
+                                                            return;
                                                           }
                                                           logFirebaseEvent(
                                                               'Button_auth');
