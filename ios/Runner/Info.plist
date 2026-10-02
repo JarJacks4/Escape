@@ -68,8 +68,6 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 
-	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>Escape requires access to your Location in order to use parts of our app.</string>
 	<key>NSCameraUsageDescription</key>
     <string>Escape requires access to your Camera in order to use parts of our app.</string>
 	<key>NSMicrophoneUsageDescription</key>
@@ -86,6 +84,8 @@
     <string>Escape requires access to your Speech Recognition in order to use Talk With Lucille and many more features.</string>
     <key>UIBackgroundModes</key>
     <array>
+        <string>fetch</string>
+        <string>remote-notification</string>
         <string>audio</string>
     </array>
 

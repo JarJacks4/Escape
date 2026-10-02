@@ -135,3 +135,109 @@ int getUpdatedStreak(
     }
   }
 }
+
+int? challengeStreak(List<DateTime>? checkIns) {
+  int challengeStreak(List<DateTime>? checkIns) {
+    if (checkIns == null || checkIns.isEmpty) return 0;
+    final done = checkIns.map((d) => DateTime(d.year, d.month, d.day)).toSet();
+    final now = DateTime.now();
+    var day = DateTime(now.year, now.month, now.day);
+    // Today not checked in yet? The streak is still alive from yesterday.
+    if (!done.contains(day)) day = DateTime(day.year, day.month, day.day - 1);
+    var streak = 0;
+    while (done.contains(day)) {
+      streak++;
+      day = DateTime(day.year, day.month, day.day - 1);
+    }
+    return streak;
+    // "Any N days" rule instead: return done.length;
+  }
+}
+
+bool? checkedInToday(List<DateTime>? checkins) {
+  bool checkedInToday(List<DateTime>? checkIns) {
+    if (checkIns == null) return false;
+    final now = DateTime.now();
+    return checkIns.any(
+        (d) => d.year == now.year && d.month == now.month && d.day == now.day);
+  }
+}
+
+double? challengeProgress(
+  int? done,
+  int? total,
+) {
+  double challengeProgress(int done, int total) {
+    if (total <= 0) return 0.0;
+    return (done / total).clamp(0.0, 1.0).toDouble();
+  }
+
+  String percentLabel(double progress) {
+    return '${(progress * 100).round()}%';
+  }
+}
+
+String? percentLabel(double? progress) {
+  String percentLabel(double progress) {
+    return '${(progress * 100).round()}%';
+  }
+}
+
+List<DateTime>? challengeDays(
+  List<DateTime>? checkIns,
+  int? totalDays,
+) {
+  List<DateTime> challengeDays(List<DateTime>? checkIns, int totalDays) {
+    // The current streak's days, then today and the days still to go.
+    final done =
+        (checkIns ?? []).map((d) => DateTime(d.year, d.month, d.day)).toSet();
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    var start = done.contains(today)
+        ? today
+        : DateTime(today.year, today.month, today.day - 1);
+    while (done.contains(DateTime(start.year, start.month, start.day - 1))) {
+      start = DateTime(start.year, start.month, start.day - 1);
+    }
+    if (!done.contains(start)) start = today; // no streak yet
+    return List.generate(
+        totalDays, (i) => DateTime(start.year, start.month, start.day + i));
+  }
+}
+
+String? dayStatus(
+  DateTime? day,
+  List<DateTime>? checkIns,
+) {
+  String dayStatus(DateTime day, List<DateTime>? checkIns) {
+    final d = DateTime(day.year, day.month, day.day);
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final done = (checkIns ?? [])
+        .any((c) => c.year == d.year && c.month == d.month && c.day == d.day);
+    if (done) return 'Completed';
+    if (d == today) return 'Today';
+    if (d.isAfter(today)) return 'Upcoming';
+    return 'Missed';
+  }
+}
+
+int? daysLeft(
+  int? done,
+  int? integer,
+) {
+  int daysLeft(int done, int total) {
+    final left = total - done;
+    return left < 0 ? 0 : left;
+  }
+}
+
+DateTime? tomorrowAt(
+  int? hour,
+  int? minute,
+) {
+  DateTime tomorrowAt(int hour, int minute) {
+    final now = DateTime.now();
+    return DateTime(now.year, now.month, now.day + 1, hour, minute);
+  }
+}

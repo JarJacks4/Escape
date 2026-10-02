@@ -202,6 +202,11 @@ class FFAppState extends ChangeNotifier {
               .toList() ??
           _YogaMoves;
     });
+    await _safeInitAsync(() async {
+      _askedQuestReminders =
+          await secureStorage.getBool('ff_askedQuestReminders') ??
+              _askedQuestReminders;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -2346,6 +2351,110 @@ class FFAppState extends ChangeNotifier {
     YogaMoves.insert(index, value);
     secureStorage.setStringList(
         'ff_YogaMoves', _YogaMoves.map((x) => x.serialize()).toList());
+  }
+
+  List<String> _joinedChallenges = [];
+  List<String> get joinedChallenges => _joinedChallenges;
+  set joinedChallenges(List<String> value) {
+    _joinedChallenges = value;
+  }
+
+  void addToJoinedChallenges(String value) {
+    joinedChallenges.add(value);
+  }
+
+  void removeFromJoinedChallenges(String value) {
+    joinedChallenges.remove(value);
+  }
+
+  void removeAtIndexFromJoinedChallenges(int index) {
+    joinedChallenges.removeAt(index);
+  }
+
+  void updateJoinedChallengesAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    joinedChallenges[index] = updateFn(_joinedChallenges[index]);
+  }
+
+  void insertAtIndexInJoinedChallenges(int index, String value) {
+    joinedChallenges.insert(index, value);
+  }
+
+  String _activeChallengeId = '';
+  String get activeChallengeId => _activeChallengeId;
+  set activeChallengeId(String value) {
+    _activeChallengeId = value;
+  }
+
+  List<DateTime> _questCheckIns = [];
+  List<DateTime> get questCheckIns => _questCheckIns;
+  set questCheckIns(List<DateTime> value) {
+    _questCheckIns = value;
+  }
+
+  void addToQuestCheckIns(DateTime value) {
+    questCheckIns.add(value);
+  }
+
+  void removeFromQuestCheckIns(DateTime value) {
+    questCheckIns.remove(value);
+  }
+
+  void removeAtIndexFromQuestCheckIns(int index) {
+    questCheckIns.removeAt(index);
+  }
+
+  void updateQuestCheckInsAtIndex(
+    int index,
+    DateTime Function(DateTime) updateFn,
+  ) {
+    questCheckIns[index] = updateFn(_questCheckIns[index]);
+  }
+
+  void insertAtIndexInQuestCheckIns(int index, DateTime value) {
+    questCheckIns.insert(index, value);
+  }
+
+  List<String> _completedChallenges = [];
+  List<String> get completedChallenges => _completedChallenges;
+  set completedChallenges(List<String> value) {
+    _completedChallenges = value;
+  }
+
+  void addToCompletedChallenges(String value) {
+    completedChallenges.add(value);
+  }
+
+  void removeFromCompletedChallenges(String value) {
+    completedChallenges.remove(value);
+  }
+
+  void removeAtIndexFromCompletedChallenges(int index) {
+    completedChallenges.removeAt(index);
+  }
+
+  void updateCompletedChallengesAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    completedChallenges[index] = updateFn(_completedChallenges[index]);
+  }
+
+  void insertAtIndexInCompletedChallenges(int index, String value) {
+    completedChallenges.insert(index, value);
+  }
+
+  bool _askedQuestReminders = false;
+  bool get askedQuestReminders => _askedQuestReminders;
+  set askedQuestReminders(bool value) {
+    _askedQuestReminders = value;
+    secureStorage.setBool('ff_askedQuestReminders', value);
+  }
+
+  void deleteAskedQuestReminders() {
+    secureStorage.delete(key: 'ff_askedQuestReminders');
   }
 
   final _lucilleSuggestedExercisesManager =

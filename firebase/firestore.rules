@@ -159,5 +159,10 @@ service cloud.firestore {
       allow read: if true;
     }
 
+
+    match /ff_user_push_notifications/{id} {
+      allow read, update, delete: if false;
+      allow create: if /databases/$(database)/documents/Users/$(request.auth.uid) == request.resource.data.sender;
+    }
   }
 }

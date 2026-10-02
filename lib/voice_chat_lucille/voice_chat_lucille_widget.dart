@@ -17,6 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:provider/provider.dart';
 import 'voice_chat_lucille_model.dart';
 export 'voice_chat_lucille_model.dart';
@@ -99,57 +100,73 @@ class _VoiceChatLucilleWidgetState extends State<VoiceChatLucilleWidget> {
             ),
             Align(
               alignment: AlignmentDirectional(0.0, 1.0),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
-                child: Container(
-                  width: double.infinity,
-                  height: MediaQuery.sizeOf(context).height * 0.071,
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 40.0,
-                        color: FlutterFlowTheme.of(context).accent1,
-                        offset: Offset(
-                          0.0,
-                          0.0,
-                        ),
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(12.0),
-                    border: Border.all(
-                      color: Color(0x49EDF1F7),
+              child: PointerInterceptor(
+                intercepting: isWeb,
+                child: Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+                  child: Container(
+                    width: double.infinity,
+                    height: MediaQuery.sizeOf(context).height * 0.071,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 40.0,
+                          color: FlutterFlowTheme.of(context).accent1,
+                          offset: Offset(
+                            0.0,
+                            0.0,
+                          ),
+                        )
+                      ],
+                      borderRadius: BorderRadius.circular(12.0),
+                      border: Border.all(
+                        color: Color(0x49EDF1F7),
+                      ),
                     ),
-                  ),
-                  child: Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
-                    child: Stack(
+                    child: Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional(0.0, -1.0),
-                          child: Container(
-                            width: double.infinity,
-                            child: TextFormField(
-                              controller: _model.textController,
-                              focusNode: _model.textFieldFocusNode,
-                              onChanged: (_) => EasyDebounce.debounce(
-                                '_model.textController',
-                                Duration(milliseconds: 2000),
-                                () => safeSetState(() {}),
-                              ),
-                              autofocus: true,
-                              enabled: true,
-                              textCapitalization: TextCapitalization.sentences,
-                              textInputAction: TextInputAction.send,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                hintText: FFLocalizations.of(context).getText(
-                                  '9jutrng2' /* Type something... */,
+                      child: Stack(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.0, -1.0),
+                            child: Container(
+                              width: double.infinity,
+                              child: TextFormField(
+                                controller: _model.textController,
+                                focusNode: _model.textFieldFocusNode,
+                                onChanged: (_) => EasyDebounce.debounce(
+                                  '_model.textController',
+                                  Duration(milliseconds: 2000),
+                                  () => safeSetState(() {}),
                                 ),
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .labelLarge
-                                    .override(
-                                      font: GoogleFonts.inter(
+                                autofocus: true,
+                                enabled: true,
+                                textCapitalization:
+                                    TextCapitalization.sentences,
+                                textInputAction: TextInputAction.send,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  hintText: FFLocalizations.of(context).getText(
+                                    '9jutrng2' /* Type something... */,
+                                  ),
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .labelLarge
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelLarge
+                                                  .fontStyle,
+                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        letterSpacing: 0.0,
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .labelLarge
                                             .fontWeight,
@@ -157,17 +174,64 @@ class _VoiceChatLucilleWidgetState extends State<VoiceChatLucilleWidget> {
                                             .labelLarge
                                             .fontStyle,
                                       ),
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .labelLarge
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .labelLarge
-                                          .fontStyle,
+                                  errorStyle: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontStyle,
+                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiary,
+                                        fontSize: 12.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x52EDF1F7),
+                                      width: 2.0,
                                     ),
-                                errorStyle: FlutterFlowTheme.of(context)
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 24.0, 70.0, 24.0),
+                                ),
+                                style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
                                       font: GoogleFonts.inter(
@@ -178,9 +242,8 @@ class _VoiceChatLucilleWidgetState extends State<VoiceChatLucilleWidget> {
                                             .bodyLarge
                                             .fontStyle,
                                       ),
-                                      color:
-                                          FlutterFlowTheme.of(context).tertiary,
-                                      fontSize: 12.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodyLarge
@@ -189,119 +252,70 @@ class _VoiceChatLucilleWidgetState extends State<VoiceChatLucilleWidget> {
                                           .bodyLarge
                                           .fontStyle,
                                     ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x52EDF1F7),
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).error,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).error,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 24.0, 70.0, 24.0),
+                                maxLines: 8,
+                                minLines: 1,
+                                cursorColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                validator: _model.textControllerValidator
+                                    .asValidator(context),
+                                inputFormatters: [
+                                  if (!isAndroid && !isiOS)
+                                    TextInputFormatter.withFunction(
+                                        (oldValue, newValue) {
+                                      return TextEditingValue(
+                                        selection: newValue.selection,
+                                        text: newValue.text.toCapitalization(
+                                            TextCapitalization.sentences),
+                                      );
+                                    }),
+                                ],
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyLarge
-                                  .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .fontStyle,
-                                    ),
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .fontStyle,
-                                  ),
-                              maxLines: 8,
-                              minLines: 1,
-                              cursorColor: FlutterFlowTheme.of(context).primary,
-                              validator: _model.textControllerValidator
-                                  .asValidator(context),
-                              inputFormatters: [
-                                if (!isAndroid && !isiOS)
-                                  TextInputFormatter.withFunction(
-                                      (oldValue, newValue) {
-                                    return TextEditingValue(
-                                      selection: newValue.selection,
-                                      text: newValue.text.toCapitalization(
-                                          TextCapitalization.sentences),
-                                    );
-                                  }),
-                              ],
                             ),
                           ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(1.0, -1.0),
-                          child: FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30.0,
-                            borderWidth: 1.0,
-                            buttonSize: 60.0,
-                            hoverColor: FlutterFlowTheme.of(context).accent1,
-                            hoverIconColor:
-                                FlutterFlowTheme.of(context).secondary,
-                            hoverBorderColor: Color(0x47EDF1F7),
-                            icon: Icon(
-                              Icons.send_rounded,
-                              color: FlutterFlowTheme.of(context).primary,
-                              size: 30.0,
-                            ),
-                            showLoadingIndicator: true,
-                            onPressed: () async {
-                              logFirebaseEvent(
-                                  'VOICE_CHAT_LUCILLE_send_rounded_ICN_ON_T');
-                              if (_model.textController.text != '') {
-                                logFirebaseEvent('IconButton_update_app_state');
-                                FFAppState().lucilleMessage =
-                                    _model.textController.text;
-                                safeSetState(() {});
-                                logFirebaseEvent('IconButton_custom_action');
-                                await actions.sendToLucille(
-                                  FFAppState().lucilleMessage,
-                                );
-                              } else {
-                                return;
-                              }
+                          Align(
+                            alignment: AlignmentDirectional(1.0, -1.0),
+                            child: FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 30.0,
+                              borderWidth: 1.0,
+                              buttonSize: 60.0,
+                              hoverColor: FlutterFlowTheme.of(context).accent1,
+                              hoverIconColor:
+                                  FlutterFlowTheme.of(context).secondary,
+                              hoverBorderColor: Color(0x47EDF1F7),
+                              icon: Icon(
+                                Icons.send_rounded,
+                                color: FlutterFlowTheme.of(context).primary,
+                                size: 30.0,
+                              ),
+                              showLoadingIndicator: true,
+                              onPressed: () async {
+                                logFirebaseEvent(
+                                    'VOICE_CHAT_LUCILLE_send_rounded_ICN_ON_T');
+                                if (_model.textController.text != '') {
+                                  logFirebaseEvent(
+                                      'IconButton_update_app_state');
+                                  FFAppState().lucilleMessage =
+                                      _model.textController.text;
+                                  safeSetState(() {});
+                                  logFirebaseEvent('IconButton_custom_action');
+                                  await actions.sendToLucille(
+                                    FFAppState().lucilleMessage,
+                                  );
+                                } else {
+                                  return;
+                                }
 
-                              logFirebaseEvent(
-                                  'IconButton_clear_text_fields_pin_codes');
-                              safeSetState(() {
-                                _model.textController?.clear();
-                              });
-                            },
+                                logFirebaseEvent(
+                                    'IconButton_clear_text_fields_pin_codes');
+                                safeSetState(() {
+                                  _model.textController?.clear();
+                                });
+                              },
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),

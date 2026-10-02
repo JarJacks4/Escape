@@ -61,6 +61,11 @@ class PlaylistsRecord extends FirestoreRecord {
   String get comments => _comments ?? '';
   bool hasComments() => _comments != null;
 
+  // "trackItems" field.
+  List<PlaylistTrackStruct>? _trackItems;
+  List<PlaylistTrackStruct> get trackItems => _trackItems ?? const [];
+  bool hasTrackItems() => _trackItems != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -73,6 +78,10 @@ class PlaylistsRecord extends FirestoreRecord {
     _tags = getDataList(snapshotData['tags']);
     _ikes = castToType<int>(snapshotData['ikes']);
     _comments = snapshotData['comments'] as String?;
+    _trackItems = getStructList(
+      snapshotData['trackItems'],
+      PlaylistTrackStruct.fromMap,
+    );
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -152,7 +161,8 @@ class PlaylistsRecordDocumentEquality implements Equality<PlaylistsRecord> {
         e1?.createdAt == e2?.createdAt &&
         listEquality.equals(e1?.tags, e2?.tags) &&
         e1?.ikes == e2?.ikes &&
-        e1?.comments == e2?.comments;
+        e1?.comments == e2?.comments &&
+        listEquality.equals(e1?.trackItems, e2?.trackItems);
   }
 
   @override
@@ -165,7 +175,8 @@ class PlaylistsRecordDocumentEquality implements Equality<PlaylistsRecord> {
         e?.createdAt,
         e?.tags,
         e?.ikes,
-        e?.comments
+        e?.comments,
+        e?.trackItems
       ]);
 
   @override

@@ -9,6 +9,8 @@ import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
+import '/backend/push_notifications/push_notifications_handler.dart'
+    show PushNotificationsHandler;
 import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -1137,11 +1139,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         builder: (context, params) => CouldIGetPageWidget(),
       ),
       FFRoute(
-        name: SoundscapesPlaylistsCopyWidget.routeName,
-        path: SoundscapesPlaylistsCopyWidget.routePath,
-        builder: (context, params) => SoundscapesPlaylistsCopyWidget(),
-      ),
-      FFRoute(
         name: ComingSoonChakraJourneyWidget.routeName,
         path: ComingSoonChakraJourneyWidget.routePath,
         builder: (context, params) => ComingSoonChakraJourneyWidget(),
@@ -1641,7 +1638,7 @@ class FFRoute {
                     fit: BoxFit.cover,
                   ),
                 )
-              : page;
+              : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition

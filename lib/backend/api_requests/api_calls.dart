@@ -13,7 +13,7 @@ const _kPrivateApiFunctionName = 'PartnerToken';
 
 class TheoryOfMindLucilleGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app';
+      'https://lucille-861854898360.us-central1.run.app';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -218,8 +218,8 @@ class OnboardUserCall {
 
     final ffApiRequestBody = '''
 {
-  "user_id": "${escapeStringForJson(userID)}",
-  "responses": "${escapeStringForJson(responses)}"
+  "user_id": ${userID == null ? 'null' : '"${escapeStringForJson(userID)}"'},
+  "responses": ${responses == null ? 'null' : '"${escapeStringForJson(responses)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Onboard User',
@@ -500,7 +500,7 @@ class GetSoundscapesCall {
 
 class TheoryOfMindSessionManagementGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app';
+      'https://lucille-861854898360.us-central1.run.app';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -770,7 +770,7 @@ class ValidateSessionCall {
 
 class TheoryOfMindOnboardingGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app';
+      'https://lucille-861854898360.us-central1.run.app';
   static Map<String, String> headers = {};
   static OnboardingUserCall onboardingUserCall = OnboardingUserCall();
   static UserCompleteProfileCall userCompleteProfileCall =
@@ -1015,7 +1015,7 @@ class MoodCall {
 
 class LucilleMemoriesGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app';
+      'https://lucille-861854898360.us-central1.run.app';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -1084,8 +1084,8 @@ class CreateMemoryCall {
 
     final ffApiRequestBody = '''
 {
-  "content": "${escapeStringForJson(content)}",
-  "memory_type": "${escapeStringForJson(memoryType)}",
+  "content": ${content == null ? 'null' : '"${escapeStringForJson(content)}"'},
+  "memory_type": ${memoryType == null ? 'null' : '"${escapeStringForJson(memoryType)}"'},
   "importance": ${importance}
   "tags": tags
 }
@@ -1269,7 +1269,7 @@ class ConsolidateMemoryCall {
 
 class LucilleTherapyExercisesGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app';
+      'https://lucille-861854898360.us-central1.run.app';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -1549,7 +1549,7 @@ class StartExerciseCall {
 
     final ffApiRequestBody = '''
 {
-  "exercise_id": "${escapeStringForJson(exerciseID)}"
+  "exercise_id": ${exerciseID == null ? 'null' : '"${escapeStringForJson(exerciseID)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Start Exercise',
@@ -1579,7 +1579,7 @@ class AdvanceExerciseCall {
 
     final ffApiRequestBody = '''
 {
-  "note": "${escapeStringForJson(note)}"
+  "note": ${note == null ? 'null' : '"${escapeStringForJson(note)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Advance Exercise',
@@ -1680,7 +1680,7 @@ class GetExerciseHistoryCall {
 
 class LucilleTaskManagementGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app';
+      'https://lucille-861854898360.us-central1.run.app';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -1969,7 +1969,7 @@ class GetProgressSummaryCall {
 
 class LucilleFeedbackSystemGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app';
+      'https://lucille-861854898360.us-central1.run.app';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -2191,7 +2191,7 @@ class EffectivenessCall {
 
 class LucilleSoundscapesGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app';
+      'https://lucille-861854898360.us-central1.run.app';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -2471,7 +2471,7 @@ class StartSoundCall {
 
     final ffApiRequestBody = '''
 {
-  "soundscape_id": "${escapeStringForJson(soundscapeId)}"
+  "soundscape_id": ${soundscapeId == null ? 'null' : '"${escapeStringForJson(soundscapeId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Start Sound',
@@ -2602,7 +2602,7 @@ class SoundscapeHistoryCall {
 
 class LucilleSafetyAndCrisisGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app';
+      'https://lucille-861854898360.us-central1.run.app';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -2829,7 +2829,7 @@ class SafetyCheckCall {
 
 class LucilleVoiceChatGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app';
+      'https://lucille-861854898360.us-central1.run.app';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -2847,8 +2847,8 @@ class TextToSpeechCall {
 
     final ffApiRequestBody = '''
 {
-  "text": "${escapeStringForJson(text)}",
-  "voice": "${escapeStringForJson(voice)}",
+  "text": ${text == null ? 'null' : '"${escapeStringForJson(text)}"'},
+  "voice": ${voice == null ? 'null' : '"${escapeStringForJson(voice)}"'},
   "rate": ${rate}
 }''';
     return ApiManager.instance.makeApiCall(
@@ -2907,7 +2907,7 @@ class SpeechToTextCall {
 
 class LucilleReviewsGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app';
+      'https://lucille-861854898360.us-central1.run.app';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };
@@ -2923,7 +2923,7 @@ class GenerateReviewCall {
 
     final ffApiRequestBody = '''
 {
-  "period_days": "${escapeStringForJson(periodDays)}"
+  "period_days": ${periodDays == null ? 'null' : '"${escapeStringForJson(periodDays)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Generate Review',
@@ -3198,7 +3198,7 @@ class GetReviewsCall {
 
 class TheoryOfMindLucilleCoreChatGroup {
   static String getBaseUrl() =>
-      'https://lucillellm-861854898360.europe-west1.run.app';
+      'https://lucille-861854898360.us-central1.run.app';
   static Map<String, String> headers = {
     'Authorization': 'Bearer <firebase_id_token>',
   };
@@ -3290,8 +3290,8 @@ class LucilleStreamingBuildShipCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "message": "${escapeStringForJson(message)}",
-  "session_id": "${escapeStringForJson(sessionID)}"
+  "message": ${message == null ? 'null' : '"${escapeStringForJson(message)}"'},
+  "session_id": ${sessionID == null ? 'null' : '"${escapeStringForJson(sessionID)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Lucille Streaming BuildShip',
