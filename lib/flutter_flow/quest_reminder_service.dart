@@ -13,6 +13,12 @@ tz.TZDateTime nextDailyQuestReminder(tz.TZDateTime now) {
   return nextReminder;
 }
 
+bool shouldCancelQuestReminderOnLeave(
+  String challengeId,
+  String activeChallengeId,
+) =>
+    challengeId == activeChallengeId;
+
 class QuestReminderService {
   QuestReminderService._();
 
@@ -85,7 +91,11 @@ class QuestReminderService {
 
   static Future<void> cancelDailyReminder() async {
     if (kIsWeb) return;
-    await initialize();
-    await _notifications.cancel(id: _dailyReminderId);
+    try {
+      await initialize();
+      await _notifications.cancel(id: _dailyReminderId);
+    } catch (error) {
+      debugPrint('Could not cancel the Quest reminder: $error');
+    }
   }
 }

@@ -87,6 +87,12 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
       }
     });
 
+    if (isJoined &&
+        shouldCancelQuestReminderOnLeave(id, appState.activeChallengeId)) {
+      await QuestReminderService.cancelDailyReminder();
+      appState.update(() => appState.questRemindersEnabled = false);
+    }
+
     if (!mounted) return;
     HapticFeedback.lightImpact();
     ScaffoldMessenger.of(context)

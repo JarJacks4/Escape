@@ -81,4 +81,26 @@ void main() {
       expect(next.hour, 9);
     });
   });
+
+  group('Quest reminder cancellation', () {
+    test('cancels when the user leaves the active challenge', () {
+      expect(
+        shouldCancelQuestReminderOnLeave(
+          'emotion_mastery_7',
+          'emotion_mastery_7',
+        ),
+        isTrue,
+      );
+    });
+
+    test('keeps the reminder when the user leaves another challenge', () {
+      expect(
+        shouldCancelQuestReminderOnLeave(
+          'mindful_morning',
+          'emotion_mastery_7',
+        ),
+        isFalse,
+      );
+    });
+  });
 }
