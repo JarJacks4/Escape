@@ -46,6 +46,11 @@ class _OnboardingPageViewWidgetState extends State<OnboardingPageViewWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final onboardingPanelTopPadding =
+        (MediaQuery.sizeOf(context).height - 335.6)
+            .clamp(0.0, 500.0)
+            .toDouble();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -369,7 +374,10 @@ class _OnboardingPageViewWidgetState extends State<OnboardingPageViewWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 500.0, 0.0, 0.0),
+                                                    0.0,
+                                                    onboardingPanelTopPadding,
+                                                    0.0,
+                                                    0.0),
                                             child: Container(
                                               width: double.infinity,
                                               height: 333.6,
@@ -750,7 +758,10 @@ class _OnboardingPageViewWidgetState extends State<OnboardingPageViewWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 500.0, 0.0, 0.0),
+                                                    0.0,
+                                                    onboardingPanelTopPadding,
+                                                    0.0,
+                                                    0.0),
                                             child: Container(
                                               width: double.infinity,
                                               height: 333.6,
@@ -1130,7 +1141,10 @@ class _OnboardingPageViewWidgetState extends State<OnboardingPageViewWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 500.0, 0.0, 0.0),
+                                                    0.0,
+                                                    onboardingPanelTopPadding,
+                                                    0.0,
+                                                    0.0),
                                             child: Container(
                                               width: double.infinity,
                                               height: 333.6,
