@@ -339,12 +339,6 @@ personalized n... */
                                           notificationsAllowed:
                                               notificationsAllowed,
                                         ),
-                                        ...mapToFirestore(
-                                          {
-                                            'created_time':
-                                                FieldValue.serverTimestamp(),
-                                          },
-                                        ),
                                       });
                                       logFirebaseEvent('Button_navigate_to');
 
