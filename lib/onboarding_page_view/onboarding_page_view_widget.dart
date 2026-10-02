@@ -54,9 +54,10 @@ class _OnboardingPageViewWidgetState extends State<OnboardingPageViewWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
             Container(
               width: double.infinity,
               height: 982.6,
@@ -1497,7 +1498,8 @@ class _OnboardingPageViewWidgetState extends State<OnboardingPageViewWidget> {
                 ),
               ),
             ),
-          ],
+            ],
+          ),
         ),
       ),
     );
