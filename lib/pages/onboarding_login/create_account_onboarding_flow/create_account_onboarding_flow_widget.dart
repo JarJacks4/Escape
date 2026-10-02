@@ -572,7 +572,27 @@ class _CreateAccountOnboardingFlowWidgetState
                                           validator: _model
                                               .textControllerValidator
                                               .asValidator(context),
+                                          onChanged: (value) {
+                                            if (value.trim().isNotEmpty &&
+                                                _model.nameError != null) {
+                                              safeSetState(() =>
+                                                  _model.nameError = null);
+                                            }
+                                          },
                                         ),
+                                        if (_model.nameError != null)
+                                          Text(
+                                            _model.nameError!,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'WorkSans',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
                                       ].divide(SizedBox(height: 8.0)),
                                     ),
                                     // Pronouns
@@ -663,12 +683,29 @@ class _CreateAccountOnboardingFlowWidgetState
                                             isSearchable: false,
                                             isMultiSelect: true,
                                             onMultiSelectChanged: (val) async {
-                                              safeSetState(() =>
-                                                  _model.dropDownValue = val);
+                                              safeSetState(() {
+                                                _model.dropDownValue = val;
+                                                if (val?.isNotEmpty ?? false) {
+                                                  _model.pronounsError = null;
+                                                }
+                                              });
                                               HapticFeedback.lightImpact();
                                             },
                                           ),
                                         ),
+                                        if (_model.pronounsError != null)
+                                          Text(
+                                            _model.pronounsError!,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'WorkSans',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
                                       ].divide(SizedBox(height: 8.0)),
                                     ),
                                     // Continue button
@@ -677,6 +714,31 @@ class _CreateAccountOnboardingFlowWidgetState
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           HapticFeedback.lightImpact();
+                                          final hasName = _model.textController
+                                                  ?.text
+                                                  .trim()
+                                                  .isNotEmpty ??
+                                              false;
+                                          final hasPronouns = _model
+                                                  .dropDownValue?.isNotEmpty ??
+                                              false;
+                                          safeSetState(() {
+                                            final nameMessage =
+                                                FFLocalizations.of(context)
+                                                    .getText('zysh7arm');
+                                            _model.nameError = hasName
+                                                ? null
+                                                : (nameMessage.isNotEmpty
+                                                    ? nameMessage
+                                                    : 'Name is required');
+                                            _model.pronounsError = hasPronouns
+                                                ? null
+                                                : FFLocalizations.of(context)
+                                                    .getText('b56zzncz');
+                                          });
+                                          if (!hasName || !hasPronouns) {
+                                            return;
+                                          }
                                           await _model.pageViewController
                                               ?.nextPage(
                                             duration:
@@ -788,8 +850,12 @@ class _CreateAccountOnboardingFlowWidgetState
                                 FFLocalizations.of(context).getText('a1newfsb'),
                               ],
                               onChanged: (val) async {
-                                safeSetState(
-                                    () => _model.checkboxGroupValues = val);
+                                safeSetState(() {
+                                  _model.checkboxGroupValues = val;
+                                  if (val.isNotEmpty) {
+                                    _model.goalsError = null;
+                                  }
+                                });
                                 HapticFeedback.lightImpact();
                               },
                               controller:
@@ -825,9 +891,33 @@ class _CreateAccountOnboardingFlowWidgetState
                               checkboxBorderRadius: BorderRadius.circular(4.0),
                               initialized: _model.checkboxGroupValues != null,
                             ),
+                            if (_model.goalsError != null)
+                              Text(
+                                _model.goalsError!,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'WorkSans',
+                                      color:
+                                          FlutterFlowTheme.of(context).error,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
                             FFButtonWidget(
                               onPressed: () async {
                                 HapticFeedback.lightImpact();
+                                final hasGoals = _model
+                                        .checkboxGroupValues?.isNotEmpty ??
+                                    false;
+                                safeSetState(() {
+                                  _model.goalsError = hasGoals
+                                      ? null
+                                      : FFLocalizations.of(context)
+                                          .getText('b56zzncz');
+                                });
+                                if (!hasGoals) {
+                                  return;
+                                }
                                 await _model.pageViewController?.nextPage(
                                   duration: Duration(milliseconds: 300),
                                   curve: Curves.ease,

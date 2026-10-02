@@ -36,6 +36,9 @@ class CreateAccountOnboardingFlowModel
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  String? nameError;
+  String? pronounsError;
+  String? goalsError;
   AudioPlayer? soundPlayer3;
   // State field(s) for DropDown widget.
   List<String>? dropDownValue;
