@@ -195,13 +195,15 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       24.0, 24.0, 24.0, 24.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
+                                              child: SingleChildScrollView(
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
                                                   PixelDissolveShaderWrap(
                                                     params:
                                                         ShaderParams(values: {
@@ -1435,8 +1437,9 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                       ),
                                                     ),
                                                   ),
-                                                ].divide(
-                                                    SizedBox(height: 24.0)),
+                                                  ].divide(
+                                                      SizedBox(height: 24.0)),
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -1496,11 +1499,12 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                           end: AlignmentDirectional(-1.0, 0.64),
                                         ),
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -3263,7 +3267,8 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                               ),
                                             ].divide(SizedBox(width: 4.0)),
                                           ),
-                                        ].divide(SizedBox(height: 24.0)),
+                                          ].divide(SizedBox(height: 24.0)),
+                                        ),
                                       ),
                                     ),
                                   ),
