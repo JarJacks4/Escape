@@ -40,8 +40,12 @@ class QuestReminderService {
         requestSoundPermission: false,
       ),
     );
-    await _notifications.initialize(settings: settings);
-    _initialized = true;
+    try {
+      await _notifications.initialize(settings: settings);
+      _initialized = true;
+    } catch (error) {
+      debugPrint('Could not initialize local Quest notifications: $error');
+    }
   }
 
   static Future<bool> scheduleDailyReminder() async {

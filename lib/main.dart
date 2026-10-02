@@ -36,7 +36,11 @@ void main() async {
   await initFirebase();
 
   await FFLocalizations.initialize();
-  await QuestReminderService.initialize();
+  try {
+    await QuestReminderService.initialize();
+  } catch (error) {
+    debugPrint('Could not initialize Quest reminders at startup: $error');
+  }
 
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
