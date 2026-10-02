@@ -5,13 +5,13 @@ Future initFirebase() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: FirebaseOptions(
-            apiKey: "AIzaSyA4bNP6FWcGwWgvx7h3qUFLNm63fE9p1-E",
-            authDomain: "escape-self-care.firebaseapp.com",
-            projectId: "escape-self-care",
-            storageBucket: "escape-self-care.firebasestorage.app",
-            messagingSenderId: "45611638400",
-            appId: "1:45611638400:web:5e1b1a4340c855e3c0d065",
-            measurementId: "G-JRPVFHD6YW"));
+            apiKey: "AIzaSyA7-1YsAfEcsHbJXFtGUd0M0C6C3HM59oc",
+            authDomain: "escape-self-care-505618.firebaseapp.com",
+            projectId: "escape-self-care-505618",
+            storageBucket: "escape-self-care-505618.firebasestorage.app",
+            messagingSenderId: "861854898360",
+            appId: "1:861854898360:web:d311ebd8f2b322835ffc4d",
+            measurementId: "G-B3182WX8XR"));
   } else {
     await Firebase.initializeApp();
   }

@@ -19,7 +19,7 @@ import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
 import '/app_events/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'index.dart'; // Imports other custom widgets
+import '/custom_code/widgets/index.dart'; // Imports other custom widgets
 import '/custom_code/actions/index.dart'; // Imports custom actions
 import '/flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
