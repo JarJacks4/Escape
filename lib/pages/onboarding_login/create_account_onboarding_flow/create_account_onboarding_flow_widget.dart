@@ -781,10 +781,11 @@ class _CreateAccountOnboardingFlowWidgetState
                       ),
 
                       // PAGE 3: Journey Goals
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 24.0, 24.0, 24.0),
-                        child: Column(
+                      SingleChildScrollView(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 24.0, 24.0, 24.0),
+                          child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
@@ -945,6 +946,7 @@ class _CreateAccountOnboardingFlowWidgetState
                               ),
                             ),
                           ].divide(SizedBox(height: 32.0)),
+                          ),
                         ),
                       ),
 
