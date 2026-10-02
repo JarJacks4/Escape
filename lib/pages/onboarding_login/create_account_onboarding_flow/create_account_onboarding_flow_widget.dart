@@ -12,7 +12,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
-import '/flutter_flow/permissions_util.dart';
 import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
@@ -386,10 +385,6 @@ class _CreateAccountOnboardingFlowWidgetState
                                                   onPressed: () async {
                                                     HapticFeedback
                                                         .lightImpact();
-                                                    await requestPermission(
-                                                        photoLibraryPermission);
-                                                    await requestPermission(
-                                                        cameraPermission);
                                                     final selectedMedia =
                                                         await selectMediaWithSourceBottomSheet(
                                                       context: context,
