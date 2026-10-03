@@ -7,7 +7,7 @@
     "braintree": "^3.6.0",
     "@mux/mux-node": "^7.3.3",
     "stripe": "^8.0.1",
-    "axios": "1.13.5",
+    "axios": "1.16.1",
     "razorpay": "^2.8.4",
     "qs": "^6.7.0",
     "@onesignal/node-onesignal": "^2.0.1-beta2",
@@ -23,10 +23,10 @@
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
-    "serve": "firebase -P escape-self-care-ai emulators:start --only functions",
-    "shell": "firebase -P escape-self-care-ai functions:shell",
+    "serve": "firebase -P escape-self-care-505618 emulators:start --only functions",
+    "shell": "firebase -P escape-self-care-505618 functions:shell",
     "start": "npm run shell",
-    "logs": "firebase -P escape-self-care-ai functions:log",
+    "logs": "firebase -P escape-self-care-505618 functions:log",
     "compile": "cp ../../tsconfig.template.json ./tsconfig-compile.json && tsc --project tsconfig-compile.json"
   },
   "engines": {
