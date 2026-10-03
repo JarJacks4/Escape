@@ -1,37 +1,38 @@
 {
   "project_info": {
-    "project_number": "45611638400",
-    "project_id": "escape-self-care",
-    "storage_bucket": "escape-self-care.firebasestorage.app"
+    "project_number": "861854898360",
+    "firebase_url": "https://escape-self-care-505618-default-rtdb.firebaseio.com",
+    "project_id": "escape-self-care-505618",
+    "storage_bucket": "escape-self-care-505618.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:45611638400:android:4d471a716fb8f4bfc0d065",
+        "mobilesdk_app_id": "1:861854898360:android:9886d1ab50008ada5ffc4d",
         "android_client_info": {
           "package_name": "com.flutterflow.escapellc"
         }
       },
       "oauth_client": [
         {
-          "client_id": "45611638400-4j6gkisps4ae1og292i8dd9qcf7d13md.apps.googleusercontent.com",
+          "client_id": "861854898360-nm3nq9uov3ba2t7sfvmopcto55sr4edo.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBtI7Yl8_TRxlr6dQ6rAbjN588dsAEb-NY"
+          "current_key": "AIzaSyBZFP4XqqHnTr__3x8Te7sHnABx-0g1GHI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "45611638400-4j6gkisps4ae1og292i8dd9qcf7d13md.apps.googleusercontent.com",
+              "client_id": "861854898360-nm3nq9uov3ba2t7sfvmopcto55sr4edo.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "45611638400-g6qdnjuod147q62vsui0dvf1ohr051ed.apps.googleusercontent.com",
+              "client_id": "861854898360-7ooga7hhe9og6krtt8ncohr285q5gdql.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.flutterflow.escapellc"
