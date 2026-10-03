@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
@@ -2833,7 +2834,9 @@ class _AssessmentBottomSheetWidgetState
                                         Expanded(
                                           child: StreamBuilder<
                                               List<CheckInRecord>>(
-                                            stream: queryCheckInRecord(),
+                                            stream: queryCheckInRecord(
+                                              parent: currentUserReference,
+                                            ),
                                             builder: (context, snapshot) {
                                               // Customize what your widget looks like when it's loading.
                                               if (!snapshot.hasData) {
@@ -5258,7 +5261,9 @@ class _AssessmentBottomSheetWidgetState
                                     ),
                                     Expanded(
                                       child: StreamBuilder<List<CheckInRecord>>(
-                                        stream: queryCheckInRecord(),
+                                        stream: queryCheckInRecord(
+                                          parent: currentUserReference,
+                                        ),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
                                           if (!snapshot.hasData) {
