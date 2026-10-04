@@ -30,6 +30,7 @@ import 'package:material_palette/material_palette.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
+import '/soundscapes/soundscapes_launcher.dart';
 import 'home_version5_model.dart';
 export 'home_version5_model.dart';
 
@@ -1610,6 +1611,7 @@ Further ... */
                                                                             ),
                                                                           ),
                                                                         ),
+                                                                        const SoundscapesBetaPill(),
                                                                         Container(
                                                                           child:
                                                                               Padding(
