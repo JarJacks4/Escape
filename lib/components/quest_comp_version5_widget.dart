@@ -281,6 +281,7 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
                             logFirebaseEvent('LottieAnimation_alert_dialog');
                             await showDialog(
                               context: context,
+                              useSafeArea: false,
                               builder: (dialogContext) {
                                 return Dialog(
                                   elevation: 0,
