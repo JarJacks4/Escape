@@ -56,6 +56,6 @@ The pill only shows when the app is built with `--dart-define=SOUNDSCAPES_BETA=t
 
 ## Run
 
-    flutter run --release --dart-define=SOUNDSCAPES_BETA=true
+    flutter run --release -d <ios-phone-device-id> --dart-define=SOUNDSCAPES_BETA=true
 
-The simulator can't run release builds; use a real device (or debug mode on a simulator).
+Run the Soundscapes test on a regular iOS phone running iOS 17 or later.
