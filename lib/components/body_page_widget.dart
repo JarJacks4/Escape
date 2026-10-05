@@ -1276,7 +1276,7 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                           },
                           child: Container(
                             width: 357.0,
-                            height: 94.3,
+                            constraints: BoxConstraints(minHeight: 94.3),
                             decoration: BoxDecoration(
                               color: Color(0x53EDF1F7),
                               boxShadow: [
