@@ -1,11 +1,10 @@
 //  ESCPlatformServices.m
-//  Info.plist keys used: NSLocationWhenInUseUsageDescription, NSHealthShareUsageDescription,
-//  NSCalendarsFullAccessUsageDescription. Capability: HealthKit (read heart rate only).
+//  Info.plist keys used: NSLocationWhenInUseUsageDescription.
+//  HealthKit (heart rate) and EventKit (calendar) are stripped for the beta, since Apple rejects
+//  uploads that reference them without purpose strings. Health and calendar report unavailable.
 
 #import "ESCPlatformServices.h"
 #import <CoreLocation/CoreLocation.h>
-#import <EventKit/EventKit.h>
-#import <HealthKit/HealthKit.h>
 #import <UIKit/UIKit.h>
 #import <UserNotifications/UserNotifications.h>
 
@@ -17,11 +16,8 @@ NSString *const ESCNotificationSunriseWake = @"escape.sunrise-wake";
 NSString *const ESCNotificationCirclePrefix = @"escape.circle.";
 NSString *const ESCNotificationCompositionReady = @"escape.composition-ready";
 
-static NSString *const ESCHealthAskedKey = @"esc.health.asked";
-
 @interface ESCPlatformServices () <CLLocationManagerDelegate>
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong, nullable) HKHealthStore *healthStore;
 @property (nonatomic, strong) NSMutableArray<ESCBoolCompletion> *authWaiters;
 @property (nonatomic, strong) NSMutableArray<void (^)(CLLocation *_Nullable)> *locationWaiters;
 @end
@@ -42,7 +38,6 @@ static NSString *const ESCHealthAskedKey = @"esc.health.asked";
         _locationManager.desiredAccuracy = kCLLocationAccuracyKilometer; // weather only needs ~1 km
         _authWaiters = [NSMutableArray array];
         _locationWaiters = [NSMutableArray array];
-        if ([HKHealthStore isHealthDataAvailable]) _healthStore = [[HKHealthStore alloc] init];
 #if DEBUG
         _analyticsHandler = ^(NSString *event, NSDictionary<NSString *, NSString *> *properties) {
             NSLog(@"[analytics] %@ %@", event, properties);
@@ -63,13 +58,7 @@ static void ESCMain(dispatch_block_t block) {
         CLAuthorizationStatus s = self.locationManager.authorizationStatus;
         return s == kCLAuthorizationStatusAuthorizedWhenInUse || s == kCLAuthorizationStatusAuthorizedAlways;
     }
-    if ([permission isEqualToString:ESCPermissionHealth]) {
-        // HealthKit never reveals read authorization; treat "asked once" as granted.
-        return self.healthStore != nil && [NSUserDefaults.standardUserDefaults boolForKey:ESCHealthAskedKey];
-    }
-    if ([permission isEqualToString:ESCPermissionCalendar]) {
-        return [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent] == EKAuthorizationStatusFullAccess;
-    }
+    // Health and calendar are stripped for the beta, so they are never granted.
     return NO;
 }
 
@@ -83,22 +72,7 @@ static void ESCMain(dispatch_block_t block) {
         [self.locationManager requestWhenInUseAuthorization];
         return;
     }
-    if ([permission isEqualToString:ESCPermissionHealth]) {
-        if (!self.healthStore) { ESCMain(^{ completion(NO); }); return; }
-        HKQuantityType *heart = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
-        [self.healthStore requestAuthorizationToShareTypes:nil readTypes:[NSSet setWithObject:heart] completion:^(BOOL success, NSError *error) {
-            if (success) [NSUserDefaults.standardUserDefaults setBool:YES forKey:ESCHealthAskedKey];
-            ESCMain(^{ completion(success); });
-        }];
-        return;
-    }
-    if ([permission isEqualToString:ESCPermissionCalendar]) {
-        EKEventStore *store = [[EKEventStore alloc] init];
-        [store requestFullAccessToEventsWithCompletion:^(BOOL granted, NSError *error) {
-            ESCMain(^{ completion(granted); });
-        }];
-        return;
-    }
+    // Health and calendar are stripped for the beta: no system prompt, always NO.
     ESCMain(^{ completion(NO); });
 }
 
@@ -147,17 +121,8 @@ static void ESCMain(dispatch_block_t block) {
 #pragma mark - Heart rate
 
 - (void)latestHeartRateWithCompletion:(void (^)(double))completion {
-    if (!self.healthStore) { ESCMain(^{ completion(0); }); return; }
-    HKQuantityType *heart = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
-    NSSortDescriptor *newest = [NSSortDescriptor sortDescriptorWithKey:HKSampleSortIdentifierEndDate ascending:NO];
-    NSPredicate *recent = [HKQuery predicateForSamplesWithStartDate:[NSDate dateWithTimeIntervalSinceNow:-30 * 60] endDate:nil options:0];
-    HKSampleQuery *q = [[HKSampleQuery alloc] initWithSampleType:heart predicate:recent limit:1 sortDescriptors:@[newest]
-                                                  resultsHandler:^(HKSampleQuery *query, NSArray<__kindof HKSample *> *results, NSError *error) {
-        HKQuantitySample *s = results.firstObject;
-        double bpm = s ? [s.quantity doubleValueForUnit:[[HKUnit countUnit] unitDividedByUnit:[HKUnit minuteUnit]]] : 0;
-        ESCMain(^{ completion(bpm); });
-    }];
-    [self.healthStore executeQuery:q];
+    // HealthKit is stripped for the beta.
+    ESCMain(^{ completion(0); });
 }
 
 #pragma mark - Notifications

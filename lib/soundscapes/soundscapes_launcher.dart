@@ -22,13 +22,20 @@ class SoundscapesLauncher {
 
   static Future<bool>? _supported;
 
-  /// Cached: true on iOS 17+.
-  static Future<bool> isSupported() => _supported ??= EscapeSoundscapes.isSupported();
+  /// Set with --dart-define=SOUNDSCAPES_BETA=true (TestFlight beta builds only).
+  static const bool betaEnabled = bool.fromEnvironment('SOUNDSCAPES_BETA');
+
+  /// Cached: true on iOS 17+ when the beta flag is set.
+  static Future<bool> isSupported() => betaEnabled
+      ? (_supported ??= EscapeSoundscapes.isSupported())
+      : Future.value(false);
 
   /// Call once from main().
   static void configure() {
+    if (!betaEnabled) return;
     EscapeSoundscapes.configure(
-      tokenProvider: () async => FirebaseAuth.instance.currentUser?.getIdToken(),
+      tokenProvider: () async =>
+          FirebaseAuth.instance.currentUser?.getIdToken(),
       onExit: _onExit,
     );
   }
@@ -108,11 +115,13 @@ class SoundscapesBetaPill extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18.0),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 10.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 10.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(Icons.graphic_eq_rounded, size: 16.0, color: Colors.white),
+                    const Icon(Icons.graphic_eq_rounded,
+                        size: 16.0, color: Colors.white),
                     const SizedBox(width: 6.0),
                     Text(
                       'AI Soundscapes',
@@ -125,7 +134,8 @@ class SoundscapesBetaPill extends StatelessWidget {
                     ),
                     const SizedBox(width: 6.0),
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 1.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 5.0, vertical: 1.0),
                       decoration: BoxDecoration(
                         color: Colors.white.withValues(alpha: 0.25),
                         borderRadius: BorderRadius.circular(6.0),
