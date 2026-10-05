@@ -48,8 +48,8 @@ The pill only shows when the app is built with `--dart-define=SOUNDSCAPES_BETA=t
 ## Not done yet
 
 - Hide Compose / Generating / Variation (Daniel's D3; needs to land in `dependencies/escape_soundscapes/ios/Classes/`).
-- Real data: `SoundscapesLauncher.useMock = true`, `apiBaseUrl = null` until the staging API is deployed. `LucilleSoundscapesClient.swift` from the updated handoff isn't in the plugin yet.
-- Launch test on iOS 16, Android build check.
+- Real data: `SoundscapesLauncher.useMock = true`, `apiBaseUrl = null` until the staging API is deployed. The Lucille client is in `Classes/API/LucilleSoundscapesClient.swift` (test in `ios/Tests/`, a podspec `test_spec` not built with the app); it isn't wired into the store yet (Sara's S1/S2).
+- Android build check.
 
 ## FlutterFlow note
 

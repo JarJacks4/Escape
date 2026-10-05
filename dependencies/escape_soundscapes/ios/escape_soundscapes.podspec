@@ -23,4 +23,10 @@ Pod::Spec.new do |s|
   # Observation is an iOS 17-only Swift library: weak-link it so the app still launches on iOS 14-16.
   s.user_target_xcconfig = { 'OTHER_LDFLAGS' => '$(inherited) -weak-lswiftObservation' }
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
+
+  # Unit tests (LucilleClientTests). Not built with the app; a Podfile entry with
+  # :testspecs => ['Tests'] (or `pod lib lint`) is needed to build and run them.
+  s.test_spec 'Tests' do |t|
+    t.source_files = 'Tests/**/*.swift'
+  end
 end
