@@ -661,7 +661,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
 
                     return Container(
                       width: double.infinity,
-                      height: 300.0,
+                      height: 306.0,
                       decoration: BoxDecoration(
                         color: Color(0x938EA7E9),
                         borderRadius: BorderRadius.circular(22.0),
