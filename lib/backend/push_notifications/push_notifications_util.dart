@@ -19,19 +19,36 @@ class UserTokenInfo {
   final String fcmToken;
 }
 
+Future<String?> _getFcmTokenIfAuthorized() async {
+  final messaging = FirebaseMessaging.instance;
+  final settings = await messaging.getNotificationSettings();
+  final isAuthorized =
+      settings.authorizationStatus == AuthorizationStatus.authorized ||
+          settings.authorizationStatus == AuthorizationStatus.provisional;
+  if (!isAuthorized) return null;
+
+  // On Apple platforms, Firebase cannot issue an FCM token until APNs has
+  // registered the device. Give APNs a brief chance to finish after startup.
+  if (defaultTargetPlatform == TargetPlatform.iOS) {
+    String? apnsToken;
+    for (var attempt = 0; attempt < 10 && apnsToken == null; attempt++) {
+      apnsToken = await messaging.getAPNSToken();
+      if (apnsToken == null) {
+        await Future<void>.delayed(const Duration(milliseconds: 300));
+      }
+    }
+    if (apnsToken == null) return null;
+  }
+
+  return messaging.getToken();
+}
+
 Stream<UserTokenInfo> getFcmTokenStream(String userPath) => Stream.value(
         !kIsWeb &&
             (defaultTargetPlatform == TargetPlatform.iOS ||
                 defaultTargetPlatform == TargetPlatform.android))
     .where((shouldGetToken) => shouldGetToken)
-    .asyncMap<String?>((shouldRequestPermission) async {
-      final settings = shouldRequestPermission
-          ? await FirebaseMessaging.instance.requestPermission()
-          : await FirebaseMessaging.instance.getNotificationSettings();
-      return settings.authorizationStatus == AuthorizationStatus.authorized
-          ? FirebaseMessaging.instance.getToken()
-          : null;
-    })
+    .asyncMap<String?>((_) => _getFcmTokenIfAuthorized())
     .switchMap((fcmToken) =>
         Stream.value(fcmToken).merge(FirebaseMessaging.instance.onTokenRefresh))
     .where((fcmToken) => fcmToken != null && fcmToken.isNotEmpty)
