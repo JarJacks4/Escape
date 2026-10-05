@@ -1359,7 +1359,7 @@ Progress */
                                             ),
                                             Container(
                                               width: double.infinity,
-                                              height: 26.76,
+                                              height: 30.0,
                                               decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(4.0),
