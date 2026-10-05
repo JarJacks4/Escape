@@ -41,7 +41,9 @@ public enum Sheet: String, CaseIterable, Identifiable, Sendable {
 /// Bottom nav tabs (BottomNavBar in shared.tsx). Only Soundscapes lives in this project.
 @available(iOS 17.0, *)
 public enum NavTab: String, CaseIterable, Sendable {
-    case home = "Home", realms = "Realms", soundscapes = "Soundscapes", lucille = "Lucille", profile = "Profile"
+    // Same tabs and order as the Escape app's tab bar (lib/main.dart NavBarPage).
+    // rawValue is the label and the name sent to Flutter in onExit. .soundscapes is the Sound tab.
+    case home = "Home", lucille = "Lucille", explore = "Explore", soundscapes = "Sound", market = "Market"
 }
 
 /// Every entry of the prototype's QuickNav, in the same order. Used by the debug menu and UI tests.

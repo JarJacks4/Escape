@@ -42,10 +42,11 @@ The pill only shows when the app is built with `--dart-define=SOUNDSCAPES_BETA=t
 - **Exit to Flutter:** `AppStore.onExitToHost` and `SoundscapesHostingFactory.setExitHandler` were added; selecting a non-Soundscapes tab calls them.
 - **HealthKit and EventKit removed** from `ESCPlatformServices.m` (Apple rejects uploads that reference them without purpose strings). Health and calendar permissions always report not granted; heart rate returns 0.
 - `#Preview` blocks removed.
+- **Bottom tabs** match the app's tabs: Home, Lucille, Explore, Sound, Market (`NavTab`). The bar keeps the module's own style. Home and Sound use module icons; Lucille, Explore and Market use the app's glyphs, drawn from the same font files (`Resources/Fonts`: MaterialIcons, basicons, iconia) by `AppTabGlyph`. Tapping a non-Sound tab sends its name to Flutter (`onExit`).
+- **Exit transition:** the module is presented `overFullScreen`. On a tab tap, Flutter switches tabs first while the module still covers the screen, then the module fades out (no flash).
 
 ## Not done yet
 
-- Bottom tabs → Home, Lucille, Explore, Sound, Market (waiting on who owns this: plugin copy vs Sara's S3).
 - Hide Compose / Generating / Variation (Daniel's D3; needs to land in `dependencies/escape_soundscapes/ios/Classes/`).
 - Real data: `SoundscapesLauncher.useMock = true`, `apiBaseUrl = null` until the staging API is deployed. `LucilleSoundscapesClient.swift` from the updated handoff isn't in the plugin yet.
 - Launch test on iOS 16, Android build check.
