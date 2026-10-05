@@ -2,6 +2,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 
+import '/backend/push_notifications/push_notifications_util.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 const kPermissionStateToBool = {
@@ -38,10 +39,16 @@ Future<void> requestPermission(Permission setting) async {
 Future<bool> requestNotificationPermissionWithSettings(
   BuildContext context,
 ) async {
-  if (await getPermissionStatus(notificationsPermission)) return true;
+  if (await getPermissionStatus(notificationsPermission)) {
+    await registerFcmTokenForCurrentUser();
+    return true;
+  }
 
   await requestPermission(notificationsPermission);
-  if (await getPermissionStatus(notificationsPermission)) return true;
+  if (await getPermissionStatus(notificationsPermission)) {
+    await registerFcmTokenForCurrentUser();
+    return true;
+  }
   if (!context.mounted) return false;
 
   final shouldOpenSettings = await showDialog<bool>(

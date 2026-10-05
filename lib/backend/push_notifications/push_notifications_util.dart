@@ -43,6 +43,24 @@ Future<String?> _getFcmTokenIfAuthorized() async {
   return messaging.getToken();
 }
 
+Future<void> registerFcmTokenForCurrentUser() async {
+  final userReference = currentUserReference;
+  if (userReference == null) return;
+
+  final fcmToken = await _getFcmTokenIfAuthorized();
+  if (fcmToken == null || fcmToken.isEmpty) return;
+
+  await makeCloudCall(
+    'addFcmToken',
+    {
+      'userDocPath': userReference.path,
+      'fcmToken': fcmToken,
+      'deviceType':
+          defaultTargetPlatform == TargetPlatform.iOS ? 'iOS' : 'Android',
+    },
+  );
+}
+
 Stream<UserTokenInfo> getFcmTokenStream(String userPath) => Stream.value(
         !kIsWeb &&
             (defaultTargetPlatform == TargetPlatform.iOS ||
