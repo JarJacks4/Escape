@@ -513,11 +513,6 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                             .spaceBetween,
                                                     children: [
                                                       Container(
-                                                        height:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .height *
-                                                                0.111,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
@@ -1259,12 +1254,12 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                             child: Container(
                                                               width: double
                                                                   .infinity,
-                                                              height: 102.0,
+                                                              height: 88.0,
                                                               child: that_slideable_list_item_mrpo3s_custom_widgets
                                                                   .ThatSlideableWidget(
                                                                 width: double
                                                                     .infinity,
-                                                                height: 102.0,
+                                                                height: 88.0,
                                                                 startPaneDragDismissible:
                                                                     false,
                                                                 endPaneDragDismissible:
@@ -1638,11 +1633,6 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                 .spaceBetween,
                                                         children: [
                                                           Container(
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                0.111,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: Color(
@@ -2338,13 +2328,13 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                     Container(
                                                                   width: double
                                                                       .infinity,
-                                                                  height: 102.0,
+                                                                  height: 88.0,
                                                                   child: that_slideable_list_item_mrpo3s_custom_widgets
                                                                       .ThatSlideableWidget(
                                                                     width: double
                                                                         .infinity,
                                                                     height:
-                                                                        102.0,
+                                                                        88.0,
                                                                     startPaneDragDismissible:
                                                                         false,
                                                                     endPaneDragDismissible:
@@ -2710,11 +2700,6 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                 .spaceBetween,
                                                         children: [
                                                           Container(
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                0.111,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: Color(
@@ -3417,13 +3402,13 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                     Container(
                                                                   width: double
                                                                       .infinity,
-                                                                  height: 102.0,
+                                                                  height: 88.0,
                                                                   child: that_slideable_list_item_mrpo3s_custom_widgets
                                                                       .ThatSlideableWidget(
                                                                     width: double
                                                                         .infinity,
                                                                     height:
-                                                                        102.0,
+                                                                        88.0,
                                                                     startPaneDragDismissible:
                                                                         false,
                                                                     endPaneDragDismissible:
