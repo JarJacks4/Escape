@@ -165,6 +165,7 @@ class _ChallengeDetailSheetWidgetState
 
     return SafeArea(
       top: false,
+      bottom: false,
       child: Container(
         width: double.infinity,
         constraints: BoxConstraints(
@@ -179,7 +180,12 @@ class _ChallengeDetailSheetWidgetState
           borderRadius: BorderRadius.vertical(top: Radius.circular(24.0)),
         ),
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(20.0),
+          padding: EdgeInsets.fromLTRB(
+            20.0,
+            20.0,
+            20.0,
+            20.0 + MediaQuery.paddingOf(context).bottom,
+          ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
