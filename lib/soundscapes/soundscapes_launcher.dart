@@ -70,7 +70,7 @@ class SoundscapesLauncher {
         ctx.pushNamed(ChooseRealmsPageWidget.routeName);
         break;
       case 'Profile':
-        ctx.pushNamed(ProfileVersion5Widget.routeName);
+        ctx.pushNamed(DashboardPageWidget.routeName);
         break;
     }
   }
