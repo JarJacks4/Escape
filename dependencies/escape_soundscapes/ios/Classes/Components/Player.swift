@@ -62,15 +62,17 @@ public struct RingTimer: View {
 @available(iOS 17.0, *)
 public struct ControlBar: View {
     let isPlaying: Bool
+    let isSaved: Bool
     let onPlayPause: (() -> Void)?
     let onTimer: (() -> Void)?
     let onModeChange: (() -> Void)?
     let onSave: (() -> Void)?
     let onShare: (() -> Void)?
 
-    public init(isPlaying: Bool, onPlayPause: (() -> Void)? = nil, onTimer: (() -> Void)? = nil,
+    public init(isPlaying: Bool, isSaved: Bool = false, onPlayPause: (() -> Void)? = nil, onTimer: (() -> Void)? = nil,
                 onModeChange: (() -> Void)? = nil, onSave: (() -> Void)? = nil, onShare: (() -> Void)? = nil) {
         self.isPlaying = isPlaying
+        self.isSaved = isSaved
         self.onPlayPause = onPlayPause
         self.onTimer = onTimer
         self.onModeChange = onModeChange
@@ -86,7 +88,11 @@ public struct ControlBar: View {
             Spacer(minLength: 0)
             playButton
             Spacer(minLength: 0)
-            iconButton(.bookmark, label: "Save", action: onSave)
+            iconButton(isSaved ? .check : .bookmark,
+                       label: isSaved ? "Saved" : "Save",
+                       color: isSaved ? Esc.lilac : Esc.haze,
+                       selected: isSaved,
+                       action: onSave)
             Spacer(minLength: 0)
             iconButton(.share, label: "Share moment", action: onShare)
         }
@@ -94,14 +100,17 @@ public struct ControlBar: View {
         .frame(maxWidth: .infinity)
     }
 
-    private func iconButton(_ icon: EscIcon, label: String, action: (() -> Void)?) -> some View {
+    private func iconButton(_ icon: EscIcon, label: String, color: Color = Esc.haze,
+                            selected: Bool = false, action: (() -> Void)?) -> some View {
         Button { action?() } label: {
-            Icon(icon, size: 22, color: Esc.haze)
+            Icon(icon, size: 22, color: color)
                 .frame(width: 48, height: 48)
                 .contentShape(Rectangle())
         }
         .buttonStyle(EscPressStyle())
+        .disabled(selected)
         .accessibilityLabel(label)
+        .accessibilityAddTraits(selected ? .isSelected : [])
     }
 
     private var playButton: some View {
@@ -221,5 +230,4 @@ private struct MiniEqualizer: View {
 }
 
 // MARK: - Previews
-
 

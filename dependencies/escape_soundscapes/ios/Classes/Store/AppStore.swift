@@ -37,6 +37,7 @@ public final class AppStore {
     public private(set) var journeys: [Journey] = []
     public var selectedJourneyId: String = "deep-work"
     public private(set) var libraryItems: [LibraryItem] = []
+    public private(set) var savedCompositionIds: Set<String> = []
     public var libraryFilter: LibraryFilter = .saved
     public private(set) var playlist: Playlist?
     public var playlistId = "evening-wind-down"
@@ -429,7 +430,11 @@ public final class AppStore {
     /// ComposeGenerating "Save for later".
     public func saveGenerated() async {
         guard let c = generating, c.status == .ready else { return }
-        do { _ = try await api.save(compositionId: c.compositionId, offline: false); toast = "Saved to your Library" } catch { handle(error) }
+        do {
+            let item = try await api.save(compositionId: c.compositionId, offline: false)
+            recordSaved(item)
+            toast = "Saved to your Library"
+        } catch { handle(error) }
     }
 
     /// NowPlaying "Variation".
@@ -628,14 +633,41 @@ public final class AppStore {
 
     public func loadLibrary(_ filter: LibraryFilter) async {
         libraryFilter = filter
-        do { libraryItems = try await api.library(filter) } catch { handle(error) }
+        do {
+            let items = try await api.library(filter)
+            libraryItems = items
+            if filter == .saved {
+                savedCompositionIds = Set(items.map(\.compositionId))
+            }
+        } catch { handle(error) }
+    }
+
+    public func isSaved(_ compositionId: String?) -> Bool {
+        guard let compositionId else { return false }
+        return savedCompositionIds.contains(compositionId)
     }
 
     /// NowPlaying bookmark.
     public func saveCurrent() async {
         guard let c = nowPlaying else { return }
-        do { _ = try await api.save(compositionId: c.compositionId, offline: false); toast = "Saved to your Library"; host.haptic(.success) }
+        guard !isSaved(c.compositionId) else { return }
+        do {
+            let item = try await api.save(compositionId: c.compositionId, offline: false)
+            recordSaved(item)
+            toast = "Saved to your Library"
+            host.haptic(.success)
+        }
         catch { handle(error) }
+    }
+
+    private func recordSaved(_ item: LibraryItem) {
+        savedCompositionIds.insert(item.compositionId)
+        guard libraryFilter == .saved else { return }
+        if let index = libraryItems.firstIndex(where: { $0.id == item.id || $0.compositionId == item.compositionId }) {
+            libraryItems[index] = item
+        } else {
+            libraryItems.insert(item, at: 0)
+        }
     }
 
     public func toggleOffline(_ item: LibraryItem) async {
@@ -646,7 +678,13 @@ public final class AppStore {
     }
 
     public func remove(_ item: LibraryItem) async {
-        do { try await api.removeFromLibrary(itemId: item.id); libraryItems.removeAll { $0.id == item.id } } catch { handle(error) }
+        do {
+            try await api.removeFromLibrary(itemId: item.id)
+            libraryItems.removeAll { $0.id == item.id }
+            if item.kind == .saved {
+                savedCompositionIds.remove(item.compositionId)
+            }
+        } catch { handle(error) }
     }
 
     public func play(_ item: LibraryItem) async { await play(compositionId: item.compositionId, from: .library) }

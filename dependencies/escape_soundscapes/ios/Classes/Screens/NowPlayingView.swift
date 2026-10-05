@@ -41,6 +41,7 @@ struct NowPlayingView: View {
             ?? "Drizzle outside + restless mood = slower pulse, warmer pads, a 10 Hz alpha layer."
     }
     private var shareText: String { "Listening to \(title) on Escape — composed by Lucille (AI)" }
+    private var isSaved: Bool { store.isSaved(store.nowPlaying?.compositionId) }
 
     private var switcherModes: [ModeId] {
         let fromContent = copy?.switcherModes.compactMap { ModeId(loose: $0) } ?? []
@@ -170,7 +171,12 @@ struct NowPlayingView: View {
     private var moreMenu: some View {
         Menu {
             Button("End session", role: .destructive) { Task { await store.endSession() } }
-            Button("Save to Library") { Task { await store.saveCurrent() } }
+            if isSaved {
+                Button("Saved") {}
+                    .disabled(true)
+            } else {
+                Button("Save to Library") { Task { await store.saveCurrent() } }
+            }
         } label: {
             Icon(.more, size: 24, color: Esc.haze)
                 .frame(width: moreWidth, height: target)
@@ -271,10 +277,11 @@ struct NowPlayingView: View {
 
     private var controlBar: some View {
         ControlBar(isPlaying: store.isPlaying,
+                   isSaved: isSaved,
                    onPlayPause: { store.togglePlay() },
                    onTimer: { store.setSheet(.timer) },
                    onModeChange: { Task { await store.variation() } },
-                   onSave: { Task { await store.saveCurrent() } },
+                   onSave: isSaved ? nil : { Task { await store.saveCurrent() } },
                    onShare: { showShare = true })
             .padding(.horizontal, 16)
             .padding(.bottom, 16)
@@ -422,6 +429,5 @@ private struct NowPlayingShareSheet: UIViewControllerRepresentable {
 }
 
 // MARK: - Previews
-
 
 
