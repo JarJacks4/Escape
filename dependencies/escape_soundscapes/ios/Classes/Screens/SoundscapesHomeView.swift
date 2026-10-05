@@ -62,14 +62,9 @@ struct SoundscapesHomeView: View {
                 .lineLimit(1)
                 .frame(maxWidth: .infinity)
                 .accessibilityAddTraits(.isHeader)
-            Button { store.setScreen(.lucilleCompose) } label: {
-                LucilleOrb(size: 40, pulse: false)
-                    .frame(width: 44, height: 44)
-                    .contentShape(Rectangle())
-            }
-            .buttonStyle(EscPressStyle())
-            .padding(.trailing, -2) // 44 pt hit area around the 40 pt orb, orb stays 24 pt from the edge
-            .accessibilityLabel("Open Lucille Compose")
+            Color.clear
+                .frame(width: 44, height: 44)
+                .accessibilityHidden(true)
         }
         .padding(.horizontal, 24)
         .frame(height: 52)
@@ -115,8 +110,7 @@ struct SoundscapesHomeView: View {
     private func playNow(top: CGFloat) -> some View {
         PlayNowButton(
             subtitle: store.inputsNow?.playNowSubtitle ?? "Lucille picks Focus for your afternoon",
-            onPress: { Task { await store.playNow() } },
-            onLongPress: { store.setScreen(.lucilleCompose) }
+            onPress: { Task { await store.playNow() } }
         )
         .padding(.top, top)
         .padding(.horizontal, 24)
@@ -482,7 +476,6 @@ private struct FeaturedCircleCard: View {
 }
 
 // MARK: - Previews
-
 
 
 

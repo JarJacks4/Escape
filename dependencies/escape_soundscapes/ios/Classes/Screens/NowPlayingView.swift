@@ -170,7 +170,6 @@ struct NowPlayingView: View {
     private var moreMenu: some View {
         Menu {
             Button("End session", role: .destructive) { Task { await store.endSession() } }
-            Button("Variation") { Task { await store.variation() } }
             Button("Save to Library") { Task { await store.saveCurrent() } }
         } label: {
             Icon(.more, size: 24, color: Esc.haze)
@@ -423,7 +422,6 @@ private struct NowPlayingShareSheet: UIViewControllerRepresentable {
 }
 
 // MARK: - Previews
-
 
 
 
