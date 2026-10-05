@@ -402,7 +402,7 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
                   onLongPress: kDebugMode ? _showQuestTestTools : null,
                   child: Container(
                     width: 337.3,
-                    height: 331.0,
+                    constraints: BoxConstraints(minHeight: 331.0),
                     decoration: BoxDecoration(
                       color: Color(0xE5FFFFFF),
                       boxShadow: [
