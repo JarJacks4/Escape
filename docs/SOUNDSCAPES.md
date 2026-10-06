@@ -42,13 +42,21 @@ The pill only shows when the app is built with `--dart-define=SOUNDSCAPES_BETA=t
 - **Exit to Flutter:** `AppStore.onExitToHost` and `SoundscapesHostingFactory.setExitHandler` were added; selecting a non-Soundscapes tab calls them.
 - **HealthKit and EventKit removed** from `ESCPlatformServices.m` (Apple rejects uploads that reference them without purpose strings). Health and calendar permissions always report not granted; heart rate returns 0.
 - `#Preview` blocks removed.
+- **Compose entry points hidden:** Compose on Home, the long-press action on "Play for right now", and Variation in the Now Playing menu are not exposed. The underlying code stays in place.
+- **Bottom sheets constrained:** sheets use their content height up to the available maximum instead of vertically centering short content in a full-height sheet.
+- **Saved state synchronized:** after a successful save, the player immediately shows its saved state and the saved item is added to the in-memory Library state.
+- **Host navigation preserved:** the native bottom tabs route non-Soundscapes destinations back to the matching Flutter page. The Profile destination opens the current Profile; the beta Profile remains in the code but has no tester-facing entry point.
+
+## Updated Xcode handoff review
+
+The Xcode handoff received on October 6 was reviewed against the plugin sources. It must not replace `dependencies/escape_soundscapes/ios/Classes/` as a whole: it predates the plugin fixes above, still exposes Compose, and does not include the Flutter plugin entry point or bundle handling. Port future changes file by file after reviewing them against the plugin version.
+
+The updated archive also does not contain `LucilleSoundscapesClient.swift`, even though the handoff notes refer to it. That client still needs to be supplied or implemented before the Lucille-backed store work can be completed.
 
 ## Not done yet
 
-- Bottom tabs → Home, Lucille, Explore, Sound, Market (waiting on who owns this: plugin copy vs Sara's S3).
-- Hide Compose / Generating / Variation (Daniel's D3; needs to land in `dependencies/escape_soundscapes/ios/Classes/`).
 - Real data: `SoundscapesLauncher.useMock = true`, `apiBaseUrl = null` until the staging API is deployed. `LucilleSoundscapesClient.swift` from the updated handoff isn't in the plugin yet.
-- Launch test on iOS 16, Android build check.
+- Complete the remaining regular-phone compatibility checks below iOS 17 and confirm the Android build after the current branch is integrated.
 
 ## FlutterFlow note
 
