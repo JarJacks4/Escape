@@ -38,3 +38,4 @@
 *.mp3 !text !filter !merge !diff
 *.wav !text !filter !merge !diff
 dependencies/escape_soundscapes/ios/Resources/Samples/*.mp4 !text !filter !merge !diff
+dependencies/escape_soundscapes/ios/Resources/Orbs/*.mp4 !text !filter !merge !diff

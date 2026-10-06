@@ -64,7 +64,10 @@ public final class EscapeSoundscapesPlugin: NSObject, FlutterPlugin {
         }
 
         let vc = factory.makeViewController()
-        vc.modalPresentationStyle = .fullScreen
+        // overFullScreen keeps the Flutter view in the window underneath, so Flutter can switch to
+        // the target tab while the module still covers it (see dismiss).
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalPresentationCapturesStatusBarAppearance = true
         guard let top = Self.topViewController() else {
             result(FlutterError(code: "no_view_controller", message: "No view controller to present from", details: nil))
             return
@@ -78,9 +81,21 @@ public final class EscapeSoundscapesPlugin: NSObject, FlutterPlugin {
     private func dismiss(tab: String?) {
         guard let vc = presented else { return }
         presented = nil
-        vc.dismiss(animated: true) { [weak self] in
-            self?.factoryRef = nil
-            self?.channel.invokeMethod("onExit", arguments: tab)
+        guard let tab else {
+            // close() from Dart: no tab to route to.
+            vc.dismiss(animated: true) { [weak self] in
+                self?.factoryRef = nil
+                self?.channel.invokeMethod("onExit", arguments: nil)
+            }
+            return
+        }
+        // A tab was tapped: let Flutter switch to it first, while the module still covers the screen,
+        // then fade the module out, so the user never sees the old page or the route change.
+        channel.invokeMethod("onExit", arguments: tab) { [weak self] _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                vc.modalTransitionStyle = .crossDissolve
+                vc.dismiss(animated: true) { self?.factoryRef = nil }
+            }
         }
     }
 

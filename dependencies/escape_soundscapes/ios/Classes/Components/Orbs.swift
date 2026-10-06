@@ -9,18 +9,26 @@ import SwiftUI
 @available(iOS 17.0, *)
 public struct VisualLayer: View {
     let isSleep: Bool
+    /// false when drawn over BackgroundVideoLayer (NowPlaying): no opaque base and no extra scrim,
+    /// so the Mood Orb video underneath stays visible.
+    let showsBase: Bool
 
-    public init(isSleep: Bool = false) {
+    public init(isSleep: Bool = false, showsBase: Bool = true) {
         self.isSleep = isSleep
+        self.showsBase = showsBase
     }
 
     public var body: some View {
         ZStack {
-            isSleep ? Esc.sleepNight : Esc.night
+            if showsBase {
+                isSleep ? Esc.sleepNight : Esc.night
+            }
             circles
                 .breathe()
-            LinearGradient(colors: [Color(hex: 0x0B1230, opacity: 0), Color(hex: 0x0B1230, opacity: 0.85)],
-                           startPoint: .top, endPoint: .bottom)
+            if showsBase {
+                LinearGradient(colors: [Color(hex: 0x0B1230, opacity: 0), Color(hex: 0x0B1230, opacity: 0.85)],
+                               startPoint: .top, endPoint: .bottom)
+            }
         }
         .ignoresSafeArea()
         .allowsHitTesting(false)

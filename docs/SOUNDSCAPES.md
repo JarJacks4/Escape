@@ -45,18 +45,19 @@ The pill only shows when the app is built with `--dart-define=SOUNDSCAPES_BETA=t
 - **Compose entry points hidden:** Compose on Home, the long-press action on "Play for right now", and Variation in the Now Playing menu are not exposed. The underlying code stays in place.
 - **Bottom sheets constrained:** sheets use their content height up to the available maximum instead of vertically centering short content in a full-height sheet.
 - **Saved state synchronized:** after a successful save, the player immediately shows its saved state and the saved item is added to the in-memory Library state.
-- **Host navigation preserved:** the native bottom tabs route non-Soundscapes destinations back to the matching Flutter page. The Profile destination opens the current Profile; the beta Profile remains in the code but has no tester-facing entry point.
+- **Bottom tabs** match the app's tabs: Home, Lucille, Explore, Sound, Market (`NavTab`). The bar keeps the module's own style. Home and Sound use module icons; Lucille, Explore and Market use the app's glyphs, drawn from the same font files (`Resources/Fonts`: MaterialIcons, basicons, iconia) by `AppTabGlyph`. Tapping a non-Sound tab sends its name to Flutter (`onExit`).
+- **Exit transition:** the module is presented `overFullScreen`. On a tab tap, Flutter switches tabs first while the module still covers the screen, then the module fades out (no flash).
 
 ## Updated Xcode handoff review
 
 The Xcode handoff received on October 6 was reviewed against the plugin sources. It must not replace `dependencies/escape_soundscapes/ios/Classes/` as a whole: it predates the plugin fixes above, still exposes Compose, and does not include the Flutter plugin entry point or bundle handling. Port future changes file by file after reviewing them against the plugin version.
 
-The updated archive also does not contain `LucilleSoundscapesClient.swift`, even though the handoff notes refer to it. That client still needs to be supplied or implemented before the Lucille-backed store work can be completed.
+`LucilleSoundscapesClient.swift` is now in `Classes/API/`, with its test in `ios/Tests/`. It is not wired into the store yet.
 
 ## Not done yet
 
-- Real data: `SoundscapesLauncher.useMock = true`, `apiBaseUrl = null` until the staging API is deployed. `LucilleSoundscapesClient.swift` from the updated handoff isn't in the plugin yet.
-- Complete the remaining regular-phone compatibility checks below iOS 17 and confirm the Android build after the current branch is integrated.
+- Real data: `SoundscapesLauncher.useMock = true`, `apiBaseUrl = null` until the staging API is deployed. The Lucille client is in `Classes/API/LucilleSoundscapesClient.swift` (test in `ios/Tests/`, a podspec `test_spec` not built with the app); it isn't wired into the store yet (Sara's S1/S2).
+- Android build check.
 
 ## FlutterFlow note
 

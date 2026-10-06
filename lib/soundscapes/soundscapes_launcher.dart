@@ -66,11 +66,11 @@ class SoundscapesLauncher {
       case 'Lucille':
         ctx.goNamed(LucilleHomeWidget.routeName);
         break;
-      case 'Realms':
-        ctx.pushNamed(ChooseRealmsPageWidget.routeName);
+      case 'Explore':
+        ctx.goNamed(ExplorePageVersion5FINALWidget.routeName);
         break;
-      case 'Profile':
-        ctx.pushNamed(DashboardPageWidget.routeName);
+      case 'Market':
+        ctx.goNamed(MarketplaceVersion5Widget.routeName);
         break;
     }
   }
