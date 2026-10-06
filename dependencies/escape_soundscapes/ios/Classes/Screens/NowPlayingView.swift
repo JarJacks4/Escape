@@ -4,8 +4,13 @@ import UIKit
 // Ported from NowPlaying.tsx.
 //
 // Layers, back to front: Night base → BackgroundVideoLayer (TouchDesigner loop / orb shader) →
-// the Figma VisualLayer (breathing circles, blended with `.lighten` so its opaque base doesn't hide
-// the video) → content → "Why this sound" pull-up.
+// content → "Why this sound" pull-up. The Figma VisualLayer (breathing circles) is no longer drawn
+// here: the Mood Orbs video is the visual, and the circles didn't line up with the orb.
+//
+// Layout: header + title pinned to the top, the timer centred on the orb (the orb sits at the centre
+// of the full-screen video, so the timer is centred on the full screen, not the safe area), and the
+// mode switcher + pills sitting just above the control bar. Falls back to a scrolling column when the
+// screen is too short for that (e.g. iPhone SE).
 //
 // Sleep (Night UI): #05081A base, visuals fade to 20% after 60 s without a touch (any tap resets),
 // no white text (content is colour-multiplied by haze, which also turns the ember CTA into the dim
@@ -20,6 +25,13 @@ struct NowPlayingView: View {
     @State private var showShare = false
     @State private var idle = false
     @State private var touchCount = 0
+    @State private var safeInsets = EdgeInsets()
+    @State private var screenHeight: CGFloat = 0
+
+    /// Where the orb's centre sits in the loops, as a fraction of the video height (measured on device:
+    /// the orb is above the frame centre). The video aspect-fills by height on every iPhone, so this
+    /// fraction maps straight onto the full screen height.
+    private let orbCenterFraction: CGFloat = 0.384
 
     // MARK: Derived
 
@@ -59,6 +71,12 @@ struct NowPlayingView: View {
         return !g.status.isFinished && g.parentId == current.compositionId
     }
 
+    /// The orb's centre in the safe-area content's coordinates (nil until the screen is measured).
+    private var orbCenterY: CGFloat? {
+        guard screenHeight > 0 else { return nil }
+        return screenHeight * orbCenterFraction - safeInsets.top
+    }
+
     // MARK: Body
 
     var body: some View {
@@ -68,6 +86,7 @@ struct NowPlayingView: View {
                 .colorMultiply(isSleep ? Esc.haze : Color.white)
         }
         .background((isSleep ? Esc.sleepNight : Esc.night).ignoresSafeArea())
+        .background(safeAreaReader)
         .simultaneousGesture(TapGesture().onEnded { registerTouch() })
         .onChange(of: store.sheet) { _, _ in registerTouch() }
         .task(id: idleKey) { await watchIdle() }
@@ -76,6 +95,20 @@ struct NowPlayingView: View {
                 .presentationDetents([.medium, .large])
                 .ignoresSafeArea()
         }
+    }
+
+    /// Reads the full screen height and the safe-area insets (the reader ignores the safe area).
+    private var safeAreaReader: some View {
+        GeometryReader { proxy in
+            Color.clear
+                .onAppear {
+                    safeInsets = proxy.safeAreaInsets
+                    screenHeight = proxy.size.height
+                }
+                .onChange(of: proxy.safeAreaInsets) { _, insets in safeInsets = insets }
+                .onChange(of: proxy.size.height) { _, height in screenHeight = height }
+        }
+        .ignoresSafeArea()
     }
 
     // MARK: Background
@@ -87,9 +120,6 @@ struct NowPlayingView: View {
             // Mood Orbs v3: nearest of the 9 cells for this mode and the Mood Field (OrbLoops).
             BackgroundVideoLayer(preset: store.nowPlaying.map { OrbLoops.nearest(mode: $0.mode, field: store.moodField) },
                                  moodField: store.moodField, dimmed: dimmed)
-            VisualLayer(isSleep: isSleep, showsBase: false)
-                .opacity(dimmed ? 0.2 : 1)
-                .animation(.easeInOut(duration: 1.2), value: dimmed)
         }
         .allowsHitTesting(false)
         .accessibilityHidden(true)
@@ -99,15 +129,15 @@ struct NowPlayingView: View {
 
     private var foreground: some View {
         ZStack(alignment: .bottom) {
-            VStack(spacing: 0) {
-                header
-                middle
-                if isReshaping {
-                    reshapingLine
-                        .transition(.opacity)
+            ViewThatFits(in: .vertical) {
+                OrbCenteredLayout(centerY: orbCenterY, spacing: 16).callAsFunction {
+                    header
+                    timerView
+                    bottomColumn
                 }
-                controlBar
+                compactLayout
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .animation(.easeOut(duration: 0.2), value: isReshaping)
 
             if showWhy {
@@ -118,34 +148,78 @@ struct NowPlayingView: View {
         }
     }
 
+    /// Mode switcher + pills, sitting just above the control bar.
+    private var bottomColumn: some View {
+        VStack(spacing: 20) {
+            modeSwitcher
+            actionPills
+                .padding(.horizontal, 24)
+            VStack(spacing: 0) {
+                if isReshaping {
+                    reshapingLine
+                        .transition(.opacity)
+                }
+                controlBar
+            }
+        }
+        .frame(maxWidth: .infinity)
+    }
+
+    /// Short screens: the previous stacked layout, with the middle scrolling.
+    private var compactLayout: some View {
+        VStack(spacing: 0) {
+            header
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 24) {
+                    timerView
+                    modeSwitcher
+                    actionPills
+                }
+                .padding(.horizontal, 24)
+                .padding(.vertical, 16)
+                .frame(maxWidth: .infinity)
+            }
+            if isReshaping {
+                reshapingLine
+                    .transition(.opacity)
+            }
+            controlBar
+        }
+    }
+
     // MARK: Header
 
+    /// Buttons on their own row so the title block can sit in the true horizontal centre.
     private var header: some View {
-        HStack(spacing: 0) {
-            Button { store.minimizePlayer() } label: {
-                Icon(.chevronDown, size: 24, color: Esc.mist)
-                    .frame(width: target, height: target)
-                    .contentShape(Rectangle())
+        VStack(spacing: 4) {
+            HStack(spacing: 0) {
+                Button { store.minimizePlayer() } label: {
+                    Icon(.chevronDown, size: 24, color: Esc.mist)
+                        .frame(width: target, height: target)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(EscPressStyle())
+                .accessibilityLabel("Close player")
+
+                Spacer(minLength: 0)
+
+                Button { setWhy(!showWhy) } label: {
+                    Icon(.info, size: 24, color: Esc.haze)
+                        .frame(width: target, height: target)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(EscPressStyle())
+                .accessibilityLabel("Why this sound")
+                .accessibilityValue(showWhy ? "Expanded" : "Collapsed")
+
+                moreMenu
             }
-            .buttonStyle(EscPressStyle())
-            .accessibilityLabel("Close player")
+            .frame(minHeight: Esc.Metrics.headerHeight)
 
             titleBlock
                 .frame(maxWidth: .infinity)
-
-            Button { setWhy(!showWhy) } label: {
-                Icon(.info, size: 24, color: Esc.haze)
-                    .frame(width: target, height: target)
-                    .contentShape(Rectangle())
-            }
-            .buttonStyle(EscPressStyle())
-            .accessibilityLabel("Why this sound")
-            .accessibilityValue(showWhy ? "Expanded" : "Collapsed")
-
-            moreMenu
         }
         .padding(.horizontal, 16)
-        .frame(minHeight: Esc.Metrics.headerHeight)
     }
 
     private var titleBlock: some View {
@@ -187,27 +261,6 @@ struct NowPlayingView: View {
     }
 
     // MARK: Timer, modes, pills
-
-    private var middle: some View {
-        ViewThatFits(in: .vertical) {
-            middleColumn
-            ScrollView(.vertical, showsIndicators: false) {
-                middleColumn
-                    .padding(.vertical, 16)
-            }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-
-    private var middleColumn: some View {
-        VStack(spacing: 24) {
-            timerView
-            modeSwitcher
-            actionPills
-        }
-        .padding(.horizontal, 24)
-        .frame(maxWidth: .infinity)
-    }
 
     private var timerView: some View {
         Button { store.setSheet(.timer) } label: {
@@ -354,6 +407,52 @@ struct NowPlayingView: View {
     }
 }
 
+// MARK: - Header / orb-centred timer / bottom column
+
+/// Three subviews: [top, timer, bottom]. Top is pinned to the top, bottom to the bottom, and the
+/// timer is centred at `centerY` (the orb, measured from the top of the bounds; nil = bounds centre),
+/// clamped so it never overlaps either. Its ideal height is the stacked minimum, so ViewThatFits
+/// falls back when the screen is too short.
+@available(iOS 17.0, *)
+private struct OrbCenteredLayout: Layout {
+    var centerY: CGFloat?
+    var spacing: CGFloat = 16
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        let width = finite(proposal.width) ?? subviews.map { $0.sizeThatFits(.unspecified).width }.max() ?? 0
+        let child = ProposedViewSize(width: width, height: nil)
+        let needed = subviews.reduce(0) { $0 + $1.sizeThatFits(child).height }
+            + spacing * CGFloat(max(0, subviews.count - 1))
+        if let height = finite(proposal.height) {
+            return CGSize(width: width, height: max(height, needed))
+        }
+        return CGSize(width: width, height: needed)
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        guard subviews.count == 3 else { return }
+        let child = ProposedViewSize(width: bounds.width, height: nil)
+        let top = subviews[0], timer = subviews[1], bottom = subviews[2]
+        let topHeight = top.sizeThatFits(child).height
+        let timerHeight = timer.sizeThatFits(child).height
+        let bottomHeight = bottom.sizeThatFits(child).height
+
+        top.place(at: CGPoint(x: bounds.midX, y: bounds.minY), anchor: .top, proposal: child)
+        bottom.place(at: CGPoint(x: bounds.midX, y: bounds.maxY), anchor: .bottom, proposal: child)
+
+        let minY = bounds.minY + topHeight + spacing
+        let maxY = max(minY, bounds.maxY - bottomHeight - spacing - timerHeight)
+        let centred = bounds.minY + (centerY ?? bounds.height / 2) - timerHeight / 2
+        let y = min(max(centred, minY), maxY)
+        timer.place(at: CGPoint(x: bounds.midX, y: y), anchor: .top, proposal: child)
+    }
+
+    private func finite(_ value: CGFloat?) -> CGFloat? {
+        guard let value, value.isFinite else { return nil }
+        return value
+    }
+}
+
 // MARK: - Wrapping pill row (flexWrap: wrap; justifyContent: center)
 
 @available(iOS 17.0, *)
@@ -430,5 +529,4 @@ private struct NowPlayingShareSheet: UIViewControllerRepresentable {
 }
 
 // MARK: - Previews
-
 
