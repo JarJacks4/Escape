@@ -14,7 +14,8 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'EscapeSoundscapes' => [
       'Resources/Assets.xcassets',
-      'Resources/Fonts/*.ttf',
+      'Resources/Fonts/*.{ttf,otf,txt}',
+      'Resources/Orbs/*',
       'Resources/*.json',
       'Resources/Samples/*',
       'Resources/Metal/*.metallib'

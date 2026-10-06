@@ -62,7 +62,12 @@ public struct BackgroundVideoLayer: View {
                 localVideo = nil
                 return
             }
-            localVideo = try? await VideoCache.shared.localURL(for: url)
+            if let local = try? await VideoCache.shared.localURL(for: url) {
+                localVideo = local
+            } else if let p = preset, let offline = OrbLoops.offlineURL(for: p) {
+                localVideo = offline  // no network: the mode's bundled loop
+            }
+            if let p = preset { OrbLoops.prefetchNeighbours(of: p) }
         }
         .ignoresSafeArea()
         .accessibilityHidden(true)

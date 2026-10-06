@@ -83,9 +83,10 @@ struct NowPlayingView: View {
         ZStack {
             (isSleep ? Esc.sleepNight : Esc.night)
                 .ignoresSafeArea()
-            BackgroundVideoLayer(preset: store.nowPlaying?.visual, moodField: store.moodField, dimmed: dimmed)
-            VisualLayer(isSleep: isSleep)
-                .blendMode(.lighten)
+            // Mood Orbs v3: nearest of the 9 cells for this mode and the Mood Field (OrbLoops).
+            BackgroundVideoLayer(preset: store.nowPlaying.map { OrbLoops.nearest(mode: $0.mode, field: store.moodField) },
+                                 moodField: store.moodField, dimmed: dimmed)
+            VisualLayer(isSleep: isSleep, showsBase: false)
                 .opacity(dimmed ? 0.2 : 1)
                 .animation(.easeInOut(duration: 1.2), value: dimmed)
         }
