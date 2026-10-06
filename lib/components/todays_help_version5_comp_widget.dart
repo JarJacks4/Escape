@@ -86,40 +86,37 @@ class _TodaysHelpVersion5CompWidgetState
                           context.safePop();
                         },
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            200.0, 0.0, 0.0, 0.0),
-                        child: FlutterFlowIconButton(
-                          borderColor: Color(0x32EDF1F7),
-                          borderRadius: 22.0,
-                          buttonSize: 44.0,
-                          fillColor: Color(0x961C2444),
-                          icon: Icon(
-                            FFIcons.khelp,
-                            color: FlutterFlowTheme.of(context).primary,
-                            size: 24.0,
-                          ),
-                          onPressed: () async {
-                            logFirebaseEvent(
-                                'TODAYS_HELP_VERSION5_help_ICN_ON_TAP');
-                            logFirebaseEvent('IconButton_haptic_feedback');
-                            HapticFeedback.lightImpact();
-                            logFirebaseEvent('IconButton_bottom_sheet');
-                            await showModalBottomSheet(
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              context: context,
-                              builder: (context) {
-                                return WebViewAware(
-                                  child: Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: HelpCompWidget(),
-                                  ),
-                                );
-                              },
-                            ).then((value) => safeSetState(() {}));
-                          },
+                      Spacer(),
+                      FlutterFlowIconButton(
+                        borderColor: Color(0x32EDF1F7),
+                        borderRadius: 22.0,
+                        buttonSize: 44.0,
+                        fillColor: Color(0x961C2444),
+                        icon: Icon(
+                          FFIcons.khelp,
+                          color: FlutterFlowTheme.of(context).primary,
+                          size: 24.0,
                         ),
+                        onPressed: () async {
+                          logFirebaseEvent(
+                              'TODAYS_HELP_VERSION5_help_ICN_ON_TAP');
+                          logFirebaseEvent('IconButton_haptic_feedback');
+                          HapticFeedback.lightImpact();
+                          logFirebaseEvent('IconButton_bottom_sheet');
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            context: context,
+                            builder: (context) {
+                              return WebViewAware(
+                                child: Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: HelpCompWidget(),
+                                ),
+                              );
+                            },
+                          ).then((value) => safeSetState(() {}));
+                        },
                       ),
                       FlutterFlowIconButton(
                         borderColor: Color(0x51EDF1F7),

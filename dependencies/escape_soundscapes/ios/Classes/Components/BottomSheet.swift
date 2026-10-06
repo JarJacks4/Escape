@@ -54,14 +54,16 @@ public struct BottomSheet<Content: View>: View {
     }
 
     private func panel(maxHeight: CGFloat) -> some View {
-        ViewThatFits(in: .vertical) {
-            sheetBody
-            ScrollView(.vertical, showsIndicators: false) {
+        BottomSheetHeightLayout(maxHeight: maxHeight) {
+            ViewThatFits(in: .vertical) {
                 sheetBody
+                    .fixedSize(horizontal: false, vertical: true)
+                ScrollView(.vertical, showsIndicators: false) {
+                    sheetBody
+                }
             }
         }
         .frame(maxWidth: .infinity)
-        .frame(maxHeight: maxHeight)
         .background { panelBackground }
         .accessibilityAddTraits(.isModal)
         .accessibilityAction(.escape) { onClose() }
@@ -109,6 +111,44 @@ public struct BottomSheet<Content: View>: View {
     }
 }
 
-// MARK: - Previews
+/// Gives the sheet its natural height while capping the proposal passed to
+/// `ViewThatFits`. Content that exceeds the cap therefore selects its scrolling
+/// fallback instead of making every short sheet fill 90% of the screen.
+@available(iOS 17.0, *)
+private struct BottomSheetHeightLayout: Layout {
+    let maxHeight: CGFloat
 
+    func sizeThatFits(
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) -> CGSize {
+        guard let subview = subviews.first else { return .zero }
+        let constrainedProposal = ProposedViewSize(
+            width: proposal.width,
+            height: min(proposal.height ?? maxHeight, maxHeight)
+        )
+        let size = subview.sizeThatFits(constrainedProposal)
+        return CGSize(
+            width: proposal.width ?? size.width,
+            height: min(size.height, maxHeight)
+        )
+    }
+
+    func placeSubviews(
+        in bounds: CGRect,
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) {
+        guard let subview = subviews.first else { return }
+        subview.place(
+            at: bounds.origin,
+            anchor: .topLeading,
+            proposal: ProposedViewSize(width: bounds.width, height: bounds.height)
+        )
+    }
+}
+
+// MARK: - Previews
 

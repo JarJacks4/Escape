@@ -657,11 +657,9 @@ class _DashboardWidgetState extends State<DashboardWidget>
                         ),
                       );
                     }
-                    final containerUserCompleteProfileResponse = snapshot.data!;
-
                     return Container(
                       width: double.infinity,
-                      height: 300.0,
+                      height: 306.0,
                       decoration: BoxDecoration(
                         color: Color(0x938EA7E9),
                         borderRadius: BorderRadius.circular(22.0),
@@ -1359,7 +1357,7 @@ Progress */
                                             ),
                                             Container(
                                               width: double.infinity,
-                                              height: 26.76,
+                                              height: 30.0,
                                               decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(4.0),

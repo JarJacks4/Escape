@@ -706,23 +706,23 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                           BorderRadius.circular(
                                                               4.0),
                                                     ),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child:
-                                                          LinearPercentIndicator(
+                                                    child: LayoutBuilder(
+                                                      builder: (context,
+                                                              constraints) =>
+                                                          Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child:
+                                                            LinearPercentIndicator(
                                                         percent: valueOrDefault<
                                                             double>(
                                                           FFAppState()
                                                               .pointsEarnedPercentage,
                                                           0.0,
                                                         ).clamp(0.0, 1.0),
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.85,
+                                                          width: constraints
+                                                              .maxWidth,
                                                         lineHeight: 30.0,
                                                         animation: true,
                                                         animateFromLastPercent:
@@ -763,6 +763,7 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                                 50.0),
                                                         padding:
                                                             EdgeInsets.zero,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),

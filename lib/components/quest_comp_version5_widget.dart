@@ -9,7 +9,6 @@ import '/flutter_flow/quest_reminder_service.dart';
 import '/flutter_flow/quest_sync_service.dart';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -124,58 +123,6 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
     );
   }
 
-  Future<void> _showQuestTestTools() async {
-    if (!kDebugMode) return;
-
-    final action = await showDialog<String>(
-      context: context,
-      builder: (dialogContext) => AlertDialog(
-        title: Text('Quest test tools'),
-        content: Text(
-          'Reset Quest data or prepare six completed days to test the final check-in. Total XP will not be changed.',
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(dialogContext),
-            child: Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(dialogContext, 'reset'),
-            child: Text('Reset'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(dialogContext, 'day7'),
-            child: Text('Prepare Day 7'),
-          ),
-        ],
-      ),
-    );
-    if (action == null || !mounted) return;
-
-    await QuestReminderService.cancelDailyReminder();
-    if (!mounted) return;
-    FFAppState().update(() {
-      if (action == 'day7') {
-        FFAppState().prepareFinalQuestDayForTesting();
-      } else {
-        FFAppState().resetQuestDataForTesting();
-      }
-    });
-    QuestSyncService.instance.saveLocalState();
-    ScaffoldMessenger.of(context)
-      ..clearSnackBars()
-      ..showSnackBar(
-        SnackBar(
-          content: Text(
-            action == 'day7'
-                ? 'Quest is ready for the Day 7 check-in'
-                : 'Quest test data reset',
-          ),
-          duration: Duration(milliseconds: 2500),
-        ),
-      );
-  }
-
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
@@ -281,6 +228,7 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
                             logFirebaseEvent('LottieAnimation_alert_dialog');
                             await showDialog(
                               context: context,
+                              useSafeArea: false,
                               builder: (dialogContext) {
                                 return Dialog(
                                   elevation: 0,
@@ -398,11 +346,9 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
                 flex: 1,
                 child: GestureDetector(
                   onTap: _showChallengeDetails,
-                  // Keep test controls out of production builds.
-                  onLongPress: kDebugMode ? _showQuestTestTools : null,
                   child: Container(
                     width: 337.3,
-                    height: 331.0,
+                    constraints: BoxConstraints(minHeight: 331.0),
                     decoration: BoxDecoration(
                       color: Color(0xE5FFFFFF),
                       boxShadow: [
