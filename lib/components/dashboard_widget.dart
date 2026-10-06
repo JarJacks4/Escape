@@ -657,8 +657,6 @@ class _DashboardWidgetState extends State<DashboardWidget>
                         ),
                       );
                     }
-                    final containerUserCompleteProfileResponse = snapshot.data!;
-
                     return Container(
                       width: double.infinity,
                       height: 306.0,
