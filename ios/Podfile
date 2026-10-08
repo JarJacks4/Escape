@@ -33,12 +33,22 @@ target 'Runner' do
   use_modular_headers!
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+  # Build the Soundscapes module's unit tests (scheme: escape_soundscapes-Unit-Tests).
+  pod 'escape_soundscapes', :path => '.symlinks/plugins/escape_soundscapes/ios', :testspecs => ['Tests']
   pod 'FirebaseFirestore', :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git', :tag => '11.13.0'
 end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
+    # Soundscapes unit tests: Flutter.framework isn't embedded by CocoaPods (Flutter copies it
+    # into Runner itself), so load the simulator slice straight from the Flutter SDK cache.
+    if target.name == 'escape_soundscapes-Unit-Tests'
+      sim = File.join(flutter_root, 'bin', 'cache', 'artifacts', 'engine', 'ios', 'Flutter.xcframework', 'ios-arm64_x86_64-simulator')
+      target.build_configurations.each do |config|
+        config.build_settings['LD_RUNPATH_SEARCH_PATHS'] = ['$(inherited)', sim]
+      end
+    end
     target.build_configurations.each do |config|
       config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
       config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= [

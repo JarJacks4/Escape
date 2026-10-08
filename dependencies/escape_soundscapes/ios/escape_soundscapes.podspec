@@ -29,5 +29,7 @@ Pod::Spec.new do |s|
   # :testspecs => ['Tests'] (or `pod lib lint`) is needed to build and run them.
   s.test_spec 'Tests' do |t|
     t.source_files = 'Tests/**/*.swift'
+    # Hosted, so Flutter.framework is embedded (the plugin links it).
+    t.requires_app_host = true
   end
 end
