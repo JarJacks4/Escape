@@ -28,6 +28,11 @@ public actor MockSoundscapesAPI: SoundscapesAPI {
     private var counter = 0
     public var freeComposesPerDay = 3
 
+    // Beta: the mock is rebuilt on every open, so onboarding and the library live in UserDefaults.
+    private static let onboardedKey = "escape_soundscapes.beta.hasOnboarded"
+    private static let libraryKey = "escape_soundscapes.beta.library"
+    private static let counterKey = "escape_soundscapes.beta.counter"
+
     public init(seed: Seed, content: ContentBundle, renderSeconds: Double = 6, bundle: Bundle = .soundscapes,
                 now: @escaping @Sendable () -> Date = { Date() }) {
         self.seed = seed
@@ -67,6 +72,20 @@ public actor MockSoundscapesAPI: SoundscapesAPI {
         checkIns = [MoodCheckIn(id: "seed_scan", uid: u.uid, value: 0.3, tags: [scan.mood], source: "moodScan",
                                 createdAt: Self.iso(now().addingTimeInterval(Double(-scan.minutesAgo * 60))), word: "Heavy")]
         compositions = Self.catalog(seed: seed, samples: samples, visual: visual, createdAt: Self.iso(now()))
+
+        // Beta: restore what the tester did last time.
+        let defaults = UserDefaults.standard
+        if defaults.bool(forKey: Self.onboardedKey) {
+            profile.hasOnboarded = true
+            prefs.hasOnboarded = true
+        }
+        if let data = defaults.data(forKey: Self.libraryKey),
+           let stored = try? JSONDecoder().decode([LibraryItem].self, from: data) {
+            // Drop items whose composition was generated at runtime and no longer exists.
+            let known = compositions
+            library = stored.filter { known[$0.compositionId] != nil }
+        }
+        counter = max(counter, defaults.integer(forKey: Self.counterKey))
     }
 
     /// Mock that reads figma-seed.json from the app bundle.
@@ -198,11 +217,15 @@ public actor MockSoundscapesAPI: SoundscapesAPI {
             prefs.sleep.sunriseTime = s.sunriseTime ?? prefs.sleep.sunriseTime
             prefs.sleep.breathSync = s.breathSync ?? prefs.sleep.breathSync
         }
-        if let v = p.hasOnboarded { prefs.hasOnboarded = v; profile.hasOnboarded = v }
+        if let v = p.hasOnboarded { prefs.hasOnboarded = v; profile.hasOnboarded = v; UserDefaults.standard.set(v, forKey: Self.onboardedKey) }
         return prefs
     }
 
-    public func completeOnboarding() async throws { prefs.hasOnboarded = true; profile.hasOnboarded = true }
+    public func completeOnboarding() async throws {
+        prefs.hasOnboarded = true
+        profile.hasOnboarded = true
+        UserDefaults.standard.set(true, forKey: Self.onboardedKey)
+    }
 
     // MARK: Inputs
 
@@ -352,6 +375,12 @@ public actor MockSoundscapesAPI: SoundscapesAPI {
                     gradient: c.gradient ?? .fallback, createdAt: Self.iso(now()))
     }
 
+    private func persistLibrary() {
+        guard let data = try? JSONEncoder().encode(library) else { return }
+        UserDefaults.standard.set(data, forKey: Self.libraryKey)
+        UserDefaults.standard.set(counter, forKey: Self.counterKey)
+    }
+
     public func save(compositionId: String, offline: Bool) async throws -> LibraryItem {
         if offline && !profile.isPremium { throw APIError.premiumRequired("Offline downloads are part of Escape Premium") }
         let c = try requireComposition(compositionId)
@@ -359,6 +388,7 @@ public actor MockSoundscapesAPI: SoundscapesAPI {
         if let existing = library.first(where: { $0.compositionId == compositionId && $0.kind == .saved }) { return existing }
         var i = item(from: c, kind: .saved); i.offline = offline
         library.insert(i, at: 0)
+        persistLibrary()
         return i
     }
 
@@ -366,12 +396,14 @@ public actor MockSoundscapesAPI: SoundscapesAPI {
         if offline && !profile.isPremium { throw APIError.premiumRequired("Offline downloads are part of Escape Premium") }
         guard let i = library.firstIndex(where: { $0.id == itemId }) else { throw APIError.notFound("Library item not found") }
         library[i].offline = offline
+        persistLibrary()
         return library[i]
     }
 
     public func removeFromLibrary(itemId: String) async throws {
         guard let i = library.firstIndex(where: { $0.id == itemId }) else { throw APIError.notFound("Library item not found") }
         library.remove(at: i)
+        persistLibrary()
     }
 
     public func saveMemory(sessionId: String, title: String?) async throws -> LibraryItem {
@@ -381,6 +413,7 @@ public actor MockSoundscapesAPI: SoundscapesAPI {
         let day = Date.fromISO(s.startedAt).map { f.string(from: $0) } ?? ""
         let i = item(from: c, kind: .memory, title: title ?? "\(s.mode.shortTitle), \(day)", duration: "\(Int(s.minutes ?? 0)) min")
         library.insert(i, at: 0)
+        persistLibrary()
         return i
     }
 
@@ -452,6 +485,14 @@ public actor MockSoundscapesAPI: SoundscapesAPI {
 
     public func sendBetaFeedback(_ req: BetaFeedbackRequest) async throws {
         guard (1...5).contains(req.calmRating) else { throw APIError.invalid("calmRating must be 1–5") }
+        // Previews and tests have no host: validate only.
+        guard let send = SoundscapesBetaBridge.sendFeedback else { return }
+        var payload: [String: Any] = ["calmRating": req.calmRating]
+        if let v = req.sessionId { payload["sessionId"] = v }
+        if let v = req.mode { payload["mode"] = v }
+        if let v = req.visual { payload["visual"] = v }
+        if let v = req.note { payload["note"] = v }
+        try await send(payload)
     }
 
     // MARK: Test hooks

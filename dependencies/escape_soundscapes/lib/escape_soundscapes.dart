@@ -3,21 +3,25 @@ import 'package:flutter/services.dart';
 
 typedef SoundscapesTokenProvider = Future<String?> Function();
 typedef SoundscapesExitHandler = void Function(String? tab);
+typedef SoundscapesFeedbackHandler = Future<void> Function(Map<String, dynamic> feedback);
 
 /// Opens the native Soundscapes module (iOS 17+ only).
 class EscapeSoundscapes {
   static const MethodChannel _channel = MethodChannel('escape_soundscapes');
   static SoundscapesTokenProvider? _tokenProvider;
   static SoundscapesExitHandler? _onExit;
+  static SoundscapesFeedbackHandler? _onFeedback;
   static bool _handlerSet = false;
 
   /// Call once (e.g. in main) before [open].
   static void configure({
     SoundscapesTokenProvider? tokenProvider,
     SoundscapesExitHandler? onExit,
+    SoundscapesFeedbackHandler? onFeedback,
   }) {
     _tokenProvider = tokenProvider;
     _onExit = onExit;
+    _onFeedback = onFeedback;
     if (!_handlerSet) {
       _channel.setMethodCallHandler(_handle);
       _handlerSet = true;
@@ -35,6 +39,13 @@ class EscapeSoundscapes {
       case 'onExit':
         _onExit?.call(call.arguments as String?);
         return null;
+      case 'sendFeedback':
+        final handler = _onFeedback;
+        if (handler == null) {
+          throw PlatformException(code: 'no_handler', message: 'Feedback is not set up');
+        }
+        await handler(Map<String, dynamic>.from(call.arguments as Map));
+        return true;
     }
     return null;
   }

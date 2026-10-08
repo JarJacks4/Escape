@@ -1,5 +1,6 @@
 import 'package:escape_soundscapes/escape_soundscapes.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -37,6 +38,7 @@ class SoundscapesLauncher {
       tokenProvider: () async =>
           FirebaseAuth.instance.currentUser?.getIdToken(),
       onExit: _onExit,
+      onFeedback: _saveFeedback,
     );
   }
 
@@ -53,6 +55,18 @@ class SoundscapesLauncher {
         SnackBar(content: Text('Could not open Soundscapes: $e')),
       );
     }
+  }
+
+  /// Beta feedback from the native module, saved to Firestore (soundscapesBetaFeedback).
+  static Future<void> _saveFeedback(Map<String, dynamic> feedback) async {
+    final user = FirebaseAuth.instance.currentUser;
+    await FirebaseFirestore.instance.collection('soundscapesBetaFeedback').add({
+      ...feedback,
+      'uid': user?.uid,
+      'email': user?.email,
+      'platform': 'ios',
+      'createdAt': FieldValue.serverTimestamp(),
+    });
   }
 
   /// The user tapped another tab inside Soundscapes.

@@ -2,7 +2,7 @@ import Flutter
 import UIKit
 
 /// Flutter bridge. Methods: isSupported, open({mock, baseUrl, screen, sheet}), close.
-/// Calls back into Dart: getIdToken (returns a Firebase ID token), onExit(tab).
+/// Calls back into Dart: getIdToken (returns a Firebase ID token), onExit(tab), sendFeedback(map).
 public final class EscapeSoundscapesPlugin: NSObject, FlutterPlugin {
     private let channel: FlutterMethodChannel
     private var presented: UIViewController?
@@ -45,6 +45,26 @@ public final class EscapeSoundscapesPlugin: NSObject, FlutterPlugin {
     private func open(args: [String: Any], result: @escaping FlutterResult) {
         guard presented == nil else { result(nil); return }
         SoundscapesFonts.register()
+        // Beta feedback: the mock API hands it to Flutter, which writes it to Firestore.
+        SoundscapesBetaBridge.sendFeedback = { [weak self] payload in
+            try await withCheckedThrowingContinuation { (cont: CheckedContinuation<Void, Error>) in
+                DispatchQueue.main.async {
+                    guard let self else {
+                        cont.resume(throwing: APIError.server(status: 0, code: "feedback", message: "Couldn't send feedback"))
+                        return
+                    }
+                    self.channel.invokeMethod("sendFeedback", arguments: payload) { value in
+                        if let e = value as? FlutterError {
+                            cont.resume(throwing: APIError.server(status: 0, code: "feedback", message: e.message ?? "Couldn't send feedback"))
+                        } else if let o = value as? NSObject, o === FlutterMethodNotImplemented {
+                            cont.resume(throwing: APIError.server(status: 0, code: "feedback", message: "Feedback isn't set up in this build"))
+                        } else {
+                            cont.resume()
+                        }
+                    }
+                }
+            }
+        }
 
         let mock = args["mock"] as? Bool ?? true
         let factory: SoundscapesHostingFactory
