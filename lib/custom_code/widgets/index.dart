@@ -6,3 +6,5 @@ export '/custom_code/widgets/that_custom_audio_slider_widget.dart'
 export '/custom_code/widgets/gpt_markdown_widget.dart' show GptMarkdownWidget;
 export '/custom_code/widgets/walkthrough_overlay.dart' show WalkthroughOverlay;
 export '/custom_code/widgets/vectary_model_viewer.dart' show VectaryModelViewer;
+export '/custom_code/widgets/mood_orb_video.dart' show MoodOrbVideo;
+export '/custom_code/widgets/escape_journal_v2.dart' show EscapeJournalV2;
