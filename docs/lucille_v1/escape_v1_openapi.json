@@ -1,0 +1,5492 @@
+{
+ "openapi": "3.1.0",
+ "info": {
+  "title": "Lucille \u00b7 Escape v1 API",
+  "description": "Journal, Mood Scan + Mood Stats, Soundscapes AI, Self-Care Score + Plans, GDPR. Send 'Authorization: Bearer <Firebase ID token>' and 'X-Timezone: <IANA tz>' on every call.",
+  "version": "1.0.0"
+ },
+ "paths": {
+  "/v1/health": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 config & jobs"
+    ],
+    "summary": "Liveness for the v1 routers",
+    "operationId": "health_v1_health_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/config": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 config & jobs"
+    ],
+    "summary": "Feature flags + static config the app reads once at launch (cache 1h)",
+    "operationId": "config_v1_config_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/jobs/letters-due": {
+   "post": {
+    "tags": [
+     "v1 \u00b7 config & jobs"
+    ],
+    "summary": "Cloud Scheduler (hourly): deliver due 'letters to future self' as push notifications",
+    "operationId": "letters_due_v1_jobs_letters_due_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/Job",
+        "default": {
+         "dryRun": false
+        }
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ]
+   }
+  },
+  "/v1/me": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 me & home"
+    ],
+    "summary": "Profile state: streak, coins, energy level, prefs",
+    "operationId": "me_v1_me_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "patch": {
+    "tags": [
+     "v1 \u00b7 me & home"
+    ],
+    "summary": "Update time zone, name and preferences",
+    "operationId": "update_me_v1_me_patch",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PrefsIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/me/progress": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 me & home"
+    ],
+    "summary": "Unified streak, coins and Energy Scan unlocks (1,000 coins per energy center)",
+    "operationId": "progress_v1_me_progress_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/energy/centers": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 me & home"
+    ],
+    "summary": "The 7 energy centers (Grounding -> Purpose) and unlock thresholds",
+    "operationId": "centers_v1_energy_centers_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/home": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 me & home"
+    ],
+    "summary": "Home in one call: Mood Orb, Self-Care Score, streak, coins, today's plan, a suggestion",
+    "operationId": "home_v1_home_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "period",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "week",
+        "month",
+        "year"
+       ],
+       "type": "string",
+       "default": "week",
+       "title": "Period"
+      }
+     },
+     {
+      "name": "lat",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Lat"
+      }
+     },
+     {
+      "name": "lon",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Lon"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/suggestions": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 me & home"
+    ],
+    "summary": "Lucille Suggestions for any screen. Every link is allowlisted server-side",
+    "operationId": "suggestions_v1_suggestions_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "context",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "home",
+        "mood_result",
+        "journal_saved",
+        "session_complete",
+        "explore"
+       ],
+       "type": "string",
+       "default": "home",
+       "title": "Context"
+      }
+     },
+     {
+      "name": "word",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Word"
+      }
+     },
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 6,
+       "minimum": 1,
+       "default": 3,
+       "title": "Limit"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/mood/words": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 mood"
+    ],
+    "summary": "Mood vocabulary with Mood Field coordinates (static, cache 24h)",
+    "operationId": "words_v1_mood_words_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/mood/interpret": {
+   "post": {
+    "tags": [
+     "v1 \u00b7 mood"
+    ],
+    "summary": "Preview a reading from scan inputs without saving (free, no LLM)",
+    "operationId": "interpret_v1_mood_interpret_post",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/InterpretIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/mood/checkins": {
+   "post": {
+    "tags": [
+     "v1 \u00b7 mood"
+    ],
+    "summary": "Save a Mood Scan / check-in. Returns the orb + suggestions",
+    "operationId": "create_checkin_v1_mood_checkins_post",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/CheckinIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "get": {
+    "tags": [
+     "v1 \u00b7 mood"
+    ],
+    "summary": "List check-ins, newest first (cursor = createdAt of last item)",
+    "operationId": "list_checkins_v1_mood_checkins_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 100,
+       "minimum": 1,
+       "default": 30,
+       "title": "Limit"
+      }
+     },
+     {
+      "name": "cursor",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Cursor"
+      }
+     },
+     {
+      "name": "day_from",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Day From"
+      }
+     },
+     {
+      "name": "day_to",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Day To"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/mood/latest": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 mood"
+    ],
+    "summary": "Most recent reading (seeds 'Save this moment' in the Journal)",
+    "operationId": "latest_v1_mood_latest_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/mood/checkins/{checkin_id}": {
+   "delete": {
+    "tags": [
+     "v1 \u00b7 mood"
+    ],
+    "summary": "Delete one check-in (rollups adjust)",
+    "operationId": "delete_checkin_v1_mood_checkins__checkin_id__delete",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "checkin_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Checkin Id"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/mood/summary": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 mood"
+    ],
+    "summary": "The single conglomerate Mood Orb for week / month / year",
+    "operationId": "get_summary_v1_mood_summary_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "period",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "week",
+        "month",
+        "year"
+       ],
+       "type": "string",
+       "default": "week",
+       "title": "Period"
+      }
+     },
+     {
+      "name": "lat",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Lat"
+      }
+     },
+     {
+      "name": "lon",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Lon"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/mood/stats": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 mood"
+    ],
+    "summary": "Mood Stats page: all three periods + insights in one call",
+    "operationId": "stats_v1_mood_stats_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "period",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "week",
+        "month",
+        "year"
+       ],
+       "type": "string",
+       "default": "week",
+       "title": "Period"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/mood/suggestions": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 mood"
+    ],
+    "summary": "Things to do in Escape to help with a mood (allowlisted deep links)",
+    "operationId": "suggestions_v1_mood_suggestions_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "word",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Word"
+      }
+     },
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 6,
+       "minimum": 1,
+       "default": 3,
+       "title": "Limit"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/mood/orb": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 mood"
+    ],
+    "summary": "Which Mood Orb loop + background to show right now",
+    "operationId": "orb_v1_mood_orb_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "tone",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Tone"
+      }
+     },
+     {
+      "name": "lat",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Lat"
+      }
+     },
+     {
+      "name": "lon",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Lon"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/journal/home": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 journal"
+    ],
+    "summary": "Journal home: one Mood Orb (period), last scan seed, weekly reflection, modes",
+    "operationId": "home_v1_journal_home_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "period",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "week",
+        "month",
+        "year"
+       ],
+       "type": "string",
+       "default": "week",
+       "title": "Period"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/journal/modes": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 journal"
+    ],
+    "summary": "The four modes with icon + colour keys (static)",
+    "operationId": "modes_v1_journal_modes_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/journal/prompt": {
+   "post": {
+    "tags": [
+     "v1 \u00b7 journal"
+    ],
+    "summary": "A prompt for the chosen mode + mood. Dataset first; guided can be personalised",
+    "operationId": "prompt_v1_journal_prompt_post",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PromptIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/journal/entries": {
+   "post": {
+    "tags": [
+     "v1 \u00b7 journal"
+    ],
+    "summary": "Create an entry (draft or saved). Safety-checked; feeds the Mood Orb",
+    "operationId": "create_entry_v1_journal_entries_post",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/EntryIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "get": {
+    "tags": [
+     "v1 \u00b7 journal"
+    ],
+    "summary": "List entries, newest first. Filter by mode, theme, day range",
+    "operationId": "list_entries_v1_journal_entries_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 50,
+       "minimum": 1,
+       "default": 20,
+       "title": "Limit"
+      }
+     },
+     {
+      "name": "cursor",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Cursor"
+      }
+     },
+     {
+      "name": "mode",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "enum": [
+          "free",
+          "guided",
+          "gratitude",
+          "ritual"
+         ],
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Mode"
+      }
+     },
+     {
+      "name": "theme",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Theme"
+      }
+     },
+     {
+      "name": "status",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "saved",
+        "draft",
+        "all"
+       ],
+       "type": "string",
+       "default": "saved",
+       "title": "Status"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/journal/entries/{entry_id}": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 journal"
+    ],
+    "summary": "One entry with its stored reflection",
+    "operationId": "get_entry_v1_journal_entries__entry_id__get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "entry_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Entry Id"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "patch": {
+    "tags": [
+     "v1 \u00b7 journal"
+    ],
+    "summary": "Edit an entry, save a draft, save the user's reframe or mood after",
+    "operationId": "patch_entry_v1_journal_entries__entry_id__patch",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "entry_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Entry Id"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/EntryPatch"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "v1 \u00b7 journal"
+    ],
+    "summary": "Delete an entry (and the check-in it created)",
+    "operationId": "delete_entry_v1_journal_entries__entry_id__delete",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "entry_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Entry Id"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/journal/entries/{entry_id}/reflect": {
+   "post": {
+    "tags": [
+     "v1 \u00b7 journal"
+    ],
+    "summary": "Lucille reflects + optional reframe + tuned soundscape (stored; repeat calls are free)",
+    "operationId": "reflect_v1_journal_entries__entry_id__reflect_post",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "entry_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Entry Id"
+      }
+     },
+     {
+      "name": "regenerate",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "boolean",
+       "default": false,
+       "title": "Regenerate"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/journal/insights": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 journal"
+    ],
+    "summary": "14-day mood line, top themes, what feeds the Energy Scan",
+    "operationId": "insights_v1_journal_insights_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "days",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 90,
+       "minimum": 7,
+       "default": 14,
+       "title": "Days"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/journal/weekly": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 journal"
+    ],
+    "summary": "Lucille's weekly reflection (generated once per week, then free)",
+    "operationId": "weekly_v1_journal_weekly_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/journal/resurface": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 journal"
+    ],
+    "summary": "'On this day': an entry from ~1 month, 3 months or 1 year ago",
+    "operationId": "resurface_v1_journal_resurface_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/journal/letters": {
+   "post": {
+    "tags": [
+     "v1 \u00b7 journal"
+    ],
+    "summary": "Seal a letter to future you (7 / 30 / 90 days)",
+    "operationId": "create_letter_v1_journal_letters_post",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/LetterIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "get": {
+    "tags": [
+     "v1 \u00b7 journal"
+    ],
+    "summary": "Your letters. Bodies stay sealed until their delivery date",
+    "operationId": "list_letters_v1_journal_letters_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/journal/letters/{letter_id}": {
+   "delete": {
+    "tags": [
+     "v1 \u00b7 journal"
+    ],
+    "summary": "Delete Letter",
+    "operationId": "delete_letter_v1_journal_letters__letter_id__delete",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "letter_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Letter Id"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/soundscapes/categories": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "The 9 music categories (static; cache 24h)",
+    "operationId": "categories_v1_soundscapes_categories_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/soundscapes/catalog": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "Browse tracks by category / mode / search. Audio = intro + 4 bodies + outro",
+    "operationId": "browse_v1_soundscapes_catalog_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "category",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "enum": [
+          "music_meditations",
+          "vaporwave",
+          "jazz",
+          "nature",
+          "binaural_beats",
+          "brainwave_music",
+          "raw_frequencies",
+          "sleep_ambient",
+          "depression_anxiety"
+         ],
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Category"
+      }
+     },
+     {
+      "name": "mode",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "enum": [
+          "picks",
+          "focus",
+          "calm",
+          "sleep",
+          "move"
+         ],
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Mode"
+      }
+     },
+     {
+      "name": "q",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string",
+         "maxLength": 60
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Q"
+      }
+     },
+     {
+      "name": "word",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Word"
+      }
+     },
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 100,
+       "minimum": 1,
+       "default": 40,
+       "title": "Limit"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/soundscapes/tracks/{track_id}": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "One track with segment URLs and its Mood Orb loop",
+    "operationId": "track_v1_soundscapes_tracks__track_id__get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "track_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Track Id"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/soundscapes/visual": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "Nearest of the 36 Mood Orb loops for a mode + Mood Field (+ night twin)",
+    "operationId": "visual_v1_soundscapes_visual_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "mode",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "picks",
+        "focus",
+        "calm",
+        "sleep",
+        "move"
+       ],
+       "type": "string",
+       "default": "picks",
+       "title": "Mode"
+      }
+     },
+     {
+      "name": "energy",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "number",
+       "maximum": 1,
+       "minimum": 0,
+       "default": 0.5,
+       "title": "Energy"
+      }
+     },
+     {
+      "name": "texture",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "number",
+       "maximum": 1,
+       "minimum": 0,
+       "default": 0.5,
+       "title": "Texture"
+      }
+     },
+     {
+      "name": "lat",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Lat"
+      }
+     },
+     {
+      "name": "lon",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Lon"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/soundscapes/inputs-now": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "Inner Weather: day phase, sun, night flag, weather (cache 15 min)",
+    "operationId": "inputs_now_v1_soundscapes_inputs_now_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "lat",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number",
+         "maximum": 90,
+         "minimum": -90
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Lat"
+      }
+     },
+     {
+      "name": "lon",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number",
+         "maximum": 180,
+         "minimum": -180
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Lon"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/soundscapes/pick": {
+   "post": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "Play for right now (Lucille Picks) or best match for a mode + Mood Field",
+    "operationId": "pick_v1_soundscapes_pick_post",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PickIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/soundscapes/daily-drop": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "Lucille's Daily Drop for your cohort (date x time zone x weather)",
+    "operationId": "daily_drop_v1_soundscapes_daily_drop_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "lat",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Lat"
+      }
+     },
+     {
+      "name": "lon",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Lon"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/soundscapes/home": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "Soundscapes home in one call: play-now pick, inner weather, daily drop, categories, recents",
+    "operationId": "home_v1_soundscapes_home_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "lat",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Lat"
+      }
+     },
+     {
+      "name": "lon",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Lon"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/soundscapes/compose": {
+   "post": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "Lucille Compose: queue a personal soundscape render (daily limit)",
+    "operationId": "compose_v1_soundscapes_compose_post",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ComposeIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "202": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/soundscapes/compositions": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "Your compositions, newest first",
+    "operationId": "compositions_v1_soundscapes_compositions_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 50,
+       "minimum": 1,
+       "default": 20,
+       "title": "Limit"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/soundscapes/compositions/{cid}": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "Poll a composition (or listen to the Firestore doc in real time)",
+    "operationId": "composition_v1_soundscapes_compositions__cid__get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "cid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Cid"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/soundscapes/sessions": {
+   "post": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "Start a listening session (optionally with the 10-second mood check-in)",
+    "operationId": "start_session_v1_soundscapes_sessions_post",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/SessionIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "get": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "Listening history",
+    "operationId": "sessions_v1_soundscapes_sessions_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 100,
+       "minimum": 1,
+       "default": 20,
+       "title": "Limit"
+      }
+     },
+     {
+      "name": "cursor",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Cursor"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/soundscapes/sessions/{sid}/complete": {
+   "post": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "End a session: streak, coins (1 per 5 min), before/after mood",
+    "operationId": "complete_session_v1_soundscapes_sessions__sid__complete_post",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "sid",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Sid"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/SessionDoneIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/soundscapes/library": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "Saved tracks and compositions",
+    "operationId": "library_v1_soundscapes_library_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/soundscapes/library/{item_id}": {
+   "put": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "Save a track (trackId) or composition (cmp_...) to the Library",
+    "operationId": "save_v1_soundscapes_library__item_id__put",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "item_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Item Id"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "v1 \u00b7 soundscapes"
+    ],
+    "summary": "Unsave",
+    "operationId": "unsave_v1_soundscapes_library__item_id__delete",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "item_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Item Id"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/selfcare/score": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 self-care"
+    ],
+    "summary": "Self-Care Score 0-100 with components and one next step (cached per day)",
+    "operationId": "score_v1_selfcare_score_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/selfcare/score/history": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 self-care"
+    ],
+    "summary": "Daily score snapshots",
+    "operationId": "score_history_v1_selfcare_score_history_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "days",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 180,
+       "minimum": 7,
+       "default": 30,
+       "title": "Days"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/selfcare/activities": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 self-care"
+    ],
+    "summary": "The self-care activity library (every item is a real in-app destination)",
+    "operationId": "activities_v1_selfcare_activities_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/selfcare/goals": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 self-care"
+    ],
+    "summary": "Goals a plan can be built around",
+    "operationId": "goals_v1_selfcare_goals_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/selfcare/plans": {
+   "post": {
+    "tags": [
+     "v1 \u00b7 self-care"
+    ],
+    "summary": "Build a plan (catalog today; 'claude' provider when enabled)",
+    "operationId": "create_v1_selfcare_plans_post",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PlanIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/selfcare/plans/active": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 self-care"
+    ],
+    "summary": "Active plan + today's steps",
+    "operationId": "active_v1_selfcare_plans_active_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/selfcare/plans/{plan_id}/items/{item_id}/complete": {
+   "post": {
+    "tags": [
+     "v1 \u00b7 self-care"
+    ],
+    "summary": "Tick off a plan step (coins + streak)",
+    "operationId": "complete_item_v1_selfcare_plans__plan_id__items__item_id__complete_post",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "plan_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Plan Id"
+      }
+     },
+     {
+      "name": "item_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Item Id"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/selfcare/plans/{plan_id}": {
+   "delete": {
+    "tags": [
+     "v1 \u00b7 self-care"
+    ],
+    "summary": "Delete Plan",
+    "operationId": "delete_plan_v1_selfcare_plans__plan_id__delete",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "plan_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "title": "Plan Id"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/privacy/purposes": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 privacy (GDPR)"
+    ],
+    "summary": "What each consent covers (show in onboarding + Settings)",
+    "operationId": "purposes_v1_privacy_purposes_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/privacy/consents": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 privacy (GDPR)"
+    ],
+    "summary": "Current consent flags + history",
+    "operationId": "get_consents_v1_privacy_consents_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "put": {
+    "tags": [
+     "v1 \u00b7 privacy (GDPR)"
+    ],
+    "summary": "Grant or withdraw consents (withdrawal is as easy as granting)",
+    "operationId": "put_consents_v1_privacy_consents_put",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ConsentsIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/privacy/restrict": {
+   "post": {
+    "tags": [
+     "v1 \u00b7 privacy (GDPR)"
+    ],
+    "summary": "Art. 18: pause all optional processing (AI reflection, personalisation, analytics)",
+    "operationId": "restrict_v1_privacy_restrict_post",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/RestrictIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/privacy/disclosure": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 privacy (GDPR)"
+    ],
+    "summary": "AI disclosure, crisis resources, what Escape stores (show on first chat + every few hours)",
+    "operationId": "disclosure_v1_privacy_disclosure_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/privacy/export": {
+   "get": {
+    "tags": [
+     "v1 \u00b7 privacy (GDPR)"
+    ],
+    "summary": "Art. 15/20: everything we hold for you as JSON (v1 data + legacy Lucille data)",
+    "operationId": "export_v1_privacy_export_get",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "includeLegacy",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "boolean",
+       "default": true,
+       "title": "Includelegacy"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/privacy/data": {
+   "delete": {
+    "tags": [
+     "v1 \u00b7 privacy (GDPR)"
+    ],
+    "summary": "Art. 17: erase one area (mood, journal, soundscapes, plans) or all v1 data",
+    "operationId": "delete_scope_v1_privacy_data_delete",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "scope",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "enum": [
+        "mood",
+        "journal",
+        "soundscapes",
+        "plans",
+        "all"
+       ],
+       "type": "string",
+       "title": "Scope"
+      }
+     },
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/privacy/delete-account": {
+   "post": {
+    "tags": [
+     "v1 \u00b7 privacy (GDPR)"
+    ],
+    "summary": "Art. 17: delete the account and all data (v1 + legacy + Firebase Auth)",
+    "operationId": "delete_account_v1_privacy_delete_account_post",
+    "security": [
+     {
+      "HTTPBearer": []
+     }
+    ],
+    "parameters": [
+     {
+      "name": "X-Timezone",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Timezone"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/DeleteAccountIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "components": {
+  "schemas": {
+   "CheckinIn": {
+    "properties": {
+     "source": {
+      "type": "string",
+      "enum": [
+       "scan",
+       "tap",
+       "voice",
+       "text",
+       "journal",
+       "session_before",
+       "session_after",
+       "energy_scan",
+       "checkin",
+       "healthkit"
+      ],
+      "title": "Source",
+      "default": "scan"
+     },
+     "word": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Word",
+      "description": "Mood word the user tapped, e.g. 'Restless'"
+     },
+     "valence": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 1.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Valence",
+      "description": "Mood Field x: unpleasant 0 -> pleasant 1"
+     },
+     "energy": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 1.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Energy",
+      "description": "Mood Field y: calm 0 -> charged 1"
+     },
+     "text": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 2000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Text",
+      "description": "Voice transcript or typed words"
+     },
+     "pulse": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/PulseIn"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "tags": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "maxItems": 12,
+      "title": "Tags"
+     },
+     "note": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 1000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Note"
+     },
+     "journalEntryId": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Journalentryid"
+     },
+     "sessionId": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Sessionid"
+     },
+     "lat": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 90.0,
+        "minimum": -90.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Lat",
+      "description": "Only to pick day/night orb; not stored"
+     },
+     "lon": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 180.0,
+        "minimum": -180.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Lon"
+     }
+    },
+    "type": "object",
+    "title": "CheckinIn"
+   },
+   "ComposeIn": {
+    "properties": {
+     "prompt": {
+      "type": "string",
+      "maxLength": 400,
+      "minLength": 3,
+      "title": "Prompt"
+     },
+     "mode": {
+      "type": "string",
+      "enum": [
+       "picks",
+       "focus",
+       "calm",
+       "sleep",
+       "move"
+      ],
+      "title": "Mode",
+      "default": "calm"
+     },
+     "minutes": {
+      "type": "integer",
+      "maximum": 240.0,
+      "minimum": 5.0,
+      "title": "Minutes",
+      "default": 30
+     },
+     "brainwave": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "delta",
+         "theta",
+         "alpha",
+         "beta"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Brainwave"
+     },
+     "moodField": {
+      "$ref": "#/components/schemas/MoodField"
+     },
+     "useInnerWeather": {
+      "type": "boolean",
+      "title": "Useinnerweather",
+      "default": false
+     },
+     "lat": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Lat"
+     },
+     "lon": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Lon"
+     }
+    },
+    "type": "object",
+    "required": [
+     "prompt"
+    ],
+    "title": "ComposeIn"
+   },
+   "ConsentsIn": {
+    "properties": {
+     "flags": {
+      "additionalProperties": {
+       "type": "boolean"
+      },
+      "type": "object",
+      "title": "Flags",
+      "description": "Any of: wellbeing_data, ai_reflection, camera_scan, voice, health_data, location_weather, personalization, analytics"
+     },
+     "policyVersion": {
+      "type": "string",
+      "title": "Policyversion",
+      "default": "2026-10"
+     }
+    },
+    "type": "object",
+    "required": [
+     "flags"
+    ],
+    "title": "ConsentsIn"
+   },
+   "DeleteAccountIn": {
+    "properties": {
+     "confirm": {
+      "type": "string",
+      "const": "DELETE",
+      "title": "Confirm"
+     },
+     "alsoDeleteAuthAccount": {
+      "type": "boolean",
+      "title": "Alsodeleteauthaccount",
+      "default": true
+     },
+     "alsoDeleteLegacyData": {
+      "type": "boolean",
+      "title": "Alsodeletelegacydata",
+      "default": true
+     }
+    },
+    "type": "object",
+    "required": [
+     "confirm"
+    ],
+    "title": "DeleteAccountIn"
+   },
+   "EntryIn": {
+    "properties": {
+     "mode": {
+      "type": "string",
+      "enum": [
+       "free",
+       "guided",
+       "gratitude",
+       "ritual"
+      ],
+      "title": "Mode",
+      "default": "free"
+     },
+     "status": {
+      "type": "string",
+      "enum": [
+       "draft",
+       "saved"
+      ],
+      "title": "Status",
+      "default": "saved"
+     },
+     "title": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 140
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Title"
+     },
+     "body": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 20000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Body"
+     },
+     "gratitude": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "maxItems": 3,
+      "title": "Gratitude"
+     },
+     "intention": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 500
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Intention"
+     },
+     "prompt": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 500
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Prompt"
+     },
+     "moodSeed": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/MoodSeed"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "tags": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "maxItems": 12,
+      "title": "Tags"
+     },
+     "energyCenter": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "grounding",
+         "creativity",
+         "power",
+         "connection",
+         "expression",
+         "intuition",
+         "purpose"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Energycenter"
+     },
+     "voice": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/VoiceIn"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "photoPath": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Photopath"
+     },
+     "breathFirst": {
+      "type": "boolean",
+      "title": "Breathfirst",
+      "default": false
+     }
+    },
+    "type": "object",
+    "title": "EntryIn"
+   },
+   "EntryPatch": {
+    "properties": {
+     "status": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "draft",
+         "saved"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Status"
+     },
+     "title": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 140
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Title"
+     },
+     "body": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 20000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Body"
+     },
+     "gratitude": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "string"
+        },
+        "type": "array",
+        "maxItems": 3
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Gratitude"
+     },
+     "intention": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 500
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Intention"
+     },
+     "tags": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "string"
+        },
+        "type": "array",
+        "maxItems": 12
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Tags"
+     },
+     "energyCenter": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Energycenter"
+     },
+     "photoPath": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Photopath"
+     },
+     "userReframe": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 1000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Userreframe"
+     },
+     "moodAfter": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Moodafter",
+      "description": "Mood word after reflecting"
+     }
+    },
+    "type": "object",
+    "title": "EntryPatch"
+   },
+   "HTTPValidationError": {
+    "properties": {
+     "detail": {
+      "items": {
+       "$ref": "#/components/schemas/ValidationError"
+      },
+      "type": "array",
+      "title": "Detail"
+     }
+    },
+    "type": "object",
+    "title": "HTTPValidationError"
+   },
+   "InterpretIn": {
+    "properties": {
+     "text": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 2000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Text"
+     },
+     "word": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Word"
+     },
+     "valence": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 1.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Valence"
+     },
+     "energy": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 1.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Energy"
+     },
+     "pulse": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/PulseIn"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    },
+    "type": "object",
+    "title": "InterpretIn"
+   },
+   "Job": {
+    "properties": {
+     "dryRun": {
+      "type": "boolean",
+      "title": "Dryrun",
+      "default": false
+     }
+    },
+    "type": "object",
+    "title": "Job"
+   },
+   "LetterIn": {
+    "properties": {
+     "body": {
+      "type": "string",
+      "maxLength": 10000,
+      "minLength": 1,
+      "title": "Body"
+     },
+     "deliverInDays": {
+      "type": "integer",
+      "enum": [
+       7,
+       30,
+       90
+      ],
+      "title": "Deliverindays",
+      "default": 30
+     },
+     "moodWord": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Moodword"
+     }
+    },
+    "type": "object",
+    "required": [
+     "body"
+    ],
+    "title": "LetterIn"
+   },
+   "MoodField": {
+    "properties": {
+     "energy": {
+      "type": "number",
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Energy",
+      "description": "calm 0 -> charged 1",
+      "default": 0.5
+     },
+     "texture": {
+      "type": "number",
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Texture",
+      "description": "grounded 0 -> dreamy 1",
+      "default": 0.5
+     }
+    },
+    "type": "object",
+    "title": "MoodField"
+   },
+   "MoodSeed": {
+    "properties": {
+     "checkinId": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Checkinid"
+     },
+     "word": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Word"
+     },
+     "valence": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 1.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Valence"
+     },
+     "energy": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 1.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Energy"
+     },
+     "bpm": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Bpm"
+     },
+     "text": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 1000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Text"
+     }
+    },
+    "type": "object",
+    "title": "MoodSeed"
+   },
+   "PickIn": {
+    "properties": {
+     "mode": {
+      "type": "string",
+      "enum": [
+       "picks",
+       "focus",
+       "calm",
+       "sleep",
+       "move"
+      ],
+      "title": "Mode",
+      "default": "picks"
+     },
+     "moodField": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/MoodField"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "lat": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 90.0,
+        "minimum": -90.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Lat"
+     },
+     "lon": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 180.0,
+        "minimum": -180.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Lon"
+     }
+    },
+    "type": "object",
+    "title": "PickIn"
+   },
+   "PlanIn": {
+    "properties": {
+     "goals": {
+      "items": {
+       "type": "string",
+       "enum": [
+        "sleep_better",
+        "less_stress",
+        "focus",
+        "lift_mood",
+        "move_more",
+        "connect",
+        "know_myself"
+       ]
+      },
+      "type": "array",
+      "maxItems": 3,
+      "minItems": 1,
+      "title": "Goals"
+     },
+     "minutesPerDay": {
+      "type": "integer",
+      "maximum": 90.0,
+      "minimum": 5.0,
+      "title": "Minutesperday",
+      "default": 15
+     },
+     "days": {
+      "type": "integer",
+      "maximum": 14.0,
+      "minimum": 3.0,
+      "title": "Days",
+      "default": 7
+     },
+     "provider": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "catalog",
+         "claude"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Provider"
+     }
+    },
+    "type": "object",
+    "required": [
+     "goals"
+    ],
+    "title": "PlanIn"
+   },
+   "PrefsIn": {
+    "properties": {
+     "timezone": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 64
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Timezone",
+      "description": "IANA, e.g. America/New_York"
+     },
+     "displayName": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 60
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Displayname"
+     },
+     "wakeTime": {
+      "anyOf": [
+       {
+        "type": "string",
+        "pattern": "^\\d{2}:\\d{2}$"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Waketime"
+     },
+     "birthYear": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "maximum": 2030.0,
+        "minimum": 1900.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Birthyear",
+      "description": "For minor protections; stored as an age band only"
+     },
+     "blend": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Blend"
+     },
+     "lucilleWhisper": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Lucillewhisper"
+     },
+     "defaultBrainwave": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "delta",
+         "theta",
+         "alpha",
+         "beta"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Defaultbrainwave"
+     },
+     "isPremium": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Ispremium",
+      "description": "Ignored from clients; set by the RevenueCat webhook"
+     }
+    },
+    "type": "object",
+    "title": "PrefsIn"
+   },
+   "PromptIn": {
+    "properties": {
+     "mode": {
+      "type": "string",
+      "enum": [
+       "free",
+       "guided",
+       "gratitude",
+       "ritual"
+      ],
+      "title": "Mode",
+      "default": "free"
+     },
+     "word": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Word"
+     },
+     "personalize": {
+      "type": "boolean",
+      "title": "Personalize",
+      "description": "Guided mode only: let Lucille tailor the prompt (counts toward quota)",
+      "default": false
+     }
+    },
+    "type": "object",
+    "title": "PromptIn"
+   },
+   "PulseIn": {
+    "properties": {
+     "bpm": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 220.0,
+        "minimum": 30.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Bpm"
+     },
+     "hrv": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 400.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Hrv"
+     },
+     "quality": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 1.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Quality",
+      "description": "rPPG signal quality 0-1"
+     }
+    },
+    "type": "object",
+    "title": "PulseIn"
+   },
+   "RestrictIn": {
+    "properties": {
+     "restricted": {
+      "type": "boolean",
+      "title": "Restricted"
+     }
+    },
+    "type": "object",
+    "required": [
+     "restricted"
+    ],
+    "title": "RestrictIn"
+   },
+   "SessionDoneIn": {
+    "properties": {
+     "minutes": {
+      "type": "number",
+      "maximum": 600.0,
+      "minimum": 0.0,
+      "title": "Minutes"
+     },
+     "completed": {
+      "type": "boolean",
+      "title": "Completed",
+      "default": true
+     },
+     "moodAfter": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Moodafter"
+     }
+    },
+    "type": "object",
+    "required": [
+     "minutes"
+    ],
+    "title": "SessionDoneIn"
+   },
+   "SessionIn": {
+    "properties": {
+     "trackId": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Trackid"
+     },
+     "compositionId": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Compositionid"
+     },
+     "mode": {
+      "type": "string",
+      "enum": [
+       "picks",
+       "focus",
+       "calm",
+       "sleep",
+       "move"
+      ],
+      "title": "Mode",
+      "default": "calm"
+     },
+     "startedFrom": {
+      "type": "string",
+      "enum": [
+       "playNow",
+       "mode",
+       "category",
+       "compose",
+       "dailyDrop",
+       "journal",
+       "suggestion",
+       "library"
+      ],
+      "title": "Startedfrom",
+      "default": "mode"
+     },
+     "timerMinutes": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "maximum": 240.0,
+        "minimum": 5.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Timerminutes"
+     },
+     "moodField": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/MoodField"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "moodBefore": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Moodbefore",
+      "description": "Mood word from the 10-second check-in"
+     }
+    },
+    "type": "object",
+    "title": "SessionIn"
+   },
+   "ValidationError": {
+    "properties": {
+     "loc": {
+      "items": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "integer"
+        }
+       ]
+      },
+      "type": "array",
+      "title": "Location"
+     },
+     "msg": {
+      "type": "string",
+      "title": "Message"
+     },
+     "type": {
+      "type": "string",
+      "title": "Error Type"
+     },
+     "input": {
+      "title": "Input"
+     },
+     "ctx": {
+      "type": "object",
+      "title": "Context"
+     }
+    },
+    "type": "object",
+    "required": [
+     "loc",
+     "msg",
+     "type"
+    ],
+    "title": "ValidationError"
+   },
+   "VoiceIn": {
+    "properties": {
+     "transcript": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 20000
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Transcript"
+     },
+     "audioPath": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Audiopath",
+      "description": "Firebase Storage path, if the user kept the audio"
+     },
+     "durationSec": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Durationsec"
+     }
+    },
+    "type": "object",
+    "title": "VoiceIn"
+   }
+  },
+  "securitySchemes": {
+   "HTTPBearer": {
+    "type": "http",
+    "scheme": "bearer"
+   }
+  }
+ },
+ "servers": [
+  {
+   "url": "https://lucille-861854898360.us-central1.run.app",
+   "description": "Production (Cloud Run)"
+  }
+ ]
+}
