@@ -1,0 +1,108 @@
+name: Soundscapes iOS tests
+
+# Builds and runs the escape_soundscapes module's unit tests (test spec "Tests") on an
+# iOS 17+ simulator. macOS minutes count 10x on this private repo, so this only runs on
+# pull requests into main that touch the module (or by hand from the Actions tab).
+# Local equivalent:
+#   xcodebuild test -workspace ios/Runner.xcworkspace -scheme escape_soundscapes-Unit-Tests ...
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'dependencies/escape_soundscapes/**'
+      - 'ios/Podfile'
+      - 'pubspec.yaml'
+      - '.github/workflows/soundscapes-tests.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit-tests:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          lfs: false # LFS budget is exhausted; the tests don't need the media files
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.41.9'
+          channel: stable
+          cache: true
+
+      - name: Flutter dependencies and iOS config
+        run: |
+          flutter precache --ios
+          flutter pub get
+          flutter build ios --simulator --config-only
+
+      - name: Cache CocoaPods
+        uses: actions/cache@v4
+        with:
+          path: |
+            ios/Pods
+            ~/Library/Caches/CocoaPods
+          key: pods-${{ runner.os }}-${{ hashFiles('ios/Podfile', 'pubspec.lock', 'dependencies/escape_soundscapes/ios/escape_soundscapes.podspec') }}
+          restore-keys: pods-${{ runner.os }}-
+
+      - name: Pod install
+        working-directory: ios
+        run: pod install --repo-update
+
+      - name: Cache DerivedData and SPM packages
+        uses: actions/cache@v4
+        with:
+          path: build/DerivedData
+          key: dd-${{ runner.os }}-${{ hashFiles('ios/Podfile', 'pubspec.lock', 'dependencies/escape_soundscapes/ios/escape_soundscapes.podspec') }}-${{ hashFiles('dependencies/escape_soundscapes/ios/Classes/**', 'dependencies/escape_soundscapes/ios/Tests/**') }}
+          restore-keys: |
+            dd-${{ runner.os }}-${{ hashFiles('ios/Podfile', 'pubspec.lock', 'dependencies/escape_soundscapes/ios/escape_soundscapes.podspec') }}-
+            dd-${{ runner.os }}-
+
+      - name: Pick an iOS 17+ iPhone simulator
+        id: sim
+        run: |
+          UDID=$(xcrun simctl list devices available -j | python3 -c '
+          import json, sys
+          devices = json.load(sys.stdin)["devices"]
+          def version(runtime):
+              parts = runtime.split("iOS-")[-1].split("-")
+              return tuple(int(p) for p in parts if p.isdigit())
+          for runtime in sorted((r for r in devices if "iOS" in r), key=version, reverse=True):
+              if version(runtime)[0] < 17:
+                  continue
+              for d in devices[runtime]:
+                  if d["name"].startswith("iPhone"):
+                      print(d["udid"]); sys.exit()
+          ')
+          if [ -z "$UDID" ]; then echo "No iOS 17+ iPhone simulator found"; xcrun simctl list devices available; exit 1; fi
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+
+      - name: Run unit tests
+        run: |
+          set -o pipefail
+          xcodebuild test \
+            -workspace ios/Runner.xcworkspace \
+            -scheme escape_soundscapes-Unit-Tests \
+            -destination "id=${{ steps.sim.outputs.udid }}" \
+            -derivedDataPath build/DerivedData \
+            -clonedSourcePackagesDirPath build/DerivedData/SourcePackages \
+            -resultBundlePath TestResults.xcresult \
+            CODE_SIGNING_ALLOWED=NO \
+            | tee xcodebuild.log \
+            | grep -E "Test Case|error:|Executed|TEST (SUCCEEDED|FAILED)"
+
+      - name: Upload test results
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: soundscapes-test-results
+          path: |
+            TestResults.xcresult
+            xcodebuild.log
+          retention-days: 7
