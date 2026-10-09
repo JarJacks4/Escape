@@ -18,3 +18,18 @@ Then:
    `LEGACY_REQUIRE_AUTH` later.
 
 Full step-by-step for each intern: see the "Lucille v1 — Monday launch guide" page.
+
+## Project check (escape-self-care-505618)
+
+Everything runs in **escape-self-care-505618** (project number 861854898360): Firebase sign-in, Firestore and the
+`lucille` Cloud Run service. All 12 API groups in this app already use `https://lucille-861854898360.us-central1.run.app`.
+
+Fix in FlutterFlow (the repo copy is patched on this branch, but FlutterFlow regenerates it):
+* **that_audio_player library › API Calls › LucilleSoundscapesGroup**: base URL was the dead
+  `https://lucillellm2-286076426888.us-east4.run.app/` (old project). Change it to
+  `https://lucille-861854898360.us-central1.run.app/`, then update the library version in the app.
+
+Not changed (plan a migration): about 430 image/audio URLs in the app still load from the **old** project's bucket
+`escape-self-care-ai.firebasestorage.app`. They work only while that project and bucket stay alive. Copy the files to
+`escape-self-care-505618.firebasestorage.app` (or `escape-self-care-505618-escape-media`) and re-point them in
+FlutterFlow before shutting the old project down.
