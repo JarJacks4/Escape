@@ -14,6 +14,7 @@ public actor LucilleBackedAPI: SoundscapesAPI {
     private var tracks: [String: V1Track] = [:]
     private var categoryInfo: [String: V1Category] = [:]
     private var v1Sessions: [String: String] = [:]   // mock session id -> v1 session id
+    private var sessionTracks: [String: String] = [:] // mock session id -> Lucille track id
     private let firstName: String
     private var nameApplied = false
 
@@ -165,6 +166,7 @@ public actor LucilleBackedAPI: SoundscapesAPI {
     public func startSession(_ req: StartSessionRequest) async throws -> Session {
         let s = try await mock.startSession(req)
         if let cid = req.compositionId, let tid = Self.trackId(cid) {
+            sessionTracks[s.sessionId] = tid
             let mode = tracks[tid]?.mode ?? req.mode.rawValue
             if let v = try? await v1.startSession(trackId: tid, mode: mode) {
                 v1Sessions[s.sessionId] = v.id
@@ -239,7 +241,12 @@ public actor LucilleBackedAPI: SoundscapesAPI {
     public func library(_ filter: LibraryFilter?) async throws -> [LibraryItem] { try await mock.library(filter) }
     public func setOffline(itemId: String, offline: Bool) async throws -> LibraryItem { try await mock.setOffline(itemId: itemId, offline: offline) }
     public func removeFromLibrary(itemId: String) async throws { try await mock.removeFromLibrary(itemId: itemId) }
-    public func saveMemory(sessionId: String, title: String?) async throws -> LibraryItem { try await mock.saveMemory(sessionId: sessionId, title: title) }
+    public func saveMemory(sessionId: String, title: String?) async throws -> LibraryItem {
+        if let tid = sessionTracks[sessionId] {
+            await mock.register(try await lucilleComposition(tid))
+        }
+        return try await mock.saveMemory(sessionId: sessionId, title: title)
+    }
     public func playlists() async throws -> [PlaylistSummary] { try await mock.playlists() }
     public func playlist(_ id: String) async throws -> Playlist { try await mock.playlist(id) }
     public func setLike(playlistId: String, trackId: String, liked: Bool) async throws { try await mock.setLike(playlistId: playlistId, trackId: trackId, liked: liked) }
