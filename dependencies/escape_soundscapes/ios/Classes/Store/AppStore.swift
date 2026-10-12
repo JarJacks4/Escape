@@ -175,6 +175,10 @@ public final class AppStore {
     /// Set by the host app: called instead of showing a placeholder for Home/Realms/Lucille/Profile.
     @ObservationIgnored public var onExitToHost: ((NavTab) -> Void)?
 
+    /// Set by the host app: opens a host page that isn't a tab ("Body" for Move, until the
+    /// Lucille catalog has Move tracks).
+    @ObservationIgnored public var onOpenHostRoute: ((String) -> Void)?
+
     public func selectTab(_ tab: NavTab) {
         if tab != .soundscapes, let exit = onExitToHost {
             exit(tab)
@@ -270,16 +274,17 @@ public final class AppStore {
     /// NowPlaying mode switcher: crossfade into the new mode without leaving the screen.
     public func switchMode(_ mode: ModeId) async {
         guard mode != currentMode else { return }
+        if mode == .move, let open = onOpenHostRoute { open("Body"); return }
         if isLocked(mode) { setSheet(.premium); return }
         currentMode = mode
         do {
             let page = try await loadBrowse(ModeId.browsable.contains(mode) ? mode : .calm)
             guard let pick = page.cards.first(where: { !$0.locked }) else { return }
             let c = try await api.composition(pick.compositionId)
-            nowPlaying = c
-            activeCompositionId = c.compositionId
-            audio.crossfade(to: c)
-            isPlaying = true
+            // A new mode is a new session: fresh timer, full volume, session started in this mode.
+            timerSeconds = (preferences?.timer.minutes ?? 25) * 60
+            audio.setVolume(1)
+            startPlayback(c, from: .mode)
         } catch { handle(error) }
     }
 
@@ -605,6 +610,7 @@ public final class AppStore {
 
     /// Home tab chip (Focus/Calm/Sleep/Move/Realms): setBrowseMode + ModeBrowse.
     public func openBrowse(_ mode: ModeId) async {
+        if mode == .move, let open = onOpenHostRoute { open("Body"); return }
         browseMode = mode
         setScreen(.modeBrowse)
         do { try await loadBrowse(mode) } catch { handle(error) }

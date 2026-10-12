@@ -43,7 +43,7 @@ struct NowPlayingView: View {
     private var idleKey: String { "\(isSleep)-\(touchCount)" }
 
     private var title: String { store.nowPlaying?.title ?? store.currentMode.title }
-    private var subtitle: String { copy?.subtitle ?? "Afternoon Lift · composed by Lucille" }
+    private var subtitle: String { store.nowPlaying?.subtitle ?? copy?.subtitle ?? "Afternoon Lift · composed by Lucille" }
     private var credit: String { store.nowPlaying?.creditLine ?? copy?.aiCredit ?? "Composed by Lucille (AI)" }
     private var whyHeadline: String {
         store.nowPlaying?.whyHeadline ?? copy?.whyHeadline ?? "I tuned this for your afternoon slump."

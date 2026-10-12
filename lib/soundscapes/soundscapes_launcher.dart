@@ -104,6 +104,9 @@ class SoundscapesLauncher {
       case 'Market':
         ctx.goNamed(MarketplaceVersion5Widget.routeName);
         break;
+      case 'Body': // Move mode, until the Lucille catalog has Move tracks
+        ctx.pushNamed(BodyPageVersion5Widget.routeName);
+        break;
     }
   }
 }

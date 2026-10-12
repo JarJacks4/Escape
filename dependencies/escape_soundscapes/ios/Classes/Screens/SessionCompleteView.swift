@@ -15,6 +15,7 @@ struct SessionCompleteView: View {
     private var copy: ContentBundle.SessionCompleteCopy? { store.content?.sessionComplete }
 
     var body: some View {
+        ScrollViewReader { proxy in
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 0) {
                 titles
@@ -29,8 +30,20 @@ struct SessionCompleteView: View {
                     BetaFeedbackCard(copy: store.content?.betaFeedback, onSend: { r, v, n in
                         Task { await store.sendBetaFeedback(calmRating: r, visual: v, note: n) }
                         withAnimation(.easeOut(duration: 0.2)) { feedbackSent = true }
+                        // Stay on the thank-you line instead of jumping back to the top.
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            withAnimation { proxy.scrollTo("feedbackThanks", anchor: .bottom) }
+                        }
                     })
                     .transition(.opacity)
+                } else if feedbackSent {
+                    Text("Thanks for the feedback.")
+                        .font(EscFont.ui(14))
+                        .foregroundStyle(Esc.haze)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(.vertical, 16)
+                        .id("feedbackThanks")
+                        .transition(.opacity)
                 }
             }
             .padding(.horizontal, 24)
@@ -38,6 +51,7 @@ struct SessionCompleteView: View {
             .padding(.top, 20)
             // 48px bottom spacer + room for the bottom nav that RootView draws.
             .padding(.bottom, 48 + Esc.Metrics.navHeight)
+        }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Esc.night.ignoresSafeArea())

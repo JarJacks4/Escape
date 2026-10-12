@@ -64,5 +64,6 @@ extension SoundscapesHostingFactory {
     /// Host hook: called with the tab name ("Home", "Lucille"…) when the user leaves Soundscapes.
     public func setExitHandler(_ handler: @escaping (String) -> Void) {
         store.onExitToHost = { handler($0.rawValue) }
+        store.onOpenHostRoute = { handler($0) }
     }
 }

@@ -143,7 +143,7 @@ public actor LucilleBackedAPI: SoundscapesAPI {
             "mode": (ModeId(rawValue: t.mode) ?? .calm).rawValue,
             "title": t.title,
             "segments": segments,
-            "artist": "Lucille (AI)",
+            "artist": "Lucille",
             "source": "lucille_v1",
             "durationLabel": "\(minutes) min",
             "minutes": minutes,
@@ -152,7 +152,7 @@ public actor LucilleBackedAPI: SoundscapesAPI {
             "createdAt": now,
             "readyAt": now,
         ]
-        if let subtitle { d["subtitle"] = subtitle }
+        d["subtitle"] = "\(subtitle ?? t.category.replacingOccurrences(of: "_", with: " ").capitalized) · \(minutes) min"
         let data = try JSONSerialization.data(withJSONObject: d)
         do {
             return try JSONDecoder().decode(Composition.self, from: data)
@@ -198,17 +198,44 @@ public actor LucilleBackedAPI: SoundscapesAPI {
 
     // MARK: - Not available for Lucille tracks yet
 
-    private static let notYet = APIError.conflict(code: "unavailable",
-                                                  message: "That isn't available for Lucille tracks yet.")
-
+    /// Variation on a Lucille track: another track in the same mode.
     public func variation(of id: String) async throws -> ComposeAccepted {
-        if Self.trackId(id) != nil { throw Self.notYet }
-        return try await mock.variation(of: id)
+        guard let tid = Self.trackId(id) else { return try await mock.variation(of: id) }
+        let pool = try await sameModeTracks(as: tid).filter { $0.id != tid }
+        guard let next = pool.randomElement() else { return try await accepted(tid) }
+        return try await accepted(next.id)
     }
 
+    /// Mood Field "Update soundscape" on a Lucille track: the same-mode track whose Mood Field is
+    /// closest to the one chosen (v1 tracks carry energy/texture), crossfaded in by the store.
     public func retune(_ id: String, moodField: MoodField) async throws -> ComposeAccepted {
-        if Self.trackId(id) != nil { throw Self.notYet }
-        return try await mock.retune(id, moodField: moodField)
+        guard let tid = Self.trackId(id) else { return try await mock.retune(id, moodField: moodField) }
+        let pool = try await sameModeTracks(as: tid)
+        guard let best = Self.nearestTrack(in: pool, to: moodField, avoiding: tid) else { return try await accepted(tid) }
+        return try await accepted(best.id)
+    }
+
+    private func sameModeTracks(as tid: String) async throws -> [V1Track] {
+        let current: V1Track
+        if let t = tracks[tid] { current = t } else { current = try await v1.track(tid); tracks[tid] = current }
+        let list = try await v1.catalog(mode: current.mode)
+        for t in list { tracks[t.id] = t }
+        return list
+    }
+
+    /// Closest by Mood Field distance; skips the current track unless it's the only one.
+    static func nearestTrack(in pool: [V1Track], to f: MoodField, avoiding tid: String) -> V1Track? {
+        func d(_ t: V1Track) -> Double {
+            let de = t.moodField.energy - f.energy, dt = t.moodField.texture - f.texture
+            return de * de + dt * dt
+        }
+        let others = pool.filter { $0.id != tid }
+        return (others.isEmpty ? pool : others).min { d($0) < d($1) }
+    }
+
+    private func accepted(_ tid: String) async throws -> ComposeAccepted {
+        let c = try await lucilleComposition(tid)
+        return ComposeAccepted(compositionId: c.compositionId, status: .ready, etaSec: 0, composition: c)
     }
 
     // MARK: - Everything else: the mock

@@ -22,6 +22,7 @@ struct RootView: View {
         .overlay(alignment: .bottom) {
             if store.showsBottomNav {
                 BottomNavBar(activeTab: store.screen == .hostTab ? store.hostTab : .soundscapes) { store.selectTab($0) }
+                    .ignoresSafeArea(.keyboard, edges: .bottom)
             }
         }
         // Sheets cover everything, nav included (App.tsx zIndex 100).
