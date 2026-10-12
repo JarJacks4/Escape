@@ -64,12 +64,16 @@ class EscapeSoundscapes {
   /// [screen]/[sheet] use the Figma names, e.g. "NowPlaying", "MoodField".
   static Future<void> open({
     bool mock = true,
+    bool lucille = false,
+    String? firstName,
     String? baseUrl,
     String? screen,
     String? sheet,
   }) {
     return _channel.invokeMethod('open', {
       'mock': mock,
+      'lucille': lucille,
+      'firstName': firstName,
       'baseUrl': baseUrl,
       'screen': screen,
       'sheet': sheet,

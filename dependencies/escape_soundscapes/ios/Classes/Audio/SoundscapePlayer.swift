@@ -16,6 +16,8 @@ public final class SoundscapePlayer: AudioEngine {
 
     /// Seconds of overlap between segments.
     public var crossfade: TimeInterval = 4
+    /// Seconds of outro heard before the end-of-session fade starts.
+    static let outroHold: Double = 6
     public var masterVolume: Float = 1 {
         didSet { if rampTasks.isEmpty { players[active].volume = masterVolume } }
     }
@@ -96,6 +98,13 @@ public final class SoundscapePlayer: AudioEngine {
         isEnding = true
         if let outro = scheduler?.outro, current?.role != .outro {
             swap(to: outro)
+            // Rendered Lucille outros run ~1 min: hold a few seconds, then fade out and finish.
+            let player = players[active]
+            Task { @MainActor [weak self] in
+                try? await Task.sleep(for: .seconds(Self.outroHold))
+                guard let self, self.isEnding, self.current?.role == .outro else { return }
+                self.fade(player, to: 0, over: 5) { [weak self] in self?.finish() }
+            }
         } else {
             fade(players[active], to: 0, over: 5) { [weak self] in self?.finish() }
         }

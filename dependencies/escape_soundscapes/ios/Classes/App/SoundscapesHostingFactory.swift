@@ -27,6 +27,24 @@ public final class SoundscapesHostingFactory: NSObject {
         super.init()
     }
 
+    /// Bundled mock for everything except Browse and Now Playing, which use the Lucille v1 catalog.
+    /// `tokenProvider` hands back a Firebase ID token (the plugin's getIdToken channel call).
+    @objc public init(firstName: String?, lucilleTokenProvider: @escaping (@escaping (String?) -> Void) -> Void) {
+        let token: @Sendable () async -> String? = {
+            await withCheckedContinuation { c in
+                DispatchQueue.main.async { lucilleTokenProvider { c.resume(returning: $0) } }
+            }
+        }
+        let api: SoundscapesAPI
+        if let mock = try? MockSoundscapesAPI.bundled() {
+            api = LucilleBackedAPI(mock: mock, client: LucilleV1Client(token: token), firstName: firstName)
+        } else {
+            api = APIClient.dev()
+        }
+        store = AppStore(api: api, audio: SoundscapePlayer(), host: ObjCHostServices())
+        super.init()
+    }
+
     @objc public func makeViewController() -> UIViewController {
         let host = UIHostingController(rootView: RootView().environment(store).preferredColorScheme(.dark))
         host.view.backgroundColor = .clear

@@ -1,7 +1,7 @@
 import Flutter
 import UIKit
 
-/// Flutter bridge. Methods: isSupported, open({mock, baseUrl, screen, sheet}), close.
+/// Flutter bridge. Methods: isSupported, open({mock, lucille, firstName, baseUrl, screen, sheet}), close.
 /// Calls back into Dart: getIdToken (returns a Firebase ID token), onExit(tab), sendFeedback(map).
 public final class EscapeSoundscapesPlugin: NSObject, FlutterPlugin {
     private let channel: FlutterMethodChannel
@@ -75,6 +75,12 @@ public final class EscapeSoundscapesPlugin: NSObject, FlutterPlugin {
                     done(value as? String)
                 }
             }
+        } else if args["lucille"] as? Bool == true {
+            // Browse + Now Playing on the Lucille v1 catalog; everything else stays on the mock.
+            factory = SoundscapesHostingFactory(firstName: args["firstName"] as? String, lucilleTokenProvider: { [weak self] done in
+                guard let self else { done(nil); return }
+                self.channel.invokeMethod("getIdToken", arguments: nil) { value in done(value as? String) }
+            })
         } else {
             factory = SoundscapesHostingFactory(mockData: true)
         }

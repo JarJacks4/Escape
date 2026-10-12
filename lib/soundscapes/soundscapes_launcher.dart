@@ -2,6 +2,8 @@ import 'package:escape_soundscapes/escape_soundscapes.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import '/auth/firebase_auth/auth_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,6 +19,11 @@ class SoundscapesLauncher {
 
   /// Bundled Figma data until the Soundscapes API is deployed.
   static const bool useMock = true;
+
+  /// Browse + Now Playing on the Lucille v1 catalog; the rest stays on the mock until the beta
+  /// blockers are fixed. Turn off with --dart-define=SOUNDSCAPES_LUCILLE=false.
+  static const bool useLucilleCatalog =
+      bool.fromEnvironment('SOUNDSCAPES_LUCILLE', defaultValue: true);
 
   /// Soundscapes API base URL (Cloud Run). Used when [useMock] is false.
   static const String? apiBaseUrl = null;
@@ -48,13 +55,24 @@ class SoundscapesLauncher {
       await actions.pauseAudio();
     } catch (_) {}
     try {
-      await EscapeSoundscapes.open(mock: useMock, baseUrl: apiBaseUrl);
+      await EscapeSoundscapes.open(
+          mock: useMock,
+          baseUrl: apiBaseUrl,
+          lucille: useLucilleCatalog,
+          firstName: _firstName());
     } catch (e) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Could not open Soundscapes: $e')),
       );
     }
+  }
+
+  /// First word of the user's display name, for the module's greeting (null if unknown).
+  static String? _firstName() {
+    final full = currentUserDisplayName.trim();
+    if (full.isEmpty) return null;
+    return full.split(RegExp(r'\s+')).first;
   }
 
   /// Beta feedback from the native module, saved to Firestore (soundscapesBetaFeedback).

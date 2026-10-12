@@ -83,7 +83,7 @@ public actor MockSoundscapesAPI: SoundscapesAPI {
            let stored = try? JSONDecoder().decode([LibraryItem].self, from: data) {
             // Drop items whose composition was generated at runtime and no longer exists.
             let known = compositions
-            library = stored.filter { known[$0.compositionId] != nil }
+            library = stored.filter { known[$0.compositionId] != nil || $0.compositionId.hasPrefix("lv1:") }
         }
         counter = max(counter, defaults.integer(forKey: Self.counterKey))
     }
@@ -342,6 +342,9 @@ public actor MockSoundscapesAPI: SoundscapesAPI {
     }
 
     public func composition(_ id: String) async throws -> Composition { try requireComposition(id) }
+
+    /// Lucille v1 tracks (LucilleBackedAPI): lets the Library save and replay them.
+    public func register(_ c: Composition) { compositions[c.compositionId] = c }
 
     private func child(of id: String, source: String, moodField: MoodField?) async throws -> ComposeAccepted {
         let parent = try requireComposition(id)
