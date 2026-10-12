@@ -19,6 +19,16 @@ public protocol AudioEngine: AnyObject {
     /// 0…1, for the timer's fade-out.
     func setVolume(_ volume: Float)
     var onFinished: (() -> Void)? { get set }
+    /// Layers sheet: band gains on the track, generated Nature / Brainwave, Lucille's Voice level.
+    func setLayers(_ layers: [LayerSetting])
+    /// Lucille Whisper: spoken cues for a topic while a soundscape plays.
+    func setWhisper(enabled: Bool, topic: String)
+}
+
+@available(iOS 17.0, *)
+public extension AudioEngine {
+    func setLayers(_ layers: [LayerSetting]) {}
+    func setWhisper(enabled: Bool, topic: String) {}
 }
 
 @available(iOS 17.0, *)

@@ -57,7 +57,12 @@ public actor MockSoundscapesAPI: SoundscapesAPI {
                           totalShards: u.totalShards, lastSessionDate: nil, hasOnboarded: false, experiments: seed.experiments)
         let timerMinutes = Int(content.timer.default) ?? 25
         prefs = Preferences(
-            moodField: content.moodField.default, blendOn: false, focusShieldOn: false, layers: seed.layers,
+            moodField: content.moodField.default, blendOn: false, focusShieldOn: false, layers: seed.layers.map { s -> LayerSetting in
+                var l = s
+                if ["nature", "brainwave"].contains(l.id) { l.muted = true }       // generated layers start off
+                if ["ambience", "melody", "pulse"].contains(l.id) { l.value = 0.5 } // 0.5 = track as rendered
+                return l
+            },
             whisper: .init(enabled: content.whisper.enabled, selectedTopic: content.whisper.selectedTopic),
             timer: .init(minutes: timerMinutes, fadeOut: content.timer.fadeOut, sunriseWake: content.timer.sunriseWake),
             sleep: .init(whisperIntro: content.sleepSetup.whisperIntro, timer: content.sleepSetup.timer,

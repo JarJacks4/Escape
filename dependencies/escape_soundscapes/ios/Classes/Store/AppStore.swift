@@ -148,6 +148,27 @@ public final class AppStore {
         moodField = p.moodField
         blendOn = p.blendOn
         focusShieldOn = p.focusShieldOn
+        // Whisper speaks only when the Lucille's Voice layer is on too (both start off).
+        if p.whisper.enabled, !Self.voiceOn(p.layers) {
+            preferences?.whisper.enabled = false
+            savePreferences(PreferencesPatch(whisper: .init(enabled: false)))
+        }
+        pushAudioPrefs()
+    }
+
+    private static func voiceOn(_ layers: [LayerSetting]) -> Bool {
+        layers.first { $0.id == "voice" }.map { !$0.muted } ?? true
+    }
+
+    private func pushAudioPrefs() {
+        guard let p = preferences else { return }
+        audio.setLayers(p.layers)
+        pushWhisper()
+    }
+
+    private func pushWhisper() {
+        guard let p = preferences else { return }
+        audio.setWhisper(enabled: p.whisper.enabled, topic: p.whisper.selectedTopic)
     }
 
     // MARK: - Navigation (setScreen / setSheet in store.ts)
@@ -501,14 +522,32 @@ public final class AppStore {
     }
 
     public func updateLayers(_ layers: [LayerSetting]) {
+        let wasVoiceOn = Self.voiceOn(preferences?.layers ?? [])
         preferences?.layers = layers
+        audio.setLayers(layers)
         savePreferences(PreferencesPatch(layers: layers))
+        // The Lucille's Voice switch and the Whisper switch are the same setting.
+        let voiceOn = Self.voiceOn(layers)
+        if voiceOn != wasVoiceOn, let p = preferences, p.whisper.enabled != voiceOn {
+            preferences?.whisper.enabled = voiceOn
+            savePreferences(PreferencesPatch(whisper: .init(enabled: voiceOn)))
+        }
+        pushWhisper()
     }
 
     public func setWhisper(enabled: Bool? = nil, topic: String? = nil) {
         if let enabled { preferences?.whisper.enabled = enabled }
         if let topic { preferences?.whisper.selectedTopic = topic }
         savePreferences(PreferencesPatch(whisper: .init(enabled: enabled, selectedTopic: topic)))
+        // Keep the Lucille's Voice layer in step with the Whisper switch.
+        if let enabled, var layers = preferences?.layers,
+           let i = layers.firstIndex(where: { $0.id == "voice" }), layers[i].muted == enabled {
+            layers[i].muted = !enabled
+            preferences?.layers = layers
+            audio.setLayers(layers)
+            savePreferences(PreferencesPatch(layers: layers))
+        }
+        pushWhisper()
     }
 
     public func updateSleep(_ patch: PreferencesPatch.SleepPatch) {

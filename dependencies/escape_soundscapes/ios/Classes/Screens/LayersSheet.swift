@@ -139,15 +139,15 @@ struct LayersSheet: View {
 
     /// INITIAL_LAYERS in LayersSheet.tsx.
     private static let figmaLayers: [LayerSetting] = [
-        LayerSetting(id: "ambience", label: "Ambience", glyph: "~", value: 0.75, muted: false,
+        LayerSetting(id: "ambience", label: "Ambience", glyph: "~", value: 0.5, muted: false,
                      chips: nil, selectedChip: nil, chipNote: nil),
         LayerSetting(id: "melody", label: "Melody", glyph: "♪", value: 0.5, muted: false,
                      chips: nil, selectedChip: nil, chipNote: nil),
-        LayerSetting(id: "pulse", label: "Pulse", glyph: "●", value: 0.4, muted: false,
+        LayerSetting(id: "pulse", label: "Pulse", glyph: "●", value: 0.5, muted: false,
                      chips: nil, selectedChip: nil, chipNote: nil),
-        LayerSetting(id: "nature", label: "Nature", glyph: "❧", value: 0.6, muted: false,
+        LayerSetting(id: "nature", label: "Nature", glyph: "❧", value: 0.6, muted: true,
                      chips: nil, selectedChip: nil, chipNote: nil),
-        LayerSetting(id: "brainwave", label: "Brainwave", glyph: "⌇", value: 0.5, muted: false,
+        LayerSetting(id: "brainwave", label: "Brainwave", glyph: "⌇", value: 0.5, muted: true,
                      chips: ["Delta", "Theta", "Alpha", "Beta"], selectedChip: "Alpha", chipNote: "Use headphones"),
         LayerSetting(id: "voice", label: "Lucille's Voice", glyph: "◎", value: 0.3, muted: true,
                      chips: nil, selectedChip: nil, chipNote: nil),

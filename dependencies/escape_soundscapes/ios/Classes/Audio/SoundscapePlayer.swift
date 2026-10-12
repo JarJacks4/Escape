@@ -19,7 +19,10 @@ public final class SoundscapePlayer: AudioEngine {
     /// Seconds of outro heard before the end-of-session fade starts.
     static let outroHold: Double = 6
     public var masterVolume: Float = 1 {
-        didSet { if rampTasks.isEmpty { players[active].volume = masterVolume } }
+        didSet {
+            if rampTasks.isEmpty { players[active].volume = effectiveVolume }
+            ambient.master = masterVolume
+        }
     }
     /// Called after the outro finishes (timer ended) or a graceful stop completes.
     public var onFinished: (() -> Void)?
@@ -33,6 +36,13 @@ public final class SoundscapePlayer: AudioEngine {
     private var rampTasks: [Int: Task<Void, Never>] = [:]
     private var blend = false
     private var remoteConfigured = false
+    /// Layers: band gains read by each item's audio tap; Nature / Brainwave; Lucille Whisper.
+    private let layerGains = LayerGains()
+    private let ambient = AmbientSynth()
+    private let whisper = WhisperVoice()
+    /// Music level while Whisper speaks (1 = not ducked).
+    private var duck: Float = 1
+    private var effectiveVolume: Float { masterVolume * duck }
 
     public init() {
         players.forEach { $0.automaticallyWaitsToMinimizeStalling = true }
@@ -40,6 +50,7 @@ public final class SoundscapePlayer: AudioEngine {
                                                object: nil, queue: .main) { [weak self] note in
             MainActor.assumeIsolated { self?.handleInterruption(note) }
         }
+        whisper.onSpeaking = { [weak self] speaking in self?.setDuck(speaking ? 0.45 : 1) }
     }
 
     // MARK: Public controls
@@ -64,6 +75,8 @@ public final class SoundscapePlayer: AudioEngine {
             players[active].seek(to: CMTime(seconds: into, preferredTimescale: 600))
         }
         isPlaying = true
+        ambient.setPlaying(true)
+        whisper.setPlaying(true)
         updateNowPlaying()
     }
 
@@ -80,6 +93,8 @@ public final class SoundscapePlayer: AudioEngine {
 
     public func pause() {
         players.forEach { $0.pause() }
+        ambient.setPlaying(false)
+        whisper.setPlaying(false)
         isPlaying = false
         updateNowPlaying()
     }
@@ -89,6 +104,8 @@ public final class SoundscapePlayer: AudioEngine {
         try? AVAudioSession.sharedInstance().setActive(true)
         players[active].play()
         isPlaying = true
+        ambient.setPlaying(true)
+        whisper.setPlaying(true)
         updateNowPlaying()
     }
 
@@ -96,6 +113,8 @@ public final class SoundscapePlayer: AudioEngine {
     public func finishGracefully() {
         guard current != nil, !isEnding else { return }
         isEnding = true
+        ambient.fadeOut(over: 8)
+        whisper.setPlaying(false)
         if let outro = scheduler?.outro, current?.role != .outro {
             swap(to: outro)
             // Rendered Lucille outros run ~1 min: hold a few seconds, then fade out and finish.
@@ -126,6 +145,8 @@ public final class SoundscapePlayer: AudioEngine {
         current = nil
         isPlaying = false
         transitioning = false
+        ambient.setPlaying(false)
+        whisper.setPlaying(false)
         updateNowPlaying()
     }
 
@@ -137,14 +158,45 @@ public final class SoundscapePlayer: AudioEngine {
         if current != nil { configureSession() }
     }
 
+    /// Layers sheet. Ambience / Melody / Pulse: high / mid / low band of the track (slider -6...+6 dB,
+    /// 0.5 = as rendered; switch off = band muted). Nature, Brainwave: generated. Voice: Whisper level.
+    public func setLayers(_ layers: [LayerSetting]) {
+        func layer(_ id: String) -> LayerSetting? { layers.first { $0.id == id } }
+        func band(_ id: String) -> Float {
+            guard let l = layer(id) else { return 1 }
+            return l.muted ? 0 : Float(pow(2, (min(1, max(0, l.value)) - 0.5) * 2))
+        }
+        layerGains.low = band("pulse")
+        layerGains.mid = band("melody")
+        layerGains.high = band("ambience")
+        let brain = layer("brainwave")
+        let beatHz: Float = ["Delta": 2, "Theta": 6, "Alpha": 10, "Beta": 18][brain?.selectedChip ?? ""] ?? 10
+        ambient.set(nature: layer("nature").map { $0.muted ? 0 : Float($0.value) } ?? 0,
+                    brainwave: brain.map { $0.muted ? 0 : Float($0.value) } ?? 0,
+                    beatHz: beatHz)
+        whisper.volume = layer("voice").map { 0.4 + 0.6 * Float(min(1, max(0, $0.value))) } ?? 0.6
+    }
+
+    public func setWhisper(enabled: Bool, topic: String) {
+        whisper.configure(enabled: enabled, topic: topic)
+    }
+
+    private func setDuck(_ d: Float) {
+        duck = d
+        guard current != nil, !transitioning, !isEnding else { return }
+        fade(players[active], to: effectiveVolume, over: 0.8)
+    }
+
     // MARK: Segments
 
     private func start(_ segment: AudioSegment, on index: Int, fadeIn: TimeInterval) {
         let player = players[index]
-        player.replaceCurrentItem(with: AVPlayerItem(url: segment.url))
+        let item = AVPlayerItem(url: segment.url)
+        LayerEQ.attach(to: item, gains: layerGains)
+        player.replaceCurrentItem(with: item)
         player.volume = 0
         player.play()
-        fade(player, to: masterVolume, over: fadeIn)
+        fade(player, to: effectiveVolume, over: fadeIn)
         current = segment
         observe(player, segment: segment)
     }
@@ -178,6 +230,10 @@ public final class SoundscapePlayer: AudioEngine {
 
     private func tick(_ time: CMTime) {
         guard let segment = current, !transitioning else { return }
+        // Catch up with a duck change that landed mid-crossfade.
+        if rampTasks.isEmpty, !isEnding, abs(players[active].volume - effectiveVolume) > 0.02 {
+            fade(players[active], to: effectiveVolume, over: 0.8)
+        }
         let item = players[active].currentItem
         if item?.status == .failed {
             advance()
@@ -250,6 +306,8 @@ public final class SoundscapePlayer: AudioEngine {
         switch type {
         case .began:
             isPlaying = false
+            ambient.setPlaying(false)
+            whisper.setPlaying(false)
         case .ended:
             let optionsRaw = (note.userInfo?[AVAudioSessionInterruptionOptionKey] as? UInt) ?? 0
             if AVAudioSession.InterruptionOptions(rawValue: optionsRaw).contains(.shouldResume) { resume() }
