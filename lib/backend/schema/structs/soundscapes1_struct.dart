@@ -250,8 +250,8 @@ class Soundscapes1Struct extends FFFirebaseStruct {
         title,
         description,
         durationSeconds,
-        targetEmotions,
-        targetContexts,
+        const ListEquality().hash(targetEmotions),
+        const ListEquality().hash(targetContexts),
         audioUrl,
         icon
       ]);

@@ -421,6 +421,12 @@ final parametersBuilderMap =
   'BodyHelp': ParameterData.none(),
   'JournalHelp': ParameterData.none(),
   'TaiChiMovesChoice': ParameterData.none(),
+  'JournalHomeV2': (data) async => ParameterData(
+        allParams: {
+          'screen': getParameter<String>(data, 'screen'),
+          'mode': getParameter<String>(data, 'mode'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

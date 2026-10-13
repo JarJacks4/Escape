@@ -106,7 +106,7 @@ class _FlutterFlowWebViewState extends State<FlutterFlowWebView> {
       );
 
   Future<List<String>> _androidFilePicker(
-    final FileSelectorParams params,
+    FileSelectorParams params,
   ) async {
     final result = await FilePicker.platform.pickFiles();
 

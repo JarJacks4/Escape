@@ -200,7 +200,10 @@ class _JournalPage1Version5WidgetState
                             child: Align(
                               alignment: AlignmentDirectional(0.0, 0.0),
                               child: FaIcon(
-                                FontAwesomeIcons.solidLightbulb,
+                                FaIconData(const IconData(
+                                    /* solidLightbulb */ 0xf0eb,
+                                    fontFamily: 'FontAwesomeSolid',
+                                    fontPackage: 'font_awesome_flutter')),
                                 color: FlutterFlowTheme.of(context).secondary,
                                 size: 24.0,
                               ),
@@ -720,12 +723,16 @@ class _JournalPage1Version5WidgetState
                                   FFLocalizations.of(context).getText(
                                     'lccc5b3u' /* Gratitude */,
                                   ),
-                                  FontAwesomeIcons.gratipay),
+                                  const IconData(/* gratipay */ 0xf184,
+                                      fontFamily: 'FontAwesomeBrands',
+                                      fontPackage: 'font_awesome_flutter')),
                               ChipData(
                                   FFLocalizations.of(context).getText(
                                     'iq445vos' /* Mindfulness */,
                                   ),
-                                  FontAwesomeIcons.brain),
+                                  const IconData(/* brain */ 0xf5dc,
+                                      fontFamily: 'FontAwesomeSolid',
+                                      fontPackage: 'font_awesome_flutter')),
                               ChipData(
                                   FFLocalizations.of(context).getText(
                                     'izfsa1lx' /* Goals */,

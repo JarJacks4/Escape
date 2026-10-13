@@ -162,8 +162,8 @@ class YouTubeDataAPIStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([kind, etag, nextPageToken, items, pageInfo]);
+  int get hashCode => const ListEquality().hash(
+      [kind, etag, nextPageToken, const ListEquality().hash(items), pageInfo]);
 }
 
 YouTubeDataAPIStruct createYouTubeDataAPIStruct({

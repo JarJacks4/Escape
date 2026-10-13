@@ -208,7 +208,7 @@ class TherapyRecommendatinsLucilleStruct extends FFFirebaseStruct {
         userId,
         detectedEmotion,
         detectedIntent,
-        recommendations,
+        const ListEquality().hash(recommendations),
         count,
         status,
         timestamp

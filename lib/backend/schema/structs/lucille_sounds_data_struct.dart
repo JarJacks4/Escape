@@ -158,8 +158,13 @@ class LucilleSoundsDataStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality()
-      .hash([soundscapes, count, categoryFilter, status, timestamp]);
+  int get hashCode => const ListEquality().hash([
+        const ListEquality().hash(soundscapes),
+        count,
+        categoryFilter,
+        status,
+        timestamp
+      ]);
 }
 
 LucilleSoundsDataStruct createLucilleSoundsDataStruct({

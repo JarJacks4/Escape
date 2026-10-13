@@ -119,8 +119,7 @@ class PlaylistsRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is PlaylistsRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is PlaylistsRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createPlaylistsRecordData({
@@ -171,12 +170,12 @@ class PlaylistsRecordDocumentEquality implements Equality<PlaylistsRecord> {
         e?.playlistId,
         e?.playlistName,
         e?.playlistDescription,
-        e?.tracks,
+        const ListEquality().hash(e?.tracks),
         e?.createdAt,
-        e?.tags,
+        const ListEquality().hash(e?.tags),
         e?.ikes,
         e?.comments,
-        e?.trackItems
+        const ListEquality().hash(e?.trackItems)
       ]);
 
   @override

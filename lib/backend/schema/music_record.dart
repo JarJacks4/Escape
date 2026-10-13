@@ -114,8 +114,7 @@ class MusicRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is MusicRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is MusicRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createMusicRecordData({

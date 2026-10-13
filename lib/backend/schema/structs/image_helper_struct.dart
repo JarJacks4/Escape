@@ -110,7 +110,8 @@ class ImageHelperStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality().hash([isRemoved, imageData, image]);
+  int get hashCode => const ListEquality()
+      .hash([isRemoved, const ListEquality().hash(imageData), image]);
 }
 
 ImageHelperStruct createImageHelperStruct({

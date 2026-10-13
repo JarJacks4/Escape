@@ -38,3 +38,4 @@ export '/custom_code/actions/extract_audio_path.dart' show extractAudioPath;
 export '/custom_code/actions/get_firebase_token.dart' show getFirebaseToken;
 export '/custom_code/actions/send_to_lucille.dart' show sendToLucille;
 export '/custom_code/actions/get_id_token.dart' show getIdToken;
+export '/custom_code/actions/lucille_v1.dart' show lucilleV1;

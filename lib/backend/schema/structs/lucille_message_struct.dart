@@ -131,8 +131,8 @@ class LucilleMessageStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([messages, createdAt, message, sender]);
+  int get hashCode => const ListEquality()
+      .hash([const ListEquality().hash(messages), createdAt, message, sender]);
 }
 
 LucilleMessageStruct createLucilleMessageStruct({

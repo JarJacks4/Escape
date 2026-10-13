@@ -14,3 +14,4 @@ export '/custom_code/functions/challenge_days.dart';
 export '/custom_code/functions/day_status.dart';
 export '/custom_code/functions/days_left.dart';
 export '/custom_code/functions/tomorrow_at.dart';
+export '/custom_code/functions/infinite_size.dart';

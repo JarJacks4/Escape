@@ -820,7 +820,10 @@ Rough moment? Enter your rese... */
                                   buttonSize: 40.0,
                                   fillColor: Color(0xAD00152B),
                                   icon: FaIcon(
-                                    FontAwesomeIcons.angleDown,
+                                    FaIconData(const IconData(
+                                        /* angleDown */ 0xf107,
+                                        fontFamily: 'FontAwesomeSolid',
+                                        fontPackage: 'font_awesome_flutter')),
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     size: 20.0,

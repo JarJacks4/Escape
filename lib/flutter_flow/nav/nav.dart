@@ -14,11 +14,9 @@ import '/backend/push_notifications/push_notifications_handler.dart'
 import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-
 import '/index.dart';
 import 'package:cupertino_time_picker_hiuzb7/index.dart'
     as $cupertino_time_picker_hiuzb7;
-import 'package:tiktokfeed_wz8en7/index.dart' as $tiktokfeed_wz8en7;
 import 'package:confetti_modualo_library_b75kfy/index.dart'
     as $confetti_modualo_library_b75kfy;
 import 'package:utility_functions_library_8g4bud/index.dart'
@@ -91,15 +89,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
   $cupertino_time_picker_hiuzb7.initializeRoutes(
     homePageWidgetName: 'cupertino_time_picker_hiuzb7.HomePage',
     homePageWidgetPath: '/homePage2',
-  );
-
-  $tiktokfeed_wz8en7.initializeRoutes(
-    homePageWidgetName: 'tiktokfeed_wz8en7.HomePage',
-    homePageWidgetPath: '/homePage1',
-    page2WidgetName: 'tiktokfeed_wz8en7.page2',
-    page2WidgetPath: '/page2',
-    reelsWidgetName: 'tiktokfeed_wz8en7.Reels',
-    reelsWidgetPath: '/Reels',
   );
 
   $confetti_modualo_library_b75kfy.initializeRoutes(
@@ -1299,34 +1288,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         builder: (context, params) => TaiChiMovesChoiceWidget(),
       ),
       FFRoute(
-        name: $cupertino_time_picker_hiuzb7.HomePageWidget.routeName,
-        path: $cupertino_time_picker_hiuzb7.HomePageWidget.routePath,
-        builder: (context, params) =>
-            $cupertino_time_picker_hiuzb7.HomePageWidget(),
-      ),
-      FFRoute(
-        name: $tiktokfeed_wz8en7.HomePageWidget.routeName,
-        path: $tiktokfeed_wz8en7.HomePageWidget.routePath,
-        builder: (context, params) => $tiktokfeed_wz8en7.HomePageWidget(
-          oldIndex: params.getParam(
-            'oldIndex',
-            ParamType.int,
+        name: JournalHomeV2Widget.routeName,
+        path: JournalHomeV2Widget.routePath,
+        builder: (context, params) => JournalHomeV2Widget(
+          screen: params.getParam(
+            'screen',
+            ParamType.String,
           ),
-          newIndex: params.getParam(
-            'newIndex',
-            ParamType.int,
+          mode: params.getParam(
+            'mode',
+            ParamType.String,
           ),
         ),
       ),
       FFRoute(
-        name: $tiktokfeed_wz8en7.Page2Widget.routeName,
-        path: $tiktokfeed_wz8en7.Page2Widget.routePath,
-        builder: (context, params) => $tiktokfeed_wz8en7.Page2Widget(),
-      ),
-      FFRoute(
-        name: $tiktokfeed_wz8en7.ReelsWidget.routeName,
-        path: $tiktokfeed_wz8en7.ReelsWidget.routePath,
-        builder: (context, params) => $tiktokfeed_wz8en7.ReelsWidget(),
+        name: $cupertino_time_picker_hiuzb7.HomePageWidget.routeName,
+        path: $cupertino_time_picker_hiuzb7.HomePageWidget.routePath,
+        builder: (context, params) =>
+            $cupertino_time_picker_hiuzb7.HomePageWidget(),
       ),
       FFRoute(
         name: $confetti_modualo_library_b75kfy.HomePageWidget.routeName,
@@ -1513,7 +1492,6 @@ extension _GoRouterStateExtensions on GoRouterState {
     final possibleKeys = [
       '__transition_info__',
       '__transition_info__cupertino_time_picker_hiuzb7',
-      '__transition_info__tiktokfeed_wz8en7',
       '__transition_info__confetti_modualo_library_b75kfy',
       '__transition_info__utility_functions_library_8g4bud',
       '__transition_info__that_audio_player_oo85ab',
@@ -1654,6 +1632,10 @@ class FFRoute {
                     duration: transitionInfo.duration,
                     reverseDuration: transitionInfo.duration,
                     alignment: transitionInfo.alignment,
+                    curve: transitionInfo.transitionType ==
+                            PageTransitionType.scale
+                        ? const Interval(0.0, 0.5)
+                        : Curves.linear,
                     child: child,
                   ).buildTransitions(
                     context,

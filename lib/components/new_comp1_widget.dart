@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'new_comp1_model.dart';
 export 'new_comp1_model.dart';
@@ -156,12 +155,16 @@ class _NewComp1WidgetState extends State<NewComp1Widget> {
                               FFLocalizations.of(context).getText(
                                 'yqfrj7n9' /* Excited */,
                               ),
-                              FontAwesomeIcons.exclamation),
+                              const IconData(/* exclamation */ 0x21,
+                                  fontFamily: 'FontAwesomeSolid',
+                                  fontPackage: 'font_awesome_flutter')),
                           ChipData(
                               FFLocalizations.of(context).getText(
                                 'l75chsbq' /* Peaceful */,
                               ),
-                              FontAwesomeIcons.peace),
+                              const IconData(/* peace */ 0xf67c,
+                                  fontFamily: 'FontAwesomeSolid',
+                                  fontPackage: 'font_awesome_flutter')),
                           ChipData(
                               FFLocalizations.of(context).getText(
                                 'b12f6xqd' /* Confident */,
@@ -395,12 +398,16 @@ class _NewComp1WidgetState extends State<NewComp1Widget> {
                               FFLocalizations.of(context).getText(
                                 '1o61hc1e' /* Frustrated */,
                               ),
-                              FontAwesomeIcons.exclamation),
+                              const IconData(/* exclamation */ 0x21,
+                                  fontFamily: 'FontAwesomeSolid',
+                                  fontPackage: 'font_awesome_flutter')),
                           ChipData(
                               FFLocalizations.of(context).getText(
                                 'knktawa1' /* Nervous */,
                               ),
-                              FontAwesomeIcons.peace),
+                              const IconData(/* peace */ 0xf67c,
+                                  fontFamily: 'FontAwesomeSolid',
+                                  fontPackage: 'font_awesome_flutter')),
                           ChipData(
                               FFLocalizations.of(context).getText(
                                 'eueax11r' /* Overwhelmed */,
@@ -510,12 +517,16 @@ class _NewComp1WidgetState extends State<NewComp1Widget> {
                               FFLocalizations.of(context).getText(
                                 'gy8yjzu7' /* Disappointed */,
                               ),
-                              FontAwesomeIcons.exclamation),
+                              const IconData(/* exclamation */ 0x21,
+                                  fontFamily: 'FontAwesomeSolid',
+                                  fontPackage: 'font_awesome_flutter')),
                           ChipData(
                               FFLocalizations.of(context).getText(
                                 '4qizygt1' /* Lonely */,
                               ),
-                              FontAwesomeIcons.peace),
+                              const IconData(/* peace */ 0xf67c,
+                                  fontFamily: 'FontAwesomeSolid',
+                                  fontPackage: 'font_awesome_flutter')),
                           ChipData(
                               FFLocalizations.of(context).getText(
                                 'qaugnxen' /* Worried */,

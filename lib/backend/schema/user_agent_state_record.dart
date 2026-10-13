@@ -64,8 +64,7 @@ class UserAgentStateRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is UserAgentStateRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is UserAgentStateRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createUserAgentStateRecordData({
@@ -92,8 +91,8 @@ class UserAgentStateRecordDocumentEquality
   }
 
   @override
-  int hash(UserAgentStateRecord? e) =>
-      const ListEquality().hash([e?.userId, e?.uiInstructions]);
+  int hash(UserAgentStateRecord? e) => const ListEquality()
+      .hash([e?.userId, const ListEquality().hash(e?.uiInstructions)]);
 
   @override
   bool isValidKey(Object? o) => o is UserAgentStateRecord;

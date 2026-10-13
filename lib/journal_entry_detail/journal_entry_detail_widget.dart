@@ -812,7 +812,10 @@ class _JournalEntryDetailWidgetState extends State<JournalEntryDetailWidget> {
                               child: ButtonWidget(
                                 content: 'See Journal Data',
                                 icon: FaIcon(
-                                  FontAwesomeIcons.bookReader,
+                                  FaIconData(const IconData(
+                                      /* bookReader */ 0xf5da,
+                                      fontFamily: 'FontAwesomeSolid',
+                                      fontPackage: 'font_awesome_flutter')),
                                   color: FlutterFlowTheme.of(context).accent1,
                                   size: 16.0,
                                 ),

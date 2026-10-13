@@ -201,8 +201,15 @@ class TiktokPageStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality()
-      .hash([video, likes, bookmark, id, urlVideo, userPicture, profileName]);
+  int get hashCode => const ListEquality().hash([
+        video,
+        const ListEquality().hash(likes),
+        const ListEquality().hash(bookmark),
+        id,
+        urlVideo,
+        userPicture,
+        profileName
+      ]);
 }
 
 TiktokPageStruct createTiktokPageStruct({

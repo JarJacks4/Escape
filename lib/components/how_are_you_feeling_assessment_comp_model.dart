@@ -16,6 +16,10 @@ class HowAreYouFeelingAssessmentCompModel
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
+  // State field(s) for Column widget.
+  ScrollController? columnController1;
+  // State field(s) for Column widget.
+  ScrollController? columnController2;
   AudioPlayer? soundPlayer1;
   AudioPlayer? soundPlayer2;
   // State field(s) for FeelingsScore widget.
@@ -46,8 +50,14 @@ class HowAreYouFeelingAssessmentCompModel
   AudioPlayer? soundPlayer18;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    columnController1 = ScrollController();
+    columnController2 = ScrollController();
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    columnController1?.dispose();
+    columnController2?.dispose();
+  }
 }

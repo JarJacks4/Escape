@@ -1,27 +1,13 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/components/influencer_ambassador_program_button_widget.dart';
 import '/components/marketplace_button_widget.dart';
 import '/components/marketplace_coming_soon_comp_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'package:confetti_modualo_library_b75kfy/app_state.dart'
-    as confetti_modualo_library_b75kfy_app_state;
-import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
-    as cupertino_time_picker_hiuzb7_app_state;
-import 'package:that_audio_player_oo85ab/app_state.dart'
-    as that_audio_player_oo85ab_app_state;
-import 'package:tiktokfeed_wz8en7/app_state.dart'
-    as tiktokfeed_wz8en7_app_state;
-import 'package:tiktokfeed_wz8en7/custom_code/actions/index.dart'
-    as tiktokfeed_wz8en7_actions;
-import 'package:tiktokfeed_wz8en7/custom_code/widgets/index.dart'
-    as tiktokfeed_wz8en7_custom_widgets;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'connection_community_start_page_version5_model.dart';
 export 'connection_community_start_page_version5_model.dart';
@@ -81,28 +67,6 @@ class _ConnectionCommunityStartPageVersion5WidgetState
         FFAppState().ReorderedVideosIndex =
             FFAppState().ReorderedVideosIndex + 1;
         safeSetState(() {});
-        logFirebaseEvent('TabBar_custom_action');
-        _model.reorderVideos =
-            await tiktokfeed_wz8en7_actions.reorderTiktokPages(
-          tiktokfeed_wz8en7_app_state.FFAppState().ListTikTokPages.toList(),
-          _model.tabBarCurrentIndex,
-          FFAppState().ReorderedVideosIndex,
-        );
-        logFirebaseEvent('TabBar_custom_action');
-        _model.reorderBreathingVideos =
-            await tiktokfeed_wz8en7_actions.reorderTiktokPages(
-          tiktokfeed_wz8en7_app_state.FFAppState().meditationTikToks.toList(),
-          tiktokfeed_wz8en7_app_state.FFAppState().meditationTikToks.length,
-          tiktokfeed_wz8en7_app_state.FFAppState().meditationTikToks.length,
-        );
-        logFirebaseEvent('TabBar_custom_action');
-        _model.reorderBody = await tiktokfeed_wz8en7_actions.reorderTiktokPages(
-          tiktokfeed_wz8en7_app_state.FFAppState().BodyTikToks.toList(),
-          tiktokfeed_wz8en7_app_state.FFAppState().BodyTikToks.firstOrNull!.id,
-          tiktokfeed_wz8en7_app_state.FFAppState().meditationTikToks.length,
-        );
-
-        safeSetState(() {});
       });
   }
 
@@ -115,12 +79,6 @@ class _ConnectionCommunityStartPageVersion5WidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-    context.watch<cupertino_time_picker_hiuzb7_app_state.FFAppState>();
-    context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
-    context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
-    context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -338,104 +296,17 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                       Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
-                                                        children: [
-                                                          Container(
-                                                            width:
-                                                                double.infinity,
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                0.82,
-                                                            child:
-                                                                tiktokfeed_wz8en7_custom_widgets
-                                                                    .ChewieWidget(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .height *
-                                                                  0.82,
-                                                              userID:
-                                                                  currentUserUid,
-                                                              data: _model
-                                                                  .reorderVideos!,
-                                                              likerebuidpage:
-                                                                  () async {},
-                                                              bookedrebuidpage:
-                                                                  () async {},
-                                                            ),
-                                                          ),
-                                                        ],
+                                                        children: [],
                                                       ),
                                                       Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
-                                                        children: [
-                                                          Container(
-                                                            width:
-                                                                double.infinity,
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                0.82,
-                                                            child:
-                                                                tiktokfeed_wz8en7_custom_widgets
-                                                                    .ChewieWidget(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .height *
-                                                                  0.82,
-                                                              userID:
-                                                                  currentUserUid,
-                                                              data: _model
-                                                                  .reorderBreathingVideos!,
-                                                              likerebuidpage:
-                                                                  () async {},
-                                                              bookedrebuidpage:
-                                                                  () async {},
-                                                            ),
-                                                          ),
-                                                        ],
+                                                        children: [],
                                                       ),
                                                       Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
-                                                        children: [
-                                                          Container(
-                                                            width:
-                                                                double.infinity,
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                0.82,
-                                                            child:
-                                                                tiktokfeed_wz8en7_custom_widgets
-                                                                    .ChewieWidget(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .height *
-                                                                  0.82,
-                                                              userID:
-                                                                  currentUserUid,
-                                                              data: _model
-                                                                  .reorderBody!,
-                                                              likerebuidpage:
-                                                                  () async {},
-                                                              bookedrebuidpage:
-                                                                  () async {},
-                                                            ),
-                                                          ),
-                                                        ],
+                                                        children: [],
                                                       ),
                                                     ],
                                                   ),

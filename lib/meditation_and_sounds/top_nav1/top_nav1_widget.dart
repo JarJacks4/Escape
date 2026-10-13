@@ -117,7 +117,11 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       FaIcon(
-                                        FontAwesomeIcons.solidBell,
+                                        FaIconData(const IconData(
+                                            /* solidBell */ 0xf0f3,
+                                            fontFamily: 'FontAwesomeSolid',
+                                            fontPackage:
+                                                'font_awesome_flutter')),
                                         color: FlutterFlowTheme.of(context)
                                             .secondary,
                                         size: 28.0,

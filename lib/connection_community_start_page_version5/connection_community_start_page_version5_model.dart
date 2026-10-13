@@ -1,8 +1,6 @@
 import '/components/influencer_ambassador_program_button_widget.dart';
 import '/components/marketplace_button_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
-    as tiktokfeed_wz8en7_data_schema;
 import '/index.dart';
 import 'connection_community_start_page_version5_widget.dart'
     show ConnectionCommunityStartPageVersion5Widget;
@@ -21,12 +19,6 @@ class ConnectionCommunityStartPageVersion5Model
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
   AudioPlayer? soundPlayer1;
-  // Stores action output result for [Custom Action - reorderTiktokPages] action in TabBar widget.
-  List<tiktokfeed_wz8en7_data_schema.TiktokPageStruct>? reorderVideos;
-  // Stores action output result for [Custom Action - reorderTiktokPages] action in TabBar widget.
-  List<tiktokfeed_wz8en7_data_schema.TiktokPageStruct>? reorderBreathingVideos;
-  // Stores action output result for [Custom Action - reorderTiktokPages] action in TabBar widget.
-  List<tiktokfeed_wz8en7_data_schema.TiktokPageStruct>? reorderBody;
   // Model for MarketplaceButton component.
   late MarketplaceButtonModel marketplaceButtonModel;
   AudioPlayer? soundPlayer2;

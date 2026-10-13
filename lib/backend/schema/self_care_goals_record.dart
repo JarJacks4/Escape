@@ -91,8 +91,7 @@ class SelfCareGoalsRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is SelfCareGoalsRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is SelfCareGoalsRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createSelfCareGoalsRecordData({

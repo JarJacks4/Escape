@@ -291,7 +291,9 @@ class _MindPageVersion5CopyWidgetState extends State<MindPageVersion5CopyWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 8.0, 0.0),
                                 child: FaIcon(
-                                  FontAwesomeIcons.clock,
+                                  FaIconData(const IconData(/* clock */ 0xf017,
+                                      fontFamily: 'FontAwesomeRegular',
+                                      fontPackage: 'font_awesome_flutter')),
                                 ),
                               ),
                               Tab(
@@ -308,7 +310,9 @@ class _MindPageVersion5CopyWidgetState extends State<MindPageVersion5CopyWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 8.0, 0.0),
                                 child: FaIcon(
-                                  FontAwesomeIcons.hiking,
+                                  FaIconData(const IconData(/* hiking */ 0xf6ec,
+                                      fontFamily: 'FontAwesomeSolid',
+                                      fontPackage: 'font_awesome_flutter')),
                                 ),
                               ),
                               Tab(

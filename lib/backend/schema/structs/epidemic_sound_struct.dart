@@ -115,8 +115,11 @@ class EpidemicSoundStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([tracks, albums, epidemicSoundToken]);
+  int get hashCode => const ListEquality().hash([
+        const ListEquality().hash(tracks),
+        const ListEquality().hash(albums),
+        epidemicSoundToken
+      ]);
 }
 
 EpidemicSoundStruct createEpidemicSoundStruct({

@@ -18,8 +18,6 @@ import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
     as cupertino_time_picker_hiuzb7_app_state;
 import 'package:that_audio_player_oo85ab/app_state.dart'
     as that_audio_player_oo85ab_app_state;
-import 'package:tiktokfeed_wz8en7/app_state.dart'
-    as tiktokfeed_wz8en7_app_state;
 import 'package:utility_functions_library_8g4bud/flutter_flow/custom_functions.dart'
     as utility_functions_library_8g4bud_functions;
 import 'package:cached_network_image/cached_network_image.dart';
@@ -107,7 +105,6 @@ class _DashboardWidgetState extends State<DashboardWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
     context.watch<cupertino_time_picker_hiuzb7_app_state.FFAppState>();
-    context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
     context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
     context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
 
@@ -1576,8 +1573,12 @@ This Week */
                                                           ),
                                                         ),
                                                         FaIcon(
-                                                          FontAwesomeIcons
-                                                              .coins,
+                                                          FaIconData(const IconData(
+                                                              /* coins */ 0xf51e,
+                                                              fontFamily:
+                                                                  'FontAwesomeSolid',
+                                                              fontPackage:
+                                                                  'font_awesome_flutter')),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .accent1,

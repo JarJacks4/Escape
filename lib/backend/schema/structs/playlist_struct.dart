@@ -195,8 +195,15 @@ class PlaylistStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality()
-      .hash([id, title, coverUrl, tracks, genre, mood, artist]);
+  int get hashCode => const ListEquality().hash([
+        id,
+        title,
+        coverUrl,
+        const ListEquality().hash(tracks),
+        genre,
+        mood,
+        artist
+      ]);
 }
 
 PlaylistStruct createPlaylistStruct({

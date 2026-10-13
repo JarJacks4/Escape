@@ -11,8 +11,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:that_audio_player_oo85ab/app_state.dart'
     as that_audio_player_oo85ab_app_state;
-import 'package:tiktokfeed_wz8en7/app_state.dart'
-    as tiktokfeed_wz8en7_app_state;
 import 'package:utility_functions_library_8g4bud/flutter_flow/custom_functions.dart'
     as utility_functions_library_8g4bud_functions;
 import 'package:easy_debounce/easy_debounce.dart';
@@ -69,7 +67,6 @@ class _ResponseAssessmentCompWidgetState
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
     context.watch<cupertino_time_picker_hiuzb7_app_state.FFAppState>();
-    context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
     context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
     context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
 
@@ -3579,8 +3576,12 @@ class _ResponseAssessmentCompWidgetState
                                                                           0.0,
                                                                           0.0),
                                                                   child: FaIcon(
-                                                                    FontAwesomeIcons
-                                                                        .flagCheckered,
+                                                                    FaIconData(const IconData(
+                                                                        /* flagCheckered */ 0xf11e,
+                                                                        fontFamily:
+                                                                            'FontAwesomeSolid',
+                                                                        fontPackage:
+                                                                            'font_awesome_flutter')),
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .alternate,

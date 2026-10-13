@@ -10,8 +10,6 @@ import 'package:ff_commons/flutter_flow/lat_lng.dart';
 import 'package:ff_commons/flutter_flow/place.dart';
 import 'package:ff_commons/flutter_flow/uploaded_file.dart';
 import '/backend/backend.dart';
-import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
-    as tiktokfeed_wz8en7_data_schema;
 import "package:utility_functions_library_8g4bud/backend/schema/structs/index.dart"
     as utility_functions_library_8g4bud_data_schema;
 import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
@@ -21,8 +19,6 @@ import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/ff_builtin_enums.dart';
 import '/auth/firebase_auth/auth_util.dart';
-import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
-    as tiktokfeed_wz8en7_data_schema;
 import "package:utility_functions_library_8g4bud/backend/schema/structs/index.dart"
     as utility_functions_library_8g4bud_data_schema;
 import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
@@ -36,11 +32,8 @@ DateTime getUpdatedWeekStartDate(
   DateTime? weekStartDate,
   int? currentWeekCount,
 ) {
-  DateTime getUpdatedWeekStartDate(DateTime weekStartDate) {
-    final daysSinceWeekStart = DateTime.now().difference(weekStartDate).inDays;
-    if (daysSinceWeekStart >= 7) {
-      return DateTime.now();
-    }
-    return weekStartDate;
-  }
+  if (weekStartDate == null) return DateTime.now();
+  if (DateTime.now().difference(weekStartDate).inDays >= 7)
+    return DateTime.now();
+  return weekStartDate;
 }

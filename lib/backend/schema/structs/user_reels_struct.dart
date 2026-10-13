@@ -67,7 +67,8 @@ class UserReelsStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality().hash([fileName]);
+  int get hashCode =>
+      const ListEquality().hash([const ListEquality().hash(fileName)]);
 }
 
 UserReelsStruct createUserReelsStruct({

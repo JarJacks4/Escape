@@ -18,8 +18,6 @@ import 'index.dart';
 
 import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
     as cupertino_time_picker_hiuzb7_app_state;
-import 'package:tiktokfeed_wz8en7/app_state.dart'
-    as tiktokfeed_wz8en7_app_state;
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
 import 'package:that_audio_player_oo85ab/app_state.dart'
@@ -42,9 +40,6 @@ void main() async {
   final cupertino_time_picker_hiuzb7AppState =
       cupertino_time_picker_hiuzb7_app_state.FFAppState();
   await cupertino_time_picker_hiuzb7AppState.initializePersistedState();
-
-  final tiktokfeed_wz8en7AppState = tiktokfeed_wz8en7_app_state.FFAppState();
-  await tiktokfeed_wz8en7AppState.initializePersistedState();
 
   final confetti_modualo_library_b75kfyAppState =
       confetti_modualo_library_b75kfy_app_state.FFAppState();
@@ -69,9 +64,6 @@ void main() async {
       ),
       ChangeNotifierProvider(
         create: (context) => cupertino_time_picker_hiuzb7AppState,
-      ),
-      ChangeNotifierProvider(
-        create: (context) => tiktokfeed_wz8en7AppState,
       ),
       ChangeNotifierProvider(
         create: (context) => confetti_modualo_library_b75kfyAppState,

@@ -80,11 +80,7 @@ function escapeStringForJson(val) {
   if (typeof val !== "string") {
     return val;
   }
-  return val
-    .replace(/[\\]/g, "\\\\")
-    .replace(/["]/g, '\\"')
-    .replace(/[\n]/g, "\\n")
-    .replace(/[\t]/g, "\\t");
+  return JSON.stringify(val).slice(1, -1);
 }
 
 module.exports = { makeApiCall };

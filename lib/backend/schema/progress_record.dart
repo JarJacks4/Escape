@@ -80,8 +80,7 @@ class ProgressRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is ProgressRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is ProgressRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createProgressRecordData({

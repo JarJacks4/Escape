@@ -429,7 +429,12 @@ class _PlanetWidgetState extends State<PlanetWidget>
                                                   .fromSTEB(
                                                       0.0, 0.0, 10.0, 0.0),
                                               child: FaIcon(
-                                                FontAwesomeIcons.globe,
+                                                FaIconData(const IconData(
+                                                    /* globe */ 0xf0ac,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Colors.white,
                                                 size: 20.0,
                                               ),
@@ -1115,7 +1120,12 @@ class _PlanetWidgetState extends State<PlanetWidget>
                                                   .fromSTEB(
                                                       0.0, 0.0, 10.0, 0.0),
                                               child: FaIcon(
-                                                FontAwesomeIcons.globe,
+                                                FaIconData(const IconData(
+                                                    /* globe */ 0xf0ac,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Colors.white,
                                                 size: 20.0,
                                               ),
@@ -1794,7 +1804,12 @@ class _PlanetWidgetState extends State<PlanetWidget>
                                                   .fromSTEB(
                                                       0.0, 0.0, 10.0, 0.0),
                                               child: FaIcon(
-                                                FontAwesomeIcons.globe,
+                                                FaIconData(const IconData(
+                                                    /* globe */ 0xf0ac,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Colors.white,
                                                 size: 20.0,
                                               ),
@@ -2473,7 +2488,12 @@ class _PlanetWidgetState extends State<PlanetWidget>
                                                   .fromSTEB(
                                                       0.0, 0.0, 10.0, 0.0),
                                               child: FaIcon(
-                                                FontAwesomeIcons.globe,
+                                                FaIconData(const IconData(
+                                                    /* globe */ 0xf0ac,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Colors.white,
                                                 size: 20.0,
                                               ),

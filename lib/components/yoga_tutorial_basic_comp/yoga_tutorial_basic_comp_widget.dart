@@ -340,7 +340,10 @@ class _YogaTutorialBasicCompWidgetState
                                     buttonSize: 40.0,
                                     fillColor: Color(0x33090F13),
                                     icon: FaIcon(
-                                      FontAwesomeIcons.angleDown,
+                                      FaIconData(const IconData(
+                                          /* angleDown */ 0xf107,
+                                          fontFamily: 'FontAwesomeSolid',
+                                          fontPackage: 'font_awesome_flutter')),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
                                       size: 20.0,
@@ -364,7 +367,11 @@ class _YogaTutorialBasicCompWidgetState
                                         'au71uehg' /* Finish Tutorial */,
                                       ),
                                       icon: FaIcon(
-                                        FontAwesomeIcons.flagCheckered,
+                                        FaIconData(const IconData(
+                                            /* flagCheckered */ 0xf11e,
+                                            fontFamily: 'FontAwesomeSolid',
+                                            fontPackage:
+                                                'font_awesome_flutter')),
                                         size: 15.0,
                                       ),
                                       options: FFButtonOptions(
@@ -627,7 +634,10 @@ class _YogaTutorialBasicCompWidgetState
                                     buttonSize: 40.0,
                                     fillColor: Color(0xE5000B17),
                                     icon: FaIcon(
-                                      FontAwesomeIcons.angleDown,
+                                      FaIconData(const IconData(
+                                          /* angleDown */ 0xf107,
+                                          fontFamily: 'FontAwesomeSolid',
+                                          fontPackage: 'font_awesome_flutter')),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       size: 20.0,
@@ -874,7 +884,10 @@ class _YogaTutorialBasicCompWidgetState
                                     buttonSize: 40.0,
                                     fillColor: Color(0xAD00152B),
                                     icon: FaIcon(
-                                      FontAwesomeIcons.angleDown,
+                                      FaIconData(const IconData(
+                                          /* angleDown */ 0xf107,
+                                          fontFamily: 'FontAwesomeSolid',
+                                          fontPackage: 'font_awesome_flutter')),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       size: 20.0,

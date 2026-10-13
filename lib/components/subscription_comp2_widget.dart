@@ -274,7 +274,9 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget>
                           borderRadius: 8.0,
                           buttonSize: 40.0,
                           icon: FaIcon(
-                            FontAwesomeIcons.bullseye,
+                            FaIconData(const IconData(/* bullseye */ 0xf140,
+                                fontFamily: 'FontAwesomeSolid',
+                                fontPackage: 'font_awesome_flutter')),
                             color: FlutterFlowTheme.of(context).info,
                             size: 32.0,
                           ),
@@ -324,7 +326,9 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget>
                           borderRadius: 8.0,
                           buttonSize: 40.0,
                           icon: FaIcon(
-                            FontAwesomeIcons.bullseye,
+                            FaIconData(const IconData(/* bullseye */ 0xf140,
+                                fontFamily: 'FontAwesomeSolid',
+                                fontPackage: 'font_awesome_flutter')),
                             color: FlutterFlowTheme.of(context).info,
                             size: 32.0,
                           ),
@@ -374,7 +378,9 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget>
                           borderRadius: 8.0,
                           buttonSize: 40.0,
                           icon: FaIcon(
-                            FontAwesomeIcons.bullseye,
+                            FaIconData(const IconData(/* bullseye */ 0xf140,
+                                fontFamily: 'FontAwesomeSolid',
+                                fontPackage: 'font_awesome_flutter')),
                             color: FlutterFlowTheme.of(context).info,
                             size: 32.0,
                           ),
@@ -471,7 +477,9 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget>
                         borderRadius: 8.0,
                         buttonSize: 40.0,
                         icon: FaIcon(
-                          FontAwesomeIcons.bullseye,
+                          FaIconData(const IconData(/* bullseye */ 0xf140,
+                              fontFamily: 'FontAwesomeSolid',
+                              fontPackage: 'font_awesome_flutter')),
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           size: 32.0,
@@ -516,7 +524,9 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget>
                         borderRadius: 8.0,
                         buttonSize: 40.0,
                         icon: FaIcon(
-                          FontAwesomeIcons.bullseye,
+                          FaIconData(const IconData(/* bullseye */ 0xf140,
+                              fontFamily: 'FontAwesomeSolid',
+                              fontPackage: 'font_awesome_flutter')),
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           size: 32.0,
@@ -561,7 +571,9 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget>
                         borderRadius: 8.0,
                         buttonSize: 40.0,
                         icon: FaIcon(
-                          FontAwesomeIcons.bullseye,
+                          FaIconData(const IconData(/* bullseye */ 0xf140,
+                              fontFamily: 'FontAwesomeSolid',
+                              fontPackage: 'font_awesome_flutter')),
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           size: 32.0,
@@ -611,7 +623,9 @@ Self Care AI */
                     borderRadius: 8.0,
                     buttonSize: 40.0,
                     icon: FaIcon(
-                      FontAwesomeIcons.bullseye,
+                      FaIconData(const IconData(/* bullseye */ 0xf140,
+                          fontFamily: 'FontAwesomeSolid',
+                          fontPackage: 'font_awesome_flutter')),
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       size: 32.0,
                     ),

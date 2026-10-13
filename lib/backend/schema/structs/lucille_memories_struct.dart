@@ -154,8 +154,8 @@ class LucilleMemoriesStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([userId, memories, count, status, timestamp]);
+  int get hashCode => const ListEquality().hash(
+      [userId, const ListEquality().hash(memories), count, status, timestamp]);
 }
 
 LucilleMemoriesStruct createLucilleMemoriesStruct({

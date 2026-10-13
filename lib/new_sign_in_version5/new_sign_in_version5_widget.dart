@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
-import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
@@ -17,8 +16,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:that_audio_player_oo85ab/app_state.dart'
     as that_audio_player_oo85ab_app_state;
-import 'package:tiktokfeed_wz8en7/app_state.dart'
-    as tiktokfeed_wz8en7_app_state;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -107,7 +104,6 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
     context.watch<cupertino_time_picker_hiuzb7_app_state.FFAppState>();
-    context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
     context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
     context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
 
@@ -874,8 +870,12 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                     ),
                                                                     icon:
                                                                         FaIcon(
-                                                                      FontAwesomeIcons
-                                                                          .google,
+                                                                      FaIconData(const IconData(
+                                                                          /* google */ 0xf1a0,
+                                                                          fontFamily:
+                                                                              'FontAwesomeBrands',
+                                                                          fontPackage:
+                                                                              'font_awesome_flutter')),
                                                                       size:
                                                                           20.0,
                                                                     ),
@@ -2968,11 +2968,6 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                 displayName: _model
                                                                     .displayNameTextController
                                                                     .text,
-                                                                uid: random_data
-                                                                    .randomInteger(
-                                                                        0,
-                                                                        10000)
-                                                                    .toString(),
                                                               ));
 
                                                           logFirebaseEvent(
@@ -3012,6 +3007,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                 .crownChakraMoodsValue,
                                                             hasSeenWalkthrough:
                                                                 false,
+                                                            uid: currentUserUid,
                                                           ));
                                                           logFirebaseEvent(
                                                               'Button_show_snack_bar');

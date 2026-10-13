@@ -20177,6 +20177,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '家',
     },
   },
+  // JournalHomeV2
+  {
+    'xmy7wncc': {
+      'en': 'Home',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+  },
   // TopNav1
   {
     'b1klyvra': {

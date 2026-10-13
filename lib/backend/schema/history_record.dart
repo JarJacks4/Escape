@@ -91,8 +91,7 @@ class HistoryRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is HistoryRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is HistoryRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createHistoryRecordData({

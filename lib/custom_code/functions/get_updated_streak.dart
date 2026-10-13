@@ -10,8 +10,6 @@ import 'package:ff_commons/flutter_flow/lat_lng.dart';
 import 'package:ff_commons/flutter_flow/place.dart';
 import 'package:ff_commons/flutter_flow/uploaded_file.dart';
 import '/backend/backend.dart';
-import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
-    as tiktokfeed_wz8en7_data_schema;
 import "package:utility_functions_library_8g4bud/backend/schema/structs/index.dart"
     as utility_functions_library_8g4bud_data_schema;
 import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
@@ -21,8 +19,6 @@ import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/ff_builtin_enums.dart';
 import '/auth/firebase_auth/auth_util.dart';
-import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
-    as tiktokfeed_wz8en7_data_schema;
 import "package:utility_functions_library_8g4bud/backend/schema/structs/index.dart"
     as utility_functions_library_8g4bud_data_schema;
 import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
@@ -36,22 +32,14 @@ int getUpdatedStreak(
   DateTime? lastCompletedDate,
   int? streakCount,
 ) {
-  int getUpdatedStreak(DateTime lastCompletedDate, int streakCount) {
-    final now = DateTime.now();
-    final today = DateTime(now.year, now.month, now.day);
-    final lastCompletedDay = DateTime(
-      lastCompletedDate.year,
-      lastCompletedDate.month,
-      lastCompletedDate.day,
-    );
-    final daysDifference = today.difference(lastCompletedDay).inDays;
-
-    if (daysDifference == 0) {
-      return streakCount; // already completed today, don't double-count
-    } else if (daysDifference == 1) {
-      return streakCount + 1; // completed yesterday, streak continues
-    } else {
-      return 1; // gap was longer than a day, streak restarts
-    }
-  }
+  final currentStreak = streakCount ?? 0;
+  if (lastCompletedDate == null) return 1;
+  final now = DateTime.now();
+  final today = DateTime(now.year, now.month, now.day);
+  final last = DateTime(
+      lastCompletedDate.year, lastCompletedDate.month, lastCompletedDate.day);
+  final diff = today.difference(last).inDays;
+  if (diff == 0) return currentStreak;
+  if (diff == 1) return currentStreak + 1;
+  return 1;
 }

@@ -282,3 +282,5 @@ export '/body_help/body_help_widget.dart' show BodyHelpWidget;
 export '/journal_help/journal_help_widget.dart' show JournalHelpWidget;
 export '/tai_chi_moves_choice/tai_chi_moves_choice_widget.dart'
     show TaiChiMovesChoiceWidget;
+export '/pages/journal_home_v2/journal_home_v2_widget.dart'
+    show JournalHomeV2Widget;

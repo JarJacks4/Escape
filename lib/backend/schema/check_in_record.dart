@@ -98,8 +98,7 @@ class CheckInRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is CheckInRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is CheckInRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createCheckInRecordData({

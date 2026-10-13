@@ -293,7 +293,7 @@ class LucilleChatStruct extends FFFirebaseStruct {
         hasDisclaimer,
         disclaimer,
         confidence,
-        conversation,
+        const ListEquality().hash(conversation),
         model,
         tokensUsed,
         responseLength,

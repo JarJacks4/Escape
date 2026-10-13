@@ -21,8 +21,15 @@ dependencies:
   mime_type: 1.0.0
 
 dependency_overrides:
+  font_awesome_flutter: 11.0.0
   http: 1.4.0
+  intl: 0.20.3
+  page_transition: 2.2.2
   uuid: ^4.0.0
+  webview_flutter: 4.13.0
+  webview_flutter_android: 4.10.13
+  webview_flutter_platform_interface: 2.14.0
+  webview_flutter_wkwebview: 3.23.8
 
 
 flutter:

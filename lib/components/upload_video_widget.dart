@@ -406,7 +406,9 @@ Videos */
                           child: Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: FaIcon(
-                              FontAwesomeIcons.pen,
+                              FaIconData(const IconData(/* pen */ 0xf304,
+                                  fontFamily: 'FontAwesomeSolid',
+                                  fontPackage: 'font_awesome_flutter')),
                               color: FlutterFlowTheme.of(context).accent1,
                             ),
                           ),
@@ -542,7 +544,9 @@ Videos */
                           child: Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: FaIcon(
-                              FontAwesomeIcons.hashtag,
+                              FaIconData(const IconData(/* hashtag */ 0x23,
+                                  fontFamily: 'FontAwesomeSolid',
+                                  fontPackage: 'font_awesome_flutter')),
                               color: FlutterFlowTheme.of(context).accent1,
                               size: 24.0,
                             ),

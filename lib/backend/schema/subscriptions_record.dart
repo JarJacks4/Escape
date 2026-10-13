@@ -86,8 +86,7 @@ class SubscriptionsRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is SubscriptionsRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is SubscriptionsRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createSubscriptionsRecordData({

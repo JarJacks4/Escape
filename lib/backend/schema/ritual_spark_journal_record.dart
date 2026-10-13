@@ -82,7 +82,7 @@ class RitualSparkJournalRecord extends FirestoreRecord {
   @override
   bool operator ==(other) =>
       other is RitualSparkJournalRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createRitualSparkJournalRecordData({
@@ -118,7 +118,7 @@ class RitualSparkJournalRecordDocumentEquality
   int hash(RitualSparkJournalRecord? e) => const ListEquality().hash([
         e?.ritualSparkTitle,
         e?.ritualSparkContent,
-        e?.tags,
+        const ListEquality().hash(e?.tags),
         e?.ritualSparkPhoto
       ]);
 

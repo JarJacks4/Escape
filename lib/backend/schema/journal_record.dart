@@ -192,8 +192,7 @@ class JournalRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is JournalRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is JournalRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createJournalRecordData({
@@ -293,11 +292,11 @@ class JournalRecordDocumentEquality implements Equality<JournalRecord> {
         e?.journalPhoto,
         e?.journalVoiceNote,
         e?.lucilleJournalPrompt,
-        e?.journalTags,
+        const ListEquality().hash(e?.journalTags),
         e?.voiceNoteContent,
         e?.isAudioRecording,
         e?.isAudioStopped,
-        e?.transcribeText,
+        const ListEquality().hash(e?.transcribeText),
         e?.timestamp,
         e?.journalsThisYear
       ]);

@@ -1,15 +1,10 @@
 import '/components/chart_legend_widget.dart';
 import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
-import 'package:utility_functions_library_8g4bud/app_constants.dart'
-    as utility_functions_library_8g4bud_app_constant;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'pie_chart_model.dart';
 export 'pie_chart_model.dart';
 
@@ -125,7 +120,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                           } else if (widget.size == 'large') {
                             return 200.0;
                           } else if (widget.size == 'expanded') {
-                            return infinity;
+                            return functions.infiniteSize();
                           } else {
                             return 156.0;
                           }
@@ -136,15 +131,15 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                           } else if (widget.size == 'large') {
                             return 200.0;
                           } else if (widget.size == 'expanded') {
-                            return infinity;
+                            return functions.infiniteSize();
                           } else {
                             return 156.0;
                           }
                         }(),
                         child: FlutterFlowPieChart(
                           data: FFPieChartData(
-                            values: ((String? data) {
-                              return data
+                            values: (String? data) {
+                              return (data ?? '')
                                   .split(',')
                                   .map((value) =>
                                       double.tryParse(value.trim()) ?? 0)
@@ -152,7 +147,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                             }(valueOrDefault<String>(
                               widget.data,
                               '85,15',
-                            ))),
+                            )),
                             colors: pieChartPieChartColorsList1,
                             radius: [50.0],
                           ),
@@ -201,7 +196,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                           } else if (widget.size == 'large') {
                             return 200.0;
                           } else if (widget.size == 'expanded') {
-                            return infinity;
+                            return functions.infiniteSize();
                           } else {
                             return 156.0;
                           }
@@ -212,15 +207,15 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                           } else if (widget.size == 'large') {
                             return 200.0;
                           } else if (widget.size == 'expanded') {
-                            return infinity;
+                            return functions.infiniteSize();
                           } else {
                             return 156.0;
                           }
                         }(),
                         child: FlutterFlowPieChart(
                           data: FFPieChartData(
-                            values: ((String? data) {
-                              return data
+                            values: (String? data) {
+                              return (data ?? '')
                                   .split(',')
                                   .map((value) =>
                                       double.tryParse(value.trim()) ?? 0)
@@ -228,7 +223,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                             }(valueOrDefault<String>(
                               widget.data,
                               '85,15',
-                            ))),
+                            )),
                             colors: pieChartPieChartColorsList2,
                             radius: [50.0],
                           ),
