@@ -99,13 +99,15 @@ enum LayerEQ {
                 clientInfo: Unmanaged.passRetained(state).toOpaque(),
                 init: eqTapInit, finalize: eqTapFinalize, prepare: eqTapPrepare,
                 unprepare: eqTapUnprepare, process: eqTapProcess)
-            var tap: MTAudioProcessingTap?
+            var unmanagedTap: Unmanaged<MTAudioProcessingTap>?
             guard MTAudioProcessingTapCreate(kCFAllocatorDefault, &callbacks,
-                                             kMTAudioProcessingTapCreationFlag_PostEffects, &tap) == noErr,
-                  let tap else {
+                                             kMTAudioProcessingTapCreationFlag_PostEffects,
+                                             &unmanagedTap) == noErr,
+                  let unmanagedTap else {
                 Unmanaged.passUnretained(state).release()
                 return
             }
+            let tap = unmanagedTap.takeRetainedValue()
             let params = AVMutableAudioMixInputParameters(track: track)
             params.audioTapProcessor = tap
             let mix = AVMutableAudioMix()
