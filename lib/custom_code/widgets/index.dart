@@ -5,3 +5,5 @@ export 'that_custom_audio_slider_widget.dart' show ThatCustomAudioSliderWidget;
 export 'gpt_markdown_widget.dart' show GptMarkdownWidget;
 export 'walkthrough_overlay.dart' show WalkthroughOverlay;
 export 'vectary_model_viewer.dart' show VectaryModelViewer;
+export '/custom_code/widgets/mood_orb_video.dart' show MoodOrbVideo;
+export '/custom_code/widgets/escape_journal_v2.dart' show EscapeJournalV2;

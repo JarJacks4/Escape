@@ -412,6 +412,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => LucilleVoiceChatWebViewWidget(),
           ),
           FFRoute(
+            name: JournalHomeV2Widget.routeName,
+            path: JournalHomeV2Widget.routePath,
+            builder: (context, params) => JournalHomeV2Widget(
+              screen: params.getParam('screen', ParamType.String),
+              mode: params.getParam('mode', ParamType.String),
+            ),
+          ),
+          FFRoute(
             name: HealthJournalWidget.routeName,
             path: HealthJournalWidget.routePath,
             builder: (context, params) => HealthJournalWidget(),

@@ -311,3 +311,5 @@ export '/active_session_reps1/active_session_reps1_widget.dart'
 export '/body_movement_session_completion/body_movement_session_completion_widget.dart'
     show BodyMovementSessionCompletionWidget;
 export '/body_movement3/body_movement3_widget.dart' show BodyMovement3Widget;
+export '/pages/journal_home_v2/journal_home_v2_widget.dart'
+    show JournalHomeV2Widget;
