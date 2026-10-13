@@ -1430,7 +1430,7 @@ class RecommendedExercisesCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'Recommended Exercises',
-      apiUrl: '${baseUrl}/therapy/recommend/{user_id}',
+      apiUrl: '${baseUrl}therapy/recommend/${userID}',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',

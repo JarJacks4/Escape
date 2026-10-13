@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/soundscapes/suggested_soundscape.dart';
 import '/components/lucille_suggestion_description_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -1484,12 +1485,10 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                       ),
                                                                       'exersiseSoundscape':
                                                                           serializeParam(
-                                                                        LucilleSoundscapesGroup
-                                                                            .getSoundscapeCall
-                                                                            .audioUrl(
-                                                                              (_model.getSoundscape?.jsonBody ?? ''),
-                                                                            )
-                                                                            ?.firstOrNull,
+                                                                        await SuggestedSoundscape.audioUrlFor(
+  mood: valueOrDefault(currentUserDocument?.currentMood, ''),
+  exerciseId: FFAppState().activeExerciseSessionID,
+),
                                                                         ParamType
                                                                             .String,
                                                                       ),
@@ -2551,11 +2550,10 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                           ),
                                                                           'exersiseSoundscape':
                                                                               serializeParam(
-                                                                            LucilleSoundscapesGroup.getSoundscapeCall
-                                                                                .audioUrl(
-                                                                                  (_model.getSoundscape4?.jsonBody ?? ''),
-                                                                                )
-                                                                                ?.firstOrNull,
+                                                                            await SuggestedSoundscape.audioUrlFor(
+  mood: valueOrDefault(currentUserDocument?.currentMood, ''),
+  exerciseId: FFAppState().activeExerciseSessionID,
+),
                                                                             ParamType.String,
                                                                           ),
                                                                         }.withoutNulls,
@@ -3625,11 +3623,10 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                           ),
                                                                           'exersiseSoundscape':
                                                                               serializeParam(
-                                                                            LucilleSoundscapesGroup.getSoundscapeCall
-                                                                                .audioUrl(
-                                                                                  (_model.getSoundscape3?.jsonBody ?? ''),
-                                                                                )
-                                                                                ?.firstOrNull,
+                                                                            await SuggestedSoundscape.audioUrlFor(
+  mood: valueOrDefault(currentUserDocument?.currentMood, ''),
+  exerciseId: FFAppState().activeExerciseSessionID,
+),
                                                                             ParamType.String,
                                                                           ),
                                                                         }.withoutNulls,
