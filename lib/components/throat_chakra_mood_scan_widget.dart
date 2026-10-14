@@ -854,7 +854,7 @@ Energy Center */
                             logFirebaseEvent('Container_navigate_to');
 
                             context.pushNamed(
-                              HealthJournalWidget.routeName,
+                              JournalHomeV2Widget.routeName,
                               extra: <String, dynamic>{
                                 '__transition_info__': TransitionInfo(
                                   hasTransition: true,

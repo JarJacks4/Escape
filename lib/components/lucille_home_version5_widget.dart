@@ -1126,7 +1126,7 @@ Lucille */
                                             'Container_navigate_to');
 
                                         context.pushNamed(
-                                          ActiveVoiceJournalingWidget.routeName,
+                                          JournalHomeV2Widget.routeName,
                                           extra: <String, dynamic>{
                                             '__transition_info__':
                                                 TransitionInfo(

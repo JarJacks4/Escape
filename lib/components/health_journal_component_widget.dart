@@ -715,7 +715,7 @@ class _HealthJournalComponentWidgetState
                 logFirebaseEvent('FloatingActionButton_navigate_to');
 
                 context.pushNamed(
-                  NewJournalPickerWidget.routeName,
+                  JournalHomeV2Widget.routeName,
                   extra: <String, dynamic>{
                     '__transition_info__': TransitionInfo(
                       hasTransition: true,

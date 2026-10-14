@@ -480,7 +480,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                         'contentView_1_navigate_to');
 
                                     context.pushNamed(
-                                      HealthJournalWidget.routeName,
+                                      JournalHomeV2Widget.routeName,
                                       extra: <String, dynamic>{
                                         '__transition_info__': TransitionInfo(
                                           hasTransition: true,
