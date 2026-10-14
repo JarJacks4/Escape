@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/soundscapes/soundscapes_launcher.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
@@ -370,16 +371,7 @@ Further ... */
 
                                 logFirebaseEvent('Button_navigate_to');
 
-                                context.pushNamed(
-                                  MoodScanVersion5Widget.routeName,
-                                  extra: <String, dynamic>{
-                                    '__transition_info__': TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 9),
-                                    ),
-                                  },
-                                );
+                                SoundscapesLauncher.openMoodScan(context);
                               },
                               text: FFLocalizations.of(context).getText(
                                 'li03ea6k' /* Begin */,

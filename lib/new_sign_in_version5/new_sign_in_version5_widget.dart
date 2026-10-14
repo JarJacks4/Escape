@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/soundscapes/soundscapes_launcher.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
@@ -982,17 +983,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                             FFAppState().firebaseIDToken =
                                                                                 currentJwtToken;
 
-                                                                            context.pushNamedAuth(
-                                                                              MoodScanVersion5Widget.routeName,
-                                                                              context.mounted,
-                                                                              extra: <String, dynamic>{
-                                                                                '__transition_info__': TransitionInfo(
-                                                                                  hasTransition: true,
-                                                                                  transitionType: PageTransitionType.rightToLeft,
-                                                                                  duration: Duration(milliseconds: 1),
-                                                                                ),
-                                                                              },
-                                                                            );
+                                                                            SoundscapesLauncher.openMoodScanAfterSignIn(context);
 
                                                                             if (_shouldSetState)
                                                                               safeSetState(() {});

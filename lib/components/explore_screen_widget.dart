@@ -1,4 +1,5 @@
 import '/components/help_comp_widget.dart';
+import '/soundscapes/soundscapes_launcher.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -1054,16 +1055,7 @@ class _ExploreScreenWidgetState extends State<ExploreScreenWidget> {
 
                             logFirebaseEvent('Container_navigate_to');
 
-                            context.pushNamed(
-                              MoodScanVersion5Widget.routeName,
-                              extra: <String, dynamic>{
-                                '__transition_info__': TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 9),
-                                ),
-                              },
-                            );
+                            SoundscapesLauncher.openMoodScan(context);
                           },
                           child: Container(
                             height: 120.0,

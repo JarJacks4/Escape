@@ -1,4 +1,5 @@
 import '/components/login_intro_dialogue_comp_widget.dart';
+import '/soundscapes/soundscapes_launcher.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -361,17 +362,7 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
 
                               logFirebaseEvent('Container_navigate_to');
 
-                              context.pushNamed(
-                                MoodScanVersion5Widget.routeName,
-                                extra: <String, dynamic>{
-                                  '__transition_info__': TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType:
-                                        PageTransitionType.rightToLeft,
-                                    duration: Duration(milliseconds: 1),
-                                  ),
-                                },
-                              );
+                              SoundscapesLauncher.openMoodScan(context);
                             },
                             child: Container(
                               width: double.infinity,

@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/soundscapes/soundscapes_launcher.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -385,20 +386,7 @@ class _LucilleHomeVersion5WidgetState extends State<LucilleHomeVersion5Widget> {
                                         logFirebaseEvent(
                                             'Container_navigate_to');
 
-                                        context.pushNamed(
-                                          MoodScanVersion5Widget.routeName,
-                                          extra: <String, dynamic>{
-                                            '__transition_info__':
-                                                TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType:
-                                                  PageTransitionType.scale,
-                                              alignment: Alignment.bottomCenter,
-                                              duration:
-                                                  Duration(milliseconds: 2),
-                                            ),
-                                          },
-                                        );
+                                        SoundscapesLauncher.openMoodScan(context);
                                       },
                                       child: Container(
                                         height: 36.0,

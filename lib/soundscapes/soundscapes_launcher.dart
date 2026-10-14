@@ -71,6 +71,19 @@ class SoundscapesLauncher {
     }
   }
 
+  /// After sign-in: Home underneath, then the new Mood Scan on top (closing it lands on Home).
+  /// iOS 15/16 keep the old Mood Scan page.
+  static Future<void> openMoodScanAfterSignIn(BuildContext context) async {
+    final supported = await isSupported();
+    if (!context.mounted) return;
+    if (supported) {
+      context.goNamedAuth(HomeVersion5Widget.routeName, context.mounted);
+      await open(context, screen: 'MoodScan');
+    } else {
+      context.pushNamedAuth(MoodScanVersion5Widget.routeName, context.mounted);
+    }
+  }
+
   static Future<void> open(BuildContext context, {String? screen}) async {
     try {
       // Best effort: stop the old Sound tab player so the two don't overlap.

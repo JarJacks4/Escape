@@ -263,6 +263,10 @@ void _openDeeplink(BuildContext context, Map? link) {
     SoundscapesLauncher.openOrFallback(context);
     return;
   }
+  if (link?['route'] == 'MoodScanVersion5' || path == '/moodScanVersion5') {
+    SoundscapesLauncher.openMoodScan(context);
+    return;
+  }
   final params = (link?['params'] as Map?)
           ?.map((k, v) => MapEntry(k.toString(), v.toString())) ??
       <String, String>{};

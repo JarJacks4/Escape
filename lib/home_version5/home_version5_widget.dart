@@ -1280,16 +1280,7 @@ Further ... */
 
                                                                                             logFirebaseEvent('Button_navigate_to');
 
-                                                                                            context.pushNamed(
-                                                                                              MoodScanVersion5Widget.routeName,
-                                                                                              extra: <String, dynamic>{
-                                                                                                '__transition_info__': TransitionInfo(
-                                                                                                  hasTransition: true,
-                                                                                                  transitionType: PageTransitionType.fade,
-                                                                                                  duration: Duration(milliseconds: 9),
-                                                                                                ),
-                                                                                              },
-                                                                                            );
+                                                                                            SoundscapesLauncher.openMoodScan(context);
                                                                                           },
                                                                                           text: FFLocalizations.of(context).getText(
                                                                                             '588cgmfz' /* Begin */,
