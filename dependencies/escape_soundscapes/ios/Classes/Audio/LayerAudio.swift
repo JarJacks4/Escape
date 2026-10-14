@@ -99,6 +99,8 @@ enum LayerEQ {
                 clientInfo: Unmanaged.passRetained(state).toOpaque(),
                 init: eqTapInit, finalize: eqTapFinalize, prepare: eqTapPrepare,
                 unprepare: eqTapUnprepare, process: eqTapProcess)
+            #if !compiler(>=6.2)
+            // Xcode 16 (Swift < 6.2) SDK: the out-param is Unmanaged and already retained.
             var unmanagedTap: Unmanaged<MTAudioProcessingTap>?
             guard MTAudioProcessingTapCreate(kCFAllocatorDefault, &callbacks,
                                              kMTAudioProcessingTapCreationFlag_PostEffects,
@@ -108,6 +110,17 @@ enum LayerEQ {
                 return
             }
             let tap = unmanagedTap.takeRetainedValue()
+            #else
+            // Xcode 26+ (Swift 6.2+) SDK: the out-param is a managed MTAudioProcessingTap.
+            var tap: MTAudioProcessingTap?
+            guard MTAudioProcessingTapCreate(kCFAllocatorDefault, &callbacks,
+                                             kMTAudioProcessingTapCreationFlag_PostEffects,
+                                             &tap) == noErr,
+                  let tap else {
+                Unmanaged.passUnretained(state).release()
+                return
+            }
+            #endif
             let params = AVMutableAudioMixInputParameters(track: track)
             params.audioTapProcessor = tap
             let mix = AVMutableAudioMix()
