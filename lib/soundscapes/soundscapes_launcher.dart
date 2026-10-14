@@ -30,8 +30,8 @@ class SoundscapesLauncher {
 
   static Future<bool>? _supported;
 
-  /// Set with --dart-define=SOUNDSCAPES_BETA=true (TestFlight beta builds only).
-  static const bool betaEnabled = bool.fromEnvironment('SOUNDSCAPES_BETA');
+  /// On by default; build with --dart-define=SOUNDSCAPES_BETA=false to hide the module.
+  static const bool betaEnabled = bool.fromEnvironment('SOUNDSCAPES_BETA', defaultValue: true);
 
   /// Cached: true on iOS 17+ when the beta flag is set.
   static Future<bool> isSupported() => betaEnabled
@@ -47,6 +47,17 @@ class SoundscapesLauncher {
       onExit: _onExit,
       onFeedback: _saveFeedback,
     );
+  }
+
+  /// New Soundscapes module when supported (iOS 17+), otherwise the old Sound page.
+  static Future<void> openOrFallback(BuildContext context) async {
+    final supported = await isSupported();
+    if (!context.mounted) return;
+    if (supported) {
+      await open(context);
+    } else {
+      GoRouter.of(context).pushNamed(AISoundscapesFINALWidget.routeName);
+    }
   }
 
   static Future<void> open(BuildContext context) async {

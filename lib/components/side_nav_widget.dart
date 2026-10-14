@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/soundscapes/soundscapes_launcher.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -738,23 +739,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                     logFirebaseEvent(
                                         'contentView_1_navigate_to');
 
-                                    context.pushNamed(
-                                      AISoundscapesFINALWidget.routeName,
-                                      queryParameters: {
-                                        'meditationaudio': serializeParam(
-                                          '',
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                      extra: <String, dynamic>{
-                                        '__transition_info__': TransitionInfo(
-                                          hasTransition: true,
-                                          transitionType:
-                                              PageTransitionType.fade,
-                                          duration: Duration(milliseconds: 3),
-                                        ),
-                                      },
-                                    );
+                                    SoundscapesLauncher.openOrFallback(context);
                                   },
                                   child: Container(
                                     width: double.infinity,

@@ -1549,22 +1549,7 @@ Further ... */
 
                                                                                 logFirebaseEvent('Container_navigate_to');
 
-                                                                                context.pushNamed(
-                                                                                  AISoundscapesFINALWidget.routeName,
-                                                                                  queryParameters: {
-                                                                                    'meditationaudio': serializeParam(
-                                                                                      '',
-                                                                                      ParamType.String,
-                                                                                    ),
-                                                                                  }.withoutNulls,
-                                                                                  extra: <String, dynamic>{
-                                                                                    '__transition_info__': TransitionInfo(
-                                                                                      hasTransition: true,
-                                                                                      transitionType: PageTransitionType.fade,
-                                                                                      duration: Duration(milliseconds: 0),
-                                                                                    ),
-                                                                                  },
-                                                                                );
+                                                                                SoundscapesLauncher.openOrFallback(context);
                                                                               },
                                                                               child: Container(
                                                                                 height: 36.0,

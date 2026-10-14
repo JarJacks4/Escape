@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/soundscapes/soundscapes_launcher.dart';
 import '/components/help_comp_widget.dart';
 import '/components/lucille_first_recommendation_comp_copy_widget.dart';
 import '/components/lucille_help_comp_widget.dart';
@@ -813,22 +814,7 @@ class _NewHomeCompWidgetState extends State<NewHomeCompWidget>
 
                                   logFirebaseEvent('Container_navigate_to');
 
-                                  context.pushNamed(
-                                    AISoundscapesCopyCopyCopyWidget.routeName,
-                                    queryParameters: {
-                                      'meditationaudio': serializeParam(
-                                        '',
-                                        ParamType.String,
-                                      ),
-                                    }.withoutNulls,
-                                    extra: <String, dynamic>{
-                                      '__transition_info__': TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType: PageTransitionType.fade,
-                                        duration: Duration(milliseconds: 0),
-                                      ),
-                                    },
-                                  );
+                                  SoundscapesLauncher.openOrFallback(context);
                                 },
                                 child: Container(
                                   height: 36.0,

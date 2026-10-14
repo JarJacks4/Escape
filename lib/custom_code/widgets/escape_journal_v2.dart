@@ -1,5 +1,6 @@
 // Automatic FlutterFlow imports
 import '/backend/backend.dart';
+import '/soundscapes/soundscapes_launcher.dart';
 import "package:utility_functions_library_8g4bud/backend/schema/structs/index.dart"
     as utility_functions_library_8g4bud_data_schema;
 import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
@@ -258,6 +259,10 @@ Future<bool?> _askConsent(BuildContext context, String purpose) {
 void _openDeeplink(BuildContext context, Map? link) {
   final path = link?['path']?.toString();
   if (path == null || path.isEmpty) return;
+  if (link?['route'] == 'AISoundscapesFINAL' || path == '/aISoundscapesFINAL') {
+    SoundscapesLauncher.openOrFallback(context);
+    return;
+  }
   final params = (link?['params'] as Map?)
           ?.map((k, v) => MapEntry(k.toString(), v.toString())) ??
       <String, String>{};

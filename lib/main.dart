@@ -241,6 +241,16 @@ class NavBarPage extends StatefulWidget {
 class _NavBarPageState extends State<NavBarPage> {
   String _currentPageName = 'HomeVersion5';
   late Widget? _currentPage;
+  bool _newSoundscapes = false;
+
+  /// The Sound tab opens the new Soundscapes module when supported (iOS 17+).
+  bool _openNewSoundscapes(int i) {
+    if (!_newSoundscapes || _tabs.keys.toList()[i] != 'AISoundscapesFINAL') {
+      return false;
+    }
+    SoundscapesLauncher.open(context);
+    return true;
+  }
   final _tabs = <String, Widget>{
     'HomeVersion5': HomeVersion5Widget(),
     'LucilleHome': LucilleHomeWidget(),
@@ -253,6 +263,9 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   void initState() {
     super.initState();
+    SoundscapesLauncher.isSupported()
+        .then((v) => _newSoundscapes = v)
+        .catchError((_) => false);
     _currentPageName = widget.initialPage ?? _currentPageName;
     _currentPage = widget.page;
     if (_tabs.containsKey(_currentPageName)) {
@@ -298,7 +311,7 @@ class _NavBarPageState extends State<NavBarPage> {
         ),
         child: BottomNavigationBar(
           currentIndex: currentIndex < 0 ? 0 : currentIndex,
-          onTap: (i) => safeSetState(() {
+          onTap: (i) => _openNewSoundscapes(i) ? null : safeSetState(() {
             _currentPage = null;
             _currentPageName = _tabs.keys.toList()[i];
             _visitedPages.add(_currentPageName);
