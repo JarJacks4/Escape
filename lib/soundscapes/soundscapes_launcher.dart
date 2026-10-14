@@ -60,7 +60,18 @@ class SoundscapesLauncher {
     }
   }
 
-  static Future<void> open(BuildContext context) async {
+  /// New Mood Scan (inside the module) when supported (iOS 17+), otherwise the old Mood Scan page.
+  static Future<void> openMoodScan(BuildContext context) async {
+    final supported = await isSupported();
+    if (!context.mounted) return;
+    if (supported) {
+      await open(context, screen: 'MoodScan');
+    } else {
+      GoRouter.of(context).pushNamed(MoodScanVersion5Widget.routeName);
+    }
+  }
+
+  static Future<void> open(BuildContext context, {String? screen}) async {
     try {
       // Best effort: stop the old Sound tab player so the two don't overlap.
       await actions.pauseAudio();
@@ -70,7 +81,8 @@ class SoundscapesLauncher {
           mock: useMock,
           baseUrl: apiBaseUrl,
           lucille: useLucilleCatalog,
-          firstName: _firstName());
+          firstName: _firstName(),
+          screen: screen);
     } catch (e) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
@@ -117,6 +129,9 @@ class SoundscapesLauncher {
         break;
       case 'Body': // Move mode, until the Lucille catalog has Move tracks
         ctx.pushNamed(BodyPageVersion5Widget.routeName);
+        break;
+      case 'Journal': // "Save this moment" on the Mood Scan result
+        ctx.pushNamed(JournalHomeV2Widget.routeName);
         break;
     }
   }

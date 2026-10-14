@@ -131,7 +131,7 @@ struct SoundscapesHomeView: View {
                     InnerWeatherTile(label: "Weather", value: weatherValue, icon: .cloud, iconColor: Esc.violet,
                                      onPress: openInputs)
                     InnerWeatherTile(label: "Mood", value: moodValue, icon: .mood, iconColor: Esc.lilac,
-                                     onPress: openInputs)
+                                     onPress: { store.openMoodScan() })
                     InnerWeatherTile(label: "Heart", value: heartValue, icon: .heart, iconColor: Esc.ember,
                                      onPress: openInputs)
                 }

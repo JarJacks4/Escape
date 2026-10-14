@@ -14,12 +14,14 @@ public enum Screen: String, CaseIterable, Sendable {
     case sleepSetup = "SleepSetup"
     case listeningCircles = "ListeningCircles"
     case playlist = "Playlist"
+    /// Mood & Energy Scan (Escape_Scan_iOS handoff).
+    case moodScan = "MoodScan"
     /// Bottom-nav tabs that belong to the main Escape app (placeholders in this project).
     case hostTab = "HostTab"
 
     /// Screens that hide the bottom nav (App.tsx `hideNav`).
     public var hidesNav: Bool {
-        [.nowPlaying, .onboardingSoundscapes, .lucilleCompose, .composeGenerating, .sleepSetup].contains(self)
+        [.nowPlaying, .onboardingSoundscapes, .lucilleCompose, .composeGenerating, .sleepSetup, .moodScan].contains(self)
     }
 }
 

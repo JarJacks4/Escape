@@ -58,6 +58,7 @@ struct RootView: View {
         case .sleepSetup: SleepSetupView()
         case .listeningCircles: ListeningCirclesView()
         case .playlist: PlaylistView()
+        case .moodScan: MoodScanScreen()
         case .hostTab: HostTabPlaceholderView(tab: store.hostTab)
         }
     }

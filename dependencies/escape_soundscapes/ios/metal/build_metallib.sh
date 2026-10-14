@@ -1,9 +1,11 @@
 #!/bin/bash
-# Rebuild after editing EscapeOrb.metal: bash ios/metal/build_metallib.sh
+# Rebuild after editing a .metal file: bash ios/metal/build_metallib.sh
 set -euo pipefail
 cd "$(dirname "$0")"
-for sdk in iphoneos iphonesimulator; do
-  xcrun -sdk "$sdk" metal -c EscapeOrb.metal -o "/tmp/EscapeOrb-$sdk.air"
-  xcrun -sdk "$sdk" metallib "/tmp/EscapeOrb-$sdk.air" -o "../Resources/Metal/EscapeOrb-$sdk.metallib"
+for shader in EscapeOrb MoodOrb; do
+  for sdk in iphoneos iphonesimulator; do
+    xcrun -sdk "$sdk" metal -c "$shader.metal" -o "/tmp/$shader-$sdk.air"
+    xcrun -sdk "$sdk" metallib "/tmp/$shader-$sdk.air" -o "../Resources/Metal/$shader-$sdk.metallib"
+  done
 done
 echo "metallibs rebuilt"

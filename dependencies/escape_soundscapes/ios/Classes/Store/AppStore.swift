@@ -200,6 +200,12 @@ public final class AppStore {
     /// Lucille catalog has Move tracks).
     @ObservationIgnored public var onOpenHostRoute: ((String) -> Void)?
 
+    /// Set by the host app: closes the module without switching tabs.
+    @ObservationIgnored public var onCloseToHost: (() -> Void)?
+
+    /// True when the host opened the module straight into the Mood Scan, so closing it returns there.
+    @ObservationIgnored public var scanOpenedFromHost = false
+
     public func selectTab(_ tab: NavTab) {
         if tab != .soundscapes, let exit = onExitToHost {
             exit(tab)

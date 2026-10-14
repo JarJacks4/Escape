@@ -53,7 +53,10 @@ public final class SoundscapesHostingFactory: NSObject {
 
     /// "NowPlaying", "Library"… and optional sheet "MoodField", "PremiumSheet"… (Figma names).
     @objc public func openScreen(_ screen: String, sheet: String?) {
-        if let s = Screen(rawValue: screen) { store.setScreen(s) }
+        if let s = Screen(rawValue: screen) {
+            store.scanOpenedFromHost = (s == .moodScan)
+            store.setScreen(s)
+        }
         store.setSheet(sheet.flatMap(Sheet.init(rawValue:)))
     }
 }
@@ -65,5 +68,10 @@ extension SoundscapesHostingFactory {
     public func setExitHandler(_ handler: @escaping (String) -> Void) {
         store.onExitToHost = { handler($0.rawValue) }
         store.onOpenHostRoute = { handler($0) }
+    }
+
+    /// Host hook: closes the module and leaves Flutter where it was (Mood Scan opened from Flutter).
+    public func setCloseHandler(_ handler: @escaping () -> Void) {
+        store.onCloseToHost = handler
     }
 }

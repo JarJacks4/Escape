@@ -238,6 +238,13 @@ public actor LucilleBackedAPI: SoundscapesAPI {
         return ComposeAccepted(compositionId: c.compositionId, status: .ready, etaSec: 0, composition: c)
     }
 
+    // MARK: - Mood Scan
+
+    /// Mood Scan result -> Lucille v1 mood check-in (POST /v1/mood/checkins).
+    public func checkIn(word: String, valence: Double, energy: Double, text: String?) async throws {
+        _ = try await v1.checkIn(word: word, valence: valence, energy: energy, text: text)
+    }
+
     // MARK: - Everything else: the mock
 
     public func content() async throws -> ContentBundle { try await mock.content() }

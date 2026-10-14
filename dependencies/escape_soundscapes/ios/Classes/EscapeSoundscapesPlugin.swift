@@ -85,6 +85,7 @@ public final class EscapeSoundscapesPlugin: NSObject, FlutterPlugin {
             factory = SoundscapesHostingFactory(mockData: true)
         }
         factory.setExitHandler { [weak self] tab in self?.dismiss(tab: tab) }
+        factory.setCloseHandler { [weak self] in self?.dismiss(tab: nil) }
         if let screen = args["screen"] as? String {
             factory.openScreen(screen, sheet: args["sheet"] as? String)
         }
