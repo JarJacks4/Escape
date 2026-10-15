@@ -67,6 +67,9 @@ class _MoodResultTransitionWidgetState
           milliseconds: 5000,
         ),
       );
+      if (!mounted) {
+        return;
+      }
       if (widget.moodResult != null && widget.moodResult != '') {
         logFirebaseEvent('MoodResultTransition_show_snack_bar');
         ScaffoldMessenger.of(context).showSnackBar(
@@ -154,186 +157,143 @@ class _MoodResultTransitionWidgetState
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Color(0x08000000),
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 946.37,
+        body: SizedBox.expand(
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: Image.asset(
+                  'assets/images/bb6a49037631d9bf4053df6b9db07a5b.gif',
+                ).image,
+              ),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(26.0),
+                topRight: Radius.circular(26.0),
+              ),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(26.0),
+                topRight: Radius.circular(26.0),
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: 5.0,
+                  sigmaY: 5.0,
+                ),
+                child: Container(
+                  width: 100.0,
+                  height: 100.0,
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: Image.asset(
-                        'assets/images/bb6a49037631d9bf4053df6b9db07a5b.gif',
-                      ).image,
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0x25EDF1F7),
+                        Color(0x5CD0E3F7),
+                        FlutterFlowTheme.of(context).secondary
+                      ],
+                      stops: [0.0, 0.75, 1.0],
+                      begin: AlignmentDirectional(0.0, -1.0),
+                      end: AlignmentDirectional(0, 1.0),
                     ),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(26.0),
                       topRight: Radius.circular(26.0),
                     ),
                   ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(26.0),
-                      topRight: Radius.circular(26.0),
-                    ),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(
-                        sigmaX: 5.0,
-                        sigmaY: 5.0,
-                      ),
-                      child: Container(
-                        width: 100.0,
-                        height: 100.0,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color(0x25EDF1F7),
-                              Color(0x5CD0E3F7),
-                              FlutterFlowTheme.of(context).secondary
-                            ],
-                            stops: [0.0, 0.75, 1.0],
-                            begin: AlignmentDirectional(0.0, -1.0),
-                            end: AlignmentDirectional(0, 1.0),
-                          ),
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(26.0),
-                            topRight: Radius.circular(26.0),
-                          ),
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Lottie.asset(
+                          'assets/jsons/Scan_Matrix.json',
+                          width: double.infinity,
+                          height: double.infinity,
+                          fit: BoxFit.cover,
+                          animate: true,
                         ),
-                        child: Stack(
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Lottie.asset(
-                                'assets/jsons/Scan_Matrix.json',
-                                width: 480.1,
-                                height: 1058.7,
-                                fit: BoxFit.contain,
-                                animate: true,
+                      ),
+                      SafeArea(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 24.0, 24.0, 24.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'g61wp8e6' /* Step 2 of 3 */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'WorkSans',
+                                      color: Color(0xCCFFFFFF),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 80.0, 0.0, 0.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'g61wp8e6' /* Step 2 of 3 */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'WorkSans',
-                                                color: Color(0xCCFFFFFF),
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
-                                              ),
+                              Spacer(),
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'd0sffowi' /* Mood Is Scanning... */,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .displaySmall
+                                        .override(
+                                          fontFamily: 'The Seasons',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                      ),
+                                  ),
+                                  SizedBox(height: 16.0),
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      '871l821p' /* Scanning Your Mood For the Day */,
                                     ),
-                                  ].divide(SizedBox(height: 8.0)),
-                                ),
-                                Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 24.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 25.0, 0.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'd0sffowi' /* Mood Is Scanning... */,
-                                                ),
-                                                textAlign: TextAlign.center,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .displaySmall
-                                                    .override(
-                                                      fontFamily: 'The Seasons',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                              ),
-                                            ),
-                                            Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '871l821p' /* Scanning Your Mood For the Day */,
-                                              ),
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'WorkSans',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondary,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w200,
-                                                  ),
-                                            ),
-                                          ].divide(SizedBox(height: 16.0)),
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondary,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w200,
                                         ),
-                                      ].divide(SizedBox(height: 32.0)),
-                                    ),
                                   ),
+                                ],
+                              ),
+                              Spacer(),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/Logo_ESCAPE_Black.png',
+                                  width: 160.0,
+                                  height: 72.0,
+                                  fit: BoxFit.contain,
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 300.0, 0.0, 0.0),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.asset(
-                                      'assets/images/Logo_ESCAPE_Black.png',
-                                      width: 200.0,
-                                      height: 143.9,
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
                 ),
-              ],
+              ),
             ),
-          ],
+          ),
         ),
       ),
     );

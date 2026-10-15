@@ -497,7 +497,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                 AlignmentDirectional(0.0, -1.0),
                                             child: Container(
                                               width: 370.4,
-                                              height: 129.5,
+                                              height: 132.0,
                                               decoration: BoxDecoration(),
                                               child: Align(
                                                 alignment: AlignmentDirectional(
@@ -1610,7 +1610,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                     0.0, -1.0),
                                                 child: Container(
                                                   width: 370.4,
-                                                  height: 129.5,
+                                                  height: 132.0,
                                                   decoration: BoxDecoration(),
                                                   child: Align(
                                                     alignment:
@@ -2676,7 +2676,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                     0.0, -1.0),
                                                 child: Container(
                                                   width: 370.4,
-                                                  height: 129.5,
+                                                  height: 132.0,
                                                   decoration: BoxDecoration(),
                                                   child: Align(
                                                     alignment:

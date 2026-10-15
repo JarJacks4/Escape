@@ -310,698 +310,821 @@ class _MoodResultPageWidgetState extends State<MoodResultPageWidget>
                                             ].divide(SizedBox(height: 8.0)),
                                           ),
                                         ),
-                                        Flexible(
-                                          flex: 1,
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            child: Container(
-                                              width: double.infinity,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xA91C2444),
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    blurRadius: 40.0,
-                                                    color: Color(0x87397B9F),
-                                                    offset: Offset(
-                                                      0.0,
-                                                      2.0,
-                                                    ),
-                                                    spreadRadius: 15.0,
-                                                  )
-                                                ],
-                                                borderRadius:
-                                                    BorderRadius.circular(20.0),
-                                                border: Border.all(
-                                                  color: Color(0x97EDF1F7),
-                                                ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 0.0),
+                                          child: Container(
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color: Color(0xA91C2444),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 40.0,
+                                                  color: Color(0x87397B9F),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                  spreadRadius: 15.0,
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(20.0),
+                                              border: Border.all(
+                                                color: Color(0x97EDF1F7),
                                               ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        20.0, 20.0, 20.0, 20.0),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'v1jtu45q' /* MOOD TODAY */,
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .labelMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'WorkSans',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondary,
-                                                            fontSize: 12.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w300,
-                                                          ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      20.0, 20.0, 20.0, 20.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'v1jtu45q' /* MOOD TODAY */,
                                                     ),
-                                                    Text(
-                                                      valueOrDefault<String>(
-                                                        widget.moodResult,
-                                                        'Neutral',
-                                                      ),
-                                                      textAlign: TextAlign.center,
-                                                      maxLines: 2,
-                                                      overflow: TextOverflow.ellipsis,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .displayMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'The Seasons',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .accent3,
-                                                            fontSize: 36.0,
-                                                            letterSpacing: 2.0,
-                                                            fontWeight:
-                                                                FontWeight.w300,
-                                                          ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'WorkSans',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                        ),
+                                                  ),
+                                                  Text(
+                                                    valueOrDefault<String>(
+                                                      widget.moodResult,
+                                                      'Neutral',
                                                     ),
-                                                    Divider(
-                                                      thickness: 1.0,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceEvenly,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Container(
-                                                            height: 80.0,
-                                                            decoration:
-                                                                BoxDecoration(
+                                                    textAlign: TextAlign.center,
+                                                    maxLines: 2,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .displayMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'The Seasons',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent3,
+                                                          fontSize: 36.0,
+                                                          letterSpacing: 2.0,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                        ),
+                                                  ),
+                                                  Divider(
+                                                    thickness: 1.0,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
+                                                    children: [
+                                                      Expanded(
+                                                        child: Container(
+                                                          height: 80.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0x771C2444),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        16.0),
+                                                            border: Border.all(
                                                               color: Color(
-                                                                  0x771C2444),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          16.0),
-                                                              border:
-                                                                  Border.all(
-                                                                color: Color(
-                                                                    0x25EDF1F7),
-                                                              ),
+                                                                  0x25EDF1F7),
                                                             ),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        12.0,
+                                                                        12.0,
+                                                                        12.0,
+                                                                        12.0),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Icon(
+                                                                      Icons
+                                                                          .bolt_rounded,
+                                                                      color: Color(
+                                                                          0xFF3DCDE4),
+                                                                      size:
+                                                                          16.0,
+                                                                    ),
+                                                                    Text(
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'h7ngs9a1' /* Energy Level */,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelSmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'WorkSans',
+                                                                            color:
+                                                                                Color(0xB2D0E3F7),
+                                                                            fontSize:
+                                                                                11.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                    ),
+                                                                  ].divide(SizedBox(
+                                                                      width:
+                                                                          6.0)),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          12.0,
-                                                                          12.0,
-                                                                          12.0,
-                                                                          12.0),
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Icon(
-                                                                        Icons
-                                                                            .bolt_rounded,
-                                                                        color: Color(
-                                                                            0xFF3DCDE4),
-                                                                        size:
-                                                                            16.0,
-                                                                      ),
-                                                                      Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'h7ngs9a1' /* Energy Level */,
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      widget
+                                                                          .energyLevel,
+                                                                      'Moderate',
+                                                                    ),
+                                                                    maxLines: 2,
+                                                                    overflow:
+                                                                        TextOverflow
+                                                                            .ellipsis,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'WorkSans',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w300,
                                                                         ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .labelSmall
-                                                                            .override(
-                                                                              fontFamily: 'WorkSans',
-                                                                              color: Color(0xB2D0E3F7),
-                                                                              fontSize: 11.0,
-                                                                              letterSpacing: 0.0,
-                                                                            ),
-                                                                      ),
-                                                                    ].divide(SizedBox(
-                                                                        width:
-                                                                            6.0)),
                                                                   ),
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      valueOrDefault<
-                                                                          String>(
+                                                                ),
+                                                              ].divide(SizedBox(
+                                                                  height: 6.0)),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Flexible(
+                                                        flex: 1,
+                                                        child: Container(
+                                                          height: 80.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0x7F1C2444),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        16.0),
+                                                            border: Border.all(
+                                                              color: Color(
+                                                                  0x24EDF1F7),
+                                                            ),
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        12.0,
+                                                                        12.0,
+                                                                        12.0,
+                                                                        12.0),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Icon(
+                                                                      Icons
+                                                                          .favorite_border_rounded,
+                                                                      color: Color(
+                                                                          0xFFA684FF),
+                                                                      size:
+                                                                          16.0,
+                                                                    ),
+                                                                    Text(
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'pc4dt71m' /* Stress Level */,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelSmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'WorkSans',
+                                                                            color:
+                                                                                Color(0xB2D0E3F7),
+                                                                            fontSize:
+                                                                                11.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                    ),
+                                                                  ].divide(SizedBox(
+                                                                      width:
+                                                                          6.0)),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      formatNumber(
                                                                         widget
-                                                                            .energyLevel,
-                                                                        'Moderate',
+                                                                            .stressLevel,
+                                                                        formatType:
+                                                                            FormatType.percent,
                                                                       ),
-                                                                      maxLines: 2,
-                                                                      overflow: TextOverflow.ellipsis,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .titleMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'WorkSans',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w300,
-                                                                          ),
+                                                                      '50%',
                                                                     ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'WorkSans',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w300,
+                                                                        ),
                                                                   ),
-                                                                ].divide(SizedBox(
-                                                                    height:
-                                                                        6.0)),
-                                                              ),
+                                                                ),
+                                                              ].divide(SizedBox(
+                                                                  height: 6.0)),
                                                             ),
                                                           ),
                                                         ),
-                                                        Flexible(
-                                                          flex: 1,
-                                                          child: Container(
-                                                            height: 80.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: Color(
-                                                                  0x7F1C2444),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          16.0),
-                                                              border:
-                                                                  Border.all(
-                                                                color: Color(
-                                                                    0x24EDF1F7),
-                                                              ),
-                                                            ),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          12.0,
-                                                                          12.0,
-                                                                          12.0,
-                                                                          12.0),
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Icon(
-                                                                        Icons
-                                                                            .favorite_border_rounded,
-                                                                        color: Color(
-                                                                            0xFFA684FF),
-                                                                        size:
-                                                                            16.0,
-                                                                      ),
-                                                                      Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'pc4dt71m' /* Stress Level */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .labelSmall
-                                                                            .override(
-                                                                              fontFamily: 'WorkSans',
-                                                                              color: Color(0xB2D0E3F7),
-                                                                              fontSize: 11.0,
-                                                                              letterSpacing: 0.0,
-                                                                            ),
-                                                                      ),
-                                                                    ].divide(SizedBox(
-                                                                        width:
-                                                                            6.0)),
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        formatNumber(
-                                                                          widget
-                                                                              .stressLevel,
-                                                                          formatType:
-                                                                              FormatType.percent,
-                                                                        ),
-                                                                        '50%',
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .titleMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'WorkSans',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w300,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ].divide(SizedBox(
-                                                                    height:
-                                                                        6.0)),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ].divide(SizedBox(
-                                                          width: 12.0)),
-                                                    ),
-                                                  ].divide(
-                                                      SizedBox(height: 13.0)),
-                                                ),
+                                                      ),
+                                                    ].divide(
+                                                        SizedBox(width: 12.0)),
+                                                  ),
+                                                ].divide(
+                                                    SizedBox(height: 13.0)),
                                               ),
                                             ),
                                           ),
                                         ),
-                                        Flexible(
-                                          flex: 1,
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 27.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'l8fs34g3' /* RECOMMENDED FOR YOU */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'WorkSans',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        fontSize: 12.0,
-                                                        letterSpacing: 1.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        lineHeight: 2.0,
-                                                      ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 27.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'l8fs34g3' /* RECOMMENDED FOR YOU */,
                                                 ),
-                                                FutureBuilder<ApiCallResponse>(
-                                                  future: FFAppState()
-                                                      .recommendedExercisesMoodScan(
-                                                    requestFn: () =>
-                                                        TheoryOfMindLucilleGroup
-                                                            .getTherapyRecommendationsCall
-                                                            .call(
-                                                          userId: currentUserUid,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily: 'WorkSans',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 1.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      lineHeight: 2.0,
+                                                    ),
+                                              ),
+                                              FutureBuilder<ApiCallResponse>(
+                                                future: FFAppState()
+                                                    .recommendedExercisesMoodScan(
+                                                  requestFn: () =>
+                                                      TheoryOfMindLucilleGroup
+                                                          .getTherapyRecommendationsCall
+                                                          .call(
+                                                    userId: currentUserUid,
                                                   ),
-                                                  builder: (context, snapshot) {
-                                                    // Customize what your widget looks like when it's loading.
-                                                    if (!snapshot.hasData) {
-                                                      return Center(
-                                                        child: SizedBox(
-                                                          width: 100.0,
-                                                          height: 100.0,
-                                                          child: SpinKitWave(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .accent1,
-                                                            size: 100.0,
-                                                          ),
+                                                ),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 100.0,
+                                                        height: 100.0,
+                                                        child: SpinKitWave(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent1,
+                                                          size: 100.0,
                                                         ),
-                                                      );
-                                                    }
-                                                    final containerGetTherapyRecommendationsResponse =
-                                                        snapshot.data!;
+                                                      ),
+                                                    );
+                                                  }
+                                                  final containerGetTherapyRecommendationsResponse =
+                                                      snapshot.data!;
 
-                                                    return InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        logFirebaseEvent(
-                                                            'MOOD_RESULT_Container_jb62s8vq_ON_TAP');
-                                                        logFirebaseEvent(
-                                                            'Container_haptic_feedback');
-                                                        HapticFeedback
-                                                            .heavyImpact();
-                                                        logFirebaseEvent(
-                                                            'Container_play_sound');
-                                                        _model.soundPlayer2 ??=
-                                                            AudioPlayer();
-                                                        if (_model.soundPlayer2!
-                                                            .playing) {
-                                                          await _model
+                                                  return InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      logFirebaseEvent(
+                                                          'MOOD_RESULT_Container_jb62s8vq_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Container_haptic_feedback');
+                                                      HapticFeedback
+                                                          .heavyImpact();
+                                                      logFirebaseEvent(
+                                                          'Container_play_sound');
+                                                      _model.soundPlayer2 ??=
+                                                          AudioPlayer();
+                                                      if (_model.soundPlayer2!
+                                                          .playing) {
+                                                        await _model
+                                                            .soundPlayer2!
+                                                            .stop();
+                                                      }
+                                                      _model.soundPlayer2!
+                                                          .setVolume(0.62);
+                                                      _model.soundPlayer2!
+                                                          .setAsset(
+                                                              'assets/audios/ES_Game,_Jingle,_Chime,_Positive_02_-_Epidemic_Sound_-_2396-3434.wav')
+                                                          .then((_) => _model
                                                               .soundPlayer2!
-                                                              .stop();
-                                                        }
-                                                        _model.soundPlayer2!
-                                                            .setVolume(0.62);
-                                                        _model.soundPlayer2!
-                                                            .setAsset(
-                                                                'assets/audios/ES_Game,_Jingle,_Chime,_Positive_02_-_Epidemic_Sound_-_2396-3434.wav')
-                                                            .then((_) => _model
-                                                                .soundPlayer2!
-                                                                .play());
+                                                              .play());
 
-                                                        logFirebaseEvent(
-                                                            'Container_navigate_to');
+                                                      logFirebaseEvent(
+                                                          'Container_navigate_to');
 
-                                                        context.pushNamed(
-                                                          LucilleSuggestionPageWidget
-                                                              .routeName,
-                                                          queryParameters: {
-                                                            'exerciseTitle':
-                                                                serializeParam(
-                                                              (TheoryOfMindLucilleGroup
-                                                                              .getTherapyRecommendationsCall
-                                                                              .title(
-                                                                            containerGetTherapyRecommendationsResponse.jsonBody,
-                                                                          ) !=
-                                                                          null &&
-                                                                      (TheoryOfMindLucilleGroup
-                                                                              .getTherapyRecommendationsCall
-                                                                              .title(
-                                                                        containerGetTherapyRecommendationsResponse
-                                                                            .jsonBody,
-                                                                      ))!
-                                                                          .isNotEmpty)
-                                                                  .toString(),
-                                                              ParamType.String,
-                                                            ),
-                                                            'exerciseDescription':
-                                                                serializeParam(
-                                                              (TheoryOfMindLucilleGroup
-                                                                              .getTherapyRecommendationsCall
-                                                                              .description(
-                                                                            containerGetTherapyRecommendationsResponse.jsonBody,
-                                                                          ) !=
-                                                                          null &&
-                                                                      (TheoryOfMindLucilleGroup
-                                                                              .getTherapyRecommendationsCall
-                                                                              .description(
-                                                                        containerGetTherapyRecommendationsResponse
-                                                                            .jsonBody,
-                                                                      ))!
-                                                                          .isNotEmpty)
-                                                                  .toString(),
-                                                              ParamType.String,
-                                                            ),
-                                                            'exerciseDuration':
-                                                                serializeParam(
-                                                              TheoryOfMindLucilleGroup
-                                                                  .getTherapyRecommendationsCall
-                                                                  .durationMinutes(
-                                                                    containerGetTherapyRecommendationsResponse
-                                                                        .jsonBody,
-                                                                  )
-                                                                  ?.firstOrNull
-                                                                  ?.toDouble(),
-                                                              ParamType.double,
-                                                            ),
-                                                          }.withoutNulls,
-                                                        );
-                                                      },
-                                                      child: Container(
-                                                        width: double.infinity,
-                                                        height: 90.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color:
-                                                              Color(0x801C2444),
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                              blurRadius: 40.0,
-                                                              color: Color(
-                                                                  0x75FCC462),
-                                                              offset: Offset(
-                                                                0.0,
-                                                                0.0,
-                                                              ),
-                                                              spreadRadius: 8.0,
-                                                            )
-                                                          ],
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      20.0),
-                                                          border: Border.all(
-                                                            color: Color(
-                                                                0x43EDF1F7),
+                                                      context.pushNamed(
+                                                        LucilleSuggestionPageWidget
+                                                            .routeName,
+                                                        queryParameters: {
+                                                          'exerciseTitle':
+                                                              serializeParam(
+                                                            (TheoryOfMindLucilleGroup
+                                                                            .getTherapyRecommendationsCall
+                                                                            .title(
+                                                                          containerGetTherapyRecommendationsResponse
+                                                                              .jsonBody,
+                                                                        ) !=
+                                                                        null &&
+                                                                    (TheoryOfMindLucilleGroup
+                                                                            .getTherapyRecommendationsCall
+                                                                            .title(
+                                                                      containerGetTherapyRecommendationsResponse
+                                                                          .jsonBody,
+                                                                    ))!
+                                                                        .isNotEmpty)
+                                                                .toString(),
+                                                            ParamType.String,
                                                           ),
+                                                          'exerciseDescription':
+                                                              serializeParam(
+                                                            (TheoryOfMindLucilleGroup
+                                                                            .getTherapyRecommendationsCall
+                                                                            .description(
+                                                                          containerGetTherapyRecommendationsResponse
+                                                                              .jsonBody,
+                                                                        ) !=
+                                                                        null &&
+                                                                    (TheoryOfMindLucilleGroup
+                                                                            .getTherapyRecommendationsCall
+                                                                            .description(
+                                                                      containerGetTherapyRecommendationsResponse
+                                                                          .jsonBody,
+                                                                    ))!
+                                                                        .isNotEmpty)
+                                                                .toString(),
+                                                            ParamType.String,
+                                                          ),
+                                                          'exerciseDuration':
+                                                              serializeParam(
+                                                            TheoryOfMindLucilleGroup
+                                                                .getTherapyRecommendationsCall
+                                                                .durationMinutes(
+                                                                  containerGetTherapyRecommendationsResponse
+                                                                      .jsonBody,
+                                                                )
+                                                                ?.firstOrNull
+                                                                ?.toDouble(),
+                                                            ParamType.double,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    },
+                                                    child: Container(
+                                                      width: double.infinity,
+                                                      height: 96.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            Color(0x801C2444),
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            blurRadius: 40.0,
+                                                            color: Color(
+                                                                0x75FCC462),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              0.0,
+                                                            ),
+                                                            spreadRadius: 8.0,
+                                                          )
+                                                        ],
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(20.0),
+                                                        border: Border.all(
+                                                          color:
+                                                              Color(0x43EDF1F7),
                                                         ),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      16.0,
-                                                                      16.0,
-                                                                      16.0,
-                                                                      16.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Material(
-                                                                color: Colors
-                                                                    .transparent,
-                                                                elevation: 0.0,
-                                                                shape:
-                                                                    RoundedRectangleBorder(
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    16.0,
+                                                                    16.0,
+                                                                    16.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Material(
+                                                              color: Colors
+                                                                  .transparent,
+                                                              elevation: 0.0,
+                                                              shape:
+                                                                  RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            12.0),
+                                                              ),
+                                                              child: Container(
+                                                                width: 50.0,
+                                                                height: 50.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Color(
+                                                                      0xB61C2444),
+                                                                  image:
+                                                                      DecorationImage(
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                    image: Image
+                                                                        .asset(
+                                                                      'assets/images/Pi-Slices.gif',
+                                                                    ).image,
+                                                                  ),
+                                                                  boxShadow: [
+                                                                    BoxShadow(
+                                                                      blurRadius:
+                                                                          40.0,
+                                                                      color: Color(
+                                                                          0x5AFCC462),
+                                                                      offset:
+                                                                          Offset(
+                                                                        0.0,
+                                                                        0.0,
+                                                                      ),
+                                                                      spreadRadius:
+                                                                          3.0,
+                                                                    )
+                                                                  ],
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
                                                                               12.0),
                                                                 ),
-                                                                child:
-                                                                    Container(
-                                                                  width: 50.0,
-                                                                  height: 50.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Color(
-                                                                        0xB61C2444),
-                                                                    image:
-                                                                        DecorationImage(
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                      image: Image
-                                                                          .asset(
-                                                                        'assets/images/Pi-Slices.gif',
-                                                                      ).image,
+                                                              ),
+                                                            ),
+                                                            Flexible(
+                                                              flex: 1,
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Text(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        TheoryOfMindLucilleGroup
+                                                                            .getTherapyRecommendationsCall
+                                                                            .title(
+                                                                              containerGetTherapyRecommendationsResponse.jsonBody,
+                                                                            )
+                                                                            ?.where((e) =>
+                                                                                TheoryOfMindLucilleGroup.getTherapyRecommendationsCall.detectedEmotion(
+                                                                                      containerGetTherapyRecommendationsResponse.jsonBody,
+                                                                                    ) !=
+                                                                                    null &&
+                                                                                TheoryOfMindLucilleGroup.getTherapyRecommendationsCall.detectedEmotion(
+                                                                                      containerGetTherapyRecommendationsResponse.jsonBody,
+                                                                                    ) !=
+                                                                                    '')
+                                                                            .toList()
+                                                                            .firstOrNull,
+                                                                        'Breathing Exercise',
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'WorkSans',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w300,
+                                                                            lineHeight:
+                                                                                2.0,
+                                                                          ),
                                                                     ),
-                                                                    boxShadow: [
-                                                                      BoxShadow(
-                                                                        blurRadius:
-                                                                            40.0,
-                                                                        color: Color(
-                                                                            0x5AFCC462),
-                                                                        offset:
-                                                                            Offset(
-                                                                          0.0,
-                                                                          0.0,
-                                                                        ),
-                                                                        spreadRadius:
-                                                                            3.0,
-                                                                      )
-                                                                    ],
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            12.0),
-                                                                  ),
+                                                                    Text(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        TheoryOfMindLucilleGroup
+                                                                            .getTherapyRecommendationsCall
+                                                                            .reason(
+                                                                              containerGetTherapyRecommendationsResponse.jsonBody,
+                                                                            )
+                                                                            ?.where((e) =>
+                                                                                TheoryOfMindLucilleGroup.getTherapyRecommendationsCall.detectedIntent(
+                                                                                  containerGetTherapyRecommendationsResponse.jsonBody,
+                                                                                ) ==
+                                                                                '')
+                                                                            .toList()
+                                                                            .firstOrNull,
+                                                                        '5 min guided breathwork',
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodySmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'WorkSans',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                    ),
+                                                                  ].divide(SizedBox(
+                                                                      height:
+                                                                          4.0)),
                                                                 ),
                                                               ),
-                                                              Flexible(
-                                                                flex: 1,
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Text(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          TheoryOfMindLucilleGroup
-                                                                              .getTherapyRecommendationsCall
-                                                                              .title(
-                                                                                containerGetTherapyRecommendationsResponse.jsonBody,
-                                                                              )
-                                                                              ?.where((e) =>
-                                                                                  TheoryOfMindLucilleGroup.getTherapyRecommendationsCall.detectedEmotion(
-                                                                                        containerGetTherapyRecommendationsResponse.jsonBody,
-                                                                                      ) !=
-                                                                                      null &&
-                                                                                  TheoryOfMindLucilleGroup.getTherapyRecommendationsCall.detectedEmotion(
-                                                                                        containerGetTherapyRecommendationsResponse.jsonBody,
-                                                                                      ) !=
-                                                                                      '')
-                                                                              .toList()
-                                                                              .firstOrNull,
-                                                                          'Breathing Exercise',
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .titleMedium
-                                                                            .override(
-                                                                              fontFamily: 'WorkSans',
-                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.w300,
-                                                                              lineHeight: 2.0,
-                                                                            ),
-                                                                      ),
-                                                                      Text(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          TheoryOfMindLucilleGroup
-                                                                              .getTherapyRecommendationsCall
-                                                                              .reason(
-                                                                                containerGetTherapyRecommendationsResponse.jsonBody,
-                                                                              )
-                                                                              ?.where((e) =>
-                                                                                  TheoryOfMindLucilleGroup.getTherapyRecommendationsCall.detectedIntent(
-                                                                                    containerGetTherapyRecommendationsResponse.jsonBody,
-                                                                                  ) ==
-                                                                                  '')
-                                                                              .toList()
-                                                                              .firstOrNull,
-                                                                          '5 min guided breathwork',
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodySmall
-                                                                            .override(
-                                                                              fontFamily: 'WorkSans',
-                                                                              color: FlutterFlowTheme.of(context).secondary,
-                                                                              letterSpacing: 0.0,
-                                                                            ),
-                                                                      ),
-                                                                    ].divide(SizedBox(
-                                                                        height:
-                                                                            4.0)),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ].divide(SizedBox(
-                                                                width: 16.0)),
-                                                          ),
+                                                            ),
+                                                          ].divide(SizedBox(
+                                                              width: 16.0)),
                                                         ),
                                                       ),
-                                                    );
-                                                  },
-                                                ),
-                                              ].divide(SizedBox(height: 12.0)),
-                                            ),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            ].divide(SizedBox(height: 12.0)),
                                           ),
                                         ),
-                                        Flexible(
-                                          flex: 1,
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                FFButtonWidget(
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              FFButtonWidget(
+                                                onPressed: () async {
+                                                  logFirebaseEvent(
+                                                      'MOOD_RESULT_SCAN_AGAIN_BTN_ON_TAP');
+                                                  logFirebaseEvent(
+                                                      'Button_haptic_feedback');
+                                                  HapticFeedback
+                                                      .selectionClick();
+                                                  logFirebaseEvent(
+                                                      'Button_play_sound');
+                                                  _model.soundPlayer3 ??=
+                                                      AudioPlayer();
+                                                  if (_model
+                                                      .soundPlayer3!.playing) {
+                                                    await _model.soundPlayer3!
+                                                        .stop();
+                                                  }
+                                                  _model.soundPlayer3!
+                                                      .setVolume(1.0);
+                                                  _model.soundPlayer3!
+                                                      .setAsset(
+                                                          'assets/audios/ES_Futuristic_Technology,_UI_Confirm_Tone,_Bright_02_-_Epidemic_Sound_-_3410-4218.wav')
+                                                      .then((_) => _model
+                                                          .soundPlayer3!
+                                                          .play());
+
+                                                  logFirebaseEvent(
+                                                      'Button_navigate_to');
+
+                                                  context.pushNamed(
+                                                    MoodScanVersion5Widget
+                                                        .routeName,
+                                                    extra: <String, dynamic>{
+                                                      '__transition_info__':
+                                                          TransitionInfo(
+                                                        hasTransition: true,
+                                                        transitionType:
+                                                            PageTransitionType
+                                                                .rightToLeft,
+                                                        duration: Duration(
+                                                            milliseconds: 2),
+                                                      ),
+                                                    },
+                                                  );
+                                                },
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'r8xxjuin' /* Scan Again */,
+                                                ),
+                                                options: FFButtonOptions(
+                                                  width: (MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width -
+                                                          44.0) /
+                                                      2.0,
+                                                  height: 59.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          16.0, 0.0, 16.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: Color(0x771C2444),
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                                  elevation: 0.0,
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x91EDF1F7),
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          22.0),
+                                                  hoverColor: Color(0x6039519F),
+                                                  hoverBorderSide: BorderSide(
+                                                    color: Color(0xB239519F),
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                width:
+                                                    (MediaQuery.sizeOf(context)
+                                                                .width -
+                                                            44.0) /
+                                                        2.0,
+                                                height: 59.0,
+                                                decoration: BoxDecoration(
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 40.0,
+                                                      color: Color(0xCFF0831A),
+                                                      offset: Offset(
+                                                        0.0,
+                                                        0.0,
+                                                      ),
+                                                    )
+                                                  ],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          22.0),
+                                                ),
+                                                child: FFButtonWidget(
                                                   onPressed: () async {
                                                     logFirebaseEvent(
-                                                        'MOOD_RESULT_SCAN_AGAIN_BTN_ON_TAP');
+                                                        'MOOD_RESULT_PAGE_PAGE_HOME_BTN_ON_TAP');
                                                     logFirebaseEvent(
                                                         'Button_haptic_feedback');
                                                     HapticFeedback
                                                         .selectionClick();
                                                     logFirebaseEvent(
                                                         'Button_play_sound');
-                                                    _model.soundPlayer3 ??=
+                                                    _model.soundPlayer4 ??=
                                                         AudioPlayer();
-                                                    if (_model.soundPlayer3!
+                                                    if (_model.soundPlayer4!
                                                         .playing) {
-                                                      await _model.soundPlayer3!
+                                                      await _model.soundPlayer4!
                                                           .stop();
                                                     }
-                                                    _model.soundPlayer3!
+                                                    _model.soundPlayer4!
                                                         .setVolume(1.0);
-                                                    _model.soundPlayer3!
+                                                    _model.soundPlayer4!
                                                         .setAsset(
                                                             'assets/audios/ES_Futuristic_Technology,_UI_Confirm_Tone,_Bright_02_-_Epidemic_Sound_-_3410-4218.wav')
                                                         .then((_) => _model
-                                                            .soundPlayer3!
+                                                            .soundPlayer4!
                                                             .play());
 
                                                     logFirebaseEvent(
                                                         'Button_navigate_to');
 
                                                     context.pushNamed(
-                                                      MoodScanVersion5Widget
+                                                      HomeVersion5Widget
                                                           .routeName,
                                                       extra: <String, dynamic>{
                                                         '__transition_info__':
@@ -1009,9 +1132,9 @@ class _MoodResultPageWidgetState extends State<MoodResultPageWidget>
                                                           hasTransition: true,
                                                           transitionType:
                                                               PageTransitionType
-                                                                  .rightToLeft,
+                                                                  .fade,
                                                           duration: Duration(
-                                                              milliseconds: 2),
+                                                              milliseconds: 3),
                                                         ),
                                                       },
                                                     );
@@ -1019,10 +1142,18 @@ class _MoodResultPageWidgetState extends State<MoodResultPageWidget>
                                                   text: FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    'r8xxjuin' /* Scan Again */,
+                                                    'tql3zhfo' /* Home */,
+                                                  ),
+                                                  icon: Icon(
+                                                    FFIcons.khomeHouse2,
+                                                    size: 15.0,
                                                   ),
                                                   options: FFButtonOptions(
-                                                    width: 166.0,
+                                                    width: (MediaQuery.sizeOf(
+                                                                    context)
+                                                                .width -
+                                                            44.0) /
+                                                        2.0,
                                                     height: 59.0,
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -1032,7 +1163,7 @@ class _MoodResultPageWidgetState extends State<MoodResultPageWidget>
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
-                                                    color: Color(0x771C2444),
+                                                    color: Color(0x77F0831A),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .titleSmall
@@ -1042,13 +1173,14 @@ class _MoodResultPageWidgetState extends State<MoodResultPageWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondary,
+                                                          fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w300,
                                                         ),
                                                     elevation: 0.0,
                                                     borderSide: BorderSide(
-                                                      color: Color(0x91EDF1F7),
+                                                      color: Color(0x66EDF1F7),
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -1059,139 +1191,10 @@ class _MoodResultPageWidgetState extends State<MoodResultPageWidget>
                                                       color: Color(0xB239519F),
                                                     ),
                                                   ),
-                                                ),
-                                                Container(
-                                                  width: 166.0,
-                                                  height: 59.0,
-                                                  decoration: BoxDecoration(
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        blurRadius: 40.0,
-                                                        color:
-                                                            Color(0xCFF0831A),
-                                                        offset: Offset(
-                                                          0.0,
-                                                          0.0,
-                                                        ),
-                                                      )
-                                                    ],
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            22.0),
-                                                  ),
-                                                  child: FFButtonWidget(
-                                                    onPressed: () async {
-                                                      logFirebaseEvent(
-                                                          'MOOD_RESULT_PAGE_PAGE_HOME_BTN_ON_TAP');
-                                                      logFirebaseEvent(
-                                                          'Button_haptic_feedback');
-                                                      HapticFeedback
-                                                          .selectionClick();
-                                                      logFirebaseEvent(
-                                                          'Button_play_sound');
-                                                      _model.soundPlayer4 ??=
-                                                          AudioPlayer();
-                                                      if (_model.soundPlayer4!
-                                                          .playing) {
-                                                        await _model
-                                                            .soundPlayer4!
-                                                            .stop();
-                                                      }
-                                                      _model.soundPlayer4!
-                                                          .setVolume(1.0);
-                                                      _model.soundPlayer4!
-                                                          .setAsset(
-                                                              'assets/audios/ES_Futuristic_Technology,_UI_Confirm_Tone,_Bright_02_-_Epidemic_Sound_-_3410-4218.wav')
-                                                          .then((_) => _model
-                                                              .soundPlayer4!
-                                                              .play());
-
-                                                      logFirebaseEvent(
-                                                          'Button_navigate_to');
-
-                                                      context.pushNamed(
-                                                        HomeVersion5Widget
-                                                            .routeName,
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          '__transition_info__':
-                                                              TransitionInfo(
-                                                            hasTransition: true,
-                                                            transitionType:
-                                                                PageTransitionType
-                                                                    .fade,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    3),
-                                                          ),
-                                                        },
-                                                      );
-                                                    },
-                                                    text: FFLocalizations.of(
-                                                            context)
-                                                        .getText(
-                                                      'tql3zhfo' /* Home */,
-                                                    ),
-                                                    icon: Icon(
-                                                      FFIcons.khomeHouse2,
-                                                      size: 15.0,
-                                                    ),
-                                                    options: FFButtonOptions(
-                                                      width: 166.0,
-                                                      height: 59.0,
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  16.0,
-                                                                  0.0,
-                                                                  16.0,
-                                                                  0.0),
-                                                      iconPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      color: Color(0x77F0831A),
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                                fontSize: 16.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w300,
-                                                              ),
-                                                      elevation: 0.0,
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Color(0x66EDF1F7),
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              22.0),
-                                                      hoverColor:
-                                                          Color(0x6039519F),
-                                                      hoverBorderSide:
-                                                          BorderSide(
-                                                        color:
-                                                            Color(0xB239519F),
-                                                      ),
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'buttonOnPageLoadAnimation']!),
-                                                ),
-                                              ].divide(SizedBox(width: 22.0)),
-                                            ),
+                                                ).animateOnPageLoad(animationsMap[
+                                                    'buttonOnPageLoadAnimation']!),
+                                              ),
+                                            ].divide(SizedBox(width: 12.0)),
                                           ),
                                         ),
                                       ].divide(SizedBox(height: 24.0)),

@@ -79,7 +79,7 @@ class _SwipeLeftCompWidgetState extends State<SwipeLeftCompWidget>
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+      padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 4.0),
       child: Container(
         width: double.infinity,
         height: 81.9,

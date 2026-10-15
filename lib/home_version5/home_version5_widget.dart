@@ -115,8 +115,9 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         logFirebaseEvent('HomeVersion5_update_app_state');
         FFAppState().chatSessionId =
             TheoryOfMindSessionManagementGroup.createIDCall.sessionID(
-          (_model.createSession?.jsonBody ?? ''),
-        )!;
+                  (_model.createSession?.jsonBody ?? ''),
+                ) ??
+                '';
         FFAppState().update(() {});
       }
 
@@ -1000,7 +1001,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               children: [
                                                                                 Container(
                                                                                   width: 320.0,
-                                                                                  height: 120.0,
+                                                                                  height: 126.0,
                                                                                   decoration: BoxDecoration(
                                                                                     color: Color(0x9BEDF1F7),
                                                                                     image: DecorationImage(
@@ -1012,7 +1013,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                     borderRadius: BorderRadius.circular(16.0),
                                                                                   ),
                                                                                   child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 15.0),
                                                                                     child: Column(
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       crossAxisAlignment: CrossAxisAlignment.start,
