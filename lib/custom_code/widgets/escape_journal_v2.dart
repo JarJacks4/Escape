@@ -849,7 +849,7 @@ class _HomeScreenState extends State<_HomeScreen> {
                                 text: '${last['word']}',
                                 style: _body(13, weight: FontWeight.w600)),
                           ])),
-                          Text('${last['ageHours']} h ago · save this moment',
+                          Text('${(last['ageHours'] ?? 0) < 1 ? 'Just now' : '${last['ageHours']} h ago'} · save this moment',
                               style: _body(12, color: _C.muted)),
                         ]),
                   ),
@@ -1443,7 +1443,7 @@ class _ReflectionScreenState extends State<_ReflectionScreen> {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               const _Eyebrow('Lucille reflects', color: _C.lilac),
-              Text('${mood?['word'] ?? 'Thank you'}, and honest',
+              Text(mood?['word'] != null ? 'Feeling ${mood!['word'].toString().toLowerCase()}: thank you for being honest' : 'Thank you for being honest',
                   style: _display(22)),
             ]),
           ),

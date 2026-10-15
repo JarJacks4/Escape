@@ -445,16 +445,16 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                                 .isThatAudioPlayerPlaying) {
                                               logFirebaseEvent(
                                                   'Container_custom_action');
-                                              await actions.pauseAudio();
+                                              await that_audio_player_oo85ab_actions.pauseAudio();
                                               logFirebaseEvent(
                                                   'Container_custom_action');
-                                              await actions.seekAudioToValue(
+                                              await that_audio_player_oo85ab_actions.seekAudioToValue(
                                                 0.0,
                                                 imagesIndex,
                                               );
                                               logFirebaseEvent(
                                                   'Container_custom_action');
-                                              await actions.playAudio();
+                                              await that_audio_player_oo85ab_actions.playAudio();
                                               logFirebaseEvent(
                                                   'Container_navigate_to');
 
@@ -490,13 +490,13 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                             } else {
                                               logFirebaseEvent(
                                                   'Container_custom_action');
-                                              await actions.seekAudioToValue(
+                                              await that_audio_player_oo85ab_actions.seekAudioToValue(
                                                 0.0,
                                                 imagesIndex,
                                               );
                                               logFirebaseEvent(
                                                   'Container_custom_action');
-                                              await actions.playAudio();
+                                              await that_audio_player_oo85ab_actions.playAudio();
                                               logFirebaseEvent(
                                                   'Container_navigate_to');
 
@@ -690,16 +690,16 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                                 .isThatAudioPlayerPlaying) {
                                               logFirebaseEvent(
                                                   'Container_custom_action');
-                                              await actions.pauseAudio();
+                                              await that_audio_player_oo85ab_actions.pauseAudio();
                                               logFirebaseEvent(
                                                   'Container_custom_action');
-                                              await actions.seekAudioToValue(
+                                              await that_audio_player_oo85ab_actions.seekAudioToValue(
                                                 0.0,
                                                 image2Index,
                                               );
                                               logFirebaseEvent(
                                                   'Container_custom_action');
-                                              await actions.playAudio();
+                                              await that_audio_player_oo85ab_actions.playAudio();
                                               logFirebaseEvent(
                                                   'Container_navigate_to');
 
@@ -735,13 +735,13 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                             } else {
                                               logFirebaseEvent(
                                                   'Container_custom_action');
-                                              await actions.seekAudioToValue(
+                                              await that_audio_player_oo85ab_actions.seekAudioToValue(
                                                 0.0,
                                                 image2Index,
                                               );
                                               logFirebaseEvent(
                                                   'Container_custom_action');
-                                              await actions.playAudio();
+                                              await that_audio_player_oo85ab_actions.playAudio();
                                               logFirebaseEvent(
                                                   'Container_navigate_to');
 
@@ -1523,16 +1523,16 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                                   .isThatAudioPlayerPlaying) {
                                                 logFirebaseEvent(
                                                     'Container_custom_action');
-                                                await actions.pauseAudio();
+                                                await that_audio_player_oo85ab_actions.pauseAudio();
                                                 logFirebaseEvent(
                                                     'Container_custom_action');
-                                                await actions.seekAudioToValue(
+                                                await that_audio_player_oo85ab_actions.seekAudioToValue(
                                                   0.0,
                                                   dailyMotivationIndex,
                                                 );
                                                 logFirebaseEvent(
                                                     'Container_custom_action');
-                                                await actions.playAudio();
+                                                await that_audio_player_oo85ab_actions.playAudio();
                                                 logFirebaseEvent(
                                                     'Container_navigate_to');
 
@@ -1568,13 +1568,13 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                               } else {
                                                 logFirebaseEvent(
                                                     'Container_custom_action');
-                                                await actions.seekAudioToValue(
+                                                await that_audio_player_oo85ab_actions.seekAudioToValue(
                                                   0.0,
                                                   dailyMotivationIndex,
                                                 );
                                                 logFirebaseEvent(
                                                     'Container_custom_action');
-                                                await actions.playAudio();
+                                                await that_audio_player_oo85ab_actions.playAudio();
                                                 logFirebaseEvent(
                                                     'Container_navigate_to');
 
@@ -1843,16 +1843,16 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                                   .isThatAudioPlayerPlaying) {
                                                 logFirebaseEvent(
                                                     'Container_custom_action');
-                                                await actions.pauseAudio();
+                                                await that_audio_player_oo85ab_actions.pauseAudio();
                                                 logFirebaseEvent(
                                                     'Container_custom_action');
-                                                await actions.seekAudioToValue(
+                                                await that_audio_player_oo85ab_actions.seekAudioToValue(
                                                   0.0,
                                                   image4Index,
                                                 );
                                                 logFirebaseEvent(
                                                     'Container_custom_action');
-                                                await actions.playAudio();
+                                                await that_audio_player_oo85ab_actions.playAudio();
                                                 logFirebaseEvent(
                                                     'Container_navigate_to');
 
@@ -1888,13 +1888,13 @@ class _SoundscapesDetailsWidgetState extends State<SoundscapesDetailsWidget> {
                                               } else {
                                                 logFirebaseEvent(
                                                     'Container_custom_action');
-                                                await actions.seekAudioToValue(
+                                                await that_audio_player_oo85ab_actions.seekAudioToValue(
                                                   0.0,
                                                   image4Index,
                                                 );
                                                 logFirebaseEvent(
                                                     'Container_custom_action');
-                                                await actions.playAudio();
+                                                await that_audio_player_oo85ab_actions.playAudio();
                                                 logFirebaseEvent(
                                                     'Container_navigate_to');
 

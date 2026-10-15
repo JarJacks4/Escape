@@ -13,9 +13,14 @@ Future<List<TiktokPageStruct>> reorderTiktokPages(
   int oldIndex,
   int newIndex,
 ) async {
+  // Ignore out-of-range indexes instead of throwing a RangeError.
+  if (list.isEmpty || oldIndex < 0 || oldIndex >= list.length) {
+    return list;
+  }
   if (oldIndex < newIndex) {
     newIndex -= 1;
   }
+  newIndex = newIndex.clamp(0, list.length - 1);
 
   final item = list.removeAt(oldIndex);
   list.insert(newIndex, item);

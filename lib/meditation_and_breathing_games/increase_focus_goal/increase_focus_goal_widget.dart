@@ -185,7 +185,7 @@ class _IncreaseFocusGoalWidgetState extends State<IncreaseFocusGoalWidget> {
                               0.0, 0.0, 0.0, 15.0),
                           child: FlutterFlowAudioPlayer(
                             audio: Audio.network(
-                              'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Binaural%20Cloud%20(Alpha%207%20Hz)%20-%20Syntropy.mp3?alt=media&token=68c213c6-1d70-40b1-9998-25aa64093d13',
+                              'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/ES_Binaural%20Cloud%20(Alpha%207%20Hz)%20-%20Syntropy.mp3?alt=media&token=68c213c6-1d70-40b1-9998-25aa64093d13',
                               metas: Metas(
                                 id: 'ES_Binaural%20Cloud%20(Alpha%207%20Hz)%20-%20Syntropy.mp3?alt=media&token=68c213c6-1d70-40b1-9998-25aa64093d13-8c2813e6',
                                 title: 'Binaural Cloud (Alpha 7 Hz) - Syntropy',
@@ -289,7 +289,7 @@ class _IncreaseFocusGoalWidgetState extends State<IncreaseFocusGoalWidget> {
                                           ?.unfocus();
                                     },
                                     child: ConfettiPageExpertCompWidget(
-                                      exerciseTitle: '',
+                                      exerciseTitle: 'Increase Focus',
                                     ),
                                   ),
                                 ),
@@ -316,7 +316,7 @@ class _IncreaseFocusGoalWidgetState extends State<IncreaseFocusGoalWidget> {
                                           .titleSmall
                                           .fontStyle,
                                     ),
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context).alternate,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,

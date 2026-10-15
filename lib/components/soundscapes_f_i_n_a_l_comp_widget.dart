@@ -518,7 +518,7 @@ class _SoundscapesFINALCompWidgetState extends State<SoundscapesFINALCompWidget>
                                                                         .SoundscapesAllTab
                                                                         .firstOrNull
                                                                         ?.albumArt,
-                                                                    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee',
+                                                                    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee',
                                                                   ),
                                                                 ).image,
                                                               ),
@@ -1452,7 +1452,7 @@ am... */
                                                                     String>(
                                                                   allTabItem
                                                                       .albumArt,
-                                                                  'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F9c1b5219f5cd92286d0785010da2ecea.gif?alt=media&token=066bb81f-888a-4707-9061-d467c4af0674',
+                                                                  'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2F9c1b5219f5cd92286d0785010da2ecea.gif?alt=media&token=066bb81f-888a-4707-9061-d467c4af0674',
                                                                 ),
                                                               ).image,
                                                             ),
@@ -2083,7 +2083,7 @@ am... */
                                                                     String>(
                                                                   allTabItem
                                                                       .albumArt,
-                                                                  'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fd62729e5768b9c70b89d9ffeb8856152.gif?alt=media&token=049f3c8d-db47-439d-9c2f-0e36d82b51f0',
+                                                                  'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2Fd62729e5768b9c70b89d9ffeb8856152.gif?alt=media&token=049f3c8d-db47-439d-9c2f-0e36d82b51f0',
                                                                 ),
                                                               ).image,
                                                             ),
@@ -2569,7 +2569,7 @@ am... */
                                                                     String>(
                                                                   allTabItem
                                                                       .albumArt,
-                                                                  'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736',
+                                                                  'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736',
                                                                 ),
                                                               ).image,
                                                             ),
@@ -3280,7 +3280,7 @@ am... */
                                                                       String>(
                                                                     allTabItem
                                                                         .albumArt,
-                                                                    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F90ac6093fb40e1d7398371b1d61a4e4a.gif?alt=media&token=3351172e-47e6-40e2-9ed4-fb4d549c64f5',
+                                                                    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2F90ac6093fb40e1d7398371b1d61a4e4a.gif?alt=media&token=3351172e-47e6-40e2-9ed4-fb4d549c64f5',
                                                                   ),
                                                                 ).image,
                                                               ),

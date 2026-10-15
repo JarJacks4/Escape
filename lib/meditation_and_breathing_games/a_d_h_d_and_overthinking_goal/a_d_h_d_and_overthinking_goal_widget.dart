@@ -186,7 +186,7 @@ class _ADHDAndOverthinkingGoalWidgetState
                             0.0, 300.0, 0.0, 8.0),
                         child: FlutterFlowAudioPlayer(
                           audio: Audio.network(
-                            'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/binaural_delta_500_501-5hz-19563.mp3?alt=media&token=0c78eb05-8665-4123-9fe3-b6ef67d13a1e',
+                            'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/binaural_delta_500_501-5hz-19563.mp3?alt=media&token=0c78eb05-8665-4123-9fe3-b6ef67d13a1e',
                             metas: Metas(
                               id: 'binaural_delta_500_501-5hz-19563.mp3?alt=media&token=0c78eb05-8665-4123-9fe3-b6ef67d13a1e-b69128ff',
                               title: 'Binaural Delta 5 501-5Hz',
@@ -285,7 +285,7 @@ class _ADHDAndOverthinkingGoalWidgetState
                                             ?.unfocus();
                                       },
                                       child: ConfettiPageExpertCompWidget(
-                                        exerciseTitle: '',
+                                        exerciseTitle: 'ADHD & Overthinking',
                                       ),
                                     ),
                                   ),
@@ -313,7 +313,7 @@ class _ADHDAndOverthinkingGoalWidgetState
                                         .titleSmall
                                         .fontStyle,
                                   ),
-                                  color: Colors.white,
+                                  color: FlutterFlowTheme.of(context).alternate,
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,

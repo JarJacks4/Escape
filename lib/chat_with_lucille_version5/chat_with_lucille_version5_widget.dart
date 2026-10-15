@@ -489,7 +489,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                 logFirebaseEvent('Container_copy_to_clipboard');
                                                                                                 await Clipboard.setData(ClipboardData(
                                                                                                     text: valueOrDefault<String>(
-                                                                                                  chatIndex.toString(),
+                                                                                                  chatItem,
                                                                                                   '--',
                                                                                                 )));
                                                                                                 logFirebaseEvent('Container_show_snack_bar');
@@ -510,7 +510,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                           ),
                                                                                                     ),
                                                                                                     duration: Duration(milliseconds: 2000),
-                                                                                                    backgroundColor: FlutterFlowTheme.of(context).primary,
+                                                                                                    backgroundColor: FlutterFlowTheme.of(context).alternate,
                                                                                                   ),
                                                                                                 );
                                                                                               },
@@ -1031,6 +1031,9 @@ class _ChatWithLucilleVersion5WidgetState
                                                             'IconButton_backend_call');
                                                         _model.newMessage =
                                                             true;
+                                                        _model.aiIsResponsing =
+                                                            true;
+                                                        safeSetState(() {});
                                                         _model.lucilleStreamChat =
                                                             await TheoryOfMindLucilleGroup
                                                                 .chatStreamCall
@@ -1168,6 +1171,8 @@ class _ChatWithLucilleVersion5WidgetState
                                                                 (onErrorInput) async {
                                                               if (kDebugMode) debugPrint(
                                                                   'DEBUG SSE stream onError: $onErrorInput');
+                                                              _model.aiIsResponsing =
+                                                                  false;
                                                               logFirebaseEvent(
                                                                   '_show_snack_bar');
                                                               ScaffoldMessenger
@@ -1304,6 +1309,8 @@ class _ChatWithLucilleVersion5WidgetState
                                                             true)) {
                                                           safeSetState(() {});
                                                         } else {
+                                                          _model.aiIsResponsing =
+                                                              false;
                                                           logFirebaseEvent(
                                                               'IconButton_show_snack_bar');
                                                           ScaffoldMessenger.of(
@@ -1414,11 +1421,6 @@ class _ChatWithLucilleVersion5WidgetState
                                                                       .accent3,
                                                             ),
                                                           );
-                                                          logFirebaseEvent(
-                                                              'IconButton_hide_snack_bar');
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .clearSnackBars();
                                                         }
 
                                                         safeSetState(() {});

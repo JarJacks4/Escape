@@ -3422,7 +3422,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                 context.pop();
                                               }
                                               context.pushNamed(
-                                                JournalPageVersion5Widget
+                                                JournalHomeV2Widget
                                                     .routeName,
                                                 extra: <String, dynamic>{
                                                   '__transition_info__':
@@ -3711,7 +3711,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                                                   logFirebaseEvent('Icon_navigate_to');
 
                                                                                   context.pushNamed(
-                                                                                    JournalPageVersion5Widget.routeName,
+                                                                                    JournalHomeV2Widget.routeName,
                                                                                     extra: <String, dynamic>{
                                                                                       '__transition_info__': TransitionInfo(
                                                                                         hasTransition: true,

@@ -181,7 +181,7 @@ class _InsomniaGoalWidgetState extends State<InsomniaGoalWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 300.0, 0.0, 8.0),
                       child: FlutterFlowAudioPlayer(
                         audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Binaural%20Schumann%20Alpha%20-%20Magonia%20-%20369.mp3?alt=media&token=a1cb0f6e-101a-4517-b15b-65900c7964d2',
+                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/ES_Binaural%20Schumann%20Alpha%20-%20Magonia%20-%20369.mp3?alt=media&token=a1cb0f6e-101a-4517-b15b-65900c7964d2',
                           metas: Metas(
                             id: 'ES_Binaural%20Schumann%20Alpha%20-%20Magonia%20-%20369.mp3?alt=media&token=a1cb0f6e-101a-4517-b15b-65900c7964d2-dcf24aa1',
                             title: 'Binaural Schumann Alpha - Magonia - 369',
@@ -278,7 +278,7 @@ class _InsomniaGoalWidgetState extends State<InsomniaGoalWidget> {
                                           ?.unfocus();
                                     },
                                     child: ConfettiPageIntermediateCompWidget(
-                                      exerciseTitle: '',
+                                      exerciseTitle: 'Insomnia Relief',
                                     ),
                                   ),
                                 ),
@@ -305,7 +305,7 @@ class _InsomniaGoalWidgetState extends State<InsomniaGoalWidget> {
                                           .titleSmall
                                           .fontStyle,
                                     ),
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context).alternate,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,

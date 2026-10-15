@@ -84,8 +84,6 @@ class _MoodResultTransitionWidgetState
             backgroundColor: Color(0x8EF0831A),
           ),
         );
-        logFirebaseEvent('MoodResultTransition_hide_snack_bar');
-        ScaffoldMessenger.of(context).clearSnackBars();
       } else {
         logFirebaseEvent('MoodResultTransition_show_snack_bar');
         ScaffoldMessenger.of(context).showSnackBar(
@@ -102,8 +100,6 @@ class _MoodResultTransitionWidgetState
         );
         logFirebaseEvent('MoodResultTransition_navigate_back');
         context.safePop();
-        logFirebaseEvent('MoodResultTransition_hide_snack_bar');
-        ScaffoldMessenger.of(context).hideCurrentSnackBar();
         return;
       }
 

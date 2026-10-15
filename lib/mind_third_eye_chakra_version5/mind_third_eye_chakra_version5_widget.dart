@@ -1044,18 +1044,11 @@ class _MindThirdEyeChakraVersion5WidgetState
                                           audio: Audio.network(
                                             FFAppState()
                                                 .SoundscapesNatureTab
-                                                .firstOrNull!
-                                                .songUrl,
+                                                .elementAtOrNull(5)
+                                                ?.songUrl ??
+                                                '',
                                             metas: Metas(
-                                              title: valueOrDefault<String>(
-                                                FFAppState()
-                                                    .SoundscapesNatureTab
-                                                    .contains(FFAppState()
-                                                        .SoundscapesNatureTab
-                                                        .firstOrNull)
-                                                    .toString(),
-                                                'Title',
-                                              ),
+                                              title: 'Third Eye Soundscape',
                                             ),
                                           ),
                                           titleTextStyle: FlutterFlowTheme.of(

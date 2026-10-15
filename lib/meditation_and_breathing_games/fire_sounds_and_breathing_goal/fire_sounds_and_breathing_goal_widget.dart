@@ -161,7 +161,7 @@ class _FireSoundsAndBreathingGoalWidgetState
                           EdgeInsetsDirectional.fromSTEB(0.0, 200.0, 0.0, 0.0),
                       child: FlutterFlowAudioPlayer(
                         audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/aachen_burning-fireplace-crackling-fire-soundswav-14561.mp3?alt=media&token=bee5fafb-6f68-42f3-8313-78d225b8cb26',
+                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/aachen_burning-fireplace-crackling-fire-soundswav-14561.mp3?alt=media&token=bee5fafb-6f68-42f3-8313-78d225b8cb26',
                           metas: Metas(
                             id: 'aachen_burning-fireplace-crackling-fire-soundswav-14561.mp3?alt=media&token=bee5fafb-6f68-42f3-8313-78d225b8cb26-44b2074d',
                             title:
@@ -284,7 +284,7 @@ class _FireSoundsAndBreathingGoalWidgetState
                                           .titleSmall
                                           .fontStyle,
                                     ),
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context).alternate,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,

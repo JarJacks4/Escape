@@ -1587,10 +1587,7 @@ class _MindRootChakraVersion5WidgetState
                                             0.0, 15.0, 0.0, 0.0),
                                         child: FlutterFlowAudioPlayer(
                                           audio: Audio.network(
-                                            FFAppState()
-                                                .SoundscapesNatureTab
-                                                .firstOrNull!
-                                                .songUrl,
+                                            FFAppState().SoundscapesNatureTab.firstOrNull?.songUrl ?? '',
                                             metas: Metas(
                                               title: 'Grounding Soundscape',
                                             ),

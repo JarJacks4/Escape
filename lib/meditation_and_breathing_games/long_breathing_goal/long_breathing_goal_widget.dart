@@ -300,7 +300,7 @@ class _LongBreathingGoalWidgetState extends State<LongBreathingGoalWidget>
                                           ?.unfocus();
                                     },
                                     child: ConfettiPageExpertCompWidget(
-                                      exerciseTitle: 'Long Sip Breathing',
+                                      exerciseTitle: 'Long Breathing',
                                     ),
                                   ),
                                 ),
@@ -327,7 +327,7 @@ class _LongBreathingGoalWidgetState extends State<LongBreathingGoalWidget>
                                           .titleSmall
                                           .fontStyle,
                                     ),
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context).alternate,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,

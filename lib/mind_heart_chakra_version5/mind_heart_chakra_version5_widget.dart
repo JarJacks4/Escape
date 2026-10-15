@@ -1046,19 +1046,12 @@ class _MindHeartChakraVersion5WidgetState
                                           child: FlutterFlowAudioPlayer(
                                             audio: Audio.network(
                                               FFAppState()
-                                                  .SoundscapesNatureTab
-                                                  .firstOrNull!
-                                                  .songUrl,
+                                                .SoundscapesNatureTab
+                                                .elementAtOrNull(3)
+                                                ?.songUrl ??
+                                                '',
                                               metas: Metas(
-                                                title: valueOrDefault<String>(
-                                                  FFAppState()
-                                                      .SoundscapesNatureTab
-                                                      .contains(FFAppState()
-                                                          .SoundscapesNatureTab
-                                                          .firstOrNull)
-                                                      .toString(),
-                                                  'Title',
-                                                ),
+                                                title: 'Heart Soundscape',
                                               ),
                                             ),
                                             titleTextStyle: FlutterFlowTheme.of(

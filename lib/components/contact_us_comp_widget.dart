@@ -305,7 +305,7 @@ class _ContactUsCompWidgetState extends State<ContactUsCompWidget> {
                         logFirebaseEvent('Container_send_email');
                         await launchUrl(Uri(
                             scheme: 'mailto',
-                            path: _model.textController1.text,
+                            path: 'support@escapeapp.ai',
                             query: {
                               'subject': 'Re: Email Support',
                               'body': _model.textController2.text,
@@ -882,11 +882,13 @@ class _ContactUsCompWidgetState extends State<ContactUsCompWidget> {
                                   logFirebaseEvent('Button_send_email');
                                   await launchUrl(Uri(
                                       scheme: 'mailto',
-                                      path: _model.textController1.text,
+                                      path: 'support@escapeapp.ai',
                                       query: {
                                         'subject':
-                                            _model.dropDownValue!.firstOrNull!,
-                                        'body': _model.textController2.text,
+                                            _model.dropDownValue?.firstOrNull ??
+                                                'Support',
+                                        'body':
+                                            '${_model.textController2.text}\n\nReply to: ${_model.textController1.text}',
                                       }
                                           .entries
                                           .map((MapEntry<String, String> e) =>

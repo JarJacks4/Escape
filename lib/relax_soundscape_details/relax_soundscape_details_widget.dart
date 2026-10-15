@@ -395,16 +395,16 @@ class _RelaxSoundscapeDetailsWidgetState
                                         .isThatAudioPlayerPlaying) {
                                       logFirebaseEvent(
                                           'IconButton_custom_action');
-                                      await actions.pauseAudio();
+                                      await that_audio_player_oo85ab_actions.pauseAudio();
                                       logFirebaseEvent(
                                           'IconButton_custom_action');
-                                      await actions.seekAudioToValue(
+                                      await that_audio_player_oo85ab_actions.seekAudioToValue(
                                         0.0,
                                         _model.carouselCurrentIndex,
                                       );
                                       logFirebaseEvent(
                                           'IconButton_custom_action');
-                                      await actions.playAudio();
+                                      await that_audio_player_oo85ab_actions.playAudio();
                                       logFirebaseEvent(
                                           'IconButton_navigate_to');
 
@@ -438,13 +438,13 @@ class _RelaxSoundscapeDetailsWidgetState
                                     } else {
                                       logFirebaseEvent(
                                           'IconButton_custom_action');
-                                      await actions.seekAudioToValue(
+                                      await that_audio_player_oo85ab_actions.seekAudioToValue(
                                         0.0,
                                         _model.carouselCurrentIndex,
                                       );
                                       logFirebaseEvent(
                                           'IconButton_custom_action');
-                                      await actions.playAudio();
+                                      await that_audio_player_oo85ab_actions.playAudio();
                                       logFirebaseEvent(
                                           'IconButton_navigate_to');
 
@@ -590,23 +590,23 @@ class _RelaxSoundscapeDetailsWidgetState
                                                   .FFAppState()
                                               .currentMediaAllTab
                                               .toList(),
-                                          _model.carouselCurrentIndex,
+                                          recommendedMusicIndex,
                                         );
                                         if (that_audio_player_oo85ab_app_state
                                                 .FFAppState()
                                             .isThatAudioPlayerPlaying) {
                                           logFirebaseEvent(
                                               'MusicDetailCard_custom_action');
-                                          await actions.pauseAudio();
+                                          await that_audio_player_oo85ab_actions.pauseAudio();
                                           logFirebaseEvent(
                                               'MusicDetailCard_custom_action');
-                                          await actions.seekAudioToValue(
+                                          await that_audio_player_oo85ab_actions.seekAudioToValue(
                                             0.0,
-                                            _model.carouselCurrentIndex,
+                                            recommendedMusicIndex,
                                           );
                                           logFirebaseEvent(
                                               'MusicDetailCard_custom_action');
-                                          await actions.playAudio();
+                                          await that_audio_player_oo85ab_actions.playAudio();
                                           logFirebaseEvent(
                                               'MusicDetailCard_navigate_to');
 
@@ -621,8 +621,7 @@ class _RelaxSoundscapeDetailsWidgetState
                                                 that_audio_player_oo85ab_app_state
                                                         .FFAppState()
                                                     .currentMediaAllTab
-                                                    .elementAtOrNull(_model
-                                                        .carouselCurrentIndex),
+                                                    .elementAtOrNull(recommendedMusicIndex),
                                                 that_audio_player_oo85ab_serialization_util
                                                     .ParamType.DataStruct,
                                               ),
@@ -642,13 +641,13 @@ class _RelaxSoundscapeDetailsWidgetState
                                         } else {
                                           logFirebaseEvent(
                                               'MusicDetailCard_custom_action');
-                                          await actions.seekAudioToValue(
+                                          await that_audio_player_oo85ab_actions.seekAudioToValue(
                                             0.0,
-                                            _model.carouselCurrentIndex,
+                                            recommendedMusicIndex,
                                           );
                                           logFirebaseEvent(
                                               'MusicDetailCard_custom_action');
-                                          await actions.playAudio();
+                                          await that_audio_player_oo85ab_actions.playAudio();
                                           logFirebaseEvent(
                                               'MusicDetailCard_navigate_to');
 

@@ -1330,9 +1330,6 @@ Today I woke... */
                                             .secondary,
                                   ),
                                 );
-                                logFirebaseEvent('Button_hide_snack_bar');
-                                ScaffoldMessenger.of(context)
-                                    .hideCurrentSnackBar();
                                 logFirebaseEvent('Button_navigate_to');
 
                                 context.pushNamed(

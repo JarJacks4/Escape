@@ -124,7 +124,7 @@ class _ConnectionCommunityStartPageVersion5WidgetState
         logFirebaseEvent('TabBar_custom_action');
         _model.reorderBody = await tiktokfeed_wz8en7_actions.reorderTiktokPages(
           tiktokfeed_wz8en7_app_state.FFAppState().BodyTikToks.toList(),
-          tiktokfeed_wz8en7_app_state.FFAppState().BodyTikToks.firstOrNull!.id,
+          tiktokfeed_wz8en7_app_state.FFAppState().BodyTikToks.firstOrNull?.id ?? 0,
           tiktokfeed_wz8en7_app_state.FFAppState().meditationTikToks.length,
         );
 

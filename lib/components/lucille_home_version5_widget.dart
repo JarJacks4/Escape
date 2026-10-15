@@ -1263,7 +1263,7 @@ Lucille */
                                             'Container_navigate_to');
 
                                         context.pushNamed(
-                                          TextJournalVersion5Widget
+                                          JournalHomeV2Widget
                                               .routeName,
                                           extra: <String, dynamic>{
                                             '__transition_info__':

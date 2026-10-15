@@ -549,11 +549,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                         .max,
                                                                 children: [
                                                                   Text(
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      'uht3aerj' /* Good morning ✨ */,
-                                                                    ),
+                                                                    '${DateTime.now().hour < 12 ? 'Good morning' : (DateTime.now().hour < 18 ? 'Good afternoon' : 'Good evening')} ✨',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .labelMedium
@@ -1215,7 +1211,11 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
                                                                                     height: MediaQuery.sizeOf(context).height * 0.4,
-                                                                                    child: LucilleSuggestionDescriptionCompWidget(),
+                                                                                    child: LucilleSuggestionDescriptionCompWidget(
+  exerciseDescription: LucilleTherapyExercisesGroup.recommendedExercisesCall
+      .reason(columnRecommendedExercisesResponse.jsonBody)
+      ?.elementAtOrNull(0),
+),
                                                                                   ),
                                                                                 ),
                                                                               ),
@@ -1668,10 +1668,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                             .max,
                                                                     children: [
                                                                       Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          '4lrm84op' /* Good morning ✨ */,
-                                                                        ),
+                                                                        '${DateTime.now().hour < 12 ? 'Good morning' : (DateTime.now().hour < 18 ? 'Good afternoon' : 'Good evening')} ✨',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .labelMedium
                                                                             .override(
@@ -2168,7 +2165,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                           columnRecommendedExercisesResponse.jsonBody,
                                                                                         )
                                                                                         ?.elementAtOrNull(1),
-                                                                                    'Reason',
+                                                                                    '',
                                                                                   ),
                                                                                   maxLines: 1,
                                                                                   overflow: TextOverflow.ellipsis,
@@ -2287,7 +2284,11 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
                                                                                         height: MediaQuery.sizeOf(context).height * 0.4,
-                                                                                        child: LucilleSuggestionDescriptionCompWidget(),
+                                                                                        child: LucilleSuggestionDescriptionCompWidget(
+  exerciseDescription: LucilleTherapyExercisesGroup.recommendedExercisesCall
+      .reason(columnRecommendedExercisesResponse.jsonBody)
+      ?.elementAtOrNull(1),
+),
                                                                                       ),
                                                                                     ),
                                                                                   ),
@@ -2734,10 +2735,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                             .max,
                                                                     children: [
                                                                       Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'fwez2cfm' /* Good morning ✨ */,
-                                                                        ),
+                                                                        '${DateTime.now().hour < 12 ? 'Good morning' : (DateTime.now().hour < 18 ? 'Good afternoon' : 'Good evening')} ✨',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .labelMedium
                                                                             .override(
@@ -3237,7 +3235,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                           columnRecommendedExercisesResponse.jsonBody,
                                                                                         )
                                                                                         ?.elementAtOrNull(2),
-                                                                                    'Reason',
+                                                                                    '',
                                                                                   ),
                                                                                   maxLines: 1,
                                                                                   overflow: TextOverflow.ellipsis,
@@ -3360,7 +3358,11 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
                                                                                         height: MediaQuery.sizeOf(context).height * 0.4,
-                                                                                        child: LucilleSuggestionDescriptionCompWidget(),
+                                                                                        child: LucilleSuggestionDescriptionCompWidget(
+  exerciseDescription: LucilleTherapyExercisesGroup.recommendedExercisesCall
+      .reason(columnRecommendedExercisesResponse.jsonBody)
+      ?.elementAtOrNull(2),
+),
                                                                                       ),
                                                                                     ),
                                                                                   ),

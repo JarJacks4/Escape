@@ -1048,18 +1048,11 @@ class _MindThroatChakraVersion5WidgetState
                                           audio: Audio.network(
                                             FFAppState()
                                                 .SoundscapesNatureTab
-                                                .firstOrNull!
-                                                .songUrl,
+                                                .elementAtOrNull(4)
+                                                ?.songUrl ??
+                                                '',
                                             metas: Metas(
-                                              title: valueOrDefault<String>(
-                                                FFAppState()
-                                                    .SoundscapesNatureTab
-                                                    .contains(FFAppState()
-                                                        .SoundscapesNatureTab
-                                                        .firstOrNull)
-                                                    .toString(),
-                                                'Title',
-                                              ),
+                                              title: 'Throat Soundscape',
                                             ),
                                           ),
                                           titleTextStyle: FlutterFlowTheme.of(

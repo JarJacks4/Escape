@@ -9,6 +9,8 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '/custom_code/actions/index.dart' as actions;
+import 'package:that_audio_player_oo85ab/custom_code/actions/index.dart'
+    as that_audio_player_oo85ab_actions;
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/nav/nav.dart';
 import '/index.dart';
@@ -88,6 +90,7 @@ class SoundscapesLauncher {
     try {
       // Best effort: stop the old Sound tab player so the two don't overlap.
       await actions.pauseAudio();
+      await that_audio_player_oo85ab_actions.pauseAudio();
     } catch (_) {}
     try {
       await EscapeSoundscapes.open(

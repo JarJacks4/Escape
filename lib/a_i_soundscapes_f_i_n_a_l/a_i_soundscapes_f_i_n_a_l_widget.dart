@@ -204,17 +204,17 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                         child: Hero(
                           tag: () {
                             if (FFAppState().isAllTab) {
-                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9';
+                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9';
                             } else if (FFAppState().isMusicMeditationsTab) {
-                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
+                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
                             } else if (FFAppState().isNatureTab) {
-                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fdownload_(26)%20(1).gif?alt=media&token=77372ba9-5080-46ce-95fd-dbc17982ec56';
+                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2Fdownload_(26)%20(1).gif?alt=media&token=77372ba9-5080-46ce-95fd-dbc17982ec56';
                             } else if (FFAppState().isFocusTab) {
-                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
+                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
                             } else if (FFAppState().isSleepTab) {
-                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F90ac6093fb40e1d7398371b1d61a4e4a.gif?alt=media&token=3351172e-47e6-40e2-9ed4-fb4d549c64f5';
+                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2F90ac6093fb40e1d7398371b1d61a4e4a.gif?alt=media&token=3351172e-47e6-40e2-9ed4-fb4d549c64f5';
                             } else {
-                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
+                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
                             }
                           }(),
                           transitionOnUserGestures: true,
@@ -223,17 +223,17 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                             child: Image.network(
                               () {
                                 if (FFAppState().isAllTab) {
-                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9';
+                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9';
                                 } else if (FFAppState().isMusicMeditationsTab) {
-                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
+                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
                                 } else if (FFAppState().isNatureTab) {
-                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fdownload_(26)%20(1).gif?alt=media&token=77372ba9-5080-46ce-95fd-dbc17982ec56';
+                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2Fdownload_(26)%20(1).gif?alt=media&token=77372ba9-5080-46ce-95fd-dbc17982ec56';
                                 } else if (FFAppState().isFocusTab) {
-                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
+                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
                                 } else if (FFAppState().isSleepTab) {
-                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F90ac6093fb40e1d7398371b1d61a4e4a.gif?alt=media&token=3351172e-47e6-40e2-9ed4-fb4d549c64f5';
+                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2F90ac6093fb40e1d7398371b1d61a4e4a.gif?alt=media&token=3351172e-47e6-40e2-9ed4-fb4d549c64f5';
                                 } else {
-                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
+                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
                                 }
                               }(),
                               width: 409.6,
@@ -328,11 +328,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                                   .start,
                                                           children: [
                                                             Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'qza8uo1o' /* Good Morning */,
-                                                              ),
+                                                              '${DateTime.now().hour < 12 ? 'Good morning' : (DateTime.now().hour < 18 ? 'Good afternoon' : 'Good evening')}',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .headlineMedium
@@ -1029,18 +1025,18 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                               .isThatAudioPlayerPlaying) {
                                                             logFirebaseEvent(
                                                                 'SoundscapeCard_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .pauseAudio();
                                                             logFirebaseEvent(
                                                                 'SoundscapeCard_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .seekAudioToValue(
                                                               0.0,
                                                               featuredForYouIndex,
                                                             );
                                                             logFirebaseEvent(
                                                                 'SoundscapeCard_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .playAudio();
                                                             logFirebaseEvent(
                                                                 'SoundscapeCard_navigate_to');
@@ -1077,14 +1073,14 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                           } else {
                                                             logFirebaseEvent(
                                                                 'SoundscapeCard_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .seekAudioToValue(
                                                               0.0,
                                                               featuredForYouIndex,
                                                             );
                                                             logFirebaseEvent(
                                                                 'SoundscapeCard_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .playAudio();
                                                             logFirebaseEvent(
                                                                 'SoundscapeCard_navigate_to');
@@ -1642,11 +1638,11 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                           .isThatAudioPlayerPlaying) {
                                                         logFirebaseEvent(
                                                             'IconButton_custom_action');
-                                                        await actions
+                                                        await that_audio_player_oo85ab_actions
                                                             .pauseAudio();
                                                         logFirebaseEvent(
                                                             'IconButton_custom_action');
-                                                        await actions
+                                                        await that_audio_player_oo85ab_actions
                                                             .seekAudioToValue(
                                                           0.0,
                                                           that_audio_player_oo85ab_app_state
@@ -1655,7 +1651,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                         );
                                                         logFirebaseEvent(
                                                             'IconButton_custom_action');
-                                                        await actions
+                                                        await that_audio_player_oo85ab_actions
                                                             .playAudio();
                                                         logFirebaseEvent(
                                                             'IconButton_navigate_to');
@@ -1698,7 +1694,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                       } else {
                                                         logFirebaseEvent(
                                                             'IconButton_custom_action');
-                                                        await actions
+                                                        await that_audio_player_oo85ab_actions
                                                             .seekAudioToValue(
                                                           0.0,
                                                           that_audio_player_oo85ab_app_state
@@ -1707,7 +1703,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                         );
                                                         logFirebaseEvent(
                                                             'IconButton_custom_action');
-                                                        await actions
+                                                        await that_audio_player_oo85ab_actions
                                                             .playAudio();
                                                         logFirebaseEvent(
                                                             'IconButton_navigate_to');
@@ -2045,18 +2041,18 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                                   .isThatAudioPlayerPlaying) {
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .pauseAudio();
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .seekAudioToValue(
                                                                   0.0,
                                                                   featuredForYouIndex,
                                                                 );
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .playAudio();
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_navigate_to');
@@ -2084,14 +2080,14 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                               } else {
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .seekAudioToValue(
                                                                   0.0,
                                                                   featuredForYouIndex,
                                                                 );
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .playAudio();
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_navigate_to');
@@ -2583,11 +2579,11 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                               .isThatAudioPlayerPlaying) {
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .pauseAudio();
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .seekAudioToValue(
                                                               0.0,
                                                               that_audio_player_oo85ab_app_state
@@ -2596,7 +2592,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                             );
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .playAudio();
                                                             logFirebaseEvent(
                                                                 'IconButton_navigate_to');
@@ -2638,7 +2634,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                           } else {
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .seekAudioToValue(
                                                               0.0,
                                                               that_audio_player_oo85ab_app_state
@@ -2647,7 +2643,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                             );
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .playAudio();
                                                             logFirebaseEvent(
                                                                 'IconButton_navigate_to');
@@ -2988,18 +2984,18 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                                   .isThatAudioPlayerPlaying) {
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .pauseAudio();
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .seekAudioToValue(
                                                                   0.0,
                                                                   featuredForYouIndex,
                                                                 );
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .playAudio();
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_navigate_to');
@@ -3038,14 +3034,14 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                               } else {
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .seekAudioToValue(
                                                                   0.0,
                                                                   featuredForYouIndex,
                                                                 );
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .playAudio();
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_navigate_to');
@@ -3620,11 +3616,11 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                               .isThatAudioPlayerPlaying) {
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .pauseAudio();
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .seekAudioToValue(
                                                               0.0,
                                                               that_audio_player_oo85ab_app_state
@@ -3633,7 +3629,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                             );
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .playAudio();
                                                             logFirebaseEvent(
                                                                 'IconButton_navigate_to');
@@ -3675,7 +3671,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                           } else {
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .seekAudioToValue(
                                                               0.0,
                                                               that_audio_player_oo85ab_app_state
@@ -3684,7 +3680,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                             );
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .playAudio();
                                                             logFirebaseEvent(
                                                                 'IconButton_navigate_to');
@@ -4025,18 +4021,18 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                                   .isThatAudioPlayerPlaying) {
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .pauseAudio();
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .seekAudioToValue(
                                                                   0.0,
                                                                   featuredForYouIndex,
                                                                 );
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .playAudio();
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_navigate_to');
@@ -4075,14 +4071,14 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                               } else {
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .seekAudioToValue(
                                                                   0.0,
                                                                   featuredForYouIndex,
                                                                 );
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .playAudio();
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_navigate_to');
@@ -4657,11 +4653,11 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                               .isThatAudioPlayerPlaying) {
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .pauseAudio();
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .seekAudioToValue(
                                                               0.0,
                                                               that_audio_player_oo85ab_app_state
@@ -4670,7 +4666,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                             );
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .playAudio();
                                                             logFirebaseEvent(
                                                                 'IconButton_navigate_to');
@@ -4712,7 +4708,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                           } else {
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .seekAudioToValue(
                                                               0.0,
                                                               that_audio_player_oo85ab_app_state
@@ -4721,7 +4717,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                             );
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .playAudio();
                                                             logFirebaseEvent(
                                                                 'IconButton_navigate_to');
@@ -5055,18 +5051,18 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                                   .isThatAudioPlayerPlaying) {
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .pauseAudio();
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .seekAudioToValue(
                                                                   0.0,
                                                                   featuredForYouIndex,
                                                                 );
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .playAudio();
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_navigate_to');
@@ -5105,14 +5101,14 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                               } else {
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .seekAudioToValue(
                                                                   0.0,
                                                                   featuredForYouIndex,
                                                                 );
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_custom_action');
-                                                                await actions
+                                                                await that_audio_player_oo85ab_actions
                                                                     .playAudio();
                                                                 logFirebaseEvent(
                                                                     'SoundscapeCard_navigate_to');
@@ -5824,11 +5820,11 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                               .isThatAudioPlayerPlaying) {
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .pauseAudio();
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .seekAudioToValue(
                                                               0.0,
                                                               that_audio_player_oo85ab_app_state
@@ -5837,7 +5833,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                             );
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .playAudio();
                                                             logFirebaseEvent(
                                                                 'IconButton_navigate_to');
@@ -5879,7 +5875,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                           } else {
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .seekAudioToValue(
                                                               0.0,
                                                               that_audio_player_oo85ab_app_state
@@ -5888,7 +5884,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                             );
                                                             logFirebaseEvent(
                                                                 'IconButton_custom_action');
-                                                            await actions
+                                                            await that_audio_player_oo85ab_actions
                                                                 .playAudio();
                                                             logFirebaseEvent(
                                                                 'IconButton_navigate_to');

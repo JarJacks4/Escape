@@ -184,7 +184,7 @@ class _ThunderstromsAndTransformationGoalWidgetState
                           EdgeInsetsDirectional.fromSTEB(0.0, 300.0, 0.0, 8.0),
                       child: FlutterFlowAudioPlayer(
                         audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/rain-and-thunder-321270.mp3?alt=media&token=5edecf79-5db6-4158-8da6-6b43ee047617',
+                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/rain-and-thunder-321270.mp3?alt=media&token=5edecf79-5db6-4158-8da6-6b43ee047617',
                           metas: Metas(
                             id: 'rain-and-thunder-321270.mp3?alt=media&token=5edecf79-5db6-4158-8da6-6b43ee047617-1dbb3cae',
                             title: 'Rain and Thunder Soundscape',
@@ -299,7 +299,7 @@ class _ThunderstromsAndTransformationGoalWidgetState
                                           .titleSmall
                                           .fontStyle,
                                     ),
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context).alternate,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,

@@ -45,7 +45,7 @@ class LucilleChatMainCall {
 
     final ffApiRequestBody = '''
 {
-  "message": "${message}",
+  "message": "${escapeStringForJson(message)}",
   "session_id": "${sessionId}",
   "firebaseIDToken": "${firebaseIDToken}",
   "user_id": "${userId}",
@@ -177,7 +177,7 @@ class ChatStreamCall {
 
     final ffApiRequestBody = '''
 {
-  "message": "${message}",
+  "message": "${escapeStringForJson(message)}",
   "session_id": "${sessionID}",
   "firebaseIDToken": "${firebaseIDToken}",
   "user_id": "${userID}"

@@ -184,7 +184,7 @@ class _DeepSleepGoalWidgetState extends State<DeepSleepGoalWidget> {
                               0.0, 0.0, 0.0, 8.0),
                           child: FlutterFlowAudioPlayer(
                             audio: Audio.network(
-                              'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Ashkira%20-%20Place%20of%20Light%20(432%20Hz)%20-%20369.mp3?alt=media&token=54deda0a-e53c-42f0-8edc-8c436fedc940',
+                              'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/ES_Ashkira%20-%20Place%20of%20Light%20(432%20Hz)%20-%20369.mp3?alt=media&token=54deda0a-e53c-42f0-8edc-8c436fedc940',
                               metas: Metas(
                                 id: 'ES_Ashkira%20-%20Place%20of%20Light%20(432%20Hz)%20-%20369.mp3?alt=media&token=54deda0a-e53c-42f0-8edc-8c436fedc940-5158bfa6',
                                 title: 'Ashkira - Place of Light (432 Hz)',
@@ -288,7 +288,7 @@ class _DeepSleepGoalWidgetState extends State<DeepSleepGoalWidget> {
                                           ?.unfocus();
                                     },
                                     child: ConfettiPageIntermediateCompWidget(
-                                      exerciseTitle: 'Deep Breathing',
+                                      exerciseTitle: 'Deep Sleep',
                                     ),
                                   ),
                                 ),
@@ -315,7 +315,7 @@ class _DeepSleepGoalWidgetState extends State<DeepSleepGoalWidget> {
                                           .titleSmall
                                           .fontStyle,
                                     ),
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context).alternate,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
