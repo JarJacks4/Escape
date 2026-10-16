@@ -10464,7 +10464,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'acm41l4y': {
       'en':
-          'Every day you use Escape, we'll check in on your mood so we can better support your self-care.',
+          'Every day you use Escape, we\'ll check in on your mood so we can better support your self-care.',
       'ar': '',
       'de': '',
       'es': '',
@@ -15326,7 +15326,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'x6wy3cve': {
       'en':
-          'Below, I've brought together the exercises on our platform.\n\nSelect one to earn Escape Coins!',
+          'Below, I\'ve brought together the exercises on our platform.\n\nSelect one to earn Escape Coins!',
       'ar': '',
       'de': '',
       'es': '',
@@ -40101,7 +40101,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'q2zxu114': {
-      'en': 'Get a great night's rest with \npeaceful music',
+      'en': 'Get a great night\'s rest with \npeaceful music',
       'ar': '',
       'de': '',
       'es': '',
@@ -41987,7 +41987,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'm400h3lc': {
-      'en': 'Get a great night's rest with \npeaceful music',
+      'en': 'Get a great night\'s rest with \npeaceful music',
       'ar': '',
       'de': '',
       'es': '',

@@ -53,7 +53,8 @@ class _LucilleSuggestionSplashPageWidgetState
       );
       logFirebaseEvent('LucilleSuggestionSplashPage_navigate_to');
 
-      context.pushNamed(
+      if (!mounted) return;
+      context.pushReplacementNamed(
         LucilleSuggestionsWidget.routeName,
         extra: <String, dynamic>{
           '__transition_info__': TransitionInfo(

@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -55,6 +56,10 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
   void initState() {
     super.initState();
     _model = createModel(context, () => MoodScanVersion5Model());
+    // First-visit walkthrough for this page (shows once per user).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) actions.showPageWalkthrough(context, 'mood_scan');
+    });
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'MoodScanVersion5'});

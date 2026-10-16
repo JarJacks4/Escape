@@ -1,4 +1,5 @@
 import '/components/body_page_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -25,6 +26,10 @@ class _BodyPageVersion5WidgetState extends State<BodyPageVersion5Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BodyPageVersion5Model());
+    // First-visit walkthrough for this page (shows once per user).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) actions.showPageWalkthrough(context, 'body');
+    });
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'BodyPageVersion5'});

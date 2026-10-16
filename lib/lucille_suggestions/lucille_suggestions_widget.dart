@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/backend/api_requests/api_calls.dart';
 import '/soundscapes/suggested_soundscape.dart';
 import '/components/lucille_suggestion_description_comp_widget.dart';
@@ -59,6 +60,10 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => LucilleSuggestionsModel());
+    // First-visit walkthrough for this page (shows once per user).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) actions.showPageWalkthrough(context, 'lucille_suggestions');
+    });
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'LucilleSuggestions'});

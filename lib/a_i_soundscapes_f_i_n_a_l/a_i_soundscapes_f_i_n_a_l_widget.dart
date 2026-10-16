@@ -68,6 +68,10 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => AISoundscapesFINALModel());
+    // First-visit walkthrough for this page (shows once per user).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) actions.showPageWalkthrough(context, 'soundscapes');
+    });
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'AISoundscapesFINAL'});

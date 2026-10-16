@@ -836,25 +836,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                       FFAppState()
                                                                               .firebaseIDToken =
                                                                           currentJwtToken;
-                                                                      context
-                                                                          .pushNamedAuth(
-                                                                        MoodScanVersion5Widget
-                                                                            .routeName,
-                                                                        context
-                                                                            .mounted,
-                                                                        extra: <String,
-                                                                            dynamic>{
-                                                                          '__transition_info__':
-                                                                              TransitionInfo(
-                                                                            hasTransition:
-                                                                                true,
-                                                                            transitionType:
-                                                                                PageTransitionType.rightToLeft,
-                                                                            duration:
-                                                                                Duration(milliseconds: 1),
-                                                                          ),
-                                                                        },
-                                                                      );
+                                                                      await SoundscapesLauncher.openMoodScanAfterSignIn(context);
                                                                     },
                                                                     text: FFLocalizations.of(
                                                                             context)
@@ -1344,26 +1326,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                     .firebaseIDToken =
                                                                 currentJwtToken;
 
-                                                            context
-                                                                .pushNamedAuth(
-                                                              MoodScanVersion5Widget
-                                                                  .routeName,
-                                                              context.mounted,
-                                                              extra: <String,
-                                                                  dynamic>{
-                                                                '__transition_info__':
-                                                                    TransitionInfo(
-                                                                  hasTransition:
-                                                                      true,
-                                                                  transitionType:
-                                                                      PageTransitionType
-                                                                          .fade,
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          9),
-                                                                ),
-                                                              },
-                                                            );
+                                                            await SoundscapesLauncher.openMoodScanAfterSignIn(context);
 
                                                             safeSetState(() {});
                                                           },
@@ -3043,7 +3006,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                   .firebaseIDToken =
                                                               currentJwtToken;
 
-                                                          context.pushNamedAuth(
+                                                          context.goNamedAuth(
                                                             CreateAccountOnboardingFlowWidget
                                                                 .routeName,
                                                             context.mounted,

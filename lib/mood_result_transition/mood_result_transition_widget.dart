@@ -104,8 +104,9 @@ class _MoodResultTransitionWidgetState
       }
 
       logFirebaseEvent('MoodResultTransition_navigate_to');
+      if (!mounted) return;
 
-      context.pushNamed(
+      context.pushReplacementNamed(
         MoodResultPageWidget.routeName,
         queryParameters: {
           'moodResult': serializeParam(

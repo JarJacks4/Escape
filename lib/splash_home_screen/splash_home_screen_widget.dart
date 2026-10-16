@@ -53,8 +53,10 @@ class _SplashHomeScreenWidgetState extends State<SplashHomeScreenWidget> {
         ),
       );
       logFirebaseEvent('SplashHomeScreen_navigate_to');
+      if (!mounted) return;
 
-      context.pushNamed(
+      // Replace the splash so Back can't return to it.
+      context.goNamed(
         HomeVersion5Widget.routeName,
         extra: <String, dynamic>{
           '__transition_info__': TransitionInfo(

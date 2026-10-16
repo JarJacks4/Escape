@@ -165,11 +165,30 @@ const _consentCopy = <String, String>{
   'personalization': 'Use your history to personalise suggestions and plans.',
 };
 
-String _orbUrl(BuildContext context, Map? orb) {
-  if (orb == null) return '';
-  final ios = Theme.of(context).platform == TargetPlatform.iOS;
-  return (ios ? orb['orbHevc'] : orb['orbH264'])?.toString() ?? '';
+/// The journal's Mood Orb uses the exact orb loops the Soundscapes module plays (same files,
+/// same Firebase Storage folder: visuals/v3/), so the two look the same. Each mood tone maps
+/// to one cell of the Soundscapes Mood Orb grid (mode x energy x texture).
+const _kOrbStorage =
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/visuals%2Fv3%2F';
+const Map<String, String> _kToneLoop = {
+  'bright': 'escape_picks_e85_t50_v3',
+  'calm': 'escape_calm_e50_t15_v3',
+  'tender': 'escape_calm_e15_t50_v3',
+  'restless': 'escape_focus_e85_t85_v3',
+  'heavy': 'escape_sleep_e15_t85_v3',
+  'mixed': 'escape_picks_e50_t50_v3',
+};
+
+String _orbLoop(Map? orb) {
+  final tone = (orb?['tone'] ?? 'mixed').toString();
+  return _kToneLoop[tone] ?? _kToneLoop['mixed']!;
 }
+
+/// Before the first check-in (or while offline) the neutral 'mixed' orb shows, never a blank.
+String _orbUrl(BuildContext context, Map? orb) =>
+    '$_kOrbStorage${_orbLoop(orb)}_720_hevc.mp4?alt=media';
+
+String? _orbPoster(Map? orb) => '$_kOrbStorage${_orbLoop(orb)}_poster.webp?alt=media';
 
 // ───────────────────────── store ─────────────────────────
 
@@ -608,7 +627,7 @@ class _Orb extends StatelessWidget {
           width: size,
           height: size,
           videoUrl: _orbUrl(context, orb),
-          posterUrl: orb?['orbPoster']?.toString(),
+          posterUrl: _orbPoster(orb),
           glowHex: orb?['accent']?.toString(),
           heroTag: heroTag,
         ),

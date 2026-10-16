@@ -82,7 +82,7 @@ class SoundscapesLauncher {
       context.goNamedAuth(HomeVersion5Widget.routeName, context.mounted);
       await open(context, screen: 'MoodScan');
     } else {
-      context.pushNamedAuth(MoodScanVersion5Widget.routeName, context.mounted);
+      context.goNamedAuth(MoodScanVersion5Widget.routeName, context.mounted);
     }
   }
 

@@ -31,3 +31,4 @@ export 'extract_audio_path.dart' show extractAudioPath;
 export 'get_firebase_token.dart' show getFirebaseToken;
 export 'send_to_lucille.dart' show sendToLucille;
 export '/custom_code/actions/lucille_v1.dart' show lucilleV1;
+export 'show_page_walkthrough.dart' show showPageWalkthrough;

@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/components/influencer_ambassador_program_button_widget.dart';
 import '/components/marketplace_button_widget.dart';
 import '/components/marketplace_coming_soon_comp_widget.dart';
@@ -65,6 +66,10 @@ class _ConnectionCommunityStartPageVersion5WidgetState
     super.initState();
     _model =
         createModel(context, () => ConnectionCommunityStartPageVersion5Model());
+    // First-visit walkthrough for this page (shows once per user).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) actions.showPageWalkthrough(context, 'community');
+    });
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ConnectionCommunityStartPageVersion5'});

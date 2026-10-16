@@ -1386,7 +1386,7 @@ class _OnboardingPageViewWidgetState extends State<OnboardingPageViewWidget> {
                                                                           'Button_navigate_to');
 
                                                                       context
-                                                                          .pushNamed(
+                                                                          .goNamed(
                                                                         YoureAllSetPageVersion5Widget
                                                                             .routeName,
                                                                         extra: <String,

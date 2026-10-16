@@ -6,12 +6,34 @@ import SwiftUI
 @available(iOS 17.0, *)
 struct ScanWalkthrough: View {
     var onDone: () -> Void
+    private let steps: [Step]
+    private let doneLabel: String
 
     @State private var step = 0
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
-    private struct Step { var eyebrow: String; var title: String; var body: String; var icon: String }
-    private let steps: [Step] = [
+    /// Defaults to the Scan tour. Pass `steps` to reuse the same look for another screen's tour.
+    init(steps: [Step]? = nil, doneLabel: String = "Start", onDone: @escaping () -> Void) {
+        self.steps = steps ?? Self.scanSteps
+        self.doneLabel = doneLabel
+        self.onDone = onDone
+    }
+
+    struct Step { var eyebrow: String; var title: String; var body: String; var icon: String }
+
+    /// First-visit tour for the Soundscapes home.
+    static let homeSteps: [Step] = [
+        .init(eyebrow: "Welcome", title: "Your Soundscapes",
+              body: "Music and nature sound for focus, calm and sleep, tuned to how you feel today.", icon: "waveform"),
+        .init(eyebrow: "Play now", title: "One tap to start",
+              body: "Play Now picks the best match for your mood. Your Inner Weather and Lucille's Daily Drop sit right below it.", icon: "play.fill"),
+        .init(eyebrow: "Modes", title: "Pick a mode",
+              body: "Tap Focus, Calm, Sleep or Lucille Picks for an endless soundscape with its own Mood Orb.", icon: "circle.hexagongrid.fill"),
+        .init(eyebrow: "Make your own", title: "Ask Lucille",
+              body: "Describe a moment and Lucille composes a soundscape for you. Close any time to return to Escape.", icon: "sparkles"),
+    ]
+
+    static let scanSteps: [Step] = [
         .init(eyebrow: "Welcome", title: "Meet your Mood Orb",
               body: "This living orb is you, right now. It changes colour, shape and rhythm with how you feel. Let's take a quick look.", icon: "sparkles"),
         .init(eyebrow: "Step 1 · Pulse", title: "Breathe with it",
@@ -63,7 +85,7 @@ struct ScanWalkthrough: View {
                         Button {
                             if step < steps.count - 1 { withAnimation { step += 1 } } else { onDone() }
                         } label: {
-                            Text(step < steps.count - 1 ? "Next" : "Start")
+                            Text(step < steps.count - 1 ? "Next" : doneLabel)
                                 .font(EscFont.ui(14, .semibold)).foregroundStyle(.white)
                                 .padding(.horizontal, 20).frame(height: 42)
                                 .background(Esc.primaryGradient, in: Capsule())
