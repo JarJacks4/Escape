@@ -34,6 +34,9 @@ import '/soundscapes/soundscapes_launcher.dart';
 import 'home_version5_model.dart';
 export 'home_version5_model.dart';
 
+/// Home's "Recent Activity" card showed fixed sample sessions; off until it's wired to real data.
+const bool _kShowRecentActivity = false;
+
 /// Shows the "walkthrough again" hint once per app launch, not on every visit.
 bool _walkthroughHintShownThisLaunch = false;
 
@@ -746,6 +749,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                   fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                                                                                 ),
                                                                                 color: Colors.white,
+                                                                                shadows: [Shadow(color: Color(0xB31C2444), blurRadius: 10)],
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w300,
                                                                                 fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
@@ -767,6 +771,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                     fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
                                                                                   ),
                                                                                   color: Colors.white,
+                                                                                  shadows: [Shadow(color: Color(0xB31C2444), blurRadius: 10)],
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w300,
                                                                                   fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
@@ -2180,6 +2185,8 @@ Further ... */
                                                                     ),
                                                                   ),
                                                                 ),
+                                                                // Hidden until it shows the user's real recent sessions (it was fixed sample data).
+                                                                if (_kShowRecentActivity)
                                                                 Container(
                                                                   width: double
                                                                       .infinity,

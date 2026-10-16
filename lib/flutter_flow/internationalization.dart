@@ -18471,7 +18471,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '3v833a6z': {
-      'en': 'Sprout\'s',
+      'en': 'Sprouts',
       'ar': '',
       'de': '',
       'es': '',
@@ -18485,7 +18485,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '5u46sg9q': {
-      'en': 'Ulta beauty',
+      'en': 'Ulta Beauty',
       'ar': '',
       'de': '',
       'es': '',
@@ -18737,7 +18737,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'dvg78jom': {
-      'en': 'Netrogena',
+      'en': 'Neutrogena',
       'ar': '',
       'de': '',
       'es': '',
@@ -19045,7 +19045,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'rlvtmuge': {
-      'en': 'Netrogena',
+      'en': 'Neutrogena',
       'ar': '',
       'de': '',
       'es': '',
@@ -19213,7 +19213,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'wzu5rkzl': {
-      'en': 'Bath Body Works',
+      'en': 'Bath & Body Works',
       'ar': '',
       'de': '',
       'es': '',
@@ -57935,7 +57935,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'lakfzlkm': {
-      'en': 'Bath Body Works',
+      'en': 'Bath & Body Works',
       'ar': '',
       'de': '',
       'es': '',
@@ -58019,7 +58019,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '9n0j2yw4': {
-      'en': 'Netrogena',
+      'en': 'Neutrogena',
       'ar': '',
       'de': '',
       'es': '',
@@ -58145,7 +58145,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'wkojcgim': {
-      'en': 'Sprout\'s',
+      'en': 'Sprouts',
       'ar': '',
       'de': '',
       'es': '',
@@ -58201,7 +58201,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'epej15iz': {
-      'en': 'Bath Body Works',
+      'en': 'Bath & Body Works',
       'ar': '',
       'de': '',
       'es': '',
@@ -58285,7 +58285,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'u1oz9kap': {
-      'en': 'Netrogena',
+      'en': 'Neutrogena',
       'ar': '',
       'de': '',
       'es': '',
@@ -58411,7 +58411,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'tbpvcynn': {
-      'en': 'Sprout\'s',
+      'en': 'Sprouts',
       'ar': '',
       'de': '',
       'es': '',

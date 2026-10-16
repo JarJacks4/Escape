@@ -875,7 +875,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                       'Text_navigate_to');
 
                                                   context.pushNamed(
-                                                    RelaxSoundscapeDetailsWidget
+                                                    SoundscapesSeeAllPageWidget
                                                         .routeName,
                                                     queryParameters: {
                                                       'pageTitle':
@@ -1216,7 +1216,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                       'Text_navigate_to');
 
                                                   context.pushNamed(
-                                                    RelaxSoundscapeDetailsWidget
+                                                    SoundscapesSeeAllPageWidget
                                                         .routeName,
                                                     queryParameters: {
                                                       'pageTitle':
@@ -1882,7 +1882,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                           'Text_navigate_to');
 
                                                       context.pushNamed(
-                                                        RelaxSoundscapeDetailsWidget
+                                                        SoundscapesSeeAllPageMusicMeditationsWidget
                                                             .routeName,
                                                         queryParameters: {
                                                           'pageTitle':
@@ -2825,7 +2825,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                           'Text_navigate_to');
 
                                                       context.pushNamed(
-                                                        RelaxSoundscapeDetailsWidget
+                                                        SoundscapesSeeAllPageNatureWidget
                                                             .routeName,
                                                         queryParameters: {
                                                           'pageTitle':
@@ -3186,7 +3186,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                           'Text_navigate_to');
 
                                                       context.pushNamed(
-                                                        RelaxSoundscapeDetailsWidget
+                                                        SoundscapesSeeAllPageNatureWidget
                                                             .routeName,
                                                         queryParameters: {
                                                           'pageTitle':
@@ -3862,7 +3862,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                           'Text_navigate_to');
 
                                                       context.pushNamed(
-                                                        RelaxSoundscapeDetailsWidget
+                                                        SoundscapesSeeAllPageFocusWidget
                                                             .routeName,
                                                         queryParameters: {
                                                           'pageTitle':
@@ -4223,7 +4223,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                           'Text_navigate_to');
 
                                                       context.pushNamed(
-                                                        RelaxSoundscapeDetailsWidget
+                                                        SoundscapesSeeAllPageFocusWidget
                                                             .routeName,
                                                         queryParameters: {
                                                           'pageTitle':
@@ -5359,7 +5359,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                               'MoodCategoryCard_navigate_to');
 
                                                           context.pushNamed(
-                                                            RelaxSoundscapeDetailsWidget
+                                                            SoundscapesSeeAllPageSleepWidget
                                                                 .routeName,
                                                             queryParameters: {
                                                               'pageTitle':
@@ -5428,7 +5428,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                               'MoodCategoryCard_navigate_to');
 
                                                           context.pushNamed(
-                                                            RelaxSoundscapeDetailsWidget
+                                                            SoundscapesSeeAllPageWidget
                                                                 .routeName,
                                                             queryParameters: {
                                                               'pageTitle':
@@ -5498,7 +5498,7 @@ class _AISoundscapesFINALWidgetState extends State<AISoundscapesFINALWidget>
                                                               'MoodCategoryCard_navigate_to');
 
                                                           context.pushNamed(
-                                                            RelaxSoundscapeDetailsWidget
+                                                            SoundscapesSeeAllPageFocusWidget
                                                                 .routeName,
                                                             queryParameters: {
                                                               'pageTitle':

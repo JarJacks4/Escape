@@ -35,15 +35,19 @@ struct ScanWalkthrough: View {
 
     static let scanSteps: [Step] = [
         .init(eyebrow: "Welcome", title: "Meet your Mood Orb",
-              body: "This living orb is you, right now. It changes colour, shape and rhythm with how you feel. Let's take a quick look.", icon: "sparkles"),
-        .init(eyebrow: "Step 1 · Pulse", title: "Breathe with it",
-              body: "The camera reads your pulse while you breathe with the orb. It beats in time with your heart. Your video never leaves your phone.", icon: "heart.fill"),
-        .init(eyebrow: "Step 2 · Feel", title: "Tune how it feels",
-              body: "Slide energy and pleasantness, or tap a word. The orb warms, speeds up and softens as you do, so it matches your mood.", icon: "slider.horizontal.3"),
-        .init(eyebrow: "Step 3 · Lucille", title: "Get your soundscape",
-              body: "Lucille names your mood and suggests a tuned soundscape and a few small things to lift it, each worth Escape Coins.", icon: "waveform"),
+              body: "This living orb is you, right now. It beats with your real pulse, breathes with you and changes colour with how you feel. Here's how the scan works, and the science behind it.", icon: "sparkles"),
+        .init(eyebrow: "Step 1 · Pulse", title: "Your fingertip, the camera, the flash",
+              body: "Rest a fingertip on the back camera. The flash shines through it, and each heartbeat pushes a little more blood into your fingertip, which absorbs a little more light. The camera sees that tiny change as a pulse wave. This is photoplethysmography (PPG), the same principle as hospital pulse oximeters and smartwatches. Only the average colour of each frame is used; no photo or video is kept.", icon: "heart.fill"),
+        .init(eyebrow: "Why breathe slowly", title: "Breathe with the orb",
+              body: "While it reads, the orb guides you to about 5 to 6 breaths a minute. Slow breathing at this pace is linked in research to a calmer heart rhythm and higher heart-rate variability, through the vagus nerve. It also steadies your hand for a cleaner reading.", icon: "wind"),
+        .init(eyebrow: "Step 2 · Feel", title: "Two dials: energy and pleasantness",
+              body: "Psychologists often describe moods on two dimensions: how energised you feel and how pleasant it feels (Russell's circumplex model of affect). Your pulse sets a starting point for energy; you tune both. The orb warms, speeds up and softens as you do.", icon: "slider.horizontal.3"),
+        .init(eyebrow: "Step 3 · Name it", title: "Put a word to it",
+              body: "Choosing a word for a feeling isn't just a label. Studies of \"affect labeling\" (Lieberman and colleagues, UCLA, 2007) found that naming an emotion can ease its intensity in the brain. Lucille then suggests a soundscape and a few small steps for that mood.", icon: "text.bubble"),
+        .init(eyebrow: "Good to know", title: "Wellness, not medicine",
+              body: "The Mood Scan is for self-reflection and wellbeing, not a medical device or diagnosis. Your mood check-ins are saved to your Escape history only with your OK, and you can delete them any time.", icon: "checkmark.shield"),
         .init(eyebrow: "Energy Scan", title: "Unlocks with coins",
-              body: "Every 1,000 Escape Coins lifts you one energy centre, root to crown, and unlocks a full body Energy Scan.", icon: "figure.stand"),
+              body: "Every 1,000 Escape Coins lifts you one energy centre, root to crown, and unlocks an Energy Scan that maps today's scan onto your seven centres.", icon: "figure.stand"),
     ]
 
     var body: some View {

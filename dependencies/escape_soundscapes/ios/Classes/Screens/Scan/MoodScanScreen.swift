@@ -7,7 +7,7 @@ struct MoodScanScreen: View {
 
     var body: some View {
         ScanFlowView(
-            coins: ScanVisuals.coinsPlaceholder,
+            coins: 0,
             moodBg: ScanVisuals.url(ScanVisuals.moodBg),
             moodBgNight: ScanVisuals.url(ScanVisuals.moodBgNight),
             energyBg: ScanVisuals.url(ScanVisuals.energyBg),
@@ -24,6 +24,9 @@ struct MoodScanScreen: View {
         h.playSoundscape = { mode in Task { @MainActor in await store.play(mode: mode) } }
         h.close = { Task { @MainActor in store.closeMoodScan() } }
         h.saveCheckIn = { reading, words in Task { @MainActor in store.saveMoodScan(reading, words: words) } }
+        h.submitCheckIn = { reading, words in await store.submitMoodScan(reading, words: words) }
+        h.loadCoins = { await store.loadLifetimeCoins() }
+        h.grantMoodConsent = { await store.grantMoodConsent() }
         return h
     }
 }
@@ -38,9 +41,6 @@ enum ScanVisuals {
     static let energyBg = "escape_scan_energy_bg_v1_720_hevc.mp4"
     static let energyBgNight = "escape_scan_energy_bg_v1_night_720_hevc.mp4"
 
-    /// Local balance until the backend has a coins field (the prototype's 975, so the
-    /// first scan's +25 unlocks the Energy Scan).
-    static let coinsPlaceholder = 975
 
     static func url(_ file: String) -> URL {
         let allowed = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: "-._~"))
@@ -54,6 +54,9 @@ enum ScanVisuals {
         return hour >= 20 || hour < 6
     }
 }
+
+/// The consent purpose the server last asked for (e.g. "camera_scan"); empty when none.
+@MainActor private var pendingConsent = ""
 
 @available(iOS 17.0, *)
 extension AppStore {
@@ -73,14 +76,43 @@ extension AppStore {
         setScreen(hasOnboarded ? .soundscapesHome : .onboardingSoundscapes)
     }
 
-    /// Saves the result as a Lucille v1 mood check-in. The pulse is simulated for now, so it isn't sent.
+    /// Saves the result as a Lucille v1 mood check-in (fire and forget).
     public func saveMoodScan(_ reading: MoodReading, words: String) {
-        guard let lucille = api as? LucilleBackedAPI else { return }
+        Task { _ = await submitMoodScan(reading, words: words) }
+    }
+
+
+    /// Saves the result as a Lucille v1 mood check-in, with the camera pulse when it was really
+    /// measured. Returns the Escape Coins the server awarded, or nil if it couldn't save.
+    public func submitMoodScan(_ reading: MoodReading, words: String) async -> ScanSaveResult {
+        guard let lucille = api as? LucilleBackedAPI else { return .failed }
         let text = words.trimmingCharacters(in: .whitespacesAndNewlines)
-        Task {
-            try? await lucille.checkIn(word: reading.word, valence: reading.valence,
-                                       energy: reading.energy, text: text.isEmpty ? nil : text)
+        do {
+            let coins = try await lucille.checkIn(word: reading.word, valence: reading.valence, energy: reading.energy,
+                                                  text: text.isEmpty ? nil : text,
+                                                  bpm: reading.pulseMeasured ? reading.bpm : nil)
+            return .saved(coins: coins)
+        } catch APIError.server(_, let code, _) where code.hasPrefix("consent_required") {
+            pendingConsent = String(code.dropFirst("consent_required:".count))
+            return .needsConsent
+        } catch {
+            return .failed
         }
+    }
+
+    /// Records the person's OK to store mood check-ins (GDPR purpose `wellbeing_data`).
+    public func grantMoodConsent() async -> Bool {
+        guard let lucille = api as? LucilleBackedAPI else { return false }
+        // Storing check-ins needs `wellbeing_data`; a measured pulse also needs `camera_scan`.
+        var flags = ["wellbeing_data": true, "camera_scan": true]
+        if !pendingConsent.isEmpty { flags[pendingConsent] = true }
+        return (try? await lucille.grantConsents(flags)) != nil
+    }
+
+    /// The person's lifetime Escape Coins from Lucille v1 (nil offline / on the mock).
+    public func loadLifetimeCoins() async -> Int? {
+        guard let lucille = api as? LucilleBackedAPI else { return nil }
+        return try? await lucille.lifetimeCoins()
     }
 
     /// Lucille's suggestions on the scan result ("escape://…" deeplinks from ScanModels).

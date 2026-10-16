@@ -34,6 +34,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:material_palette/material_palette.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
+import '/custom_code/widgets/lucille_link_chips.dart';
 import 'chat_with_lucille_version5_model.dart';
 export 'chat_with_lucille_version5_model.dart';
 
@@ -50,6 +51,10 @@ class ChatWithLucilleVersion5Widget extends StatefulWidget {
 
 class _ChatWithLucilleVersion5WidgetState
     extends State<ChatWithLucilleVersion5Widget> with TickerProviderStateMixin {
+  /// Shortcuts into the app for what the person asked about (see lucille_link_chips.dart).
+  List<LucilleLink> _lucilleLinks = [];
+  String _lastUserText = '';
+
   late ChatWithLucilleVersion5Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -694,6 +699,8 @@ class _ChatWithLucilleVersion5WidgetState
                                           ),
                                         ),
                                       ),
+                                      if (_lucilleLinks.isNotEmpty)
+                                        LucilleLinkChips(links: _lucilleLinks),
                                       Align(
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
@@ -1019,6 +1026,13 @@ class _ChatWithLucilleVersion5WidgetState
                                                             _model
                                                                 .textController
                                                                 .text);
+                                                        // In-app shortcuts for what they asked for.
+                                                        _lastUserText = _model
+                                                            .textController
+                                                            .text;
+                                                        _lucilleLinks =
+                                                            lucilleLinksFor(
+                                                                _lastUserText);
                                                         safeSetState(() {});
                                                         logFirebaseEvent(
                                                             'IconButton_backend_call');
@@ -1208,6 +1222,13 @@ class _ChatWithLucilleVersion5WidgetState
                                                                   'DEBUG SSE stream onDone fired');
                                                               _model.aiIsResponsing =
                                                                   false;
+                                                              // Refine the shortcuts with Lucille's full reply.
+                                                              _lucilleLinks = lucilleLinksFor(
+                                                                  _lastUserText,
+                                                                  reply: _model
+                                                                          .chatMessages
+                                                                          .lastOrNull ??
+                                                                      '');
                                                               safeSetState(
                                                                   () {});
                                                               if (currentJwtToken !=

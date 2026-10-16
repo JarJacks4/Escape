@@ -364,16 +364,16 @@ class _SoundscapesSeeAllPageMusicMeditationsWidgetState
                                             .isThatAudioPlayerPlaying) {
                                           logFirebaseEvent(
                                               'IconButton_custom_action');
-                                          await actions.pauseAudio();
+                                          await that_audio_player_oo85ab_actions.pauseAudio();
                                           logFirebaseEvent(
                                               'IconButton_custom_action');
-                                          await actions.seekAudioToValue(
+                                          await that_audio_player_oo85ab_actions.seekAudioToValue(
                                             0.0,
                                             _model.carouselCurrentIndex,
                                           );
                                           logFirebaseEvent(
                                               'IconButton_custom_action');
-                                          await actions.playAudio();
+                                          await that_audio_player_oo85ab_actions.playAudio();
                                           logFirebaseEvent(
                                               'IconButton_navigate_to');
 
@@ -409,13 +409,13 @@ class _SoundscapesSeeAllPageMusicMeditationsWidgetState
                                         } else {
                                           logFirebaseEvent(
                                               'IconButton_custom_action');
-                                          await actions.seekAudioToValue(
+                                          await that_audio_player_oo85ab_actions.seekAudioToValue(
                                             0.0,
                                             _model.carouselCurrentIndex,
                                           );
                                           logFirebaseEvent(
                                               'IconButton_custom_action');
-                                          await actions.playAudio();
+                                          await that_audio_player_oo85ab_actions.playAudio();
                                           logFirebaseEvent(
                                               'IconButton_navigate_to');
 

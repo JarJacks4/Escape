@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
+import '/index.dart';
 import 'contact_us_comp_model.dart';
 export 'contact_us_comp_model.dart';
 
@@ -939,11 +940,10 @@ class _ContactUsCompWidgetState extends State<ContactUsCompWidget> {
                     ),
                     FFButtonWidget(
                       onPressed: () {
-                        print('Button pressed ...');
+                        // No FAQ page yet: Lucille can answer how-to questions about the app.
+                        context.pushNamed(ChatWithLucilleVersion5Widget.routeName);
                       },
-                      text: FFLocalizations.of(context).getText(
-                        'cvxx9mtl' /* Browse FAQ */,
-                      ),
+                      text: 'Ask Lucille',
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 50.0,

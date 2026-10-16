@@ -140,8 +140,7 @@ class _BasicBreathingGoalPageWidgetState
                                                   .bodyMedium
                                                   .fontStyle,
                                         ),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                        color: FlutterFlowTheme.of(context).alternate,
                                         fontSize: 22.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
@@ -194,7 +193,7 @@ class _BasicBreathingGoalPageWidgetState
                               buttonSize: 40.0,
                               icon: Icon(
                                 Icons.arrow_back,
-                                color: FlutterFlowTheme.of(context).info,
+                                color: FlutterFlowTheme.of(context).alternate,
                                 size: 24.0,
                               ),
                               onPressed: () async {

@@ -113,12 +113,22 @@ const Map<String, List<Map<String, String>>> _walkthroughSteps = {
     {
       'title': 'Daily Mood Scan',
       'description':
-          'Take a quick photo and Lucille reads your mood for the day. It powers your suggestions and Mood Orb.'
+          'Take a quick selfie with the front camera. Lucille reads your facial expression to estimate your mood for the day. It powers your suggestions and Mood Orb.'
     },
     {
-      'title': 'Good light helps',
+      'title': 'The science',
       'description':
-          'Face the camera in good light. If the scan can\'t read your mood, you can try again.'
+          'Facial expressions carry emotion cues that people read across cultures (Ekman\'s research on basic emotions). An AI model trained on labelled faces scores these cues, such as happy, calm, sad or tense, and Lucille turns them into your mood word.'
+    },
+    {
+      'title': 'Your photo',
+      'description':
+          'Your photo is uploaded securely to your account so the model can read your expression. Face the camera in good light; if the scan can\'t read your mood, you can try again.'
+    },
+    {
+      'title': 'Wellness, not medicine',
+      'description':
+          'The Mood Scan is for self-reflection, not a medical diagnosis. Naming how you feel can itself ease strong emotions (affect labeling research, UCLA 2007).'
     },
   ],
   'mind': [
@@ -214,6 +224,11 @@ const Map<String, List<Map<String, String>>> _walkthroughSteps = {
       'title': 'Chat with Lucille',
       'description':
           'Type a message and Lucille replies as she thinks. Tap a reply to copy it.'
+    },
+    {
+      'title': 'Shortcuts to what helps',
+      'description':
+          'Tell Lucille what you need, like sleep, focus or calming down, and tap the shortcut chips above the box to jump straight to that exercise.'
     },
     {
       'title': 'Not a crisis service',
