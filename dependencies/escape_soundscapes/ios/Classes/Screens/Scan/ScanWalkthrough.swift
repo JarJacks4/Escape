@@ -36,8 +36,8 @@ struct ScanWalkthrough: View {
     static let scanSteps: [Step] = [
         .init(eyebrow: "Welcome", title: "Meet your Mood Orb",
               body: "This living orb is you, right now. It beats with your real pulse, breathes with you and changes colour with how you feel. Here's how the scan works, and the science behind it.", icon: "sparkles"),
-        .init(eyebrow: "Step 1 · Pulse", title: "Your fingertip, the camera, the flash",
-              body: "Rest a fingertip on the back camera. The flash shines through it, and each heartbeat pushes a little more blood into your fingertip, which absorbs a little more light. The camera sees that tiny change as a pulse wave. This is photoplethysmography (PPG), the same principle as hospital pulse oximeters and smartwatches. Only the average colour of each frame is used; no photo or video is kept.", icon: "heart.fill"),
+        .init(eyebrow: "Step 1 · Pulse", title: "Your finger, the camera, the flash",
+              body: "Lay a finger flat over the back camera and the flash. The flash shines through it, and each heartbeat pushes a little more blood into your finger, which absorbs a little more light. The camera sees that tiny change as a pulse wave. This is photoplethysmography (PPG), the same principle as hospital pulse oximeters and smartwatches. Only the average colour of each frame is used; no photo or video is kept.", icon: "heart.fill"),
         .init(eyebrow: "Why breathe slowly", title: "Breathe with the orb",
               body: "While it reads, the orb guides you to about 5 to 6 breaths a minute. Slow breathing at this pace is linked in research to a calmer heart rhythm and higher heart-rate variability, through the vagus nerve. It also steadies your hand for a cleaner reading.", icon: "wind"),
         .init(eyebrow: "Step 2 · Feel", title: "Two dials: energy and pleasantness",

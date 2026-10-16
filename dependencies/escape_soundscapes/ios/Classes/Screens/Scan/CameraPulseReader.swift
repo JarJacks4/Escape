@@ -37,7 +37,7 @@ final class CameraPulseReader {
     private var capture: PulseCapture?
     /// False once stop() is called, so a start() still waiting on permission never turns the camera on.
     private var wanted = false
-    private var samples: [(t: Double, v: Double)] = []
+    private var samples: [(t: Double, r: Double, g: Double)] = []
 
     /// Asks for the camera if needed, then starts reading. Safe to call more than once.
     func start() async {
@@ -95,7 +95,7 @@ final class CameraPulseReader {
         }
         if status != .reading { status = .reading }
 
-        samples.append((t, r))
+        samples.append((t, r, g))
         // Keep the last 12 s.
         while let first = samples.first, t - first.t > 12 { samples.removeFirst() }
         secondsOfSignal = (samples.last?.t ?? t) - (samples.first?.t ?? t)
@@ -106,15 +106,19 @@ final class CameraPulseReader {
         let n = samples.count
         guard n > 45 else { return }   // ~1.5 s
         let times = samples.map { $0.t }
-        let raw = samples.map { $0.v }
+        // With the flash at full power the red channel often clips at 1.0 and goes flat, so
+        // the beat is lost. Fall back to green (still inside the finger's range) when red clips.
+        let meanR = samples.map { $0.r }.reduce(0, +) / Double(n)
+        let useGreen = meanR > 0.95
+        let raw = samples.map { useGreen ? $0.g : $0.r }
 
         // 1. Remove slow drift (pressure, exposure): subtract a ~1 s moving average.
-        // 2. Smooth frame noise with a short (~0.1 s) moving average.
+        // 2. Smooth frame noise with a short (~0.17 s) moving average.
         // More blood absorbs more light, so invert: peaks of `wave` are heartbeats.
         let fps = Double(n - 1) / max(0.001, times[n - 1] - times[0])
         let slow = movingAverage(raw, window: max(3, Int(fps)))
         let detrended = zip(raw, slow).map { -( $0 - $1) }
-        let smooth = movingAverage(detrended, window: max(1, Int(fps / 10)))
+        let smooth = movingAverage(detrended, window: max(2, Int(fps / 6)))
 
         // Live trace: last ~4 s, scaled to -1…1.
         let tail = Array(smooth.suffix(Int(fps * 4)))
@@ -122,26 +126,32 @@ final class CameraPulseReader {
         wave = tail.map { $0 / peak }
 
         // Beat peaks: local maxima above the running mean, at least 0.33 s apart (≤ 180 bpm).
+        // Inside one 0.33 s window keep the highest maximum, not the first (noise wiggles).
         let mean = smooth.reduce(0, +) / Double(smooth.count)
         let minGap = 0.33
-        var beats: [Double] = []
+        var beatIdx: [Int] = []
         if smooth.count > 2 {
             for i in 1..<(smooth.count - 1) where smooth[i] > mean && smooth[i] >= smooth[i - 1] && smooth[i] > smooth[i + 1] {
-                if let last = beats.last, times[i] - last < minGap { continue }
-                beats.append(times[i])
+                if let last = beatIdx.last, times[i] - times[last] < minGap {
+                    if smooth[i] > smooth[last] { beatIdx[beatIdx.count - 1] = i }
+                    continue
+                }
+                beatIdx.append(i)
             }
         }
-        guard beats.count >= 6 else { return }
+        let beats = beatIdx.map { times[$0] }
 
-        // Median beat-to-beat interval → bpm; spread of intervals → quality.
-        let intervals = zip(beats.dropFirst(), beats).map { $0 - $1 }.filter { $0 > 0.33 && $0 < 1.5 }
-        guard intervals.count >= 5 else { return }
-        let sorted = intervals.sorted()
-        let median = sorted[sorted.count / 2]
+        // Median beat-to-beat interval → bpm. Drop intervals more than 25% off the median
+        // (a missed or doubled beat) before judging how steady the rhythm is.
+        let all = zip(beats.dropFirst(), beats).map { $0 - $1 }.filter { $0 > 0.33 && $0 < 1.5 }
+        guard all.count >= 5 else { return }
+        let median = all.sorted()[all.count / 2]
+        let intervals = all.filter { abs($0 - median) <= median * 0.25 }
+        guard intervals.count >= max(4, Int(Double(all.count) * 0.6)) else { return }
         let avg = intervals.reduce(0, +) / Double(intervals.count)
         let sd = sqrt(intervals.map { ($0 - avg) * ($0 - avg) }.reduce(0, +) / Double(intervals.count))
         let q = max(0, min(1, 1 - (sd / avg) * 4))
-        let value = Int((60 / median).rounded())
+        let value = Int((60 / avg).rounded())
         guard (40...180).contains(value) else { return }
         quality = q
         // Only publish a reading once the rhythm is reasonably steady.

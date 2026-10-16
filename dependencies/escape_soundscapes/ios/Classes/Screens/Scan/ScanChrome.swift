@@ -27,11 +27,11 @@ struct MoodStartChrome: View {
             .padding(.top, 24)
             Spacer()
             VStack(spacing: 10) {
-                Text("About a minute. Rest a fingertip on the back camera while you breathe with the orb, then tell Lucille how you feel.")
+                Text("About a minute. Lay a finger flat over the back camera and flash while you breathe with the orb, then tell Lucille how you feel.")
                     .font(EscFont.ui(14)).foregroundStyle(Esc.haze)
                     .multilineTextAlignment(.center).padding(.bottom, 4)
                 HStack(spacing: 8) {
-                    ForEach(["Pulse · fingertip", "How you feel · tap", "A few words"], id: \.self) {
+                    ForEach(["Pulse · finger", "How you feel · tap", "A few words"], id: \.self) {
                         Text($0).font(EscFont.ui(12)).foregroundStyle(Esc.mist).glassPill()
                     }
                 }
@@ -73,9 +73,9 @@ struct MoodPulseChrome: View {
         switch status {
         case .denied: return "Allow Camera for Escape in Settings to read your pulse, or skip and just tap how you feel."
         case .unavailable: return "This device can't read a pulse with its camera. Skip and tap how you feel."
-        case .reading: return "Keep your fingertip resting lightly on the lens and flash. Breathe in as the orb grows, out as it settles."
+        case .reading: return "Keep your finger resting lightly over the camera and flash. Breathe in as the orb grows, out as it settles."
         case .starting, .idle: return "Turning on the camera and flash…"
-        case .placeFinger: return "Rest a fingertip lightly over the back camera and flash. The flash shines through your finger so the camera can see each heartbeat."
+        case .placeFinger: return "Lay a finger flat over the back camera and the flash, covering both. The flash shines through your finger so the camera can see each heartbeat."
         }
     }
 
@@ -118,7 +118,7 @@ struct MoodPulseChrome: View {
         switch status {
         case .reading: return ["Finger detected", bpm == nil ? "Finding your beat" : "Steady signal", "\(secondsLeft) s"]
         case .placeFinger: return ["Camera on", "Flash on", "Waiting for finger"]
-        default: return ["Fingertip", "Back camera"]
+        default: return ["Finger", "Back camera"]
         }
     }
 }
