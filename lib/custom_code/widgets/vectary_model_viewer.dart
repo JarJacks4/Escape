@@ -48,7 +48,8 @@ class _VectaryModelViewerState extends State<VectaryModelViewer> {
   @override
   Widget build(BuildContext context) {
     // Guard against a page not having set assetPath yet
-    if (widget.assetPath == null || widget.assetPath!.isEmpty) {
+    final path = widget.assetPath ?? '';
+    if (!path.startsWith('http') && !path.startsWith('assets/')) {
       return SizedBox(width: widget.width, height: widget.height);
     }
 
