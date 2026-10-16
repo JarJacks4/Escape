@@ -4569,24 +4569,9 @@ class _ExplorePageVersion5FINALWidgetState
                                                   'EXPLORE_VERSION5_F_I_N_A_L_Stack_1uxy8bk');
                                               logFirebaseEvent(
                                                   'Stack_navigate_to');
-                                              if (Navigator.of(context)
-                                                  .canPop()) {
-                                                context.pop();
-                                              }
-                                              context.pushNamed(
-                                                MoodScanVersion5Widget
-                                                    .routeName,
-                                                extra: <String, dynamic>{
-                                                  '__transition_info__':
-                                                      TransitionInfo(
-                                                    hasTransition: true,
-                                                    transitionType:
-                                                        PageTransitionType.fade,
-                                                    duration: Duration(
-                                                        milliseconds: 100),
-                                                  ),
-                                                },
-                                              );
+                                              // New Mood Scan on iOS 17+, old one below.
+                                              await SoundscapesLauncher
+                                                  .openMoodScan(context);
                                             },
                                             child: Container(
                                               width: 250.0,

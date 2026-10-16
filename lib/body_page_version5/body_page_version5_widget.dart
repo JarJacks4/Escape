@@ -1,3 +1,4 @@
+import '/components/app_bottom_nav.dart';
 import '/components/body_page_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/flutter_flow_util.dart';
@@ -52,6 +53,8 @@ class _BodyPageVersion5WidgetState extends State<BodyPageVersion5Widget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        // Not one of the main tabs, so it needs its own tab bar to get back out.
+        bottomNavigationBar: const AppBottomNav(),
         body: Stack(
           fit: StackFit.expand,
           children: [

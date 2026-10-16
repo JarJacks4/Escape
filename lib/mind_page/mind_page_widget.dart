@@ -1,3 +1,4 @@
+import '/components/app_bottom_nav.dart';
 import '/components/mind_page_version5_copy_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/flutter_flow_util.dart';
@@ -50,6 +51,8 @@ class _MindPageWidgetState extends State<MindPageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
+        // Not one of the main tabs, so it needs its own tab bar to get back out.
+        bottomNavigationBar: const AppBottomNav(),
         body: Stack(
           fit: StackFit.expand,
           children: [

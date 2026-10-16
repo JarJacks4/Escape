@@ -18387,7 +18387,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '17x096y8': {
-      'en': '\$20 Gift Card',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -18443,7 +18443,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '292panj2': {
-      'en': '50% Off Self-Care Appliances',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -18457,7 +18457,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '2k0yks1k': {
-      'en': '20% Off \nFinal Order',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -18513,7 +18513,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '6xoesbbt': {
-      'en': '20% Off Skin Care Products',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -18695,7 +18695,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'b4mqlpt0': {
-      'en': '40% Off Salads and Drinks',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -18835,7 +18835,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'hl76ztfh': {
-      'en': '40% Off Salads and Drinks',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -18849,7 +18849,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'iz2qbl2j': {
-      'en': '\$50 Gift Card',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -18877,7 +18877,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'k6jajf8m': {
-      'en': '15% Off All Body Butters',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -19073,7 +19073,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'syfgnuma': {
-      'en': '20% Off Skin Care Products',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -19199,7 +19199,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'wynhfs3a': {
-      'en': '50% Off Final Cart Order',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -57949,7 +57949,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'e9fqb9pk': {
-      'en': '15% Off All Body Butters',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -57991,7 +57991,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'rrlg0pt5': {
-      'en': '50% Off Self-Care Appliances',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -58033,7 +58033,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'g1gue1no': {
-      'en': '20% Off Skin Care Products',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -58075,7 +58075,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'syiif4gy': {
-      'en': '40% Off Salads and Drinks',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -58117,7 +58117,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '5s4uhu7m': {
-      'en': '20% Off \nFinal Order',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -58159,7 +58159,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'o26qs8c4': {
-      'en': '50% Off Final Cart Order',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -58215,7 +58215,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '3ezxjmpg': {
-      'en': '15% Off All Body Butters',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -58257,7 +58257,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'z7uzh7e3': {
-      'en': '50% Off Self-Care Appliances',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -58299,7 +58299,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'rxxaqnww': {
-      'en': '20% Off Skin Care Products',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -58341,7 +58341,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'q46bvg16': {
-      'en': '40% Off Salads and Drinks',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -58383,7 +58383,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'ombtoiue': {
-      'en': '20% Off \nFinal Order',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',
@@ -58425,7 +58425,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'zl3153b4': {
-      'en': '50% Off Final Cart Order',
+      'en': '\$10 Gift Card',
       'ar': '',
       'de': '',
       'es': '',

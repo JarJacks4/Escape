@@ -9,6 +9,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/app_events/index.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/custom_code/actions/index.dart' as actions;
+import 'dart:async';
 import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
@@ -54,6 +56,38 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
     with TickerProviderStateMixin {
   late HomeVersion5Model _model;
 
+  /// The latest Mood Scan from Lucille v1 ({word, ageHours, ...}); null until there is one.
+  Map<String, dynamic>? _lastScan;
+  Timer? _scanRefresh;
+
+  Future<void> _loadLastScan() async {
+    try {
+      final r = await actions.lucilleV1('GET', '/v1/journal/home?period=week', null);
+      final data = r is Map ? r['data'] : null;
+      final last = data is Map ? data['lastScan'] : null;
+      if (!mounted) return;
+      setState(() => _lastScan =
+          last is Map && last['word'] != null ? Map<String, dynamic>.from(last) : null);
+    } catch (_) {}
+  }
+
+  /// The scan runs in the native module, so check back a few times for the new result.
+  void _refreshScanAfterOpening() {
+    _scanRefresh?.cancel();
+    var tries = 0;
+    _scanRefresh = Timer.periodic(const Duration(seconds: 15), (t) {
+      if (++tries >= 12) t.cancel();
+      _loadLastScan();
+    });
+  }
+
+  String get _lastScanAge {
+    final h = (_lastScan?['ageHours'] as num?)?.round() ?? 0;
+    if (h < 1) return 'Just now';
+    if (h < 24) return '$h h ago';
+    return '${h ~/ 24} d ago';
+  }
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = <String, AnimationInfo>{};
@@ -61,6 +95,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
   @override
   void initState() {
     super.initState();
+    _loadLastScan();
     _model = createModel(context, () => HomeVersion5Model());
 
     logFirebaseEvent('screen_view',
@@ -334,6 +369,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
 
   @override
   void dispose() {
+    _scanRefresh?.cancel();
     _model.dispose();
 
     super.dispose();
@@ -989,12 +1025,161 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                           Builder(
                                                                         builder:
                                                                             (context) {
+                                                                          // The Mood Scan card, also shown first when the user already has a mood.
+                                                                          Widget moodScanCard() {
+                                                                            return Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                                                                              child: Column(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                children: [
+                                                                                  Flexible(
+                                                                                    flex: 1,
+                                                                                    child: Row(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                      children: [
+                                                                                        Flexible(
+                                                                                          flex: 1,
+                                                                                          child: Column(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                            children: [
+                                                                                              Flexible(
+                                                                                                flex: 1,
+                                                                                                child: Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                                  child: Text(
+                                                                                                    _lastScan != null
+                                                                                                        ? 'YOUR LAST MOOD SCAN'
+                                                                                                        : FFLocalizations.of(context).getText(
+                                                                                                            'hkgkwduq' /* START YOUR DAY */,
+                                                                                                          ),
+                                                                                                    style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                                          font: GoogleFonts.inter(
+                                                                                                            fontWeight: FontWeight.w900,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                                                                                                          ),
+                                                                                                          color: Color(0xC81C2444),
+                                                                                                          fontSize: 12.0,
+                                                                                                          letterSpacing: 0.0,
+                                                                                                          fontWeight: FontWeight.w900,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ),
+                                                                                              Flexible(
+                                                                                                flex: 1,
+                                                                                                child: Text(
+                                                                                                  _lastScan != null
+                                                                                                      ? '${_lastScan!['word']}'.toUpperCase()
+                                                                                                      : FFLocalizations.of(context).getText(
+                                                                                                          'n2rcgxnj' /* SCAN YOUR MOOD */,
+                                                                                                        ),
+                                                                                                  style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                                        font: GoogleFonts.inter(
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
+                                                                                                        ),
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                        letterSpacing: 0.0,
+                                                                                                        fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                                                                                                        fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
+                                                                                                      ),
+                                                                                                ),
+                                                                                              ),
+                                                                                              Flexible(
+                                                                                                flex: 1,
+                                                                                                child: Text(
+                                                                                                  _lastScan != null
+                                                                                                      ? '$_lastScanAge · scan again any time'
+                                                                                                      : FFLocalizations.of(context).getText(
+                                                                                                          'ehlqwtzh' /* Mood Scan Needed For 
+Further ... */
+                                                                                                          ,
+                                                                                                        ),
+                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                        font: GoogleFonts.inter(
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                                        ),
+                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                        letterSpacing: 0.0,
+                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                                      ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ].divide(SizedBox(height: 4.0)),
+                                                                                          ),
+                                                                                        ),
+                                                                                        FFButtonWidget(
+                                                                                          onPressed: () async {
+                                                                                            logFirebaseEvent('HOME_VERSION5_PAGE_BEGIN_BTN_ON_TAP');
+                                                                                            logFirebaseEvent('Button_haptic_feedback');
+                                                                                            HapticFeedback.mediumImpact();
+                                                                                            logFirebaseEvent('Button_play_sound');
+                                                                                            _model.soundPlayer6 ??= AudioPlayer();
+                                                                                            if (_model.soundPlayer6!.playing) {
+                                                                                              await _model.soundPlayer6!.stop();
+                                                                                            }
+                                                                                            if (!mounted) return;
+                                                                                            _model.soundPlayer6!.setVolume(1.0);
+                                                                                            _model.soundPlayer6!.setAsset('assets/audios/ES_Notification,_Attention,_Text,_Reveal,_Positive_01_-_Epidemic_Sound_-_2170-2760.wav').then<void>((_) => mounted ? _model.soundPlayer6!.play() : null, onError: _handleAudioError);
+
+                                                                                            logFirebaseEvent('Button_navigate_to');
+
+                                                                                            await SoundscapesLauncher.openMoodScan(context);
+                                                                                            _refreshScanAfterOpening();
+                                                                                          },
+                                                                                          text: _lastScan != null
+                                                                                              ? 'Scan again'
+                                                                                              : FFLocalizations.of(context).getText(
+                                                                                                  '588cgmfz' /* Begin */,
+                                                                                                ),
+                                                                                          options: FFButtonOptions(
+                                                                                            height: 34.99,
+                                                                                            padding: EdgeInsets.all(8.0),
+                                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                            color: FlutterFlowTheme.of(context).alternate,
+                                                                                            textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  font: GoogleFonts.inter(
+                                                                                                    fontWeight: FontWeight.w300,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                  ),
+                                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                                  letterSpacing: 0.0,
+                                                                                                  fontWeight: FontWeight.w300,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                ),
+                                                                                            elevation: 2.0,
+                                                                                            borderSide: BorderSide(
+                                                                                              color: Color(0x39D0E3F7),
+                                                                                            ),
+                                                                                            borderRadius: BorderRadius.circular(16.0),
+                                                                                            hoverColor: FlutterFlowTheme.of(context).tertiary,
+                                                                                            hoverBorderSide: BorderSide(
+                                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                                            ),
+                                                                                            hoverElevation: 3.0,
+                                                                                          ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  ),
+                                                                                ].divide(SizedBox(height: 8.0)),
+                                                                              ),
+                                                                            );
+                                                                          }
                                                                           if (valueOrDefault(currentUserDocument?.currentMood, '') != '') {
                                                                             return ListView(
                                                                               padding: EdgeInsets.zero,
                                                                               shrinkWrap: true,
                                                                               scrollDirection: Axis.horizontal,
                                                                               children: [
+                                                                                // Mood Scan first (our main feature); swipe for Continue Your Journey.
+                                                                                SizedBox(width: 320.0, height: 141.5, child: moodScanCard()),
                                                                                 Container(
                                                                                   width: 320.0,
                                                                                   height: 126.0,
@@ -1180,141 +1365,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               ],
                                                                             );
                                                                           } else {
-                                                                            return Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
-                                                                              child: Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: [
-                                                                                  Flexible(
-                                                                                    flex: 1,
-                                                                                    child: Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                      children: [
-                                                                                        Flexible(
-                                                                                          flex: 1,
-                                                                                          child: Column(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                            children: [
-                                                                                              Flexible(
-                                                                                                flex: 1,
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                                                                                                  child: Text(
-                                                                                                    FFLocalizations.of(context).getText(
-                                                                                                      'hkgkwduq' /* START YOUR DAY */,
-                                                                                                    ),
-                                                                                                    style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                                          font: GoogleFonts.inter(
-                                                                                                            fontWeight: FontWeight.w900,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                                                                                                          ),
-                                                                                                          color: Color(0xC81C2444),
-                                                                                                          fontSize: 12.0,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FontWeight.w900,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Flexible(
-                                                                                                flex: 1,
-                                                                                                child: Text(
-                                                                                                  FFLocalizations.of(context).getText(
-                                                                                                    'n2rcgxnj' /* SCAN YOUR MOOD */,
-                                                                                                  ),
-                                                                                                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                        font: GoogleFonts.inter(
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Flexible(
-                                                                                                flex: 1,
-                                                                                                child: Text(
-                                                                                                  FFLocalizations.of(context).getText(
-                                                                                                    'ehlqwtzh' /* Mood Scan Needed For 
-Further ... */
-                                                                                                    ,
-                                                                                                  ),
-                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                        font: GoogleFonts.inter(
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ].divide(SizedBox(height: 4.0)),
-                                                                                          ),
-                                                                                        ),
-                                                                                        FFButtonWidget(
-                                                                                          onPressed: () async {
-                                                                                            logFirebaseEvent('HOME_VERSION5_PAGE_BEGIN_BTN_ON_TAP');
-                                                                                            logFirebaseEvent('Button_haptic_feedback');
-                                                                                            HapticFeedback.mediumImpact();
-                                                                                            logFirebaseEvent('Button_play_sound');
-                                                                                            _model.soundPlayer6 ??= AudioPlayer();
-                                                                                            if (_model.soundPlayer6!.playing) {
-                                                                                              await _model.soundPlayer6!.stop();
-                                                                                            }
-                                                                                            if (!mounted) return;
-                                                                                            _model.soundPlayer6!.setVolume(1.0);
-                                                                                            _model.soundPlayer6!.setAsset('assets/audios/ES_Notification,_Attention,_Text,_Reveal,_Positive_01_-_Epidemic_Sound_-_2170-2760.wav').then<void>((_) => mounted ? _model.soundPlayer6!.play() : null, onError: _handleAudioError);
-
-                                                                                            logFirebaseEvent('Button_navigate_to');
-
-                                                                                            SoundscapesLauncher.openMoodScan(context);
-                                                                                          },
-                                                                                          text: FFLocalizations.of(context).getText(
-                                                                                            '588cgmfz' /* Begin */,
-                                                                                          ),
-                                                                                          options: FFButtonOptions(
-                                                                                            height: 34.99,
-                                                                                            padding: EdgeInsets.all(8.0),
-                                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                            color: FlutterFlowTheme.of(context).alternate,
-                                                                                            textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  font: GoogleFonts.inter(
-                                                                                                    fontWeight: FontWeight.w300,
-                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                  ),
-                                                                                                  color: FlutterFlowTheme.of(context).primary,
-                                                                                                  letterSpacing: 0.0,
-                                                                                                  fontWeight: FontWeight.w300,
-                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                ),
-                                                                                            elevation: 2.0,
-                                                                                            borderSide: BorderSide(
-                                                                                              color: Color(0x39D0E3F7),
-                                                                                            ),
-                                                                                            borderRadius: BorderRadius.circular(16.0),
-                                                                                            hoverColor: FlutterFlowTheme.of(context).tertiary,
-                                                                                            hoverBorderSide: BorderSide(
-                                                                                              color: FlutterFlowTheme.of(context).secondary,
-                                                                                            ),
-                                                                                            hoverElevation: 3.0,
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ),
-                                                                                ].divide(SizedBox(height: 8.0)),
-                                                                              ),
-                                                                            );
+                                                                            return moodScanCard();
                                                                           }
                                                                         },
                                                                       ),
