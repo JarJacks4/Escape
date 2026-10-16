@@ -135,7 +135,7 @@ public extension MoodReading {
     var because: String {
         let feel = "you set your energy to \(Int(energy * 100))% and pleasantness to \(Int(valence * 100))%"
         if pulseMeasured {
-            return "Your pulse read \(bpm) bpm on the camera, \(feel), so Lucille hears \(word.lowercased())."
+            return "Your camera pulse estimate was about \(bpm) bpm, \(feel), so Lucille hears \(word.lowercased())."
         }
         return "You skipped the pulse read; \(feel), so Lucille hears \(word.lowercased())."
     }

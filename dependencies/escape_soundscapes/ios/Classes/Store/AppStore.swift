@@ -101,6 +101,7 @@ public final class AppStore {
     public var isSleepUI: Bool { currentMode == .sleep }
 
     public func isLocked(_ mode: ModeId) -> Bool {
+        guard SoundscapesFeatures.purchases else { return false }
         if let m = modes.first(where: { $0.id == mode }) { return m.locked ?? (m.premium && !isPremium) }
         return !mode.isFree && !isPremium
     }
@@ -258,7 +259,7 @@ public final class AppStore {
 
     /// Browse card tap: locked cards open PremiumSheet.
     public func play(card: BrowseCard) async {
-        if card.locked { setSheet(.premium); return }
+        if card.locked && SoundscapesFeatures.purchases { setSheet(.premium); return }
         await play(compositionId: card.compositionId, from: .mode)
     }
 
@@ -662,6 +663,7 @@ public final class AppStore {
     }
 
     public func openJourney(_ id: String) {
+        guard SoundscapesFeatures.journeys else { return }
         selectedJourneyId = id
         setSheet(.journeys)
     }

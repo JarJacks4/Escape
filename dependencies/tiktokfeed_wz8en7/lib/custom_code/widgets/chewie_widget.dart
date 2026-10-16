@@ -38,6 +38,31 @@ class ChewieWidget extends StatefulWidget {
   ChewieWidgetState createState() => ChewieWidgetState();
 }
 
+// Sample/placeholder values left over from the FlutterFlow template ("Hello World"), and
+// TikTok avatar links whose signatures have expired, are never shown to people.
+const _kFeedPlaceholder = 'Hello World';
+const _kDefaultUserPic =
+    'https://res.cloudinary.com/dcato1y8g/image/upload/v1701558081/People_Circle18_ss1xia.png';
+
+bool _isRealValue(String? v) =>
+    v != null && v.trim().isNotEmpty && v.trim() != _kFeedPlaceholder;
+
+/// Only items with a directly playable video file (not a TikTok web page link).
+List<TiktokPageStruct> _playableFeed(List<TiktokPageStruct> data) => data.where((v) {
+      final url = v.urlvideo;
+      return url.startsWith('http') && !url.contains('tiktok.com/');
+    }).toList();
+
+String _feedUserName(String? name) => _isRealValue(name) ? name!.trim() : 'escape';
+
+String _feedUserPic(String? url) =>
+    (_isRealValue(url) && url!.startsWith('http') && !url.contains('tiktokcdn'))
+        ? url
+        : _kDefaultUserPic;
+
+List<String> _feedIds(List<String>? ids) =>
+    (ids ?? const <String>[]).where(_isRealValue).toList();
+
 class ChewieWidgetState extends State<ChewieWidget> {
   List<Video> _videos = [];
   List<Video2> _videoss = [];
@@ -58,21 +83,19 @@ class ChewieWidgetState extends State<ChewieWidget> {
   }
 
   void _initializeVideos() async {
-    _videos = widget.data
+    _videos = _playableFeed(widget.data)
         .map((video) => Video(
               id: video.id,
-              user: video.profilename ?? 'John',
-              userPic: video.userPicture ??
-                  'https://res.cloudinary.com/dcato1y8g/image/upload/v1701558081/People_Circle18_ss1xia.png',
-              url: video.urlvideo ??
-                  'https://res.cloudinary.com/dl6aqq2yy/video/upload/v1676307765/Y2Mate.is_-_Liv_Scholar_Profile_V2-SuOziaSoq9U-1080p-1656887559897_n1uvyp.mp4',
+              user: _feedUserName(video.profilename),
+              userPic: _feedUserPic(video.userPicture),
+              url: video.urlvideo,
             ))
         .toList();
 
-    _videoss = widget.data
+    _videoss = _playableFeed(widget.data)
         .map((video) => Video2(
-              likes: video.likes,
-              bookmarked: video.bookmark,
+              likes: _feedIds(video.likes),
+              bookmarked: _feedIds(video.bookmark),
             ))
         .toList();
 
@@ -85,10 +108,10 @@ class ChewieWidgetState extends State<ChewieWidget> {
 
   @override
   Widget build(BuildContext context) {
-    _videoss = widget.data
+    _videoss = _playableFeed(widget.data)
         .map((video) => Video2(
-              likes: video.likes,
-              bookmarked: video.bookmark,
+              likes: _feedIds(video.likes),
+              bookmarked: _feedIds(video.bookmark),
             ))
         .toList();
     return Scaffold(

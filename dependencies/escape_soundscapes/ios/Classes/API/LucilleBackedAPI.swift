@@ -310,7 +310,11 @@ public actor LucilleBackedAPI: SoundscapesAPI {
     public func completeOnboarding() async throws { try await mock.completeOnboarding() }
     public func inputs() async throws -> InputsResponse { try await mock.inputs() }
     public func setInput(_ id: InputSetting.Kind, enabled: Bool) async throws -> InputSetting { try await mock.setInput(id, enabled: enabled) }
-    public func deleteInputHistory() async throws { try await mock.deleteInputHistory() }
+    /// Erases stored mood readings (scans, check-ins, heart rate) on the server, then the local cache.
+    public func deleteInputHistory() async throws {
+        try await v1.eraseData(scope: "mood")
+        try? await mock.deleteInputHistory()
+    }
     public func postMoodCheckIn(value: Double, tags: [String], source: String) async throws -> MoodCheckIn { try await mock.postMoodCheckIn(value: value, tags: tags, source: source) }
     public func latestMoodCheckIn() async throws -> MoodCheckIn? { try await mock.latestMoodCheckIn() }
     public func latestMoodScan() async throws -> MoodScan? { try await mock.latestMoodScan() }

@@ -118,7 +118,7 @@ const Map<String, List<Map<String, String>>> _walkthroughSteps = {
     {
       'title': 'The science',
       'description':
-          'Facial expressions carry emotion cues that people read across cultures (Ekman\'s research on basic emotions). An AI model trained on labelled faces scores these cues, such as happy, calm, sad or tense, and Lucille turns them into your mood word.'
+          'Facial expressions carry emotion cues that people read across cultures (Ekman\'s research on basic emotions). An AI model trained on labelled faces scores these cues, such as happy, calm, sad or tense, and Lucille turns them into your mood word. It\'s an estimate: a face doesn\'t always show how you feel inside, so treat it as a starting point, not a verdict.'
     },
     {
       'title': 'Your photo',

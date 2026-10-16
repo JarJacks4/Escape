@@ -233,7 +233,7 @@ struct SoundscapesHomeView: View {
     }
 
     private func tapMode(_ item: HomeModeItem) {
-        if item.locked {
+        if item.locked && SoundscapesFeatures.purchases {
             store.setSheet(.premium)
         } else {
             Task { await store.play(mode: item.id) }
@@ -256,7 +256,7 @@ struct SoundscapesHomeView: View {
 
     @ViewBuilder private var journeys: some View {
         let chips = journeyChips
-        if !chips.isEmpty {
+        if SoundscapesFeatures.journeys, !chips.isEmpty {
             VStack(alignment: .leading, spacing: 0) {
                 Text("Journeys")
                     .escLabel()
