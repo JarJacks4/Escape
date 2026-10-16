@@ -836,25 +836,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                       FFAppState()
                                                                               .firebaseIDToken =
                                                                           currentJwtToken;
-                                                                      context
-                                                                          .pushNamedAuth(
-                                                                        MoodScanVersion5Widget
-                                                                            .routeName,
-                                                                        context
-                                                                            .mounted,
-                                                                        extra: <String,
-                                                                            dynamic>{
-                                                                          '__transition_info__':
-                                                                              TransitionInfo(
-                                                                            hasTransition:
-                                                                                true,
-                                                                            transitionType:
-                                                                                PageTransitionType.rightToLeft,
-                                                                            duration:
-                                                                                Duration(milliseconds: 1),
-                                                                          ),
-                                                                        },
-                                                                      );
+                                                                      await SoundscapesLauncher.openMoodScanAfterSignIn(context);
                                                                     },
                                                                     text: FFLocalizations.of(
                                                                             context)
@@ -884,9 +866,10 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                           0.0),
                                                                       iconColor:
                                                                           FlutterFlowTheme.of(context)
-                                                                              .alternate,
-                                                                      color: Color(
-                                                                          0xA6E65454),
+                                                                              .primary,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .alternate,
                                                                       textStyle: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
@@ -966,7 +949,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                                 ScaffoldMessenger.of(context).showSnackBar(
                                                                                   SnackBar(
                                                                                     content: Text(
-                                                                                      'Lucille has checked our records and you will need to create and account in order to continue. Please Swipe Right.',
+                                                                                      'Lucille couldn\'t find your account. Please create one to continue: swipe right.',
                                                                                       style: TextStyle(
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
@@ -1255,6 +1238,11 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                               _model.validateLogin23 =
                                                                   false;
                                                             }
+                                                            if (!(_model
+                                                                    .validateLogin23 ??
+                                                                false)) {
+                                                              return;
+                                                            }
                                                             logFirebaseEvent(
                                                                 'Button_auth');
                                                             GoRouter.of(context)
@@ -1300,7 +1288,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                       TextStyle(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primary,
+                                                                        .primaryText,
                                                                   ),
                                                                 ),
                                                                 duration: Duration(
@@ -1338,26 +1326,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                     .firebaseIDToken =
                                                                 currentJwtToken;
 
-                                                            context
-                                                                .pushNamedAuth(
-                                                              MoodScanVersion5Widget
-                                                                  .routeName,
-                                                              context.mounted,
-                                                              extra: <String,
-                                                                  dynamic>{
-                                                                '__transition_info__':
-                                                                    TransitionInfo(
-                                                                  hasTransition:
-                                                                      true,
-                                                                  transitionType:
-                                                                      PageTransitionType
-                                                                          .fade,
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          9),
-                                                                ),
-                                                              },
-                                                            );
+                                                            await SoundscapesLauncher.openMoodScanAfterSignIn(context);
 
                                                             safeSetState(() {});
                                                           },
@@ -3032,17 +3001,12 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                             ),
                                                           );
                                                           logFirebaseEvent(
-                                                              'Button_hide_snack_bar');
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .hideCurrentSnackBar();
-                                                          logFirebaseEvent(
                                                               'Button_navigate_to');
                                                           FFAppState()
                                                                   .firebaseIDToken =
                                                               currentJwtToken;
 
-                                                          context.pushNamedAuth(
+                                                          context.goNamedAuth(
                                                             CreateAccountOnboardingFlowWidget
                                                                 .routeName,
                                                             context.mounted,

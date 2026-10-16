@@ -251,11 +251,7 @@ class _BodyVersion5MovementsPageWidgetState
                                                       size: 16.0,
                                                     ),
                                                     Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'x80j02vz' /* About 4 minutes · 3 moves */,
-                                                      ),
+                                                      'About ${(FFAppState().todaysMoves.fold<int>(0, (t, m) => t + m.durationSeconds) / 60).ceil()} minutes · ${FFAppState().todaysMoves.length} moves',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)

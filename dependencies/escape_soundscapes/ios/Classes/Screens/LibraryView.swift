@@ -79,9 +79,8 @@ struct LibraryView: View {
     private var list: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 0) {
-                if store.libraryFilter == .saved {
-                    playlistRow
-                }
+                // The sample "Evening Wind-Down" playlist is hidden: its tracks were seed data,
+                // not the person's own soundscapes.
                 ForEach(store.libraryItems) { item in
                     itemRow(item)
                 }

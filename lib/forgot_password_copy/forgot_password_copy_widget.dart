@@ -464,7 +464,7 @@ class _ForgotPasswordCopyWidgetState extends State<ForgotPasswordCopyWidget> {
                                                     .showSnackBar(
                                                   SnackBar(
                                                     content: Text(
-                                                      'Email with your password sent! Please check your spam as well to find your email with your password.',
+                                                      'If that email has an account, a password reset link is on its way. Check your inbox and spam folder.',
                                                       style: TextStyle(
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -479,27 +479,9 @@ class _ForgotPasswordCopyWidgetState extends State<ForgotPasswordCopyWidget> {
                                                                 context)
                                                             .secondary,
                                                     action: SnackBarAction(
-                                                      label:
-                                                          'Returning user to splash screen...',
+                                                      label: 'Back to Sign In',
                                                       onPressed: () async {
-                                                        context.pushNamed(
-                                                          SplashScreenVersion5Widget
-                                                              .routeName,
-                                                          extra: <String,
-                                                              dynamic>{
-                                                            '__transition_info__':
-                                                                TransitionInfo(
-                                                              hasTransition:
-                                                                  true,
-                                                              transitionType:
-                                                                  PageTransitionType
-                                                                      .fade,
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      9),
-                                                            ),
-                                                          },
-                                                        );
+                                                        context.safePop();
                                                       },
                                                     ),
                                                   ),

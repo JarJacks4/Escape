@@ -2299,7 +2299,7 @@ class _YoureAllSetPageVersion5WidgetState
                                           logFirebaseEvent(
                                               'Button_navigate_to');
 
-                                          context.pushNamed(
+                                          context.goNamed(
                                             SplashHomeScreenWidget.routeName,
                                             extra: <String, dynamic>{
                                               '__transition_info__':

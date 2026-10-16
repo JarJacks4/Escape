@@ -27,11 +27,11 @@ struct MoodStartChrome: View {
             .padding(.top, 24)
             Spacer()
             VStack(spacing: 10) {
-                Text("About 45 seconds. Breathe with the orb while Lucille reads your pulse, then tell her how you feel.")
+                Text("About a minute. Rest a fingertip on the back camera while you breathe with the orb, then tell Lucille how you feel.")
                     .font(EscFont.ui(14)).foregroundStyle(Esc.haze)
                     .multilineTextAlignment(.center).padding(.bottom, 4)
                 HStack(spacing: 8) {
-                    ForEach(["Pulse · camera", "How you feel · tap", "A few words · voice"], id: \.self) {
+                    ForEach(["Pulse · fingertip", "How you feel · tap", "A few words"], id: \.self) {
                         Text($0).font(EscFont.ui(12)).foregroundStyle(Esc.mist).glassPill()
                     }
                 }
@@ -40,7 +40,7 @@ struct MoodStartChrome: View {
                     Text("Skip the camera, just tap how I feel").font(EscFont.ui(14, .medium)).foregroundStyle(Esc.mist)
                         .frame(maxWidth: .infinity).frame(height: 44)
                 }.buttonStyle(.plain)
-                Text("Camera video stays on your phone. Last scan 2 h ago: Restless.")
+                Text("The camera and flash are only used during the pulse read. No photo or video is saved or sent.")
                     .font(EscFont.ui(11)).foregroundStyle(Esc.haze).multilineTextAlignment(.center)
             }
         }
@@ -52,36 +52,90 @@ struct MoodStartChrome: View {
 
 @available(iOS 17.0, *)
 struct MoodPulseChrome: View {
-    var bpm: Int
+    /// Measured heart rate, nil until the camera has a steady reading.
+    var bpm: Int?
+    var status: CameraPulseReader.Status
+    /// Live pulse wave from the camera (-1…1), drawn so you can see it's really reading you.
+    var wave: [Double]
     var secondsLeft: Int
     var back: () -> Void
     var skip: () -> Void
+
+    private var title: String {
+        switch status {
+        case .denied: return "Camera is off for Escape"
+        case .unavailable: return "No camera available"
+        case .reading: return "Hold still, reading your pulse"
+        default: return "Cover the back camera"
+        }
+    }
+    private var hint: String {
+        switch status {
+        case .denied: return "Allow Camera for Escape in Settings to read your pulse, or skip and just tap how you feel."
+        case .unavailable: return "This device can't read a pulse with its camera. Skip and tap how you feel."
+        case .reading: return "Keep your fingertip resting lightly on the lens and flash. Breathe in as the orb grows, out as it settles."
+        case .starting, .idle: return "Turning on the camera and flash…"
+        case .placeFinger: return "Rest a fingertip lightly over the back camera and flash. The flash shines through your finger so the camera can see each heartbeat."
+        }
+    }
+
     var body: some View {
         VStack(spacing: 0) {
             HStack { GlassIconButton(systemName: "chevron.left", label: "Back", action: back); Spacer() }
             VStack(spacing: 8) {
-                Text("Breathe with the orb").font(EscFont.display(26)).foregroundStyle(Esc.mist)
-                Text("In as it grows, out as it settles. Hold the phone still.")
-                    .font(EscFont.ui(14)).foregroundStyle(Esc.haze).multilineTextAlignment(.center)
+                Text(title).font(EscFont.display(26)).foregroundStyle(Esc.mist).multilineTextAlignment(.center)
+                Text(hint).font(EscFont.ui(14)).foregroundStyle(Esc.haze).multilineTextAlignment(.center)
             }.padding(.top, 10)
             Spacer()
             VStack(spacing: 14) {
+                if status == .reading || bpm != nil {
+                    PulseTrace(wave: wave)
+                        .stroke(Esc.ember, style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
+                        .frame(height: 44)
+                        .padding(.horizontal, 8)
+                        .accessibilityLabel("Live pulse signal from the camera")
+                }
                 HStack(alignment: .firstTextBaseline, spacing: 6) {
                     Image(systemName: "heart.fill").foregroundStyle(Esc.ember).font(.system(size: 18))
-                    Text("\(bpm)").font(EscFont.display(44)).foregroundStyle(Esc.mist)
+                    Text(bpm.map { "\($0)" } ?? "--").font(EscFont.display(44)).foregroundStyle(Esc.mist)
                     Text("bpm").font(EscFont.ui(14)).foregroundStyle(Esc.haze)
                 }
                 HStack(spacing: 8) {
-                    ForEach(["Face in frame", "Good light", "\(secondsLeft) s"], id: \.self) {
+                    ForEach(pills, id: \.self) {
                         Text($0).font(EscFont.ui(12)).foregroundStyle(Esc.mist).glassPill()
                     }
                 }
-                Button(action: skip) { Text("Skip pulse").font(EscFont.ui(14, .medium)).foregroundStyle(Esc.haze)
+                Button(action: skip) { Text(status == .denied || status == .unavailable ? "Continue without pulse" : "Skip pulse")
+                    .font(EscFont.ui(14, .medium)).foregroundStyle(Esc.haze)
                     .padding(.horizontal, 18).frame(height: 44).glass(22) }
                     .buttonStyle(.plain).padding(.top, 8)
             }.padding(.bottom, 40)
         }
         .padding(.horizontal, 24).padding(.top, 56).padding(.bottom, 32)
+    }
+
+    private var pills: [String] {
+        switch status {
+        case .reading: return ["Finger detected", bpm == nil ? "Finding your beat" : "Steady signal", "\(secondsLeft) s"]
+        case .placeFinger: return ["Camera on", "Flash on", "Waiting for finger"]
+        default: return ["Fingertip", "Back camera"]
+        }
+    }
+}
+
+/// The live pulse wave as a line.
+@available(iOS 17.0, *)
+struct PulseTrace: Shape {
+    var wave: [Double]
+    func path(in r: CGRect) -> Path {
+        var p = Path()
+        guard wave.count > 1 else { return p }
+        let step = r.width / CGFloat(wave.count - 1)
+        for (i, v) in wave.enumerated() {
+            let pt = CGPoint(x: CGFloat(i) * step, y: r.midY - CGFloat(v) * r.height / 2)
+            if i == 0 { p.move(to: pt) } else { p.addLine(to: pt) }
+        }
+        return p
     }
 }
 
@@ -169,6 +223,11 @@ struct MoodWordsChrome: View {
 struct MoodResultChrome: View {
     var reading: MoodReading
     var coins: Int
+    /// Coins the server awarded for this scan; nil while saving or if it failed.
+    var coinsAwarded: Int?
+    /// Saving needs the person's OK first (GDPR); shows the "Allow & save" card.
+    var needsConsent: Bool = false
+    var allowAndSave: () -> Void = {}
     var level: CoinLevel
     var words: String
     @Binding var saveHealth: Bool
@@ -181,7 +240,7 @@ struct MoodResultChrome: View {
             HStack {
                 GlassIconButton(systemName: "xmark", label: "Close", action: close)
                 Spacer()
-                CoinBadge(coins: coins, delta: "+25")
+                CoinBadge(coins: coins, delta: coinsAwarded.flatMap { $0 > 0 ? "+\($0)" : nil })
             }
             .padding(.horizontal, 24).padding(.top, 56)
             ScrollView {
@@ -195,10 +254,22 @@ struct MoodResultChrome: View {
                     VStack(alignment: .leading, spacing: 10) {
                         Text("What Lucille noticed").font(EscFont.ui(13, .semibold)).foregroundStyle(Esc.mist)
                         HStack {
-                            stat("\(reading.bpm)", "bpm pulse"); stat("\(Int(reading.energy*100))%", "energy"); stat("\(Int(reading.valence*100))%", "pleasant")
+                            stat(reading.pulseMeasured ? "\(reading.bpm)" : "--", reading.pulseMeasured ? "bpm pulse" : "pulse skipped"); stat("\(Int(reading.energy*100))%", "energy"); stat("\(Int(reading.valence*100))%", "pleasant")
                         }
                         Text(reading.because).font(EscFont.ui(13)).foregroundStyle(Esc.haze)
                     }.frame(maxWidth: .infinity, alignment: .leading).padding(16).glass(20)
+
+                    if needsConsent {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Save this scan to your mood history?").font(EscFont.ui(14, .semibold)).foregroundStyle(Esc.mist)
+                            Text("Lucille uses your check-ins (and your pulse, if measured) for your Mood Orb, Mood Stats and suggestions. You can delete them any time in Privacy.")
+                                .font(EscFont.ui(12)).foregroundStyle(Esc.haze)
+                            Button(action: allowAndSave) {
+                                Text("Allow & save").font(EscFont.ui(14, .semibold)).foregroundStyle(.white)
+                                    .padding(.horizontal, 18).frame(height: 40).background(Esc.primaryGradient, in: Capsule())
+                            }.buttonStyle(.plain)
+                        }.frame(maxWidth: .infinity, alignment: .leading).padding(16).glass(20)
+                    }
 
                     // Lucille suggests
                     VStack(alignment: .leading, spacing: 10) {
@@ -244,7 +315,7 @@ struct MoodResultChrome: View {
                                     .frame(width: 40, height: 40).shadow(color: Color(hex: 0xFF3B30).opacity(0.6), radius: 12)
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text("Energy Scan unlocked").font(EscFont.ui(15, .semibold)).foregroundStyle(Esc.mist)
-                                    Text("1,000 Escape Coins · Level 1: Grounding").font(EscFont.ui(13)).foregroundStyle(Esc.haze)
+                                    Text("\(coins.formatted()) Escape Coins · Level \(level.level): \(level.levelName)").font(EscFont.ui(13)).foregroundStyle(Esc.haze)
                                 }
                                 Spacer()
                                 Image(systemName: "chevron.right").foregroundStyle(Esc.mist)
@@ -287,7 +358,7 @@ struct EnergyStartChrome: View {
             VStack(spacing: 10) {
                 Eyebrow(text: "Level 1 unlocked · Grounding", color: Esc.ember)
                 Text("Your Energy Scan").font(EscFont.display(30)).foregroundStyle(Esc.mist)
-                Text("Lucille reads your seven energy centres from your body, your sleep and how you've felt this week.")
+                Text("Lucille maps today's scan, your pulse, energy and mood, onto your seven energy centres. A reflective guide, not a diagnosis.")
                     .font(EscFont.ui(14)).foregroundStyle(Esc.haze).multilineTextAlignment(.center)
             }.padding(.top, 24)
             Spacer()
@@ -309,10 +380,14 @@ struct EnergyStartChrome: View {
 
 @available(iOS 17.0, *)
 struct EnergyScanChrome: View {
-    var bpm: Int
+    var reading: MoodReading
     var reveal: Double
+    /// Only what this scan actually measured or the person chose.
     private var sources: [(String, String)] {
-        [("Pulse (camera)", "\(bpm) bpm"), ("HRV · Apple Health", "48 ms"), ("Sleep last night", "6 h 40 m"), ("Mood this week", "Restless, Calm, Foggy")]
+        [("Pulse (camera)", reading.pulseMeasured ? "\(reading.bpm) bpm" : "Skipped"),
+         ("Energy (you)", "\(Int(reading.energy * 100))%"),
+         ("Pleasant (you)", "\(Int(reading.valence * 100))%"),
+         ("Today's word", reading.word)]
     }
     var body: some View {
         VStack(spacing: 0) {
@@ -338,25 +413,33 @@ struct EnergyScanChrome: View {
 
 @available(iOS 17.0, *)
 struct EnergyResultChrome: View {
+    var reading: MoodReading
     var close: () -> Void
     var host: ScanHost
+    private var centers: [EnergyCenter] { EnergyCenters.from(reading) }
+    private var weakest: EnergyCenter { centers.min { $0.energy < $1.energy } ?? centers[0] }
+    private var weakestShort: String { weakest.name.replacingOccurrences(of: " Energy Center", with: "") }
+    private var overall: String {
+        let avg = centers.map(\.energy).reduce(0, +) / max(1, centers.count)
+        return avg >= 75 ? "Bright" : avg >= 60 ? "Centred" : avg >= 45 ? "Gentle" : "Tender"
+    }
     var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .top, spacing: 12) {
                 GlassIconButton(systemName: "xmark", label: "Close", action: close)
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Lucille's Energy Centre Scan").font(EscFont.display(22)).foregroundStyle(Esc.mist)
-                    Text("Your Connection and Expression centres need gentle space today.")
+                    Text("Your \(weakestShort) centre could use the most care today.")
                         .font(EscFont.ui(13)).foregroundStyle(Esc.haze)
                 }
             }.padding(.horizontal, 24).padding(.top, 56)
-            HStack { Text("OVERALL STATE").font(EscFont.ui(12)).tracking(1.2).foregroundStyle(Esc.haze) + Text("  · Centred").font(EscFont.ui(12, .semibold)).foregroundStyle(Esc.mist) }
+            HStack { Text("OVERALL STATE").font(EscFont.ui(12)).tracking(1.2).foregroundStyle(Esc.haze) + Text("  · \(overall)").font(EscFont.ui(12, .semibold)).foregroundStyle(Esc.mist) }
                 .glassPill().padding(.top, 14)
             ScrollView {
                 VStack(spacing: 10) {
                     // suggestion for the weakest centre
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Lucille suggests · Connection needs space").font(EscFont.ui(12)).foregroundStyle(Esc.haze)
+                        Text("Lucille suggests · \(weakestShort) needs care").font(EscFont.ui(12)).foregroundStyle(Esc.haze)
                         Text("Open up gently today").font(EscFont.ui(15, .semibold)).foregroundStyle(Esc.mist)
                         HStack(spacing: 8) {
                             ForEach([("Visit Connection World", "escape://realms/connection"),
@@ -373,7 +456,7 @@ struct EnergyResultChrome: View {
                                 in: RoundedRectangle(cornerRadius: 20, style: .continuous))
                     .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous).strokeBorder(Color(hex: 0x34C759).opacity(0.45), lineWidth: 1))
 
-                    ForEach(EnergyCenters.all) { c in
+                    ForEach(centers) { c in
                         VStack(alignment: .leading, spacing: 10) {
                             HStack {
                                 Text(c.name).font(EscFont.ui(15, .semibold)).foregroundStyle(Esc.mist)

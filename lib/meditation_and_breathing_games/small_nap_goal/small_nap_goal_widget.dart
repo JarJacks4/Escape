@@ -101,8 +101,7 @@ class _SmallNapGoalWidgetState extends State<SmallNapGoalWidget> {
                                                     .bodyMedium
                                                     .fontStyle,
                                           ),
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                          color: FlutterFlowTheme.of(context).alternate,
                                           fontSize: 22.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
@@ -159,7 +158,7 @@ class _SmallNapGoalWidgetState extends State<SmallNapGoalWidget> {
                                 buttonSize: 40.0,
                                 icon: Icon(
                                   Icons.arrow_back,
-                                  color: FlutterFlowTheme.of(context).info,
+                                  color: FlutterFlowTheme.of(context).alternate,
                                   size: 24.0,
                                 ),
                                 onPressed: () async {
@@ -179,7 +178,7 @@ class _SmallNapGoalWidgetState extends State<SmallNapGoalWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 300.0, 0.0, 8.0),
                       child: FlutterFlowAudioPlayer(
                         audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Bhimpalasi%20-%20Pawan%20Krishna%20(1).mp3?alt=media&token=9ec67458-dd89-4da7-bfba-88b195ff4434',
+                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/ES_Bhimpalasi%20-%20Pawan%20Krishna%20(1).mp3?alt=media&token=9ec67458-dd89-4da7-bfba-88b195ff4434',
                           metas: Metas(
                             id: 'ES_Bhimpalasi%20-%20Pawan%20Krishna%20(1).mp3?alt=media&token=9ec67458-dd89-4da7-bfba-88b195ff4434-e689bc16',
                             title: 'Bhimpalasi - Pawan Krishna',
@@ -279,7 +278,7 @@ class _SmallNapGoalWidgetState extends State<SmallNapGoalWidget> {
                                         .titleSmall
                                         .fontStyle,
                                   ),
-                                  color: Colors.white,
+                                  color: FlutterFlowTheme.of(context).alternate,
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,

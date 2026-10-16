@@ -11,7 +11,21 @@ public struct ScanHost: Sendable {
     public var close: @Sendable () -> Void = {}
     /// Called once when the result shows: save the check-in (Lucille v1 /v1/mood/checkins).
     public var saveCheckIn: @Sendable (_ reading: MoodReading, _ words: String) -> Void = { _, _ in }
+    /// Saves the check-in and reports what happened (coins awarded, or consent needed).
+    /// When set, the flow uses this instead of `saveCheckIn` so the coin badge shows real coins.
+    public var submitCheckIn: (@Sendable (_ reading: MoodReading, _ words: String) async -> ScanSaveResult)? = nil
+    /// The person agreed to store mood check-ins (GDPR consent `wellbeing_data`). Returns true on success.
+    public var grantMoodConsent: (@Sendable () async -> Bool)? = nil
+    /// The person's real coin balance (lifetime coins drive Energy Scan levels). nil = unknown.
+    public var loadCoins: (@Sendable () async -> Int?)? = nil
     public init() {}
+}
+
+/// Outcome of saving a scan as a mood check-in.
+public enum ScanSaveResult: Sendable, Equatable {
+    case saved(coins: Int)
+    case needsConsent
+    case failed
 }
 
 /// The whole Mood + Energy Scan flow in one view, so the Mood Orb is a single element that
@@ -39,6 +53,14 @@ public struct ScanFlowView: View {
     @State private var words = ""
     @State private var elapsed = 0.0
     @State private var showWalkthrough = false
+    /// Real fingertip pulse read (back camera + flash). Nothing is recorded or uploaded.
+    @State private var pulse = CameraPulseReader()
+    /// Coins the server awarded for this check-in (nil until it answers).
+    @State private var coinsAwarded: Int?
+    /// The server needs the person's OK to store mood check-ins before it can save this one.
+    @State private var needsConsent = false
+    /// Seconds into the current pulse read, including time without a finger (for the fallback).
+    @State private var pulseWait = 0.0
 
     /// First-run tour shows once per install. Pass `showWalkthroughAlways` to replay it (e.g. a
     /// "Show tour" button, or UI tests).
@@ -48,7 +70,7 @@ public struct ScanFlowView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     private let tick = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
-    public init(startAt phase: Phase = .start, coins: Int = 975,
+    public init(startAt phase: Phase = .start, coins: Int = 0,
                 moodBg: URL, moodBgNight: URL? = nil, energyBg: URL, energyBgNight: URL? = nil,
                 isNight: Bool = false, host: ScanHost = ScanHost()) {
         _phase = State(initialValue: phase); _coins = State(initialValue: coins)
@@ -82,6 +104,7 @@ public struct ScanFlowView: View {
                 let f = orbFrame(W: W, H: H)
                 MoodOrbView(reading: reading, beatStrength: beatStrength)
                     .frame(width: f.size, height: f.size)
+                    .scaleEffect(breathScale)
                     .opacity(f.opacity)
                     .blur(radius: f.blur)
                     .position(x: W / 2 + f.dx, y: f.cy)
@@ -102,33 +125,83 @@ public struct ScanFlowView: View {
         .environment(\.colorScheme, .dark)
         .onReceive(tick) { _ in advance() }
         .onAppear { if showWalkthroughAlways || !seenWalkthrough { showWalkthrough = true } }
+        .onDisappear { pulse.stop() }
+        .task {
+            if let load = host.loadCoins, let c = await load() { coins = c }
+        }
     }
 
     // MARK: Timing
 
     private func advance() {
-        guard !reduceMotion else { return }
+        // Runs with Reduce Motion too: the timers and pulse read must still progress; only the
+        // orb's drift and breathing are switched off (see orbFrame / breathScale).
         elapsed += 0.1
         switch phase {
         case .pulse:
-            progress += 0.1 / 12                                  // 12 s pulse read
-            reading.bpm = max(66, min(92, reading.bpm + Int.random(in: -1...1)))
-            if progress >= 1 { go(.feel) }
+            pulseWait += 0.1
+            // Count down only while a fingertip is on the lens; ~15 s of clean signal.
+            if pulse.status == .reading { progress = min(1, progress + 0.1 / 15) }
+            if let bpm = pulse.bpm {
+                // The orb now beats with the measured heart, and its energy starts from it.
+                if !reading.pulseMeasured { reading.energy = MoodReading.energy(fromPulse: bpm) }
+                reading.bpm = bpm
+                reading.pulseMeasured = true
+            }
+            if progress >= 1 && reading.pulseMeasured { go(.feel) }
+            // No usable signal after 45 s: move on without a pulse rather than guess one.
+            if pulseWait > 45 { go(.feel) }
         case .eScan:
             progress += 0.1 / 20                                   // 20 s body scan
             if progress >= 1.05 { go(.eResult) }
-        case .result:
-            if coins < 1000 && elapsed > 1.2 { coins = min(1000, coins + 5) }
         default: break
         }
     }
 
     private func go(_ p: Phase) {
         host.haptic(true)
+        if p == .pulse {
+            reading.pulseMeasured = false
+            pulseWait = 0
+            Task { await pulse.start() }
+        } else {
+            pulse.stop()
+        }
         withAnimation(.spring(response: 0.9, dampingFraction: 0.82)) { phase = p }
         progress = 0; elapsed = 0
-        if p == .start { coins = 975 }
-        if p == .result { host.saveCheckIn(reading, words) }
+        if p == .result {
+            coinsAwarded = nil; needsConsent = false
+            if host.submitCheckIn != nil { submitResult() } else { host.saveCheckIn(reading, words) }
+        }
+    }
+
+    private func submitResult() {
+        guard let submit = host.submitCheckIn else { return }
+        let r = reading, w = words
+        Task {
+            switch await submit(r, w) {
+            case .saved(let got): coinsAwarded = got; coins += got; needsConsent = false
+            case .needsConsent: needsConsent = true
+            case .failed: break
+            }
+        }
+    }
+
+    /// "Allow & save" on the result: record consent, then save the same scan again.
+    private func allowAndSave() {
+        guard let grant = host.grantMoodConsent else { return }
+        Task { if await grant() { submitResult() } }
+    }
+
+    /// Guided breathing on the orb during the pulse read: ~5.5 breaths a minute (4.5 s in,
+    /// 6.5 s out), the slow pace linked to a calmer heart rhythm. Matches "In as it grows".
+    private var breathScale: CGFloat {
+        guard phase == .pulse, !reduceMotion else { return 1 }
+        let cycle = 11.0, inhale = 4.5
+        let t = elapsed.truncatingRemainder(dividingBy: cycle)
+        let x = t < inhale ? t / inhale : 1 - (t - inhale) / (cycle - inhale)
+        let eased = 0.5 - 0.5 * cos(x * .pi)
+        return 0.9 + 0.18 * CGFloat(eased)
     }
 
     private var beatStrength: Double {
@@ -140,7 +213,7 @@ public struct ScanFlowView: View {
     private struct OrbFrame { var size: CGFloat; var cy: CGFloat; var dx: CGFloat; var opacity: Double; var blur: CGFloat }
 
     private func orbFrame(W: CGFloat, H: CGFloat) -> OrbFrame {
-        let driftX = (phase == .pulse || phase == .feel || phase == .words)
+        let driftX = !reduceMotion && (phase == .pulse || phase == .feel || phase == .words)
             ? CGFloat(sin(elapsed) * 7 * (0.5 + reading.energy)) : 0
         switch phase {
         case .start:  return OrbFrame(size: 200, cy: H * 0.40, dx: 0, opacity: 1, blur: 0)
@@ -214,14 +287,16 @@ public struct ScanFlowView: View {
     @ViewBuilder private func chrome(W: CGFloat, H: CGFloat) -> some View {
         switch phase {
         case .start:   MoodStartChrome(coins: coins, start: { go(.pulse) }, skip: { go(.feel) }, close: host.close)
-        case .pulse:   MoodPulseChrome(bpm: reading.bpm, secondsLeft: Int(ceil(12 * (1 - progress))), back: { go(.start) }, skip: { go(.feel) })
+        case .pulse:   MoodPulseChrome(bpm: reading.pulseMeasured ? reading.bpm : nil, status: pulse.status, wave: pulse.wave,
+                                       secondsLeft: Int(ceil(15 * (1 - progress))), back: { go(.start) }, skip: { go(.feel) })
         case .feel:    MoodFeelChrome(reading: $reading, next: { go(.words) })
         case .words:   MoodWordsChrome(words: $words, next: { go(.result) })
-        case .result:  MoodResultChrome(reading: reading, coins: coins, level: level, words: words, saveHealth: $saveHealth, host: host,
+        case .result:  MoodResultChrome(reading: reading, coins: coins, coinsAwarded: coinsAwarded, needsConsent: needsConsent,
+                                        allowAndSave: { allowAndSave() }, level: level, words: words, saveHealth: $saveHealth, host: host,
                                         close: { host.close() }, unlock: { go(.eStart) })
         case .eStart:  EnergyStartChrome(level: level, back: { go(.result) }, begin: { go(.eScan) })
-        case .eScan:   EnergyScanChrome(bpm: reading.bpm, reveal: progress)
-        case .eResult: EnergyResultChrome(close: { go(.start) }, host: host)
+        case .eScan:   EnergyScanChrome(reading: reading, reveal: progress)
+        case .eResult: EnergyResultChrome(reading: reading, close: { go(.start) }, host: host)
         }
     }
 }

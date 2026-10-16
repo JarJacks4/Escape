@@ -13,6 +13,9 @@ import 'marketplace_model.dart';
 export 'marketplace_model.dart';
 
 /// New Component Gen
+/// Star ratings were a fixed "4.8" on every offer, not real reviews; hidden until real ratings exist.
+const bool _kShowRatings = false;
+
 class MarketplaceWidget extends StatefulWidget {
   const MarketplaceWidget({super.key});
 
@@ -1158,6 +1161,7 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget>
                                                                     .fontStyle,
                                                               ),
                                                     ),
+                                                    if (_kShowRatings)
                                                     Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1359,6 +1363,7 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget>
                                                                     .fontStyle,
                                                               ),
                                                     ),
+                                                    if (_kShowRatings)
                                                     Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1561,6 +1566,7 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget>
                                                                     .fontStyle,
                                                               ),
                                                     ),
+                                                    if (_kShowRatings)
                                                     Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1762,6 +1768,7 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget>
                                                                     .fontStyle,
                                                               ),
                                                     ),
+                                                    if (_kShowRatings)
                                                     Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1965,6 +1972,7 @@ Final Order */
                                                                     .fontStyle,
                                                               ),
                                                     ),
+                                                    if (_kShowRatings)
                                                     Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -2166,6 +2174,7 @@ Final Order */
                                                                     .fontStyle,
                                                               ),
                                                     ),
+                                                    if (_kShowRatings)
                                                     Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -2393,6 +2402,7 @@ Final Order */
                                                                       .fontStyle,
                                                                 ),
                                                           ),
+                                                          if (_kShowRatings)
                                                           Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -2601,6 +2611,7 @@ Final Order */
                                                                       .fontStyle,
                                                                 ),
                                                           ),
+                                                          if (_kShowRatings)
                                                           Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -2811,6 +2822,7 @@ Final Order */
                                                                       .fontStyle,
                                                                 ),
                                                           ),
+                                                          if (_kShowRatings)
                                                           Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -3019,6 +3031,7 @@ Final Order */
                                                                       .fontStyle,
                                                                 ),
                                                           ),
+                                                          if (_kShowRatings)
                                                           Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -3227,6 +3240,7 @@ Final Order */
                                                                       .fontStyle,
                                                                 ),
                                                           ),
+                                                          if (_kShowRatings)
                                                           Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -3435,6 +3449,7 @@ Final Order */
                                                                       .fontStyle,
                                                                 ),
                                                           ),
+                                                          if (_kShowRatings)
                                                           Row(
                                                             mainAxisSize:
                                                                 MainAxisSize

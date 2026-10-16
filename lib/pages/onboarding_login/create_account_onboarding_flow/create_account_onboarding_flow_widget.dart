@@ -624,12 +624,7 @@ class _CreateAccountOnboardingFlowWidgetState
                                                     .dropDownValueController ??=
                                                 FormListFieldController<String>(
                                                     _model.dropDownValue ??=
-                                                        List<String>.from(
-                                              Pronouns.values
-                                                      .map((e) => e.name)
-                                                      .toList() ??
-                                                  [],
-                                            )),
+                                                        <String>[]),
                                             options: [
                                               FFLocalizations.of(context)
                                                   .getText('xqzop1ek'),

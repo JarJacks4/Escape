@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '/components/movement_stat_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -7,6 +8,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_palette/material_palette.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'movement_preview_modal2_new_model.dart';
 export 'movement_preview_modal2_new_model.dart';
 
@@ -37,6 +39,12 @@ class _MovementPreviewModal2NewWidgetState
   late MovementPreviewModal2NewModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  /// The tapped move from today's list (by name), for its real duration, reps and type.
+  MoveStructStruct? get _move => FFAppState()
+      .todaysMoves
+      .where((m) => m.name == widget.moveName)
+      .firstOrNull;
 
   @override
   void initState() {
@@ -176,19 +184,7 @@ class _MovementPreviewModal2NewWidgetState
                                     lineHeight: 1.3,
                                   ),
                             ),
-                            FlutterFlowIconButton(
-                              borderRadius: 9999.0,
-                              buttonSize: 40.0,
-                              fillColor: Color(0x66FFFFFF),
-                              icon: Icon(
-                                Icons.share_rounded,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
-                              ),
-                              onPressed: () {
-                                print('IconButton pressed ...');
-                              },
-                            ),
+                            // Share removed: it did nothing (no share integration yet).
                           ],
                         ),
                       ),
@@ -223,59 +219,11 @@ class _MovementPreviewModal2NewWidgetState
                                             BorderRadius.circular(32.0),
                                         shape: BoxShape.rectangle,
                                       ),
-                                      child: Stack(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, -1.0),
-                                        children: [
-                                          CachedNetworkImage(
-                                            fadeInDuration:
-                                                Duration(milliseconds: 0),
-                                            fadeOutDuration:
-                                                Duration(milliseconds: 0),
-                                            imageUrl:
-                                                'https://dimg.dreamflow.cloud/v1/image/Cinematic%20slow%20motion%20video%20of%20a%20person%20performing%20a%20gentle%20yoga%20plank',
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                          ClipRRect(
-                                            borderRadius: BorderRadius.only(),
-                                            child: BackdropFilter(
-                                              filter: ImageFilter.blur(
-                                                sigmaX: 4.0,
-                                                sigmaY: 4.0,
-                                              ),
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                  color: Color(0x33F8F9FE),
-                                                  shape: BoxShape.rectangle,
-                                                ),
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Container(
-                                                  width: 80.0,
-                                                  height: 80.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xE6FFFFFF),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            9999.0),
-                                                    shape: BoxShape.rectangle,
-                                                  ),
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Icon(
-                                                    Icons.play_arrow_rounded,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    size: 48.0,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
+                                      // The move's own 3D model (same viewer as the session screens), not a stock plank photo.
+                                      child: custom_widgets.VectaryModelViewer(
+                                        width: double.infinity,
+                                        height: double.infinity,
+                                        assetPath: widget.modelUrl,
                                       ),
                                     ),
                                   ),
@@ -286,9 +234,7 @@ class _MovementPreviewModal2NewWidgetState
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        FFLocalizations.of(context).getText(
-                                          'n834shy2' /* Plank Hold */,
-                                        ),
+                                        widget.moveName ?? _move?.name ?? 'Movement',
                                         style: FlutterFlowTheme.of(context)
                                             .headlineMedium
                                             .override(
@@ -375,9 +321,7 @@ class _MovementPreviewModal2NewWidgetState
                                             ),
                                           ),
                                           Text(
-                                            FFLocalizations.of(context).getText(
-                                              'wyjbh7gd' /* Intermediate */,
-                                            ),
+                                            (_move?.moveType ?? '').isNotEmpty ? _move!.moveType : 'Guided move',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
                                                 .override(
@@ -442,7 +386,7 @@ class _MovementPreviewModal2NewWidgetState
                                                   safeSetState(() {}),
                                               child: MovementStatWidget(
                                                 label: 'DURATION',
-                                                value: '45s',
+                                                value: _move != null ? '${_move!.durationSeconds}s' : '--',
                                               ),
                                             ),
                                             Container(
@@ -459,8 +403,8 @@ class _MovementPreviewModal2NewWidgetState
                                               updateCallback: () =>
                                                   safeSetState(() {}),
                                               child: MovementStatWidget(
-                                                label: 'INTENSITY',
-                                                value: 'Medium',
+                                                label: 'REPS',
+                                                value: _move != null && _move!.repCount > 0 ? '${_move!.repCount} reps' : '--',
                                               ),
                                             ),
                                             Container(
@@ -477,8 +421,8 @@ class _MovementPreviewModal2NewWidgetState
                                               updateCallback: () =>
                                                   safeSetState(() {}),
                                               child: MovementStatWidget(
-                                                label: 'TARGET',
-                                                value: 'Core',
+                                                label: 'TYPE',
+                                                value: (_move?.moveType ?? '').isNotEmpty ? _move!.moveType : '--',
                                               ),
                                             ),
                                           ],
@@ -525,9 +469,7 @@ class _MovementPreviewModal2NewWidgetState
                                             ),
                                       ),
                                       Text(
-                                        FFLocalizations.of(context).getText(
-                                          'r6qk4h8w' /* The plank is a foundational mo... */,
-                                        ),
+                                        (widget.cueText ?? _move?.cueText ?? '').isNotEmpty ? (widget.cueText ?? _move!.cueText) : 'Move slowly and with control. Stop if anything hurts.',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(

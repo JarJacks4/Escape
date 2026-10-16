@@ -159,10 +159,9 @@ class _OnboardingPageViewWidgetState extends State<OnboardingPageViewWidget> {
                                         children: [
                                           AuthUserStreamWidget(
                                             builder: (context) => Text(
-                                              valueOrDefault<String>(
-                                                'Welcome, ${currentUserDisplayName}',
-                                                'Welcome, Jane Doe!',
-                                              ),
+                                              currentUserDisplayName.isNotEmpty
+                                                  ? 'Welcome, $currentUserDisplayName!'
+                                                  : 'Welcome!',
                                               textAlign: TextAlign.center,
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -1387,7 +1386,7 @@ class _OnboardingPageViewWidgetState extends State<OnboardingPageViewWidget> {
                                                                           'Button_navigate_to');
 
                                                                       context
-                                                                          .pushNamed(
+                                                                          .goNamed(
                                                                         YoureAllSetPageVersion5Widget
                                                                             .routeName,
                                                                         extra: <String,

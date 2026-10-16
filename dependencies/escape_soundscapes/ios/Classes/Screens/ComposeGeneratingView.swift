@@ -92,7 +92,7 @@ struct ComposeGeneratingView: View {
                 .textCase(.uppercase)
                 .foregroundStyle(Esc.lilac)
                 .padding(.bottom, 4)
-            Text(store.generating?.title ?? "Cabin Rain, 11 PM")
+            Text(store.generating?.title ?? "Your soundscape")
                 .font(EscFont.display(28))
                 .foregroundStyle(Esc.mist)
                 .accessibilityAddTraits(.isHeader)

@@ -134,6 +134,20 @@ public struct V1Safety: Codable, Hashable, Sendable {
 }
 
 @available(iOS 17.0, *)
+public struct V1DailyDrop: Codable, Sendable {
+    public var title: String
+    public var trackId: String
+    public var track: V1Track
+}
+
+@available(iOS 17.0, *)
+public struct V1Progress: Codable, Sendable {
+    public var coins: Int
+    public var lifetimeCoins: Int
+    public var streakDays: Int?
+}
+
+@available(iOS 17.0, *)
 public struct V1CheckinResult: Codable, Sendable {
     public struct Lucille: Codable, Sendable { public var word: String; public var line: String }
     public var checkin: V1Checkin
@@ -186,9 +200,12 @@ public struct V1SessionDone: Codable, Sendable {
 @available(iOS 17.0, *)
 public struct V1Inner: Codable, Sendable {
     public struct Weather: Codable, Sendable { public var available: Bool; public var tempC: Double?; public var bucket: String? }
+    public struct LastMood: Codable, Sendable { public var word: String? }
     public var phase: String
     public var night: Bool
     public var weather: Weather?
+    /// The person's last saved mood check-in (nil before the first one).
+    public var mood: LastMood?
 }
 
 @available(iOS 17.0, *)
@@ -323,6 +340,12 @@ public final class LucilleV1Client: @unchecked Sendable {
         if let bpm { body["pulse"] = ["bpm": bpm] }
         return try await call("POST", "v1/mood/checkins", body: body)
     }
+
+    /// Lucille's Daily Drop for the person's cohort: GET /v1/soundscapes/daily-drop.
+    public func dailyDrop() async throws -> V1DailyDrop { try await call("GET", "v1/soundscapes/daily-drop") }
+
+    /// Coins, lifetime coins (Energy Scan levels) and streak: GET /v1/me/progress.
+    public func progress() async throws -> V1Progress { try await call("GET", "v1/me/progress") }
 
     public func moodSummary(period: String = "week") async throws -> V1MoodSummary {
         try await call("GET", "v1/mood/summary", query: [.init(name: "period", value: period)])

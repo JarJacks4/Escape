@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -55,6 +56,10 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
   void initState() {
     super.initState();
     _model = createModel(context, () => MoodScanVersion5Model());
+    // First-visit walkthrough for this page (shows once per user).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) actions.showPageWalkthrough(context, 'mood_scan');
+    });
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'MoodScanVersion5'});
@@ -578,6 +583,9 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                           'Button_update_page_state');
                                                       _model.isScanLoading =
                                                           true;
+                                                      // Start fresh so a cancelled pick never re-uses the last photo.
+                                                      _model.uploadedFileUrl_mdPhoto =
+                                                          '';
                                                       safeSetState(() {});
                                                       logFirebaseEvent(
                                                           'Button_upload_media_to_firebase');
@@ -723,7 +731,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                   ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primary,
+                                                                      .alternate,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight: FlutterFlowTheme.of(
@@ -746,16 +754,11 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                         ),
                                                       );
                                                       logFirebaseEvent(
-                                                          'Button_hide_snack_bar');
-                                                      ScaffoldMessenger.of(
-                                                              context)
-                                                          .hideCurrentSnackBar();
-                                                      logFirebaseEvent(
                                                           'Button_backend_call');
                                                       debugPrint(
                                                           'uploadedFileUrl_mdPhoto: \${_model.uploadedFileUrl_mdPhoto}');
                                                       String moodResultText =
-                                                          'Neutral';
+                                                          '';
                                                       double stressLevelValue =
                                                           0.5;
                                                       String energyLevelText =
@@ -844,6 +847,37 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                       } catch (e) {
                                                         debugPrint(
                                                             'facial-emotion detect error: $e');
+                                                      }
+
+                                                      // Don't report a made-up mood when the scan fails.
+                                                      if (moodResultText.isEmpty) {
+                                                        _model.isScanLoading =
+                                                            false;
+                                                        safeSetState(() {});
+                                                        if (context.mounted) {
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(
+                                                            SnackBar(
+                                                              content: Text(
+                                                                'Lucille couldn\'t read your mood from that photo. Try again in good light, facing the camera.',
+                                                                style: TextStyle(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .info,
+                                                                ),
+                                                              ),
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      5000),
+                                                              backgroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .alternate,
+                                                            ),
+                                                          );
+                                                        }
+                                                        return;
                                                       }
 
                                                       logFirebaseEvent(
@@ -997,7 +1031,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                 ),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primary,
+                                                                    .alternate,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight: FlutterFlowTheme.of(

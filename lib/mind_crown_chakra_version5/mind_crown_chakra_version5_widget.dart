@@ -1037,18 +1037,11 @@ class _MindCrownChakraVersion5WidgetState
                                           audio: Audio.network(
                                             FFAppState()
                                                 .SoundscapesNatureTab
-                                                .firstOrNull!
-                                                .songUrl,
+                                                .elementAtOrNull(6)
+                                                ?.songUrl ??
+                                                '',
                                             metas: Metas(
-                                              title: valueOrDefault<String>(
-                                                FFAppState()
-                                                    .SoundscapesNatureTab
-                                                    .contains(FFAppState()
-                                                        .SoundscapesNatureTab
-                                                        .firstOrNull)
-                                                    .toString(),
-                                                'Title',
-                                              ),
+                                              title: 'Crown Soundscape',
                                             ),
                                           ),
                                           titleTextStyle: FlutterFlowTheme.of(

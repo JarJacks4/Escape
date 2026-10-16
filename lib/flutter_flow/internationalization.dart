@@ -47,8 +47,12 @@ class FFLocalizations {
       ? languages().indexOf(languageCode)
       : 0;
 
-  String getText(String key) =>
-      (kTranslationsMap[key] ?? {})[locale.toString()] ?? '';
+  String getText(String key) {
+    final m = kTranslationsMap[key] ?? {};
+    final v = m[locale.toString()];
+    // Fall back to English when a translation is missing or empty.
+    return (v == null || v.isEmpty) ? (m['en'] ?? '') : v;
+  }
 
   String getVariableText({
     String? enText = '',
@@ -63,22 +67,24 @@ class FFLocalizations {
     String? arText = '',
     String? ukText = '',
     String? koText = '',
-  }) =>
-      [
-        enText,
-        zh_HansText,
-        zh_HantText,
-        esText,
-        itText,
-        frText,
-        deText,
-        ruText,
-        jaText,
-        arText,
-        ukText,
-        koText
-      ][languageIndex] ??
-      '';
+  }) {
+    final v = [
+      enText,
+      zh_HansText,
+      zh_HantText,
+      esText,
+      itText,
+      frText,
+      deText,
+      ruText,
+      jaText,
+      arText,
+      ukText,
+      koText
+    ][languageIndex];
+    // Fall back to English when a translation is missing or empty.
+    return (v == null || v.isEmpty) ? (enText ?? '') : v;
+  }
 
   static const Set<String> _languagesWithShortCode = {
     'ar',
@@ -684,7 +690,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'b22gbggi': {
       'en':
-          'Inhale very slowly for 3 seconds when you see the orange circle, and Exhale very slowly for 7 seconds when you see it go back down.\n\nFind a great place to sit, and try yourself!',
+          'Inhale very slowly for 3 seconds when you see the orange circle, and Exhale very slowly for 7 seconds when you see it go back down.\n\nFind a great place to sit, and try it yourself!',
       'ar':
           'استنشق ببطء شديد لمدة ٣ ثوانٍ عندما ترى الدائرة البرتقالية، ثم ازفر ببطء شديد لمدة ٧ ثوانٍ عندما ترى الدائرة تعود للأسفل.\n\nابحث عن مكان رائع للجلوس، وجرّب بنفسك!',
       'de':
@@ -753,7 +759,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '1j4vx87w': {
       'en':
-          'Inhale very slowly for 7 seconds when you see the orange circle, and Exhale very slowly for 7 seconds when you see it go back down.\n\nFind a great place to sit, and try yourself!',
+          'Inhale very slowly for 7 seconds when you see the orange circle, and Exhale very slowly for 7 seconds when you see it go back down.\n\nFind a great place to sit, and try it yourself!',
       'ar':
           'استنشق ببطء شديد لمدة ٧ ثوانٍ عندما ترى الدائرة البرتقالية، ثم ازفر ببطء شديد لمدة ٧ ثوانٍ عندما ترى الدائرة تعود للأسفل.\n\nابحث عن مكان مناسب للجلوس، وجرّب بنفسك!',
       'de':
@@ -822,7 +828,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '9ie6qtz8': {
       'en':
-          'Inhale very slowly for 3 seconds when you see the orange circle, and Exhale very slowly for 7 seconds when you see it go back down. Make sure to since in silence for 5 minutes and then tap to finish!',
+          'Inhale very slowly for 3 seconds when you see the orange circle, and Exhale very slowly for 7 seconds when you see it go back down. Make sure to sit in silence for 5 minutes and then tap to finish!',
       'ar':
           'استنشق ببطء شديد لمدة ٣ ثوانٍ عندما ترى الدائرة البرتقالية، ثم ازفر ببطء شديد لمدة ٧ ثوانٍ عندما ترى الدائرة تعود للأسفل. احرص على الصمت لمدة ٥ دقائق، ثم انقر للإنهاء!',
       'de':
@@ -1153,7 +1159,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'bits9a86': {
       'en':
-          'Take a listen to the thuderstorms to feel the energy of transformation and change!\n\nUtilize the Escape Basic Breathing Method to focus in on mindful breathing, or use the sound to take a quick breather. \n\nTap Finish when done!',
+          'Take a listen to the thunderstorms to feel the energy of transformation and change!\n\nUtilize the Escape Basic Breathing Method to focus in on mindful breathing, or use the sound to take a quick breather. \n\nTap Finish when done!',
       'ar':
           'استمع إلى صوت العواصف الرعدية لتشعر بطاقة التحول والتغيير!\n\nاستخدم طريقة التنفس الأساسية \"الهروب\" للتركيز على التنفس الواعي، أو استخدم الصوت لأخذ قسط من الراحة.\n\nانقر على \"إنهاء\" عند الانتهاء!',
       'de':
@@ -1500,7 +1506,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'wpumrqbk': {
       'en':
-          'Listen to our sample song get a small power nap in to charge up your day.\n\nUse headphones to increase the experience or a speaker as well',
+          'Listen to this soundscape to take a short power nap and recharge your day.\n\nUse headphones for the best experience, or a speaker.\n\nTap Finish when done!',
       'ar':
           'استمع إلى أغنيتنا النموذجية، واحصل على قيلولة قصيرة لتجديد نشاطك.\n\nاستخدم سماعات الرأس أو مكبر الصوت لتحسين تجربتك.',
       'de':
@@ -1568,7 +1574,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'rh7xaj23': {
       'en':
-          'Binaural Beats are brainwave sounds used to help occasions like overthinking and loss off groundedness.\n\nTap Finish when done!',
+          'Binaural beats are brainwave sounds that can help with moments of overthinking and a loss of groundedness.\n\nTap Finish when done!',
       'ar':
           'النبضات الثنائية هي أصوات موجات دماغية تُستخدم للمساعدة في حالات مثل الإفراط في التفكير وفقدان التوازن.\n\nانقر على \"إنهاء\" عند الانتهاء!',
       'de':
@@ -1636,7 +1642,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'is36u8bb': {
       'en':
-          'Binaural Beats are brainwave sounds used to help occasions like overthinking and loss off groundedness.\n\nTap Finish when done!',
+          'Binaural beats are layered tones that can help your body slow down and ease feelings of stress and anxiety.\n\nTap Finish when done!',
       'ar':
           'النبضات الثنائية هي أصوات موجات دماغية تُستخدم للمساعدة في حالات مثل الإفراط في التفكير وفقدان التوازن.\n\nانقر على \"إنهاء\" عند الانتهاء!',
       'de':
@@ -1704,7 +1710,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'tuy2its7': {
       'en':
-          'Binaural Beats are brainwave sounds used to help occasions like overthinking and loss off groundedness.\n\nTap Finish when done!',
+          'Binaural beats are layered tones that can help you settle into a calm, focused state.\n\nTap Finish when done!',
       'ar':
           'النبضات الثنائية هي أصوات موجات دماغية تُستخدم للمساعدة في حالات مثل الإفراط في التفكير وفقدان التوازن.\n\nانقر على \"إنهاء\" عند الانتهاء!',
       'de':
@@ -2188,7 +2194,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'zlag303h': {
       'en':
-          'Choose what notifcations you want to recieve below and we will update the settings.',
+          'Choose what notifcations you want to receive below and we will update the settings.',
       'ar': '',
       'de': '',
       'es': '',
@@ -2519,7 +2525,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '66vn2xlq': {
-      'en': 'Enter Your Cosmic Identity',
+      'en': 'Enter your email',
       'ar': '',
       'de': '',
       'es': '',
@@ -3906,7 +3912,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'ehlqwtzh': {
-      'en': 'Mood Scan Needed For \nFurther Analysis',
+      'en': 'Scan your mood to get \npersonalized suggestions',
       'ar': '',
       'de': '',
       'es': '',
@@ -6229,7 +6235,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '19ztokje': {
-      'en': '\"\"I Am Grounded in this Moment\"',
+      'en': '\"I Am Grounded in This Moment\"',
       'ar': '',
       'de': '',
       'es': '',
@@ -6741,7 +6747,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '84plj0ot': {
-      'en': 'Step into your Inner Strength',
+      'en': 'Step into your inner strength',
       'ar': '',
       'de': '',
       'es': '',
@@ -6783,7 +6789,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'xop1rc58': {
-      'en': 'Embrace Your courage',
+      'en': 'Embrace your courage',
       'ar': '',
       'de': '',
       'es': '',
@@ -6825,7 +6831,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'qrmty00o': {
-      'en': 'Sharpen Your Determination',
+      'en': 'Sharpen your determination',
       'ar': '',
       'de': '',
       'es': '',
@@ -7663,7 +7669,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '4mrdsj6f': {
-      'en': 'Roots Deep in Earth',
+      'en': 'Inner Sight',
       'ar': '',
       'de': '',
       'es': '',
@@ -7677,7 +7683,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '094jdz2v': {
-      'en': 'Ground yourself in the present moment',
+      'en': 'Quiet the mind and see clearly',
       'ar': '',
       'de': '',
       'es': '',
@@ -7705,7 +7711,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '58u44c62': {
-      'en': 'Foundation Building',
+      'en': 'Trusting Your Intuition',
       'ar': '',
       'de': '',
       'es': '',
@@ -7719,7 +7725,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'ggazl5tm': {
-      'en': 'Strengthen your sense of safety',
+      'en': 'Listen to your inner knowing',
       'ar': '',
       'de': '',
       'es': '',
@@ -7747,7 +7753,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'ocrxu6vl': {
-      'en': 'Mountain Meditation',
+      'en': 'Candle Gaze Meditation',
       'ar': '',
       'de': '',
       'es': '',
@@ -7761,7 +7767,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '7dfltvka': {
-      'en': 'Feel solid and unwavering',
+      'en': 'Focus your awareness and attention',
       'ar': '',
       'de': '',
       'es': '',
@@ -7789,7 +7795,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'hvq0mjob': {
-      'en': 'Body Awareness',
+      'en': 'Dream Reflection',
       'ar': '',
       'de': '',
       'es': '',
@@ -7803,7 +7809,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'vdr482y4': {
-      'en': 'Connect with your physical form',
+      'en': 'Explore insight from within',
       'ar': '',
       'de': '',
       'es': '',
@@ -7845,7 +7851,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'efpalmud': {
-      'en': '\"I Am Safe and Secure\"',
+      'en': '\"I Trust My Intuition\"',
       'ar': '',
       'de': '',
       'es': '',
@@ -7859,7 +7865,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '95ksj0a2': {
-      'en': '\"\"I Am Grounded in this Moment\"',
+      'en': '\"I See Clearly and Wisely\"',
       'ar': '',
       'de': '',
       'es': '',
@@ -7873,7 +7879,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'jfgqm1u5': {
-      'en': '\"I Know Why I Love My Reality\"',
+      'en': '\"I Am Open to Inner Guidance\"',
       'ar': '',
       'de': '',
       'es': '',
@@ -7904,7 +7910,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // MindCrownChakraVersion5
   {
     'ec1tmetx': {
-      'en': 'Flow and Create',
+      'en': 'Transcend and Connect',
       'ar': '',
       'de': '',
       'es': '',
@@ -9164,7 +9170,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '3yt0fr83': {
-      'en': 'Music Mediations',
+      'en': 'Music Meditations',
       'ar': '',
       'de': '',
       'es': '',
@@ -9786,7 +9792,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'hwiia2pi': {
-      'en': 'Input Display Name Here',
+      'en': 'Enter your display name',
       'ar': '',
       'de': '',
       'es': '',
@@ -10139,7 +10145,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'p6vznrhu': {
       'en':
-          'Notifications are highly advised when using our product to create a more immersive experience,',
+          'Notifications are highly advised when using our product to create a more immersive experience.',
       'ar': '',
       'de': '',
       'es': '',
@@ -10313,7 +10319,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5olefya1': {
       'en':
-          'Lucille poowers your self-care journey and even can create Soundscapes for you to use in your self-care journey.',
+          'Lucille powers your self-care journey and can even create Soundscapes for you to use in your self-care journey.',
       'ar': '',
       'de': '',
       'es': '',
@@ -10458,7 +10464,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'acm41l4y': {
       'en':
-          'Everyday that we experience Escape, we need your mood for the day in order to adequately help you with self-care',
+          'Every day you use Escape, we\'ll check in on your mood so we can better support your self-care.',
       'ar': '',
       'de': '',
       'es': '',
@@ -10703,7 +10709,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'irdi38qx': {
-      'en': 'See All energy Centers',
+      'en': 'See All Energy Centers',
       'ar': '',
       'de': '',
       'es': '',
@@ -12148,7 +12154,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'yq8gg4zt': {
-      'en': '\"I give and recieve unconditional love freely.\"',
+      'en': '\"I give and receive unconditional love freely.\"',
       'ar': '',
       'de': '',
       'es': '',
@@ -14706,7 +14712,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'jvuf8o25': {
-      'en': 'EFFECTS',
+      'en': 'ESCAPE',
       'ar': '',
       'de': '',
       'es': '',
@@ -14734,7 +14740,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '6zd372k8': {
-      'en': 'Create interactive components in Flutterflow ith hover',
+      'en': 'Create interactive components in Flutterflow with hover',
       'ar': '',
       'de': '',
       'es': '',
@@ -14748,7 +14754,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'dwysu6qi': {
-      'en': 'EFFECTS',
+      'en': 'ESCAPE',
       'ar': '',
       'de': '',
       'es': '',
@@ -14776,7 +14782,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'hmyq8m78': {
-      'en': 'Create interactive components in Flutterflow ith hover',
+      'en': 'Create interactive components in Flutterflow with hover',
       'ar': '',
       'de': '',
       'es': '',
@@ -14923,7 +14929,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'd0sffowi': {
-      'en': 'Mood Is Scanning...',
+      'en': 'Scanning your mood…',
       'ar': '',
       'de': '',
       'es': '',
@@ -14937,7 +14943,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '871l821p': {
-      'en': 'Scanning Your Mood For the Day',
+      'en': 'Scanning your mood for today',
       'ar': '',
       'de': '',
       'es': '',
@@ -15320,7 +15326,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'x6wy3cve': {
       'en':
-          'Below, I Have Brought Together The Exercises That We Have On Our Platform.\n\nPlease Select An Exercise To Gain Escape Coins!',
+          'Below, I\'ve brought together the exercises on our platform.\n\nSelect one to earn Escape Coins!',
       'ar': '',
       'de': '',
       'es': '',
@@ -15362,7 +15368,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'di2s4v86': {
-      'en': 'Expanding the mental &\n giving the user mental relief',
+      'en': 'Calm your mind and find mental relief',
       'ar': '',
       'de': '',
       'es': '',
@@ -15419,7 +15425,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '61rhroz2': {
-      'en': 'EFFECTS',
+      'en': 'ESCAPE',
       'ar': '',
       'de': '',
       'es': '',
@@ -15447,7 +15453,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'wnpzns9j': {
-      'en': 'Create interactive components in Flutterflow ith hover',
+      'en': 'Quick resets to shift your mood in minutes',
       'ar': '',
       'de': '',
       'es': '',
@@ -15489,7 +15495,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'lbw49iu3': {
-      'en': 'Create interactive components in Flutterflow ith hover',
+      'en': 'Write, reflect and track your thoughts',
       'ar': '',
       'de': '',
       'es': '',
@@ -15574,7 +15580,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '5a1himqb': {
-      'en': 'Create interactive components in Flutterflow ith hover',
+      'en': 'Check in with your mood and energy levels',
       'ar': '',
       'de': '',
       'es': '',
@@ -18465,7 +18471,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '3v833a6z': {
-      'en': 'Sprout\'s',
+      'en': 'Sprouts',
       'ar': '',
       'de': '',
       'es': '',
@@ -18479,7 +18485,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '5u46sg9q': {
-      'en': 'Ulta beauty',
+      'en': 'Ulta Beauty',
       'ar': '',
       'de': '',
       'es': '',
@@ -18731,7 +18737,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'dvg78jom': {
-      'en': 'Netrogena',
+      'en': 'Neutrogena',
       'ar': '',
       'de': '',
       'es': '',
@@ -19039,7 +19045,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'rlvtmuge': {
-      'en': 'Netrogena',
+      'en': 'Neutrogena',
       'ar': '',
       'de': '',
       'es': '',
@@ -19207,7 +19213,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'wzu5rkzl': {
-      'en': 'Bath Body Works',
+      'en': 'Bath & Body Works',
       'ar': '',
       'de': '',
       'es': '',
@@ -19986,7 +19992,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'im56dkal': {
-      'en': '   Music Mediations   ',
+      'en': '   Music Meditations   ',
       'ar': '',
       'de': '',
       'es': '',
@@ -20605,7 +20611,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'z8yz1kno': {
-      'en': 'Top daily Motivation',
+      'en': 'Top Daily Motivation',
       'ar': '',
       'de': '',
       'es': '',
@@ -22738,7 +22744,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '請輸入真實姓名',
     },
     'b56zzncz': {
-      'en': 'Please choose an option from the dropdown',
+      'en': 'Please select at least one goal.',
       'ar': 'الرجاء اختيار خيار من القائمة المنسدلة',
       'de': 'Bitte wählen Sie eine Option aus der Dropdown-Liste',
       'es': 'Por favor, elija una opción del menú desplegable.',
@@ -24009,7 +24015,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5pflfk75': {
       'en':
-          'Follow the slow winds of breathe, as you let go of the loads from a long day. \n\nThis Deep Breathing Method will enhance the way that you let go of deep pain.',
+          'Follow the slow winds of breath, as you let go of the loads from a long day. \n\nThis Deep Breathing Method will enhance the way that you let go of deep pain.',
       'ar':
           'اتبع نَفَسَكَ البطيء، بينما تتخلص من أعباء يوم طويل.\n\nستُحسّن طريقة التنفس العميق هذه طريقة التخلص من الألم العميق.',
       'de':
@@ -25105,7 +25111,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'et091wmc': {
       'en':
-          'Use this brainwave meditation to calm your nervous system in flight or flight mode. \nYou may also use this for a quick nap or break from heavy work.',
+          'Use this brainwave meditation to calm your nervous system in fight-or-flight mode. \nYou may also use this for a quick nap or break from heavy work.',
       'ar':
           'استخدم هذا التأمل بالموجات الدماغية لتهدئة جهازك العصبي أثناء الطيران. يمكنك أيضًا استخدامه لقيلولة سريعة أو استراحة من العمل الشاق.',
       'de':
@@ -25508,7 +25514,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '6s27vl3s': {
       'en':
-          'Increase confidence and enthusiam of life with fire sounds set by a beautiful landscape!',
+          'Increase confidence and enthusiasm of life with fire sounds set by a beautiful landscape!',
       'ar':
           'قم بزيادة الثقة والحماس للحياة مع أصوات النار التي تضفيها المناظر الطبيعية الجميلة!',
       'de':
@@ -25673,7 +25679,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '26hcz9a8': {
       'en':
-          'Your are making excellent progress! Having consistency is not always doing something everyday, but at least once a day.',
+          'You are making excellent progress! Having consistency is not always doing something everyday, but at least once a day.',
       'ar': '',
       'de': '',
       'es': '',
@@ -35151,7 +35157,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '1e1djw4s': {
-      'en': 'Music Mediations',
+      'en': 'Music Meditations',
       'ar': '',
       'de': '',
       'es': '',
@@ -39675,7 +39681,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '2bjntmlc': {
-      'en': 'Water Meditatioin',
+      'en': 'Water Meditation',
       'ar': '',
       'de': '',
       'es': '',
@@ -40095,7 +40101,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'q2zxu114': {
-      'en': 'Get a great nights rest with \npeaceful music',
+      'en': 'Get a great night\'s rest with \npeaceful music',
       'ar': '',
       'de': '',
       'es': '',
@@ -40250,7 +40256,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'rvrejotp': {
-      'en': 'Have a peaceful day \nwith a wiritng goal',
+      'en': 'Have a peaceful day \nwith a writing goal',
       'ar': '',
       'de': '',
       'es': '',
@@ -40474,7 +40480,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'zm2g2p10': {
-      'en': 'Water Mediation',
+      'en': 'Water Meditation',
       'ar': '',
       'de': '',
       'es': '',
@@ -41981,7 +41987,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'm400h3lc': {
-      'en': 'Get a great nights rest with \npeaceful music',
+      'en': 'Get a great night\'s rest with \npeaceful music',
       'ar': '',
       'de': '',
       'es': '',
@@ -42136,7 +42142,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '4ape5vl3': {
-      'en': 'Have a peaceful day \nwith a wiritng goal',
+      'en': 'Have a peaceful day \nwith a writing goal',
       'ar': '',
       'de': '',
       'es': '',
@@ -43562,7 +43568,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'h6oh7p3l': {
-      'en': 'Music Mediations',
+      'en': 'Music Meditations',
       'ar': '',
       'de': '',
       'es': '',
@@ -50255,7 +50261,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'hhtmrvoe': {
-      'en': '\"I give and recieve unconditional love freely.\"',
+      'en': '\"I give and receive unconditional love freely.\"',
       'ar': '',
       'de': '',
       'es': '',
@@ -52347,7 +52353,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     't9f6h5dp': {
-      'en': '\"I give and recieve unconditional love freely.\"',
+      'en': '\"I give and receive unconditional love freely.\"',
       'ar': '',
       'de': '',
       'es': '',
@@ -54418,7 +54424,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '26bj64qv': {
       'en':
-          'Lucille poowers your self-care journey and even can create Soundscapes for you to use in your self-care journey.',
+          'Lucille powers your self-care journey and can even create Soundscapes for you to use in your self-care journey.',
       'ar': '',
       'de': '',
       'es': '',
@@ -56723,7 +56729,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '22opy4wi': {
       'en':
-          'The heart is the area that is most tender, and most vulnerable to most. Having a stallwart heart and unconditionally loving heart bridges all other energy centers together.\n\nHere we must remember to release all sadness and loss to progress.',
+          'The heart is the area that is most tender, and most vulnerable to most. Having a stalwart heart and unconditionally loving heart bridges all other energy centers together.\n\nHere we must remember to release all sadness and loss to progress.',
       'ar': '',
       'de': '',
       'es': '',
@@ -56938,7 +56944,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '64cwv847': {
-      'en': 'Input Display Name Here',
+      'en': 'Enter your display name',
       'ar': '',
       'de': '',
       'es': '',
@@ -56994,7 +57000,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'xqzop1ek': {
-      'en': 'He/Him/His',
+      'en': 'He/Him',
       'ar': '',
       'de': '',
       'es': '',
@@ -57022,20 +57028,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'scvzos7b': {
-      'en': 'Her/Hers',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'f73v9ogm': {
       'en': 'They/Them',
       'ar': '',
       'de': '',
@@ -57049,8 +57041,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
+    'f73v9ogm': {
+      'en': 'He/They',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
     '9m0nr2uh': {
-      'en': 'Their/Theirs',
+      'en': 'She/They',
       'ar': '',
       'de': '',
       'es': '',
@@ -57064,7 +57070,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'sdfysbnz': {
-      'en': 'Ve/Ver/Vis',
+      'en': 'Ve/Ver',
       'ar': '',
       'de': '',
       'es': '',
@@ -57106,7 +57112,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'narijuog': {
-      'en': 'Xyr/Xyrs',
+      'en': 'Ze/Zir',
       'ar': '',
       'de': '',
       'es': '',
@@ -57120,7 +57126,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'bk4jjjr5': {
-      'en': 'Ze/Zehir',
+      'en': 'Ze/Hir',
       'ar': '',
       'de': '',
       'es': '',
@@ -57134,7 +57140,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'kwrp182h': {
-      'en': 'Hir/Hirs',
+      'en': 'Prefer not to say',
       'ar': '',
       'de': '',
       'es': '',
@@ -57758,7 +57764,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'fpeb9glb': {
-      'en': 'Solo First',
+      'en': 'Maybe Later',
       'ar': '',
       'de': '',
       'es': '',
@@ -57929,7 +57935,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'lakfzlkm': {
-      'en': 'Bath Body Works',
+      'en': 'Bath & Body Works',
       'ar': '',
       'de': '',
       'es': '',
@@ -58013,7 +58019,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '9n0j2yw4': {
-      'en': 'Netrogena',
+      'en': 'Neutrogena',
       'ar': '',
       'de': '',
       'es': '',
@@ -58139,7 +58145,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'wkojcgim': {
-      'en': 'Sprout\'s',
+      'en': 'Sprouts',
       'ar': '',
       'de': '',
       'es': '',
@@ -58195,7 +58201,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'epej15iz': {
-      'en': 'Bath Body Works',
+      'en': 'Bath & Body Works',
       'ar': '',
       'de': '',
       'es': '',
@@ -58279,7 +58285,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'u1oz9kap': {
-      'en': 'Netrogena',
+      'en': 'Neutrogena',
       'ar': '',
       'de': '',
       'es': '',
@@ -58405,7 +58411,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'tbpvcynn': {
-      'en': 'Sprout\'s',
+      'en': 'Sprouts',
       'ar': '',
       'de': '',
       'es': '',
@@ -61101,7 +61107,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '5p7h5xgz': {
-      'en': 'Begin  Session',
+      'en': 'Begin Session',
       'ar': '',
       'de': '',
       'es': '',
@@ -66153,7 +66159,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'ykzwcm3u': {
-      'en': 'Let Us See How Your Exersise Went',
+      'en': 'Let Us See How Your Exercise Went',
       'ar': '',
       'de': '',
       'es': '',
@@ -66717,7 +66723,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'zj9e2wii': {
-      'en': 'Mood Is Scanning...',
+      'en': 'Scanning your mood…',
       'ar': '',
       'de': '',
       'es': '',
@@ -66731,7 +66737,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'olx6rab4': {
-      'en': 'Scanning Your Mood For the Day',
+      'en': 'Scanning your mood for today',
       'ar': '',
       'de': '',
       'es': '',
@@ -68252,7 +68258,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '7ismroge': {
-      'en': 'View Detals',
+      'en': 'View Details',
       'ar': '',
       'de': '',
       'es': '',
@@ -68868,7 +68874,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'l96h28ff': {
       'en':
-          'Escape has a energy center journey that every user will need in order to advance with more Escape Coins.\n\nUse Your Coins in our Escape shop so that you may buy some nice gifts!',
+          'Escape has an energy center journey that every user will need in order to advance with more Escape Coins.\n\nUse Your Coins in our Escape shop so that you may buy some nice gifts!',
       'ar': '',
       'de': '',
       'es': '',

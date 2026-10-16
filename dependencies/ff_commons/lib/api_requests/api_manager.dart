@@ -569,6 +569,10 @@ class ApiManager {
     if (!apiUrl.startsWith('http')) {
       apiUrl = 'https://$apiUrl';
     }
+    // Base URLs end in '/' and many paths start with '/': collapse the
+    // resulting '//' right after the host so routes like '//chat' resolve.
+    apiUrl = apiUrl.replaceFirstMapped(
+        RegExp(r'^(https?://[^/]+)//+'), (m) => '${m[1]}/');
 
     // If we've already made this exact call before and caching is on,
     // return the cached result.

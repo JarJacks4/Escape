@@ -60,10 +60,8 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
       _model.currentMove = widget.moves;
       _model.sessionStartTime = getCurrentTimestamp;
       safeSetState(() {});
-      if (widget.moves?.repCount != _model.currentMove?.repCount) {
-        logFirebaseEvent('ActiveSessionReps1_timer');
-        _model.timerController.onStartTimer();
-      }
+      logFirebaseEvent('ActiveSessionReps1_timer');
+      _model.timerController.onStartTimer();
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -468,11 +466,8 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                     ),
                   ),
                   Spacer(),
-                  if (_model.localIndex! <
-                      valueOrDefault<int>(
-                        widget.moves?.durationSeconds,
-                        -1,
-                      ))
+                  if ((_model.localIndex ?? 0) + 1 <
+                      FFAppState().todaysMoves.length)
                     InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -495,7 +490,7 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                             .then((_) => _model.soundPlayer2!.play());
 
                         logFirebaseEvent('Button_update_page_state');
-                        _model.localIndex = _model.localIndex! + 1;
+                        _model.localIndex = (_model.localIndex ?? 0) + 1;
                         safeSetState(() {});
                         { // always advance to the timer step
                           logFirebaseEvent('Button_timer');
@@ -506,7 +501,11 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                             ActiveSessionTimer2Widget.routeName,
                             queryParameters: {
                               'moves': serializeParam(
-                                _model.currentMove,
+                                FFAppState()
+                                        .todaysMoves
+                                        .elementAtOrNull(
+                                            _model.localIndex ?? 0) ??
+                                    _model.currentMove,
                                 ParamType.DataStruct,
                               ),
                               'sessionStartTime': serializeParam(

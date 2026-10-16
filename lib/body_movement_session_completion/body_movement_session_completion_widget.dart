@@ -57,6 +57,7 @@ class _BodyMovementSessionCompletionWidgetState
         parent: currentUserReference,
         singleRecord: true,
       ).then((s) => s.firstOrNull);
+      safeSetState(() {});
     });
   }
 
@@ -316,7 +317,7 @@ class _BodyMovementSessionCompletionWidgetState
                                   updateCallback: () => safeSetState(() {}),
                                   child: StatPillWidget(
                                     label: 'MOVES',
-                                    value: widget.movesCompleted.toString(),
+                                    value: '${widget.movesCompleted ?? 0}',
                                   ),
                                 ),
                               ),
@@ -327,7 +328,7 @@ class _BodyMovementSessionCompletionWidgetState
                                   updateCallback: () => safeSetState(() {}),
                                   child: StatPillWidget(
                                     label: 'TIME',
-                                    value: widget.elapsedMinutes?.toString(),
+                                    value: '${widget.elapsedMinutes ?? 0} min',
                                   ),
                                 ),
                               ),

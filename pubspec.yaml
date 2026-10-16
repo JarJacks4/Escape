@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.5+27
+version: 1.0.5+28
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -361,18 +361,22 @@ flutter:
         - asset: assets/fonts/WorkSans-BlackItalic.ttf
           weight: 900
           style: italic
+    # 'The Seasons' is kept as the family name so every heading keeps working, but it now uses
+    # Cormorant Garamond (SIL Open Font License, free for commercial apps; see
+    # assets/fonts/CormorantGaramond-OFL.txt). The Fontspring DEMO files weren't licensed for release.
+    # Same weight slots as before: 100/200 were the italic cuts, 600 the bold italic.
     - family: 'The Seasons'
       fonts:
-        - asset: assets/fonts/Fontspring-DEMO-theseasons-it.otf
+        - asset: assets/fonts/CormorantGaramond-Italic.ttf
           weight: 100
-        - asset: assets/fonts/Fontspring-DEMO-theseasons-ltit.otf
+        - asset: assets/fonts/CormorantGaramond-LightItalic.ttf
           weight: 200
-        - asset: assets/fonts/Fontspring-DEMO-theseasons-lt.otf
+        - asset: assets/fonts/CormorantGaramond-Light.ttf
           weight: 300
-        - asset: assets/fonts/Fontspring-DEMO-theseasons-reg.otf
-        - asset: assets/fonts/Fontspring-DEMO-theseasons-bdit.otf
+        - asset: assets/fonts/CormorantGaramond-Regular.ttf
+        - asset: assets/fonts/CormorantGaramond-BoldItalic.ttf
           weight: 600
-        - asset: assets/fonts/Fontspring-DEMO-theseasons-bd.otf
+        - asset: assets/fonts/CormorantGaramond-Bold.ttf
           weight: 700
 
     - family: BasiconsAppgenz

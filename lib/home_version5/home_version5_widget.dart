@@ -34,6 +34,12 @@ import '/soundscapes/soundscapes_launcher.dart';
 import 'home_version5_model.dart';
 export 'home_version5_model.dart';
 
+/// Home's "Recent Activity" card showed fixed sample sessions; off until it's wired to real data.
+const bool _kShowRecentActivity = false;
+
+/// Shows the "walkthrough again" hint once per app launch, not on every visit.
+bool _walkthroughHintShownThisLaunch = false;
+
 class HomeVersion5Widget extends StatefulWidget {
   const HomeVersion5Widget({super.key});
 
@@ -91,21 +97,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
       if (!mounted) return;
 
       if (FFAppState().chatSessionId != '') {
-        logFirebaseEvent('HomeVersion5_show_snack_bar');
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              'Session ID Set!',
-              style: TextStyle(
-                color: FlutterFlowTheme.of(context).primaryText,
-              ),
-            ),
-            duration: Duration(milliseconds: 4000),
-            backgroundColor: FlutterFlowTheme.of(context).secondary,
-          ),
-        );
-        logFirebaseEvent('HomeVersion5_hide_snack_bar');
-        ScaffoldMessenger.of(context).clearSnackBars();
+        // Session already set; nothing to show the user.
       } else {
         logFirebaseEvent('HomeVersion5_backend_call');
         _model.createSession =
@@ -157,7 +149,8 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
 
       if (FFAppState().isFinishedIntroWalkthrough == false) {
         logFirebaseEvent('HomeVersion5_update_app_state');
-      } else {
+      } else if (!_walkthroughHintShownThisLaunch) {
+        _walkthroughHintShownThisLaunch = true;
         logFirebaseEvent('HomeVersion5_show_snack_bar');
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -743,10 +736,11 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                       children:
                                                                           [
                                                                         Text(
-                                                                          FFLocalizations.of(context)
-                                                                              .getText(
-                                                                            '27og520d' /* Goodmorning */,
-                                                                          ),
+                                                                          DateTime.now().hour < 12
+                                                                              ? 'Good morning'
+                                                                              : (DateTime.now().hour < 18
+                                                                                  ? 'Good afternoon'
+                                                                                  : 'Good evening'),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyLarge
                                                                               .override(
@@ -755,6 +749,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                   fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                                                                                 ),
                                                                                 color: Colors.white,
+                                                                                shadows: [Shadow(color: Color(0xB31C2444), blurRadius: 10)],
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w300,
                                                                                 fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
@@ -776,6 +771,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                     fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
                                                                                   ),
                                                                                   color: Colors.white,
+                                                                                  shadows: [Shadow(color: Color(0xB31C2444), blurRadius: 10)],
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w300,
                                                                                   fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
@@ -2189,6 +2185,8 @@ Further ... */
                                                                     ),
                                                                   ),
                                                                 ),
+                                                                // Hidden until it shows the user's real recent sessions (it was fixed sample data).
+                                                                if (_kShowRecentActivity)
                                                                 Container(
                                                                   width: double
                                                                       .infinity,

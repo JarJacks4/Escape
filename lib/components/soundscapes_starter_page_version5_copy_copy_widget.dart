@@ -119,6 +119,7 @@ class _SoundscapesStarterPageVersion5CopyCopyWidgetState
                       logFirebaseEvent('Button_update_app_state');
                       FFAppState().isFirstTimeUserSoundscapes = false;
                       FFAppState().update(() {});
+                      Navigator.pop(context);
                     },
                     text: FFLocalizations.of(context).getText(
                       'on35dlh5' /* Immerse Yourself In Vibration */,
@@ -160,18 +161,9 @@ class _SoundscapesStarterPageVersion5CopyCopyWidgetState
                               'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
                           .then((_) => _model.soundPlayer2!.play());
 
-                      logFirebaseEvent('Button_navigate_to');
-
-                      context.pushNamed(
-                        HomeVersion5Widget.routeName,
-                        extra: <String, dynamic>{
-                          '__transition_info__': TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.fade,
-                            duration: Duration(milliseconds: 1),
-                          ),
-                        },
-                      );
+                      FFAppState().isFirstTimeUserSoundscapes = false;
+                      FFAppState().update(() {});
+                      Navigator.pop(context);
                     },
                     text: FFLocalizations.of(context).getText(
                       'fpeb9glb' /* Solo First */,

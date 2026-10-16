@@ -523,13 +523,23 @@ class _PlayerPageLucilleWidgetState extends State<PlayerPageLucilleWidget>
                                               ),
                                               onPressed: () async {
                                                 HapticFeedback.lightImpact();
-                                                _model.apiResultcqi =
-                                                    await LucilleSoundscapesGroup
-                                                        .startSoundCall
-                                                        .call(
-                                                  soundscapeId:
-                                                      widget!.soundscapeID,
-                                                );
+                                                final url =
+                                                    widget!.lucilleAudioUrl ??
+                                                        widget!.currentSong
+                                                            ?.mediaUrl;
+                                                if (url != null &&
+                                                    url.isNotEmpty) {
+                                                  await actions
+                                                      .initializeThatAudioPlayerForSingleAudio(
+                                                    MediaStruct(
+                                                      mediaUrl: url,
+                                                      mediaTitle: widget!
+                                                          .soundscapeTitle,
+                                                      mediaArtist: 'Lucille',
+                                                    ),
+                                                  );
+                                                }
+                                                await actions.playAudio();
 
                                                 safeSetState(() {});
                                               },
@@ -546,12 +556,7 @@ class _PlayerPageLucilleWidgetState extends State<PlayerPageLucilleWidget>
                                               ),
                                               onPressed: () async {
                                                 HapticFeedback.lightImpact();
-                                                _model.apiResultt1a =
-                                                    await LucilleSoundscapesGroup
-                                                        .stopSoundCall
-                                                        .call(
-                                                  sessionId: widget!.sessionID,
-                                                );
+                                                await actions.pauseAudio();
 
                                                 safeSetState(() {});
                                               },

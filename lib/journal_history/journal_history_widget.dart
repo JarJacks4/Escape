@@ -12,6 +12,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:material_palette/material_palette.dart';
+import '/index.dart';
 import 'journal_history_model.dart';
 export 'journal_history_model.dart';
 
@@ -596,7 +597,10 @@ class _JournalHistoryWidgetState extends State<JournalHistoryWidget> {
                 child: Container(
                   child: FloatingActionButton.extended(
                     onPressed: () {
-                      print('FAB pressed ...');
+                      context.pushNamed(
+                        JournalHomeV2Widget.routeName,
+                        queryParameters: {'mode': 'free'},
+                      );
                     },
                     backgroundColor: FlutterFlowTheme.of(context).accent1,
                     icon: Icon(
@@ -620,7 +624,7 @@ class _JournalHistoryWidgetState extends State<JournalHistoryWidget> {
                                   .fontStyle,
                             ),
                             color:
-                                FlutterFlowTheme.of(context).primaryBackground,
+                                FlutterFlowTheme.of(context).alternate,
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelLarge

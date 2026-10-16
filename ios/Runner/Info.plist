@@ -65,19 +65,19 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Escape requires access to your Camera in order to use parts of our app.</string>
+	<string>Escape uses the camera for your Mood Scan: a selfie to read your expression, or a fingertip over the back camera with the flash on to read your pulse. Only the reading is used; no photo or video of your fingertip is kept.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>In order to help Lucille give you a better self-care experience, we will need your permission for your device location when in usage of Escape.</string>
+	<string>Escape can use your approximate location to tune soundscapes to your local weather and time of day.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>In order to help Lucille give you a better self-care experience, we will need your permission for your device location when in usage of Escape.</string>
+	<string>Escape can use your approximate location to tune soundscapes to your local weather and time of day.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Escape requires access to your Microphone in order to use parts of our app.</string>
+	<string>Escape uses the microphone when you choose to talk with Lucille or record a voice journal entry.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Escape requires access to your Photo Library in order to use parts of our app.</string>
+	<string>Escape lets you choose a photo from your library for your profile picture or a journal entry.</string>
 	<key>NSPushNotification</key>
 	<string>In order to send notifications, Escape will need permission to send push notifications when your mood updates.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Escape requires access to your Speech Recognition in order to use Talk With Lucille and many more features.</string>
+	<string>Escape turns your speech into text when you talk with Lucille or dictate a journal entry.</string>
 	<key>PermissionGroupNotification</key>
 	<string>In order to take a picture for your mood, Escape will need permission to access your notifications.</string>
 	<key>UIApplicationSceneManifest</key>
