@@ -1,3 +1,4 @@
+import '/components/lucille_marketplace.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/soundscapes/soundscapes_launcher.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -1032,7 +1033,8 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                                 .secondaryBackground,
                                             size: 28.0,
                                           ),
-                                          Padding(
+                                          const SideNavCollectionEntry(),
+                              Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 0.0, 0.0),

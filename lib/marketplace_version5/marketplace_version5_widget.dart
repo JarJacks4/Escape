@@ -1,4 +1,4 @@
-import '/components/marketplace_widget.dart';
+import '/components/lucille_marketplace.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
@@ -81,11 +81,7 @@ class _MarketplaceVersion5WidgetState extends State<MarketplaceVersion5Widget> {
                       child: Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 45.0, 0.0, 0.0),
-                        child: wrapWithModel(
-                          model: _model.marketplaceModel,
-                          updateCallback: () => safeSetState(() {}),
-                          child: MarketplaceWidget(),
-                        ),
+                        child: const LucilleMarketplace(),
                       ),
                     ),
                   ),

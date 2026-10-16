@@ -319,7 +319,6 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                                 _model.gorqTranscriptionResult =
                                     await EscapeAudioScriptCall.call(
                                   file: _model.voiceNoteFile,
-                                  gorqKey: FFAppState().gorqKey,
                                 );
 
                                 print('succeeded: ${_model.gorqTranscriptionResult?.succeeded}');

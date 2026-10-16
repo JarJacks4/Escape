@@ -404,8 +404,7 @@ class _NavBarVersion5WidgetState extends State<NavBarVersion5Widget>
                     safeSetState(() {});
                     logFirebaseEvent('Column_navigate_to');
 
-                    context.pushNamed(
-                        ConnectionCommunityStartPageVersion5Widget.routeName);
+                    context.pushNamed(MarketplaceVersion5Widget.routeName);
 
                     logFirebaseEvent('Column_widget_animation');
                     if (animationsMap['containerOnActionTriggerAnimation4'] !=
@@ -437,7 +436,7 @@ class _NavBarVersion5WidgetState extends State<NavBarVersion5Widget>
                         child: Align(
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Icon(
-                            Icons.people,
+                            Icons.storefront_rounded,
                             color: FlutterFlowTheme.of(context).accent2,
                             size: 25.0,
                           ),
@@ -449,9 +448,7 @@ class _NavBarVersion5WidgetState extends State<NavBarVersion5Widget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                         child: Text(
-                          FFLocalizations.of(context).getText(
-                            'bb81eygm' /* Community */,
-                          ),
+                          'Market',
                           style:
                               FlutterFlowTheme.of(context).bodyLarge.override(
                                     fontFamily: 'WorkSans',

@@ -367,7 +367,6 @@ class _ActiveVoiceJournalingWidgetState
                                         _model.gorqTranscriptionResult =
                                             await EscapeAudioScriptCall.call(
                                           file: _model.recordedFileBytes,
-                                          gorqKey: FFAppState().gorqKey,
                                         );
 
                                         logFirebaseEvent(

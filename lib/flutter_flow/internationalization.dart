@@ -10807,7 +10807,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'kb0xr3sk': {
-      'en': 'Community',
+      'en': 'Marketplace',
       'ar': '',
       'de': '',
       'es': '',
@@ -32865,7 +32865,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'vrw7wdxr': {
-      'en': 'Community',
+      'en': 'Marketplace',
       'ar': '',
       'de': '',
       'es': '',
@@ -54175,7 +54175,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     '8j6s36cl': {
-      'en': 'Community',
+      'en': 'Marketplace',
       'ar': '',
       'de': '',
       'es': '',

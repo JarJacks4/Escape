@@ -200,10 +200,11 @@ class _BodyVersion5MovementsPageWidgetState
                                                       .fromSTEB(
                                                           0.0, 25.0, 0.0, 0.0),
                                                   child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'tr7q3w0a' /* Today's Moves */,
-                                                    ),
+                                                    FFAppState().todaysMoves.firstOrNull?.moveType.isNotEmpty == true
+                                                        ? FFAppState().todaysMoves.first.moveType
+                                                        : FFLocalizations.of(context).getText(
+                                                            'tr7q3w0a' /* Today's Moves */,
+                                                          ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .headlineLarge

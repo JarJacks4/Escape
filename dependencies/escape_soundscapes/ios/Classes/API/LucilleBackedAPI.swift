@@ -340,9 +340,41 @@ public actor LucilleBackedAPI: SoundscapesAPI {
         }
         return try await mock.saveMemory(sessionId: sessionId, title: title)
     }
-    public func playlists() async throws -> [PlaylistSummary] { try await mock.playlists() }
-    public func playlist(_ id: String) async throws -> Playlist { try await mock.playlist(id) }
-    public func setLike(playlistId: String, trackId: String, liked: Bool) async throws { try await mock.setLike(playlistId: playlistId, trackId: trackId, liked: liked) }
+    static let playlistPrefix = "cat:"
+
+    /// Playlists are Lucille's catalog collections: one per category that has tracks.
+    public func playlists() async throws -> [PlaylistSummary] {
+        let cats = try await v1.categories()
+        categoryInfo = Dictionary(cats.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
+        return cats.filter { ($0.trackCount ?? 1) > 0 }.map { c in
+            PlaylistSummary(id: Self.playlistPrefix + c.id, title: c.label, summary: c.description, credit: "Lucille",
+                            artGradient: GradientSpec(colors: [c.color.hasPrefix("#") ? c.color : "#2A3A7A", "#101E43"]),
+                            trackCount: c.trackCount ?? 0)
+        }
+    }
+
+    public func playlist(_ id: String) async throws -> Playlist {
+        guard id.hasPrefix(Self.playlistPrefix) else { return try await mock.playlist(id) }
+        let cid = String(id.dropFirst(Self.playlistPrefix.count))
+        await loadCategories()
+        let list = try await v1.catalog(category: cid)
+        for t in list { tracks[t.id] = t }
+        let info = categoryInfo[cid]
+        let grad = GradientSpec(colors: [info?.color.hasPrefix("#") == true ? info!.color : "#2A3A7A", "#101E43"])
+        let items = list.map { t -> Track in
+            let minutes = Int(((t.durationSec ?? 1800) / 60).rounded())
+            return Track(id: t.id, compositionId: Self.prefix + t.id, title: t.title, mode: t.mode,
+                         duration: "\(minutes) min", gradient: gradient(for: t), liked: false)
+        }
+        return Playlist(id: id, title: info?.label ?? "Playlist", summary: info?.description ?? "",
+                        credit: "Lucille", artGradient: grad, tracks: items)
+    }
+
+    public func setLike(playlistId: String, trackId: String, liked: Bool) async throws {
+        if playlistId.hasPrefix(Self.playlistPrefix) { return }   // catalog playlists keep likes on the device only
+        try await mock.setLike(playlistId: playlistId, trackId: trackId, liked: liked)
+    }
+
     public func circles() async throws -> Circles { try await mock.circles() }
     public func joinCircle(_ id: String) async throws -> CircleJoin { try await mock.joinCircle(id) }
     public func leaveCircle(_ id: String) async throws { try await mock.leaveCircle(id) }

@@ -1,3 +1,4 @@
+import '/body_sections.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/movement_stat_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -37,6 +38,95 @@ class MovementPreviewModal2NewWidget extends StatefulWidget {
 class _MovementPreviewModal2NewWidgetState
     extends State<MovementPreviewModal2NewWidget> {
   late MovementPreviewModal2NewModel _model;
+
+  /// Step-by-step info and 3D models for this move, from the Body sections.
+  BodyMove? get _bodyMove => bodyMoveNamed(widget.moveName ?? _move?.name);
+  int _modelIndex = 0;
+
+  List<String> get _models {
+    final list = _bodyMove?.models ?? const <String>[];
+    if (list.isNotEmpty) return list;
+    final u = widget.modelUrl ?? '';
+    return u.isEmpty ? const <String>[] : [u];
+  }
+
+  String? get _currentModel {
+    final m = _models;
+    if (m.isEmpty) return widget.modelUrl;
+    return m[_modelIndex.clamp(0, m.length - 1)];
+  }
+
+  Widget _modelSwitcher(BuildContext context) {
+    final m = _models;
+    if (m.length < 2) return const SizedBox.shrink();
+    final labels = _bodyMove?.stepLabels ?? const <String>[];
+    return Padding(
+      padding: const EdgeInsets.only(top: 12.0),
+      child: Wrap(
+        spacing: 8.0,
+        alignment: WrapAlignment.center,
+        children: List.generate(m.length, (i) {
+          final label = i < labels.length ? labels[i] : 'Step ${i + 1}';
+          return ChoiceChip(
+            label: Text(label),
+            selected: _modelIndex == i,
+            onSelected: (_) => setState(() => _modelIndex = i),
+          );
+        }),
+      ),
+    );
+  }
+
+  Widget _stepsList(BuildContext context) {
+    final steps = _bodyMove?.steps ?? const <String>[];
+    if (steps.isEmpty) return const SizedBox.shrink();
+    final theme = FlutterFlowTheme.of(context);
+    return Padding(
+      padding: const EdgeInsets.only(top: 16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('How to do it',
+              style: theme.titleSmall.override(
+                  font: GoogleFonts.inter(fontWeight: FontWeight.w600),
+                  letterSpacing: 0.0,
+                  fontWeight: FontWeight.w600)),
+          const SizedBox(height: 8.0),
+          for (var i = 0; i < steps.length; i++)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 24.0,
+                    height: 24.0,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: theme.primary.withOpacity(0.2),
+                    ),
+                    child: Text('${i + 1}',
+                        style: theme.bodySmall.override(
+                            font: GoogleFonts.inter(fontWeight: FontWeight.w600),
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w600)),
+                  ),
+                  const SizedBox(width: 10.0),
+                  Expanded(
+                    child: Text(steps[i],
+                        style: theme.bodyMedium.override(
+                            font: GoogleFonts.inter(),
+                            color: theme.secondaryText,
+                            letterSpacing: 0.0)),
+                  ),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+  }
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -221,12 +311,14 @@ class _MovementPreviewModal2NewWidgetState
                                       ),
                                       // The move's own 3D model (same viewer as the session screens), not a stock plank photo.
                                       child: custom_widgets.VectaryModelViewer(
+                                        key: ValueKey(_currentModel ?? ''),
                                         width: double.infinity,
                                         height: double.infinity,
-                                        assetPath: widget.modelUrl,
+                                        assetPath: _currentModel,
                                       ),
                                     ),
                                   ),
+                                  _modelSwitcher(context),
                                   Column(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -498,6 +590,7 @@ class _MovementPreviewModal2NewWidgetState
                                               lineHeight: 1.6,
                                             ),
                                       ),
+                                      _stepsList(context),
                                     ].divide(SizedBox(height: 16.0)),
                                   ),
                                   Container(

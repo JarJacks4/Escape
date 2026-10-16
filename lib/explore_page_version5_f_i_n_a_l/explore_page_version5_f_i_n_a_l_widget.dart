@@ -5139,7 +5139,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                 context.pop();
                                               }
                                               context.pushNamed(
-                                                ComingSoonMarketplaceWidget
+                                                MarketplaceVersion5Widget
                                                     .routeName,
                                                 extra: <String, dynamic>{
                                                   '__transition_info__':
@@ -5428,7 +5428,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                                                   logFirebaseEvent('Icon_navigate_to');
 
                                                                                   context.pushNamed(
-                                                                                    ComingSoonMarketplaceWidget.routeName,
+                                                                                    MarketplaceVersion5Widget.routeName,
                                                                                     extra: <String, dynamic>{
                                                                                       '__transition_info__': TransitionInfo(
                                                                                         hasTransition: true,

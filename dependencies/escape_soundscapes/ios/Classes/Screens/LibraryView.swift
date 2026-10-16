@@ -19,6 +19,7 @@ struct LibraryView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Esc.night.ignoresSafeArea())
+        .overlay(alignment: .bottomTrailing) { PlaylistsFAB() }
         .task {
             let filter = store.libraryFilter
             await store.loadLibrary(filter)

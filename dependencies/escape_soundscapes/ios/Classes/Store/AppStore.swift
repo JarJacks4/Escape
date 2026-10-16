@@ -40,6 +40,8 @@ public final class AppStore {
     public private(set) var savedCompositionIds: Set<String> = []
     public var libraryFilter: LibraryFilter = .saved
     public private(set) var playlist: Playlist?
+    /// Playlists for the picker (Lucille catalog collections).
+    public private(set) var playlistSummaries: [PlaylistSummary] = []
     public var playlistId = "evening-wind-down"
     public private(set) var circles: Circles?
     public private(set) var moodScan: MoodScan?
@@ -742,7 +744,12 @@ public final class AppStore {
 
     public func play(_ item: LibraryItem) async { await play(compositionId: item.compositionId, from: .library) }
 
+    public func loadPlaylists() async {
+        do { playlistSummaries = try await api.playlists() } catch { handle(error) }
+    }
+
     public func openPlaylist(_ id: String) async {
+        playlist = nil
         playlistId = id
         setScreen(.playlist)
         do { playlist = try await api.playlist(id) } catch { handle(error) }
