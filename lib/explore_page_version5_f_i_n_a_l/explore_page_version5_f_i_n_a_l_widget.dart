@@ -1322,12 +1322,13 @@ class _ExplorePageVersion5FINALWidgetState
             ),
           ),
         ),
+        backgroundColor: Colors.black,
         body: SingleChildScrollView(
-          padding: EdgeInsets.only(bottom: 24.0),
           child: Stack(
             children: [
               Container(
                 width: double.infinity,
+                padding: EdgeInsets.only(bottom: 24.0),
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,

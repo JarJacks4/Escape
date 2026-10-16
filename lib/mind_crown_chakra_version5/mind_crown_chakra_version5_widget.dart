@@ -313,7 +313,6 @@ class _MindCrownChakraVersion5WidgetState
                           EdgeInsetsDirectional.fromSTEB(20.0, 25.0, 20.0, 0.0),
                       child: Container(
                         width: 321.5,
-                        height: 198.7,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           boxShadow: [
@@ -332,7 +331,7 @@ class _MindCrownChakraVersion5WidgetState
                         child: Padding(
                           padding: EdgeInsets.all(16.0),
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -368,11 +367,7 @@ class _MindCrownChakraVersion5WidgetState
                                   ),
                                 ].divide(SizedBox(width: 8.0)),
                               ),
-                              Flexible(
-                                flex: 1,
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      30.0, 0.0, 0.0, 0.0),
+                              Padding(padding: EdgeInsets.zero, child: Padding(padding: EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'jeyzuwv6' /* You've reached the crown - the... */,

@@ -73,6 +73,7 @@ struct ScanWalkthrough: View {
                 .padding(20).glass(28, strong: true).padding(.horizontal, 16).padding(.bottom, 24)
             }
         }
+        .environment(\.colorScheme, .dark)   // dark frosted card: white text stays readable
         .transition(.opacity)
     }
 }

@@ -79,7 +79,7 @@ class _ExerciseAssessmentBottomSheetCopyWidgetState
         alignment: AlignmentDirectional(0.0, 1.0),
         child: Container(
           width: double.infinity,
-          height: MediaQuery.sizeOf(context).height * 0.69,
+          height: MediaQuery.sizeOf(context).height * 0.85,
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
@@ -130,7 +130,7 @@ class _ExerciseAssessmentBottomSheetCopyWidgetState
                         onPageChanged: (_) => safeSetState(() {}),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          Column(
+                          SingleChildScrollView(padding: const EdgeInsets.only(bottom: 48.0), child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Column(
@@ -587,8 +587,8 @@ class _ExerciseAssessmentBottomSheetCopyWidgetState
                                 ],
                               ),
                             ],
-                          ),
-                          Column(
+                          )),
+                          SingleChildScrollView(padding: const EdgeInsets.only(bottom: 48.0), child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Column(
@@ -1237,8 +1237,8 @@ class _ExerciseAssessmentBottomSheetCopyWidgetState
                                 ],
                               ),
                             ],
-                          ),
-                          Column(
+                          )),
+                          SingleChildScrollView(padding: const EdgeInsets.only(bottom: 48.0), child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Column(
@@ -1873,8 +1873,8 @@ class _ExerciseAssessmentBottomSheetCopyWidgetState
                                 ],
                               ),
                             ],
-                          ),
-                          Column(
+                          )),
+                          SingleChildScrollView(padding: const EdgeInsets.only(bottom: 48.0), child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -2509,7 +2509,7 @@ class _ExerciseAssessmentBottomSheetCopyWidgetState
                                 ),
                               ),
                             ],
-                          ),
+                          )),
                         ],
                       ),
                       Align(

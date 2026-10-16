@@ -99,6 +99,7 @@ public struct ScanFlowView: View {
             }
         }
         .preferredColorScheme(.dark)
+        .environment(\.colorScheme, .dark)
         .onReceive(tick) { _ in advance() }
         .onAppear { if showWalkthroughAlways || !seenWalkthrough { showWalkthrough = true } }
     }

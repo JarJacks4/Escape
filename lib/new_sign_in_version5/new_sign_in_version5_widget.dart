@@ -195,7 +195,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      24.0, 24.0, 24.0, 24.0),
+                                                      24.0, 24.0 + MediaQuery.paddingOf(context).top, 24.0, 24.0),
                                               child: SingleChildScrollView(
                                                 child: Column(
                                                   mainAxisSize:

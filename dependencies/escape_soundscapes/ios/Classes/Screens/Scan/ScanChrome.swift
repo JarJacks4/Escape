@@ -359,8 +359,12 @@ struct EnergyResultChrome: View {
                         Text("Lucille suggests · Connection needs space").font(EscFont.ui(12)).foregroundStyle(Esc.haze)
                         Text("Open up gently today").font(EscFont.ui(15, .semibold)).foregroundStyle(Esc.mist)
                         HStack(spacing: 8) {
-                            ForEach(["Visit Connection World", "3-min Heart Breathwork", "Join a Listening Circle"], id: \.self) { s in
-                                Text(s).font(EscFont.ui(13)).foregroundStyle(Esc.mist).glassPill()
+                            ForEach([("Visit Connection World", "escape://realms/connection"),
+                                     ("3-min Heart Breathwork", "escape://breath/heart"),
+                                     ("Join a Listening Circle", "escape://circles")], id: \.0) { s in
+                                Button { host.open(s.1) } label: {
+                                    Text(s.0).font(EscFont.ui(13)).foregroundStyle(Esc.mist).glassPill()
+                                }.buttonStyle(.plain)
                             }
                         }
                     }
@@ -374,9 +378,9 @@ struct EnergyResultChrome: View {
                             HStack {
                                 Text(c.name).font(EscFont.ui(15, .semibold)).foregroundStyle(Esc.mist)
                                 Spacer()
-                                Text(c.status).font(EscFont.ui(11, .semibold)).foregroundStyle(c.color)
+                                Text(c.status).font(EscFont.ui(11, .semibold)).foregroundStyle(.white)
                                     .padding(.horizontal, 10).padding(.vertical, 4)
-                                    .overlay(Capsule().strokeBorder(c.color, lineWidth: 1))
+                                    .background(c.color.opacity(0.75), in: Capsule())   // solid pill: dark centre colours stay readable
                             }
                             GeometryReader { g in
                                 ZStack(alignment: .leading) {
@@ -385,7 +389,14 @@ struct EnergyResultChrome: View {
                                 }
                             }.frame(height: 6)
                             Text("\(c.energy)% · \(c.note)").font(EscFont.ui(13)).foregroundStyle(Esc.haze)
-                        }.padding(16).glass(20)
+                        }
+                        .padding(16)
+                        .background(LinearGradient(colors: [c.color.opacity(0.28), c.color.opacity(0.08)],
+                                                   startPoint: .topLeading, endPoint: .bottomTrailing),
+                                    in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                        .glass(20)
+                        .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous)
+                            .strokeBorder(c.color.opacity(0.45), lineWidth: 1))
                     }
                 }
                 .padding(.horizontal, 24).padding(.top, 180).padding(.bottom, 32)

@@ -1084,6 +1084,12 @@ class _ChatWithLucilleVersion5WidgetState
                                                                     .serverSentEvent
                                                                     .jsonData,
                                                               );
+                                                              // Backend error event (e.g. OpenAI rate limit): show a message instead of an empty bubble.
+                                                              final rawSse = onMessageInput.serverSentEvent.jsonData;
+                                                              if (data != null && rawSse is Map && rawSse['type'] == 'error') {
+                                                                data.content = 'Lucille is having trouble responding right now. Please try again in a moment.';
+                                                                data.done = true;
+                                                              }
                                                               if (data == null) {
                                                                 if (kDebugMode) debugPrint(
                                                                     'DEBUG SSE parse failed: data is null after maybeFromMap');
