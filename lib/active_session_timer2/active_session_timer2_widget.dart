@@ -375,7 +375,7 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           FlutterFlowTimer(
-                            initialTime: widget.moves!.durationSeconds * 1000,
+                            initialTime: (widget.moves?.durationSeconds ?? 0) * 1000,
                             getDisplayTime: (value) =>
                                 StopWatchTimer.getDisplayTime(
                               value,
@@ -502,11 +502,15 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                                 BodyMovement3Widget.routeName,
                                 queryParameters: {
                                   'moves': serializeParam(
-                                    widget.moves,
+                                    FFAppState()
+                                            .todaysMoves
+                                            .elementAtOrNull(
+                                                _model.localIndex ?? 0) ??
+                                        widget.moves,
                                     ParamType.DataStruct,
                                   ),
                                   'currentIndex': serializeParam(
-                                    widget.currentIndex,
+                                    _model.localIndex,
                                     ParamType.int,
                                   ),
                                   'sessionStartTime': serializeParam(

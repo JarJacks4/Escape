@@ -12,9 +12,20 @@ public struct MoodReading: Equatable, Sendable {
     public var bpm: Int
     /// A word the person tapped. nil → Lucille's first word for the quadrant.
     public var chosenWord: String?
+    /// True only when `bpm` came from the camera pulse read. Otherwise `bpm` is just the orb's
+    /// resting rhythm and is never shown or saved as a measurement.
+    public var pulseMeasured: Bool
 
-    public init(energy: Double = 0.72, valence: Double = 0.32, bpm: Int = 84, chosenWord: String? = nil) {
+    public init(energy: Double = 0.5, valence: Double = 0.5, bpm: Int = 72, chosenWord: String? = nil,
+                pulseMeasured: Bool = false) {
         self.energy = energy; self.valence = valence; self.bpm = bpm; self.chosenWord = chosenWord
+        self.pulseMeasured = pulseMeasured
+    }
+
+    /// Starting point for the Energy slider from a measured resting pulse: ~55 bpm reads as
+    /// low energy, ~100 bpm as high. The person can always move it.
+    public static func energy(fromPulse bpm: Int) -> Double {
+        max(0.1, min(0.9, 0.2 + (Double(bpm) - 55) / 45 * 0.6))
     }
 
     public var moodField: MoodField { MoodField(energy: energy, texture: valence) }
@@ -109,20 +120,24 @@ public extension MoodReading {
         case .energized:
             return [Suggestion(minutes: "25 min", title: "Journey: Deep Work", why: "Put this energy into one thing that matters.", deeplink: "escape://journey/deep-work"),
                     Suggestion(minutes: "10 min", title: "Move soundscape", why: "A walk or stretch with a beat to match you.", deeplink: "escape://mode/move"),
-                    Suggestion(minutes: "Tonight", title: "Join a Listening Circle", why: "Share the good mood with others listening live.", deeplink: "escape://circles")]
+                    Suggestion(minutes: "2 min", title: "Save this moment", why: "Write down what's going right so you can come back to it.", deeplink: "escape://journal/new")]
         case .foggy:
             return [Suggestion(minutes: "5 min", title: "Move: Gentle Wake", why: "Light movement and daylight help clear the fog.", deeplink: "escape://mode/move"),
                     Suggestion(minutes: "3 min", title: "Visit the Grounding World", why: "A slow Realms scene to feel steady again.", deeplink: "escape://realms/grounding"),
                     Suggestion(minutes: "1 min", title: "Set Sunrise Wake", why: "Wake gently tomorrow to break the heavy start.", deeplink: "escape://sleep/sunrise")]
         case .calm:
             return [Suggestion(minutes: "2 min", title: "Save this moment", why: "A short note to Lucille so you can come back to it.", deeplink: "escape://journal/new"),
-                    Suggestion(minutes: "Tonight", title: "Join a Listening Circle", why: "Calm company, everyone hearing the same moment.", deeplink: "escape://circles"),
+                    Suggestion(minutes: "10 min", title: "Stay in this calm", why: "A Lucille Picks soundscape tuned to how you feel now.", deeplink: "escape://mode/picks"),
                     Suggestion(minutes: "10 min", title: "Sleep wind-down", why: "Carry this calm into tonight with Lucille Whisper.", deeplink: "escape://sleep")]
         }
     }
 
     var because: String {
-        "Your pulse is a little above your usual 70, you chose \(word)" + (chosenWord == nil ? "." : ".")
+        let feel = "you set your energy to \(Int(energy * 100))% and pleasantness to \(Int(valence * 100))%"
+        if pulseMeasured {
+            return "Your pulse read \(bpm) bpm on the camera, \(feel), so Lucille hears \(word.lowercased())."
+        }
+        return "You skipped the pulse read; \(feel), so Lucille hears \(word.lowercased())."
     }
 }
 
@@ -155,6 +170,28 @@ public enum EnergyCenters {
         EnergyCenter("Creative Energy Center",   0xFF9500, "Soft",           85, "Gentle and flowing."),
         EnergyCenter("Grounding Energy Center",  0xFF3B30, "Balanced",       78, "Steady sleep and routines."),
     ]
+    /// The seven centres for *this* scan, worked out from what the person measured and chose:
+    /// pulse (if read), energy, pleasantness and the word. A reflective guide, not a diagnosis.
+    public static func from(_ r: MoodReading) -> [EnergyCenter] {
+        let e = r.energy, v = r.valence
+        let calmPulse: Double = r.pulseMeasured ? max(0, min(1, (100 - Double(r.bpm)) / 45)) : 0.5
+        func pct(_ x: Double) -> Int { Int((max(0.05, min(1, x)) * 100).rounded()) }
+        func status(_ p: Int) -> String { p >= 85 ? "Strong" : p >= 65 ? "Balanced" : p >= 45 ? "Soft" : "Needs care" }
+        let rows: [(String, UInt32, Double, String)] = [
+            ("Purpose Energy Center",    0xAF52DE, 0.45 * v + 0.35 * e + 0.2, "Meaning grows with pleasant energy."),
+            ("Awareness Energy Center",  0x5856D6, 0.5 * v + 0.3 * calmPulse + 0.2, "Clearer when the body is settled."),
+            ("Expression Energy Center", 0x32ADE6, 0.4 * v + 0.4 * e + 0.15, "Lifted by energy and a good mood."),
+            ("Connection Energy Center", 0x34C759, 0.65 * v + 0.25, "Follows how pleasant you feel."),
+            ("Strength Energy Center",   0xFFD60A, 0.7 * e + 0.2, "Follows your energy level."),
+            ("Creative Energy Center",   0xFF9500, 0.4 * e + 0.4 * v + 0.15, "Flows with energy and ease."),
+            ("Grounding Energy Center",  0xFF3B30, 0.6 * calmPulse + 0.3 * (1 - abs(e - 0.5) * 2) + 0.15, "Steadier with a calm pulse."),
+        ]
+        return rows.map { row in
+            let p = pct(row.2)
+            return EnergyCenter(row.0, row.1, status(p), p, row.3)
+        }
+    }
+
     /// Level names, root → crown, for the progression (Level N = index N-1).
     public static let levelNames = ["Grounding", "Creative", "Strength", "Connection", "Expression", "Awareness", "Purpose"]
 }

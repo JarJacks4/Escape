@@ -17,7 +17,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 class LucilleSoundscapesGroup {
   static String getBaseUrl() =>
-      'https://lucillellm2-286076426888.us-east4.run.app/';
+      'https://lucille-861854898360.us-central1.run.app/';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
   };

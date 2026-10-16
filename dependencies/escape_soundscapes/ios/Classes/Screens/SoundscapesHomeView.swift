@@ -11,6 +11,9 @@ import SwiftUI
 struct SoundscapesHomeView: View {
     @Environment(AppStore.self) private var store
     @State private var activeTab = "Now"
+    /// First-visit tour, shown once per install.
+    @AppStorage("escape.seenSoundscapesHomeWalkthrough") private var seenHomeTour = false
+    @State private var showHomeTour = false
 
     /// The TSX ends with `marginBottom: 160` under the status line: room for the 72 pt nav and the
     /// floating MiniPlayer (72 pt) with breathing space. Never less than the porting-guide minimum.
@@ -38,8 +41,8 @@ struct SoundscapesHomeView: View {
                     modeOrbs
                 }
                 journeys
-                listeningCircle
-                madeByYou
+                // Listening Circles are hidden until live circles exist (the card was sample data).
+                if !madeItems.isEmpty { madeByYou }
                 statusLine
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -48,7 +51,18 @@ struct SoundscapesHomeView: View {
         .refreshable { await store.refreshHome() }
         .background(Esc.night.ignoresSafeArea())
         .overlay(alignment: .bottom) { miniPlayer }
-        .onAppear { activeTab = "Now" }
+        .overlay {
+            if showHomeTour {
+                ScanWalkthrough(steps: ScanWalkthrough.homeSteps, doneLabel: "Got it") {
+                    withAnimation { showHomeTour = false }
+                    seenHomeTour = true
+                }
+            }
+        }
+        .onAppear {
+            activeTab = "Now"
+            if !seenHomeTour { showHomeTour = true }
+        }
     }
 
     // MARK: - Header + greeting
@@ -73,7 +87,7 @@ struct SoundscapesHomeView: View {
     private var greetingText: String {
         let phase = store.inputsNow?.phaseLabel.lowercased() ?? "afternoon"
         let part = ["morning", "afternoon", "evening"].contains(phase) ? phase : "evening"
-        let name = store.home?.user.firstName ?? "Jared"
+        let name = store.home?.user.firstName ?? ""
         return name.isEmpty ? "Good \(part)." : "Good \(part), \(name)."
     }
 
@@ -144,27 +158,27 @@ struct SoundscapesHomeView: View {
     private func openInputs() { store.setSheet(.yourInputs) }
 
     private var phaseTile: (label: String, value: String) {
-        guard let now = store.inputsNow else { return ("Afternoon", "Peak in 42 min") }
+        guard let now = store.inputsNow else { return ("Now", "--") }
         return (now.phaseLabel, now.phaseValue)
     }
 
     /// "64° Drizzle · New York". Before the first load: the Figma literal; input off (nil): "Off".
     private var weatherValue: String {
-        guard let now = store.inputsNow else { return "64° Drizzle · New York" }
+        guard let now = store.inputsNow else { return "--" }
         guard let w = now.weather else { return "Off" }
         let base = "\(w.tempF)° \(w.condition)"
         return w.city.isEmpty ? base : "\(base) · \(w.city)"
     }
 
     private var moodValue: String {
-        guard let now = store.inputsNow else { return "Restless" }
-        guard let mood = now.mood, !mood.isEmpty else { return "Off" }
+        guard let now = store.inputsNow else { return "--" }
+        guard let mood = now.mood, !mood.isEmpty else { return "Scan to add" }
         return mood
     }
 
     private var heartValue: String {
-        guard let now = store.inputsNow else { return "72 bpm" }
-        guard let bpm = now.heartBpm else { return "Off" }
+        guard let now = store.inputsNow else { return "--" }
+        guard let bpm = now.heartBpm else { return "Scan" }
         return "\(bpm) bpm"
     }
 
@@ -179,8 +193,8 @@ struct SoundscapesHomeView: View {
             DailyDropCard(
                 label: drop?.label ?? "Lucille's Daily Drop",
                 badge: drop?.badge ?? "New every morning",
-                title: drop?.title ?? "Thursday Drizzle",
-                subtitle: drop?.subtitle ?? "Composed at 7:02 AM for your day",
+                title: drop?.title ?? "Today's soundscape",
+                subtitle: drop?.subtitle ?? "Picked by Lucille for your day",
                 gradient: drop?.gradient.linear ?? Esc.signature
             )
         }
@@ -280,16 +294,8 @@ struct SoundscapesHomeView: View {
 
     // MARK: - Made by You
 
-    private var madeItems: [MadeByYou] {
-        store.home?.madeByYou ?? [
-            MadeByYou(compositionId: "mine_1", title: "Cabin Rain, 11 PM", description: "Composed last night", mode: "sleep",
-                      gradient: GradientSpec(colors: ["#164395", "#05081A"])),
-            MadeByYou(compositionId: "mine_2", title: "Morning Clarity", description: "Your morning ritual", mode: "focus",
-                      gradient: GradientSpec(colors: ["#EF7702", "#8E7CD9"])),
-            MadeByYou(compositionId: "mine_3", title: "Rainy Sunday", description: "Slow afternoon", mode: "calm",
-                      gradient: GradientSpec(colors: ["#39519F", "#101E43"])),
-        ]
-    }
+    /// Only the person's own compositions; empty (and the section hidden) until they make one.
+    private var madeItems: [MadeByYou] { store.home?.madeByYou ?? [] }
 
     private var madeByYou: some View {
         VStack(alignment: .leading, spacing: 0) {

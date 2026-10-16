@@ -48,7 +48,11 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'BodyMovement3'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      // Start the move countdown as soon as the screen opens.
+      _model.timerController.onStartTimer();
+      safeSetState(() {});
+    });
   }
 
   @override
@@ -370,10 +374,7 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       FlutterFlowTimer(
-                        initialTime: valueOrDefault<int>(
-                          widget.moves?.durationSeconds,
-                          00,
-                        ),
+                        initialTime: (widget.moves?.durationSeconds ?? 0) * 1000,
                         getDisplayTime: (value) =>
                             StopWatchTimer.getDisplayTime(
                           value,
@@ -484,7 +485,7 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
                         BodyMovementSessionCompletionWidget.routeName,
                         queryParameters: {
                           'movesCompleted': serializeParam(
-                            widget.moves?.durationSeconds,
+                            (widget.currentIndex ?? 0) + 1,
                             ParamType.int,
                           ),
                           'elapsedMinutes': serializeParam(

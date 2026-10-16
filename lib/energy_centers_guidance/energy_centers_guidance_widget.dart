@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -28,6 +29,10 @@ class _EnergyCentersGuidanceWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => EnergyCentersGuidanceModel());
+    // First-visit walkthrough for this page (shows once per user).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) actions.showPageWalkthrough(context, 'energy_centers');
+    });
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'EnergyCentersGuidance'});

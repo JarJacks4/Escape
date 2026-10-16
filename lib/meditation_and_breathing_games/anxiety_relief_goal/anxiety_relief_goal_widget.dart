@@ -104,8 +104,7 @@ class _AnxietyReliefGoalWidgetState extends State<AnxietyReliefGoalWidget> {
                                                     .bodyMedium
                                                     .fontStyle,
                                           ),
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                          color: FlutterFlowTheme.of(context).alternate,
                                           fontSize: 22.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
@@ -162,7 +161,7 @@ class _AnxietyReliefGoalWidgetState extends State<AnxietyReliefGoalWidget> {
                                 buttonSize: 40.0,
                                 icon: Icon(
                                   Icons.arrow_back,
-                                  color: FlutterFlowTheme.of(context).info,
+                                  color: FlutterFlowTheme.of(context).alternate,
                                   size: 24.0,
                                 ),
                                 onPressed: () async {
@@ -185,7 +184,7 @@ class _AnxietyReliefGoalWidgetState extends State<AnxietyReliefGoalWidget> {
                               0.0, 0.0, 0.0, 8.0),
                           child: FlutterFlowAudioPlayer(
                             audio: Audio.network(
-                              'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f',
+                              'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f',
                               metas: Metas(
                                 id: 'ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f-fc0640cb',
                                 title:
@@ -296,7 +295,7 @@ class _AnxietyReliefGoalWidgetState extends State<AnxietyReliefGoalWidget> {
                                           ?.unfocus();
                                     },
                                     child: ConfettiPageExpertCompWidget(
-                                      exerciseTitle: '',
+                                      exerciseTitle: 'Anxiety Relief',
                                     ),
                                   ),
                                 ),
@@ -323,7 +322,7 @@ class _AnxietyReliefGoalWidgetState extends State<AnxietyReliefGoalWidget> {
                                           .titleSmall
                                           .fontStyle,
                                     ),
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context).alternate,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,

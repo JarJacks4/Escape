@@ -15,7 +15,7 @@ Future<void> initializeThatAudioPlayerForSingleAudio(
   final audioState = ThatAudioPlayerState();
 
   if (singleAudio.hasMediaUrl()) {
-    audioState.initializeAudio(singleAudio: singleAudio);
+    await audioState.initializeAudio(singleAudio: singleAudio);
   } else {
     print(
         "That Audio Player : audio urls seems to be empty. Please add atleast 1 audio to play something");

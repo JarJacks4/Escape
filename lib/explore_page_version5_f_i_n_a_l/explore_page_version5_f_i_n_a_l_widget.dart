@@ -1,4 +1,5 @@
 import '/components/help_comp_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/soundscapes/soundscapes_launcher.dart';
 import '/components/side_nav_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -43,6 +44,10 @@ class _ExplorePageVersion5FINALWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => ExplorePageVersion5FINALModel());
+    // First-visit walkthrough for this page (shows once per user).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) actions.showPageWalkthrough(context, 'explore');
+    });
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ExplorePageVersion5FINAL'});
@@ -1322,12 +1327,13 @@ class _ExplorePageVersion5FINALWidgetState
             ),
           ),
         ),
+        backgroundColor: Colors.black,
         body: SingleChildScrollView(
-          padding: EdgeInsets.only(bottom: 24.0),
           child: Stack(
             children: [
               Container(
                 width: double.infinity,
+                padding: EdgeInsets.only(bottom: 24.0),
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
@@ -3422,7 +3428,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                 context.pop();
                                               }
                                               context.pushNamed(
-                                                JournalPageVersion5Widget
+                                                JournalHomeV2Widget
                                                     .routeName,
                                                 extra: <String, dynamic>{
                                                   '__transition_info__':
@@ -3711,7 +3717,7 @@ class _ExplorePageVersion5FINALWidgetState
                                                                                   logFirebaseEvent('Icon_navigate_to');
 
                                                                                   context.pushNamed(
-                                                                                    JournalPageVersion5Widget.routeName,
+                                                                                    JournalHomeV2Widget.routeName,
                                                                                     extra: <String, dynamic>{
                                                                                       '__transition_info__': TransitionInfo(
                                                                                         hasTransition: true,

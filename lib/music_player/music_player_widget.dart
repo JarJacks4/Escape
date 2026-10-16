@@ -73,7 +73,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                     image: Image.network(
                       valueOrDefault<String>(
                         widget.trackAlbumArt,
-                        'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee',
+                        'https://firebasestorage.googleapis.com/v0/b/escape-self-care-505618.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee',
                       ),
                     ).image,
                   ),

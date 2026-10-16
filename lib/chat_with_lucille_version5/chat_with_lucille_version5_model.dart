@@ -11,7 +11,7 @@ class ChatWithLucilleVersion5Model
     extends FlutterFlowModel<ChatWithLucilleVersion5Widget> {
   ///  Local state fields for this page.
 
-  bool aiIsResponsing = true;
+  bool aiIsResponsing = false;
 
   String userInput = 'userResponse';
 

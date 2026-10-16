@@ -1,4 +1,5 @@
 import '/components/confetti_page_intermediate_comp_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
@@ -36,6 +37,10 @@ class _DeepBreathingWidgetState extends State<DeepBreathingWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => DeepBreathingModel());
+    // First-visit walkthrough for this page (shows once per user).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) actions.showPageWalkthrough(context, 'breathing');
+    });
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'DeepBreathing'});
@@ -66,15 +71,29 @@ class _DeepBreathingWidgetState extends State<DeepBreathingWidget>
       ),
       'containerOnPageLoadAnimation': AnimationInfo(
         loop: true,
-        reverse: true,
+        reverse: false,
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
+          // Inhale 7s, exhale 14s, rest 7s (matches the instructions on this page).
           ScaleEffect(
             curve: Curves.easeInOut,
-            delay: 310.0.ms,
-            duration: 14000.0.ms,
+            delay: 0.0.ms,
+            duration: 7000.0.ms,
             begin: Offset(1.0, 1.0),
             end: Offset(6.0, 6.0),
+          ),
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 7000.0.ms,
+            duration: 14000.0.ms,
+            begin: Offset(1.0, 1.0),
+            end: Offset(0.16666666666666666, 0.16666666666666666),
+          ),
+          ScaleEffect(
+            delay: 21000.0.ms,
+            duration: 7000.0.ms,
+            begin: Offset(1.0, 1.0),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -233,13 +252,8 @@ class _DeepBreathingWidgetState extends State<DeepBreathingWidget>
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: FlutterFlowTimer(
                                   initialTime: _model.timerInitialTimeMs,
-                                  getDisplayTime: (value) =>
-                                      StopWatchTimer.getDisplayTime(
-                                    value,
-                                    hours: false,
-                                    minute: false,
-                                    milliSecond: false,
-                                  ),
+                                  // The circle shows the rhythm; the old static '00' is hidden.
+                                  getDisplayTime: (value) => '',
                                   controller: _model.timerController,
                                   updateStateInterval:
                                       Duration(milliseconds: 7),

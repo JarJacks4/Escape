@@ -348,7 +348,6 @@ class _MindRootChakraVersion5WidgetState
                           EdgeInsetsDirectional.fromSTEB(20.0, 25.0, 20.0, 0.0),
                       child: Container(
                         width: 321.5,
-                        height: 198.7,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           boxShadow: [
@@ -367,7 +366,7 @@ class _MindRootChakraVersion5WidgetState
                         child: Padding(
                           padding: EdgeInsets.all(16.0),
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -413,11 +412,7 @@ class _MindRootChakraVersion5WidgetState
                                   ),
                                 ].divide(SizedBox(width: 8.0)),
                               ),
-                              Flexible(
-                                flex: 1,
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      42.0, 0.0, 0.0, 0.0),
+                              Padding(padding: EdgeInsets.zero, child: Padding(padding: EdgeInsetsDirectional.fromSTEB(42.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       '7flwpmv7' /* Hello, beautiful soul. I'm Luc... */,
@@ -1587,10 +1582,7 @@ class _MindRootChakraVersion5WidgetState
                                             0.0, 15.0, 0.0, 0.0),
                                         child: FlutterFlowAudioPlayer(
                                           audio: Audio.network(
-                                            FFAppState()
-                                                .SoundscapesNatureTab
-                                                .firstOrNull!
-                                                .songUrl,
+                                            FFAppState().SoundscapesNatureTab.firstOrNull?.songUrl ?? '',
                                             metas: Metas(
                                               title: 'Grounding Soundscape',
                                             ),

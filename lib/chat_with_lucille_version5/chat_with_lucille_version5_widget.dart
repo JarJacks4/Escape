@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
@@ -33,6 +34,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:material_palette/material_palette.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
+import '/custom_code/widgets/lucille_link_chips.dart';
 import 'chat_with_lucille_version5_model.dart';
 export 'chat_with_lucille_version5_model.dart';
 
@@ -49,6 +51,10 @@ class ChatWithLucilleVersion5Widget extends StatefulWidget {
 
 class _ChatWithLucilleVersion5WidgetState
     extends State<ChatWithLucilleVersion5Widget> with TickerProviderStateMixin {
+  /// Shortcuts into the app for what the person asked about (see lucille_link_chips.dart).
+  List<LucilleLink> _lucilleLinks = [];
+  String _lastUserText = '';
+
   late ChatWithLucilleVersion5Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -59,6 +65,10 @@ class _ChatWithLucilleVersion5WidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => ChatWithLucilleVersion5Model());
+    // First-visit walkthrough for this page (shows once per user).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) actions.showPageWalkthrough(context, 'lucille_chat');
+    });
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ChatWithLucilleVersion5'});
@@ -489,7 +499,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                 logFirebaseEvent('Container_copy_to_clipboard');
                                                                                                 await Clipboard.setData(ClipboardData(
                                                                                                     text: valueOrDefault<String>(
-                                                                                                  chatIndex.toString(),
+                                                                                                  chatItem,
                                                                                                   '--',
                                                                                                 )));
                                                                                                 logFirebaseEvent('Container_show_snack_bar');
@@ -510,7 +520,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                           ),
                                                                                                     ),
                                                                                                     duration: Duration(milliseconds: 2000),
-                                                                                                    backgroundColor: FlutterFlowTheme.of(context).primary,
+                                                                                                    backgroundColor: FlutterFlowTheme.of(context).alternate,
                                                                                                   ),
                                                                                                 );
                                                                                               },
@@ -689,6 +699,8 @@ class _ChatWithLucilleVersion5WidgetState
                                           ),
                                         ),
                                       ),
+                                      if (_lucilleLinks.isNotEmpty)
+                                        LucilleLinkChips(links: _lucilleLinks),
                                       Align(
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
@@ -1014,6 +1026,13 @@ class _ChatWithLucilleVersion5WidgetState
                                                             _model
                                                                 .textController
                                                                 .text);
+                                                        // In-app shortcuts for what they asked for.
+                                                        _lastUserText = _model
+                                                            .textController
+                                                            .text;
+                                                        _lucilleLinks =
+                                                            lucilleLinksFor(
+                                                                _lastUserText);
                                                         safeSetState(() {});
                                                         logFirebaseEvent(
                                                             'IconButton_backend_call');
@@ -1031,6 +1050,9 @@ class _ChatWithLucilleVersion5WidgetState
                                                             'IconButton_backend_call');
                                                         _model.newMessage =
                                                             true;
+                                                        _model.aiIsResponsing =
+                                                            true;
+                                                        safeSetState(() {});
                                                         _model.lucilleStreamChat =
                                                             await TheoryOfMindLucilleGroup
                                                                 .chatStreamCall
@@ -1084,6 +1106,12 @@ class _ChatWithLucilleVersion5WidgetState
                                                                     .serverSentEvent
                                                                     .jsonData,
                                                               );
+                                                              // Backend error event (e.g. OpenAI rate limit): show a message instead of an empty bubble.
+                                                              final rawSse = onMessageInput.serverSentEvent.jsonData;
+                                                              if (data != null && rawSse is Map && rawSse['type'] == 'error') {
+                                                                data.content = 'Lucille is having trouble responding right now. Please try again in a moment.';
+                                                                data.done = true;
+                                                              }
                                                               if (data == null) {
                                                                 if (kDebugMode) debugPrint(
                                                                     'DEBUG SSE parse failed: data is null after maybeFromMap');
@@ -1168,6 +1196,8 @@ class _ChatWithLucilleVersion5WidgetState
                                                                 (onErrorInput) async {
                                                               if (kDebugMode) debugPrint(
                                                                   'DEBUG SSE stream onError: $onErrorInput');
+                                                              _model.aiIsResponsing =
+                                                                  false;
                                                               logFirebaseEvent(
                                                                   '_show_snack_bar');
                                                               ScaffoldMessenger
@@ -1198,6 +1228,13 @@ class _ChatWithLucilleVersion5WidgetState
                                                                   'DEBUG SSE stream onDone fired');
                                                               _model.aiIsResponsing =
                                                                   false;
+                                                              // Refine the shortcuts with Lucille's full reply.
+                                                              _lucilleLinks = lucilleLinksFor(
+                                                                  _lastUserText,
+                                                                  reply: _model
+                                                                          .chatMessages
+                                                                          .lastOrNull ??
+                                                                      '');
                                                               safeSetState(
                                                                   () {});
                                                               if (currentJwtToken !=
@@ -1304,6 +1341,8 @@ class _ChatWithLucilleVersion5WidgetState
                                                             true)) {
                                                           safeSetState(() {});
                                                         } else {
+                                                          _model.aiIsResponsing =
+                                                              false;
                                                           logFirebaseEvent(
                                                               'IconButton_show_snack_bar');
                                                           ScaffoldMessenger.of(
@@ -1414,11 +1453,6 @@ class _ChatWithLucilleVersion5WidgetState
                                                                       .accent3,
                                                             ),
                                                           );
-                                                          logFirebaseEvent(
-                                                              'IconButton_hide_snack_bar');
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .clearSnackBars();
                                                         }
 
                                                         safeSetState(() {});

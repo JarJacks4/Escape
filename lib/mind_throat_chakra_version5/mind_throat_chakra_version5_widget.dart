@@ -314,7 +314,6 @@ class _MindThroatChakraVersion5WidgetState
                           EdgeInsetsDirectional.fromSTEB(20.0, 25.0, 20.0, 0.0),
                       child: Container(
                         width: 321.5,
-                        height: 198.7,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           boxShadow: [
@@ -333,7 +332,7 @@ class _MindThroatChakraVersion5WidgetState
                         child: Padding(
                           padding: EdgeInsets.all(16.0),
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -369,11 +368,7 @@ class _MindThroatChakraVersion5WidgetState
                                   ),
                                 ].divide(SizedBox(width: 8.0)),
                               ),
-                              Flexible(
-                                flex: 1,
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      42.0, 0.0, 0.0, 0.0),
+                              Padding(padding: EdgeInsets.zero, child: Padding(padding: EdgeInsetsDirectional.fromSTEB(42.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'yhr2sde0' /* Your voice matters. Your Throa... */,
@@ -1048,18 +1043,11 @@ class _MindThroatChakraVersion5WidgetState
                                           audio: Audio.network(
                                             FFAppState()
                                                 .SoundscapesNatureTab
-                                                .firstOrNull!
-                                                .songUrl,
+                                                .elementAtOrNull(4)
+                                                ?.songUrl ??
+                                                '',
                                             metas: Metas(
-                                              title: valueOrDefault<String>(
-                                                FFAppState()
-                                                    .SoundscapesNatureTab
-                                                    .contains(FFAppState()
-                                                        .SoundscapesNatureTab
-                                                        .firstOrNull)
-                                                    .toString(),
-                                                'Title',
-                                              ),
+                                              title: 'Throat Soundscape',
                                             ),
                                           ),
                                           titleTextStyle: FlutterFlowTheme.of(

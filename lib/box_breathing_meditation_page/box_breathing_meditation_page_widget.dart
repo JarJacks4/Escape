@@ -179,7 +179,7 @@ class _BoxBreathingMeditationPageWidgetState
                                 buttonSize: 40.0,
                                 icon: Icon(
                                   Icons.arrow_back,
-                                  color: FlutterFlowTheme.of(context).info,
+                                  color: FlutterFlowTheme.of(context).alternate,
                                   size: 24.0,
                                 ),
                                 onPressed: () async {

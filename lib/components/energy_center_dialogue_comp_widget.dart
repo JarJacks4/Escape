@@ -56,7 +56,7 @@ class _EnergyCenterDialogueCompWidgetState
       ),
       'pageViewOnActionTriggerAnimation': AnimationInfo(
         trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
+        applyInitialState: false,
         effectsBuilder: () => [
           FadeEffect(
             curve: Curves.easeOut,
@@ -121,7 +121,6 @@ class _EnergyCenterDialogueCompWidgetState
                       child: PageView(
                         controller: _model.pageViewController ??=
                             PageController(initialPage: 0),
-                        onPageChanged: (_) => safeSetState(() {}),
                         scrollDirection: Axis.horizontal,
                         children: [
                           Align(
@@ -2398,17 +2397,8 @@ class _EnergyCenterDialogueCompWidgetState
                                                                   'Text_haptic_feedback');
                                                               HapticFeedback
                                                                   .lightImpact();
-                                                              logFirebaseEvent(
-                                                                  'Text_page_view');
-                                                              await _model
-                                                                  .pageViewController
-                                                                  ?.nextPage(
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        300),
-                                                                curve:
-                                                                    Curves.ease,
-                                                              );
+                                                              Navigator.pop(
+                                                                  context);
                                                             },
                                                             child: Text(
                                                               FFLocalizations.of(

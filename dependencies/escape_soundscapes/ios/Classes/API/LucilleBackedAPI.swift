@@ -245,11 +245,62 @@ public actor LucilleBackedAPI: SoundscapesAPI {
         _ = try await v1.checkIn(word: word, valence: valence, energy: energy, text: text)
     }
 
+    /// Same, with the measured pulse (nil when skipped). Returns the coins the server awarded.
+    public func checkIn(word: String, valence: Double, energy: Double, text: String?, bpm: Int?) async throws -> Int {
+        let r = try await v1.checkIn(word: word, valence: valence, energy: energy, text: text,
+                                     bpm: bpm.map { Double($0) })
+        return r.coinsAwarded
+    }
+
+    /// Records GDPR consents (e.g. ["wellbeing_data": true]) with Lucille v1.
+    public func grantConsents(_ flags: [String: Bool]) async throws { try await v1.grantConsents(flags) }
+
+    /// Lifetime Escape Coins (they set the Energy Scan level).
+    public func lifetimeCoins() async throws -> Int { try await v1.progress().lifetimeCoins }
+
     // MARK: - Everything else: the mock
 
     public func content() async throws -> ContentBundle { try await mock.content() }
-    public func home(_ q: InputsQuery) async throws -> Home { await applyName(); return try await mock.home(q) }
-    public func inputsNow(_ q: InputsQuery) async throws -> InputsNow { try await mock.inputsNow(q) }
+    /// Home layout from the bundled content, with the person's own data from Lucille v1:
+    /// the real Daily Drop (a catalog track), their real streak, and no sample "Made by You"
+    /// items (those were seed data, not theirs).
+    public func home(_ q: InputsQuery) async throws -> Home {
+        await applyName()
+        var h = try await mock.home(q)
+        h.madeByYou = []
+        if let p = try? await v1.progress(), let streak = p.streakDays { h.user.streakDays = streak }
+        if let d = try? await v1.dailyDrop() {
+            tracks[d.track.id] = d.track
+            h.dailyDrop = DailyDrop(compositionId: Self.prefix + d.track.id, label: "Lucille's Daily Drop",
+                                    badge: "New every morning", title: d.title,
+                                    subtitle: "\(d.track.title) · picked for today", mode: d.track.mode,
+                                    gradient: gradient(for: d.track), composition: nil)
+        }
+        return h
+    }
+    /// Inner Weather from Lucille v1: real day phase, the person's last saved mood and (with
+    /// location consent) real weather. No sample city/weather/mood from the seed file.
+    public func inputsNow(_ q: InputsQuery) async throws -> InputsNow {
+        var n = try await mock.inputsNow(q)
+        guard let v = try? await v1.innerWeather(lat: q.lat, lon: q.lon) else {
+            n.weather = nil; n.mood = nil; n.phaseValue = ""; n.heartBpm = nil
+            return n
+        }
+        let phase = v.phase.prefix(1).uppercased() + v.phase.dropFirst()
+        n.circadianPhase = v.phase
+        n.phaseLabel = phase
+        n.phaseValue = v.night ? "Night" : phase
+        n.nextPhaseInMin = nil
+        if let w = v.weather, w.available, let c = w.tempC {
+            n.weather = Weather(tempF: Int((c * 9 / 5 + 32).rounded()),
+                                condition: (w.bucket ?? "").capitalized, city: "")
+        } else {
+            n.weather = nil
+        }
+        n.mood = v.mood?.word
+        n.heartBpm = nil   // no live heart source here; the Mood Scan measures it on demand
+        return n
+    }
     public func me() async throws -> Profile { await applyName(); return try await mock.me() }
     public func updateProfile(firstName: String?, tz: String?) async throws -> Profile { try await mock.updateProfile(firstName: firstName, tz: tz) }
     public func deleteAccount() async throws { try await mock.deleteAccount() }
@@ -272,7 +323,11 @@ public actor LucilleBackedAPI: SoundscapesAPI {
     public func dailyDrop() async throws -> DailyDrop { try await mock.dailyDrop() }
     public func compose(_ req: ComposeRequest) async throws -> ComposeAccepted { try await mock.compose(req) }
     public func myCompositions(limit: Int) async throws -> [Composition] { try await mock.myCompositions(limit: limit) }
-    public func library(_ filter: LibraryFilter?) async throws -> [LibraryItem] { try await mock.library(filter) }
+    /// Only what the person saved from the Lucille catalog: the seed file's sample saves
+    /// ("Cabin Rain, 11 PM", "Morning Clarity"…) aren't theirs, so they never show.
+    public func library(_ filter: LibraryFilter?) async throws -> [LibraryItem] {
+        try await mock.library(filter).filter { $0.compositionId.hasPrefix(Self.prefix) }
+    }
     public func setOffline(itemId: String, offline: Bool) async throws -> LibraryItem { try await mock.setOffline(itemId: itemId, offline: offline) }
     public func removeFromLibrary(itemId: String) async throws { try await mock.removeFromLibrary(itemId: itemId) }
     public func saveMemory(sessionId: String, title: String?) async throws -> LibraryItem {

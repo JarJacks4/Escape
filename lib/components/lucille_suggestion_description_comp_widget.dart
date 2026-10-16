@@ -180,11 +180,7 @@ class _LucilleSuggestionDescriptionCompWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 9.0, 0.0, 0.0),
                                         child: Text(
-                                          getJsonField(
-                                            carDetailsGetExerciseDetailResponse
-                                                .jsonBody,
-                                            r'''$.title''',
-                                          ).toString(),
+                                          'Why this session?',
                                           style: FlutterFlowTheme.of(context)
                                               .headlineSmall
                                               .override(
@@ -248,7 +244,7 @@ class _LucilleSuggestionDescriptionCompWidgetState
                                           child: Text(
                                             valueOrDefault<String>(
                                               widget.exerciseDescription,
-                                              'Description',
+                                              'Lucille picked this session based on your latest mood scan and what has helped you before.',
                                             ),
                                             overflow: TextOverflow.fade,
                                           ),

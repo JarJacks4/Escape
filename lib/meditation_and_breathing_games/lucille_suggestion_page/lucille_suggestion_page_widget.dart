@@ -219,7 +219,7 @@ class _LucilleSuggestionPageWidgetState
                                           child: Padding(
                                             padding: EdgeInsets.all(15.0),
                                             child: Text(
-                                              'Directions: ${widget.exerciseDescription} Tap the orange button at the bottom when done!',
+                                              'Directions: ${widget.exerciseDescription ?? ''} Tap the Finish button at the bottom when done!',
                                               textAlign: TextAlign.center,
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -608,7 +608,7 @@ class _LucilleSuggestionPageWidgetState
                                         .titleSmall
                                         .override(
                                           fontFamily: 'WorkSans',
-                                          color: Colors.white,
+                                          color: FlutterFlowTheme.of(context).alternate,
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,

@@ -15,7 +15,7 @@ Future<void> initializeThatAudioPlayerForPlaylists(
   final audioState = ThatAudioPlayerState();
 
   if (playlistUrls.isNotEmpty) {
-    audioState.initializeAudio(playlist: playlistUrls, initialIndex: index);
+    await audioState.initializeAudio(playlist: playlistUrls, initialIndex: index);
   } else {
     print(
         "That Audio Player : audio urls seems to be empty. Please add atleast 1 audio to play something");
