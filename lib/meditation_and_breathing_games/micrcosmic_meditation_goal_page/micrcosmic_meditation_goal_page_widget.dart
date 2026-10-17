@@ -169,16 +169,17 @@ Meditation */
                                           .bodyMedium
                                           .override(
                                             font: GoogleFonts.inter(
-                                              fontWeight: FontWeight.w300,
+                                              fontWeight: FontWeight.w400,
                                               fontStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .fontStyle,
                                             ),
-                                            color: FlutterFlowTheme.of(context).alternate,
-                                            fontSize: 14.0,
+                                            // Light text so it reads on the dark starfield.
+                                            color: Color(0xF2FFFFFF),
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w300,
+                                            fontWeight: FontWeight.w400,
                                             fontStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
@@ -201,7 +202,7 @@ Meditation */
                                 buttonSize: 40.0,
                                 icon: Icon(
                                   Icons.arrow_back,
-                                  color: FlutterFlowTheme.of(context).alternate,
+                                  color: Color(0xF2FFFFFF),
                                   size: 24.0,
                                 ),
                                 onPressed: () async {

@@ -1297,7 +1297,7 @@ class GetExercisesCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'Get Exercises',
-      apiUrl: '${baseUrl}/therapy/exercises',
+      apiUrl: '${baseUrl}therapy/exercises',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
@@ -1436,7 +1436,9 @@ class RecommendedExercisesCall {
       headers: {
         'Content-Type': 'application/json',
       },
-      params: {},
+      params: {
+        if (limit != null) 'limit': limit,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

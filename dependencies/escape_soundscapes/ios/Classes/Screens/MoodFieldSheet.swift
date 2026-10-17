@@ -31,14 +31,16 @@ struct MoodFieldSheet: View {
     var body: some View {
         @Bindable var store = store
         BottomSheet(title: "Mood Field", onClose: cancel) {
-            VStack(alignment: .leading, spacing: 20) {
+            // Compact enough to fit on one screen so Cancel is always visible (pad 240 pt instead of 300,
+            // tighter spacing, extra room above the home indicator).
+            VStack(alignment: .leading, spacing: 14) {
                 Text(copy?.helper ?? "Drag to reshape the energy and feel of your soundscape.")
                     .font(EscFont.ui(14))
                     .foregroundStyle(Esc.haze)
                     .lineSpacing(4.5)
                     .fixedSize(horizontal: false, vertical: true)
 
-                MoodFieldPad(value: $store.moodField, dots: dots)
+                MoodFieldPad(value: $store.moodField, dots: dots, size: 240)
                     .frame(maxWidth: .infinity)
 
                 readout
@@ -54,7 +56,7 @@ struct MoodFieldSheet: View {
                     .frame(maxWidth: .infinity)
             }
             .padding(.horizontal, 24)
-            .padding(.bottom, 24)
+            .padding(.bottom, 32)
         }
         .onAppear {
             if original == nil { original = store.moodField }

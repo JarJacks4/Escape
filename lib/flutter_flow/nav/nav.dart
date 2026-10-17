@@ -412,12 +412,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
           FFRoute(
             name: NewJournalPickerWidget.routeName,
             path: NewJournalPickerWidget.routePath,
-            builder: (context, params) => NewJournalPickerWidget(),
+            // Old journal flow: every entry point now opens the new journal.
+            builder: (context, params) => JournalHomeV2Widget(),
           ),
           FFRoute(
             name: ActiveVoiceJournalingWidget.routeName,
             path: ActiveVoiceJournalingWidget.routePath,
-            builder: (context, params) => ActiveVoiceJournalingWidget(),
+            // Old journal flow: every entry point now opens the new journal.
+            builder: (context, params) => JournalHomeV2Widget(),
           ),
           FFRoute(
             name: VoiceJournalResultCopyWidget.routeName,
@@ -444,17 +446,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
           FFRoute(
             name: TextJournalVersion5Widget.routeName,
             path: TextJournalVersion5Widget.routePath,
-            builder: (context, params) => TextJournalVersion5Widget(
-              transcribedText: params.getParam(
-                'transcribedText',
-                ParamType.String,
-              ),
-            ),
+            // Old journal flow: every entry point now opens the new journal.
+            builder: (context, params) => JournalHomeV2Widget(),
           ),
           FFRoute(
             name: VoiceTextJournalingCopyWidget.routeName,
             path: VoiceTextJournalingCopyWidget.routePath,
-            builder: (context, params) => VoiceTextJournalingCopyWidget(),
+            // Old journal flow: every entry point now opens the new journal.
+            builder: (context, params) => JournalHomeV2Widget(),
           ),
           FFRoute(
             name: HealthJournalCopyWidget.routeName,
@@ -479,7 +478,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
           FFRoute(
             name: VoiceTextJournalingWidget.routeName,
             path: VoiceTextJournalingWidget.routePath,
-            builder: (context, params) => VoiceTextJournalingWidget(),
+            // Old journal flow: every entry point now opens the new journal.
+            builder: (context, params) => JournalHomeV2Widget(),
           ),
           FFRoute(
             name: JournalHistory2Widget.routeName,
@@ -669,7 +669,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
           FFRoute(
             name: JournalPageVersion5Widget.routeName,
             path: JournalPageVersion5Widget.routePath,
-            builder: (context, params) => JournalPageVersion5Widget(),
+            // Old journal flow: every entry point now opens the new journal.
+            builder: (context, params) => JournalHomeV2Widget(),
           ),
           FFRoute(
             name: FocusModesPageWidget.routeName,

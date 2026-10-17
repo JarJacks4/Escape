@@ -5,6 +5,7 @@ import '/soundscapes/suggested_soundscape.dart';
 import '/components/lucille_suggestion_description_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math' as math;
 import 'dart:ui';
 import "package:that_slideable_list_item_mrpo3s/backend/schema/enums/enums.dart"
     as that_slideable_list_item_mrpo3s_enums;
@@ -60,6 +61,8 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => LucilleSuggestionsModel());
+    // Fetch fresh picks every time the page opens (the cached query kept showing the same three).
+    FFAppState().clearLucilleSuggestedExercisesCache();
     // First-visit walkthrough for this page (shows once per user).
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) actions.showPageWalkthrough(context, 'lucille_suggestions');
@@ -852,13 +855,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                     ApiCallResponse>(
                                                   future: FFAppState()
                                                       .lucilleSuggestedExercises(
-                                                    requestFn: () =>
-                                                        LucilleTherapyExercisesGroup
-                                                            .recommendedExercisesCall
-                                                            .call(
-                                                      limit: 3,
-                                                      userID: currentUserUid,
-                                                    ),
+                                                    requestFn: () => _freshPicks(currentUserUid),
                                                   ),
                                                   builder: (context, snapshot) {
                                                     // Customize what your widget looks like when it's loading.
@@ -894,11 +891,11 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                         .sizeOf(
                                                                             context)
                                                                     .height *
-                                                                0.27,
+                                                                0.32,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: Color(
-                                                                  0x7939519F),
+                                                                  0xD92A3576),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
@@ -944,14 +941,14 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               6.0),
                                                                           child:
                                                                               Text(
-                                                                            valueOrDefault<String>(
+                                                                            _prettyModality(valueOrDefault<String>(
                                                                               LucilleTherapyExercisesGroup.recommendedExercisesCall
                                                                                   .modality(
                                                                                     columnRecommendedExercisesResponse.jsonBody,
                                                                                   )
                                                                                   ?.firstOrNull,
                                                                               'Mind',
-                                                                            ),
+                                                                            )),
                                                                             style: FlutterFlowTheme.of(context).labelLarge.override(
                                                                                   font: GoogleFonts.inter(
                                                                                     fontWeight: FontWeight.w500,
@@ -1074,15 +1071,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 16.0,
                                                                           ),
                                                                           Text(
-                                                                            valueOrDefault<String>(
-                                                                              LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                  .duration(
-                                                                                    columnRecommendedExercisesResponse.jsonBody,
-                                                                                  )
-                                                                                  ?.firstOrNull
-                                                                                  ?.toString(),
-                                                                              'None',
-                                                                            ),
+                                                                            _durationLabel(LucilleTherapyExercisesGroup.recommendedExercisesCall.duration(columnRecommendedExercisesResponse.jsonBody)?.firstOrNull),
                                                                             style: FlutterFlowTheme.of(context).labelLarge.override(
                                                                                   font: GoogleFonts.inter(
                                                                                     fontWeight: FontWeight.normal,
@@ -1966,14 +1955,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                         ApiCallResponse>(
                                                       future: _model
                                                           .suggestionCache(
-                                                        requestFn: () =>
-                                                            LucilleTherapyExercisesGroup
-                                                                .recommendedExercisesCall
-                                                                .call(
-                                                          limit: 3,
-                                                          userID:
-                                                              currentUserUid,
-                                                        ),
+                                                        requestFn: () => _freshPicks(currentUserUid),
                                                       ),
                                                       builder:
                                                           (context, snapshot) {
@@ -2011,11 +1993,11 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                 height: MediaQuery.sizeOf(
                                                                             context)
                                                                         .height *
-                                                                    0.27,
+                                                                    0.32,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Color(
-                                                                      0x59D0E3F7),
+                                                                      0xD92A3576),
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
@@ -2056,12 +2038,12 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               child: Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(10.0, 6.0, 10.0, 6.0),
                                                                                 child: Text(
-                                                                                  valueOrDefault<String>(
-                                                                                    LucilleTherapyExercisesGroup.recommendedExercisesCall.detectedIntent(
+                                                                                  _prettyModality(valueOrDefault<String>(
+                                                                                    LucilleTherapyExercisesGroup.recommendedExercisesCall.modality(
                                                                                       columnRecommendedExercisesResponse.jsonBody,
-                                                                                    ),
+                                                                                    )?.elementAtOrNull(1),
                                                                                     'Mind',
-                                                                                  ),
+                                                                                  )),
                                                                                   style: FlutterFlowTheme.of(context).labelLarge.override(
                                                                                         font: GoogleFonts.inter(
                                                                                           fontWeight: FontWeight.w500,
@@ -2164,14 +2146,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               ),
                                                                               Flexible(
                                                                                 child: Text(
-                                                                                  valueOrDefault<String>(
-                                                                                    LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                        .reason(
-                                                                                          columnRecommendedExercisesResponse.jsonBody,
-                                                                                        )
-                                                                                        ?.elementAtOrNull(1),
-                                                                                    '',
-                                                                                  ),
+                                                                                  _durationLabel(LucilleTherapyExercisesGroup.recommendedExercisesCall.duration(columnRecommendedExercisesResponse.jsonBody)?.elementAtOrNull(1)),
                                                                                   maxLines: 1,
                                                                                   overflow: TextOverflow.ellipsis,
                                                                                   style: FlutterFlowTheme.of(context).labelLarge.override(
@@ -3033,14 +3008,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                         ApiCallResponse>(
                                                       future: _model
                                                           .suggestionCache(
-                                                        requestFn: () =>
-                                                            LucilleTherapyExercisesGroup
-                                                                .recommendedExercisesCall
-                                                                .call(
-                                                          limit: 3,
-                                                          userID:
-                                                              currentUserUid,
-                                                        ),
+                                                        requestFn: () => _freshPicks(currentUserUid),
                                                       ),
                                                       builder:
                                                           (context, snapshot) {
@@ -3078,11 +3046,11 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                 height: MediaQuery.sizeOf(
                                                                             context)
                                                                         .height *
-                                                                    0.27,
+                                                                    0.32,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Color(
-                                                                      0x7939519F),
+                                                                      0xD92A3576),
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
@@ -3123,12 +3091,12 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               child: Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(10.0, 6.0, 10.0, 6.0),
                                                                                 child: Text(
-                                                                                  valueOrDefault<String>(
-                                                                                    LucilleTherapyExercisesGroup.recommendedExercisesCall.detectedIntent(
+                                                                                  _prettyModality(valueOrDefault<String>(
+                                                                                    LucilleTherapyExercisesGroup.recommendedExercisesCall.modality(
                                                                                       columnRecommendedExercisesResponse.jsonBody,
-                                                                                    ),
+                                                                                    )?.elementAtOrNull(2),
                                                                                     'Mind',
-                                                                                  ),
+                                                                                  )),
                                                                                   style: FlutterFlowTheme.of(context).labelLarge.override(
                                                                                         font: GoogleFonts.inter(
                                                                                           fontWeight: FontWeight.w500,
@@ -3234,14 +3202,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               ),
                                                                               Flexible(
                                                                                 child: Text(
-                                                                                  valueOrDefault<String>(
-                                                                                    LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                        .reason(
-                                                                                          columnRecommendedExercisesResponse.jsonBody,
-                                                                                        )
-                                                                                        ?.elementAtOrNull(2),
-                                                                                    '',
-                                                                                  ),
+                                                                                  _durationLabel(LucilleTherapyExercisesGroup.recommendedExercisesCall.duration(columnRecommendedExercisesResponse.jsonBody)?.elementAtOrNull(2)),
                                                                                   maxLines: 1,
                                                                                   overflow: TextOverflow.ellipsis,
                                                                                   style: FlutterFlowTheme.of(context).labelLarge.override(
@@ -3732,4 +3693,73 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
       ),
     );
   }
+}
+
+/// Exercise type for the chip: "act" -> "ACT", "casual_chat" -> "Casual Chat".
+String _prettyModality(String raw) {
+  final s = raw.trim();
+  if (s.isEmpty) return 'Mind';
+  const acronyms = {'act', 'cbt', 'dbt', 'emdr', 'mbsr', 'ifs'};
+  if (acronyms.contains(s.toLowerCase())) return s.toUpperCase();
+  return s
+      .split(RegExp(r'[_\s-]+'))
+      .where((w) => w.isNotEmpty)
+      .map((w) => w[0].toUpperCase() + w.substring(1).toLowerCase())
+      .join(' ');
+}
+
+/// Duration pill text: 15 -> "15 min".
+String _durationLabel(int? minutes) =>
+    (minutes == null || minutes <= 0) ? '5 min' : '$minutes min';
+
+/// Lucille's recommender returns the same top picks every time, so the three cards never
+/// changed. Mix it up: two of her recommendations (shuffled from up to 10) plus one other
+/// exercise from the catalog, in the same JSON shape the cards already read.
+Future<ApiCallResponse> _freshPicks(String uid) async {
+  final rec = await LucilleTherapyExercisesGroup.recommendedExercisesCall
+      .call(limit: 10, userID: uid);
+  if (!rec.succeeded || rec.jsonBody is! Map) return rec;
+  final body = Map<String, dynamic>.from(rec.jsonBody as Map);
+  final recs = ((body['recommendations'] as List?) ?? const [])
+      .whereType<Map>()
+      .map((e) => Map<String, dynamic>.from(e))
+      .toList();
+  final rnd = math.Random();
+  recs.shuffle(rnd);
+
+  final extras = <Map<String, dynamic>>[];
+  try {
+    final cat = await LucilleTherapyExercisesGroup.getExercisesCall.call();
+    final list = (cat.jsonBody is Map ? cat.jsonBody['exercises'] : cat.jsonBody);
+    final taken = recs.map((e) => '${e['exercise_id'] ?? e['id']}').toSet();
+    for (final raw in (list is List ? list : const []).whereType<Map>()) {
+      final e = Map<String, dynamic>.from(raw);
+      final id = '${e['exercise_id'] ?? e['id'] ?? ''}';
+      final title = '${e['title'] ?? e['name'] ?? ''}';
+      if (id.isEmpty || title.isEmpty || taken.contains(id)) continue;
+      extras.add({
+        ...e,
+        'exercise_id': id,
+        'title': title,
+        'description': e['description'] ?? '',
+        'duration_minutes': e['duration_minutes'] ?? e['duration'] ?? 5,
+        'modality': e['modality'] ?? e['category'] ?? 'Mind',
+        'reason': e['reason'] ??
+            'Something new to try. Lucille mixes in a fresh practice so your sessions stay varied.',
+      });
+    }
+    extras.shuffle(rnd);
+  } catch (_) {}
+
+  final picks = <Map<String, dynamic>>[
+    ...recs.take(2),
+    ...extras.take(1),
+  ];
+  for (final e in [...recs.skip(2), ...extras.skip(1)]) {
+    if (picks.length >= 3) break;
+    picks.add(e);
+  }
+  body['recommendations'] = picks;
+  body['count'] = picks.length;
+  return ApiCallResponse(body, rec.headers, rec.statusCode);
 }

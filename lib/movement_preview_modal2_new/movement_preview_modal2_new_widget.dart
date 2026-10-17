@@ -463,58 +463,74 @@ class _MovementPreviewModal2NewWidgetState
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsets.all(24.0),
-                                      child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 12.0, vertical: 20.0),
+                                      // Three equal columns with breathing room around the dividers,
+                                      // so long values ("Yang Style Tai Chi") wrap instead of colliding.
+                                      child: IntrinsicHeight(
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
-                                            wrapWithModel(
-                                              model: _model.movementStatModel1,
-                                              updateCallback: () =>
-                                                  safeSetState(() {}),
-                                              child: MovementStatWidget(
-                                                label: 'DURATION',
-                                                value: _move != null ? '${_move!.durationSeconds}s' : '--',
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 8.0),
+                                                child: wrapWithModel(
+                                                  model: _model.movementStatModel1,
+                                                  updateCallback: () =>
+                                                      safeSetState(() {}),
+                                                  child: MovementStatWidget(
+                                                    label: 'DURATION',
+                                                    value: _move != null ? '${_move!.durationSeconds}s' : '--',
+                                                  ),
+                                                ),
                                               ),
                                             ),
                                             Container(
                                               width: 1.0,
-                                              height: 24.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                              ),
+                                              margin: EdgeInsets.symmetric(
+                                                  vertical: 4.0),
+                                              color: FlutterFlowTheme.of(context)
+                                                  .alternate,
                                             ),
-                                            wrapWithModel(
-                                              model: _model.movementStatModel2,
-                                              updateCallback: () =>
-                                                  safeSetState(() {}),
-                                              child: MovementStatWidget(
-                                                label: 'REPS',
-                                                value: _move != null && _move!.repCount > 0 ? '${_move!.repCount} reps' : '--',
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 8.0),
+                                                child: wrapWithModel(
+                                                  model: _model.movementStatModel2,
+                                                  updateCallback: () =>
+                                                      safeSetState(() {}),
+                                                  child: MovementStatWidget(
+                                                    label: 'REPS',
+                                                    value: _move != null && _move!.repCount > 0 ? '${_move!.repCount}' : '--',
+                                                  ),
+                                                ),
                                               ),
                                             ),
                                             Container(
                                               width: 1.0,
-                                              height: 24.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                              ),
+                                              margin: EdgeInsets.symmetric(
+                                                  vertical: 4.0),
+                                              color: FlutterFlowTheme.of(context)
+                                                  .alternate,
                                             ),
-                                            wrapWithModel(
-                                              model: _model.movementStatModel3,
-                                              updateCallback: () =>
-                                                  safeSetState(() {}),
-                                              child: MovementStatWidget(
-                                                label: 'TYPE',
-                                                value: (_move?.moveType ?? '').isNotEmpty ? _move!.moveType : '--',
+                                            Expanded(
+                                              flex: 2,
+                                              child: Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 8.0),
+                                                child: wrapWithModel(
+                                                  model: _model.movementStatModel3,
+                                                  updateCallback: () =>
+                                                      safeSetState(() {}),
+                                                  child: MovementStatWidget(
+                                                    label: 'TYPE',
+                                                    value: (_move?.moveType ?? '').isNotEmpty ? _move!.moveType : '--',
+                                                  ),
+                                                ),
                                               ),
                                             ),
                                           ],

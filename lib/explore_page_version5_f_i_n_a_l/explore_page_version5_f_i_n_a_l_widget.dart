@@ -1374,20 +1374,21 @@ class _ExplorePageVersion5FINALWidgetState
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
+                                // Menu button: same orange glow as the help (?) button on the right.
                                 Container(
                                   width: 46.0,
                                   height: 46.0,
                                   decoration: BoxDecoration(
+                                    color: Color(0xFF1B1F4B),
                                     boxShadow: [
                                       BoxShadow(
-                                        blurRadius: 10.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                        blurRadius: 8.0,
+                                        color: Color(0xB2F0831A),
                                         offset: Offset(
                                           0.0,
-                                          0.0,
+                                          2.0,
                                         ),
-                                        spreadRadius: 10.0,
+                                        spreadRadius: 3.0,
                                       )
                                     ],
                                     shape: BoxShape.circle,
@@ -1445,8 +1446,7 @@ class _ExplorePageVersion5FINALWidgetState
                                     },
                                     child: Icon(
                                       Icons.menu_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      color: Colors.white,
                                       size: 24.0,
                                     ),
                                   ).animateOnPageLoad(animationsMap[

@@ -102,169 +102,70 @@ class _LucilleSuggestionDescriptionCompWidgetState
     context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
     context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
 
+    // Self-sized card: the reason wraps inside it (it used to run off the right edge in a
+    // horizontal scroll row), on a solid background so the card behind doesn't show through.
     return Align(
       alignment: AlignmentDirectional(0.0, 1.0),
-      child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 200.0),
-        child: Container(
-          width: double.infinity,
-          height: 135.2,
-          decoration: BoxDecoration(),
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
-            child: FutureBuilder<ApiCallResponse>(
-              future: LucilleTherapyExercisesGroup.getExerciseDetailCall.call(
-                exerciseID: FFAppState().exerciseID,
+      child: SafeArea(
+        top: false,
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
+          child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Color(0xF21B1F4B),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 30.0,
+                  color: Color(0x99F0831A),
+                  offset: Offset(0.0, 0.0),
+                )
+              ],
+              borderRadius: BorderRadius.circular(25.0),
+              border: Border.all(
+                color: Color(0x66F0831A),
               ),
-              builder: (context, snapshot) {
-                // Customize what your widget looks like when it's loading.
-                if (!snapshot.hasData) {
-                  return Center(
-                    child: SizedBox(
-                      width: 100.0,
-                      height: 100.0,
-                      child: SpinKitWave(
-                        color: FlutterFlowTheme.of(context).accent1,
-                        size: 100.0,
-                      ),
-                    ),
-                  );
-                }
-                final carDetailsGetExerciseDetailResponse = snapshot.data!;
-
-                return Container(
-                  width: double.infinity,
-                  height: 81.9,
-                  decoration: BoxDecoration(
-                    color: Color(0x05FFFFFF),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 40.0,
-                        color: Color(0xF4F0831A),
-                        offset: Offset(
-                          0.0,
-                          0.0,
-                        ),
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(25.0),
-                    border: Border.all(
-                      color: Color(0x31F1F4F8),
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 4.0, 8.0, 4.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.0, -1.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 9.0, 0.0, 0.0),
-                                        child: Text(
-                                          'Why this session?',
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineSmall
-                                              .override(
-                                                fontFamily: 'WorkSans',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      width: 200.0,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 0.0, 25.0),
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            controller: _model.rowController,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 4.0, 8.0, 4.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 0.0, 0.0, 0.0),
-                                        child: AnimatedDefaultTextStyle(
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineSmall
-                                              .override(
-                                                fontFamily: 'WorkSans',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w300,
-                                              ),
-                                          duration: Duration(milliseconds: 75),
-                                          curve: Curves.easeIn,
-                                          child: Text(
-                                            valueOrDefault<String>(
-                                              widget.exerciseDescription,
-                                              'Lucille picked this session based on your latest mood scan and what has helped you before.',
-                                            ),
-                                            overflow: TextOverflow.fade,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ).animateOnPageLoad(
-                    animationsMap['containerOnPageLoadAnimation']!);
-              },
             ),
-          ),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(22.0, 20.0, 22.0, 22.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Why this session?',
+                    style: FlutterFlowTheme.of(context).headlineSmall.override(
+                          fontFamily: 'WorkSans',
+                          color: Colors.white,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                  SizedBox(height: 10.0),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxHeight: MediaQuery.sizeOf(context).height * 0.25,
+                    ),
+                    child: SingleChildScrollView(
+                      child: Text(
+                        valueOrDefault<String>(
+                          widget.exerciseDescription,
+                          'Lucille picked this session based on your latest mood scan and what has helped you before.',
+                        ),
+                        softWrap: true,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'WorkSans',
+                              color: Color(0xFFEDF1F7),
+                              fontSize: 15.0,
+                              letterSpacing: 0.0,
+                            ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
         ),
       ),
     );

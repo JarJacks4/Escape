@@ -1207,8 +1207,8 @@ class _EnergyCentersGuidanceWidgetState
                               alignment: AlignmentDirectional(0.0, -1.0),
                               child: Container(
                                 width: 300.0,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.846,
+                                // Grows with its content so the affirmation stays inside the card.
+                                constraints: BoxConstraints(minHeight: MediaQuery.sizeOf(context).height * 0.846),
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
                                     colors: [
@@ -1637,7 +1637,7 @@ class _EnergyCentersGuidanceWidgetState
                                               children: [
                                                 Flexible(
                                                   child: Container(
-                                                    height: 38.0,
+                                                    constraints: BoxConstraints(minHeight: 38.0),
                                                     decoration: BoxDecoration(
                                                       color: Color(0xA4FFFFFF),
                                                       borderRadius:
@@ -1703,7 +1703,7 @@ class _EnergyCentersGuidanceWidgetState
                                                 Flexible(
                                                   flex: 1,
                                                   child: Container(
-                                                    height: 38.0,
+                                                    constraints: BoxConstraints(minHeight: 38.0),
                                                     decoration: BoxDecoration(
                                                       color: Color(0xA4FFFFFF),
                                                       borderRadius:
@@ -1773,7 +1773,7 @@ class _EnergyCentersGuidanceWidgetState
                                               children: [
                                                 Flexible(
                                                   child: Container(
-                                                    height: 38.0,
+                                                    constraints: BoxConstraints(minHeight: 38.0),
                                                     decoration: BoxDecoration(
                                                       color: Color(0xA4FFFFFF),
                                                       borderRadius:
@@ -1839,7 +1839,7 @@ class _EnergyCentersGuidanceWidgetState
                                                 Flexible(
                                                   flex: 1,
                                                   child: Container(
-                                                    height: 38.0,
+                                                    constraints: BoxConstraints(minHeight: 38.0),
                                                     decoration: BoxDecoration(
                                                       color: Color(0xA4FFFFFF),
                                                       borderRadius:

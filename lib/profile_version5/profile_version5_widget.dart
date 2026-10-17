@@ -510,10 +510,9 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                     Duration(milliseconds: 195),
                                                 curve: Curves.easeIn,
                                                 child: Text(
-                                                  valueOrDefault<String>(
-                                                    currentUserDisplayName,
-                                                    'Jane Doe',
-                                                  ),
+                                                  currentUserDisplayName.trim().isEmpty
+                                                      ? 'Escape Member'
+                                                      : currentUserDisplayName,
                                                   overflow: TextOverflow.fade,
                                                 ),
                                               ),
@@ -672,17 +671,7 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                             curve:
                                                                 Curves.easeIn,
                                                             child: Text(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                                formatNumber(
-                                                                  FFAppState()
-                                                                      .pointsEarnedPercentage,
-                                                                  formatType:
-                                                                      FormatType
-                                                                          .percent,
-                                                                ),
-                                                                '0',
-                                                              ),
+                                                              '${((FFAppState().pointsEarned / 10000).clamp(0.0, 1.0) * 100).round()}%',
                                                             ),
                                                           ),
                                                           Icon(
@@ -715,12 +704,12 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                                 0.0, 0.0),
                                                         child:
                                                             LinearPercentIndicator(
-                                                        percent: valueOrDefault<
-                                                            double>(
-                                                          FFAppState()
-                                                              .pointsEarnedPercentage,
-                                                          0.0,
-                                                        ).clamp(0.0, 1.0),
+                                                        // Progress toward the 10,000-coin goal.
+                                                        percent: (FFAppState()
+                                                                    .pointsEarned /
+                                                                10000)
+                                                            .clamp(0.0, 1.0)
+                                                            .toDouble(),
                                                           width: constraints
                                                               .maxWidth,
                                                         lineHeight: 30.0,
@@ -734,13 +723,7 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                         backgroundColor:
                                                             Color(0xB4D0E3F7),
                                                         center: Text(
-                                                          formatNumber(
-                                                            FFAppState()
-                                                                .pointsEarnedPercentage,
-                                                            formatType:
-                                                                FormatType
-                                                                    .percent,
-                                                          ),
+                                                          '${FFAppState().pointsEarned} / 10000',
                                                           textAlign:
                                                               TextAlign.center,
                                                           style: FlutterFlowTheme

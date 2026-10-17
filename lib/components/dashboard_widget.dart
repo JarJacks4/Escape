@@ -50,6 +50,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
     with TickerProviderStateMixin {
   late DashboardModel _model;
 
+  /// Progress toward the 10,000-coin Escape goal (0–1). Drives the progress circle and
+  /// Journey Progress, so both stay accurate instead of showing 10,000%+.
+  static const int _coinGoal = 10000;
+  double get _coinProgress =>
+      (FFAppState().pointsEarned / _coinGoal).clamp(0.0, 1.0).toDouble();
+
   final animationsMap = <String, AnimationInfo>{};
 
   @override
@@ -224,7 +230,9 @@ class _DashboardWidgetState extends State<DashboardWidget>
                           ),
                           AuthUserStreamWidget(
                             builder: (context) => Text(
-                              'Hello, ${currentUserDisplayName}!',
+                              currentUserDisplayName.trim().isEmpty
+                                  ? 'Welcome back!'
+                                  : 'Hello, ${currentUserDisplayName}!',
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: FlutterFlowTheme.of(context)
@@ -598,10 +606,9 @@ class _DashboardWidgetState extends State<DashboardWidget>
                             duration: Duration(milliseconds: 195),
                             curve: Curves.easeIn,
                             child: Text(
-                              valueOrDefault<String>(
-                                currentUserDisplayName,
-                                'Jane Doe',
-                              ),
+                              currentUserDisplayName.trim().isEmpty
+                                  ? 'Escape Member'
+                                  : currentUserDisplayName,
                               overflow: TextOverflow.fade,
                             ),
                           ),
@@ -777,9 +784,7 @@ Progress */
                                         isCompactLayout ? 8.0 : 15.0,
                                         0.0),
                                     child: CircularPercentIndicator(
-                                      percent: FFAppState()
-                                          .pointsEarnedPercentage
-                                          .clamp(0.0, 1.0),
+                                      percent: _coinProgress,
                                       radius: isCompactLayout ? 52.0 : 60.0,
                                       lineWidth: 8.0,
                                       animation: true,
@@ -1062,7 +1067,8 @@ Progress */
                         updateCallback: () => safeSetState(() {}),
                         updateOnChange: true,
                         child: MetricCardWidget(
-                          isPositive: FFAppState().pointsEarnedPercentage,
+                          // No number here: the old value was a leftover percentage (603.4).
+                          isPositive: null,
                           icon: Icon(
                             FFIcons.kemojiSmileyHappyFace,
                             color: FlutterFlowTheme.of(context).primary,
@@ -1082,9 +1088,7 @@ Progress */
                       updateCallback: () => safeSetState(() {}),
                       updateOnChange: true,
                       child: MetricCardWidget(
-                        isPositive: utility_functions_library_8g4bud_functions
-                            .calculatePercentage(FFAppState().energyScore,
-                                FFAppState().pointsEarned),
+                        isPositive: null,
                         icon: Icon(
                           Icons.spa,
                           color: FlutterFlowTheme.of(context).primary,
@@ -1093,7 +1097,7 @@ Progress */
                         text: 'Energy Level',
                         text2: valueOrDefault<String>(
                           FFAppState().energyLevel,
-                          'Energy Level',
+                          '—',
                         ),
                       ),
                     ),
@@ -1327,16 +1331,7 @@ Progress */
                                                           milliseconds: 1650),
                                                       curve: Curves.easeIn,
                                                       child: Text(
-                                                        valueOrDefault<String>(
-                                                          formatNumber(
-                                                            FFAppState()
-                                                                .pointsEarnedPercentage,
-                                                            formatType:
-                                                                FormatType
-                                                                    .percent,
-                                                          ),
-                                                          '0',
-                                                        ),
+                                                        '${(_coinProgress * 100).round()}%',
                                                         overflow:
                                                             TextOverflow.fade,
                                                       ),
@@ -1365,11 +1360,7 @@ Progress */
                                               child: LayoutBuilder(
                                                 builder: (context, constraints) =>
                                                     LinearPercentIndicator(
-                                                  percent: (valueOrDefault(
-                                                    FFAppState()
-                                                        .pointsEarnedPercentage,
-                                                    0.0,
-                                                  )).clamp(0.0, 1.0),
+                                                  percent: _coinProgress,
                                                   width: constraints.maxWidth,
                                                   lineHeight: 30.0,
                                                   animation: true,
@@ -1380,48 +1371,6 @@ Progress */
                                                           .accent4,
                                                   backgroundColor:
                                                       Color(0xB4D0E3F7),
-                                                  center: Text(
-                                                    formatNumber(
-                                                      FFAppState()
-                                                          .pointsEarnedPercentage,
-                                                      formatType:
-                                                          FormatType.percent,
-                                                    ),
-                                                    textAlign: TextAlign.center,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .headlineSmall
-                                                        .override(
-                                                          font:
-                                                              GoogleFonts.inter(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .headlineSmall
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .headlineSmall
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .tertiary,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .headlineSmall
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .headlineSmall
-                                                                  .fontStyle,
-                                                        ),
-                                                    overflow: TextOverflow.fade,
-                                                  ),
                                                   barRadius:
                                                       Radius.circular(60.0),
                                                   padding: EdgeInsets.zero,

@@ -54,6 +54,7 @@ class _MovementStatWidgetState extends State<MovementStatWidget> {
             widget.value,
             '45s',
           ),
+          textAlign: TextAlign.center,
           style: FlutterFlowTheme.of(context).titleMedium.override(
                 font: GoogleFonts.inter(
                   fontWeight:
@@ -72,6 +73,8 @@ class _MovementStatWidgetState extends State<MovementStatWidget> {
             widget.label,
             'DURATION',
           ),
+          textAlign: TextAlign.center,
+          maxLines: 1,
           style: FlutterFlowTheme.of(context).labelSmall.override(
                 font: GoogleFonts.inter(
                   fontWeight:

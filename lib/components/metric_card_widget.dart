@@ -69,11 +69,11 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   widget.icon!,
+                  // Optional number in the corner; hidden when the caller passes null.
                   Text(
-                    valueOrDefault<String>(
-                      widget.isPositive?.toStringAsFixed(1),
-                      '+5%',
-                    ),
+                    widget.isPositive == null
+                        ? ''
+                        : widget.isPositive!.toStringAsFixed(1),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           font: GoogleFonts.inter(
                             fontWeight: FlutterFlowTheme.of(context)
@@ -107,9 +107,12 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                     child: Text(
-                      FFLocalizations.of(context).getText(
-                        'gf7gpt0w' /* Current Mood */,
-                      ),
+                      // The card's own label ("Current Mood", "Energy Level", ...).
+                      widget.text != 'Good'
+                          ? widget.text
+                          : FFLocalizations.of(context).getText(
+                              'gf7gpt0w' /* Current Mood */,
+                            ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             font: GoogleFonts.cormorantSc(
                               fontWeight: FontWeight.bold,

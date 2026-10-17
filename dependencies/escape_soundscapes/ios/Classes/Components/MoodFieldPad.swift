@@ -46,18 +46,21 @@ public struct MoodFieldPad: View {
     let dots: [Dot]
     let onChange: (MoodField) -> Void
 
-    private let size: CGFloat = 300
+    private let size: CGFloat
     /// The CSS 1.5 px border: absolutely positioned children are placed from the padding box.
     private let inset: CGFloat = 1.5
 
-    public init(value: MoodField, dots: [Dot] = Dot.figma, onChange: @escaping (MoodField) -> Void) {
+    public init(value: MoodField, dots: [Dot] = Dot.figma, size: CGFloat = 300,
+                onChange: @escaping (MoodField) -> Void) {
         self.value = value
         self.dots = dots
+        self.size = size
         self.onChange = onChange
     }
 
-    public init(value: Binding<MoodField>, dots: [Dot] = Dot.figma) {
-        self.init(value: value.wrappedValue, dots: dots, onChange: { value.wrappedValue = $0 })
+    public init(value: Binding<MoodField>, dots: [Dot] = Dot.figma, size: CGFloat = 300) {
+        self.init(value: value.wrappedValue, dots: dots, size: size,
+                  onChange: { value.wrappedValue = $0 })
     }
 
     public var body: some View {
