@@ -51,9 +51,9 @@ static float moodNoise(float2 p) {
     float radius = 0.17 + breath + throb;
 
     // --- SHAPE: wobble grows with energy, edge softens with texture ---
-    float amp = 0.006 + 0.02 * d;
-    float wobble = amp * sin(3.0 * a + t * 0.8)
-                 + 0.006 * sin(5.0 * a - t * 1.1);
+    float amp = 0.004 + 0.018 * e + 0.012 * d;
+    float wobble = amp * sin(3.0 * a + t * (0.6 + 0.9 * e))
+                 + 0.5 * amp * sin(5.0 * a - t * (0.9 + 0.6 * e));
     float sharp = mix(22.0, 12.0, d);                 // matches the Soundscapes Escape orb
 
     float q = (r - radius - wobble) * sharp;
