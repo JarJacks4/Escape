@@ -28,8 +28,6 @@ Future<void> showPageWalkthrough(
   final prefKey = uid == null
       ? 'walkthrough_session_$pageKey'
       : 'walkthrough_seen_${uid}_$pageKey';
-  debugPrint(
-      '[Walkthrough] page=$pageKey uid=${uid ?? "unavailable"} prefKey=$prefKey force=$force');
 
   SharedPreferences? prefs;
   if (uid != null) {
