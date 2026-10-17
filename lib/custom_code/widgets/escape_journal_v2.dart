@@ -31,6 +31,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:url_launcher/url_launcher.dart';
+import '/auth/firebase_auth/auth_util.dart' show currentUserUid;
 
 /// Escape Journal V2 — the whole scan-first Journal as one widget, wired to
 /// the Lucille v1 API.
@@ -241,6 +242,46 @@ Future<Map<String, dynamic>> _api(
     }
   }
   return res;
+}
+
+/// Saves a journal entry to Lucille's long-term memory (POST /users/{uid}/memories) so she can
+/// refer back to it in chat. Only with the person's AI consent (ai_reflection or
+/// personalization), never while processing is restricted. Fire and forget: a failure never
+/// affects the journal itself.
+Future<void> _rememberJournalEntry({
+  required String mode,
+  required String text,
+  List<String> gratitude = const [],
+  String? moodWord,
+  String? energyCenter,
+}) async {
+  try {
+    final uid = currentUserUid;
+    if (uid.isEmpty) return;
+    final c = await lucilleV1('GET', '/v1/privacy/consents', null);
+    final data = c is Map ? c['data'] : null;
+    final flags = data is Map ? data['flags'] : null;
+    if (flags is! Map || data['restricted'] == true) return;
+    if (flags['ai_reflection'] != true && flags['personalization'] != true) return;
+
+    final body = mode == 'gratitude' ? gratitude.map((g) => '- $g').join('\n') : text;
+    if (body.trim().isEmpty) return;
+    final label = (_modeMeta[mode] ?? _modeMeta['free']!)['label'];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    final d = DateTime.now();
+    final details = [
+      '$label, ${months[d.month - 1]} ${d.day}',
+      if (moodWord != null && moodWord.isNotEmpty) 'feeling $moodWord',
+      if (energyCenter != null && energyCenter.isNotEmpty) '$energyCenter energy center',
+    ].join(', ');
+    final clipped = body.length > 1500 ? '${body.substring(0, 1500)}…' : body;
+    await lucilleV1('POST', '/users/$uid/memories', {
+      'content': 'Journal ($details): $clipped',
+      'memory_type': 'episodic',
+      'importance': 6,
+      'tags': ['journal', mode, if (energyCenter != null && energyCenter.isNotEmpty) energyCenter],
+    });
+  } catch (_) {}
 }
 
 Future<bool?> _askConsent(BuildContext context, String purpose) {
@@ -1269,6 +1310,14 @@ class _EditorScreenState extends State<_EditorScreen> {
     if (!mounted) return;
     setState(() => saving = false);
     if (r['ok'] == true) {
+      // Let Lucille remember it (in the background, with consent).
+      unawaited(_rememberJournalEntry(
+        mode: widget.mode,
+        text: text,
+        gratitude: grat,
+        moodWord: widget.seed?['word']?.toString(),
+        energyCenter: energyCenter,
+      ));
       final d = r['data'] as Map;
       Navigator.of(context).pushReplacement(_route(_ReflectionScreen(
           store: widget.store,
