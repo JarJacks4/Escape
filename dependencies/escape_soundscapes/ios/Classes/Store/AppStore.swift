@@ -40,6 +40,8 @@ public final class AppStore {
     public private(set) var savedCompositionIds: Set<String> = []
     public var libraryFilter: LibraryFilter = .saved
     public private(set) var playlist: Playlist?
+    /// Playlists for the picker (Lucille catalog collections).
+    public private(set) var playlistSummaries: [PlaylistSummary] = []
     public var playlistId = "evening-wind-down"
     public private(set) var circles: Circles?
     public private(set) var moodScan: MoodScan?
@@ -101,6 +103,7 @@ public final class AppStore {
     public var isSleepUI: Bool { currentMode == .sleep }
 
     public func isLocked(_ mode: ModeId) -> Bool {
+        guard SoundscapesFeatures.purchases else { return false }
         if let m = modes.first(where: { $0.id == mode }) { return m.locked ?? (m.premium && !isPremium) }
         return !mode.isFree && !isPremium
     }
@@ -258,7 +261,7 @@ public final class AppStore {
 
     /// Browse card tap: locked cards open PremiumSheet.
     public func play(card: BrowseCard) async {
-        if card.locked { setSheet(.premium); return }
+        if card.locked && SoundscapesFeatures.purchases { setSheet(.premium); return }
         await play(compositionId: card.compositionId, from: .mode)
     }
 
@@ -662,6 +665,7 @@ public final class AppStore {
     }
 
     public func openJourney(_ id: String) {
+        guard SoundscapesFeatures.journeys else { return }
         selectedJourneyId = id
         setSheet(.journeys)
     }
@@ -740,7 +744,12 @@ public final class AppStore {
 
     public func play(_ item: LibraryItem) async { await play(compositionId: item.compositionId, from: .library) }
 
+    public func loadPlaylists() async {
+        do { playlistSummaries = try await api.playlists() } catch { handle(error) }
+    }
+
     public func openPlaylist(_ id: String) async {
+        playlist = nil
         playlistId = id
         setScreen(.playlist)
         do { playlist = try await api.playlist(id) } catch { handle(error) }

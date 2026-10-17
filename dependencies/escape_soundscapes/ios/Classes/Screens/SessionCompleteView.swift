@@ -26,7 +26,7 @@ struct SessionCompleteView: View {
                     .padding(.bottom, 24)
                 actions
                     .padding(.bottom, 24)
-                if (store.home?.betaFeedbackEnabled ?? true) && !feedbackSent {
+                if SoundscapesFeatures.betaFeedback && (store.home?.betaFeedbackEnabled ?? true) && !feedbackSent {
                     BetaFeedbackCard(copy: store.content?.betaFeedback, onSend: { r, v, n in
                         Task { await store.sendBetaFeedback(calmRating: r, visual: v, note: n) }
                         withAnimation(.easeOut(duration: 0.2)) { feedbackSent = true }

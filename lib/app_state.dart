@@ -140,8 +140,8 @@ class FFAppState extends ChangeNotifier {
               _isFirstTimeUsingEnergyScan;
     });
     await _safeInitAsync(() async {
-      _gorqKey = await secureStorage.getString('ff_gorqKey') ?? _gorqKey;
-      _gorqKey = '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';
+      // A speech-to-text key used to be stored on devices; it no longer exists in the app.
+      await secureStorage.delete(key: 'ff_gorqKey');
     });
     await _safeInitAsync(() async {
       _NewReorderedIndex = await secureStorage.getInt('ff_NewReorderedIndex') ??
@@ -2103,17 +2103,6 @@ class FFAppState extends ChangeNotifier {
 
   void deleteIsFirstTimeUsingEnergyScan() {
     secureStorage.delete(key: 'ff_isFirstTimeUsingEnergyScan');
-  }
-
-  String _gorqKey = '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';
-  String get gorqKey => _gorqKey;
-  set gorqKey(String value) {
-    _gorqKey = value;
-    secureStorage.setString('ff_gorqKey', value);
-  }
-
-  void deleteGorqKey() {
-    secureStorage.delete(key: 'ff_gorqKey');
   }
 
   int _NewReorderedIndex = 0;

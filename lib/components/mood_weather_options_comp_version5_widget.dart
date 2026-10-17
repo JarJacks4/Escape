@@ -243,7 +243,7 @@ class _MoodWeatherOptionsCompVersion5WidgetState
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Icon(
-                        Icons.groups,
+                        Icons.storefront_rounded,
                         color: FlutterFlowTheme.of(context).primary,
                         size: 32.0,
                       ),

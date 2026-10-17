@@ -332,26 +332,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => SettingsWidget(),
           ),
           FFRoute(
-            name: BodyReorderWidget.routeName,
-            path: BodyReorderWidget.routePath,
-            builder: (context, params) => BodyReorderWidget(
-              tabIndex: params.getParam(
-                'tabIndex',
-                ParamType.int,
-              ),
-            ),
-          ),
-          FFRoute(
-            name: DepressionReorderWidget.routeName,
-            path: DepressionReorderWidget.routePath,
-            builder: (context, params) => DepressionReorderWidget(
-              tabIndex: params.getParam(
-                'tabIndex',
-                ParamType.int,
-              ),
-            ),
-          ),
-          FFRoute(
             name: MusicPlayerWidget.routeName,
             path: MusicPlayerWidget.routePath,
             builder: (context, params) => MusicPlayerWidget(
@@ -727,16 +707,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => QuestsPageWidget(),
           ),
           FFRoute(
-              name: ConnectionCommunityStartPageVersion5Widget.routeName,
-              path: ConnectionCommunityStartPageVersion5Widget.routePath,
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(
-                      initialPage: 'ConnectionCommunityStartPageVersion5')
-                  : NavBarPage(
-                      initialPage: 'ConnectionCommunityStartPageVersion5',
-                      page: ConnectionCommunityStartPageVersion5Widget(),
-                    )),
-          FFRoute(
             name: EnergyScanVersion5Widget.routeName,
             path: EnergyScanVersion5Widget.routePath,
             builder: (context, params) => EnergyScanVersion5Widget(),
@@ -903,16 +873,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             name: YoureAllSetPageVersion5Widget.routeName,
             path: YoureAllSetPageVersion5Widget.routePath,
             builder: (context, params) => YoureAllSetPageVersion5Widget(),
-          ),
-          FFRoute(
-            name: CommunityGuidelinesWidget.routeName,
-            path: CommunityGuidelinesWidget.routePath,
-            builder: (context, params) => CommunityGuidelinesWidget(),
-          ),
-          FFRoute(
-            name: CommunityGuidelinesCopyWidget.routeName,
-            path: CommunityGuidelinesCopyWidget.routePath,
-            builder: (context, params) => CommunityGuidelinesCopyWidget(),
           ),
           FFRoute(
             name: EnergyCentersGuidanceWidget.routeName,
@@ -1342,7 +1302,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
           FFRoute(
             name: MarketplaceVersion5Widget.routeName,
             path: MarketplaceVersion5Widget.routePath,
-            builder: (context, params) => MarketplaceVersion5Widget(),
+            builder: (context, params) => NavBarPage(
+              initialPage: 'MarketplaceVersion5',
+              page: MarketplaceVersion5Widget(),
+            ),
           ),
           FFRoute(
               name: LucilleHomeWidget.routeName,

@@ -850,7 +850,7 @@ class _ChooseRealmsWidgetState extends State<ChooseRealmsWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Icon(
-                            Icons.group,
+                            Icons.storefront_rounded,
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                             size: 24.0,

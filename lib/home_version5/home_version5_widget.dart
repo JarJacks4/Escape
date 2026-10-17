@@ -10,6 +10,7 @@ import 'dart:ui';
 import '/app_events/index.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/actions/index.dart' as lucille_actions;
 import 'dart:async';
 import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
@@ -90,12 +91,51 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
 
   final animationsMap = <String, AnimationInfo>{};
 
+  // Lucille's suggestion card: filled from the live Lucille API (GET /v1/home).
+  String _sugLine = 'Lucille is picking something for you...';
+  String _sugTitle = 'Basic Breathing';
+  String _sugWhy = 'A few slow breaths to settle in. Scan your mood and Lucille will tailor this.';
+  String _sugMeta = 'Breathing \u2022 5 min';
+  String? _sugRoute;
+
+  Future<void> _loadLucilleSuggestion() async {
+    try {
+      final res = await lucille_actions.lucilleV1('GET', '/v1/home', null);
+      final data = (res is Map) ? res['data'] : null;
+      final sug = (data is Map) ? data['suggestion'] : null;
+      if (sug is! Map) {
+        if (mounted) setState(() => _sugLine = 'Lucille suggests starting with a few slow breaths.');
+        return;
+      }
+      final title = (sug['title'] ?? '').toString();
+      final why = (sug['why'] ?? '').toString();
+      final kind = (sug['kind'] ?? '').toString();
+      final minutes = sug['minutes'];
+      final word = (data['lastMood'] is Map ? data['lastMood']['word'] : null)?.toString();
+      final link = sug['deeplink'];
+      if (!mounted || title.isEmpty) return;
+      setState(() {
+        _sugLine = (word != null && word.isNotEmpty && word != 'Neutral')
+            ? 'You felt $word. Lucille suggests starting with $title.'
+            : 'Lucille suggests starting with $title.';
+        _sugTitle = title;
+        _sugWhy = why.isNotEmpty ? why : 'Picked for you by Lucille.';
+        final k = kind.isEmpty ? '' : '${kind[0].toUpperCase()}${kind.substring(1)}';
+        _sugMeta = [if (k.isNotEmpty) k, if (minutes != null) '$minutes min'].join(' \u2022 ');
+        _sugRoute = (link is Map ? link['route'] : null)?.toString();
+      });
+    } catch (_) {
+      if (mounted) setState(() => _sugLine = 'Lucille suggests starting with a few slow breaths.');
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     _loadLastScan();
     SoundscapesLauncher.moduleClosed.addListener(_onModuleClosed);
     _model = createModel(context, () => HomeVersion5Model());
+    _loadLucilleSuggestion();
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'HomeVersion5'});
@@ -1957,9 +1997,7 @@ Further ... */
                                                                                   ),
                                                                                 ),
                                                                                 Text(
-                                                                                  FFLocalizations.of(context).getText(
-                                                                                    'hfpfxcj5' /* Lucille suggests starting with... */,
-                                                                                  ),
+                                                                                  _sugLine,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         font: GoogleFonts.inter(
                                                                                           fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
@@ -2125,9 +2163,7 @@ Further ... */
                                                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                                                 children: [
                                                                                   Text(
-                                                                                    FFLocalizations.of(context).getText(
-                                                                                      'tv8a2pgb' /* Basic Breathing */,
-                                                                                    ),
+                                                                                    _sugTitle,
                                                                                     style: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                           font: GoogleFonts.cormorantSc(
                                                                                             fontWeight: FlutterFlowTheme.of(context).titleMedium.fontWeight,
@@ -2140,9 +2176,7 @@ Further ... */
                                                                                         ),
                                                                                   ),
                                                                                   Text(
-                                                                                    FFLocalizations.of(context).getText(
-                                                                                      '1181bxrb' /* Begin your day with clarity an... */,
-                                                                                    ),
+                                                                                    _sugWhy,
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           font: GoogleFonts.inter(
                                                                                             fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
@@ -2159,9 +2193,7 @@ Further ... */
                                                                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                     children: [
                                                                                       Text(
-                                                                                        FFLocalizations.of(context).getText(
-                                                                                          'xf2x6iu6' /* Free-Form • 15 min */,
-                                                                                        ),
+                                                                                        _sugMeta,
                                                                                         style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                               font: GoogleFonts.inter(
                                                                                                 fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
@@ -2192,7 +2224,7 @@ Further ... */
                                                                                             logFirebaseEvent('Button_navigate_to');
 
                                                                                             context.pushNamed(
-                                                                                              BasicBreathingGoalPageWidget.routeName,
+                                                                                              (_sugRoute != null && _sugRoute!.isNotEmpty) ? _sugRoute! : BasicBreathingGoalPageWidget.routeName,
                                                                                               extra: <String, dynamic>{
                                                                                                 '__transition_info__': TransitionInfo(
                                                                                                   hasTransition: true,

@@ -11,7 +11,10 @@ struct PlaylistView: View {
     @Environment(AppStore.self) private var store
     @State private var shuffleOn = false
 
-    private var data: Playlist { store.playlist ?? Self.figmaPlaylist }
+    private var data: Playlist {
+        store.playlist ?? Playlist(id: "", title: "Playlist", summary: "Loading…", credit: "Lucille",
+                                    artGradient: GradientSpec(colors: ["#2A3A7A", "#101E43"]), tracks: [])
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -30,6 +33,7 @@ struct PlaylistView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Esc.night.ignoresSafeArea())
+        .overlay(alignment: .bottomTrailing) { PlaylistsFAB() }
     }
 
     // MARK: Actions

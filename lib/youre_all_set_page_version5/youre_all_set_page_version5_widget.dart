@@ -1830,7 +1830,7 @@ class _YoureAllSetPageVersion5WidgetState
                                                   'Container_navigate_to');
 
                                               context.pushNamed(
-                                                  ConnectionCommunityStartPageVersion5Widget
+                                                  MarketplaceVersion5Widget
                                                       .routeName);
                                             },
                                             child: Container(
@@ -1852,7 +1852,7 @@ class _YoureAllSetPageVersion5WidgetState
                                                       MainAxisSize.max,
                                                   children: [
                                                     Icon(
-                                                      Icons.people,
+                                                      Icons.storefront_rounded,
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1871,7 +1871,7 @@ class _YoureAllSetPageVersion5WidgetState
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'kb0xr3sk' /* Community */,
+                                                              'kb0xr3sk' /* Marketplace */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)

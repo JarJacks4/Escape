@@ -52,9 +52,11 @@ struct ModeBrowseView: View {
                     .padding(.bottom, 4)
                 cardsRow(page)
                     .padding(.top, 20)
-                // Journeys hidden until they're backed by real data (they open sample content).
-                    .padding(.top, 24)
-                    .padding(.horizontal, 24)
+                if SoundscapesFeatures.journeys && !page.journeys.isEmpty {
+                    journeysBlock(page)
+                        .padding(.top, 24)
+                        .padding(.horizontal, 24)
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.bottom, 96 + (store.showsMiniPlayer ? 72 : 0))

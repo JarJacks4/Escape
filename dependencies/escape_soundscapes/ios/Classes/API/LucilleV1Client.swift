@@ -351,6 +351,11 @@ public final class LucilleV1Client: @unchecked Sendable {
         try await call("GET", "v1/mood/summary", query: [.init(name: "period", value: period)])
     }
 
+    /// Erases one area of the person's v1 data ("mood", "journal", "soundscapes", "plans" or "all").
+    public func eraseData(scope: String) async throws {
+        let _: Empty = try await call("DELETE", "v1/privacy/data", query: [.init(name: "scope", value: scope)])
+    }
+
     public func grantConsents(_ flags: [String: Bool]) async throws {
         let _: Empty = try await call("PUT", "v1/privacy/consents", body: ["flags": flags])
     }

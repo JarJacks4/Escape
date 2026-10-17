@@ -100,6 +100,8 @@ struct MoodPulseChrome: View {
                     Text(bpm.map { "\($0)" } ?? "--").font(EscFont.display(44)).foregroundStyle(Esc.mist)
                     Text("bpm").font(EscFont.ui(14)).foregroundStyle(Esc.haze)
                 }
+                Text("An estimate for wellbeing only, not for medical use.")
+                    .font(EscFont.ui(11)).foregroundStyle(Esc.haze).multilineTextAlignment(.center)
                 HStack(spacing: 8) {
                     ForEach(pills, id: \.self) {
                         Text($0).font(EscFont.ui(12)).foregroundStyle(Esc.mist).glassPill()
@@ -330,7 +332,7 @@ struct MoodResultChrome: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
 
-                    Text("For wellbeing, not a medical device.").font(EscFont.ui(11)).foregroundStyle(Esc.haze)
+                    Text("For wellbeing only, not a medical device. The pulse is a camera estimate; if you're worried about your heart, talk to a doctor.").font(EscFont.ui(11)).foregroundStyle(Esc.haze)
                         .frame(maxWidth: .infinity, alignment: .leading).padding(.top, 6)
                 }
                 .padding(.horizontal, 24).padding(.top, 150).padding(.bottom, 32)

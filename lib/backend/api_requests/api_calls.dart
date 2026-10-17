@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
@@ -3315,25 +3316,22 @@ class LucilleStreamingBuildShipCall {
       ));
 }
 
+/// Voice journal speech-to-text. The recording goes to the Lucille API, which holds the
+/// speech-to-text key on the server (no key lives in the app). Response: {"text": "..."}.
 class EscapeAudioScriptCall {
   static Future<ApiCallResponse> call({
-    String? model = 'whisper-large-v3',
     FFUploadedFile? file,
-    String? responseFormat = 'verbose_json',
-    String? gorqKey =
-        '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',
   }) async {
+    final token = await FirebaseAuth.instance.currentUser?.getIdToken();
     return ApiManager.instance.makeApiCall(
       callName: 'Escape AudioScript',
-      apiUrl: 'https://api.groq.com/openai/v1/audio/transcriptions',
+      apiUrl: 'https://lucille-861854898360.us-central1.run.app/v1/voice/transcribe',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': "Bearer $gorqKey",
+        if (token != null && token.isNotEmpty) 'Authorization': 'Bearer $token',
       },
       params: {
         'file': file,
-        'model': "whisper-large-v3",
-        'response_format': "verbose_json",
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,
