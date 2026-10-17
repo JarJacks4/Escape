@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -22,14 +24,25 @@ Future<void> showPageWalkthrough(
   final steps = _walkthroughSteps[pageKey];
   if (steps == null || steps.isEmpty) return;
 
-  final uid = FirebaseAuth.instance.currentUser?.uid ?? 'guest';
-  final prefKey = 'walkthrough_seen_${uid}_$pageKey';
+  final uid = await _resolveAuthenticatedUid();
+  final prefKey = uid == null
+      ? 'walkthrough_session_$pageKey'
+      : 'walkthrough_seen_${uid}_$pageKey';
+  debugPrint(
+      '[Walkthrough] page=$pageKey uid=${uid ?? "unavailable"} prefKey=$prefKey force=$force');
+
   SharedPreferences? prefs;
-  try {
-    prefs = await SharedPreferences.getInstance();
-    if (!force && (prefs.getBool(prefKey) ?? false)) return;
-  } catch (_) {
-    // If storage is unavailable, still show the tour once for this session.
+  if (uid != null) {
+    try {
+      prefs = await SharedPreferences.getInstance();
+      if (!force && (prefs.getBool(prefKey) ?? false)) return;
+    } catch (_) {
+      // If storage is unavailable, still show the tour once for this session.
+      if (!force && _shownThisSession.contains(prefKey)) return;
+    }
+  } else {
+    // Never persist an authenticated page walkthrough under a shared "guest"
+    // key. If auth is still unavailable, keep this attempt session-only.
     if (!force && _shownThisSession.contains(prefKey)) return;
   }
   _shownThisSession.add(prefKey);
@@ -50,8 +63,30 @@ Future<void> showPageWalkthrough(
   );
 
   try {
-    await prefs?.setBool(prefKey, true);
+    if (uid != null) await prefs?.setBool(prefKey, true);
   } catch (_) {}
+}
+
+/// Firebase can emit the authenticated user a moment after the destination
+/// page is mounted. Wait briefly so completion is always scoped to the real
+/// account instead of being read from or written to a shared guest key.
+Future<String?> _resolveAuthenticatedUid() async {
+  final immediate = FirebaseAuth.instance.currentUser?.uid;
+  if (immediate != null && immediate.isNotEmpty) return immediate;
+
+  try {
+    final user = await FirebaseAuth.instance
+        .authStateChanges()
+        .firstWhere((candidate) => candidate != null)
+        .timeout(const Duration(seconds: 3));
+    return user?.uid;
+  } on TimeoutException {
+    debugPrint('[Walkthrough] auth UID unavailable after 3 seconds');
+    return null;
+  } catch (error) {
+    debugPrint('[Walkthrough] could not resolve auth UID: $error');
+    return null;
+  }
 }
 
 final Set<String> _shownThisSession = {};
