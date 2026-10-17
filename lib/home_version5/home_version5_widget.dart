@@ -60,6 +60,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
   Map<String, dynamic>? _lastScan;
   Timer? _scanRefresh;
 
+  /// The native module just closed (e.g. after a Mood Scan): reload now, and once more shortly
+  /// after in case the check-in was still saving.
+  void _onModuleClosed() {
+    _loadLastScan();
+    _scanRefresh?.cancel();
+    _scanRefresh = Timer(const Duration(seconds: 3), _loadLastScan);
+  }
+
   Future<void> _loadLastScan() async {
     try {
       final r = await actions.lucilleV1('GET', '/v1/journal/home?period=week', null);
@@ -69,16 +77,6 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
       setState(() => _lastScan =
           last is Map && last['word'] != null ? Map<String, dynamic>.from(last) : null);
     } catch (_) {}
-  }
-
-  /// The scan runs in the native module, so check back a few times for the new result.
-  void _refreshScanAfterOpening() {
-    _scanRefresh?.cancel();
-    var tries = 0;
-    _scanRefresh = Timer.periodic(const Duration(seconds: 15), (t) {
-      if (++tries >= 12) t.cancel();
-      _loadLastScan();
-    });
   }
 
   String get _lastScanAge {
@@ -96,6 +94,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
   void initState() {
     super.initState();
     _loadLastScan();
+    SoundscapesLauncher.moduleClosed.addListener(_onModuleClosed);
     _model = createModel(context, () => HomeVersion5Model());
 
     logFirebaseEvent('screen_view',
@@ -369,6 +368,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
 
   @override
   void dispose() {
+    SoundscapesLauncher.moduleClosed.removeListener(_onModuleClosed);
     _scanRefresh?.cancel();
     _model.dispose();
 
@@ -1131,7 +1131,6 @@ Further ... */
                                                                                             logFirebaseEvent('Button_navigate_to');
 
                                                                                             await SoundscapesLauncher.openMoodScan(context);
-                                                                                            _refreshScanAfterOpening();
                                                                                           },
                                                                                           text: _lastScan != null
                                                                                               ? 'Scan again'

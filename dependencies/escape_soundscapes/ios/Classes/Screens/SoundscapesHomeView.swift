@@ -40,7 +40,7 @@ struct SoundscapesHomeView: View {
                     dailyDrop
                     modeOrbs
                 }
-                journeys
+                // Journeys are hidden until they're backed by real data (they open sample content).
                 // Listening Circles are hidden until live circles exist (the card was sample data).
                 if !madeItems.isEmpty { madeByYou }
                 statusLine

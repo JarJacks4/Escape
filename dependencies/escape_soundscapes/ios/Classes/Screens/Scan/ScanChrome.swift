@@ -444,7 +444,7 @@ struct EnergyResultChrome: View {
                         HStack(spacing: 8) {
                             ForEach([("Visit Connection World", "escape://realms/connection"),
                                      ("3-min Heart Breathwork", "escape://breath/heart"),
-                                     ("Join a Listening Circle", "escape://circles")], id: \.0) { s in
+                                     ("Calm Soundscape", "escape://mode/calm")], id: \.0) { s in
                                 Button { host.open(s.1) } label: {
                                     Text(s.0).font(EscFont.ui(13)).foregroundStyle(Esc.mist).glassPill()
                                 }.buttonStyle(.plain)

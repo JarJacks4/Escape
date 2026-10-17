@@ -29,8 +29,8 @@ struct ScanWalkthrough: View {
               body: "Play Now picks the best match for your mood. Your Inner Weather and Lucille's Daily Drop sit right below it.", icon: "play.fill"),
         .init(eyebrow: "Modes", title: "Pick a mode",
               body: "Tap Focus, Calm, Sleep or Lucille Picks for an endless soundscape with its own Mood Orb.", icon: "circle.hexagongrid.fill"),
-        .init(eyebrow: "Make your own", title: "Ask Lucille",
-              body: "Describe a moment and Lucille composes a soundscape for you. Close any time to return to Escape.", icon: "sparkles"),
+        .init(eyebrow: "Your library", title: "Keep what you love",
+              body: "Save a soundscape to your Library to come back to it. Close any time to return to Escape.", icon: "heart"),
     ]
 
     static let scanSteps: [Step] = [

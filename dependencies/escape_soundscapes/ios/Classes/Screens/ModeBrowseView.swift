@@ -52,7 +52,7 @@ struct ModeBrowseView: View {
                     .padding(.bottom, 4)
                 cardsRow(page)
                     .padding(.top, 20)
-                journeysBlock(page)
+                // Journeys hidden until they're backed by real data (they open sample content).
                     .padding(.top, 24)
                     .padding(.horizontal, 24)
             }

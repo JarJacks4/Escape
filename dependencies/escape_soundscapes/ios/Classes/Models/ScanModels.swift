@@ -115,10 +115,10 @@ public extension MoodReading {
         switch quadrant {
         case .restless:
             return [Suggestion(minutes: "3 min", title: "Breath Sync 4-7-8", why: "Long out-breaths slow a racing pulse.", deeplink: "escape://breath/478"),
-                    Suggestion(minutes: "5 min", title: "Journey: Panic Reset", why: "A guided step down when it all feels like too much.", deeplink: "escape://journey/panic-reset"),
+                    Suggestion(minutes: "5 min", title: "Calm soundscape", why: "A slow, steady sound to help you step down.", deeplink: "escape://mode/calm"),
                     Suggestion(minutes: "2 min", title: "Talk it through with Lucille", why: "Name what's pulling at you, then set it down.", deeplink: "escape://lucille")]
         case .energized:
-            return [Suggestion(minutes: "25 min", title: "Journey: Deep Work", why: "Put this energy into one thing that matters.", deeplink: "escape://journey/deep-work"),
+            return [Suggestion(minutes: "25 min", title: "Focus soundscape", why: "Put this energy into one thing that matters.", deeplink: "escape://mode/focus"),
                     Suggestion(minutes: "10 min", title: "Move soundscape", why: "A walk or stretch with a beat to match you.", deeplink: "escape://mode/move"),
                     Suggestion(minutes: "2 min", title: "Save this moment", why: "Write down what's going right so you can come back to it.", deeplink: "escape://journal/new")]
         case .foggy:

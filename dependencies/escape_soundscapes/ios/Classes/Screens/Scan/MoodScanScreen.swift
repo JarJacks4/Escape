@@ -135,10 +135,9 @@ extension AppStore {
         case "mode": await play(mode: ModeId(loose: arg) ?? .calm)
         case "realms": await play(mode: .realms)
         case "sleep": setScreen(.sleepSetup)
-        case "circles": await openCircles()
-        case "journey":
-            setScreen(.soundscapesHome)
-            openJourney(arg)
+        // Circles and Journeys still run on sample data, so their links play a soundscape instead.
+        case "circles": await play(mode: .calm)
+        case "journey": await play(mode: arg.contains("work") || arg.contains("exam") ? .focus : .calm)
         default: await play(mode: .calm)   // breathwork: a calm soundscape until it lands in the module
         }
     }

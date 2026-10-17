@@ -32,6 +32,10 @@ class SoundscapesLauncher {
 
   static Future<bool>? _supported;
 
+  /// Ticks every time the native module closes (any way out), so pages can refresh what it
+  /// may have changed, e.g. Home's latest Mood Scan.
+  static final ValueNotifier<int> moduleClosed = ValueNotifier<int>(0);
+
   /// On by default; build with --dart-define=SOUNDSCAPES_BETA=false to hide the module.
   static const bool betaEnabled = bool.fromEnvironment('SOUNDSCAPES_BETA', defaultValue: true);
 
@@ -128,6 +132,7 @@ class SoundscapesLauncher {
 
   /// The user tapped another tab inside Soundscapes.
   static void _onExit(String? tab) {
+    moduleClosed.value++;
     final ctx = appNavigatorKey.currentContext;
     if (ctx == null || tab == null) return;
     switch (tab) {

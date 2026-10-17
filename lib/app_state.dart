@@ -551,25 +551,17 @@ class FFAppState extends ChangeNotifier {
     _deepFeelings = value;
   }
 
+  // Sample feed cleaned for App Store review (Guideline 2.1): no placeholder "Hello World" posts,
+  // and no third-party creator names or avatars.
   List<tiktokfeed_wz8en7_data_schema.TiktokPageStruct> _ListTikTokPages = [
     tiktokfeed_wz8en7_data_schema.TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"Hello World\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"1\",\"urlvideo\":\"https://www.tiktok.com/@espdaniella/video/7134513581307170094?is_from_webapp=1&sender_device=pc&web_id=7417139841606190622\",\"userPicture\":\"https://p16-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/4821848bee3ad650735de6e0a340e6df~tplv-tiktokx-cropcenter:100:100.jpeg?dr=9640&nonce=43282&refresh_token=f3c70edfeb36f0c406255ca6c14762fa&x-expires=1741240800&x-signature=ceDXgz4cMsclhnVSXINKhAaGfC4%3D&idc=useast8&ps=13740610&shcp=81f88b70&shp=a5d48078&t=4d5b0474\",\"profilename\":\"\"}')),
+        '{\"video\":\"10 Minute Singing Bowl Meditation\",\"likes\":\"[]\",\"bookmark\":\"[]\",\"id\":\"1\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744994648/Download_7_ktaowq.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape\"}')),
     tiktokfeed_wz8en7_data_schema.TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"10 Minute Singing Bowl Meditation\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"1\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744994648/Download_7_ktaowq.mp4\",\"userPicture\":\"https://p16-common-sign-va.tiktokcdn-us.com/tos-maliva-avt-0068/a82b751c857ae97f7ec02cbe1e8e868f~tplv-tiktokx-cropcenter:100:100.jpeg?dr=9640&nonce=62492&refresh_token=a85c2120b0079f919aae0e6e3aaf2eee&x-expires=1741240800&x-signature=Q82qqMrdhlCwujjthOwBOgTvhyk%3D&idc=useast5&ps=13740610&shcp=b59d6b55&shp=a5d48078&t=4d5b0474\",\"profilename\":\"\"}')),
+        '{\"video\":\"Deep Sleep Guided Meditation 528 Hz\",\"likes\":\"[]\",\"bookmark\":\"[]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744994628/Download_8_ffhfxw.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape\"}')),
     tiktokfeed_wz8en7_data_schema.TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"Deep Sleep Guided Meditation 528 Hz\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744994628/Download_8_ffhfxw.mp4\",\"userPicture\":\"https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/8a0f0b75ad900c6f3a9186b88c482f04~tplv-tiktokx-cropcenter:100:100.jpeg?dr=9640&nonce=68841&refresh_token=a82e65e5cf7d81a82648825d7b908e90&x-expires=1741240800&x-signature=hNjpj6iDJ%2F6lfkukXymAWsbdbtE%3D&idc=useast5&ps=13740610&shcp=81f88b70&shp=a5d48078&t=4d5b0474\",\"profilename\":\"nightatlasmusic\"}')),
+        '{\"video\":\"Guided Nighttime Meditation\",\"likes\":\"[]\",\"bookmark\":\"[]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744994629/Download_3_sfz1n8.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape\"}')),
     tiktokfeed_wz8en7_data_schema.TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"Guided Nighttime Meditation\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744994629/Download_3_sfz1n8.mp4\",\"userPicture\":\"\",\"profilename\":\"meddailyzen\"}')),
-    tiktokfeed_wz8en7_data_schema.TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"417 Hz Sound\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744994628/Download_5_dv7dxz.mp4\",\"userPicture\":\"https://p16-common-sign-va.tiktokcdn-us.com/tos-maliva-avt-0068/9965f9b849f6ee44af049b5c663184f2~tplv-tiktokx-cropcenter:100:100.jpeg?dr=9640&nonce=93805&refresh_token=b0eed7130ce5f54a986154e878f7b6f7&x-expires=1741240800&x-signature=zAUPrvQgAXVOSzUpCruq7gFH29w%3D&idc=useast5&ps=13740610&shcp=b59d6b55&shp=a5d48078&t=4d5b0474\",\"profilename\":\"vmrose_music\"}')),
-    tiktokfeed_wz8en7_data_schema.TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"Hello World\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744994627/Download_6_tvuh5s.mp4\",\"userPicture\":\"Hello World\",\"profilename\":\"Hello World\"}')),
-    tiktokfeed_wz8en7_data_schema.TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"Hello World\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744993440/Download_1_yra0ld.mp4\",\"userPicture\":\"Hello World\",\"profilename\":\"Hello World\"}')),
-    tiktokfeed_wz8en7_data_schema.TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"Hello World\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744993439/Download_2_qw2mdv.mp4\",\"userPicture\":\"Hello World\",\"profilename\":\"Hello World\"}')),
-    tiktokfeed_wz8en7_data_schema.TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"Hello World\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744992912/Download_qccjju.mp4\",\"userPicture\":\"Hello World\",\"profilename\":\"Hello World\"}'))
+        '{\"video\":\"417 Hz Sound\",\"likes\":\"[]\",\"bookmark\":\"[]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744994628/Download_5_dv7dxz.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape\"}'))
   ];
   List<tiktokfeed_wz8en7_data_schema.TiktokPageStruct> get ListTikTokPages =>
       _ListTikTokPages;
