@@ -6,6 +6,7 @@
 // To add a whole section: add a BodySection to `kBodySections`; the Body page picks it up.
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '/backend/schema/structs/index.dart';
 
@@ -332,3 +333,35 @@ final kMorningMobility = bodyCollection(
     "Child's Pose",
   ],
 );
+
+// ---------------------------------------------------------------------------
+// Body sessions (Jared, Oct 17): the first session is a short starter set of 3-5 moves;
+// after that the person picks the moves they want from the category.
+
+/// How many moves the first-ever session uses.
+const kBodyStarterMoveCount = 4;
+
+/// The full move list of the category or collection the person opened. The session pages
+/// walk `FFAppState().todaysMoves`, which is narrowed to the chosen moves when a session
+/// starts, so the movements page reads the full list from here.
+List<MoveStructStruct> bodyCategoryMoves = [];
+
+String _firstSessionKey(String uid) => 'body.firstSessionDone.$uid';
+
+/// True once this person has finished a Body session on this device.
+Future<bool> bodyFirstSessionDone(String uid) async {
+  try {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(_firstSessionKey(uid)) ?? false;
+  } catch (_) {
+    return false;
+  }
+}
+
+/// Called from the session's Finish button.
+Future<void> markBodyFirstSessionDone(String uid) async {
+  try {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_firstSessionKey(uid), true);
+  } catch (_) {}
+}

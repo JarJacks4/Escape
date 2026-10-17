@@ -12,6 +12,7 @@ class MoveCardWidget extends StatefulWidget {
     Color? orbColor,
     String? title,
     String? type,
+    this.trailing,
   })  : this.duration = duration ?? '40s',
         this.orbColor = orbColor ?? const Color(0x00000000),
         this.title = title ?? 'Plank',
@@ -21,6 +22,9 @@ class MoveCardWidget extends StatefulWidget {
   final Color orbColor;
   final String title;
   final String type;
+
+  /// Shown at the right end of the card (the pick checkbox on the movements page).
+  final Widget? trailing;
 
   @override
   State<MoveCardWidget> createState() => _MoveCardWidgetState();
@@ -188,6 +192,7 @@ class _MoveCardWidgetState extends State<MoveCardWidget> {
                   ].divide(SizedBox(height: 4.0)),
                 ),
               ),
+              if (widget.trailing != null) widget.trailing!,
             ].divide(SizedBox(width: 16.0)),
           ),
         ),

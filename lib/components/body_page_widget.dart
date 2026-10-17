@@ -337,8 +337,9 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
 
                             // Morning Mobility: load its own moves, not the leftover mixed list.
                             FFAppState().update(() {
+                              bodyCategoryMoves = kMorningMobility.toStructs();
                               FFAppState().todaysMoves =
-                                  kMorningMobility.toStructs();
+                                  List.of(bodyCategoryMoves);
                               FFAppState().hasPreviewedAMove = false;
                             });
                             context.pushNamed(

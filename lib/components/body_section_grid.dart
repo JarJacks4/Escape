@@ -17,7 +17,8 @@ class BodySectionGrid extends StatelessWidget {
   void _open(BuildContext context, BodySection s) {
     HapticFeedback.lightImpact();
     FFAppState().update(() {
-      FFAppState().todaysMoves = s.toStructs();
+      bodyCategoryMoves = s.toStructs();
+      FFAppState().todaysMoves = List.of(bodyCategoryMoves);
       FFAppState().hasPreviewedAMove = false;
     });
     context.pushNamed(

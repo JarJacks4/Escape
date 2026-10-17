@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/body_sections.dart';
 import '/components/button7_widget.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -479,6 +480,8 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
                       } catch (_) {
                         // Never block the user from reaching the completion page.
                       }
+                      // From now on this person picks their own moves.
+                      await markBodyFirstSessionDone(currentUserUid);
                       logFirebaseEvent('Button_navigate_to');
 
                       context.pushNamed(

@@ -1,3 +1,6 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/body_sections.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/button7_widget.dart';
 import '/components/move_card_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -36,13 +39,74 @@ class _BodyVersion5MovementsPageWidgetState
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  /// The category's full list (see `bodyCategoryMoves`).
+  late final List<MoveStructStruct> _allMoves = bodyCategoryMoves.isNotEmpty
+      ? List.of(bodyCategoryMoves)
+      : List.of(FFAppState().todaysMoves);
+
+  /// null while loading. True on the person's first Body session: a short starter set.
+  /// After that they pick their own moves.
+  bool? _firstSession;
+
+  /// Indexes into [_allMoves] the person ticked (pick mode).
+  final Set<int> _picked = {};
+
+  bool get _pickMode => _firstSession == false;
+
+  /// The moves listed on the page.
+  List<MoveStructStruct> get _shownMoves => _firstSession == true
+      ? _allMoves.take(kBodyStarterMoveCount).toList()
+      : _allMoves;
+
+  /// The moves the session will run.
+  List<MoveStructStruct> get _sessionMoves => _pickMode
+      ? [
+          for (var i = 0; i < _allMoves.length; i++)
+            if (_picked.contains(i)) _allMoves[i],
+        ]
+      : _shownMoves;
+
+  /// The summary line moves: what's picked in pick mode (all moves until something is).
+  List<MoveStructStruct> get _summaryMoves =>
+      _pickMode && _picked.isNotEmpty ? _sessionMoves : _shownMoves;
+
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => BodyVersion5MovementsPageModel());
+    bodyFirstSessionDone(currentUserUid).then((done) {
+      if (mounted) safeSetState(() => _firstSession = !done);
+    });
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'BodyVersion5MovementsPage'});
+  }
+
+  /// The tick on each move card in pick mode. Tapping it picks the move; tapping the rest
+  /// of the card still opens the preview.
+  Widget _pickBox(BuildContext context, int index) {
+    final on = _picked.contains(index);
+    final theme = FlutterFlowTheme.of(context);
+    return Semantics(
+      button: true,
+      selected: on,
+      label: on ? 'Remove from session' : 'Add to session',
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () {
+          HapticFeedback.selectionClick();
+          safeSetState(() => on ? _picked.remove(index) : _picked.add(index));
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Icon(
+            on ? Icons.check_circle_rounded : Icons.add_circle_outline_rounded,
+            color: on ? theme.accent1 : theme.secondaryText,
+            size: 30.0,
+          ),
+        ),
+      ),
+    );
   }
 
   @override
@@ -200,8 +264,8 @@ class _BodyVersion5MovementsPageWidgetState
                                                       .fromSTEB(
                                                           0.0, 25.0, 0.0, 0.0),
                                                   child: Text(
-                                                    FFAppState().todaysMoves.firstOrNull?.moveType.isNotEmpty == true
-                                                        ? FFAppState().todaysMoves.first.moveType
+                                                    _allMoves.firstOrNull?.moveType.isNotEmpty == true
+                                                        ? _allMoves.first.moveType
                                                         : FFLocalizations.of(context).getText(
                                                             'tr7q3w0a' /* Today's Moves */,
                                                           ),
@@ -252,7 +316,9 @@ class _BodyVersion5MovementsPageWidgetState
                                                       size: 16.0,
                                                     ),
                                                     Text(
-                                                      'About ${(FFAppState().todaysMoves.fold<int>(0, (t, m) => t + m.durationSeconds) / 60).ceil()} minutes · ${FFAppState().todaysMoves.length} moves',
+                                                      _pickMode && _picked.isEmpty
+                                                          ? '${_allMoves.length} moves · pick the ones you want'
+                                                          : 'About ${(_summaryMoves.fold<int>(0, (t, m) => t + m.durationSeconds) / 60).ceil()} minutes · ${_summaryMoves.length} moves',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -296,12 +362,16 @@ class _BodyVersion5MovementsPageWidgetState
                                                   child: Container(
                                                     child: Container(
                                                       child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'przlot37' /* No rush. Preview each movement... */,
-                                                        ),
-                                                        maxLines: 2,
+                                                        _firstSession == true
+                                                            ? 'Your first session is a short one: $kBodyStarterMoveCount moves to get you started. Preview a move, then start. Next time you can pick your own.'
+                                                            : _pickMode
+                                                                ? 'Tick the moves you want today, then start. Tap a move to preview it.'
+                                                                : FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                    'przlot37' /* No rush. Preview each movement... */,
+                                                                  ),
+                                                        maxLines: 3,
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -351,8 +421,7 @@ class _BodyVersion5MovementsPageWidgetState
                                             children: [
                                               Builder(
                                                 builder: (context) {
-                                                  final moveList =
-                                                      FFAppState().todaysMoves;
+                                                  final moveList = _shownMoves;
 
                                                   return ListView.separated(
                                                     padding:
@@ -456,6 +525,11 @@ class _BodyVersion5MovementsPageWidgetState
                                                           child: MoveCardWidget(
                                                               key: Key(
                                                                   'Keyxj2_${moveListIndex}_of_${moveList.length}'),
+                                                              trailing: _pickMode
+                                                                  ? _pickBox(
+                                                                      context,
+                                                                      moveListIndex)
+                                                                  : null,
                                                               duration: moveListItem
                                                                   .durationSeconds
                                                                   .toString(),
@@ -503,7 +577,12 @@ class _BodyVersion5MovementsPageWidgetState
                                 ],
                               ),
                               child: Visibility(
-                                visible: FFAppState().hasPreviewedAMove,
+                                // First session: unlocked by previewing a move.
+                                // After that: by picking at least one move.
+                                visible: _pickMode
+                                    ? _picked.isNotEmpty
+                                    : (_firstSession == true &&
+                                        FFAppState().hasPreviewedAMove),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -516,8 +595,18 @@ class _BodyVersion5MovementsPageWidgetState
                                     HapticFeedback.heavyImpact();
                                     logFirebaseEvent('Button_navigate_to');
 
+                                    // The session pages walk todaysMoves, so
+                                    // narrow it to this session's moves.
+                                    final session = _sessionMoves;
+                                    if (session.isEmpty) return;
+                                    FFAppState().update(() {
+                                      FFAppState().todaysMoves = session;
+                                    });
                                     context.pushNamed(
-                                      ActiveSessionReps1Widget.routeName,
+                                      // One move: straight to the Finish page.
+                                      session.length == 1
+                                          ? BodyMovement3Widget.routeName
+                                          : ActiveSessionReps1Widget.routeName,
                                       queryParameters: {
                                         'moves': serializeParam(
                                           FFAppState()
@@ -528,6 +617,10 @@ class _BodyVersion5MovementsPageWidgetState
                                         'currentIndex': serializeParam(
                                           0,
                                           ParamType.int,
+                                        ),
+                                        'sessionStartTime': serializeParam(
+                                          getCurrentTimestamp,
+                                          ParamType.DateTime,
                                         ),
                                       }.withoutNulls,
                                       extra: <String, dynamic>{
@@ -548,7 +641,9 @@ class _BodyVersion5MovementsPageWidgetState
                                       iconPresent: false,
                                       iconEnd: false,
                                       iconEndPresent: false,
-                                      content: 'Start Session',
+                                      content: _pickMode
+                                          ? 'Start Session (${_picked.length})'
+                                          : 'Start Session',
                                       variant: 'primary',
                                       size: 'large',
                                       fullWidth: true,
