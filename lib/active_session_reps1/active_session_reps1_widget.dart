@@ -384,7 +384,9 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                   Align(
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: FlutterFlowTimer(
-                      initialTime: _model.timerInitialTimeMs,
+                      // The move's own length (was a fixed 60 s for every move).
+                      initialTime:
+                          (widget.moves?.durationSeconds ?? 60) * 1000,
                       getDisplayTime: (value) => StopWatchTimer.getDisplayTime(
                         value,
                         hours: false,
@@ -497,8 +499,15 @@ class _ActiveSessionReps1WidgetState extends State<ActiveSessionReps1Widget> {
                           _model.timerController.onStartTimer();
                           logFirebaseEvent('Button_navigate_to');
 
+                          // Walk the whole list: middle moves use the timer
+                          // page, the last move gets the Finish page. Before,
+                          // every session stopped after its third move.
+                          final isLast = (_model.localIndex ?? 0) >=
+                              FFAppState().todaysMoves.length - 1;
                           context.pushNamed(
-                            ActiveSessionTimer2Widget.routeName,
+                            isLast
+                                ? BodyMovement3Widget.routeName
+                                : ActiveSessionTimer2Widget.routeName,
                             queryParameters: {
                               'moves': serializeParam(
                                 FFAppState()

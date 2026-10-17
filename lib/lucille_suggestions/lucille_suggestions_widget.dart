@@ -849,8 +849,9 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                   0.0, 1.0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 220.0, 0.0, 0.0),
+                                                    .only(
+                                                        top: _suggestionTopGap(
+                                                            context)),
                                                 child: FutureBuilder<
                                                     ApiCallResponse>(
                                                   future: FFAppState()
@@ -1097,7 +1098,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                   'containerOnPageLoadAnimation4']!),
                                                         ),
                                                         Flexible(
-                                                          flex: 1,
+                                                          flex: 0,
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsets.all(
@@ -1237,15 +1238,11 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                           ),
                                                         ),
                                                         Flexible(
-                                                          flex: 1,
+                                                          flex: 0,
                                                           child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        8.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                            padding: EdgeInsetsDirectional.only(
+                                                                top: 8.0,
+                                                                bottom: MediaQuery.paddingOf(context).bottom + 8.0),
                                                             child: Container(
                                                               width: double
                                                                   .infinity,
@@ -1944,13 +1941,8 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                       AlignmentDirectional(
                                                           0.0, 1.0),
                                                   child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0.0,
-                                                                220.0,
-                                                                0.0,
-                                                                0.0),
+                                                    padding: EdgeInsetsDirectional.only(
+                                                        top: _suggestionTopGap(context)),
                                                     child: FutureBuilder<
                                                         ApiCallResponse>(
                                                       future: _model
@@ -2171,7 +2163,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                       'containerOnPageLoadAnimation9']!),
                                                             ),
                                                             Flexible(
-                                                              flex: 1,
+                                                              flex: 0,
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsets
@@ -2295,15 +2287,11 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                               ),
                                                             ),
                                                             Flexible(
-                                                              flex: 1,
+                                                              flex: 0,
                                                               child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                padding: EdgeInsetsDirectional.only(
+                                                                top: 8.0,
+                                                                bottom: MediaQuery.paddingOf(context).bottom + 8.0),
                                                                 child:
                                                                     Container(
                                                                   width: double
@@ -2997,13 +2985,8 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                       AlignmentDirectional(
                                                           0.0, 1.0),
                                                   child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0.0,
-                                                                220.0,
-                                                                0.0,
-                                                                0.0),
+                                                    padding: EdgeInsetsDirectional.only(
+                                                        top: _suggestionTopGap(context)),
                                                     child: FutureBuilder<
                                                         ApiCallResponse>(
                                                       future: _model
@@ -3231,7 +3214,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                       'containerOnPageLoadAnimation14']!),
                                                             ),
                                                             Flexible(
-                                                              flex: 1,
+                                                              flex: 0,
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsets
@@ -3355,15 +3338,11 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                               ),
                                                             ),
                                                             Flexible(
-                                                              flex: 1,
+                                                              flex: 0,
                                                               child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                padding: EdgeInsetsDirectional.only(
+                                                                top: 8.0,
+                                                                bottom: MediaQuery.paddingOf(context).bottom + 8.0),
                                                                 child:
                                                                     Container(
                                                                   width: double
@@ -3695,11 +3674,24 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
   }
 }
 
+/// Space between the header and the suggestion card. The old fixed 220 pushed the
+/// "Why this session?" row and the swipe bar under the home indicator, so use whatever is
+/// left after the header, Lucille's pick pill, the card, those two rows and the bottom inset.
+double _suggestionTopGap(BuildContext context) {
+  final h = MediaQuery.sizeOf(context).height;
+  final bottom = MediaQuery.paddingOf(context).bottom;
+  final gap = h - 132.0 - 66.0 - (h * 0.32 + 30.0) - 78.0 - 104.0 - bottom;
+  return gap.clamp(8.0, 220.0).toDouble();
+}
+
 /// Exercise type for the chip: "act" -> "ACT", "casual_chat" -> "Casual Chat".
 String _prettyModality(String raw) {
   final s = raw.trim();
   if (s.isEmpty) return 'Mind';
-  const acronyms = {'act', 'cbt', 'dbt', 'emdr', 'mbsr', 'ifs'};
+  const acronyms = {
+    'act', 'cbt', 'dbt', 'emdr', 'mbsr', 'mbct', 'ifs', 'mi', 'pmr', 'rebt',
+    'cft', 'ipt', 'sfbt'
+  };
   if (acronyms.contains(s.toLowerCase())) return s.toUpperCase();
   return s
       .split(RegExp(r'[_\s-]+'))

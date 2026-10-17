@@ -68,7 +68,10 @@ class _MovementStatWidgetState extends State<MovementStatWidget> {
                 lineHeight: 1.4,
               ),
         ),
-        Text(
+        // Scale the label down rather than cut it ("DURATIO") on narrow columns.
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
           valueOrDefault<String>(
             widget.label,
             'DURATION',
@@ -87,6 +90,7 @@ class _MovementStatWidgetState extends State<MovementStatWidget> {
                 fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
                 lineHeight: 1.2,
               ),
+        ),
         ),
       ].divide(SizedBox(height: 4.0)),
     );

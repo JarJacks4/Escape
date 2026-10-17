@@ -89,7 +89,9 @@ public struct MoodReading: Equatable, Sendable {
 /// the mood. `deeplink` is the in-app destination; `coins` is the reward for doing it.
 @available(iOS 17.0, *)
 public struct Suggestion: Identifiable, Sendable {
-    public var id = UUID()
+    /// Stable across re-renders. The scan flow redraws ~10×/s; a fresh UUID each time made
+    /// SwiftUI replace these buttons mid-tap, so taps on the suggestion cards never landed.
+    public var id: String { deeplink + "|" + title }
     public var minutes: String
     public var title: String
     public var why: String
@@ -135,9 +137,9 @@ public extension MoodReading {
     var because: String {
         let feel = "you set your energy to \(Int(energy * 100))% and pleasantness to \(Int(valence * 100))%"
         if pulseMeasured {
-            return "Your camera pulse estimate was about \(bpm) bpm, \(feel), so Lucille hears \(word.lowercased())."
+            return "Your camera pulse estimate was about \(bpm) bpm and \(feel), so Lucille hears that you're feeling \(word.lowercased())."
         }
-        return "You skipped the pulse read; \(feel), so Lucille hears \(word.lowercased())."
+        return "You skipped the pulse read; \(feel), so Lucille hears that you're feeling \(word.lowercased())."
     }
 }
 

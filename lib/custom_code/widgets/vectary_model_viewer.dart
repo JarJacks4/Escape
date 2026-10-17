@@ -50,7 +50,12 @@ class _VectaryModelViewerState extends State<VectaryModelViewer> {
     // Guard against a page not having set assetPath yet
     final path = widget.assetPath ?? '';
     if (!path.startsWith('http') && !path.startsWith('assets/')) {
-      return SizedBox(width: widget.width, height: widget.height);
+      // No GLB for this move yet: say so instead of leaving a blank box.
+      return SizedBox(
+        width: widget.width,
+        height: widget.height,
+        child: _NoModelPlaceholder(),
+      );
     }
 
     return SizedBox(
@@ -62,6 +67,50 @@ class _VectaryModelViewerState extends State<VectaryModelViewer> {
         alt: 'Exercise pose',
         autoPlay: true,
         cameraControls: true,
+      ),
+    );
+  }
+}
+
+/// Shown where the 3D pose would be when the move has no model link yet.
+class _NoModelPlaceholder extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final theme = FlutterFlowTheme.of(context);
+    return Container(
+      decoration: BoxDecoration(
+        color: theme.primary.withValues(alpha: 0.06),
+        borderRadius: BorderRadius.circular(24.0),
+        border: Border.all(color: theme.primary.withValues(alpha: 0.12)),
+      ),
+      alignment: Alignment.center,
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.accessibility_new_rounded,
+              size: 48.0, color: theme.primary.withValues(alpha: 0.55)),
+          const SizedBox(height: 8.0),
+          Text(
+            '3D pose coming soon',
+            textAlign: TextAlign.center,
+            style: theme.bodyMedium.override(
+              fontFamily: 'Inter',
+              color: theme.secondaryText,
+              letterSpacing: 0.0,
+            ),
+          ),
+          const SizedBox(height: 2.0),
+          Text(
+            'Follow the steps below for now.',
+            textAlign: TextAlign.center,
+            style: theme.bodySmall.override(
+              fontFamily: 'Inter',
+              color: theme.secondaryText,
+              letterSpacing: 0.0,
+            ),
+          ),
+        ],
       ),
     );
   }

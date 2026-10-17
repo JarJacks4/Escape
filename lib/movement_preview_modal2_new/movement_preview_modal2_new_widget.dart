@@ -56,6 +56,12 @@ class _MovementPreviewModal2NewWidgetState
     return m[_modelIndex.clamp(0, m.length - 1)];
   }
 
+  /// True when there's a usable GLB link for this move.
+  bool get _hasModel {
+    final m = _currentModel ?? '';
+    return m.startsWith('http') || m.startsWith('assets/');
+  }
+
   Widget _modelSwitcher(BuildContext context) {
     final m = _models;
     if (m.length < 2) return const SizedBox.shrink();
@@ -303,7 +309,8 @@ class _MovementPreviewModal2NewWidgetState
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(32.0),
                                     child: Container(
-                                      height: 420.0,
+                                      // Full height for a real 3D model; a short card when the move has none yet.
+                                      height: _hasModel ? 420.0 : 180.0,
                                       decoration: BoxDecoration(
                                         borderRadius:
                                             BorderRadius.circular(32.0),
@@ -474,6 +481,7 @@ class _MovementPreviewModal2NewWidgetState
                                               CrossAxisAlignment.center,
                                           children: [
                                             Expanded(
+                                              flex: 5,
                                               child: Padding(
                                                 padding: EdgeInsets.symmetric(
                                                     horizontal: 8.0),
@@ -496,6 +504,7 @@ class _MovementPreviewModal2NewWidgetState
                                                   .alternate,
                                             ),
                                             Expanded(
+                                              flex: 4,
                                               child: Padding(
                                                 padding: EdgeInsets.symmetric(
                                                     horizontal: 8.0),
@@ -518,7 +527,7 @@ class _MovementPreviewModal2NewWidgetState
                                                   .alternate,
                                             ),
                                             Expanded(
-                                              flex: 2,
+                                              flex: 6,
                                               child: Padding(
                                                 padding: EdgeInsets.symmetric(
                                                     horizontal: 8.0),

@@ -132,7 +132,10 @@ extension AppStore {
         switch parts.first ?? "" {
         case "lucille": selectTab(.lucille)
         case "journal": onOpenHostRoute?("Journal")
-        case "mode": await play(mode: ModeId(loose: arg) ?? .calm)
+        case "mode":
+            let mode = ModeId(loose: arg) ?? .calm
+            if mode == .move, let open = onOpenHostRoute { open("Body"); return }
+            await play(mode: mode)
         case "realms": await play(mode: .realms)
         case "sleep": setScreen(.sleepSetup)
         // Circles and Journeys still run on sample data, so their links play a soundscape instead.

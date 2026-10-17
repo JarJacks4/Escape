@@ -414,9 +414,9 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                                 ),
                           ),
                           Text(
-                            FFLocalizations.of(context).getText(
-                              'k2aw8pww' /* reps */,
-                            ),
+                            // This number is the countdown, so label it as
+                            // seconds (it used to say "reps": "40 reps").
+                            's',
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
@@ -442,9 +442,9 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                         ].divide(SizedBox(width: 4.0)),
                       ),
                       Text(
-                        FFLocalizations.of(context).getText(
-                          '4anuzl7c' /* Count along at your own pace */,
-                        ),
+                        (widget.moves?.repCount ?? 0) > 0
+                            ? 'Aim for ${widget.moves!.repCount} reps, at your own pace'
+                            : 'Hold steady and keep breathing',
                         style:
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   font: GoogleFonts.inter(
@@ -498,8 +498,14 @@ class _ActiveSessionTimer2WidgetState extends State<ActiveSessionTimer2Widget> {
                               _model.timerController.onStartTimer();
                               logFirebaseEvent('Button_navigate_to');
 
+                              // Next middle move stays on this timer page; only
+                              // the last move goes to the Finish page.
+                              final isLast = (_model.localIndex ?? 0) >=
+                                  FFAppState().todaysMoves.length - 1;
                               context.pushNamed(
-                                BodyMovement3Widget.routeName,
+                                isLast
+                                    ? BodyMovement3Widget.routeName
+                                    : ActiveSessionTimer2Widget.routeName,
                                 queryParameters: {
                                   'moves': serializeParam(
                                     FFAppState()

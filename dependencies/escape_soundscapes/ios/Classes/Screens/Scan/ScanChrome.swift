@@ -161,8 +161,10 @@ struct MoodFeelChrome: View {
                 HStack(spacing: 8) {
                     ForEach(reading.words, id: \.self) { w in
                         Button { reading.chosenWord = w } label: {
+                            // Four equal chips, one line each: "Energized" used to wrap to "Energize / d".
                             Text(w).font(EscFont.ui(14, .medium)).foregroundStyle(Esc.mist)
-                                .padding(.horizontal, 16).frame(height: 40)
+                                .lineLimit(1).minimumScaleFactor(0.75)
+                                .padding(.horizontal, 8).frame(maxWidth: .infinity).frame(height: 40)
                                 .background(w == reading.word ? AnyShapeStyle(Esc.royal.opacity(0.7)) : AnyShapeStyle(.ultraThinMaterial),
                                             in: Capsule())
                                 .overlay(Capsule().strokeBorder(w == reading.word ? Esc.lilac : .white.opacity(0.12), lineWidth: 1))
@@ -295,15 +297,18 @@ struct MoodResultChrome: View {
                         ForEach(reading.suggestions) { s in
                             Button { host.open(s.deeplink) } label: {
                                 HStack(spacing: 12) {
-                                    Text(s.minutes).font(EscFont.ui(12, .semibold)).foregroundStyle(Esc.lilac)
-                                        .frame(width: 40, height: 40).glass(20)
+                                    minutesBadge(s.minutes)
                                     VStack(alignment: .leading, spacing: 2) {
                                         Text(s.title).font(EscFont.ui(14, .semibold)).foregroundStyle(Esc.mist)
                                         Text(s.why).font(EscFont.ui(12)).foregroundStyle(Esc.haze).lineLimit(2)
                                     }
-                                    Spacer()
+                                    Spacer(minLength: 4)
                                     Text("+\(s.coins)").font(EscFont.ui(12)).foregroundStyle(Esc.ember)
-                                }.padding(14).glass(18)
+                                    Image(systemName: "chevron.right").font(.system(size: 12, weight: .semibold))
+                                        .foregroundStyle(Esc.haze)
+                                }
+                                .padding(14).glass(18)
+                                .contentShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
                             }.buttonStyle(.plain)
                         }
                     }
@@ -339,6 +344,19 @@ struct MoodResultChrome: View {
             }
         }
     }
+    /// "25 min" as a number over "min", so it never wraps inside the circle.
+    private func minutesBadge(_ text: String) -> some View {
+        let parts = text.split(separator: " ", maxSplits: 1).map(String.init)
+        return VStack(spacing: -1) {
+            Text(parts.first ?? text).font(EscFont.ui(15, .semibold)).foregroundStyle(Esc.lilac)
+            if parts.count > 1 {
+                Text(parts[1]).font(EscFont.ui(10)).foregroundStyle(Esc.haze)
+            }
+        }
+        .lineLimit(1).minimumScaleFactor(0.8)
+        .frame(width: 46, height: 46).glass(23)
+    }
+
     private func stat(_ big: String, _ small: String) -> some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(big).font(EscFont.ui(18, .semibold)).foregroundStyle(Esc.mist)

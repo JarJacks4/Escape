@@ -61,6 +61,10 @@ public struct ScanFlowView: View {
     @State private var needsConsent = false
     /// Seconds into the current pulse read, including time without a finger (for the fallback).
     @State private var pulseWait = 0.0
+    /// 0…1: the orb swells and glows while the mood is changing (sliders, word, new pulse),
+    /// then springs back and calms once it stops. Like the Soundscapes Mood Field orb.
+    @State private var surge = 0.0
+    @State private var surgeToken = 0
 
     /// First-run tour shows once per install. Pass `showWalkthroughAlways` to replay it (e.g. a
     /// "Show tour" button, or UI tests).
@@ -103,9 +107,10 @@ public struct ScanFlowView: View {
                 // THE hero orb — one instance, positioned per phase.
                 let f = orbFrame(W: W, H: H)
                 MoodOrbView(reading: reading, beatStrength: beatStrength,
-                            recolorStrength: orbRecolorStrength)
+                            recolorStrength: orbRecolorStrength, surge: surge)
                     .frame(width: f.size, height: f.size)
-                    .scaleEffect(breathScale)
+                    .scaleEffect(breathScale * moodScale * (1 + 0.12 * CGFloat(surge)))
+                    .animation(.easeInOut(duration: 0.5), value: moodScale)
                     .opacity(f.opacity)
                     .blur(radius: f.blur)
                     .position(x: W / 2 + f.dx, y: f.cy)
@@ -127,6 +132,10 @@ public struct ScanFlowView: View {
         .onReceive(tick) { _ in advance() }
         .onAppear { if showWalkthroughAlways || !seenWalkthrough { showWalkthrough = true } }
         .onDisappear { pulse.stop() }
+        .onChange(of: reading.energy) { _, _ in moodChanged() }
+        .onChange(of: reading.valence) { _, _ in moodChanged() }
+        .onChange(of: reading.chosenWord) { _, _ in moodChanged() }
+        .onChange(of: reading.bpm) { _, _ in if reading.pulseMeasured { moodChanged() } }
         .task {
             if let load = host.loadCoins, let c = await load() { coins = c }
         }
@@ -194,15 +203,49 @@ public struct ScanFlowView: View {
         Task { if await grant() { submitResult() } }
     }
 
+    /// The mood moved: flare the orb, then let it calm back down once the change stops.
+    /// Holding a slider keeps it raised; letting go lets it settle.
+    private func moodChanged() {
+        guard !reduceMotion else { return }
+        surgeToken += 1
+        let token = surgeToken
+        if surge < 0.99 { withAnimation(.easeOut(duration: 0.25)) { surge = 1 } }
+        Task { @MainActor in
+            try? await Task.sleep(for: .milliseconds(350))
+            guard token == surgeToken else { return }
+            withAnimation(.spring(response: 1.6, dampingFraction: 0.62)) { surge = 0 }
+        }
+    }
+
     /// Guided breathing on the orb during the pulse read: ~5.5 breaths a minute (4.5 s in,
     /// 6.5 s out), the slow pace linked to a calmer heart rhythm. Matches "In as it grows".
+    /// While the person tunes their mood the orb keeps a softer idle breath: slow and deep
+    /// when energy is low, quicker and shallower when it's high.
     private var breathScale: CGFloat {
-        guard phase == .pulse, !reduceMotion else { return 1 }
-        let cycle = 11.0, inhale = 4.5
-        let t = elapsed.truncatingRemainder(dividingBy: cycle)
-        let x = t < inhale ? t / inhale : 1 - (t - inhale) / (cycle - inhale)
-        let eased = 0.5 - 0.5 * cos(x * .pi)
-        return 0.9 + 0.18 * CGFloat(eased)
+        guard !reduceMotion else { return 1 }
+        switch phase {
+        case .pulse:
+            let cycle = 11.0, inhale = 4.5
+            let t = elapsed.truncatingRemainder(dividingBy: cycle)
+            let x = t < inhale ? t / inhale : 1 - (t - inhale) / (cycle - inhale)
+            let eased = 0.5 - 0.5 * cos(x * .pi)
+            return 0.9 + 0.18 * CGFloat(eased)
+        case .feel, .words, .result:
+            let cycle = 9.0 - 4.0 * reading.energy
+            let x = elapsed.truncatingRemainder(dividingBy: cycle) / cycle
+            return 1 + CGFloat(0.03 * sin(x * 2 * .pi))
+        default:
+            return 1
+        }
+    }
+
+    /// The orb grows with energy once the person is tuning their mood: drained is smaller and
+    /// still, charged is bigger.
+    private var moodScale: CGFloat {
+        switch phase {
+        case .feel, .words, .result: return 0.92 + 0.14 * CGFloat(reading.energy)
+        default: return 1
+        }
     }
 
     private var beatStrength: Double {
@@ -228,9 +271,16 @@ public struct ScanFlowView: View {
         let driftX = !reduceMotion && (phase == .pulse || phase == .feel || phase == .words)
             ? CGFloat(sin(elapsed) * 7 * (0.5 + reading.energy)) : 0
         switch phase {
-        case .start:  return OrbFrame(size: 200, cy: H * 0.40, dx: 0, opacity: 1, blur: 0)
+        case .start:
+            // Sit in the gap between the two-line title and the bottom panel, so the orb never
+            // covers "How's your inner weather?" (TF45 feedback) on any screen height.
+            let titleBottom: CGFloat = 250, panelTop = H - 330
+            let gap = panelTop - titleBottom
+            let size = max(140, min(210, gap - 20))
+            let cy = max(titleBottom + size / 2 - 10, (titleBottom + panelTop) / 2)
+            return OrbFrame(size: size, cy: cy, dx: 0, opacity: 1, blur: 0)
         case .pulse, .feel, .words:
-                      return OrbFrame(size: 300, cy: H * 0.45, dx: driftX, opacity: 1, blur: 0)
+                      return OrbFrame(size: 280, cy: H * 0.46, dx: driftX, opacity: 1, blur: 0)
         case .result: return OrbFrame(size: 168, cy: H * 0.24, dx: 0, opacity: 1, blur: 0)
         case .eStart: return OrbFrame(size: 44, cy: heartY(H), dx: 0, opacity: 1, blur: 0)
         case .eScan:  return OrbFrame(size: 24, cy: heartY(H), dx: 0, opacity: 0.9, blur: 2)

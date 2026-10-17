@@ -20,6 +20,9 @@ public struct MoodOrbView: View {
     public var reading: MoodReading
     public var beatStrength: Double
     public var recolorStrength: Double
+    /// 0…1 "the mood just changed" glow. The flow raises it while the sliders or the pulse move
+    /// the mood and lets it settle back to 0, so the orb flares and then calms.
+    public var surge: Double
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var start = Date()
@@ -27,10 +30,11 @@ public struct MoodOrbView: View {
     @State private var videoMissing = false
 
     public init(reading: MoodReading, beatStrength: Double = 0.25,
-                recolorStrength: Double = 1) {
+                recolorStrength: Double = 1, surge: Double = 0) {
         self.reading = reading
         self.beatStrength = beatStrength
         self.recolorStrength = recolorStrength
+        self.surge = surge
     }
 
     /// A 0…1 heartbeat envelope for `t` seconds at `bpm`: a quick "lub", a smaller "dub",
@@ -76,7 +80,7 @@ public struct MoodOrbView: View {
             let beat = reduceMotion ? 0 : MoodOrbView.beatEnvelope(t, bpm: reading.bpm) * beatStrength
             let frame = source.frame(tint: UIColor(reading.tint),
                                      recolor: recolorStrength,
-                                     beat: beat)
+                                     beat: min(1, beat + 0.55 * surge))
             ZStack {
                 if let frame {
                     Image(decorative: frame, scale: 1)
@@ -102,7 +106,7 @@ public struct MoodOrbView: View {
                         .float(t),
                         .float(reading.energy),
                         .float(reading.valence),
-                        .float(beat),
+                        .float(min(1, beat + 0.55 * surge)),
                         .float(reading.valence),                 // texture tracks "dreamy" = pleasant here
                         .float(recolorStrength),
                         .float3(colors.r, colors.g, colors.b)))

@@ -960,6 +960,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                   ),
                                 ),
                               ),
+                              const SideNavCollectionEntry(),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 12.0),
@@ -1033,8 +1034,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                                 .secondaryBackground,
                                             size: 28.0,
                                           ),
-                                          const SideNavCollectionEntry(),
-                              Padding(
+                                          Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 0.0, 0.0),

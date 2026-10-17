@@ -1,3 +1,5 @@
+import '/app_state.dart';
+import '/body_sections.dart';
 import '/components/body_help_comp_widget.dart';
 import '/components/body_section_grid.dart';
 import '/components/coming_soon_body_comp_widget.dart';
@@ -333,6 +335,12 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
 
                             logFirebaseEvent('Container_navigate_to');
 
+                            // Morning Mobility: load its own moves, not the leftover mixed list.
+                            FFAppState().update(() {
+                              FFAppState().todaysMoves =
+                                  kMorningMobility.toStructs();
+                              FFAppState().hasPreviewedAMove = false;
+                            });
                             context.pushNamed(
                               BeginSessionPageWidget.routeName,
                               extra: <String, dynamic>{

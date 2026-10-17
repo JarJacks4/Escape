@@ -301,3 +301,34 @@ const kBodySections = <BodySection>[
     ], seconds: 40, reps: 12),
   ]),
 ];
+
+/// A Body page collection ("Morning Mobility"…): hand-picked moves from the sections above,
+/// shown as their own group under the collection's name. Before this the collection card
+/// opened the session with whatever was left in today's list (the old mixed default), so
+/// moves from every category showed up together.
+BodySection bodyCollection(String id, String title, String tagline, IconData icon,
+    Color color, List<String> moveNames) {
+  final moves = <BodyMove>[
+    for (final n in moveNames)
+      if (bodyMoveNamed(n) != null) bodyMoveNamed(n)!,
+  ];
+  return BodySection(id, title, tagline, title, icon, color, moves);
+}
+
+final kMorningMobility = bodyCollection(
+  'morning_mobility',
+  'Morning Mobility',
+  'Start your body gently',
+  Icons.wb_sunny_rounded,
+  const Color(0xFFFFB74D),
+  const [
+    'Mountain Pose',
+    'Cat-Cow',
+    'Arm Stretching',
+    'Commencing Form',
+    'Wave Hands Like Clouds',
+    'Downward-Facing Dog',
+    'Tree Pose',
+    "Child's Pose",
+  ],
+);
