@@ -23,7 +23,7 @@ public enum EscIcon: String, CaseIterable, Sendable {
         case .sleep: .modeSleep
         case .move: .modeMove
         case .noise: .soundwave
-        case .realms: .modeRealms
+        case .realms, .nature: .modeRealms
         }
     }
 }

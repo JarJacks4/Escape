@@ -10,7 +10,7 @@ import Foundation
 
 @available(iOS 17.0, *)
 public enum ModeId: String, Codable, CaseIterable, Identifiable, Sendable {
-    case picks, focus, calm, sleep, move, noise, realms
+    case picks, focus, calm, sleep, move, noise, realms, nature
     public var id: String { rawValue }
 
     /// Title used on mode orbs and headers (matches the Figma).
@@ -23,16 +23,17 @@ public enum ModeId: String, Codable, CaseIterable, Identifiable, Sendable {
         case .move: "Move"
         case .noise: "Noise"
         case .realms: "Realms"
+        case .nature: "Nature"
         }
     }
 
     public var shortTitle: String { self == .picks ? "Picks" : title }
 
     /// Free in the beta; the rest need Premium.
-    public var isFree: Bool { [.picks, .focus, .calm, .sleep].contains(self) }
+    public var isFree: Bool { [.picks, .focus, .calm, .sleep, .nature].contains(self) }
 
     /// Modes that have a Browse page.
-    public static let browsable: [ModeId] = [.focus, .calm, .sleep, .move, .realms]
+    public static let browsable: [ModeId] = [.focus, .calm, .sleep, .move, .realms, .nature]
 
     /// Accepts ids and display names ("focus", "Focus", "Lucille Picks", "Energize").
     public init?(loose: String) {
@@ -44,6 +45,7 @@ public enum ModeId: String, Codable, CaseIterable, Identifiable, Sendable {
         case "move", "energize": self = .move
         case "noise": self = .noise
         case "realms", "realm": self = .realms
+        case "nature": self = .nature
         default: return nil
         }
     }

@@ -104,9 +104,15 @@ struct SoundscapesHomeView: View {
     // MARK: - Home tabs
 
     private var tabs: [String] {
-        if let t = store.home?.homeTabs, !t.isEmpty { return t }
-        if let t = store.content?.homeTabs, !t.isEmpty { return t }
-        return ["Now", "Focus", "Calm", "Sleep", "Move", "Realms"]
+        let list: [String]
+        if let t = store.home?.homeTabs, !t.isEmpty { list = t }
+        else if let t = store.content?.homeTabs, !t.isEmpty { list = t }
+        else { list = ["Now", "Focus", "Calm", "Sleep", "Move", "Realms"] }
+        // Jared (Oct 17): the Move tab becomes Nature (Lucille's nature catalog; Move still
+        // lives on the app's Body page), and Realms is left out until the Innerverse is in.
+        return list
+            .filter { $0.lowercased() != "realms" }
+            .map { $0.lowercased() == "move" ? "Nature" : $0 }
     }
 
     private var homeTabs: some View {
@@ -209,9 +215,13 @@ struct SoundscapesHomeView: View {
 
     private var modeItems: [HomeModeItem] {
         if !store.modes.isEmpty {
-            return store.modes.map { HomeModeItem(id: $0.id, title: $0.title, locked: store.isLocked($0.id)) }
+            return store.modes.filter { $0.id != .realms }
+                .map { HomeModeItem(id: $0.id, title: $0.title, locked: store.isLocked($0.id)) }
         }
-        return ModeId.allCases.map { HomeModeItem(id: $0, title: $0.title, locked: store.isLocked($0)) }
+        // Nature is a home tab only, not one of the mode orbs; Realms is hidden until the
+        // Innerverse is in.
+        return ModeId.allCases.filter { $0 != .nature && $0 != .realms }
+            .map { HomeModeItem(id: $0, title: $0.title, locked: store.isLocked($0)) }
     }
 
     private var modeOrbs: some View {

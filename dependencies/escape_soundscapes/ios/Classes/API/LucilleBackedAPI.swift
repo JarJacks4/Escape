@@ -92,7 +92,7 @@ public actor LucilleBackedAPI: SoundscapesAPI {
                 out += try await v1.catalog(category: c)
             }
             return out
-        case .realms:
+        case .realms, .nature:
             return try await v1.catalog(category: "nature")
         }
     }
