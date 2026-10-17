@@ -1331,9 +1331,12 @@ class _ExplorePageVersion5FINALWidgetState
         body: SingleChildScrollView(
           child: Stack(
             children: [
+              // Background fills at least the whole screen, so tall phones don't show black
+              // (and the unblurred gif strip) under the content.
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.only(bottom: 24.0),
+                constraints: BoxConstraints(
+                    minHeight: MediaQuery.sizeOf(context).height),
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
@@ -1351,6 +1354,9 @@ class _ExplorePageVersion5FINALWidgetState
                     ),
                     child: Container(
                       width: double.infinity,
+                      constraints: BoxConstraints(
+                          minHeight: MediaQuery.sizeOf(context).height),
+                      padding: EdgeInsets.only(bottom: 24.0),
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
