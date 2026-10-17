@@ -11,13 +11,16 @@ import SwiftUI
 public struct MoodOrbView: View {
     public var reading: MoodReading
     public var beatStrength: Double
+    public var recolorStrength: Double
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var start = Date()
 
-    public init(reading: MoodReading, beatStrength: Double = 0.25) {
+    public init(reading: MoodReading, beatStrength: Double = 0.25,
+                recolorStrength: Double = 1) {
         self.reading = reading
         self.beatStrength = beatStrength
+        self.recolorStrength = recolorStrength
     }
 
     /// A 0…1 heartbeat envelope for `t` seconds at `bpm`: a quick "lub", a smaller "dub",
@@ -44,11 +47,13 @@ public struct MoodOrbView: View {
                         .float(reading.valence),
                         .float(beat),
                         .float(reading.valence),                 // texture tracks "dreamy" = pleasant here
+                        .float(recolorStrength),
                         .float3(colors.r, colors.g, colors.b)))
             }
         }
         .drawingGroup()
         .animation(.easeInOut(duration: 0.6), value: reading.tint)
+        .animation(.easeInOut(duration: 0.6), value: recolorStrength)
     }
 }
 
