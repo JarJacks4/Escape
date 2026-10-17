@@ -92,10 +92,18 @@ extension AppStore {
                                                   text: text.isEmpty ? nil : text,
                                                   bpm: reading.pulseMeasured ? reading.bpm : nil)
             return .saved(coins: coins)
-        } catch APIError.server(_, let code, _) where code.hasPrefix("consent_required") {
-            pendingConsent = String(code.dropFirst("consent_required:".count))
+        } catch APIError.server(_, let code, let message) where code.hasPrefix("consent_required") || message.contains("consent_required") {
+            // The v1 API returns "lucille_403" with the consent details nested in the message:
+            // {"code":"consent_required","purpose":"wellbeing_data",...}
+            if code.hasPrefix("consent_required:") {
+                pendingConsent = String(code.dropFirst("consent_required:".count))
+            } else {
+                let parts = message.components(separatedBy: "\"purpose\":\"")
+                pendingConsent = parts.count > 1 ? (parts[1].components(separatedBy: "\"").first ?? "wellbeing_data") : "wellbeing_data"
+            }
             return .needsConsent
         } catch {
+            print("[Scan] save failed: \(error)")
             return .failed
         }
     }
