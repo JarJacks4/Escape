@@ -68,12 +68,30 @@ extension AppStore {
 
     /// Close: back to the host page if the host opened the scan, else Soundscapes Home.
     public func closeMoodScan() {
+        // Pick up the new pulse / mood on the Soundscapes Home tiles.
+        Task { await refreshHome() }
         if scanOpenedFromHost, let close = onCloseToHost {
             scanOpenedFromHost = false
             close()
             return
         }
         setScreen(hasOnboarded ? .soundscapesHome : .onboardingSoundscapes)
+    }
+
+    /// The last camera pulse from a Mood Scan, for the Soundscapes Heart input (HealthKit is
+    /// stripped for the beta). Only used for 12 hours after the scan.
+    static func rememberScanPulse(_ bpm: Int) {
+        UserDefaults.standard.set(bpm, forKey: "escape.scanPulse.bpm")
+        UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: "escape.scanPulse.at")
+    }
+
+    static func lastScanPulse() -> Int? {
+        let d = UserDefaults.standard
+        let bpm = d.integer(forKey: "escape.scanPulse.bpm")
+        let at = d.double(forKey: "escape.scanPulse.at")
+        let age = Date().timeIntervalSince1970 - at
+        guard bpm > 0, age < 12 * 3600 else { return nil }
+        return bpm
     }
 
     /// Saves the result as a Lucille v1 mood check-in (fire and forget).
@@ -85,6 +103,10 @@ extension AppStore {
     /// Saves the result as a Lucille v1 mood check-in, with the camera pulse when it was really
     /// measured. Returns the Escape Coins the server awarded, or nil if it couldn't save.
     public func submitMoodScan(_ reading: MoodReading, words: String) async -> ScanSaveResult {
+        if reading.pulseMeasured {
+            Self.rememberScanPulse(reading.bpm)
+            Task { await refreshHome() }
+        }
         guard let lucille = api as? LucilleBackedAPI else { return .failed }
         let text = words.trimmingCharacters(in: .whitespacesAndNewlines)
         do {

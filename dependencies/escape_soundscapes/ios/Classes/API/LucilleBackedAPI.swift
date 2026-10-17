@@ -268,6 +268,9 @@ public actor LucilleBackedAPI: SoundscapesAPI {
         await applyName()
         var h = try await mock.home(q)
         h.madeByYou = []
+        // The mock's Inner Weather drops the heart rate when its own (seed) Heart input is off;
+        // here it's the Mood Scan pulse the store passes in.
+        h.inputsNow.heartBpm = q.heartBpm.map { Int($0.rounded()) }
         if let p = try? await v1.progress(), let streak = p.streakDays { h.user.streakDays = streak }
         if let d = try? await v1.dailyDrop() {
             tracks[d.track.id] = d.track
@@ -283,7 +286,8 @@ public actor LucilleBackedAPI: SoundscapesAPI {
     public func inputsNow(_ q: InputsQuery) async throws -> InputsNow {
         var n = try await mock.inputsNow(q)
         guard let v = try? await v1.innerWeather(lat: q.lat, lon: q.lon) else {
-            n.weather = nil; n.mood = nil; n.phaseValue = ""; n.heartBpm = nil
+            n.weather = nil; n.mood = nil; n.phaseValue = ""
+            n.heartBpm = q.heartBpm.map { Int($0.rounded()) }
             return n
         }
         let phase = v.phase.prefix(1).uppercased() + v.phase.dropFirst()
@@ -298,7 +302,9 @@ public actor LucilleBackedAPI: SoundscapesAPI {
             n.weather = nil
         }
         n.mood = v.mood?.word
-        n.heartBpm = nil   // no live heart source here; the Mood Scan measures it on demand
+        // HealthKit is stripped for the beta: the heart rate is the Mood Scan's camera pulse,
+        // passed in by the store when the Heart input is on.
+        n.heartBpm = q.heartBpm.map { Int($0.rounded()) }
         return n
     }
     public func me() async throws -> Profile { await applyName(); return try await mock.me() }
@@ -308,8 +314,29 @@ public actor LucilleBackedAPI: SoundscapesAPI {
     public func preferences() async throws -> Preferences { try await mock.preferences() }
     public func updatePreferences(_ patch: PreferencesPatch) async throws -> Preferences { try await mock.updatePreferences(patch) }
     public func completeOnboarding() async throws { try await mock.completeOnboarding() }
-    public func inputs() async throws -> InputsResponse { try await mock.inputs() }
-    public func setInput(_ id: InputSetting.Kind, enabled: Bool) async throws -> InputSetting { try await mock.setInput(id, enabled: enabled) }
+    public func inputs() async throws -> InputsResponse { Self.heartFromScan(try await mock.inputs()) }
+    public func setInput(_ id: InputSetting.Kind, enabled: Bool) async throws -> InputSetting {
+        var i = try await mock.setInput(id, enabled: enabled)
+        if i.id == .heart { Self.heartFromScan(&i) }
+        return i
+    }
+
+    /// Heart rate comes from the Mood Scan's camera pulse, not HealthKit (stripped for the
+    /// beta), so the Heart input needs no Health permission and can be turned on.
+    private static func heartFromScan(_ i: inout InputSetting) {
+        // Always on: there's nothing to grant, and the seed's toggle state can't block it.
+        i.permission = nil
+        i.comingSoon = false
+        i.alwaysOn = true
+        i.enabled = true
+        i.sub = "Your pulse from your latest Mood Scan"
+    }
+
+    private static func heartFromScan(_ r: InputsResponse) -> InputsResponse {
+        var r = r
+        for k in r.inputs.indices where r.inputs[k].id == .heart { heartFromScan(&r.inputs[k]) }
+        return r
+    }
     /// Erases stored mood readings (scans, check-ins, heart rate) on the server, then the local cache.
     public func deleteInputHistory() async throws {
         try await v1.eraseData(scope: "mood")
@@ -320,12 +347,46 @@ public actor LucilleBackedAPI: SoundscapesAPI {
     public func latestMoodScan() async throws -> MoodScan? { try await mock.latestMoodScan() }
     public func journeys() async throws -> [Journey] { try await mock.journeys() }
     public func journey(_ id: String) async throws -> Journey { try await mock.journey(id) }
-    public func startJourney(_ id: String) async throws -> JourneyStart { try await mock.startJourney(id) }
+
+    /// Timed Journey: the seed's phases set the timeline and total time; the sound is the
+    /// Lucille track in the journey's mode closest to its average energy.
+    public func startJourney(_ id: String) async throws -> JourneyStart {
+        var j = try await mock.journey(id)
+        let mode = ModeId(loose: j.mode) ?? .focus
+        var at = 0
+        let timeline = j.phases.map { p -> Journey.Phase in
+            var p = p; p.startsAtSec = at * 60; at += p.minutes; return p
+        }
+        j.totalMinutes = at
+        let energy = j.phases.isEmpty ? 0.5 : j.phases.map(\.energy).reduce(0, +) / Double(j.phases.count)
+        guard let pick = await closestTrack(mode: mode, field: MoodField(energy: energy, texture: 0.5)) else {
+            return try await mock.startJourney(id)
+        }
+        let c = try await lucilleComposition(pick.id)
+        let s = try await startSession(StartSessionRequest(mode: mode, compositionId: c.compositionId, startedFrom: .journey))
+        return JourneyStart(journey: j, timeline: timeline, composition: c, session: s)
+    }
     public func whisperTopics() async throws -> [WhisperTopic] { try await mock.whisperTopics() }
     public func visualPresets(mode: ModeId?) async throws -> [VisualPreset] { try await mock.visualPresets(mode: mode) }
     public func premiumPlans() async throws -> PremiumPlans { try await mock.premiumPlans() }
     public func dailyDrop() async throws -> DailyDrop { try await mock.dailyDrop() }
-    public func compose(_ req: ComposeRequest) async throws -> ComposeAccepted { try await mock.compose(req) }
+    /// Compose with Lucille. There's no renderer on the live API yet (Jared: existing Lucille
+    /// endpoints only), so Lucille picks the catalog track in the chosen mode whose Mood Field is
+    /// closest to the person's, and it plays straight away.
+    public func compose(_ req: ComposeRequest) async throws -> ComposeAccepted {
+        guard let pick = await closestTrack(mode: req.mode, field: req.moodField) else {
+            return try await mock.compose(req)
+        }
+        return try await accepted(pick.id)
+    }
+
+    /// The catalog track in `mode` (Calm if that mode is empty) nearest to a Mood Field.
+    private func closestTrack(mode: ModeId, field: MoodField) async -> V1Track? {
+        var pool = (try? await v1Tracks(for: mode)) ?? []
+        if pool.isEmpty { pool = (try? await v1Tracks(for: .calm)) ?? [] }
+        for t in pool { tracks[t.id] = t }
+        return Self.nearestTrack(in: pool, to: field, avoiding: "")
+    }
     public func myCompositions(limit: Int) async throws -> [Composition] { try await mock.myCompositions(limit: limit) }
     /// Only what the person saved from the Lucille catalog: the seed file's sample saves
     /// ("Cabin Rain, 11 PM", "Morning Clarity"…) aren't theirs, so they never show.

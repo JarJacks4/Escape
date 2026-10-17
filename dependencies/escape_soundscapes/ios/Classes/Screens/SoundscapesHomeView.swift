@@ -34,13 +34,16 @@ struct SoundscapesHomeView: View {
                     dailyDrop
                     modeOrbs
                     playNow(top: 24)
+                    composeButton
                 } else {
                     playNow(top: 16)
+                    composeButton
                     innerWeather
                     dailyDrop
                     modeOrbs
                 }
-                // Journeys are hidden until they're backed by real data (they open sample content).
+                // Timed Journeys: seed plans, played on Lucille catalog tracks.
+                journeys
                 // Listening Circles are hidden until live circles exist (the card was sample data).
                 if !madeItems.isEmpty { madeByYou }
                 statusLine
@@ -130,9 +133,44 @@ struct SoundscapesHomeView: View {
     private func playNow(top: CGFloat) -> some View {
         PlayNowButton(
             subtitle: store.inputsNow?.playNowSubtitle ?? "Lucille picks Focus for your afternoon",
-            onPress: { Task { await store.playNow() } }
+            onPress: { Task { await store.playNow() } },
+            onLongPress: { openCompose() }
         )
         .padding(.top, top)
+        .padding(.horizontal, 24)
+    }
+
+    // MARK: - Compose
+
+    private func openCompose() {
+        store.setSheet(nil)
+        store.setScreen(.lucilleCompose)
+    }
+
+    /// "Compose with Lucille": opens the Compose screen (prompt, mode, length, brainwave).
+    private var composeButton: some View {
+        Button(action: openCompose) {
+            HStack(spacing: 10) {
+                Image(systemName: "sparkles")
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundStyle(Esc.ember)
+                Text("Compose with Lucille")
+                    .font(EscFont.ui(15, .medium))
+                    .foregroundStyle(Esc.mist)
+                Spacer(minLength: 0)
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundStyle(Esc.haze)
+            }
+            .padding(.horizontal, 20)
+            .frame(height: 48)
+            .background(Esc.card, in: Capsule())
+            .overlay(Capsule().strokeBorder(Color(hex: 0xE6EAF4, opacity: 0.12), lineWidth: 1))
+            .contentShape(Capsule())
+        }
+        .buttonStyle(EscPressStyle())
+        .accessibilityLabel("Compose with Lucille")
+        .padding(.top, 10)
         .padding(.horizontal, 24)
     }
 
@@ -152,8 +190,10 @@ struct SoundscapesHomeView: View {
                                      onPress: openInputs)
                     InnerWeatherTile(label: "Mood", value: moodValue, icon: .mood, iconColor: Esc.lilac,
                                      onPress: { store.openMoodScan() })
+                    // The pulse comes from the Mood Scan, so the tile always opens it (to measure
+                    // or re-measure).
                     InnerWeatherTile(label: "Heart", value: heartValue, icon: .heart, iconColor: Esc.ember,
-                                     onPress: openInputs)
+                                     onPress: { store.openMoodScan() })
                 }
                 .padding(.horizontal, 24)
             }

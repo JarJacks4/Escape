@@ -142,7 +142,10 @@ public final class AppStore {
         var q = InputsQuery()
         let on = { (k: InputSetting.Kind) in self.inputs.first { $0.id == k }?.enabled ?? false }
         if on(.weather), let loc = await host.currentLocation() { q.lat = loc.lat; q.lon = loc.lon }
-        if on(.heart) { q.heartBpm = await host.latestHeartRate() }
+        // Heart: HealthKit when it's allowed, otherwise the last Mood Scan pulse (always used;
+        // the Heart input is always on in this build, see LucilleBackedAPI.heartFromScan).
+        let hk = on(.heart) ? await host.latestHeartRate() : nil
+        q.heartBpm = hk ?? Self.lastScanPulse().map(Double.init)
         return q
     }
 
