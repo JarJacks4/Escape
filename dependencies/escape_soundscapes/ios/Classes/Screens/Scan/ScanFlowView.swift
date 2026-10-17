@@ -102,7 +102,8 @@ public struct ScanFlowView: View {
 
                 // THE hero orb — one instance, positioned per phase.
                 let f = orbFrame(W: W, H: H)
-                MoodOrbView(reading: reading, beatStrength: beatStrength)
+                MoodOrbView(reading: reading, beatStrength: beatStrength,
+                            recolorStrength: orbRecolorStrength)
                     .frame(width: f.size, height: f.size)
                     .scaleEffect(breathScale)
                     .opacity(f.opacity)
@@ -206,6 +207,17 @@ public struct ScanFlowView: View {
 
     private var beatStrength: Double {
         switch phase { case .pulse: return 1; case .eScan: return 0.9; case .result, .eResult: return 0.3; default: return 0.4 }
+    }
+
+    /// Start with the same blue-purple Escape orb used by Soundscapes, then
+    /// let the scan recolour it as the person tunes and confirms their mood.
+    private var orbRecolorStrength: Double {
+        switch phase {
+        case .start: return 0
+        case .pulse: return 0.2
+        case .feel, .words: return 0.75
+        case .result, .eStart, .eScan, .eResult: return 1
+        }
     }
 
     // MARK: Orb placement (hero path)
