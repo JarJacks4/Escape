@@ -5,12 +5,16 @@ typedef SoundscapesTokenProvider = Future<String?> Function();
 typedef SoundscapesExitHandler = void Function(String? tab);
 typedef SoundscapesFeedbackHandler = Future<void> Function(Map<String, dynamic> feedback);
 
+/// A Lucille memory from the native module: {text, kind, tags, importance}.
+typedef SoundscapesMemoryHandler = Future<void> Function(Map<String, dynamic> memory);
+
 /// Opens the native Soundscapes module (iOS 17+ only).
 class EscapeSoundscapes {
   static const MethodChannel _channel = MethodChannel('escape_soundscapes');
   static SoundscapesTokenProvider? _tokenProvider;
   static SoundscapesExitHandler? _onExit;
   static SoundscapesFeedbackHandler? _onFeedback;
+  static SoundscapesMemoryHandler? _onMemory;
   static bool _handlerSet = false;
 
   /// Call once (e.g. in main) before [open].
@@ -18,10 +22,12 @@ class EscapeSoundscapes {
     SoundscapesTokenProvider? tokenProvider,
     SoundscapesExitHandler? onExit,
     SoundscapesFeedbackHandler? onFeedback,
+    SoundscapesMemoryHandler? onMemory,
   }) {
     _tokenProvider = tokenProvider;
     _onExit = onExit;
     _onFeedback = onFeedback;
+    _onMemory = onMemory;
     if (!_handlerSet) {
       _channel.setMethodCallHandler(_handle);
       _handlerSet = true;
@@ -39,6 +45,9 @@ class EscapeSoundscapes {
       case 'onExit':
         _onExit?.call(call.arguments as String?);
         return null;
+      case 'remember':
+        await _onMemory?.call(Map<String, dynamic>.from(call.arguments as Map));
+        return true;
       case 'sendFeedback':
         final handler = _onFeedback;
         if (handler == null) {

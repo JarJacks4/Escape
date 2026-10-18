@@ -66,6 +66,11 @@ public final class EscapeSoundscapesPlugin: NSObject, FlutterPlugin {
             }
         }
 
+        // Lucille memories from the module go to Flutter, which checks consent and saves them.
+        SoundscapesBetaBridge.saveMemory = { [weak self] payload in
+            DispatchQueue.main.async { self?.channel.invokeMethod("remember", arguments: payload) }
+        }
+
         let mock = args["mock"] as? Bool ?? true
         let factory: SoundscapesHostingFactory
         if !mock, let s = args["baseUrl"] as? String, let url = URL(string: s) {

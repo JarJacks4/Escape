@@ -179,6 +179,16 @@ public struct ScanFlowView: View {
         }
         withAnimation(.spring(response: 0.9, dampingFraction: 0.82)) { phase = p }
         progress = 0; elapsed = 0
+        if p == .eResult {
+            let centers = EnergyCenters.from(reading)
+            if let low = centers.min(by: { $0.energy < $1.energy }),
+               let high = centers.max(by: { $0.energy < $1.energy }) {
+                let short = { (c: EnergyCenter) in c.name.replacingOccurrences(of: " Energy Center", with: "") }
+                SoundscapesBetaBridge.remember(
+                    "Did an Energy Scan: \(short(high)) was strongest (\(high.energy)%), \(short(low)) needed the most care (\(low.energy)%).",
+                    kind: "energy_scan", tags: [short(low).lowercased()])
+            }
+        }
         if p == .result {
             coinsAwarded = nil; needsConsent = false
             if host.submitCheckIn != nil { submitResult() } else { host.saveCheckIn(reading, words) }

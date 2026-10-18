@@ -103,6 +103,12 @@ extension AppStore {
     /// Saves the result as a Lucille v1 mood check-in, with the camera pulse when it was really
     /// measured. Returns the Escape Coins the server awarded, or nil if it couldn't save.
     public func submitMoodScan(_ reading: MoodReading, words: String) async -> ScanSaveResult {
+        let said = words.trimmingCharacters(in: .whitespacesAndNewlines)
+        let pulseNote: String = reading.pulseMeasured ? ", pulse about \(reading.bpm) bpm" : ""
+        let saidNote: String = said.isEmpty ? "." : ". On their mind: \"\(said)\"."
+        let feel = "Did a Mood Scan and felt \(reading.word.lowercased()) (energy \(Int(reading.energy * 100))%, pleasant \(Int(reading.valence * 100))%"
+        SoundscapesBetaBridge.remember(feel + pulseNote + ")" + saidNote,
+                                       kind: "mood_scan", tags: [reading.word.lowercased()], importance: 6)
         UserDefaults.standard.set(reading.word, forKey: "escape.scanMood.word")
         UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: "escape.scanMood.at")
         if !reading.pulseMeasured { Task { await refreshHome() } }

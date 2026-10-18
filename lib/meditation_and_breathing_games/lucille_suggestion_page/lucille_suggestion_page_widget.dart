@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/soundscapes/lucille_memory.dart';
 import '/components/confetti_page_expert_comp_widget.dart';
 import '/components/exercise_assessment_bottom_sheet_copy_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -516,6 +517,15 @@ class _LucilleSuggestionPageWidgetState
                                             (_) => _model.soundPlayer!.play());
 
                                     logFirebaseEvent('Button_update_app_state');
+                                    // Tell Lucille which suggestion they finished.
+                                    LucilleMemory.remember(
+                                      'Finished the exercise "${widget.exerciseTitle ?? 'Lucille suggestion'}"'
+                                      '${widget.exerciseDuration != null ? ' (${widget.exerciseDuration!.round()} min)' : ''}'
+                                      ' that Lucille suggested.',
+                                      kind: 'exercise',
+                                      tags: ['lucille_suggestion'],
+                                      importance: 6,
+                                    );
                                     FFAppState().pointsEarned =
                                         FFAppState().pointsEarned + 150;
                                     FFAppState().pointsEarnedPercentage =

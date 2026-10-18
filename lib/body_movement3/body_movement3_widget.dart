@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/body_sections.dart';
+import '/soundscapes/lucille_memory.dart';
 import '/components/button7_widget.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -482,6 +483,18 @@ class _BodyMovement3WidgetState extends State<BodyMovement3Widget> {
                       }
                       // From now on this person picks their own moves.
                       await markBodyFirstSessionDone(currentUserUid);
+                      // Tell Lucille what they did.
+                      final moves = FFAppState().todaysMoves;
+                      final group = moves.firstOrNull?.moveType ?? 'Body';
+                      final names = moves.map((m) => m.name).where((n) => n.isNotEmpty).toList();
+                      LucilleMemory.remember(
+                        'Finished a $group Body session with ${moves.length} move${moves.length == 1 ? '' : 's'}'
+                        '${names.isEmpty ? '' : ' (${names.take(6).join(', ')}${names.length > 6 ? '…' : ''})'}'
+                        ', about ${functions.getMinutesSinceDateTimeLastActivity(widget.sessionStartTime)} min.',
+                        kind: 'body',
+                        tags: [group.toLowerCase()],
+                        importance: 6,
+                      );
                       logFirebaseEvent('Button_navigate_to');
 
                       context.pushNamed(

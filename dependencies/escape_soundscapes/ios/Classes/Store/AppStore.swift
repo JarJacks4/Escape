@@ -373,6 +373,12 @@ public final class AppStore {
         do {
             lastResult = try await api.completeSession(s.sessionId, CompleteSessionRequest(minutes: minutes, moodAfter: moodAfter))
             host.track("session_complete", ["mode": s.mode.rawValue, "minutes": String(lastResult?.minutes ?? 0)])
+            let mins = max(1, lastResult?.minutes ?? Int((minutes ?? 1).rounded()))
+            let name = nowPlaying?.title ?? s.mode.title
+            let plural: String = mins == 1 ? "" : "s"
+            let ending: String = s.startedFrom == .journey ? " as part of a Journey." : "."
+            let listened = "Listened to the soundscape \"\(name)\" (\(s.mode.title)) for about \(mins) minute\(plural)"
+            SoundscapesBetaBridge.remember(listened + ending, kind: "soundscape", tags: [s.mode.rawValue])
             host.haptic(.success)
         } catch { handle(error) }
         setScreen(.sessionComplete)
@@ -433,6 +439,11 @@ public final class AppStore {
             generationStep = 0
             setScreen(.composeGenerating)
             host.track("compose", ["mode": composeMode.rawValue])
+            let prompt = composePrompt.trimmingCharacters(in: .whitespacesAndNewlines)
+            let promptNote: String = prompt.isEmpty ? "" : " for: \"\(prompt)\""
+            let picked = "; she picked \"\(accepted.composition.title)\"."
+            SoundscapesBetaBridge.remember("Asked Lucille to compose a \(composeMode.title) soundscape" + promptNote + picked,
+                                           kind: "soundscape", tags: ["compose", composeMode.rawValue])
             watch(accepted.compositionId, thenPlay: true)
         } catch { handle(error) }
     }
@@ -682,6 +693,9 @@ public final class AppStore {
         do {
             let start = try await api.startJourney(selectedJourneyId)
             timerSeconds = (start.journey.totalMinutes ?? 40) * 60
+            SoundscapesBetaBridge.remember(
+                "Started the \"\(start.journey.title)\" Journey (\(start.journey.totalMinutes ?? 40) minutes).",
+                kind: "soundscape", tags: ["journey", start.journey.mode])
             startPlayback(start.composition, from: .journey, existing: start.session)
         } catch { handle(error) }
     }

@@ -52,7 +52,20 @@ struct NowPlayingView: View {
         store.nowPlaying?.whyThisSound ?? copy?.whyBody
             ?? "Drizzle outside + restless mood = slower pulse, warmer pads, a 10 Hz alpha layer."
     }
-    private var shareText: String { "Listening to \(title) on Escape — composed by Lucille (AI)" }
+    private var shareText: String { "Listen to \"\(title)\" with me on Escape:" }
+
+    /// Opens Escape and plays this track (Flutter route /playSoundscape). The custom scheme only
+    /// opens on phones with Escape installed; a universal link would also cover the web.
+    private var shareURL: URL? {
+        guard let cid = store.nowPlaying?.compositionId,
+              let tid = LucilleBackedAPI.trackId(cid) else { return nil }
+        var c = URLComponents()
+        c.scheme = "escapeinnerverse"
+        c.host = "escape.com"
+        c.path = "/playSoundscape"
+        c.queryItems = [URLQueryItem(name: "track", value: tid), URLQueryItem(name: "title", value: title)]
+        return c.url
+    }
     private var isSaved: Bool { store.isSaved(store.nowPlaying?.compositionId) }
 
     private var switcherModes: [ModeId] {
@@ -91,7 +104,7 @@ struct NowPlayingView: View {
         .onChange(of: store.sheet) { _, _ in registerTouch() }
         .task(id: idleKey) { await watchIdle() }
         .sheet(isPresented: $showShare) {
-            NowPlayingShareSheet(items: [shareText])
+            NowPlayingShareSheet(items: shareURL.map { url -> [Any] in [shareText, url] } ?? [shareText])
                 .presentationDetents([.medium, .large])
                 .ignoresSafeArea()
         }
@@ -519,7 +532,7 @@ private struct PillFlowLayout: Layout {
 
 @available(iOS 17.0, *)
 private struct NowPlayingShareSheet: UIViewControllerRepresentable {
-    let items: [String]
+    let items: [Any]
 
     func makeUIViewController(context: Context) -> UIActivityViewController {
         UIActivityViewController(activityItems: items, applicationActivities: nil)

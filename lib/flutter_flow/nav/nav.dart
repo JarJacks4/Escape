@@ -16,6 +16,7 @@ import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 import '/index.dart';
+import '/soundscapes/soundscape_link_page.dart';
 import 'package:cupertino_time_picker_hiuzb7/index.dart'
     as $cupertino_time_picker_hiuzb7;
 import 'package:tiktokfeed_wz8en7/index.dart' as $tiktokfeed_wz8en7;
@@ -397,6 +398,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => JournalHomeV2Widget(
               screen: params.getParam('screen', ParamType.String),
               mode: params.getParam('mode', ParamType.String),
+            ),
+          ),
+          FFRoute(
+            // Shared soundscape link (escapeinnerverse://escape.com/playSoundscape?track=…).
+            name: SoundscapeLinkPageWidget.routeName,
+            path: SoundscapeLinkPageWidget.routePath,
+            requireAuth: true,
+            builder: (context, params) => SoundscapeLinkPageWidget(
+              track: params.getParam('track', ParamType.String),
+              title: params.getParam('title', ParamType.String),
             ),
           ),
           FFRoute(

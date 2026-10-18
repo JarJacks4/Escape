@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '/auth/firebase_auth/auth_util.dart';
+import 'lucille_memory.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -52,6 +53,12 @@ class SoundscapesLauncher {
           FirebaseAuth.instance.currentUser?.getIdToken(),
       onExit: _onExit,
       onFeedback: _saveFeedback,
+      onMemory: (m) => LucilleMemory.remember(
+        '${m['text'] ?? ''}',
+        kind: '${m['kind'] ?? 'soundscapes'}',
+        tags: ((m['tags'] as List?) ?? const []).map((t) => '$t').toList(),
+        importance: (m['importance'] as num?)?.toInt() ?? 5,
+      ),
     );
   }
 
