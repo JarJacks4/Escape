@@ -141,7 +141,11 @@ public final class AppStore {
     private func inputsQuery() async -> InputsQuery {
         var q = InputsQuery()
         let on = { (k: InputSetting.Kind) in self.inputs.first { $0.id == k }?.enabled ?? false }
-        if on(.weather), let loc = await host.currentLocation() { q.lat = loc.lat; q.lon = loc.lon }
+        // Weather: use the location whenever iOS allows it, even if the seed's Weather toggle
+        // was never flipped (granting it in Settings didn't turn that toggle on).
+        if on(.weather) || host.hasPermission(.location), let loc = await host.currentLocation() {
+            q.lat = loc.lat; q.lon = loc.lon
+        }
         // Heart: HealthKit when it's allowed, otherwise the last Mood Scan pulse (always used;
         // the Heart input is always on in this build, see LucilleBackedAPI.heartFromScan).
         let hk = on(.heart) ? await host.latestHeartRate() : nil
@@ -680,6 +684,18 @@ public final class AppStore {
             timerSeconds = (start.journey.totalMinutes ?? 40) * 60
             startPlayback(start.composition, from: .journey, existing: start.session)
         } catch { handle(error) }
+    }
+
+    /// Host asked to play one Lucille track (e.g. Journal V2's "Tuned for this mood").
+    /// Falls back to Soundscapes Home with a note if the track can't be found.
+    public func playTrack(id: String?, title: String?) async {
+        guard let lucille = api as? LucilleBackedAPI,
+              let cid = await lucille.compositionId(trackId: id, title: title) else {
+            setScreen(hasOnboarded ? .soundscapesHome : .onboardingSoundscapes)
+            toast = "Couldn't find \(title ?? "that soundscape") right now."
+            return
+        }
+        await play(compositionId: cid, from: .playNow)
     }
 
     // MARK: - Library + playlist

@@ -89,6 +89,10 @@ public final class EscapeSoundscapesPlugin: NSObject, FlutterPlugin {
         if let screen = args["screen"] as? String {
             factory.openScreen(screen, sheet: args["sheet"] as? String)
         }
+        let playId = args["playTrackId"] as? String, playTitle = args["playTitle"] as? String
+        if playId?.isEmpty == false || playTitle?.isEmpty == false {
+            factory.playTrack(id: playId, title: playTitle)
+        }
 
         let vc = factory.makeViewController()
         // overFullScreen keeps the Flutter view in the window underneath, so Flutter can switch to

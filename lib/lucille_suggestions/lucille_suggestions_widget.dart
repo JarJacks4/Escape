@@ -1207,8 +1207,9 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                   child: Container(
                                                                                     height: MediaQuery.sizeOf(context).height * 0.4,
                                                                                     child: LucilleSuggestionDescriptionCompWidget(
+  // Jared: "Why this session" shows the exercise's own description from Lucille's API.
   exerciseDescription: LucilleTherapyExercisesGroup.recommendedExercisesCall
-      .reason(columnRecommendedExercisesResponse.jsonBody)
+      .description(columnRecommendedExercisesResponse.jsonBody)
       ?.elementAtOrNull(0),
 ),
                                                                                   ),
@@ -2257,8 +2258,9 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                       child: Container(
                                                                                         height: MediaQuery.sizeOf(context).height * 0.4,
                                                                                         child: LucilleSuggestionDescriptionCompWidget(
+  // Jared: "Why this session" shows the exercise's own description from Lucille's API.
   exerciseDescription: LucilleTherapyExercisesGroup.recommendedExercisesCall
-      .reason(columnRecommendedExercisesResponse.jsonBody)
+      .description(columnRecommendedExercisesResponse.jsonBody)
       ?.elementAtOrNull(1),
 ),
                                                                                       ),
@@ -3308,8 +3310,9 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                       child: Container(
                                                                                         height: MediaQuery.sizeOf(context).height * 0.4,
                                                                                         child: LucilleSuggestionDescriptionCompWidget(
+  // Jared: "Why this session" shows the exercise's own description from Lucille's API.
   exerciseDescription: LucilleTherapyExercisesGroup.recommendedExercisesCall
-      .reason(columnRecommendedExercisesResponse.jsonBody)
+      .description(columnRecommendedExercisesResponse.jsonBody)
       ?.elementAtOrNull(2),
 ),
                                                                                       ),

@@ -316,6 +316,37 @@ Future<bool?> _askConsent(BuildContext context, String purpose) {
   );
 }
 
+/// "Tuned for this mood": play that exact track in Soundscapes (it used to open the
+/// Soundscapes home). Uses the track id when the API sends one, else the title.
+void _playTuned(BuildContext context, Map sound) {
+  final link = sound['deeplink'] as Map?;
+  final params = (link?['params'] as Map?) ?? const {};
+  String? pick(List<dynamic> vals) {
+    for (final v in vals) {
+      final s = v?.toString().trim() ?? '';
+      if (s.isNotEmpty && s != 'null') return s;
+    }
+    return null;
+  }
+
+  final id = pick([
+    sound['trackId'],
+    sound['track_id'],
+    sound['soundscapeId'],
+    sound['id'],
+    params['trackId'],
+    params['track_id'],
+    params['soundscapeId'],
+    params['id'],
+  ]);
+  final title = pick([sound['title'], params['title']]);
+  if (id == null && title == null) {
+    _openDeeplink(context, link);
+    return;
+  }
+  SoundscapesLauncher.openTrack(context, trackId: id, title: title);
+}
+
 void _openDeeplink(BuildContext context, Map? link) {
   final path = link?['path']?.toString();
   if (path == null || path.isEmpty) return;
@@ -735,6 +766,136 @@ class _TopBar extends StatelessWidget {
       ]);
 }
 
+/// Mood Stats trend: every slot of the period gets a faint track (so a week with one
+/// check-in doesn't look empty), coloured bars for days with data, day/month labels under
+/// the bars and a one-line summary.
+class _TrendChart extends StatelessWidget {
+  const _TrendChart({required this.items, required this.period});
+  final List items;
+  final String period;
+
+  static bool _empty(dynamic b) =>
+      b is! Map || b['empty'] == true || ((b['h'] ?? 0) as num) <= 0;
+
+  /// A short axis label. The API sends ISO dates ("2026-10-12"), so turn those into a
+  /// weekday (Mon), a day number (month) or a month (Jan) for the year view.
+  String _short(String raw) {
+    final d = DateTime.tryParse(raw);
+    if (d != null) {
+      const wd = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+      const mo = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      if (period == 'year') return mo[d.month - 1];
+      if (period == 'month') return '${d.day}';
+      return wd[d.weekday - 1];
+    }
+    return raw.length > 3 ? raw.substring(0, 3) : raw;
+  }
+
+  List<String> _labels(int n) {
+    final fromApi = [
+      for (final b in items)
+        (b is Map ? (b['label'] ?? b['day'] ?? b['d'] ?? b['date']) : null)
+                ?.toString() ??
+            ''
+    ];
+    if (fromApi.isNotEmpty && fromApi.every((l) => l.isNotEmpty)) {
+      final out = fromApi.map(_short).toList();
+      // A month of day numbers is too crowded: label every 5th day only.
+      if (period == 'month' && n > 14) {
+        return [for (var i = 0; i < n; i++) i % 5 == 0 ? out[i] : ''];
+      }
+      return out;
+    }
+    final now = DateTime.now();
+    if (period == 'week' && n == 7) {
+      const d = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+      return [
+        for (var i = 6; i >= 0; i--)
+          d[now.subtract(Duration(days: i)).weekday - 1]
+      ];
+    }
+    if (period == 'year' && n == 12) {
+      const m = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      return [for (var i = 11; i >= 0; i--) m[(now.month - 1 - i) % 12]];
+    }
+    return List.filled(n, '');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final n = items.length;
+    final active = items.where((b) => !_empty(b)).length;
+    final labels = _labels(n);
+    const h = 76.0;
+    final unit = period == 'year' ? 'months' : 'days';
+    final summary = n == 0
+        ? 'Check in to start your trend.'
+        : active == 0
+            ? 'No check-ins yet this $period.'
+            : '$active of $n $unit with a check-in'
+                '${active < n ? ' · check in daily to fill it in' : ''}';
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      SizedBox(
+        height: h,
+        child: Row(crossAxisAlignment: CrossAxisAlignment.end, children: [
+          for (final b in items)
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: n > 14 ? 1 : 3),
+                child: Stack(alignment: Alignment.bottomCenter, children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: _C.ice.withOpacity(0.07),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                  ),
+                  if (!_empty(b))
+                    TweenAnimationBuilder<double>(
+                      tween: Tween(
+                          begin: 0,
+                          end: (((b as Map)['h'] ?? 0) as num)
+                                  .toDouble()
+                                  .clamp(8, 100) /
+                              100),
+                      duration: const Duration(milliseconds: 700),
+                      curve: Curves.easeOutCubic,
+                      builder: (_, v, __) => Container(
+                        height: h * v,
+                        decoration: BoxDecoration(
+                          color: _hex(b['c']),
+                          borderRadius: BorderRadius.circular(4),
+                          boxShadow: [
+                            BoxShadow(
+                                color: _hex(b['c']).withOpacity(0.45),
+                                blurRadius: 8)
+                          ],
+                        ),
+                      ),
+                    ),
+                ]),
+              ),
+            ),
+        ]),
+      ),
+      if (labels.any((l) => l.isNotEmpty)) ...[
+        const SizedBox(height: 6),
+        Row(children: [
+          for (final l in labels)
+            Expanded(
+              child: Text(l,
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.clip,
+                  style: _body(10, color: _C.muted)),
+            ),
+        ]),
+      ],
+      const SizedBox(height: 8),
+      Text(summary, style: _body(12, color: _C.muted)),
+    ]);
+  }
+}
+
 class _Bars extends StatelessWidget {
   const _Bars({required this.items, this.height = 80});
   final List items;
@@ -990,13 +1151,7 @@ class _HomeScreenState extends State<_HomeScreen> {
                 ).animate().fadeIn(duration: 450.ms, delay: 140.ms),
               ],
               const SizedBox(height: 18),
-              Row(children: [
-                const Expanded(child: _Eyebrow('Start writing')),
-                _Pill(
-                    label: 'Your entries',
-                    onTap: () => Navigator.of(context)
-                        .push(_route(_EntriesScreen(store: s)))),
-              ]),
+              const _Eyebrow('Start writing'),
               const SizedBox(height: 8),
               Wrap(spacing: 8, runSpacing: 8, children: [
                 for (final e in _modeMeta.entries)
@@ -1005,6 +1160,13 @@ class _HomeScreenState extends State<_HomeScreen> {
                       icon: e.value['icon'] as IconData,
                       iconColor: e.value['color'] as Color,
                       onTap: () => _startMode(e.key)),
+                // Saved entries, right after Ritual Spark.
+                _Pill(
+                    label: 'Your entries',
+                    icon: Icons.menu_book_outlined,
+                    iconColor: _C.ice,
+                    onTap: () => Navigator.of(context)
+                        .push(_route(_EntriesScreen(store: s)))),
               ]),
             ],
           ],
@@ -1395,14 +1557,44 @@ class _EditorScreenState extends State<_EditorScreen> {
             )
         else
           _Glass(
-            child: TextField(
-              controller: _body1,
-              style: _body(15, height: 1.55),
-              minLines: widget.mode == 'ritual' ? 2 : 10,
-              maxLines: null,
-              autofocus: true,
-              decoration: _dec(placeholder),
-            ),
+            child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Expanded(
+                child: TextField(
+                  controller: _body1,
+                  style: _body(15, height: 1.55),
+                  minLines: widget.mode == 'ritual' ? 2 : 10,
+                  maxLines: null,
+                  autofocus: true,
+                  decoration: _dec(placeholder),
+                ),
+              ),
+              const SizedBox(width: 8),
+              // Speak instead of typing. Inside the box so the keyboard never hides it.
+              Semantics(
+                button: true,
+                label: listening ? 'Stop dictation' : 'Speak your entry',
+                child: GestureDetector(
+                  onTap: _toggleVoice,
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: listening
+                          ? _C.ember.withOpacity(0.9)
+                          : Colors.white.withOpacity(0.08),
+                      border: Border.all(
+                          color: listening
+                              ? _C.ember
+                              : Colors.white.withOpacity(0.18)),
+                    ),
+                    child: Icon(listening ? Icons.stop_rounded : Icons.mic_none,
+                        size: 22, color: listening ? Colors.white : _C.ember),
+                  ),
+                ),
+              ),
+            ]),
           ),
         const SizedBox(height: 12),
         Wrap(spacing: 8, runSpacing: 8, children: [
@@ -1602,7 +1794,7 @@ class _ReflectionScreenState extends State<_ReflectionScreen> {
           if (sound != null) ...[
             const SizedBox(height: 12),
             _Glass(
-              onTap: () => _openDeeplink(context, sound['deeplink'] as Map?),
+              onTap: () => _playTuned(context, sound),
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
               child: Row(children: [
                 Expanded(
@@ -1813,7 +2005,8 @@ class _StatsScreenState extends State<_StatsScreen> {
       const _Eyebrow('Trend'),
       const SizedBox(height: 8),
       _Glass(
-          child: _Bars(items: (sm?['trend'] as List?) ?? const [], height: 68)),
+          child: _TrendChart(
+              items: (sm?['trend'] as List?) ?? const [], period: period)),
       const SizedBox(height: 14),
       Row(children: [
         for (final t in [

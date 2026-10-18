@@ -103,6 +103,9 @@ extension AppStore {
     /// Saves the result as a Lucille v1 mood check-in, with the camera pulse when it was really
     /// measured. Returns the Escape Coins the server awarded, or nil if it couldn't save.
     public func submitMoodScan(_ reading: MoodReading, words: String) async -> ScanSaveResult {
+        UserDefaults.standard.set(reading.word, forKey: "escape.scanMood.word")
+        UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: "escape.scanMood.at")
+        if !reading.pulseMeasured { Task { await refreshHome() } }
         if reading.pulseMeasured {
             Self.rememberScanPulse(reading.bpm)
             Task { await refreshHome() }

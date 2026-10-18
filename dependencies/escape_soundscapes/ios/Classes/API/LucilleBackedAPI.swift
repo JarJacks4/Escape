@@ -1,3 +1,4 @@
+import CoreLocation
 import Foundation
 
 /// Lucille v1 catalog for Browse and Now Playing; everything else is answered by the bundled mock
@@ -270,7 +271,15 @@ public actor LucilleBackedAPI: SoundscapesAPI {
         h.madeByYou = []
         // The mock's Inner Weather drops the heart rate when its own (seed) Heart input is off;
         // here it's the Mood Scan pulse the store passes in.
-        h.inputsNow.heartBpm = q.heartBpm.map { Int($0.rounded()) }
+        // Inner Weather tiles: the live Lucille v1 values (real weather + city, last mood, scan
+        // pulse) instead of the seed's sample "64° Drizzle · New York" and mood.
+        if let live = try? await inputsNow(q) {
+            h.inputsNow = live
+        } else {
+            h.inputsNow.weather = nil
+            h.inputsNow.mood = Self.lastScanMood()
+            h.inputsNow.heartBpm = q.heartBpm.map { Int($0.rounded()) }
+        }
         if let p = try? await v1.progress(), let streak = p.streakDays { h.user.streakDays = streak }
         if let d = try? await v1.dailyDrop() {
             tracks[d.track.id] = d.track
@@ -286,7 +295,13 @@ public actor LucilleBackedAPI: SoundscapesAPI {
     public func inputsNow(_ q: InputsQuery) async throws -> InputsNow {
         var n = try await mock.inputsNow(q)
         guard let v = try? await v1.innerWeather(lat: q.lat, lon: q.lon) else {
-            n.weather = nil; n.mood = nil; n.phaseValue = ""
+            if let w = await openMeteo(lat: q.lat, lon: q.lon) {
+                n.weather = Weather(tempF: w.tempF, condition: w.condition,
+                                    city: await city(lat: q.lat, lon: q.lon) ?? "")
+            } else {
+                n.weather = nil
+            }
+            n.mood = Self.lastScanMood(); n.phaseValue = ""
             n.heartBpm = q.heartBpm.map { Int($0.rounded()) }
             return n
         }
@@ -297,16 +312,76 @@ public actor LucilleBackedAPI: SoundscapesAPI {
         n.nextPhaseInMin = nil
         if let w = v.weather, w.available, let c = w.tempC {
             n.weather = Weather(tempF: Int((c * 9 / 5 + 32).rounded()),
-                                condition: (w.bucket ?? "").capitalized, city: "")
+                                condition: (w.bucket ?? "").capitalized,
+                                city: await city(lat: q.lat, lon: q.lon) ?? "")
+        } else if let w = await openMeteo(lat: q.lat, lon: q.lon) {
+            // Lucille has no weather for this spot: use Open-Meteo (free, no key) directly.
+            n.weather = Weather(tempF: w.tempF, condition: w.condition,
+                                city: await city(lat: q.lat, lon: q.lon) ?? "")
         } else {
             n.weather = nil
         }
-        n.mood = v.mood?.word
+        // Last saved check-in from Lucille; the latest Mood Scan word if that isn't saved yet
+        // (e.g. consent not given).
+        n.mood = v.mood?.word ?? Self.lastScanMood()
         // HealthKit is stripped for the beta: the heart rate is the Mood Scan's camera pulse,
         // passed in by the store when the Heart input is on.
         n.heartBpm = q.heartBpm.map { Int($0.rounded()) }
         return n
     }
+    private var cityCache: (key: String, name: String)?
+
+    /// The person's town for the Weather tile, from the location the store already passed in.
+    private func city(lat: Double?, lon: Double?) async -> String? {
+        guard let lat, let lon else { return nil }
+        let key = String(format: "%.2f,%.2f", lat, lon)
+        if let c = cityCache, c.key == key { return c.name }
+        guard let place = try? await CLGeocoder()
+            .reverseGeocodeLocation(CLLocation(latitude: lat, longitude: lon)).first,
+              let name = place.locality ?? place.subAdministrativeArea ?? place.administrativeArea
+        else { return nil }
+        cityCache = (key, name)
+        return name
+    }
+
+    /// Current temperature (°F) and a short condition from Open-Meteo, for when Lucille's
+    /// inputs-now has no weather. nil without a location or on any failure.
+    private func openMeteo(lat: Double?, lon: Double?) async -> (tempF: Int, condition: String)? {
+        guard let lat, let lon,
+              let url = URL(string: "https://api.open-meteo.com/v1/forecast?latitude=\(lat)&longitude=\(lon)&current=temperature_2m,weather_code&temperature_unit=fahrenheit")
+        else { return nil }
+        struct R: Decodable {
+            struct C: Decodable { let temperature_2m: Double; let weather_code: Int }
+            let current: C
+        }
+        guard let (data, resp) = try? await URLSession.shared.data(from: url),
+              (resp as? HTTPURLResponse)?.statusCode == 200,
+              let r = try? JSONDecoder().decode(R.self, from: data) else { return nil }
+        let c = r.current.weather_code
+        let condition: String
+        switch c {
+        case 0: condition = "Clear"
+        case 1, 2: condition = "Partly cloudy"
+        case 3: condition = "Cloudy"
+        case 45, 48: condition = "Fog"
+        case 51...57: condition = "Drizzle"
+        case 61...67, 80...82: condition = "Rain"
+        case 71...77, 85, 86: condition = "Snow"
+        case 95...99: condition = "Storm"
+        default: condition = "Weather"
+        }
+        return (Int(r.current.temperature_2m.rounded()), condition)
+    }
+
+    /// The word from the latest Mood Scan on this device (12 h), see AppStore.rememberScanMood.
+    static func lastScanMood() -> String? {
+        let d = UserDefaults.standard
+        guard let w = d.string(forKey: "escape.scanMood.word"), !w.isEmpty,
+              Date().timeIntervalSince1970 - d.double(forKey: "escape.scanMood.at") < 12 * 3600
+        else { return nil }
+        return w
+    }
+
     public func me() async throws -> Profile { await applyName(); return try await mock.me() }
     public func updateProfile(firstName: String?, tz: String?) async throws -> Profile { try await mock.updateProfile(firstName: firstName, tz: tz) }
     public func deleteAccount() async throws { try await mock.deleteAccount() }
@@ -378,6 +453,28 @@ public actor LucilleBackedAPI: SoundscapesAPI {
             return try await mock.compose(req)
         }
         return try await accepted(pick.id)
+    }
+
+    /// The composition id for a Lucille track the host wants to play (Journal V2's "Tuned for
+    /// this mood" card): by track id first, then by title in the catalog.
+    public func compositionId(trackId: String?, title: String?) async -> String? {
+        if let id = trackId?.trimmingCharacters(in: .whitespaces), !id.isEmpty {
+            if id.hasPrefix(Self.prefix) { return id }
+            if !id.contains(" "), let t = try? await v1.track(id) {
+                tracks[t.id] = t
+                return Self.prefix + t.id
+            }
+        }
+        guard let title = title?.trimmingCharacters(in: .whitespaces), !title.isEmpty else { return nil }
+        let wanted = title.lowercased()
+        var pool = (try? await v1.catalog(search: title)) ?? []
+        if !pool.contains(where: { $0.title.lowercased() == wanted }) {
+            pool += (try? await v1.catalog()) ?? []
+        }
+        for t in pool { tracks[t.id] = t }
+        let hit = pool.first { $0.title.lowercased() == wanted }
+            ?? pool.first { $0.title.lowercased().contains(wanted) || wanted.contains($0.title.lowercased()) }
+        return hit.map { Self.prefix + $0.id }
     }
 
     /// The catalog track in `mode` (Calm if that mode is empty) nearest to a Mood Field.

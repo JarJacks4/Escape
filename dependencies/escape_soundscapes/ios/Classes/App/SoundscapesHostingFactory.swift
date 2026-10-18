@@ -51,6 +51,12 @@ public final class SoundscapesHostingFactory: NSObject {
         return host
     }
 
+    /// Play one Lucille track by id or title as soon as the module opens.
+    @objc public func playTrack(id: String?, title: String?) {
+        let store = store
+        Task { @MainActor in await store.playTrack(id: id, title: title) }
+    }
+
     /// "NowPlaying", "Library"… and optional sheet "MoodField", "PremiumSheet"… (Figma names).
     @objc public func openScreen(_ screen: String, sheet: String?) {
         if let s = Screen(rawValue: screen) {

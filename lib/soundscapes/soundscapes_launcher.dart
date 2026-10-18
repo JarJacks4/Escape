@@ -90,7 +90,21 @@ class SoundscapesLauncher {
     }
   }
 
-  static Future<void> open(BuildContext context, {String? screen}) async {
+  /// Plays one Lucille track in the new module (Journal V2's "Tuned for this mood"),
+  /// by id when the API gives one, else by title. Below iOS 17: the old Sound page.
+  static Future<void> openTrack(BuildContext context,
+      {String? trackId, String? title}) async {
+    final supported = await isSupported();
+    if (!context.mounted) return;
+    if (supported) {
+      await open(context, playTrackId: trackId, playTitle: title);
+    } else {
+      GoRouter.of(context).pushNamed(AISoundscapesFINALWidget.routeName);
+    }
+  }
+
+  static Future<void> open(BuildContext context,
+      {String? screen, String? playTrackId, String? playTitle}) async {
     try {
       // Best effort: stop the old Sound tab player so the two don't overlap.
       await actions.pauseAudio();
@@ -102,7 +116,9 @@ class SoundscapesLauncher {
           baseUrl: apiBaseUrl,
           lucille: useLucilleCatalog,
           firstName: _firstName(),
-          screen: screen);
+          screen: screen,
+          playTrackId: playTrackId,
+          playTitle: playTitle);
     } catch (e) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(

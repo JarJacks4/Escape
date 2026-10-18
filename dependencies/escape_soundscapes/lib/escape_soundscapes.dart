@@ -69,6 +69,8 @@ class EscapeSoundscapes {
     String? baseUrl,
     String? screen,
     String? sheet,
+    String? playTrackId,
+    String? playTitle,
   }) {
     return _channel.invokeMethod('open', {
       'mock': mock,
@@ -77,6 +79,8 @@ class EscapeSoundscapes {
       'baseUrl': baseUrl,
       'screen': screen,
       'sheet': sheet,
+      'playTrackId': playTrackId,
+      'playTitle': playTitle,
     });
   }
 

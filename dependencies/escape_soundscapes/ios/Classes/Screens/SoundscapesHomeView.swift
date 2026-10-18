@@ -79,9 +79,17 @@ struct SoundscapesHomeView: View {
                 .lineLimit(1)
                 .frame(maxWidth: .infinity)
                 .accessibilityAddTraits(.isHeader)
-            Color.clear
-                .frame(width: 44, height: 44)
-                .accessibilityHidden(true)
+            // Saved soundscapes (Library: Saved / Downloads / Memories).
+            Button { Task { await store.openLibrary() } } label: {
+                Image(systemName: "bookmark")
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundStyle(Esc.mist)
+                    .frame(width: 44, height: 44)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(EscPressStyle())
+            .accessibilityLabel("Your Library")
+            .accessibilityHint("Your saved soundscapes")
         }
         .padding(.horizontal, 24)
         .frame(height: 52)
