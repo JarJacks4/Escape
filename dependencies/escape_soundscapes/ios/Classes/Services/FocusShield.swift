@@ -1,26 +1,45 @@
 import SwiftUI
 import FamilyControls
 import ManagedSettings
+import DeviceActivity
 
 /// Focus Shield: blocks the apps the person picked (Screen Time) while a soundscape session runs.
-/// Needs the Family Controls entitlement (com.apple.developer.family-controls) on the app.
-/// The shield is always cleared when the session ends, when the module closes and on app launch,
-/// so a crash or a kill can never leave apps blocked past the next open.
+/// Needs the Family Controls entitlement (com.apple.developer.family-controls) on the app and on
+/// both extensions, plus the shared App Group.
+///
+/// - The ShieldConfig extension draws the Escape-branded screen on blocked apps.
+/// - The DeviceActivityMonitor extension lifts the shield when the session's time is up, even if
+///   Escape was force-quit. The app also lifts it when the session ends, when the module closes
+///   and on launch.
+///
+/// The store name and activity name must match the extensions (ShieldConfig/, DeviceActivityMonitor/).
 @available(iOS 17.0, *)
 @MainActor
 public final class FocusShield {
     public static let shared = FocusShield()
 
-    private let settings = ManagedSettingsStore(named: ManagedSettingsStore.Name(rawValue: "escape.focusShield"))
-    private let selectionKey = "escape.focusShield.selection"
+    public static let appGroup = "group.com.flutterflow.escapellc"
+    public static let storeName = "escape.focusShield"
+    public static let activityName = "escape.focusShield.session"
 
-    private init() {}
+    private let settings = ManagedSettingsStore(named: ManagedSettingsStore.Name(rawValue: FocusShield.storeName))
+    private let center = DeviceActivityCenter()
+    private let selectionKey = "escape.focusShield.selection"
+    private let defaults = UserDefaults(suiteName: FocusShield.appGroup) ?? .standard
+
+    private init() {
+        // Builds before the App Group kept the selection in standard defaults.
+        if defaults.data(forKey: selectionKey) == nil, let old = UserDefaults.standard.data(forKey: selectionKey) {
+            defaults.set(old, forKey: selectionKey)
+            UserDefaults.standard.removeObject(forKey: selectionKey)
+        }
+    }
 
     // MARK: - Selection
 
     var selection: FamilyActivitySelection {
         get {
-            guard let data = UserDefaults.standard.data(forKey: selectionKey),
+            guard let data = defaults.data(forKey: selectionKey),
                   let s = try? JSONDecoder().decode(FamilyActivitySelection.self, from: data) else {
                 return FamilyActivitySelection()
             }
@@ -28,7 +47,7 @@ public final class FocusShield {
         }
         set {
             if let data = try? JSONEncoder().encode(newValue) {
-                UserDefaults.standard.set(data, forKey: selectionKey)
+                defaults.set(data, forKey: selectionKey)
             }
         }
     }
@@ -44,13 +63,26 @@ public final class FocusShield {
 
     // MARK: - Turning it on
 
-    /// Asks for Screen Time access (Face ID / passcode sheet from iOS), then lets the person pick
-    /// the apps to block. Returns false if they decline or pick nothing.
+    /// Asks for Screen Time access (Face ID / passcode sheet from iOS). The app picker only shows
+    /// the first time; after that the saved apps are used ("Edit Apps" changes them).
+    /// Returns false if they decline or pick nothing.
     public func enable() async -> Bool {
         guard await authorize() else { return false }
+        if Self.hasItems(selection) { return true }
         guard let picked = await pickApps(), Self.hasItems(picked) else { return false }
         selection = picked
         return true
+    }
+
+    /// "Edit Apps": the picker with the current apps. Re-applies the shield if a session is
+    /// running. Returns true when at least one app is picked afterwards.
+    public func editApps(sessionRunning: Bool) async -> Bool {
+        guard await authorize() else { return false }
+        if let picked = await pickApps(), Self.hasItems(picked) {
+            selection = picked
+            if sessionRunning { applyShield() }
+        }
+        return Self.hasItems(selection)
     }
 
     private func authorize() async -> Bool {
@@ -84,18 +116,45 @@ public final class FocusShield {
 
     // MARK: - Shielding
 
-    /// Blocks the picked apps now (start of a session).
-    public func activate() {
+    /// Blocks the picked apps now (start of a session) and schedules the unblock for when the
+    /// session's time is up, so it happens even if Escape isn't running then.
+    public func activate(seconds: Int) {
         guard isReady else { return }
+        applyShield()
+        scheduleEnd(after: seconds)
+    }
+
+    private func applyShield() {
         let s = selection
         settings.shield.applications = s.applicationTokens.isEmpty ? nil : s.applicationTokens
         settings.shield.applicationCategories = s.categoryTokens.isEmpty ? nil : .specific(s.categoryTokens)
         settings.shield.webDomains = s.webDomainTokens.isEmpty ? nil : s.webDomainTokens
     }
 
-    /// Unblocks everything Escape blocked.
+    /// iOS needs a monitored interval of at least 15 minutes. Shorter sessions still unlock on
+    /// time through the app; the monitor is the backstop if Escape was killed.
+    private func scheduleEnd(after seconds: Int) {
+        let now = Date()
+        let length = max(TimeInterval(seconds), 15 * 60) + 30
+        let parts: Set<Calendar.Component> = [.year, .month, .day, .hour, .minute, .second]
+        let cal = Calendar.current
+        let schedule = DeviceActivitySchedule(
+            intervalStart: cal.dateComponents(parts, from: now),
+            intervalEnd: cal.dateComponents(parts, from: now.addingTimeInterval(length)),
+            repeats: false)
+        let activity = DeviceActivityName(rawValue: Self.activityName)
+        center.stopMonitoring([activity])
+        do {
+            try center.startMonitoring(activity, during: schedule)
+        } catch {
+            print("[FocusShield] couldn't schedule the unlock: \(error)")
+        }
+    }
+
+    /// Unblocks everything Escape blocked and cancels the scheduled unlock.
     public func deactivate() {
         settings.clearAllSettings()
+        center.stopMonitoring([DeviceActivityName(rawValue: Self.activityName)])
     }
 
     private static func topViewController() -> UIViewController? {

@@ -11,9 +11,8 @@ import SwiftUI
 struct SoundscapesHomeView: View {
     @Environment(AppStore.self) private var store
     @State private var activeTab = "Now"
-    /// First-visit tour, shown once per install.
+    /// First-visit tour, shown once per install. RootView draws it, above the bottom nav.
     @AppStorage("escape.seenSoundscapesHomeWalkthrough") private var seenHomeTour = false
-    @State private var showHomeTour = false
 
     /// The TSX ends with `marginBottom: 160` under the status line: room for the 72 pt nav and the
     /// floating MiniPlayer (72 pt) with breathing space. Never less than the porting-guide minimum.
@@ -54,17 +53,9 @@ struct SoundscapesHomeView: View {
         .refreshable { await store.refreshHome() }
         .background(Esc.night.ignoresSafeArea())
         .overlay(alignment: .bottom) { miniPlayer }
-        .overlay {
-            if showHomeTour {
-                ScanWalkthrough(steps: ScanWalkthrough.homeSteps, doneLabel: "Got it") {
-                    withAnimation { showHomeTour = false }
-                    seenHomeTour = true
-                }
-            }
-        }
         .onAppear {
             activeTab = "Now"
-            if !seenHomeTour { showHomeTour = true }
+            if !seenHomeTour { store.showsHomeTour = true }
         }
     }
 

@@ -73,8 +73,12 @@ public final class ObjCHostServices: HostServices, @unchecked Sendable {
 
     public func focusShieldReady() async -> Bool { await FocusShield.shared.isReady }
 
-    public func applyFocusShield(_ active: Bool) async {
-        if active { await FocusShield.shared.activate() } else { await FocusShield.shared.deactivate() }
+    public func applyFocusShield(_ active: Bool, seconds: Int) async {
+        if active { await FocusShield.shared.activate(seconds: seconds) } else { await FocusShield.shared.deactivate() }
+    }
+
+    public func editFocusShieldApps(sessionRunning: Bool) async -> Bool {
+        await FocusShield.shared.editApps(sessionRunning: sessionRunning)
     }
 
     public func haptic(_ kind: HapticKind) {

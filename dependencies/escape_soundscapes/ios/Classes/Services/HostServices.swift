@@ -31,7 +31,10 @@ public protocol HostServices: AnyObject, Sendable {
     /// Screen Time access granted and apps picked on this device.
     func focusShieldReady() async -> Bool
     /// Blocks the picked apps for the running session (true) or unblocks them (false).
-    func applyFocusShield(_ active: Bool) async
+    /// `seconds` is how long the session has left, for the scheduled unblock.
+    func applyFocusShield(_ active: Bool, seconds: Int) async
+    /// "Edit Apps": the app picker. True when at least one app is picked afterwards.
+    func editFocusShieldApps(sessionRunning: Bool) async -> Bool
 
     func haptic(_ kind: HapticKind)
     func track(_ event: String, _ properties: [String: String])
@@ -59,7 +62,8 @@ public final class PreviewHostServices: HostServices, @unchecked Sendable {
     public func notifyCompositionReady(title: String) {}
     public func setFocusShield(_ on: Bool) async -> Bool { true }
     public func focusShieldReady() async -> Bool { true }
-    public func applyFocusShield(_ active: Bool) async {}
+    public func applyFocusShield(_ active: Bool, seconds: Int) async {}
+    public func editFocusShieldApps(sessionRunning: Bool) async -> Bool { true }
     public func haptic(_ kind: HapticKind) {}
     public func track(_ event: String, _ properties: [String: String]) { events.append((event, properties)) }
 }

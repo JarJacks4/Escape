@@ -19,6 +19,8 @@ public final class AppStore {
     public var moodField: MoodField = .figmaDefault
     public var blendOn = false
     public var focusShieldOn = false
+    /// First-visit Soundscapes Home tour, drawn by RootView above the bottom nav.
+    public var showsHomeTour = false
     /// Remaining session time. Figma default 24:51.
     public var timerSeconds = 24 * 60 + 51
     public var activeCompositionId: String?
@@ -287,7 +289,7 @@ public final class AppStore {
         sheet = nil
         setScreen(.nowPlaying)
         host.haptic(.light)
-        if focusShieldOn { Task { await host.applyFocusShield(true) } }
+        if focusShieldOn { let secs = timerSeconds; Task { await host.applyFocusShield(true, seconds: secs) } }
         if let existing {
             session = existing
             sessionStartedAt = Date()
@@ -343,6 +345,7 @@ public final class AppStore {
         if sunriseWake == true, let t = preferences?.sleep.sunriseTime { Task { _ = await host.scheduleSunriseWake(at: t) } }
         if sunriseWake == false { host.cancelSunriseWake() }
         if isPlaying { startTimer() }
+        if isPlaying, focusShieldOn { let secs = timerSeconds; Task { await host.applyFocusShield(true, seconds: secs) } }
     }
 
     private func startTimer() {
@@ -373,7 +376,7 @@ public final class AppStore {
         audio.finishGracefully()
         audio.setVolume(1)
         isPlaying = false
-        Task { await host.applyFocusShield(false) }
+        Task { await host.applyFocusShield(false, seconds: 0) }
         guard let s = session else { setScreen(.sessionComplete); return }
         let minutes = sessionStartedAt.map { Date().timeIntervalSince($0) / 60 }
         do {
@@ -413,7 +416,7 @@ public final class AppStore {
 
     /// "Done".
     public func doneWithSession() {
-        Task { await host.applyFocusShield(false) }
+        Task { await host.applyFocusShield(false, seconds: 0) }
         session = nil
         nowPlaying = nil
         activeCompositionId = nil
@@ -560,12 +563,26 @@ public final class AppStore {
             }
             savePreferences(PreferencesPatch(focusShieldOn: on))
             if on {
-                if isPlaying { await host.applyFocusShield(true) }
+                if isPlaying { await host.applyFocusShield(true, seconds: timerSeconds) }
                 toast = isPlaying ? "Focus Shield is on for this session." : "Focus Shield turns on when a soundscape plays."
                 SoundscapesBetaBridge.remember("Turned on Focus Shield to block distracting apps during soundscapes.",
                                                kind: "focus_shield", tags: [])
             } else {
                 toast = "Focus Shield is off."
+            }
+        }
+    }
+
+    /// "Edit Apps" next to Focus Shield: change which apps are blocked.
+    public func editFocusShieldApps() {
+        let running = isPlaying
+        Task {
+            if await host.editFocusShieldApps(sessionRunning: running) {
+                toast = "Focus Shield apps updated."
+            } else {
+                focusShieldOn = false
+                savePreferences(PreferencesPatch(focusShieldOn: false))
+                toast = "Pick at least one app to use Focus Shield."
             }
         }
     }

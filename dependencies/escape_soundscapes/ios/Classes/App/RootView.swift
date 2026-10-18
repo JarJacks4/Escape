@@ -25,6 +25,16 @@ struct RootView: View {
                     .ignoresSafeArea(.keyboard, edges: .bottom)
             }
         }
+        // The Soundscapes Home tour sits above the nav so its card is never cut off.
+        .overlay {
+            if store.showsHomeTour && store.screen == .soundscapesHome {
+                ScanWalkthrough(steps: ScanWalkthrough.homeSteps, doneLabel: "Got it") {
+                    withAnimation { store.showsHomeTour = false }
+                    UserDefaults.standard.set(true, forKey: "escape.seenSoundscapesHomeWalkthrough")
+                }
+                .transition(.opacity)
+            }
+        }
         // Sheets cover everything, nav included (App.tsx zIndex 100).
         .overlay {
             if let sheet = store.sheet {

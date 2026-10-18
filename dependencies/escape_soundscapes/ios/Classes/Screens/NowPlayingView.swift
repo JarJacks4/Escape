@@ -308,6 +308,9 @@ struct NowPlayingView: View {
             pill("Layers", icon: .layers) { store.setSheet(.layers) }
             pill("Blend", icon: .blend, toggle: store.blendOn) { store.toggleBlend() }
             pill("Focus Shield", icon: .shield, toggle: store.focusShieldOn) { store.toggleFocusShield() }
+            if store.focusShieldOn {
+                pill("Edit Apps", icon: .shield) { store.editFocusShieldApps() }
+            }
             pill("Lucille Whisper", icon: .whisper) { store.setSheet(.lucilleWhisper) }
         }
     }

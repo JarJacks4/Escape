@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.swift_version    = '5.0'
   s.dependency 'Flutter'
   # Focus Shield (Screen Time). iOS 15+, so weak-linked for the iOS 14 deployment target.
-  s.weak_frameworks = 'FamilyControls', 'ManagedSettings'
+  s.weak_frameworks = 'FamilyControls', 'ManagedSettings', 'DeviceActivity'
   s.source_files        = 'Classes/**/*.{swift,h,m}'
   s.public_header_files = 'Classes/ObjC/*.h'
   s.resource_bundles = {
