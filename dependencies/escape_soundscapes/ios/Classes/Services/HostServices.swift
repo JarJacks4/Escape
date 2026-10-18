@@ -25,7 +25,13 @@ public protocol HostServices: AnyObject, Sendable {
     func notifyCompositionReady(title: String)
 
     /// Focus Shield (Screen Time). Needs the Family Controls entitlement.
+    /// on: asks for Screen Time access and lets the person pick apps; false if they decline.
+    /// off: unblocks everything.
     func setFocusShield(_ on: Bool) async -> Bool
+    /// Screen Time access granted and apps picked on this device.
+    func focusShieldReady() async -> Bool
+    /// Blocks the picked apps for the running session (true) or unblocks them (false).
+    func applyFocusShield(_ active: Bool) async
 
     func haptic(_ kind: HapticKind)
     func track(_ event: String, _ properties: [String: String])
@@ -52,6 +58,8 @@ public final class PreviewHostServices: HostServices, @unchecked Sendable {
     public func cancelCircleReminder(id: String) {}
     public func notifyCompositionReady(title: String) {}
     public func setFocusShield(_ on: Bool) async -> Bool { true }
+    public func focusShieldReady() async -> Bool { true }
+    public func applyFocusShield(_ active: Bool) async {}
     public func haptic(_ kind: HapticKind) {}
     public func track(_ event: String, _ properties: [String: String]) { events.append((event, properties)) }
 }

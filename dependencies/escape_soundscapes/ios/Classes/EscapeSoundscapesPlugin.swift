@@ -17,6 +17,8 @@ public final class EscapeSoundscapesPlugin: NSObject, FlutterPlugin {
         let channel = FlutterMethodChannel(name: "escape_soundscapes", binaryMessenger: registrar.messenger())
         let instance = EscapeSoundscapesPlugin(channel: channel)
         registrar.addMethodCallDelegate(instance, channel: channel)
+        // A kill mid-session can't run cleanup, so lift any Focus Shield left over on every launch.
+        if #available(iOS 17.0, *) { Task { @MainActor in FocusShield.shared.deactivate() } }
     }
 
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -117,6 +119,8 @@ public final class EscapeSoundscapesPlugin: NSObject, FlutterPlugin {
     private func dismiss(tab: String?) {
         guard let vc = presented else { return }
         presented = nil
+        // Leaving Soundscapes ends the session, so the blocked apps unlock.
+        if #available(iOS 17.0, *) { FocusShield.shared.deactivate() }
         guard let tab else {
             // close() from Dart: no tab to route to.
             vc.dismiss(animated: true) { [weak self] in

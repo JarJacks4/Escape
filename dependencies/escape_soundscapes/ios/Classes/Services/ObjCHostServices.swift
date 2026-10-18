@@ -64,7 +64,17 @@ public final class ObjCHostServices: HostServices, @unchecked Sendable {
     public func notifyCompositionReady(title: String) { services.notifyCompositionReady(title: title) }
 
     public func setFocusShield(_ on: Bool) async -> Bool {
-        await withCheckedContinuation { c in services.setFocusShield(on) { c.resume(returning: $0) } }
+        guard on else {
+            await FocusShield.shared.deactivate()
+            return true
+        }
+        return await FocusShield.shared.enable()
+    }
+
+    public func focusShieldReady() async -> Bool { await FocusShield.shared.isReady }
+
+    public func applyFocusShield(_ active: Bool) async {
+        if active { await FocusShield.shared.activate() } else { await FocusShield.shared.deactivate() }
     }
 
     public func haptic(_ kind: HapticKind) {

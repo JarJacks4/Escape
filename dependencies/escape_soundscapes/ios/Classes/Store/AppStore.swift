@@ -157,7 +157,11 @@ public final class AppStore {
         preferences = p
         moodField = p.moodField
         blendOn = p.blendOn
+        // The saved setting only counts on a device with Screen Time access and apps picked.
         focusShieldOn = p.focusShieldOn
+        if p.focusShieldOn {
+            Task { if await !host.focusShieldReady() { focusShieldOn = false } }
+        }
         // Whisper speaks only when the Lucille's Voice layer is on too (both start off).
         if p.whisper.enabled, !Self.voiceOn(p.layers) {
             preferences?.whisper.enabled = false
@@ -283,6 +287,7 @@ public final class AppStore {
         sheet = nil
         setScreen(.nowPlaying)
         host.haptic(.light)
+        if focusShieldOn { Task { await host.applyFocusShield(true) } }
         if let existing {
             session = existing
             sessionStartedAt = Date()
@@ -368,6 +373,7 @@ public final class AppStore {
         audio.finishGracefully()
         audio.setVolume(1)
         isPlaying = false
+        Task { await host.applyFocusShield(false) }
         guard let s = session else { setScreen(.sessionComplete); return }
         let minutes = sessionStartedAt.map { Date().timeIntervalSince($0) / 60 }
         do {
@@ -407,6 +413,7 @@ public final class AppStore {
 
     /// "Done".
     public func doneWithSession() {
+        Task { await host.applyFocusShield(false) }
         session = nil
         nowPlaying = nil
         activeCompositionId = nil
@@ -539,13 +546,28 @@ public final class AppStore {
         savePreferences(PreferencesPatch(blendOn: blendOn))
     }
 
+    /// On: Screen Time access, then the app picker (shown every time, so the person can change
+    /// the apps). The picked apps are blocked while a session plays and unblocked when it ends.
     public func toggleFocusShield() {
-        focusShieldOn.toggle()
-        let on = focusShieldOn
+        let on = !focusShieldOn
+        focusShieldOn = on
+        host.haptic(.selection)
         Task {
-            if await !host.setFocusShield(on) { focusShieldOn = false; toast = "Focus Shield needs Screen Time access." }
+            guard await host.setFocusShield(on) else {
+                focusShieldOn = false
+                toast = "Focus Shield needs Screen Time access and at least one app."
+                return
+            }
+            savePreferences(PreferencesPatch(focusShieldOn: on))
+            if on {
+                if isPlaying { await host.applyFocusShield(true) }
+                toast = isPlaying ? "Focus Shield is on for this session." : "Focus Shield turns on when a soundscape plays."
+                SoundscapesBetaBridge.remember("Turned on Focus Shield to block distracting apps during soundscapes.",
+                                               kind: "focus_shield", tags: [])
+            } else {
+                toast = "Focus Shield is off."
+            }
         }
-        savePreferences(PreferencesPatch(focusShieldOn: on))
     }
 
     public func updateLayers(_ layers: [LayerSetting]) {
