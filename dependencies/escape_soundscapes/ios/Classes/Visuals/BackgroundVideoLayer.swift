@@ -28,25 +28,9 @@ public struct BackgroundVideoLayer: View {
         ZStack {
             Esc.night
 
-            if let poster = preset?.poster {
-                Color.clear.overlay {
-                    AsyncImage(url: poster) { image in
-                        image.resizable().scaledToFill()
-                    } placeholder: {
-                        Color.clear
-                    }
-                }
-                .clipped()
-            }
-
-            if !reduceMotion {
-                if let localVideo {
-                    LoopingVideoView(fileURL: localVideo)
-                        .id(localVideo)
-                        .transition(.opacity)
-                } else if preset == nil {
-                    OrbShaderView(energy: moodField.energy, dream: moodField.texture)
-                }
+            GeometryReader { proxy in
+                orbLayers
+                    .offset(nudge(in: proxy.size))
             }
 
             LinearGradient(stops: [.init(color: Esc.night.opacity(0), location: 0),
@@ -71,6 +55,41 @@ public struct BackgroundVideoLayer: View {
         }
         .ignoresSafeArea()
         .accessibilityHidden(true)
+    }
+
+    /// Poster under the loop (or the live shader when there's no preset).
+    private var orbLayers: some View {
+        ZStack {
+            if let poster = preset?.poster {
+                Color.clear.overlay {
+                    AsyncImage(url: poster) { image in
+                        image.resizable().scaledToFill()
+                    } placeholder: {
+                        Color.clear
+                    }
+                }
+                .clipped()
+            }
+
+            if !reduceMotion {
+                if let localVideo {
+                    LoopingVideoView(fileURL: localVideo)
+                        .id(localVideo)
+                        .transition(.opacity)
+                } else if preset == nil {
+                    OrbShaderView(energy: moodField.energy, dream: moodField.texture)
+                }
+            }
+        }
+    }
+
+    /// `OrbLoops.orbNudge` in points: the 9:16 loops aspect-fill the screen, so a fraction of the
+    /// video is a fraction of the filled size.
+    private func nudge(in size: CGSize) -> CGSize {
+        guard let p = preset, size.width > 0, size.height > 0 else { return .zero }
+        let n = OrbLoops.orbNudge(for: p)
+        let videoHeight = max(size.height, size.width * 16 / 9)
+        return CGSize(width: n.width * videoHeight * 9 / 16, height: n.height * videoHeight)
     }
 }
 

@@ -59,6 +59,17 @@ class EscapeSoundscapes {
     return null;
   }
 
+  /// The camera pulse (bpm) from the last Mood Scan, or null if there's none in the last 12 h
+  /// (or not on iOS 17+).
+  static Future<int?> lastScanPulse() async {
+    if (kIsWeb || defaultTargetPlatform != TargetPlatform.iOS) return null;
+    try {
+      return await _channel.invokeMethod<int>('lastScanPulse');
+    } catch (_) {
+      return null;
+    }
+  }
+
   /// True on iOS 17+.
   static Future<bool> isSupported() async {
     if (kIsWeb || defaultTargetPlatform != TargetPlatform.iOS) return false;

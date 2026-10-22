@@ -22,6 +22,8 @@ struct NowPlayingView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     @State private var showWhy = false
+    /// Live downward drag of the "Why this sound" panel (0 when at rest).
+    @State private var whyDrag: CGFloat = 0
     @State private var showShare = false
     @State private var idle = false
     @State private var touchCount = 0
@@ -397,15 +399,32 @@ struct NowPlayingView: View {
                 .ignoresSafeArea(edges: .bottom)
         }
         .contentShape(Rectangle())
+        .offset(y: whyDrag)
+        .gesture(whyDismissDrag)
         .onTapGesture { setWhy(false) }
         .accessibilityElement(children: .combine)
         .accessibilityAddTraits(.isButton)
         .accessibilityHint("Double-tap to close")
     }
 
+    /// Swipe down (or flick) to dismiss; a short drag springs back.
+    private var whyDismissDrag: some Gesture {
+        DragGesture(minimumDistance: 8)
+            .onChanged { value in whyDrag = max(0, value.translation.height) }
+            .onEnded { value in
+                if value.translation.height > 80 || value.predictedEndTranslation.height > 200 {
+                    setWhy(false)
+                } else {
+                    withAnimation(reduceMotion ? nil : .spring(duration: 0.3)) { whyDrag = 0 }
+                }
+            }
+    }
+
     // MARK: Actions
 
     private func setWhy(_ on: Bool) {
+        // Reset the drag only on open, so a swiped-away panel leaves from where the finger let go.
+        if on { whyDrag = 0 }
         withAnimation(reduceMotion ? nil : .easeOut(duration: 0.28)) { showWhy = on }
     }
 

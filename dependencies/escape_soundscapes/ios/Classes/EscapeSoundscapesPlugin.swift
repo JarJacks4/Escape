@@ -1,7 +1,8 @@
 import Flutter
 import UIKit
 
-/// Flutter bridge. Methods: isSupported, open({mock, lucille, firstName, baseUrl, screen, sheet}), close.
+/// Flutter bridge. Methods: isSupported, open({mock, lucille, firstName, baseUrl, screen, sheet}), close,
+/// lastScanPulse.
 /// Calls back into Dart: getIdToken (returns a Firebase ID token), onExit(tab), sendFeedback(map).
 public final class EscapeSoundscapesPlugin: NSObject, FlutterPlugin {
     private let channel: FlutterMethodChannel
@@ -37,6 +38,10 @@ public final class EscapeSoundscapesPlugin: NSObject, FlutterPlugin {
                 self.dismiss(tab: nil)
                 result(nil)
             }
+        case "lastScanPulse":
+            // Camera pulse from the last Mood Scan (bpm, nil after 12 h), for Flutter's Profile.
+            guard #available(iOS 17.0, *) else { result(nil); return }
+            Task { @MainActor in result(AppStore.lastScanPulse()) }
         default:
             result(FlutterMethodNotImplemented)
         }

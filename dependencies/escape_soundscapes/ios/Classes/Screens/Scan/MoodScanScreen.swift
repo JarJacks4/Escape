@@ -163,6 +163,10 @@ extension AppStore {
         switch parts.first ?? "" {
         case "lucille": selectTab(.lucille)
         case "journal": onOpenHostRoute?("Journal")
+        // Flutter sections: Mind, Body, Reset Mood, Marketplace.
+        case "section":
+            let route = ["mind": "Mind", "body": "Body", "reset": "Reset", "market": "Market"][arg] ?? "Explore"
+            if let open = onOpenHostRoute { open(route) } else { await play(mode: .calm) }
         case "mode":
             let mode = ModeId(loose: arg) ?? .calm
             if mode == .move, let open = onOpenHostRoute { open("Body"); return }

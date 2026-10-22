@@ -294,7 +294,7 @@ struct MoodResultChrome: View {
                             .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous).strokeBorder(Esc.ember.opacity(0.4), lineWidth: 1))
                         }.buttonStyle(.plain)
 
-                        ForEach(reading.suggestions) { s in
+                        ForEach(reading.suggestions + reading.sectionSuggestions) { s in
                             Button { host.open(s.deeplink) } label: {
                                 HStack(spacing: 12) {
                                     minutesBadge(s.minutes)
@@ -303,7 +303,9 @@ struct MoodResultChrome: View {
                                         Text(s.why).font(EscFont.ui(12)).foregroundStyle(Esc.haze).lineLimit(2)
                                     }
                                     Spacer(minLength: 4)
-                                    Text("+\(s.coins)").font(EscFont.ui(12)).foregroundStyle(Esc.ember)
+                                    if s.coins > 0 {
+                                        Text("+\(s.coins)").font(EscFont.ui(12)).foregroundStyle(Esc.ember)
+                                    }
                                     Image(systemName: "chevron.right").font(.system(size: 12, weight: .semibold))
                                         .foregroundStyle(Esc.haze)
                                 }

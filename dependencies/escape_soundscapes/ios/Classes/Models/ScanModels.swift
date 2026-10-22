@@ -134,6 +134,33 @@ public extension MoodReading {
         }
     }
 
+    /// One pick from each Escape section (Mind, Body, Reset Mood, Marketplace), shown under the
+    /// in-module suggestions. Their "escape://section/…" links open the Flutter pages.
+    var sectionSuggestions: [Suggestion] {
+        switch quadrant {
+        case .restless:
+            return [Suggestion(minutes: "5 min", title: "Mind: a short meditation", why: "A few quiet minutes to slow the thoughts down.", deeplink: "escape://section/mind"),
+                    Suggestion(minutes: "5 min", title: "Body: shake it out", why: "Gentle movement to let the restless energy go.", deeplink: "escape://section/body"),
+                    Suggestion(minutes: "3 min", title: "Reset Mood", why: "A quick reset to step out of the spin.", deeplink: "escape://section/reset"),
+                    Suggestion(minutes: "Shop", title: "Marketplace", why: "Spend your Escape Coins on something soothing.", deeplink: "escape://section/market", coins: 0)]
+        case .energized:
+            return [Suggestion(minutes: "10 min", title: "Mind: focus practice", why: "Point this energy at one clear intention.", deeplink: "escape://section/mind"),
+                    Suggestion(minutes: "10 min", title: "Body: a full movement session", why: "Your energy is high; use it to get moving.", deeplink: "escape://section/body"),
+                    Suggestion(minutes: "3 min", title: "Reset Mood", why: "Lock in this feeling before the day pulls at it.", deeplink: "escape://section/reset"),
+                    Suggestion(minutes: "Shop", title: "Marketplace", why: "Treat yourself with the coins you've earned.", deeplink: "escape://section/market", coins: 0)]
+        case .foggy:
+            return [Suggestion(minutes: "5 min", title: "Mind: clear the fog", why: "A short guided practice to bring you back into focus.", deeplink: "escape://section/mind"),
+                    Suggestion(minutes: "5 min", title: "Body: wake up the body", why: "A few easy stretches to get the blood moving.", deeplink: "escape://section/body"),
+                    Suggestion(minutes: "3 min", title: "Reset Mood", why: "A quick reset to lift a heavy mood.", deeplink: "escape://section/reset"),
+                    Suggestion(minutes: "Shop", title: "Marketplace", why: "Pick something small to look forward to.", deeplink: "escape://section/market", coins: 0)]
+        case .calm:
+            return [Suggestion(minutes: "5 min", title: "Mind: deepen the calm", why: "Stay with this stillness a little longer.", deeplink: "escape://section/mind"),
+                    Suggestion(minutes: "5 min", title: "Body: a gentle stretch", why: "Easy movement that keeps you steady.", deeplink: "escape://section/body"),
+                    Suggestion(minutes: "3 min", title: "Reset Mood", why: "Keep this calm on hand for later.", deeplink: "escape://section/reset"),
+                    Suggestion(minutes: "Shop", title: "Marketplace", why: "Browse what your Escape Coins can unlock.", deeplink: "escape://section/market", coins: 0)]
+        }
+    }
+
     var because: String {
         let feel = "you set your energy to \(Int(energy * 100))% and pleasantness to \(Int(valence * 100))%"
         if pulseMeasured {

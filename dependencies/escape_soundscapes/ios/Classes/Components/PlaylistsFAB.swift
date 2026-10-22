@@ -19,7 +19,8 @@ struct PlaylistsFAB: View {
         .accessibilityLabel("Playlists")
         .accessibilityHint("Opens your playlists")
         .padding(.trailing, 24)
-        .padding(.bottom, 24 + (store.showsMiniPlayer ? 72 : 0))
+        // The nav is an overlay (RootView), so sit above it ourselves. Library/Playlist draw no MiniPlayer.
+        .padding(.bottom, 16 + (store.showsBottomNav ? Esc.Metrics.navHeight : 0))
         .sheet(isPresented: $open) {
             PlaylistsPickerSheet()
                 .environment(store)
