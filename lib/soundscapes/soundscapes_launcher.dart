@@ -62,6 +62,33 @@ class SoundscapesLauncher {
     );
   }
 
+  /// Opens a Lucille v1 `deeplink` ({route, path, params}). Soundscapes and Mood Scan go to the
+  /// native module; anything else is pushed by path with its params (e.g. a journal `mode`),
+  /// since pushing the route name alone drops them. Returns false when there's no path.
+  static bool openLucilleLink(BuildContext context, Map? link) {
+    final route = link?['route']?.toString();
+    final path = link?['path']?.toString();
+    if (route == 'AISoundscapesFINAL' || path == '/aISoundscapesFINAL') {
+      openOrFallback(context);
+      return true;
+    }
+    if (route == 'MoodScanVersion5' || path == '/moodScanVersion5') {
+      openMoodScan(context);
+      return true;
+    }
+    if (path == null || path.isEmpty) return false;
+    final params = (link?['params'] as Map?)
+            ?.map((k, v) => MapEntry(k.toString(), v.toString())) ??
+        <String, String>{};
+    final uri = Uri(path: path, queryParameters: params.isEmpty ? null : params);
+    try {
+      GoRouter.of(context).push(uri.toString());
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
   /// New Soundscapes module when supported (iOS 17+), otherwise the old Sound page.
   static Future<void> openOrFallback(BuildContext context) async {
     final supported = await isSupported();
@@ -176,6 +203,12 @@ class SoundscapesLauncher {
         break;
       case 'Journal': // "Save this moment" on the Mood Scan result
         ctx.pushNamed(JournalHomeV2Widget.routeName);
+        break;
+      case 'Mind': // Mood Scan result: section suggestions
+        ctx.pushNamed(MindPageWidget.routeName);
+        break;
+      case 'Reset':
+        ctx.pushNamed(ResetPageCopyWidget.routeName);
         break;
     }
   }

@@ -96,7 +96,70 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
   String _sugTitle = 'Basic Breathing';
   String _sugWhy = 'A few slow breaths to settle in. Scan your mood and Lucille will tailor this.';
   String _sugMeta = 'Breathing \u2022 5 min';
-  String? _sugRoute;
+  Map? _sugLink;
+  String _sugKind = '';
+
+  static String _kindNoun(String kind) {
+    switch (kind.toLowerCase()) {
+      case 'journal':
+      case 'reflection':
+        return 'journal exercise';
+      case 'breathing':
+      case 'breath':
+        return 'breathing exercise';
+      case 'meditation':
+        return 'guided meditation';
+      case 'movement':
+      case 'body':
+        return 'movement session';
+      case 'sleep':
+        return 'sleep session';
+      case 'soundscape':
+      case 'music':
+        return 'soundscape';
+      default:
+        return 'exercise';
+    }
+  }
+
+  /// Opens Lucille's suggestion: her deeplink (path + params, native Soundscapes / Mood Scan),
+  /// else the page for its kind. Used by Your Path and the suggestion card, so both agree.
+  void _openSuggestion() {
+    if (SoundscapesLauncher.openLucilleLink(context, _sugLink)) return;
+    context.pushNamed(
+      _sugKindRoute,
+      extra: <String, dynamic>{
+        '__transition_info__': TransitionInfo(
+          hasTransition: true,
+          transitionType: PageTransitionType.fade,
+          duration: Duration(milliseconds: 2),
+        ),
+      },
+    );
+  }
+
+  String get _sugKindRoute {
+    switch (_sugKind) {
+      case 'journal':
+      case 'reflection':
+        return JournalHomeV2Widget.routeName;
+      case 'breathing':
+      case 'breath':
+        return BreathingChoicePageWidget.routeName;
+      case 'meditation':
+        return MeditationChoicePageWidget.routeName;
+      case 'movement':
+      case 'body':
+        return BodyPageVersion5Widget.routeName;
+      case 'sleep':
+        return DeepSleepGoalWidget.routeName;
+      default:
+        // No suggestion yet: the "few slow breaths" the fallback text promises.
+        return _sugLink == null && _sugKind.isEmpty
+            ? BasicBreathingGoalPageWidget.routeName
+            : LucilleSuggestionSplashPageWidget.routeName;
+    }
+  }
 
   Future<void> _loadLucilleSuggestion() async {
     try {
@@ -114,15 +177,22 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
       final word = (data['lastMood'] is Map ? data['lastMood']['word'] : null)?.toString();
       final link = sug['deeplink'];
       if (!mounted || title.isEmpty) return;
+      // Name the exercise, what kind it is and how long, plus Lucille's reason, so a title
+      // like "Three good things" is clear on its own (Jared, Oct 19).
+      final what = [
+        if (minutes != null) '$minutes-min',
+        _kindNoun(kind),
+      ].join(' ');
+      final felt = (word != null && word.isNotEmpty && word != 'Neutral') ? 'You felt $word. ' : '';
       setState(() {
-        _sugLine = (word != null && word.isNotEmpty && word != 'Neutral')
-            ? 'You felt $word. Lucille suggests starting with $title.'
-            : 'Lucille suggests starting with $title.';
+        _sugLine = '${felt}Lucille suggests $title, a $what.'
+            '${why.isNotEmpty ? ' $why' : ''}';
+        _sugKind = kind.toLowerCase();
         _sugTitle = title;
         _sugWhy = why.isNotEmpty ? why : 'Picked for you by Lucille.';
         final k = kind.isEmpty ? '' : '${kind[0].toUpperCase()}${kind.substring(1)}';
         _sugMeta = [if (k.isNotEmpty) k, if (minutes != null) '$minutes min'].join(' \u2022 ');
-        _sugRoute = (link is Map ? link['route'] : null)?.toString();
+        _sugLink = link is Map ? link : null;
       });
     } catch (_) {
       if (mounted) setState(() => _sugLine = 'Lucille suggests starting with a few slow breaths.');
@@ -2025,16 +2095,8 @@ Further ... */
 
                                                                                     logFirebaseEvent('Button_navigate_to');
 
-                                                                                    context.pushNamed(
-                                                                                      LucilleSuggestionSplashPageWidget.routeName,
-                                                                                      extra: <String, dynamic>{
-                                                                                        '__transition_info__': TransitionInfo(
-                                                                                          hasTransition: true,
-                                                                                          transitionType: PageTransitionType.fade,
-                                                                                          duration: Duration(milliseconds: 0),
-                                                                                        ),
-                                                                                      },
-                                                                                    );
+                                                                                    // Opens the exercise Lucille suggested, not a generic splash.
+                                                                                    _openSuggestion();
                                                                                   },
                                                                                   text: FFLocalizations.of(context).getText(
                                                                                     'jlkefbdk' /* Start Suggested Session */,
@@ -2223,16 +2285,7 @@ Further ... */
 
                                                                                             logFirebaseEvent('Button_navigate_to');
 
-                                                                                            context.pushNamed(
-                                                                                              (_sugRoute != null && _sugRoute!.isNotEmpty) ? _sugRoute! : BasicBreathingGoalPageWidget.routeName,
-                                                                                              extra: <String, dynamic>{
-                                                                                                '__transition_info__': TransitionInfo(
-                                                                                                  hasTransition: true,
-                                                                                                  transitionType: PageTransitionType.fade,
-                                                                                                  duration: Duration(milliseconds: 2),
-                                                                                                ),
-                                                                                              },
-                                                                                            );
+                                                                                            _openSuggestion();
                                                                                           },
                                                                                           text: FFLocalizations.of(context).getText(
                                                                                             'nl7h1gzt' /* Start */,

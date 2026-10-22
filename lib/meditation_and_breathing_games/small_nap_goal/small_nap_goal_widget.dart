@@ -101,7 +101,8 @@ class _SmallNapGoalWidgetState extends State<SmallNapGoalWidget> {
                                                     .bodyMedium
                                                     .fontStyle,
                                           ),
-                                          color: FlutterFlowTheme.of(context).alternate,
+                                          color: FlutterFlowTheme.of(context).info,
+                                          shadows: [Shadow(color: Color(0x99000000), blurRadius: 6.0)],
                                           fontSize: 22.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
@@ -158,7 +159,8 @@ class _SmallNapGoalWidgetState extends State<SmallNapGoalWidget> {
                                 buttonSize: 40.0,
                                 icon: Icon(
                                   Icons.arrow_back,
-                                  color: FlutterFlowTheme.of(context).alternate,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  shadows: [Shadow(color: Color(0x99000000), blurRadius: 6.0)],
                                   size: 24.0,
                                 ),
                                 onPressed: () async {

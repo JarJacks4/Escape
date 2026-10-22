@@ -1,6 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/components/help_comp_widget.dart';
 import '/components/side_nav_widget.dart';
+import '/custom_code/actions/lucille_v1.dart';
+import '/soundscapes/soundscapes_launcher.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -33,10 +35,78 @@ class _TodaysHelpVersion5CompWidgetState
     _model.onUpdate();
   }
 
+  /// Today's steps from Lucille (GET /v1/home: `suggestions`, else the single `suggestion`),
+  /// each {title, kind, minutes, why, deeplink: {route}}. Until it answers, or for any field it
+  /// leaves out, the page keeps its written copy.
+  List<Map> _steps = const [];
+  String? _lastMood;
+
+  Future<void> _loadPath() async {
+    try {
+      final r = await lucilleV1('GET', '/v1/home', null);
+      final data = r is Map ? r['data'] : null;
+      if (data is! Map) return;
+      final list = data['suggestions'];
+      final one = data['suggestion'];
+      final steps = <Map>[
+        if (list is List) ...list.whereType<Map>(),
+        if ((list is! List || list.isEmpty) && one is Map) one,
+      ];
+      final mood = data['lastMood'] is Map ? data['lastMood']['word'] : null;
+      if (!mounted) return;
+      setState(() {
+        _steps = steps;
+        _lastMood = mood?.toString();
+      });
+    } catch (_) {}
+  }
+
+  String? _stepText(int i, String field) {
+    if (i >= _steps.length) return null;
+    final v = _steps[i][field]?.toString().trim() ?? '';
+    return v.isEmpty ? null : v;
+  }
+
+  /// "Journal • 5 min"
+  String? _stepMeta(int i) {
+    if (i >= _steps.length) return null;
+    final kind = _stepText(i, 'kind');
+    final minutes = _steps[i]['minutes'];
+    final parts = [
+      if (kind != null) kind[0].toUpperCase() + kind.substring(1),
+      if (minutes is num) '${minutes.round()} min',
+    ];
+    return parts.isEmpty ? null : parts.join(' \u2022 ');
+  }
+
+  Map? _stepLink(int i) {
+    if (i >= _steps.length) return null;
+    final link = _steps[i]['deeplink'];
+    return link is Map ? link : null;
+  }
+
+  String? get _totalMinutes {
+    final total = _steps
+        .map((s) => s['minutes'])
+        .whereType<num>()
+        .fold<num>(0, (a, b) => a + b);
+    return total > 0 ? '${total.round()} minutes' : null;
+  }
+
+  String? get _lucilleLine {
+    if (_steps.isEmpty) return null;
+    final mood = _lastMood;
+    final from = (mood != null && mood.isNotEmpty && mood != 'Neutral')
+        ? 'your ${mood.toLowerCase()} check-in'
+        : 'your recent check-ins';
+    return 'I\'ve put together today\'s path from $from. Take your time with each step, there\'s no rush.';
+  }
+
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => TodaysHelpVersion5CompModel());
+    _loadPath();
   }
 
   @override
@@ -300,7 +370,8 @@ class _TodaysHelpVersion5CompWidgetState
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 15.0, 0.0, 0.0),
                                           child: Text(
-                                            FFLocalizations.of(context).getText(
+                                            _lucilleLine ??
+    FFLocalizations.of(context).getText(
                                               'ycbbwoos' /* I've designed this journey bas... */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
@@ -405,7 +476,8 @@ class _TodaysHelpVersion5CompWidgetState
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    FFLocalizations.of(context).getText(
+                                    _stepText(0, 'title') ??
+    FFLocalizations.of(context).getText(
                                       'th41r547' /* Morning Alignment */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -419,7 +491,8 @@ class _TodaysHelpVersion5CompWidgetState
                                         ),
                                   ),
                                   Text(
-                                    FFLocalizations.of(context).getText(
+                                    _stepText(0, 'why') ??
+    FFLocalizations.of(context).getText(
                                       'qqh51ult' /* A guided path through mind, bo... */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -460,7 +533,8 @@ class _TodaysHelpVersion5CompWidgetState
                                       ),
                                 ),
                                 Text(
-                                  FFLocalizations.of(context).getText(
+                                  _totalMinutes ??
+    FFLocalizations.of(context).getText(
                                     't660gbv7' /* 23 minutes */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -619,7 +693,8 @@ class _TodaysHelpVersion5CompWidgetState
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      FFLocalizations.of(context).getText(
+                                      _stepText(0, 'title') ??
+    FFLocalizations.of(context).getText(
                                         '6ag670uk' /* Calm the Mind */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -632,7 +707,8 @@ class _TodaysHelpVersion5CompWidgetState
                                           ),
                                     ),
                                     Text(
-                                      FFLocalizations.of(context).getText(
+                                      _stepText(0, 'why') ??
+    FFLocalizations.of(context).getText(
                                         'n76dkeom' /* Release mental chatter and fin... */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -644,7 +720,8 @@ class _TodaysHelpVersion5CompWidgetState
                                           ),
                                     ),
                                     Text(
-                                      FFLocalizations.of(context).getText(
+                                      _stepMeta(0) ??
+    FFLocalizations.of(context).getText(
                                         'hhb8oh6v' /* Guided Meditation • 8 min */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -727,7 +804,8 @@ class _TodaysHelpVersion5CompWidgetState
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      FFLocalizations.of(context).getText(
+                                      _stepText(1, 'title') ??
+    FFLocalizations.of(context).getText(
                                         'opsmbv09' /* Awaken the Body */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -740,7 +818,8 @@ class _TodaysHelpVersion5CompWidgetState
                                           ),
                                     ),
                                     Text(
-                                      FFLocalizations.of(context).getText(
+                                      _stepText(1, 'why') ??
+    FFLocalizations.of(context).getText(
                                         'whpzv51y' /* Gentle movement to release ten... */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -752,7 +831,8 @@ class _TodaysHelpVersion5CompWidgetState
                                           ),
                                     ),
                                     Text(
-                                      FFLocalizations.of(context).getText(
+                                      _stepMeta(1) ??
+    FFLocalizations.of(context).getText(
                                         'dxasz925' /* Breathwork Flow • 10 min */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -835,7 +915,8 @@ class _TodaysHelpVersion5CompWidgetState
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      FFLocalizations.of(context).getText(
+                                      _stepText(2, 'title') ??
+    FFLocalizations.of(context).getText(
                                         'hx8kkebr' /* Connect to Spirit */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -848,7 +929,8 @@ class _TodaysHelpVersion5CompWidgetState
                                           ),
                                     ),
                                     Text(
-                                      FFLocalizations.of(context).getText(
+                                      _stepText(2, 'why') ??
+    FFLocalizations.of(context).getText(
                                         'vi9sfv63' /* Ground yourself in gratitude a... */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -860,7 +942,8 @@ class _TodaysHelpVersion5CompWidgetState
                                           ),
                                     ),
                                     Text(
-                                      FFLocalizations.of(context).getText(
+                                      _stepMeta(2) ??
+    FFLocalizations.of(context).getText(
                                         'd4p1uhe4' /* Reflection Practice • 5 min */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -1317,6 +1400,12 @@ class _TodaysHelpVersion5CompWidgetState
 
                                       logFirebaseEvent('Button_navigate_to');
 
+                                      // First step Lucille picked (path + params, native
+                                      // Soundscapes / Mood Scan); Reset until /v1/home answers.
+                                      if (SoundscapesLauncher.openLucilleLink(
+                                          context, _stepLink(0))) {
+                                        return;
+                                      }
                                       context.pushNamed(
                                         ResetPageCopyWidget.routeName,
                                         extra: <String, dynamic>{

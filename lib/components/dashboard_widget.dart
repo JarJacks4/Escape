@@ -12,6 +12,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/index.dart';
+import '/soundscapes/lucille_mood.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
 import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
@@ -50,6 +51,41 @@ class _DashboardWidgetState extends State<DashboardWidget>
     with TickerProviderStateMixin {
   late DashboardModel _model;
 
+  /// Current mood and last scan pulse from Lucille (shared by the two metric cards).
+  final Future<LucilleMood> _moodFuture = LucilleMood.load();
+  LucilleMood? _mood;
+
+  static const _lowMoods = {
+    'angry', 'anxious', 'restless', 'overwhelmed', 'sad', 'stressed', 'tense',
+    'low', 'tired', 'drained', 'foggy', 'heavy', 'lonely', 'fearful', 'frustrated',
+  };
+  static const _highMoods = {
+    'calm', 'happy', 'joyful', 'content', 'grateful', 'peaceful', 'energized',
+    'focused', 'hopeful', 'inspired', 'relaxed', 'bright', 'uplifted',
+  };
+
+  /// Self-Care Progress heading, from the same weekly mood as the badge so they agree.
+  String get _weekStatus {
+    final w = (_mood?.weekWord ?? _mood?.latestWord)?.toLowerCase();
+    if (w == null) return 'Stable';
+    if (_lowMoods.contains(w)) return 'Needs care';
+    if (_highMoods.contains(w)) return 'Thriving';
+    return 'Stable';
+  }
+
+  String get _weekDescription {
+    final caption = _mood?.weekCaption;
+    if (caption != null) return caption;
+    switch (_weekStatus) {
+      case 'Needs care':
+        return 'It\'s been a heavier week. A few minutes with Lucille can help you reset.';
+      case 'Thriving':
+        return 'You\'re doing great this week. Your mindfulness sessions are paying off.';
+      default:
+        return 'A steady week. Keep showing up for yourself.';
+    }
+  }
+
   /// Progress toward the 10,000-coin Escape goal (0–1). Drives the progress circle and
   /// Journey Progress, so both stay accurate instead of showing 10,000%+.
   static const int _coinGoal = 10000;
@@ -67,6 +103,9 @@ class _DashboardWidgetState extends State<DashboardWidget>
   @override
   void initState() {
     super.initState();
+    _moodFuture.then((m) {
+      if (mounted) setState(() => _mood = m);
+    });
     _model = createModel(context, () => DashboardModel());
 
     animationsMap.addAll({
@@ -723,12 +762,10 @@ Progress */
                                       onPressed: () {
                                         print('Button pressed ...');
                                       },
-                                      text: valueOrDefault<String>(
-                                        valueOrDefault(
-                                            currentUserDocument?.currentMood,
-                                            ''),
-                                        'Normal',
-                                      ),
+                                      // Weekly average mood from Lucille's Mood Orb.
+                                      text: _mood?.weekWord ??
+                                          _mood?.latestWord ??
+                                          'Normal',
                                       options: FFButtonOptions(
                                         height: 34.0,
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -849,10 +886,7 @@ Progress */
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 16.0),
                                               child: GradientText(
-                                                valueOrDefault<String>(
-                                                  FFAppState().energyLevel,
-                                                  'Stable',
-                                                ),
+                                                _weekStatus,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
@@ -900,13 +934,7 @@ Progress */
                                                         0.0, 4.0, 25.0, 0.0),
                                                 child: AuthUserStreamWidget(
                                                   builder: (context) => Text(
-                                                    valueOrDefault<String>(
-                                                      valueOrDefault(
-                                                          currentUserDocument
-                                                              ?.currentMoodDesc,
-                                                          ''),
-                                                      'You\'re doing great this week.  Your mindfulness sessions are paying off.',
-                                                    ),
+                                                    _weekDescription,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -1060,9 +1088,12 @@ Progress */
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  // Mood and pulse from Lucille (latest Mood Scan), not users.CurrentMood,
+                  // which only the old face scan wrote and which went stale ("Angry").
                   Expanded(
-                    child: AuthUserStreamWidget(
-                      builder: (context) => wrapWithModel(
+                    child: FutureBuilder<LucilleMood>(
+                      future: _moodFuture,
+                      builder: (context, snap) => wrapWithModel(
                         model: _model.metricCardModel,
                         updateCallback: () => safeSetState(() {}),
                         updateOnChange: true,
@@ -1075,29 +1106,30 @@ Progress */
                             size: 36.0,
                           ),
                           text: 'Current Mood',
-                          text2: valueOrDefault(
-                              currentUserDocument?.currentMood, ''),
+                          text2: snap.data?.currentWord ?? '—',
                         ),
                       ),
                     ),
                   ),
                   SizedBox(width: 10.0),
                   Expanded(
-                    child: wrapWithModel(
-                      model: _model.avgSleepCardModel,
-                      updateCallback: () => safeSetState(() {}),
-                      updateOnChange: true,
-                      child: MetricCardWidget(
-                        isPositive: null,
-                        icon: Icon(
-                          Icons.spa,
-                          color: FlutterFlowTheme.of(context).primary,
-                          size: 36.0,
-                        ),
-                        text: 'Energy Level',
-                        text2: valueOrDefault<String>(
-                          FFAppState().energyLevel,
-                          '—',
+                    child: FutureBuilder<LucilleMood>(
+                      future: _moodFuture,
+                      builder: (context, snap) => wrapWithModel(
+                        model: _model.avgSleepCardModel,
+                        updateCallback: () => safeSetState(() {}),
+                        updateOnChange: true,
+                        child: MetricCardWidget(
+                          isPositive: null,
+                          icon: Icon(
+                            Icons.favorite_rounded,
+                            color: FlutterFlowTheme.of(context).primary,
+                            size: 36.0,
+                          ),
+                          text: 'Heart Rate',
+                          text2: snap.data?.bpm != null
+                              ? '${snap.data!.bpm} BPM'
+                              : '—',
                         ),
                       ),
                     ),

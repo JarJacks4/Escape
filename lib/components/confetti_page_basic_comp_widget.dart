@@ -242,16 +242,13 @@ class _ConfettiPageBasicCompWidgetState
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                FFLocalizations.of(context).getText(
-                                                  'sxc973vr' /* You completed */,
-                                                ),
-                                                style: FlutterFlowTheme.of(context)
+                                          // One wrapping, centred line, so long exercise names stay inside the card.
+                                          Text.rich(
+                                            TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: '${FFLocalizations.of(context).getText('sxc973vr' /* You completed */)} ',
+                                                  style: FlutterFlowTheme.of(context)
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily: 'WorkSans',
@@ -260,13 +257,9 @@ class _ConfettiPageBasicCompWidgetState
                                                               .secondaryText,
                                                       letterSpacing: 0.0,
                                                     ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    EdgeInsetsDirectional.fromSTEB(
-                                                        3.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  valueOrDefault<String>(
+                                                ),
+                                                TextSpan(
+                                                  text: valueOrDefault<String>(
                                                     widget.exerciseTitle,
                                                     'Basic Breathing',
                                                   ),
@@ -281,8 +274,9 @@ class _ConfettiPageBasicCompWidgetState
                                                         fontWeight: FontWeight.w800,
                                                       ),
                                                 ),
-                                              ),
-                                            ].divide(SizedBox(width: 4.0)),
+                                              ],
+                                            ),
+                                            textAlign: TextAlign.center,
                                           ),
                                         ].divide(SizedBox(height: 8.0)),
                                       ),

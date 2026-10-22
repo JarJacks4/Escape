@@ -3,6 +3,7 @@ import '/soundscapes/soundscapes_launcher.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math' as math;
 import 'dart:ui';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -85,8 +86,17 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                 height: double.infinity,
                 decoration: BoxDecoration(),
                 child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 35.0, 16.0, 16.0),
+                  // Clear the status bar / Dynamic Island: a fixed 35 put "Help" under it.
+                  // View padding is read raw since the dialog may strip MediaQuery padding.
+                  padding: EdgeInsetsDirectional.fromSTEB(
+                      16.0,
+                      math.max(
+                          35.0,
+                          View.of(context).padding.top /
+                                  View.of(context).devicePixelRatio +
+                              16.0),
+                      16.0,
+                      16.0),
                   child: SingleChildScrollView(
                     primary: false,
                     controller: _model.columnController,

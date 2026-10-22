@@ -181,39 +181,40 @@ class _ConfettiPageIntermediateCompWidgetState
                                       fontWeight: FontWeight.w600,
                                     ),
                               ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'yhlh27cd' /* You completed */,
+                              // One wrapping, centred line, so long exercise names stay inside the card.
+                              Text.rich(
+                                TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:
+                                          '${FFLocalizations.of(context).getText('yhlh27cd' /* You completed */)} ',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'WorkSans',
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'WorkSans',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                  Text(
-                                    valueOrDefault<String>(
-                                      widget.exerciseTitle,
-                                      'Title',
+                                    TextSpan(
+                                      text: valueOrDefault<String>(
+                                        widget.exerciseTitle,
+                                        'Title',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'WorkSans',
+                                            color: FlutterFlowTheme.of(context)
+                                                .accent1,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                     ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'WorkSans',
-                                          color: FlutterFlowTheme.of(context)
-                                              .accent1,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ].divide(SizedBox(width: 4.0)),
+                                  ],
+                                ),
+                                textAlign: TextAlign.center,
                               ),
                             ].divide(SizedBox(height: 8.0)),
                           ),

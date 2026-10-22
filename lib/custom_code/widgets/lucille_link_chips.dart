@@ -6,6 +6,7 @@
 // words and Lucille's reply. Crisis language always puts the 988 shortcut first.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
@@ -134,7 +135,8 @@ List<LucilleLink> lucilleLinksFor(String userText, {String reply = '', int max =
   return out;
 }
 
-/// The row of shortcut chips shown above the chat input.
+/// The row of shortcut chips shown above the chat input: one centred row (scrolls sideways if
+/// it doesn't fit), each chip fading in from the side, alternating left / right.
 class LucilleLinkChips extends StatelessWidget {
   const LucilleLinkChips({super.key, required this.links, this.onOpened});
 
@@ -149,38 +151,62 @@ class LucilleLinkChips extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 4, 12, 0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
           const Padding(
-            padding: EdgeInsets.only(left: 4, bottom: 6),
+            padding: EdgeInsets.only(bottom: 6),
             child: Text('Lucille suggests in Escape',
                 style: TextStyle(fontSize: 12, color: navy, fontWeight: FontWeight.w600)),
           ),
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: links.map((l) {
-              final crisis = l.id == 'crisis';
-              return ActionChip(
-                avatar: Icon(l.icon, size: 18, color: crisis ? Colors.white : navy),
-                label: Text(l.label,
-                    style: TextStyle(
-                        color: crisis ? Colors.white : navy,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 13)),
-                backgroundColor: crisis ? const Color(0xFFD64545) : Colors.white,
-                side: BorderSide(color: crisis ? const Color(0xFFD64545) : orange),
-                shape: const StadiumBorder(),
-                onPressed: () async {
-                  await l.open(context);
-                  onOpened?.call();
-                },
-              );
-            }).toList(),
+          LayoutBuilder(
+            builder: (context, constraints) => SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minWidth: constraints.maxWidth),
+                child: Row(
+                  // New links replay the animation.
+                  key: ValueKey(links.map((l) => l.id).join('|')),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    for (final (i, l) in links.indexed)
+                      Padding(
+                        padding: EdgeInsets.only(left: i == 0 ? 0 : 8),
+                        child: _chip(context, l, navy, orange)
+                            .animate(delay: (120 * i).ms)
+                            .fadeIn(duration: 350.ms, curve: Curves.easeOut)
+                            .slideX(
+                                begin: i.isEven ? -0.25 : 0.25,
+                                end: 0,
+                                duration: 350.ms,
+                                curve: Curves.easeOut),
+                      ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ],
       ),
+    );
+  }
+
+  Widget _chip(BuildContext context, LucilleLink l, Color navy, Color orange) {
+    final crisis = l.id == 'crisis';
+    return ActionChip(
+      avatar: Icon(l.icon, size: 18, color: crisis ? Colors.white : navy),
+      label: Text(l.label,
+          style: TextStyle(
+              color: crisis ? Colors.white : navy,
+              fontWeight: FontWeight.w600,
+              fontSize: 13)),
+      backgroundColor: crisis ? const Color(0xFFD64545) : Colors.white,
+      side: BorderSide(color: crisis ? const Color(0xFFD64545) : orange),
+      shape: const StadiumBorder(),
+      onPressed: () async {
+        await l.open(context);
+        onOpened?.call();
+      },
     );
   }
 }

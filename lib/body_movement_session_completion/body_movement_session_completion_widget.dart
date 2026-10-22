@@ -4,6 +4,7 @@ import '/components/stat_pill_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
+import '/soundscapes/lucille_mood.dart';
 import 'package:collection/collection.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +40,8 @@ class BodyMovementSessionCompletionWidget extends StatefulWidget {
 class _BodyMovementSessionCompletionWidgetState
     extends State<BodyMovementSessionCompletionWidget> {
   late BodyMovementSessionCompletionModel _model;
+
+  final Future<LucilleMood> _moodFuture = LucilleMood.load();
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -337,9 +340,14 @@ class _BodyMovementSessionCompletionWidgetState
                                 child: wrapWithModel(
                                   model: _model.statPillModel3,
                                   updateCallback: () => safeSetState(() {}),
-                                  child: StatPillWidget(
-                                    label: 'ENERGY',
-                                    value: widget.sessionLabel,
+                                  // The latest mood from Lucille. sessionLabel was the
+                                  // stale users.CurrentMood (e.g. "Angry"), not an energy.
+                                  child: FutureBuilder<LucilleMood>(
+                                    future: _moodFuture,
+                                    builder: (context, snap) => StatPillWidget(
+                                      label: 'MOOD',
+                                      value: snap.data?.currentWord ?? '—',
+                                    ),
                                   ),
                                 ),
                               ),

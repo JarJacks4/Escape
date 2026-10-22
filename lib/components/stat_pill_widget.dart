@@ -64,11 +64,16 @@ class _StatPillWidgetState extends State<StatPillWidget> {
             children: [
               Flexible(
                 flex: 1,
-                child: Text(
+                // One line, shrunk to fit: a word like "Angry" used to break as "Angr / y".
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
                   valueOrDefault<String>(
                     widget.value,
                     '3 done',
                   ),
+                  maxLines: 1,
+                  softWrap: false,
                   style: FlutterFlowTheme.of(context).titleMedium.override(
                         font: GoogleFonts.inter(
                           fontWeight: FontWeight.bold,
@@ -84,7 +89,7 @@ class _StatPillWidgetState extends State<StatPillWidget> {
                             FlutterFlowTheme.of(context).titleMedium.fontStyle,
                         lineHeight: 1.4,
                       ),
-                  overflow: TextOverflow.fade,
+                  ),
                 ),
               ),
               Flexible(

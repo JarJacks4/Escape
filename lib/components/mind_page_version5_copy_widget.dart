@@ -888,8 +888,9 @@ Help Calm... */
                                                 logFirebaseEvent(
                                                     'Container_navigate_to');
 
+                                                // Reflections opens the Journal for now (Jared, Oct 19).
                                                 context.pushNamed(
-                                                  JournalHistoryWidget
+                                                  JournalHomeV2Widget
                                                       .routeName,
                                                   extra: <String, dynamic>{
                                                     '__transition_info__':

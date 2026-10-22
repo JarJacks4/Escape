@@ -27,7 +27,6 @@ import 'dart:async';
 import 'dart:ui' as ui;
 
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:url_launcher/url_launcher.dart';
@@ -348,23 +347,7 @@ void _playTuned(BuildContext context, Map sound) {
 }
 
 void _openDeeplink(BuildContext context, Map? link) {
-  final path = link?['path']?.toString();
-  if (path == null || path.isEmpty) return;
-  if (link?['route'] == 'AISoundscapesFINAL' || path == '/aISoundscapesFINAL') {
-    SoundscapesLauncher.openOrFallback(context);
-    return;
-  }
-  if (link?['route'] == 'MoodScanVersion5' || path == '/moodScanVersion5') {
-    SoundscapesLauncher.openMoodScan(context);
-    return;
-  }
-  final params = (link?['params'] as Map?)
-          ?.map((k, v) => MapEntry(k.toString(), v.toString())) ??
-      <String, String>{};
-  final uri = Uri(path: path, queryParameters: params.isEmpty ? null : params);
-  try {
-    GoRouter.of(context).push(uri.toString());
-  } catch (_) {}
+  SoundscapesLauncher.openLucilleLink(context, link);
 }
 
 // ───────────────────────── root ─────────────────────────

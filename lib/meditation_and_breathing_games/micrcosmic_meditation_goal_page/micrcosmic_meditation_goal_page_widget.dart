@@ -146,6 +146,7 @@ Meditation */
                                           ),
                                           color: FlutterFlowTheme.of(context)
                                               .accent1,
+                                          shadows: [Shadow(color: Color(0x99000000), blurRadius: 6.0)],
                                           fontSize: 22.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
