@@ -122,8 +122,8 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
     }
   }
 
-  /// Opens Lucille's suggestion: her deeplink (path + params, native Soundscapes / Mood Scan),
-  /// else the page for its kind. Used by Your Path and the suggestion card, so both agree.
+  /// Opens Lucille's suggestion card: her deeplink (path + params, native Soundscapes / Mood
+  /// Scan), else the page for its kind. Your Path keeps going to the Lucille Suggestions splash.
   void _openSuggestion() {
     if (SoundscapesLauncher.openLucilleLink(context, _sugLink)) return;
     context.pushNamed(
@@ -1099,15 +1099,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                         141.5,
                                                                     decoration:
                                                                         BoxDecoration(
-                                                                      image:
-                                                                          DecorationImage(
-                                                                        fit: BoxFit
-                                                                            .none,
-                                                                        image: Image
-                                                                            .asset(
-                                                                          'assets/images/Container_(6).png',
-                                                                        ).image,
-                                                                      ),
+                                                                      // The Mood Scan background moved onto its card so it slides with it.
                                                                       boxShadow: [
                                                                         BoxShadow(
                                                                           blurRadius:
@@ -1281,17 +1273,36 @@ Further ... */
                                                                               ),
                                                                             );
                                                                           }
-                                                                          if (valueOrDefault(currentUserDocument?.currentMood, '') != '') {
-                                                                            return ListView(
+                                                                          // Always swipeable: it used to need users.CurrentMood, which only the old face scan
+                                                                          // writes, so most people only ever saw the Mood Scan card.
+                                                                            // Rounded viewport so the cards keep their corners while sliding.
+                                                                            return ClipRRect(
+                                                                              borderRadius: BorderRadius.circular(16.0),
+                                                                              // Both cards take the row's real size (it's narrower than 320 on most phones).
+                                                                              child: LayoutBuilder(builder: (context, box) => ListView(
                                                                               padding: EdgeInsets.zero,
                                                                               shrinkWrap: true,
                                                                               scrollDirection: Axis.horizontal,
                                                                               children: [
                                                                                 // Mood Scan first (our main feature); swipe for Continue Your Journey.
-                                                                                SizedBox(width: 320.0, height: 141.5, child: moodScanCard()),
                                                                                 Container(
-                                                                                  width: 320.0,
-                                                                                  height: 126.0,
+                                                                                  width: box.maxWidth,
+                                                                                  height: box.maxHeight,
+                                                                                  // Same peach gradient as the old Container_(6).png, which was a smaller pre-drawn card
+                                                                                  // (transparent margins, baked shadow), so the Mood Scan card looked shorter than Continue.
+                                                                                  decoration: BoxDecoration(
+                                                                                    gradient: LinearGradient(
+                                                                                      colors: [Color(0xD2FED0DA), Color(0xD2FFDCC6), Color(0xCCFEECAE)],
+                                                                                      begin: AlignmentDirectional(-1.0, -1.0),
+                                                                                      end: AlignmentDirectional(1.0, 1.0),
+                                                                                    ),
+                                                                                    borderRadius: BorderRadius.circular(16.0),
+                                                                                  ),
+                                                                                  child: moodScanCard(),
+                                                                                ),
+                                                                                Container(
+                                                                                  width: box.maxWidth,
+                                                                                  height: box.maxHeight, // same size as the Mood Scan card
                                                                                   decoration: BoxDecoration(
                                                                                     color: Color(0x9BEDF1F7),
                                                                                     image: DecorationImage(
@@ -1472,10 +1483,8 @@ Further ... */
                                                                                   ),
                                                                                 ),
                                                                               ],
+                                                                            )),
                                                                             );
-                                                                          } else {
-                                                                            return moodScanCard();
-                                                                          }
                                                                         },
                                                                       ),
                                                                     ),
@@ -2095,8 +2104,16 @@ Further ... */
 
                                                                                     logFirebaseEvent('Button_navigate_to');
 
-                                                                                    // Opens the exercise Lucille suggested, not a generic splash.
-                                                                                    _openSuggestion();
+                                                                                    context.pushNamed(
+                                                                                      LucilleSuggestionSplashPageWidget.routeName,
+                                                                                      extra: <String, dynamic>{
+                                                                                        '__transition_info__': TransitionInfo(
+                                                                                          hasTransition: true,
+                                                                                          transitionType: PageTransitionType.fade,
+                                                                                          duration: Duration(milliseconds: 0),
+                                                                                        ),
+                                                                                      },
+                                                                                    );
                                                                                   },
                                                                                   text: FFLocalizations.of(context).getText(
                                                                                     'jlkefbdk' /* Start Suggested Session */,
