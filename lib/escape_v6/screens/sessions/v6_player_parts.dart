@@ -165,11 +165,11 @@ class V6PlayerMissing extends StatelessWidget {
   Widget build(BuildContext context) => V6Page(
         child: V6ActionPage(
           top: const V6TopBar(closeIcon: true),
-          children: const [
-            SizedBox(height: 40),
-            Center(child: V6MoodOrb(mood: null, size: 120, live: true)),
-            Semantics(header: true, child: V6Display('This session moved', size: 30, align: TextAlign.center)),
-            V6Text("We couldn't find it. Explore has everything that's here now.",
+          children: [
+            const SizedBox(height: 40),
+            const Center(child: V6MoodOrb(mood: null, size: 120, live: true)),
+            Semantics(header: true, child: const V6Display('This session moved', size: 30, align: TextAlign.center)),
+            const V6Text("We couldn't find it. Explore has everything that's here now.",
                 ink: V6Ink.muted, align: TextAlign.center),
           ],
           footer: [

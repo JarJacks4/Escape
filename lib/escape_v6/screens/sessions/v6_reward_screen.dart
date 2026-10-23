@@ -104,7 +104,7 @@ class _V6RewardScreenState extends State<V6RewardScreen> {
   List<Widget> _doneOnly(V6Store s) => [
         const SizedBox(height: 40),
         Center(child: V6MoodOrb(mood: s.currentMood, size: 126, live: true, glow: true)),
-        const Semantics(header: true, child: V6SmokeIn(child: V6Display('All done', size: 36, align: TextAlign.center))),
+        Semantics(header: true, child: const V6SmokeIn(child: V6Display('All done', size: 36, align: TextAlign.center))),
         const V6Text('Nice work taking a moment for yourself.', ink: V6Ink.muted, align: TextAlign.center),
       ];
 

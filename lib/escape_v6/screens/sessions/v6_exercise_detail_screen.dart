@@ -294,11 +294,11 @@ class _MovedState extends StatelessWidget {
     return V6Page(
       child: V6ActionPage(
         top: V6TopBar(onBack: back),
-        children: const [
-          SizedBox(height: 40),
-          Center(child: V6MoodOrb(mood: null, size: 120, live: true)),
-          Semantics(header: true, child: V6Display('This session moved', size: 30, align: TextAlign.center)),
-          V6Text(
+        children: [
+          const SizedBox(height: 40),
+          const Center(child: V6MoodOrb(mood: null, size: 120, live: true)),
+          Semantics(header: true, child: const V6Display('This session moved', size: 30, align: TextAlign.center)),
+          const V6Text(
             "We couldn't find it. It may have been renamed or retired. Explore has everything that's here now.",
             ink: V6Ink.muted,
             align: TextAlign.center,

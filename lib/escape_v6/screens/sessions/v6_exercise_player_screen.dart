@@ -492,9 +492,9 @@ class _V6ExercisePlayerScreenState extends State<V6ExercisePlayerScreen>
 
   Widget _caption(V6Exercise e) {
     if (_finishing) {
-      return const Semantics(
+      return Semantics(
         liveRegion: true,
-        child: Column(children: [
+        child: const Column(children: [
           V6Display('Well done', size: 32, align: TextAlign.center),
           SizedBox(height: 8),
           V6Text('Saving your session…', ink: V6Ink.muted),

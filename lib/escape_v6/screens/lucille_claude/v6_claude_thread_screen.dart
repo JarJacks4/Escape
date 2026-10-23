@@ -309,7 +309,10 @@ class _V6ClaudeThreadScreenState extends State<V6ClaudeThreadScreen> {
     }
     if (!_alive) return;
     if (!ready) {
-      setState(() => _notice = _speech.hasPermission ? _Notice.micUnavailable : _Notice.micDenied);
+      // speech_to_text 7.x: hasPermission is a Future<bool>.
+      final allowed = await _speech.hasPermission;
+      if (!_alive) return;
+      setState(() => _notice = allowed ? _Notice.micUnavailable : _Notice.micDenied);
       return;
     }
     _heard = '';

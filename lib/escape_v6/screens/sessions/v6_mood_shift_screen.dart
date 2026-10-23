@@ -96,7 +96,7 @@ class _V6MoodShiftScreenState extends State<V6MoodShiftScreen> {
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
       V6Eyebrow('${last?.title ?? 'Your session'} · question 1 of 2'),
       const SizedBox(height: 14),
-      const Semantics(header: true, child: V6Display('Has your mood shifted?', size: 34)),
+      Semantics(header: true, child: const V6Display('Has your mood shifted?', size: 34)),
       const SizedBox(height: 10),
       const V6Text("There's no right answer. Honest ratings teach Lucille what actually helps you.", ink: V6Ink.muted),
       const SizedBox(height: 18),
@@ -144,7 +144,7 @@ class _V6MoodShiftScreenState extends State<V6MoodShiftScreen> {
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
       V6Eyebrow('${last?.title ?? 'Your session'} · question 2 of 2'),
       const SizedBox(height: 14),
-      const Semantics(header: true, child: V6Display('How do you feel now?', size: 34)),
+      Semantics(header: true, child: const V6Display('How do you feel now?', size: 34)),
       const SizedBox(height: 10),
       const V6Text('Pick the closest one. It helps Lucille learn what works for you.', ink: V6Ink.muted),
       const SizedBox(height: 20),
