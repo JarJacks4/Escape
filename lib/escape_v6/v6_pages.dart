@@ -1,0 +1,33 @@
+// Escape v6 — everything nav.dart needs (route names, page widgets, transition).
+export 'theme/v6_type.dart' show V6Motion;
+export 'ui/v6_motion.dart' show v6Transition, V6TransitionPage;
+export 'v6_routes.dart' show V6Routes;
+
+export 'screens/entry/v6_onboarding_screen.dart' show V6OnboardingScreen;
+export 'screens/entry/v6_all_set_screen.dart' show V6AllSetScreen;
+export 'screens/checkin/v6_check_in_screen.dart' show V6CheckInScreen;
+export 'screens/mind/v6_mind_screen.dart' show V6MindScreen;
+export 'screens/mind/v6_reset_screen.dart' show V6ResetScreen;
+export 'screens/sessions/v6_exercise_detail_screen.dart' show V6ExerciseDetailScreen;
+export 'screens/sessions/v6_exercise_player_screen.dart' show V6ExercisePlayerScreen;
+export 'screens/sessions/v6_mood_shift_screen.dart' show V6MoodShiftScreen;
+export 'screens/sessions/v6_reward_screen.dart' show V6RewardScreen;
+export 'screens/body/v6_body_hub_screen.dart' show V6BodyHubScreen;
+export 'screens/body/v6_body_section_screen.dart' show V6BodySectionScreen;
+export 'screens/body/v6_body_detail_screen.dart' show V6BodyDetailScreen;
+export 'screens/body/v6_body_player_screen.dart' show V6BodyPlayerScreen;
+export 'screens/body/v6_body_reflection_screen.dart' show V6BodyReflectionScreen;
+export 'screens/home/v6_daily_plan_screen.dart' show V6DailyPlanScreen;
+export 'screens/home/v6_progress_screen.dart' show V6ProgressScreen;
+export 'screens/plans/v6_plan_builder_screen.dart' show V6PlanBuilderScreen;
+export 'screens/plans/v6_plan_screen.dart' show V6PlanScreen;
+export 'screens/plans/v6_plan_progress.dart' show V6PlanProgressScreen;
+export 'screens/plans/v6_plans_api.dart' show V6PlanRoutes;
+export 'screens/lucille/v6_lucille_text_screen.dart' show V6LucilleTextScreen;
+export 'screens/lucille/v6_lucille_voice_screen.dart' show V6LucilleVoiceScreen;
+export 'screens/lucille_claude/v6_claude_thread_screen.dart' show V6ClaudeThreadScreen;
+export 'screens/lucille_claude/v6_claude_threads_screen.dart' show V6ClaudeThreadsScreen;
+export 'screens/profile/v6_edit_profile_screen.dart' show V6EditProfileScreen;
+export 'screens/profile/v6_settings_screen.dart' show V6SettingsScreen;
+export 'screens/profile/v6_privacy_screen.dart' show V6PrivacyScreen;
+export 'screens/profile/v6_help_screen.dart' show V6HelpScreen;

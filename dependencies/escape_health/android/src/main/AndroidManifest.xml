@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- The Health Connect permissions, <queries> entry and permission-rationale intent filters live in
+         the host app's manifest (android/app/src/main/AndroidManifest.xml) so the app owns its
+         declared data types. -->
+    <queries>
+        <package android:name="com.google.android.apps.healthdata" />
+    </queries>
+</manifest>

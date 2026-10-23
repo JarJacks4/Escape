@@ -1,5 +1,5 @@
 name: escape_soundscapes
-description: Embeds the native Escape Soundscapes module (iOS 17+).
+description: Embeds the native Escape Soundscapes module (iOS 17+, Android 8.0+).
 version: 0.1.0
 publish_to: none
 
@@ -14,5 +14,8 @@ dependencies:
 flutter:
   plugin:
     platforms:
+      android:
+        package: com.escape.soundscapes
+        pluginClass: EscapeSoundscapesPlugin
       ios:
         pluginClass: EscapeSoundscapesPlugin

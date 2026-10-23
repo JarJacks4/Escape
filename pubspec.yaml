@@ -229,6 +229,8 @@ dependencies:
     path: ./dependencies/tiktokfeed_wz8en7 # current
   escape_soundscapes:
     path: ./dependencies/escape_soundscapes
+  escape_health:
+    path: ./dependencies/escape_health
   timeago: 3.7.1
   timezone: 0.11.1
   universal_io: 2.2.2
@@ -297,6 +299,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   shaders:
+    - assets/shaders/v6_smoke_reveal.frag
     - packages/material_palette/shaders/click_ripple.frag
     - packages/material_palette/shaders/fbm_gradient.frag
     - packages/material_palette/shaders/pixel_dissolve.frag
@@ -314,6 +317,7 @@ flutter:
     - assets/rive_animations/
     - assets/pdfs/
     - assets/jsons/
+    - assets/orbs/
 
   fonts:
     - family: 'WorkSans'
@@ -361,6 +365,9 @@ flutter:
         - asset: assets/fonts/WorkSans-BlackItalic.ttf
           weight: 900
           style: italic
+    - family: 'GildaDisplay'
+      fonts:
+        - asset: assets/fonts/GildaDisplay-Regular.ttf
     # 'The Seasons' is kept as the family name so every heading keeps working, but it now uses
     # Cormorant Garamond (SIL Open Font License, free for commercial apps; see
     # assets/fonts/CormorantGaramond-OFL.txt). The Fontspring DEMO files weren't licensed for release.

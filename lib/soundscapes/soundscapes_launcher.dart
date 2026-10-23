@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '/auth/firebase_auth/auth_util.dart';
+import 'package:flutter/foundation.dart' show defaultTargetPlatform, TargetPlatform;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,7 +16,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/nav/nav.dart';
 import '/index.dart';
 
-/// Entry point for the native Soundscapes module (iOS 17+).
+/// Entry point for the native Soundscapes module (iOS 17+, Android 8.0+).
 class SoundscapesLauncher {
   SoundscapesLauncher._();
 
@@ -35,7 +36,7 @@ class SoundscapesLauncher {
   /// On by default; build with --dart-define=SOUNDSCAPES_BETA=false to hide the module.
   static const bool betaEnabled = bool.fromEnvironment('SOUNDSCAPES_BETA', defaultValue: true);
 
-  /// Cached: true on iOS 17+ when the beta flag is set.
+  /// Cached: true on iOS 17+ / Android 8.0+ when the beta flag is set.
   static Future<bool> isSupported() => betaEnabled
       ? (_supported ??= EscapeSoundscapes.isSupported())
       : Future.value(false);
@@ -51,7 +52,7 @@ class SoundscapesLauncher {
     );
   }
 
-  /// New Soundscapes module when supported (iOS 17+), otherwise the old Sound page.
+  /// New Soundscapes module when supported (iOS 17+, Android 8.0+), otherwise the old Sound page.
   static Future<void> openOrFallback(BuildContext context) async {
     final supported = await isSupported();
     if (!context.mounted) return;
@@ -62,7 +63,7 @@ class SoundscapesLauncher {
     }
   }
 
-  /// New Mood Scan (inside the module) when supported (iOS 17+), otherwise the old Mood Scan page.
+  /// New Mood Scan (inside the module) when supported (iOS 17+, Android 8.0+), otherwise the old Mood Scan page.
   static Future<void> openMoodScan(BuildContext context) async {
     final supported = await isSupported();
     if (!context.mounted) return;
@@ -121,7 +122,7 @@ class SoundscapesLauncher {
       ...feedback,
       'uid': user?.uid,
       'email': user?.email,
-      'platform': 'ios',
+      'platform': defaultTargetPlatform == TargetPlatform.android ? 'android' : 'ios',
       'createdAt': FieldValue.serverTimestamp(),
     });
   }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from the iOS asset icon-pause.svg. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:pathData="M6.5,4 h1 a1.5,1.5 0 0,1 1.5,1.5 v13 a1.5,1.5 0 0,1 -1.5,1.5 h-1 a1.5,1.5 0 0,1 -1.5,-1.5 v-13 a1.5,1.5 0 0,1 1.5,-1.5 Z"
+        android:fillColor="#FF000000" />
+    <path
+        android:pathData="M16.5,4 h1 a1.5,1.5 0 0,1 1.5,1.5 v13 a1.5,1.5 0 0,1 -1.5,1.5 h-1 a1.5,1.5 0 0,1 -1.5,-1.5 v-13 a1.5,1.5 0 0,1 1.5,-1.5 Z"
+        android:fillColor="#FF000000" />
+</vector>

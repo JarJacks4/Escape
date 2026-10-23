@@ -1,0 +1,1351 @@
+{
+  "_about": "Every piece of content from the Figma Make prototype (High-Fidelity Mobile Prototype, version 9). The backend seeds its in-memory store from this file and the iOS app bundles it for mock mode and SwiftUI previews. Gradients are {colors:[hex...], angle:degrees}. Items marked placeholder:true were invented in Figma Make; swap in the real catalog.",
+  "version": 9,
+  "user": {
+    "uid": "dev-jared",
+    "firstName": "Jared",
+    "isPremium": false,
+    "streakDays": 5,
+    "totalShards": 320
+  },
+  "onboarding": [
+    {
+      "title": "Sound that meets your mood",
+      "body": "Every soundscape adapts to how you feel right now — not just what you put on."
+    },
+    {
+      "title": "Lucille composes it for you, live",
+      "body": "Your AI companion creates each soundscape in real time. No two sessions are the same."
+    },
+    {
+      "title": "Tuned to your time, weather and heartbeat",
+      "body": "Lucille listens to your inner weather and shapes the sound around it."
+    }
+  ],
+  "homeTabs": [
+    "Now",
+    "Focus",
+    "Calm",
+    "Sleep",
+    "Move",
+    "Realms"
+  ],
+  "modes": [
+    {
+      "id": "picks",
+      "title": "Lucille Picks",
+      "shortTitle": "Picks",
+      "icon": "mode-picks",
+      "premium": false
+    },
+    {
+      "id": "focus",
+      "title": "Focus",
+      "shortTitle": "Focus",
+      "icon": "mode-focus",
+      "premium": false
+    },
+    {
+      "id": "calm",
+      "title": "Calm",
+      "shortTitle": "Calm",
+      "icon": "mode-calm",
+      "premium": false
+    },
+    {
+      "id": "sleep",
+      "title": "Sleep",
+      "shortTitle": "Sleep",
+      "icon": "mode-sleep",
+      "premium": false
+    },
+    {
+      "id": "move",
+      "title": "Move",
+      "shortTitle": "Move",
+      "icon": "mode-move",
+      "premium": true
+    },
+    {
+      "id": "noise",
+      "title": "Noise",
+      "shortTitle": "Noise",
+      "icon": "soundwave",
+      "premium": true
+    },
+    {
+      "id": "realms",
+      "title": "Realms",
+      "shortTitle": "Realms",
+      "icon": "mode-realms",
+      "premium": true
+    }
+  ],
+  "inputsNow": {
+    "circadianPhase": "Afternoon Lift",
+    "phaseLabel": "Afternoon",
+    "phaseValue": "Peak in 42 min",
+    "nextPhaseInMin": 42,
+    "weather": {
+      "tempF": 64,
+      "condition": "Drizzle",
+      "city": "New York"
+    },
+    "mood": "Restless",
+    "heartBpm": 72,
+    "sunrise": "6:48 AM",
+    "sunset": "7:02 PM",
+    "suggestedMode": "focus",
+    "playNowSubtitle": "Lucille picks Focus for your afternoon"
+  },
+  "dailyDrop": {
+    "compositionId": "daily_drop_thu",
+    "label": "Lucille's Daily Drop",
+    "badge": "New every morning",
+    "title": "Thursday Drizzle",
+    "subtitle": "Composed at 7:02 AM for your day",
+    "mode": "calm",
+    "gradient": {
+      "colors": [
+        "#EF7702",
+        "#C9A3B8",
+        "#8E8FD0",
+        "#164395"
+      ],
+      "stops": [
+        0,
+        0.35,
+        0.7,
+        1
+      ],
+      "angle": 135
+    }
+  },
+  "journeys": [
+    {
+      "id": "deep-work",
+      "title": "Deep Work",
+      "chipDuration": "50/10",
+      "mode": "focus",
+      "sheetTitle": "Deep Work 50/10",
+      "summary": "50 min focused work + 10 min active break",
+      "phases": [
+        {
+          "label": "Arrive",
+          "minutes": 3,
+          "energy": 0.3
+        },
+        {
+          "label": "Settle",
+          "minutes": 10,
+          "energy": 0.5
+        },
+        {
+          "label": "Deepen",
+          "minutes": 25,
+          "energy": 0.7
+        },
+        {
+          "label": "Return",
+          "minutes": 2,
+          "energy": 0.4
+        }
+      ]
+    },
+    {
+      "id": "exam-prep",
+      "title": "Exam Prep",
+      "chipDuration": null,
+      "mode": "focus",
+      "placeholder": true,
+      "sheetTitle": "Exam Prep",
+      "summary": "Three focused blocks with short resets",
+      "phases": [
+        {
+          "label": "Arrive",
+          "minutes": 3,
+          "energy": 0.35
+        },
+        {
+          "label": "Study",
+          "minutes": 25,
+          "energy": 0.7
+        },
+        {
+          "label": "Reset",
+          "minutes": 5,
+          "energy": 0.3
+        },
+        {
+          "label": "Study",
+          "minutes": 25,
+          "energy": 0.7
+        }
+      ]
+    },
+    {
+      "id": "panic-reset",
+      "title": "Panic Reset",
+      "chipDuration": "5 min",
+      "mode": "calm",
+      "placeholder": true,
+      "sheetTitle": "Panic Reset",
+      "summary": "Slow the breath, then the body",
+      "phases": [
+        {
+          "label": "Notice",
+          "minutes": 1,
+          "energy": 0.4
+        },
+        {
+          "label": "Breathe",
+          "minutes": 3,
+          "energy": 0.2
+        },
+        {
+          "label": "Return",
+          "minutes": 1,
+          "energy": 0.3
+        }
+      ]
+    },
+    {
+      "id": "power-nap",
+      "title": "Power Nap",
+      "chipDuration": "20 min",
+      "mode": "sleep",
+      "placeholder": true,
+      "sheetTitle": "Power Nap",
+      "summary": "Drift down, rest, rise gently",
+      "phases": [
+        {
+          "label": "Drift",
+          "minutes": 5,
+          "energy": 0.2
+        },
+        {
+          "label": "Rest",
+          "minutes": 12,
+          "energy": 0.1
+        },
+        {
+          "label": "Rise",
+          "minutes": 3,
+          "energy": 0.5
+        }
+      ]
+    },
+    {
+      "id": "wind-down",
+      "title": "Wind Down",
+      "chipDuration": null,
+      "mode": "calm",
+      "placeholder": true,
+      "sheetTitle": "Wind Down",
+      "summary": "Ease out of the day",
+      "phases": [
+        {
+          "label": "Arrive",
+          "minutes": 5,
+          "energy": 0.4
+        },
+        {
+          "label": "Soften",
+          "minutes": 15,
+          "energy": 0.25
+        },
+        {
+          "label": "Settle",
+          "minutes": 10,
+          "energy": 0.15
+        }
+      ]
+    },
+    {
+      "id": "chores",
+      "title": "Chores",
+      "chipDuration": null,
+      "mode": "move",
+      "placeholder": true,
+      "sheetTitle": "Chores",
+      "summary": "Steady rhythm to keep you moving",
+      "phases": [
+        {
+          "label": "Warm up",
+          "minutes": 5,
+          "energy": 0.5
+        },
+        {
+          "label": "Flow",
+          "minutes": 20,
+          "energy": 0.7
+        }
+      ]
+    },
+    {
+      "id": "breath-sync",
+      "title": "Breath Sync",
+      "chipDuration": null,
+      "mode": "calm",
+      "placeholder": true,
+      "sheetTitle": "Breath Sync",
+      "summary": "Built on Basic Breathing: Box, 4-7-8 or 5.5 breaths a minute",
+      "phases": [
+        {
+          "label": "Arrive",
+          "minutes": 2,
+          "energy": 0.3
+        },
+        {
+          "label": "Pace",
+          "minutes": 8,
+          "energy": 0.2
+        },
+        {
+          "label": "Return",
+          "minutes": 2,
+          "energy": 0.3
+        }
+      ]
+    }
+  ],
+  "featuredCircle": {
+    "circleId": "u1",
+    "label": "Listening Circles",
+    "title": "Sunday Reset",
+    "subtitle": "1,284 listening now · starts 8:00 PM",
+    "cta": "Join"
+  },
+  "madeByYou": [
+    {
+      "compositionId": "mine_1",
+      "title": "Cabin Rain, 11 PM",
+      "description": "Composed last night",
+      "mode": "sleep",
+      "gradient": {
+        "colors": [
+          "#164395",
+          "#05081A"
+        ],
+        "angle": 135
+      }
+    },
+    {
+      "compositionId": "mine_2",
+      "title": "Morning Clarity",
+      "description": "Your morning ritual",
+      "mode": "focus",
+      "gradient": {
+        "colors": [
+          "#EF7702",
+          "#8E7CD9"
+        ],
+        "angle": 135
+      }
+    },
+    {
+      "compositionId": "mine_3",
+      "title": "Rainy Sunday",
+      "description": "Slow afternoon",
+      "mode": "calm",
+      "gradient": {
+        "colors": [
+          "#39519F",
+          "#101E43"
+        ],
+        "angle": 135
+      }
+    }
+  ],
+  "browse": {
+    "focus": {
+      "title": "Focus",
+      "tagline": "Sustained attention, without the friction.",
+      "background": "#0B1230",
+      "chipsLabel": "Timed Journeys",
+      "journeys": [
+        "Deep Work",
+        "Study",
+        "Write",
+        "Code",
+        "Admin"
+      ],
+      "cards": [
+        {
+          "id": "focus_deep_flow",
+          "title": "Deep Flow",
+          "description": "Sustained concentration, no friction.",
+          "gradient": {
+            "colors": [
+              "#EF7702",
+              "#164395"
+            ],
+            "angle": 135
+          },
+          "isPremium": false
+        },
+        {
+          "id": "focus_gamma_spark",
+          "title": "Gamma Spark",
+          "description": "High-frequency clarity for hard problems.",
+          "gradient": {
+            "colors": [
+              "#F08A1D",
+              "#39519F"
+            ],
+            "angle": 135
+          },
+          "isPremium": true
+        },
+        {
+          "id": "focus_library_hum",
+          "title": "Library Hum",
+          "description": "Quiet room ambience for reading.",
+          "gradient": {
+            "colors": [
+              "#39519F",
+              "#101E43"
+            ],
+            "angle": 135
+          },
+          "isPremium": false
+        },
+        {
+          "id": "focus_beta_lift",
+          "title": "Beta Lift",
+          "description": "A gentle push through the afternoon dip.",
+          "gradient": {
+            "colors": [
+              "#EF7702",
+              "#8E7CD9"
+            ],
+            "angle": 135
+          },
+          "isPremium": false
+        },
+        {
+          "id": "focus_typewriter_rain",
+          "title": "Typewriter Rain",
+          "description": "Soft rain and a steady rhythm.",
+          "gradient": {
+            "colors": [
+              "#164395",
+              "#EF7702"
+            ],
+            "angle": 135
+          },
+          "isPremium": true
+        }
+      ]
+    },
+    "calm": {
+      "title": "Calm",
+      "tagline": "Lower stress and land back in your body.",
+      "background": "#0B1230",
+      "chipsLabel": "Timed Journeys",
+      "journeys": [
+        "Meditate",
+        "Chill",
+        "Self Care",
+        "Yoga",
+        "Chores"
+      ],
+      "cards": [
+        {
+          "id": "calm_calm",
+          "title": "Calm",
+          "description": "A warm stillness that holds without pressure.",
+          "gradient": {
+            "colors": [
+              "#8E7CD9",
+              "#164395"
+            ],
+            "angle": 135
+          },
+          "isPremium": false
+        },
+        {
+          "id": "calm_recovery",
+          "title": "Recovery",
+          "description": "Reset your nervous system after effort.",
+          "gradient": {
+            "colors": [
+              "#B9A3F0",
+              "#39519F"
+            ],
+            "angle": 135
+          },
+          "isPremium": false
+        },
+        {
+          "id": "calm_grounding",
+          "title": "Grounding",
+          "description": "Root back into the present moment.",
+          "gradient": {
+            "colors": [
+              "#39519F",
+              "#0B1230"
+            ],
+            "angle": 135
+          },
+          "isPremium": true
+        },
+        {
+          "id": "calm_rain_room",
+          "title": "Rain Room",
+          "description": "Surrounded by steady, unrushed rain.",
+          "gradient": {
+            "colors": [
+              "#164395",
+              "#101E43"
+            ],
+            "angle": 135
+          },
+          "isPremium": false
+        },
+        {
+          "id": "calm_theta_drift",
+          "title": "Theta Drift",
+          "description": "Theta waves guide you to the edge of sleep.",
+          "gradient": {
+            "colors": [
+              "#8E7CD9",
+              "#05081A"
+            ],
+            "angle": 135
+          },
+          "isPremium": true
+        }
+      ]
+    },
+    "sleep": {
+      "title": "Sleep",
+      "tagline": "Wind down and drift off, screen-dark and gentle.",
+      "background": "#05081A",
+      "chipsLabel": "Timed Journeys",
+      "journeys": [
+        "Wind Down",
+        "Nap",
+        "Back to Sleep",
+        "Deep Rest"
+      ],
+      "cards": [
+        {
+          "id": "sleep_delta_descent",
+          "title": "Delta Descent",
+          "description": "Drift slowly into deep sleep.",
+          "gradient": {
+            "colors": [
+              "#101E43",
+              "#05081A"
+            ],
+            "angle": 135
+          },
+          "isPremium": false
+        },
+        {
+          "id": "sleep_night_rain",
+          "title": "Night Rain",
+          "description": "Steady rain on the roof all night.",
+          "gradient": {
+            "colors": [
+              "#164395",
+              "#05081A"
+            ],
+            "angle": 135
+          },
+          "isPremium": false
+        },
+        {
+          "id": "sleep_cabin_rain",
+          "title": "Cabin Rain, 11 PM",
+          "description": "Composed for restless evenings.",
+          "gradient": {
+            "colors": [
+              "#39519F",
+              "#05081A"
+            ],
+            "angle": 135
+          },
+          "isPremium": false
+        },
+        {
+          "id": "sleep_slow_tide",
+          "title": "Slow Tide",
+          "description": "Low waves that rock you under.",
+          "gradient": {
+            "colors": [
+              "#8E7CD9",
+              "#05081A"
+            ],
+            "angle": 135
+          },
+          "isPremium": true
+        },
+        {
+          "id": "sleep_starfield",
+          "title": "Starfield",
+          "description": "Warm pads under a quiet sky.",
+          "gradient": {
+            "colors": [
+              "#B9A3F0",
+              "#05081A"
+            ],
+            "angle": 135
+          },
+          "isPremium": true
+        }
+      ]
+    },
+    "move": {
+      "title": "Move",
+      "tagline": "Rhythm that meets your pace.",
+      "background": "#0B1230",
+      "chipsLabel": "Timed Journeys",
+      "journeys": [
+        "Walk",
+        "Run",
+        "Stretch",
+        "Yoga Flow",
+        "Commute"
+      ],
+      "cards": [
+        {
+          "id": "move_steady_stride",
+          "title": "Steady Stride",
+          "description": "A pulse that matches an easy walk.",
+          "gradient": {
+            "colors": [
+              "#F08A1D",
+              "#B9A3F0"
+            ],
+            "angle": 135
+          },
+          "isPremium": false
+        },
+        {
+          "id": "move_tempo_run",
+          "title": "Tempo Run",
+          "description": "Driving rhythm for sustained effort.",
+          "gradient": {
+            "colors": [
+              "#EF7702",
+              "#8E7CD9"
+            ],
+            "angle": 135
+          },
+          "isPremium": true
+        },
+        {
+          "id": "move_golden_hour_walk",
+          "title": "Golden Hour Walk",
+          "description": "Warm, open and unhurried.",
+          "gradient": {
+            "colors": [
+              "#F08A1D",
+              "#164395"
+            ],
+            "angle": 135
+          },
+          "isPremium": true
+        },
+        {
+          "id": "move_slow_flow",
+          "title": "Slow Flow",
+          "description": "Breath-paced layers for stretching.",
+          "gradient": {
+            "colors": [
+              "#8E7CD9",
+              "#39519F"
+            ],
+            "angle": 135
+          },
+          "isPremium": true
+        }
+      ]
+    },
+    "realms": {
+      "title": "Realms",
+      "tagline": "Immersive worlds that change with the seasons.",
+      "background": "#0B1230",
+      "chipsLabel": "Worlds",
+      "journeys": [
+        "Forest",
+        "Ocean",
+        "Mountain",
+        "Desert"
+      ],
+      "cards": [
+        {
+          "id": "realm_winter",
+          "title": "Winter Realm",
+          "description": "A seasonal world of icy quiet.",
+          "gradient": {
+            "colors": [
+              "#B9A3F0",
+              "#164395"
+            ],
+            "angle": 135
+          },
+          "isPremium": true,
+          "seasonal": true
+        },
+        {
+          "id": "realm_autumn_woods",
+          "title": "Autumn Woods",
+          "description": "Wind through falling leaves.",
+          "gradient": {
+            "colors": [
+              "#EF7702",
+              "#101E43"
+            ],
+            "angle": 135
+          },
+          "isPremium": false,
+          "seasonal": true
+        },
+        {
+          "id": "realm_night_ocean",
+          "title": "Night Ocean",
+          "description": "Distant swells under moonlight.",
+          "gradient": {
+            "colors": [
+              "#164395",
+              "#05081A"
+            ],
+            "angle": 135
+          },
+          "isPremium": true
+        },
+        {
+          "id": "realm_alpine_dawn",
+          "title": "Alpine Dawn",
+          "description": "Thin air and a slow sunrise.",
+          "gradient": {
+            "colors": [
+              "#B9A3F0",
+              "#EF7702"
+            ],
+            "angle": 135
+          },
+          "isPremium": true
+        }
+      ]
+    }
+  },
+  "nowPlaying": {
+    "subtitle": "Afternoon Lift · composed by Lucille",
+    "aiCredit": "Composed by Lucille (AI)",
+    "whyHeadline": "I tuned this for your afternoon slump.",
+    "whyBody": "Drizzle outside + restless mood = slower pulse, warmer pads, a 10 Hz alpha layer.",
+    "switcherModes": [
+      "picks",
+      "focus",
+      "calm",
+      "sleep",
+      "move"
+    ],
+    "defaultTimerSeconds": 1491,
+    "timerCaption": "Short break at 12:11 PM"
+  },
+  "compose": {
+    "prompt": "Tell me where you want to be.",
+    "placeholder": "Rain on a cabin roof. I'm wired after a late shift and need to sleep.",
+    "modes": [
+      "Focus",
+      "Calm",
+      "Sleep",
+      "Move"
+    ],
+    "lengths": [
+      "15 min",
+      "30 min",
+      "60 min",
+      "Endless"
+    ],
+    "brainwaves": [
+      "Off",
+      "Alpha",
+      "Theta",
+      "Delta"
+    ],
+    "defaults": {
+      "mode": "Focus",
+      "length": "30 min",
+      "brainwave": "Alpha",
+      "useInnerWeather": true
+    },
+    "innerWeatherLabel": "Use my inner weather",
+    "innerWeatherSub": "Mood, time of day, and weather data",
+    "cta": "Compose with Lucille",
+    "ctaBusy": "Composing...",
+    "eta": "Takes about a minute",
+    "steps": [
+      "Reading your inner weather",
+      "Composing your soundscape",
+      "Painting the visuals",
+      "Ready"
+    ],
+    "leaveNote": "I'll send you a notification if you leave."
+  },
+  "moodField": {
+    "default": {
+      "energy": 0.35,
+      "texture": 0.72
+    },
+    "helper": "Drag to reshape the energy and feel of your soundscape.",
+    "presets": [
+      {
+        "label": "Lucille's pick",
+        "energy": 0.65,
+        "texture": 0.5
+      },
+      {
+        "label": "Yesterday 3 PM",
+        "energy": 0.55,
+        "texture": 0.65
+      },
+      {
+        "label": "Your best focus",
+        "energy": 0.7,
+        "texture": 0.7
+      }
+    ],
+    "padDots": [
+      {
+        "x": 0.5,
+        "y": 0.35,
+        "size": 8,
+        "color": "#8E7CD9",
+        "opacity": 0.7
+      },
+      {
+        "x": 0.65,
+        "y": 0.55,
+        "size": 6,
+        "color": "#A9B3D6",
+        "opacity": 0.5
+      },
+      {
+        "x": 0.7,
+        "y": 0.3,
+        "size": 6,
+        "color": "#EF7702",
+        "opacity": 0.7
+      }
+    ],
+    "cta": "Update soundscape",
+    "_note": "Axes follow the pad labels: energy = vertical (CALM bottom → CHARGED top), texture = horizontal (GROUNDED left → DREAMY right). The prototype code had them swapped; values here are swapped too so the knob and preset dots sit exactly where the Figma draws them."
+  },
+  "moodCheckIn": {
+    "title": "How's your inner weather?",
+    "tags": [
+      "Restless",
+      "Foggy",
+      "Wired",
+      "Low",
+      "Steady",
+      "Open"
+    ],
+    "defaultValue": 0.4,
+    "defaultTags": [
+      "Restless"
+    ],
+    "latestMoodScan": {
+      "mood": "Restless",
+      "minutesAgo": 120,
+      "label": "2 h ago: Restless"
+    },
+    "cta": "Tune my soundscape"
+  },
+  "layers": [
+    {
+      "id": "ambience",
+      "label": "Ambience",
+      "glyph": "~",
+      "value": 0.75,
+      "muted": false
+    },
+    {
+      "id": "melody",
+      "label": "Melody",
+      "glyph": "♪",
+      "value": 0.5,
+      "muted": false
+    },
+    {
+      "id": "pulse",
+      "label": "Pulse",
+      "glyph": "●",
+      "value": 0.4,
+      "muted": false
+    },
+    {
+      "id": "nature",
+      "label": "Nature",
+      "glyph": "❧",
+      "value": 0.6,
+      "muted": false
+    },
+    {
+      "id": "brainwave",
+      "label": "Brainwave",
+      "glyph": "⌇",
+      "value": 0.5,
+      "muted": false,
+      "chips": [
+        "Delta",
+        "Theta",
+        "Alpha",
+        "Beta"
+      ],
+      "selectedChip": "Alpha",
+      "chipNote": "Use headphones"
+    },
+    {
+      "id": "voice",
+      "label": "Lucille's Voice",
+      "glyph": "◎",
+      "value": 0.3,
+      "muted": true
+    }
+  ],
+  "whisper": {
+    "enabled": false,
+    "selectedTopic": "affirmations",
+    "onTitle": "Lucille is whispering...",
+    "offTitle": "Voice disabled",
+    "onBody": "An AI-guided voice layer that softly blends into your soundscape.",
+    "offBody": "Turn on Lucille Whisper to add a gentle, guided voice layer.",
+    "topics": [
+      {
+        "id": "focus",
+        "label": "Focus Guidance",
+        "description": "Gentle prompts to keep you on task."
+      },
+      {
+        "id": "affirmations",
+        "label": "Affirmations",
+        "description": "Positive thoughts spoken softly."
+      },
+      {
+        "id": "breathing",
+        "label": "Breathing Cues",
+        "description": "Inhale and exhale pacing."
+      },
+      {
+        "id": "sleep",
+        "label": "Sleep Story",
+        "description": "A calming narrative to drift off."
+      }
+    ]
+  },
+  "timer": {
+    "options": [
+      "5",
+      "15",
+      "25",
+      "50",
+      "90",
+      "Custom"
+    ],
+    "default": "25",
+    "customMax": 240,
+    "fadeOut": true,
+    "fadeOutLabel": "Fade out over 5 min",
+    "fadeOutSub": "Gentle wind-down at the end",
+    "sunriseWake": false,
+    "sunriseLabel": "Sunrise wake",
+    "sunriseSub": "Soft alarm at your chosen time"
+  },
+  "sleepSetup": {
+    "whisperIntro": true,
+    "timerOptions": [
+      "20 min",
+      "30 min",
+      "45 min",
+      "60 min",
+      "90 min"
+    ],
+    "timer": "45 min",
+    "sunriseTime": "07:00",
+    "breathSync": false,
+    "rows": {
+      "whisper": {
+        "label": "Lucille Whisper intro",
+        "sub": "Gentle guidance as you drift off"
+      },
+      "timer": {
+        "label": "Sleep timer",
+        "sub": "Audio will fade out after this time"
+      },
+      "sunrise": {
+        "label": "Sunrise Wake",
+        "sub": "Soft alarm wakes you gently"
+      },
+      "breath": {
+        "label": "Breath Sync 4-7-8",
+        "sub": "Guided breathing to help you unwind"
+      }
+    },
+    "cta": "Start sleep"
+  },
+  "library": {
+    "tabs": [
+      "Saved",
+      "Downloads",
+      "Memories"
+    ],
+    "items": [
+      {
+        "id": "l1",
+        "compositionId": "mine_1",
+        "title": "Cabin Rain, 11 PM",
+        "mode": "Sleep",
+        "duration": "32 min",
+        "offline": true,
+        "kind": "saved",
+        "gradient": {
+          "colors": [
+            "#164395",
+            "#05081A"
+          ],
+          "angle": 135
+        }
+      },
+      {
+        "id": "l2",
+        "compositionId": "mine_2",
+        "title": "Morning Clarity",
+        "mode": "Focus",
+        "duration": "45 min",
+        "offline": false,
+        "kind": "saved",
+        "gradient": {
+          "colors": [
+            "#EF7702",
+            "#8E7CD9"
+          ],
+          "angle": 135
+        }
+      },
+      {
+        "id": "l3",
+        "compositionId": "daily_drop_thu",
+        "title": "Thursday Drizzle",
+        "mode": "Calm",
+        "duration": "Endless",
+        "offline": true,
+        "kind": "saved",
+        "gradient": {
+          "colors": [
+            "#39519F",
+            "#101E43"
+          ],
+          "angle": 135
+        }
+      },
+      {
+        "id": "m1",
+        "compositionId": "mine_2",
+        "title": "Deep Work, Thursday",
+        "mode": "Focus",
+        "duration": "47 min",
+        "offline": false,
+        "kind": "memory",
+        "gradient": {
+          "colors": [
+            "#EF7702",
+            "#164395"
+          ],
+          "angle": 135
+        },
+        "placeholder": true
+      }
+    ]
+  },
+  "sessionComplete": {
+    "headline": "Nice work, {firstName}.",
+    "subtitleTemplate": "{mode} session complete.",
+    "sample": {
+      "minutes": 47,
+      "streakDays": 6,
+      "shardsEarned": 40,
+      "moodFrom": "Heavy",
+      "moodTo": "Bright"
+    },
+    "moodAfterDefault": 0.75,
+    "buttons": [
+      "Save this as a Memory",
+      "Keep listening",
+      "Done"
+    ]
+  },
+  "betaFeedback": {
+    "title": "Beta Feedback",
+    "calmQuestion": "How calm did that feel?",
+    "visualQuestion": "Did the visual help?",
+    "visualOptions": [
+      "Helped",
+      "Neutral",
+      "Distracted"
+    ],
+    "notePlaceholder": "Optional note...",
+    "cta": "Send to the team"
+  },
+  "premium": {
+    "title": "Escape Premium",
+    "body": "Unlimited compositions, every Realm, offline downloads, and Layers.",
+    "plans": [
+      {
+        "id": "monthly",
+        "label": "Monthly",
+        "price": "$9.99/mo",
+        "description": "Billed monthly",
+        "recommended": false,
+        "productId": "escape.premium.monthly"
+      },
+      {
+        "id": "yearly",
+        "label": "Yearly",
+        "price": "$59.99/yr",
+        "description": "Billed annually · save 50%",
+        "recommended": true,
+        "productId": "escape.premium.yearly"
+      }
+    ],
+    "defaultPlan": "yearly",
+    "cta": "Subscribe",
+    "restore": "Restore purchases",
+    "legal": "Cancel anytime. No lock-in. Billed by the App Store."
+  },
+  "inputs": [
+    {
+      "id": "time",
+      "label": "Time of day",
+      "sub": "Always available — no setup needed",
+      "enabled": true,
+      "alwaysOn": true
+    },
+    {
+      "id": "weather",
+      "label": "Weather and location",
+      "sub": "Helps Lucille match the outside world",
+      "enabled": true,
+      "alwaysOn": false,
+      "permission": "location"
+    },
+    {
+      "id": "heart",
+      "label": "Heart rate",
+      "sub": "Adapts the pulse and tempo to your body",
+      "enabled": false,
+      "alwaysOn": false,
+      "permission": "health"
+    },
+    {
+      "id": "mood",
+      "label": "Mood Scan",
+      "sub": "Your emotional state from the Mood Scan",
+      "enabled": true,
+      "alwaysOn": false
+    },
+    {
+      "id": "calendar",
+      "label": "Calendar",
+      "sub": "Coming soon",
+      "enabled": false,
+      "alwaysOn": false,
+      "comingSoon": true,
+      "permission": "calendar"
+    }
+  ],
+  "inputsFooter": "Used only to shape your soundscape. Never sold.",
+  "permissionPrimer": {
+    "weather": {
+      "title": "Let Lucille match today's weather",
+      "body": "Your location helps Lucille reflect the outside world in your soundscape."
+    },
+    "heart": {
+      "title": "Let Lucille follow your heartbeat",
+      "body": "Heart rate helps Lucille slow the pulse when your body is racing.",
+      "placeholder": true
+    },
+    "calendar": {
+      "title": "Let Lucille plan around your day",
+      "body": "Your calendar lets Lucille switch to Focus for deep-work blocks.",
+      "placeholder": true
+    }
+  },
+  "circles": {
+    "intro": "Listen in sync with others. Everyone hears the same live soundscape, composed by Lucille. No chat, no pressure.",
+    "live": {
+      "id": "live_1",
+      "title": "Thursday Drizzle",
+      "mode": "Calm",
+      "host": "Lucille",
+      "minutesLeft": 18,
+      "listening": 127,
+      "avatarColors": [
+        "#B9A3F0",
+        "#EF7702",
+        "#39519F",
+        "#8E7CD9",
+        "#F08A1D"
+      ],
+      "compositionId": "daily_drop_thu"
+    },
+    "upcoming": [
+      {
+        "id": "u1",
+        "title": "Sunday Reset",
+        "mode": "Calm",
+        "when": "Today · 6:30 PM",
+        "host": "Lucille",
+        "going": 84,
+        "gradient": {
+          "colors": [
+            "#39519F",
+            "#101E43"
+          ],
+          "angle": 135
+        }
+      },
+      {
+        "id": "u2",
+        "title": "Deep Work Hour",
+        "mode": "Focus",
+        "when": "Tomorrow · 9:00 AM",
+        "host": "Lucille",
+        "going": 212,
+        "gradient": {
+          "colors": [
+            "#EF7702",
+            "#8E7CD9"
+          ],
+          "angle": 135
+        }
+      },
+      {
+        "id": "u3",
+        "title": "Rain for Sleep",
+        "mode": "Sleep",
+        "when": "Tomorrow · 10:30 PM",
+        "host": "Lucille",
+        "going": 341,
+        "gradient": {
+          "colors": [
+            "#164395",
+            "#05081A"
+          ],
+          "angle": 135
+        }
+      }
+    ],
+    "defaultReminders": [
+      "u2"
+    ],
+    "footer": "All circle audio is generated by Lucille, our AI companion."
+  },
+  "playlists": [
+    {
+      "id": "evening-wind-down",
+      "title": "Evening Wind-Down",
+      "summary": "5 soundscapes · 1 hr 49 min",
+      "credit": "Composed by Lucille",
+      "artGradient": {
+        "colors": [
+          "#B9A3F0",
+          "#39519F",
+          "#EF7702"
+        ],
+        "stops": [
+          0,
+          0.55,
+          1.3
+        ],
+        "angle": 135
+      },
+      "tracks": [
+        {
+          "id": "p1",
+          "compositionId": "mine_1",
+          "title": "Cabin Rain, 11 PM",
+          "mode": "Sleep",
+          "duration": "32 min",
+          "gradient": {
+            "colors": [
+              "#164395",
+              "#05081A"
+            ],
+            "angle": 135
+          }
+        },
+        {
+          "id": "p2",
+          "compositionId": "mine_2",
+          "title": "Morning Clarity",
+          "mode": "Focus",
+          "duration": "45 min",
+          "gradient": {
+            "colors": [
+              "#EF7702",
+              "#8E7CD9"
+            ],
+            "angle": 135
+          }
+        },
+        {
+          "id": "p3",
+          "compositionId": "daily_drop_thu",
+          "title": "Thursday Drizzle",
+          "mode": "Calm",
+          "duration": "Endless",
+          "gradient": {
+            "colors": [
+              "#39519F",
+              "#101E43"
+            ],
+            "angle": 135
+          }
+        },
+        {
+          "id": "p4",
+          "compositionId": "move_golden_hour_walk",
+          "title": "Golden Hour Walk",
+          "mode": "Energize",
+          "duration": "20 min",
+          "gradient": {
+            "colors": [
+              "#F08A1D",
+              "#B9A3F0"
+            ],
+            "angle": 135
+          }
+        },
+        {
+          "id": "p5",
+          "compositionId": "calm_low_tide",
+          "title": "Low Tide Breathing",
+          "mode": "Calm",
+          "duration": "12 min",
+          "gradient": {
+            "colors": [
+              "#8E7CD9",
+              "#164395"
+            ],
+            "angle": 135
+          }
+        }
+      ],
+      "defaultLiked": [
+        "p1"
+      ]
+    }
+  ],
+  "experiments": {
+    "homeVariant": "playNow",
+    "audioVariant": "adaptive",
+    "isBetaTester": true
+  }
+}

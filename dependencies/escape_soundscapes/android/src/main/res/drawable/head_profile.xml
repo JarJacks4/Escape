@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from the iOS asset head-profile.svg. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    <path
+        android:pathData="M10,100 a90,90 0 1,0 180,0 a90,90 0 1,0 -180,0 Z"
+        android:strokeColor="#0FE6EAF4"
+        android:strokeWidth="1.5" />
+    <path
+        android:pathData="M30,100 a70,70 0 1,0 140,0 a70,70 0 1,0 -140,0 Z"
+        android:strokeColor="#14E6EAF4"
+        android:strokeWidth="1.5" />
+    <path
+        android:pathData="M50,100 a50,50 0 1,0 100,0 a50,50 0 1,0 -100,0 Z"
+        android:strokeColor="#1AE6EAF4"
+        android:strokeWidth="1.5" />
+    <path
+        android:pathData="M 100 30 C 70 30 50 55 50 80 C 50 100 58 115 72 122 L 72 140 C 72 148 78 154 86 154 L 114 154 C 122 154 128 148 128 140 L 128 122 C 142 115 150 100 150 80 C 150 55 130 30 100 30 Z"
+        android:strokeColor="#80E6EAF4"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:pathData="M 90 72 C 90 66 96 62 103 65 C 110 68 112 76 108 82 C 104 88 96 88 92 84 C 88 80 90 72 96 70 C 102 68 110 72 112 80"
+        android:strokeColor="#FFB9A3F0"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M 130 70 C 138 78 138 102 130 110"
+        android:strokeColor="#66B9A3F0"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M 138 62 C 150 74 150 106 138 118"
+        android:strokeColor="#40B9A3F0"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M 146 54 C 162 70 162 110 146 126"
+        android:strokeColor="#26B9A3F0"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round" />
+</vector>

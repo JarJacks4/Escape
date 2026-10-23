@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +21,8 @@ import 'flutter_flow/quest_sync_service.dart';
 import 'soundscapes/soundscapes_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'index.dart';
+import 'escape_v6/ui/v6_smoke.dart';
+import 'escape_v6/v6_shell.dart';
 
 import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
     as cupertino_time_picker_hiuzb7_app_state;
@@ -37,6 +41,10 @@ void main() async {
   usePathUrlStrategy();
 
   await initFirebase();
+
+  // Compiles the smoke-reveal shader off the first frame; if it fails every caller falls
+  // back to a plain fade (lib/escape_v6/ui/v6_smoke.dart).
+  unawaited(V6SmokeShader.warmUp());
 
   await FFLocalizations.initialize();
   try {
@@ -237,147 +245,13 @@ class NavBarPage extends StatefulWidget {
   _NavBarPageState createState() => _NavBarPageState();
 }
 
-/// This is the private State class that goes with NavBarPage.
+/// The v6 shell (lib/escape_v6/v6_shell.dart): ambient background, glass tab bar,
+/// Home · Explore · Lucille · Soundscapes · Profile.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'HomeVersion5';
-  late Widget? _currentPage;
-  bool _newSoundscapes = false;
-
-  /// The Sound tab opens the new Soundscapes module when supported (iOS 17+).
-  bool _openNewSoundscapes(int i) {
-    if (!_newSoundscapes || _tabs.keys.toList()[i] != 'AISoundscapesFINAL') {
-      return false;
-    }
-    SoundscapesLauncher.open(context);
-    return true;
-  }
-  final _tabs = <String, Widget>{
-    'HomeVersion5': HomeVersion5Widget(),
-    'LucilleHome': LucilleHomeWidget(),
-    'ExplorePageVersion5FINAL': ExplorePageVersion5FINALWidget(),
-    'AISoundscapesFINAL': AISoundscapesFINALWidget(),
-    'MarketplaceVersion5': MarketplaceVersion5Widget(),
-  };
-  final _visitedPages = <String>{};
-
   @override
-  void initState() {
-    super.initState();
-    SoundscapesLauncher.isSupported()
-        .then((v) => _newSoundscapes = v)
-        .catchError((_) => false);
-    _currentPageName = widget.initialPage ?? _currentPageName;
-    _currentPage = widget.page;
-    if (_tabs.containsKey(_currentPageName)) {
-      if (_currentPage != null) {
-        _tabs[_currentPageName] = _currentPage!;
-        _currentPage = null;
-      }
-      _visitedPages.add(_currentPageName);
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final currentIndex = _tabs.keys.toList().indexOf(_currentPageName);
-
-    return Scaffold(
-      resizeToAvoidBottomInset: !widget.disableResizeToAvoidBottomInset,
-      body: _currentPage ??
-          IndexedStack(
-            index: currentIndex < 0 ? null : currentIndex,
-            children: _tabs.entries.map((entry) {
-              final isActive = entry.key == _currentPageName;
-              return TickerMode(
-                enabled: isActive,
-                child: HeroMode(
-                  enabled: isActive,
-                  child: ExcludeFocus(
-                    excluding: !isActive,
-                    child: _visitedPages.contains(entry.key)
-                        ? entry.value
-                        : const SizedBox.shrink(),
-                  ),
-                ),
-              );
-            }).toList(),
-          ),
-      bottomNavigationBar: Visibility(
-        visible: responsiveVisibility(
-          context: context,
-          tablet: false,
-          tabletLandscape: false,
-          desktop: false,
-        ),
-        child: BottomNavigationBar(
-          currentIndex: currentIndex < 0 ? 0 : currentIndex,
-          onTap: (i) => _openNewSoundscapes(i) ? null : safeSetState(() {
-            _currentPage = null;
-            _currentPageName = _tabs.keys.toList()[i];
-            _visitedPages.add(_currentPageName);
-          }),
-          backgroundColor: Color(0xBDEDF1F7),
-          selectedItemColor: FlutterFlowTheme.of(context).accent1,
-          unselectedItemColor: Color(0xA55A5C60),
-          showSelectedLabels: true,
-          showUnselectedLabels: true,
-          type: BottomNavigationBarType.fixed,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home_outlined,
-                size: 24.0,
-              ),
-              label: FFLocalizations.of(context).getText(
-                'vq4xsokl' /* Home */,
-              ),
-              tooltip: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                FFIcons.ksparkleStarAi,
-                size: 24.0,
-              ),
-              label: FFLocalizations.of(context).getText(
-                'uw8vfq28' /* Lucille */,
-              ),
-              tooltip: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.explore,
-                size: 24.0,
-              ),
-              label: FFLocalizations.of(context).getText(
-                'hfk8faw6' /* Explore */,
-              ),
-              tooltip: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                FFIcons.kmusic1,
-              ),
-              activeIcon: Icon(
-                Icons.surround_sound,
-              ),
-              label: FFLocalizations.of(context).getText(
-                's8tgji9v' /* Sound */,
-              ),
-              tooltip: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                FFIcons.kmarket,
-                size: 24.0,
-              ),
-              label: FFLocalizations.of(context).getText(
-                '6kelildm' /* Market */,
-              ),
-              tooltip: '',
-            )
-          ],
-        ),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => V6TabShell(
+        initialPage: widget.initialPage,
+        page: widget.page,
+        resizeToAvoidBottomInset: !widget.disableResizeToAvoidBottomInset,
+      );
 }

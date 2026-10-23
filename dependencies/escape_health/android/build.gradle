@@ -1,0 +1,47 @@
+// Escape Health — Health Connect bridge (local Flutter plugin).
+//
+// The Android Gradle Plugin and the Kotlin Gradle Plugin come from the host app's root
+// settings.gradle (AGP 8.9.1, Kotlin 2.1.0), so no buildscript block is declared here.
+group 'com.escape.health'
+version '0.1.0'
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    namespace 'com.escape.health'
+    compileSdk 35 // The app's root build.gradle forces 36 on every subproject anyway.
+
+    defaultConfig {
+        // Health Connect itself needs API 26+. The plugin's own floor stays at the app's minSdk (23);
+        // the app manifest uses tools:overrideLibrary for connect-client and the plugin reports
+        // "unsupported" below API 26 at runtime without touching any Health Connect class.
+        minSdk 23
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+        // MindfulnessSessionRecord is opt-in in connect-client 1.1.x. Passing the marker as a
+        // compiler flag (rather than @OptIn in source) only produces a warning if a future release
+        // drops the annotation, instead of breaking the build.
+        freeCompilerArgs += [
+            '-opt-in=androidx.health.connect.client.feature.ExperimentalMindfulnessSessionApi',
+        ]
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+dependencies {
+    // 1.1.0 is the first stable line with MindfulnessSessionRecord (added in 1.1.0-alpha11).
+    implementation 'androidx.health.connect:connect-client:1.1.0'
+    implementation 'androidx.activity:activity-ktx:1.9.3'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0'
+}

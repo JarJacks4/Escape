@@ -5,7 +5,7 @@ typedef SoundscapesTokenProvider = Future<String?> Function();
 typedef SoundscapesExitHandler = void Function(String? tab);
 typedef SoundscapesFeedbackHandler = Future<void> Function(Map<String, dynamic> feedback);
 
-/// Opens the native Soundscapes module (iOS 17+ only).
+/// Opens the native Soundscapes module (iOS 17+, Android 8.0+ / API 26).
 class EscapeSoundscapes {
   static const MethodChannel _channel = MethodChannel('escape_soundscapes');
   static SoundscapesTokenProvider? _tokenProvider;
@@ -50,9 +50,13 @@ class EscapeSoundscapes {
     return null;
   }
 
-  /// True on iOS 17+.
+  /// True on iOS 17+ and Android 8.0+ (API 26).
   static Future<bool> isSupported() async {
-    if (kIsWeb || defaultTargetPlatform != TargetPlatform.iOS) return false;
+    if (kIsWeb) return false;
+    if (defaultTargetPlatform != TargetPlatform.iOS &&
+        defaultTargetPlatform != TargetPlatform.android) {
+      return false;
+    }
     try {
       return await _channel.invokeMethod<bool>('isSupported') ?? false;
     } catch (_) {
