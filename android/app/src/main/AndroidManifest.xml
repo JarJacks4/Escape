@@ -8,6 +8,20 @@
   <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
   <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+  <!-- Health Connect (escape_health): optional reads for the Body check / mood check-in, and a
+       Mindfulness session write after sessions. Must match the Play Console health declaration. -->
+  <uses-permission android:name="android.permission.health.READ_HEART_RATE"/>
+  <uses-permission android:name="android.permission.health.READ_RESTING_HEART_RATE"/>
+  <uses-permission android:name="android.permission.health.READ_HEART_RATE_VARIABILITY"/>
+  <uses-permission android:name="android.permission.health.READ_SLEEP"/>
+  <uses-permission android:name="android.permission.health.READ_STEPS"/>
+  <uses-permission android:name="android.permission.health.WRITE_MINDFULNESS"/>
+  <!-- Health Connect client needs API 26+; the app keeps minSdk 23 and escape_health reports
+       "unsupported" below 26 without touching Health Connect. -->
+  <uses-sdk tools:overrideLibrary="androidx.health.connect.client"/>
+  <queries>
+    <package android:name="com.google.android.apps.healthdata"/>
+  </queries>
   <application
     android:label="Escape "
     tools:replace="android:label"
@@ -32,6 +46,11 @@
       </intent-filter>
       <!-- Deep linking -->
       <meta-data android:name="flutter_deeplinking_enabled" android:value="true"/>
+      <!-- Health Connect permission rationale (Android 13 and below). Opens the app; the
+           in-app Privacy & data screen explains the health data use. -->
+      <intent-filter>
+        <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE"/>
+      </intent-filter>
       <intent-filter android:autoVerify="true">
         <action android:name="android.intent.action.VIEW"/>
         <category android:name="android.intent.category.DEFAULT"/>
@@ -39,6 +58,18 @@
         <data android:scheme="escape" android:host="escape.com"/>
       </intent-filter>
     </activity>
+    <!-- Health Connect permission usage (Android 14+). Without this alias the Health Connect
+         permission sheet does not open at all on Android 14+. -->
+    <activity-alias
+      android:name=".ViewPermissionUsageActivity"
+      android:exported="true"
+      android:targetActivity=".MainActivity"
+      android:permission="android.permission.START_VIEW_PERMISSION_USAGE">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW_PERMISSION_USAGE"/>
+        <category android:name="android.intent.category.HEALTH_PERMISSIONS"/>
+      </intent-filter>
+    </activity-alias>
     <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
     <meta-data android:name="flutterEmbedding" android:value="2"/>

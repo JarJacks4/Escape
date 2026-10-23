@@ -66,6 +66,10 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Escape uses the camera for your Mood Scan: a selfie to read your expression, or a fingertip over the back camera with the flash on to read your pulse. Only the reading is used; no photo or video of your fingertip is kept.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Escape reads heart rate, HRV, sleep and steps to tune your sessions and show your body check. Your health data is never sold or used for advertising.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Escape saves your mood check-ins and mindful minutes to Apple Health.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Escape can use your approximate location to tune soundscapes to your local weather and time of day.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

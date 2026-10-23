@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <!-- Mood Scan: front-camera pulse read (frames never leave the phone). -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- CAMERA implies a required (back) camera; the scan only needs the front one, and only optionally. -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.front" android:required="false" />
+
+    <application>
+        <!-- Full-screen, opaque, dark host for the Compose module (the iOS overFullScreen modal). -->
+        <activity
+            android:name="com.escape.soundscapes.SoundscapesActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.EscapeSoundscapes"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden|uiMode|density|fontScale"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Keeps a soundscape playing with the screen off (Sleep) or the app in the background. -->
+        <service
+            android:name="com.escape.soundscapes.audio.PlaybackService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+    </application>
+</manifest>

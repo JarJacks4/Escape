@@ -45,7 +45,8 @@
 			<array><string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string></array>
 		</dict>
 		<dict>
-			<!-- Mood check-ins and the pulse measured by the Mood Scan -->
+			<!-- Mood check-ins, the pulse measured by the Mood Scan, and Apple Health heart rate / HRV / sleep
+			     (escape_health) when the user connects Apple Health and opts in to syncing -->
 			<key>NSPrivacyCollectedDataType</key>
 			<string>NSPrivacyCollectedDataTypeHealth</string>
 			<key>NSPrivacyCollectedDataTypeLinked</key><true/>
@@ -55,6 +56,15 @@
 				<string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
 				<string>NSPrivacyCollectedDataTypePurposeProductPersonalization</string>
 			</array>
+		</dict>
+		<dict>
+			<!-- Apple Health step count (escape_health), only when the user connects Apple Health and opts in to syncing -->
+			<key>NSPrivacyCollectedDataType</key>
+			<string>NSPrivacyCollectedDataTypeFitness</string>
+			<key>NSPrivacyCollectedDataTypeLinked</key><true/>
+			<key>NSPrivacyCollectedDataTypeTracking</key><false/>
+			<key>NSPrivacyCollectedDataTypePurposes</key>
+			<array><string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string></array>
 		</dict>
 		<dict>
 			<!-- Mood Scan selfie (iOS 15/16 path) and profile photo -->
@@ -122,7 +132,7 @@
 			<array><string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string></array>
 		</dict>
 		<dict>
-			<!-- Voice journal recordings sent for transcription (Groq Whisper) -->
+			<!-- Voice journal recordings and Lucille voice-chat turns sent for transcription (Groq Whisper); not stored -->
 			<key>NSPrivacyCollectedDataType</key>
 			<string>NSPrivacyCollectedDataTypeAudioData</string>
 			<key>NSPrivacyCollectedDataTypeLinked</key><true/>

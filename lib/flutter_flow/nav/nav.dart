@@ -17,6 +17,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 import '/index.dart';
 import '/soundscapes/soundscape_link_page.dart';
+import '/escape_v6/v6_pages.dart';
 import 'package:cupertino_time_picker_hiuzb7/index.dart'
     as $cupertino_time_picker_hiuzb7;
 import 'package:tiktokfeed_wz8en7/index.dart' as $tiktokfeed_wz8en7;
@@ -155,6 +156,89 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             ? NavBarPage()
             : SplashScreenVersion5Widget(),
         routes: [
+          // ───────────── Escape v6 (lib/escape_v6) ─────────────
+          FFRoute(name: V6Routes.onboarding, path: '/v6/onboarding', builder: (context, params) => const V6OnboardingScreen()),
+          FFRoute(name: V6Routes.allSet, path: '/v6/allSet', builder: (context, params) => const V6AllSetScreen()),
+          FFRoute(
+            name: V6Routes.checkIn,
+            path: '/v6/checkIn',
+            builder: (context, params) =>
+                V6CheckInScreen(daily: params.getParam('daily', ParamType.String) == '1'),
+          ),
+          FFRoute(name: V6Routes.mind, path: '/v6/mind', builder: (context, params) => const V6MindScreen()),
+          FFRoute(name: V6Routes.reset, path: '/v6/reset', builder: (context, params) => const V6ResetScreen()),
+          FFRoute(
+            name: V6Routes.exercise,
+            path: '/v6/exercise',
+            builder: (context, params) =>
+                V6ExerciseDetailScreen(id: params.getParam('id', ParamType.String) ?? 'basic-breathing'),
+          ),
+          FFRoute(
+            name: V6Routes.player,
+            path: '/v6/player',
+            builder: (context, params) =>
+                V6ExercisePlayerScreen(id: params.getParam('id', ParamType.String) ?? 'basic-breathing'),
+          ),
+          FFRoute(name: V6Routes.moodShift, path: '/v6/moodShift', builder: (context, params) => const V6MoodShiftScreen()),
+          FFRoute(name: V6Routes.reward, path: '/v6/reward', builder: (context, params) => const V6RewardScreen()),
+          FFRoute(name: V6Routes.body, path: '/v6/body', builder: (context, params) => const V6BodyHubScreen()),
+          FFRoute(
+            name: V6Routes.bodySection,
+            path: '/v6/bodySection',
+            builder: (context, params) => V6BodySectionScreen(id: params.getParam('id', ParamType.String) ?? 'yoga'),
+          ),
+          FFRoute(
+            name: V6Routes.bodyDetail,
+            path: '/v6/bodyDetail',
+            builder: (context, params) => V6BodyDetailScreen(id: params.getParam('id', ParamType.String) ?? ''),
+          ),
+          FFRoute(
+            name: V6Routes.bodyPlayer,
+            path: '/v6/bodyPlayer',
+            builder: (context, params) => V6BodyPlayerScreen(id: params.getParam('id', ParamType.String) ?? ''),
+          ),
+          FFRoute(
+              name: V6Routes.bodyReflection,
+              path: '/v6/bodyReflection',
+              builder: (context, params) => const V6BodyReflectionScreen()),
+          FFRoute(name: V6Routes.dailyPlan, path: '/v6/dailyPlan', builder: (context, params) => const V6DailyPlanScreen()),
+          FFRoute(name: V6Routes.progress, path: '/v6/progress', builder: (context, params) => const V6ProgressScreen()),
+          // Self-care plans (/v2/plans when the Claude edition is on, the v1 catalog otherwise).
+          FFRoute(
+              name: V6PlanRoutes.builder,
+              path: '/v6/planBuilder',
+              builder: (context, params) => const V6PlanBuilderScreen()),
+          FFRoute(
+            name: V6PlanRoutes.plan,
+            path: '/v6/plan',
+            builder: (context, params) => V6PlanScreen(id: params.getParam('id', ParamType.String)),
+          ),
+          FFRoute(
+            name: V6PlanRoutes.progress,
+            path: '/v6/planProgress',
+            builder: (context, params) =>
+                V6PlanProgressScreen(id: params.getParam('id', ParamType.String)),
+          ),
+          FFRoute(
+            name: V6Routes.lucilleText,
+            path: '/v6/lucilleText',
+            builder: (context, params) => V6LucilleTextScreen(seed: params.getParam('seed', ParamType.String)),
+          ),
+          FFRoute(name: V6Routes.lucilleVoice, path: '/v6/lucilleVoice', builder: (context, params) => const V6LucilleVoiceScreen()),
+          // Lucille, Claude edition (reachable only when V6Store.v6ClaudeEdition is true).
+          FFRoute(
+            name: V6Routes.claudeThread,
+            path: '/v6/claudeThread',
+            builder: (context, params) => V6ClaudeThreadScreen(
+              threadId: params.getParam('threadId', ParamType.String),
+              seed: params.getParam('seed', ParamType.String),
+            ),
+          ),
+          FFRoute(name: V6Routes.claudeThreads, path: '/v6/claudeThreads', builder: (context, params) => const V6ClaudeThreadsScreen()),
+          FFRoute(name: V6Routes.editProfile, path: '/v6/editProfile', builder: (context, params) => const V6EditProfileScreen()),
+          FFRoute(name: V6Routes.settings, path: '/v6/settings', builder: (context, params) => const V6SettingsScreen()),
+          FFRoute(name: V6Routes.privacy, path: '/v6/privacy', builder: (context, params) => const V6PrivacyScreen()),
+          FFRoute(name: V6Routes.help, path: '/v6/help', builder: (context, params) => const V6HelpScreen()),
           FFRoute(
             name: NotificationsScreenWidget.routeName,
             path: NotificationsScreenWidget.routePath,
@@ -813,7 +897,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
               name: AISoundscapesCopyCopyCopyWidget.routeName,
               path: AISoundscapesCopyCopyCopyWidget.routePath,
               builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'AISoundscapesCopyCopyCopy')
+                  ? NavBarPage(initialPage: 'AISoundscapesCopyCopyCopy', page: AISoundscapesCopyCopyCopyWidget())
                   : NavBarPage(
                       initialPage: 'AISoundscapesCopyCopyCopy',
                       page: AISoundscapesCopyCopyCopyWidget(
@@ -827,7 +911,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
               name: AISoundscapesFINALWidget.routeName,
               path: AISoundscapesFINALWidget.routePath,
               builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'AISoundscapesFINAL')
+                  ? NavBarPage(initialPage: 'AISoundscapesFINAL', page: AISoundscapesFINALWidget())
                   : NavBarPage(
                       initialPage: 'AISoundscapesFINAL',
                       page: AISoundscapesFINALWidget(
@@ -1679,6 +1763,11 @@ class FFRoute {
               : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;
+          if (name.startsWith('v6') && !transitionInfo.hasTransition) {
+            // Escape v6 pages: fade + 3% rise, so the ambient background never "slides".
+            // V6TransitionPage keeps the iOS edge swipe-back (CustomTransitionPage has none).
+            return V6TransitionPage(key: state.pageKey, name: state.name, child: child);
+          }
           return transitionInfo.hasTransition
               ? CustomTransitionPage(
                   key: state.pageKey,

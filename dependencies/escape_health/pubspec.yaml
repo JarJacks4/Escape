@@ -1,0 +1,21 @@
+name: escape_health
+description: Apple Health (HealthKit) and Android Health Connect bridge for Escape — heart rate, HRV, sleep, State of Mind and mindful minutes.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.3.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      ios:
+        pluginClass: EscapeHealthPlugin
+      android:
+        package: com.escape.health
+        pluginClass: EscapeHealthPlugin

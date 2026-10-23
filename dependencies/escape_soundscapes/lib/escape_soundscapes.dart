@@ -8,7 +8,7 @@ typedef SoundscapesFeedbackHandler = Future<void> Function(Map<String, dynamic> 
 /// A Lucille memory from the native module: {text, kind, tags, importance}.
 typedef SoundscapesMemoryHandler = Future<void> Function(Map<String, dynamic> memory);
 
-/// Opens the native Soundscapes module (iOS 17+ only).
+/// Opens the native Soundscapes module (iOS 17+, Android 8.0+ / API 26).
 class EscapeSoundscapes {
   static const MethodChannel _channel = MethodChannel('escape_soundscapes');
   static SoundscapesTokenProvider? _tokenProvider;
@@ -70,9 +70,13 @@ class EscapeSoundscapes {
     }
   }
 
-  /// True on iOS 17+.
+  /// True on iOS 17+ and Android 8.0+ (API 26).
   static Future<bool> isSupported() async {
-    if (kIsWeb || defaultTargetPlatform != TargetPlatform.iOS) return false;
+    if (kIsWeb) return false;
+    if (defaultTargetPlatform != TargetPlatform.iOS &&
+        defaultTargetPlatform != TargetPlatform.android) {
+      return false;
+    }
     try {
       return await _channel.invokeMethod<bool>('isSupported') ?? false;
     } catch (_) {

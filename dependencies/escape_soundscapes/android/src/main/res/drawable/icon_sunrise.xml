@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from the iOS asset icon-sunrise.svg. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:pathData="M 17 18 a 5 5 0 0 0 -10 0 M 12 2 v 9 M 4.22 10.22 l 1.42 1.42 M 1 18 h 2 M 21 18 h 2 M 18.36 11.64 l 1.42 -1.42 M 23 22 H 1 M 8 6 l 4 -4 4 4"
+        android:strokeColor="#FF000000"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>
