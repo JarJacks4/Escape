@@ -53,13 +53,14 @@ public enum OrbLoops {
     }
 
     /// How far to shift a loop (fraction of the video's width / height) so its orb sits where the
-    /// others do, around (0.50, 0.435) of the frame, under the Now Playing timer. Measured from the
-    /// posters: focus at energy 50/85 renders its orb at about (0.47, 0.457) and calm at energy 85 at
-    /// (0.375, 0.452), i.e. low and to the left. The sleep loops are too dim to measure; left as is.
+    /// others do, around (0.50, 0.435) of the frame, under the Now Playing timer. Measured as the
+    /// mean orb centre over 10 frames of each 720p loop (not the poster: calm e85's orb drifts from
+    /// x 0.36 to 0.55, and its poster frame is the far-left end): focus at energy 50/85 sits at about
+    /// (0.472, 0.45), calm at energy 85 at (0.459, 0.45). The sleep loops are too dim to measure.
     public static func orbNudge(for p: VisualPreset) -> CGSize {
         switch (grid(p.mode), level(p.energy)) {
-        case ("focus", 50), ("focus", 85): return CGSize(width: 0.03, height: -0.022)
-        case ("calm", 85): return CGSize(width: 0.125, height: -0.017)
+        case ("focus", 50), ("focus", 85): return CGSize(width: 0.028, height: -0.015)
+        case ("calm", 85): return CGSize(width: 0.041, height: -0.015)
         default: return .zero
         }
     }

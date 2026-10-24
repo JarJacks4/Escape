@@ -110,11 +110,17 @@ struct SoundscapesHomeView: View {
         if let t = store.home?.homeTabs, !t.isEmpty { list = t }
         else if let t = store.content?.homeTabs, !t.isEmpty { list = t }
         else { list = ["Now", "Focus", "Calm", "Sleep", "Move", "Realms"] }
-        // Jared (Oct 17): the Move tab becomes Nature (Lucille's nature catalog; Move still
-        // lives on the app's Body page), and Realms is left out until the Innerverse is in.
-        return list
-            .filter { $0.lowercased() != "realms" }
-            .map { $0.lowercased() == "move" ? "Nature" : $0 }
+        // Realms is left out until the Innerverse is in. Move has its own Lucille tracks again
+        // (Oct 24), so it stays; Noise (binaural / brainwave / raw frequencies) follows it and
+        // Nature (Lucille's nature catalog, added Oct 17) goes last.
+        var out = list.filter { $0.lowercased() != "realms" }
+        let has = { (name: String) in out.contains { $0.lowercased() == name } }
+        if !has("noise") {
+            let at = out.firstIndex { $0.lowercased() == "move" }.map { $0 + 1 } ?? out.endIndex
+            out.insert("Noise", at: at)
+        }
+        if !has("nature") { out.append("Nature") }
+        return out
     }
 
     private var homeTabs: some View {

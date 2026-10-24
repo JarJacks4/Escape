@@ -212,8 +212,8 @@ public final class AppStore {
     /// Set by the host app: called instead of showing a placeholder for Home/Realms/Lucille/Profile.
     @ObservationIgnored public var onExitToHost: ((NavTab) -> Void)?
 
-    /// Set by the host app: opens a host page that isn't a tab ("Body" for Move, until the
-    /// Lucille catalog has Move tracks).
+    /// Set by the host app: opens a host page that isn't a tab (Mood Scan suggestions: "Mind",
+    /// "Body", "Reset", "Market", "Journal").
     @ObservationIgnored public var onOpenHostRoute: ((String) -> Void)?
 
     /// Set by the host app: closes the module without switching tabs.
@@ -318,7 +318,6 @@ public final class AppStore {
     /// NowPlaying mode switcher: crossfade into the new mode without leaving the screen.
     public func switchMode(_ mode: ModeId) async {
         guard mode != currentMode else { return }
-        if mode == .move, let open = onOpenHostRoute { open("Body"); return }
         if isLocked(mode) { setSheet(.premium); return }
         currentMode = mode
         do {
@@ -715,7 +714,6 @@ public final class AppStore {
 
     /// Home tab chip (Focus/Calm/Sleep/Move/Realms): setBrowseMode + ModeBrowse.
     public func openBrowse(_ mode: ModeId) async {
-        if mode == .move, let open = onOpenHostRoute { open("Body"); return }
         browseMode = mode
         setScreen(.modeBrowse)
         do { try await loadBrowse(mode) } catch { handle(error) }

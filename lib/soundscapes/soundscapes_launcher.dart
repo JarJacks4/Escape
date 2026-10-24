@@ -211,7 +211,7 @@ class SoundscapesLauncher {
         ctx.goNamed(MarketplaceVersion5Widget.routeName);
         break;
       // v6 pages (the old FlutterFlow Mind/Body/Reset pages are only reachable by name).
-      case 'Body': // Move mode, until the Lucille catalog has Move tracks
+      case 'Body': // Mood Scan result: section suggestions
         v6Open(ctx, V6Routes.body);
         break;
       case 'Journal': // "Save this moment" on the Mood Scan result

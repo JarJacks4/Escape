@@ -72,7 +72,12 @@ struct NowPlayingView: View {
 
     private var switcherModes: [ModeId] {
         let fromContent = copy?.switcherModes.compactMap { ModeId(loose: $0) } ?? []
-        return fromContent.isEmpty ? [.picks, .focus, .calm, .sleep, .move] : fromContent
+        var modes = fromContent.isEmpty ? [.picks, .focus, .calm, .sleep, .move] : fromContent
+        // Noise (binaural / brainwave / raw frequencies) sits after Move, as on the Soundscapes home.
+        if !modes.contains(.noise) {
+            modes.insert(.noise, at: modes.firstIndex(of: .move).map { $0 + 1 } ?? modes.endIndex)
+        }
+        return modes
     }
 
     /// TSX: RingTimer while time remains, BreathRing at 0. Sleep with Breath Sync on also breathes.
@@ -291,17 +296,28 @@ struct NowPlayingView: View {
         .accessibilityHint("Opens the timer")
     }
 
+    /// Six 64 pt orbs don't fit across a phone, so the row scrolls and keeps the current mode in view.
     private var modeSwitcher: some View {
-        HStack(spacing: 12) {
-            ForEach(switcherModes) { mode in
-                ModeOrb(mode: mode,
-                        label: mode.shortTitle,
-                        active: store.currentMode == mode,
-                        locked: store.isLocked(mode),
-                        onPress: { Task { await store.switchMode(mode) } })
+        ScrollViewReader { proxy in
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 12) {
+                    ForEach(switcherModes) { mode in
+                        ModeOrb(mode: mode,
+                                label: mode.shortTitle,
+                                active: store.currentMode == mode,
+                                locked: store.isLocked(mode),
+                                onPress: { Task { await store.switchMode(mode) } })
+                            .id(mode)
+                    }
+                }
+                .padding(.horizontal, 16)
+            }
+            .scrollBounceBehavior(.basedOnSize, axes: .horizontal)
+            .onAppear { proxy.scrollTo(store.currentMode, anchor: .center) }
+            .onChange(of: store.currentMode) { _, mode in
+                withAnimation(reduceMotion ? nil : .easeOut(duration: 0.25)) { proxy.scrollTo(mode, anchor: .center) }
             }
         }
-        .fixedSize()
     }
 
     private var actionPills: some View {

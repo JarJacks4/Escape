@@ -173,9 +173,7 @@ extension AppStore {
             let route = ["mind": "Mind", "body": "Body", "reset": "Reset", "market": "Market"][arg] ?? "Explore"
             if let open = onOpenHostRoute { open(route) } else { await play(mode: .calm) }
         case "mode":
-            let mode = ModeId(loose: arg) ?? .calm
-            if mode == .move, let open = onOpenHostRoute { open("Body"); return }
-            await play(mode: mode)
+            await play(mode: ModeId(loose: arg) ?? .calm)
         case "realms": await play(mode: .realms)
         case "sleep": setScreen(.sleepSetup)
         // Circles and Journeys still run on sample data, so their links play a soundscape instead.
