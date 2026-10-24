@@ -11,6 +11,10 @@ public enum SoundscapesBetaBridge {
     /// person's consent (POST /users/{uid}/memories). Nil in previews and tests.
     nonisolated(unsafe) public static var saveMemory: (([String: Any]) -> Void)?
 
+    /// Set by EscapeSoundscapesPlugin: tells Flutter a Mood Scan was saved, so the app's own mood
+    /// (v6 Home, palette, suggestions) follows the scan. Nil in previews and tests.
+    nonisolated(unsafe) public static var moodScanned: (([String: Any]) -> Void)?
+
     /// One plain sentence about what the person just did, e.g. "Listened to Slow Bloom (Calm)
     /// for about 12 minutes."
     public static func remember(_ text: String, kind: String, tags: [String] = [], importance: Int = 5) {

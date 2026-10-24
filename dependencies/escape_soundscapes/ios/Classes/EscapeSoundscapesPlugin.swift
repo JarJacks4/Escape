@@ -3,7 +3,8 @@ import UIKit
 
 /// Flutter bridge. Methods: isSupported, open({mock, lucille, firstName, baseUrl, screen, sheet}), close,
 /// lastScanPulse.
-/// Calls back into Dart: getIdToken (returns a Firebase ID token), onExit(tab), sendFeedback(map).
+/// Calls back into Dart: getIdToken (returns a Firebase ID token), onExit(tab), sendFeedback(map),
+/// remember(map), moodScanned(map).
 public final class EscapeSoundscapesPlugin: NSObject, FlutterPlugin {
     private let channel: FlutterMethodChannel
     private var presented: UIViewController?
@@ -76,6 +77,9 @@ public final class EscapeSoundscapesPlugin: NSObject, FlutterPlugin {
         // Lucille memories from the module go to Flutter, which checks consent and saves them.
         SoundscapesBetaBridge.saveMemory = { [weak self] payload in
             DispatchQueue.main.async { self?.channel.invokeMethod("remember", arguments: payload) }
+        }
+        SoundscapesBetaBridge.moodScanned = { [weak self] payload in
+            DispatchQueue.main.async { self?.channel.invokeMethod("moodScanned", arguments: payload) }
         }
 
         let mock = args["mock"] as? Bool ?? true

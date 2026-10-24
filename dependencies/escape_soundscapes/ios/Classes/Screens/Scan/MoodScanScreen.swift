@@ -111,6 +111,11 @@ extension AppStore {
                                        kind: "mood_scan", tags: [reading.word.lowercased()], importance: 6)
         UserDefaults.standard.set(reading.word, forKey: "escape.scanMood.word")
         UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: "escape.scanMood.at")
+        // The app's own mood (v6 Home) follows the scan, whether or not the server save succeeds.
+        var scanned: [String: Any] = ["word": reading.word, "quadrant": "\(reading.quadrant)",
+                                      "energy": reading.energy, "valence": reading.valence]
+        if reading.pulseMeasured { scanned["bpm"] = reading.bpm }
+        SoundscapesBetaBridge.moodScanned?(scanned)
         if !reading.pulseMeasured { Task { await refreshHome() } }
         if reading.pulseMeasured {
             Self.rememberScanPulse(reading.bpm)

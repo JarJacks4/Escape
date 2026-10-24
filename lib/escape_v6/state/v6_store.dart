@@ -649,6 +649,39 @@ class V6Store extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Mood Scan word (Soundscapes module) -> v6 mood. The module offers four words per quadrant.
+  static V6Mood? moodForScanWord(String word) => switch (word.trim().toLowerCase()) {
+        'calm' || 'steady' || 'content' || 'open' => V6Mood.calm,
+        'energized' || 'bright' || 'hopeful' => V6Mood.energized,
+        'focused' => V6Mood.focused,
+        'restless' || 'wired' || 'anxious' || 'tense' => V6Mood.restless,
+        'foggy' || 'drained' => V6Mood.tired,
+        'low' || 'heavy' => V6Mood.low,
+        _ => null,
+      };
+
+  /// A saved Mood Scan becomes today's check-in, so Home, the palette and suggestions follow
+  /// it. Local only: the module already sent the scan to Lucille (POST /v1/mood/checkins).
+  /// Keeps today's intention if the person set one in a check-in earlier.
+  void adoptMoodScan({required String word, double? energy}) {
+    final mood = moodForScanWord(word);
+    if (mood == null) return;
+    final today = checkIn.isToday ? checkIn : null;
+    checkIn = V6CheckIn(
+      mood: mood,
+      intention: today?.intention,
+      energy: (energy ?? today?.energy ?? 0.5).clamp(0.0, 1.0),
+      tags: [...?today?.tags.where((t) => t != 'mood_scan'), 'mood_scan'],
+      note: today?.note,
+      at: DateTime.now(),
+    );
+    previewMood = null;
+    for (final t in tasks) {
+      if (t.id == 'checkin') t.done = true;
+    }
+    _changed();
+  }
+
   /// Saves the daily check-in locally first (instant), then to the API and Apple Health.
   /// Returns the server response (orb, suggestions) when online.
   /// [sync] false keeps it on the phone only (e.g. onboarding when "Save my check-ins" is off).
