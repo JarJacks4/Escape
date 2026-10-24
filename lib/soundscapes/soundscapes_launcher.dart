@@ -207,20 +207,21 @@ class SoundscapesLauncher {
       case 'Profile':
         v6Open(ctx, V6Routes.tabProfile);
         break;
-      case 'Market':
+      case 'Market': // no v6 Marketplace yet: the FlutterFlow page
         ctx.goNamed(MarketplaceVersion5Widget.routeName);
         break;
+      // v6 pages (the old FlutterFlow Mind/Body/Reset pages are only reachable by name).
       case 'Body': // Move mode, until the Lucille catalog has Move tracks
-        ctx.pushNamed(BodyPageVersion5Widget.routeName);
+        v6Open(ctx, V6Routes.body);
         break;
       case 'Journal': // "Save this moment" on the Mood Scan result
-        ctx.pushNamed(JournalHomeV2Widget.routeName);
+        v6Open(ctx, V6Routes.journal);
         break;
       case 'Mind': // Mood Scan result: section suggestions
-        ctx.pushNamed(MindPageWidget.routeName);
+        v6Open(ctx, V6Routes.mind);
         break;
       case 'Reset':
-        ctx.pushNamed(ResetPageCopyWidget.routeName);
+        v6Open(ctx, V6Routes.reset);
         break;
     }
   }
