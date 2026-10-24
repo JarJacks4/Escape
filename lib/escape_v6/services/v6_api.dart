@@ -154,7 +154,9 @@ class V6Api {
             },
             body: jsonEncode({
               'message': message,
-              if (_chatSession != null) 'session_id': _chatSession,
+              // Required by /chat (422 without it). Empty on the first turn: the server starts a
+              // session and returns its id, which later turns reuse.
+              'session_id': _chatSession ?? '',
               if (user != null) 'user_id': user.uid,
             }),
           )
@@ -164,8 +166,10 @@ class V6Api {
         _chatSession = body['session_id']?.toString() ?? _chatSession;
         return V6Result(ok: true, status: 200, data: body);
       }
+      debugPrint('V6Api.chat: HTTP ${res.statusCode} ${res.body.length > 300 ? res.body.substring(0, 300) : res.body}');
       return V6Result(ok: false, status: res.statusCode, data: body, error: 'chat_${res.statusCode}');
     } catch (e) {
+      debugPrint('V6Api.chat: $e');
       return V6Result(ok: false, error: e.toString());
     }
   }
