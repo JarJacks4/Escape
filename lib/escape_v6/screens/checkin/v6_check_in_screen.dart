@@ -209,7 +209,9 @@ class _V6CheckInScreenState extends State<V6CheckInScreen> {
         if (_phase == _Phase.flow && _step > 0) _goStep(_step - 1);
       },
       child: V6Page(
-        child: Stack(children: [
+        // Expand: the Scaffold body is loosely constrained and V6AutoHelp is 0x0 when no tour
+        // shows, so a plain Stack collapsed to nothing and the whole check-in rendered blank.
+        child: Stack(fit: StackFit.expand, children: [
           Positioned.fill(
             child: V6Fade(
               duration: const Duration(milliseconds: 500),
