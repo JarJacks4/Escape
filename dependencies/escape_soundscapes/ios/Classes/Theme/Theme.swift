@@ -44,7 +44,8 @@ public enum Esc {
     public enum Metrics {
         public static let screenPadding: CGFloat = 24
         public static let headerHeight: CGFloat = 52
-        public static let navHeight: CGFloat = 72
+        /// Space the floating v6 tab bar takes above the safe area: 72 pt bar + 8 pt gap.
+        public static let navHeight: CGFloat = 80
         public static let sheetRadius: CGFloat = 28
         public static let cardRadius: CGFloat = 20
         public static let inputRadius: CGFloat = 16

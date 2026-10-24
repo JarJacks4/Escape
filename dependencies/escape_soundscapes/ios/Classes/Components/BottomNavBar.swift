@@ -7,8 +7,10 @@ import SwiftUI
 
 // MARK: - BottomNavBar
 
-/// 72 pt tall bar; its background extends under the home indicator by itself. Place it at the bottom
-/// of the safe area (e.g. `.safeAreaInset(edge: .bottom, spacing: 0) { BottomNavBar(...) }`).
+/// The Escape v6 floating glass tab bar (lib/escape_v6/ui/v6_nav.dart), so moving between the
+/// app and Soundscapes doesn't swap tab bars: Home · Explore · raised Lucille orb · Sounds · Profile.
+/// 72 pt glass bar 8 pt above the safe-area bottom; the orb rises 20 pt above it. Place it in a
+/// bottom overlay inside the safe area (RootView).
 @available(iOS 17.0, *)
 public struct BottomNavBar: View {
     let activeTab: NavTab
@@ -19,67 +21,77 @@ public struct BottomNavBar: View {
         self.onTabChange = onTabChange
     }
 
+    // v6 night palette (V6Brand / _dark* in v6_palettes.dart).
+    private static let fill = Color(hex: 0x101E43, opacity: 0.62)
+    private static let border = Color(hex: 0xE6EAF4, opacity: 0.16)
+    private static let ink = Color(hex: 0xE6EAF4)
+    private static let inkFaint = Color(hex: 0xE6EAF4, opacity: 0.55)
+
     public var body: some View {
-        HStack(alignment: .top, spacing: 0) {
-            ForEach(NavTab.allCases, id: \.self) { tab in
-                tabButton(tab)
+        ZStack(alignment: .bottom) {
+            HStack(spacing: 0) {
+                tabButton(.home, icon: "house", activeIcon: "house.fill")
+                tabButton(.explore, icon: "safari", activeIcon: "safari.fill")
+                Color.clear.frame(maxWidth: .infinity)
+                tabButton(.soundscapes, icon: "waveform", activeIcon: "waveform")
+                tabButton(.profile, icon: "person", activeIcon: "person.fill")
             }
+            .frame(height: 72)
+            .background {
+                RoundedRectangle(cornerRadius: 28, style: .continuous)
+                    .fill(.ultraThinMaterial)
+                    .overlay(RoundedRectangle(cornerRadius: 28, style: .continuous).fill(Self.fill))
+                    .overlay(RoundedRectangle(cornerRadius: 28, style: .continuous).strokeBorder(Self.border, lineWidth: 1))
+                    .shadow(color: Color(hex: 0x05081A, opacity: 0.28), radius: 20, y: 12)
+            }
+            lucilleOrb
+                .frame(maxHeight: .infinity, alignment: .top)
         }
-        .padding(.top, 9) // 1px top border + 8px padding
-        .frame(maxWidth: .infinity)
-        .frame(height: Esc.Metrics.navHeight, alignment: .top)
-        .background { barBackground }
-        .overlay(alignment: .top) {
-            Rectangle()
-                .fill(Color(hex: 0xE6EAF4, opacity: 0.08))
-                .frame(height: 1)
-        }
+        .frame(height: 92)
+        .padding(.horizontal, 12)
+        .padding(.bottom, 8)
         .accessibilityElement(children: .contain)
     }
 
-    private var barBackground: some View {
-        ZStack {
-            Rectangle().fill(.ultraThinMaterial)
-            Esc.navBar
-        }
-        .ignoresSafeArea(edges: .bottom)
-    }
-
-    private func tabButton(_ tab: NavTab) -> some View {
-        let active = tab == activeTab
-        let tint = active ? Esc.lilac : Esc.haze
-        return Button { onTabChange(tab) } label: {
-            VStack(spacing: 3) {
-                // Tab icons use the tint; the Soundwave icon keeps its
-                // own default #A9B3D6 even when active (as in the Figma).
-                Self.tabIcon(tab, tint: tint)
-                Text(tab.rawValue)
-                    .font(EscFont.ui(10, .medium))
-                    .tracking(10 * 0.04)
-                    .foregroundStyle(tint)
-                    .lineLimit(1)
-                    .fixedSize()
+    private var lucilleOrb: some View {
+        let active = activeTab == .lucille
+        return Button { onTabChange(.lucille) } label: {
+            VStack(spacing: 2) {
+                LucilleOrb(size: 54, pulse: true)
+                    .frame(width: 66, height: 66)
+                    .background(Circle().fill(Self.fill))
+                    .overlay(Circle().strokeBorder(active ? Self.ink : Self.border, lineWidth: 1))
+                Text(NavTab.lucille.label)
+                    .font(EscFont.ui(10, active ? .semibold : .medium))
+                    .foregroundStyle(active ? Self.ink : Self.inkFaint)
             }
-            .opacity(active ? 1 : 0.5)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .contentShape(Rectangle())
         }
         .buttonStyle(EscPressStyle())
-        .accessibilityLabel(tab.rawValue)
+        .accessibilityLabel("Talk to Lucille")
         .accessibilityAddTraits(active ? .isSelected : [])
     }
 
-    /// Home and Sound use the module's own icons. Lucille, Explore and Market use the Escape app's
-    /// tab-bar glyphs (see AppTabGlyph), in the module's colors and size.
-    @ViewBuilder
-    private static func tabIcon(_ tab: NavTab, tint: Color) -> some View {
-        switch tab {
-        case .home: Icon(.home, size: 22, color: tint)
-        case .lucille: AppTabGlyph(.lucille).foregroundStyle(tint).frame(width: 22, height: 22)
-        case .soundscapes: Icon(.soundwave, size: 22, color: Esc.haze)
-        case .explore: AppTabGlyph(.explore).foregroundStyle(tint).frame(width: 22, height: 22)
-        case .market: AppTabGlyph(.market).foregroundStyle(tint).frame(width: 22, height: 22)
+    private func tabButton(_ tab: NavTab, icon: String, activeIcon: String) -> some View {
+        let active = tab == activeTab
+        let tint = active ? Self.ink : Self.inkFaint
+        return Button { onTabChange(tab) } label: {
+            VStack(spacing: 4) {
+                Image(systemName: active ? activeIcon : icon)
+                    .font(.system(size: 21, weight: active ? .semibold : .regular))
+                    .frame(height: 24)
+                Text(tab.label)
+                    .font(EscFont.ui(10, active ? .semibold : .medium))
+                    .lineLimit(1)
+                    .fixedSize()
+            }
+            .foregroundStyle(tint)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .contentShape(Rectangle())
         }
+        .buttonStyle(EscPressStyle())
+        .accessibilityLabel(tab.label)
+        .accessibilityAddTraits(active ? .isSelected : [])
     }
 }
 

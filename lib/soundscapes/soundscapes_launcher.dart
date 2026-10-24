@@ -16,6 +16,8 @@ import 'package:that_audio_player_oo85ab/custom_code/actions/index.dart'
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/nav/nav.dart';
 import '/index.dart';
+import '/escape_v6/state/v6_store.dart';
+import '/escape_v6/v6_routes.dart';
 
 /// Entry point for the native Soundscapes module (iOS 17+, Android 8.0+).
 class SoundscapesLauncher {
@@ -59,6 +61,11 @@ class SoundscapesLauncher {
         kind: '${m['kind'] ?? 'soundscapes'}',
         tags: ((m['tags'] as List?) ?? const []).map((t) => '$t').toList(),
         importance: (m['importance'] as num?)?.toInt() ?? 5,
+      ),
+      // A saved Mood Scan becomes today's mood in the app (v6 Home, palette, suggestions).
+      onMoodScan: (m) => V6Store.instance.adoptMoodScan(
+        word: '${m['word'] ?? ''}',
+        energy: (m['energy'] as num?)?.toDouble(),
       ),
     );
   }
@@ -187,14 +194,18 @@ class SoundscapesLauncher {
     final ctx = appNavigatorKey.currentContext;
     if (ctx == null || tab == null) return;
     switch (tab) {
+      // v6 tabs: switch the shell's tab in place (V6TabSwitcher) instead of rebuilding it.
       case 'Home':
-        ctx.goNamed(HomeVersion5Widget.routeName);
+        v6Open(ctx, V6Routes.tabHome);
         break;
       case 'Lucille':
-        ctx.goNamed(LucilleHomeWidget.routeName);
+        v6Open(ctx, V6Routes.tabLucille);
         break;
       case 'Explore':
-        ctx.goNamed(ExplorePageVersion5FINALWidget.routeName);
+        v6Open(ctx, V6Routes.tabExplore);
+        break;
+      case 'Profile':
+        v6Open(ctx, V6Routes.tabProfile);
         break;
       case 'Market':
         ctx.goNamed(MarketplaceVersion5Widget.routeName);
